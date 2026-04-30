@@ -2,7 +2,7 @@ import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import AppNav from '@/components/layout/AppNav'
 
-export default async function DashboardPage() {
+export default async function DashboardPage({ searchParams }: { searchParams: { order?: string } }) {
   const supabase = createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
@@ -35,6 +35,22 @@ export default async function DashboardPage() {
             Sigue el progreso de tus análisis
           </p>
         </div>
+
+        {/* Banner de confirmación post-pago */}
+        {searchParams.order === 'paid' && (
+          <div style={{
+            background: 'rgba(0,214,127,0.06)', border: '1px solid rgba(0,214,127,0.3)',
+            padding: '16px 20px', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 12,
+          }}>
+            <span style={{ color: 'var(--green)', fontSize: 18 }}>✓</span>
+            <div>
+              <div style={{ fontSize: 14, color: 'var(--green)', fontWeight: 600 }}>¡Pago completado!</div>
+              <div style={{ fontSize: 13, color: 'var(--text2)', marginTop: 2 }}>
+                Ahora sube tu replay para que el experto empiece.
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* CTA si no hay pedidos */}
         {(!orders || orders.length === 0) ? (
@@ -143,6 +159,11 @@ function OrderCard({ order }: { order: any }) {
       </div>
 
       {/* CTA */}
+      {order.status === 'paid' && (
+        <a href={`/orders/${order.id}/submit`} className="btn btn-primary btn-sm">
+          SUBIR REPLAY →
+        </a>
+      )}
       {order.status === 'delivered' && (
         <a href={`/dashboard/review/${order.id}`} className="btn btn-primary btn-sm">
           VER REVIEW

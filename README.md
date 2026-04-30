@@ -34,6 +34,7 @@ npm install
 2. Copia:
    - `Project URL` → `NEXT_PUBLIC_SUPABASE_URL`
    - `anon public` key → `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `service_role` key → `SUPABASE_SERVICE_ROLE_KEY` (solo server-side, nunca exponer al cliente)
 
 ### 2d. Configurar Auth (magic link)
 1. Ve a **Authentication → URL Configuration**
@@ -48,7 +49,11 @@ npm install
 2. Copia:
    - **Secret key** → `STRIPE_SECRET_KEY`
    - **Publishable key** → `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`
-3. El webhook secret (`STRIPE_WEBHOOK_SECRET`) lo obtendrás en la Fase 2 cuando configuremos los webhooks
+3. Instala la [Stripe CLI](https://stripe.com/docs/stripe-cli) y reenvía webhooks en local:
+   ```bash
+   stripe listen --forward-to localhost:3000/api/webhooks/stripe
+   ```
+   Copia el `whsec_...` que aparece → `STRIPE_WEBHOOK_SECRET`
 
 ---
 
@@ -77,34 +82,32 @@ Abre http://localhost:3000 — deberías ver la pantalla de login de PeakForm.
 ```
 src/
 ├── app/
-│   ├── login/          → Pantalla de login (magic link)
-│   ├── dashboard/      → Dashboard del usuario (sus pedidos)
-│   ├── expert/         → Dashboard del experto
-│   ├── admin/          → Panel de administración
+│   ├── login/          → Pantalla de login (GitHub OAuth + magic link)
+│   ├── dashboard/      → Dashboard del usuario (lista de pedidos + banners)
+│   ├── experts/        → Listado de expertos y página de detalle con TierSelector
+│   ├── orders/
+│   │   └── [id]/submit → Formulario de envío de replay (tras pagar)
+│   ├── expert/         → Dashboard del experto (Fase 3)
+│   ├── admin/          → Panel de administración (Fase 4)
 │   └── api/
-│       ├── auth/       → Callback de autenticación
-│       ├── orders/     → Crear pedidos (Fase 2)
-│       ├── experts/    → Registro de expertos
-│       ├── reviews/    → Entregar reviews (Fase 3)
-│       └── webhooks/   → Webhook de Stripe (Fase 2)
+│       ├── auth/       → Callback de autenticación con redirect por rol
+│       ├── checkout/   → Crea sesión de Stripe Checkout
+│       └── webhooks/
+│           └── stripe/ → Recibe checkout.session.completed → crea order en BD
 ├── components/
-│   ├── ui/             → Badge, Button, etc.
-│   ├── layout/         → AppNav, Sidebar
-│   ├── expert/         → Componentes del flujo experto
-│   ├── user/           → Componentes del flujo usuario
-│   └── admin/          → Componentes del panel admin
+│   ├── ui/             → Badge
+│   └── layout/         → AppNav
 ├── lib/
 │   └── supabase/       → Clientes server/client
-├── hooks/              → Custom hooks de React
-└── types/              → Tipos TypeScript + TIER_CONFIG
+└── types/              → Tipos TypeScript + TIER_CONFIG + calculateTotal
 ```
 
 ---
 
 ## Fases de implementación
 
-- **✅ Fase 1** — Fundación: Next.js + Supabase + Auth + tipos
-- **⬜ Fase 2** — Flujo de compra: Stripe + pedidos + dashboard usuario
+- **✅ Fase 1** — Fundación: Next.js + Supabase + Auth (GitHub OAuth) + tipos
+- **✅ Fase 2** — Flujo de compra: listado/detalle de expertos + Stripe Checkout + webhook → orden en BD + formulario de replay
 - **⬜ Fase 3** — Flujo de review: dashboard experto + Claude API drafts
 - **⬜ Fase 4** — Admin panel + registro de expertos + landing
 
