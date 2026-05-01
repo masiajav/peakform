@@ -33,6 +33,6 @@ export async function GET(request: Request) {
     .single()
 
   if (profile?.role === 'admin')  return NextResponse.redirect(`${origin}/admin`)
-  if (profile?.role === 'expert') return NextResponse.redirect(`${origin}/expert`)
+  if (profile?.role === 'expert') return NextResponse.redirect(`${origin}/expert/dashboard`)
   return NextResponse.redirect(`${origin}${next}`)
 }

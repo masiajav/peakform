@@ -48,6 +48,14 @@ html, body {
   letter-spacing: 0.05em;
 }
 
+/* Expert card hover on landing */
+.expert-card {
+  transition: border-color 0.15s;
+}
+.expert-card:hover {
+  border-color: var(--border3) !important;
+}
+
 /* Focus visible accesible */
 *:focus-visible {
   outline: 2px solid var(--accent);

@@ -53,8 +53,9 @@ create table experts (
   status        expert_status not null default 'pending',
   display_name  text not null,
   battletag     text not null,             -- verificado con Battle.net
-  peak_sr       integer not null,          -- SR máximo alcanzado
-  peak_rank     text not null,             -- 'Top 500', 'Grandmaster', 'Master', 'Diamond'
+  peak_sr       integer not null default 0, -- deprecado (OW2 ya no expone SR numérico)
+  peak_rank     text not null,             -- 'Top 500', 'Champion 1', 'Grandmaster 3', 'Master 5', etc.
+  pro_experience text,                     -- experiencia en ligas/torneos competitivos oficiales
   main_role     player_role not null,
   bio           text,
   specialties   text[],                    -- array de tags
