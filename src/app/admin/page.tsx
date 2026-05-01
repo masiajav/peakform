@@ -11,6 +11,9 @@ export default async function AdminPage() {
     { count: totalOrders },
     { count: deliveredOrders },
     { data: revenueRows },
+    { data: deliveredOrdersData },
+    { data: topExperts },
+    { count: completedPurchases },
   ] = await Promise.all([
     supabase.from('profiles').select('*', { count: 'exact', head: true }).eq('role', 'user'),
     supabase.from('experts').select('*', { count: 'exact', head: true }).eq('status', 'active'),
@@ -18,9 +21,42 @@ export default async function AdminPage() {
     supabase.from('orders').select('*', { count: 'exact', head: true }),
     supabase.from('orders').select('*', { count: 'exact', head: true }).eq('status', 'delivered'),
     supabase.from('orders').select('amount_commission').eq('status', 'delivered'),
+    supabase.from('orders').select('created_at, amount_commission, tier').eq('status', 'delivered'),
+    supabase.from('experts').select('display_name, main_role, peak_rank, total_reviews, avg_rating').eq('status', 'active').order('total_reviews', { ascending: false }).limit(5),
+    supabase.from('orders').select('*', { count: 'exact', head: true }).in('status', ['paid', 'in_review', 'delivered']),
   ])
 
   const revenue = (revenueRows ?? []).reduce((sum: number, r: any) => sum + (r.amount_commission || 0), 0)
+
+  // Monthly revenue — last 6 months
+  const now = new Date()
+  const monthlyData = Array.from({ length: 6 }, (_, i) => {
+    const d = new Date(now.getFullYear(), now.getMonth() - (5 - i), 1)
+    const label = d.toLocaleString('es-ES', { month: 'short' }).toUpperCase()
+    const orders = (deliveredOrdersData ?? []).filter((o: any) => {
+      const od = new Date(o.created_at)
+      return od.getFullYear() === d.getFullYear() && od.getMonth() === d.getMonth()
+    })
+    return {
+      label,
+      revenue: orders.reduce((sum: number, o: any) => sum + (o.amount_commission ?? 0), 0),
+      count: orders.length,
+    }
+  })
+  const maxMonthRevenue = Math.max(...monthlyData.map(m => m.revenue), 1)
+
+  // Tier distribution
+  const tierDist = (['starter', 'pro', 'deep_dive'] as const).map(tier => ({
+    tier,
+    label: tier === 'deep_dive' ? 'Deep Dive' : tier.charAt(0).toUpperCase() + tier.slice(1),
+    count: (deliveredOrdersData ?? []).filter((o: any) => o.tier === tier).length,
+  }))
+  const totalDelivered = deliveredOrdersData?.length ?? 0
+
+  // Conversion rate (delivered vs all paid orders)
+  const conversionRate = completedPurchases && completedPurchases > 0
+    ? Math.round(((deliveredOrders ?? 0) / completedPurchases) * 100)
+    : 0
 
   const { data: recentOrders } = await supabase
     .from('orders')
@@ -83,6 +119,124 @@ export default async function AdminPage() {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Analytics */}
+      <div style={{ marginBottom: 32 }}>
+        <div style={{ fontSize: 11, letterSpacing: 2, color: 'var(--text2)', fontFamily: 'Bebas Neue, sans-serif', marginBottom: 14 }}>
+          ANALYTICS
+        </div>
+
+        {/* Monthly revenue chart */}
+        <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '20px 24px', marginBottom: 16 }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 18 }}>
+            <div style={{ fontSize: 11, letterSpacing: 1.5, color: 'var(--text2)', fontFamily: 'Bebas Neue, sans-serif' }}>
+              COMISIONES POR MES (últimos 6 meses)
+            </div>
+            <div style={{ fontSize: 12, color: 'var(--text3)' }}>
+              Total: <span style={{ color: 'var(--accent)', fontWeight: 600 }}>{formatPrice(revenue)}</span>
+            </div>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            {monthlyData.map(m => (
+              <div key={m.label}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 5, alignItems: 'baseline' }}>
+                  <span style={{ fontSize: 11, color: 'var(--text2)', fontFamily: 'Bebas Neue, sans-serif', letterSpacing: 1, minWidth: 36 }}>{m.label}</span>
+                  <span style={{ fontSize: 11, color: m.revenue > 0 ? 'var(--text)' : 'var(--text3)' }}>
+                    {formatPrice(m.revenue)}
+                    {m.count > 0 && <span style={{ color: 'var(--text3)', marginLeft: 6 }}>({m.count} pedidos)</span>}
+                  </span>
+                </div>
+                <div style={{ background: 'var(--surface3)', height: 6, border: '1px solid var(--border)' }}>
+                  <div style={{
+                    background: 'var(--accent)',
+                    height: '100%',
+                    width: `${(m.revenue / maxMonthRevenue) * 100}%`,
+                    transition: 'width 0.3s',
+                  }} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Tier dist + Top experts */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: 16 }}>
+
+          {/* Tier distribution */}
+          <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '20px 24px' }}>
+            <div style={{ fontSize: 11, letterSpacing: 1.5, color: 'var(--text2)', fontFamily: 'Bebas Neue, sans-serif', marginBottom: 18 }}>
+              VENTAS POR TIER
+            </div>
+            {totalDelivered === 0 ? (
+              <p style={{ fontSize: 13, color: 'var(--text3)', margin: 0 }}>Sin datos aún</p>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                {tierDist.map(t => (
+                  <div key={t.tier}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 5 }}>
+                      <span style={{ fontSize: 13, color: 'var(--text2)' }}>{t.label}</span>
+                      <span style={{ fontSize: 13, color: 'var(--text)', fontFamily: 'Bebas Neue, sans-serif' }}>
+                        {t.count} <span style={{ fontSize: 11, color: 'var(--text3)' }}>({totalDelivered > 0 ? Math.round((t.count / totalDelivered) * 100) : 0}%)</span>
+                      </span>
+                    </div>
+                    <div style={{ background: 'var(--surface3)', height: 5, border: '1px solid var(--border)' }}>
+                      <div style={{
+                        background: t.tier === 'deep_dive' ? 'var(--green)' : t.tier === 'pro' ? 'var(--accent)' : 'var(--text3)',
+                        height: '100%',
+                        width: `${totalDelivered > 0 ? (t.count / totalDelivered) * 100 : 0}%`,
+                      }} />
+                    </div>
+                  </div>
+                ))}
+                <div style={{ marginTop: 6, paddingTop: 12, borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', fontSize: 12 }}>
+                  <span style={{ color: 'var(--text3)' }}>Tasa de entrega</span>
+                  <span style={{ color: conversionRate >= 70 ? 'var(--green)' : 'var(--yellow)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 16 }}>
+                    {conversionRate}%
+                  </span>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Top experts */}
+          <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '20px 24px' }}>
+            <div style={{ fontSize: 11, letterSpacing: 1.5, color: 'var(--text2)', fontFamily: 'Bebas Neue, sans-serif', marginBottom: 18 }}>
+              TOP EXPERTOS
+            </div>
+            {!topExperts || topExperts.filter((e: any) => e.total_reviews > 0).length === 0 ? (
+              <p style={{ fontSize: 13, color: 'var(--text3)', margin: 0 }}>Sin datos aún</p>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+                {topExperts.filter((e: any) => e.total_reviews > 0).map((e: any, i: number) => (
+                  <div key={e.display_name} style={{
+                    display: 'flex', alignItems: 'center', gap: 14,
+                    padding: '10px 0', borderBottom: '1px solid var(--border)',
+                  }}>
+                    <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 20, color: i === 0 ? 'var(--accent)' : 'var(--text3)', minWidth: 18 }}>
+                      {i + 1}
+                    </span>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: 14, color: 'var(--text)', fontWeight: 500 }}>{e.display_name}</div>
+                      <div style={{ fontSize: 12, color: 'var(--text3)' }}>{e.peak_rank} · {e.main_role}</div>
+                    </div>
+                    <div style={{ textAlign: 'right' }}>
+                      <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 18, color: 'var(--text)' }}>
+                        {e.total_reviews} reviews
+                      </div>
+                      {e.avg_rating > 0 && (
+                        <div style={{ fontSize: 12, color: 'var(--yellow)' }}>
+                          {Number(e.avg_rating).toFixed(1)}★
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+        </div>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
