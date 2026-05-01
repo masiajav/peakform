@@ -3,6 +3,7 @@ import { redirect, notFound } from 'next/navigation'
 import Link from 'next/link'
 import AppNav from '@/components/layout/AppNav'
 import FollowupThread from '@/components/FollowupThread'
+import RatingForm from './RatingForm'
 import { TIER_CONFIG } from '@/types'
 
 export default async function UserReviewPage({ params }: { params: { id: string } }) {
@@ -139,27 +140,11 @@ export default async function UserReviewPage({ params }: { params: { id: string 
           </div>
         )}
 
-        {/* Rating placeholder */}
-        <div style={{
-          background: 'var(--surface2)',
-          border: '1px solid var(--border)',
-          padding: '20px 24px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: 16,
-          flexWrap: 'wrap',
-        }}>
-          <div>
-            <div style={{ fontSize: 14, color: 'var(--text)', fontWeight: 500 }}>¿Fue útil esta review?</div>
-            <div style={{ fontSize: 13, color: 'var(--text2)', marginTop: 3 }}>
-              Tu valoración ayuda a mejorar la plataforma
-            </div>
-          </div>
-          <div style={{ fontSize: 13, color: 'var(--text3)' }}>
-            Valoraciones disponibles próximamente
-          </div>
-        </div>
+        <RatingForm
+          reviewId={review.id}
+          existingRating={review.rating ?? null}
+          existingComment={review.rating_comment ?? null}
+        />
 
         <FollowupThread
           orderId={order.id}

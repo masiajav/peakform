@@ -67,19 +67,20 @@ export default function SubmitReplayPage({ params }: { params: { id: string } })
     setLoading(true)
     setError(null)
 
-    const { error: updateError } = await supabase
-      .from('orders')
-      .update({
+    const res = await fetch(`/api/orders/${params.id}/submit`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
         replay_url:  replayUrl.trim(),
         player_role: playerRole,
         focus_areas: focusAreas,
         user_notes:  userNotes.trim() || null,
-        status:      'in_review',
-      })
-      .eq('id', params.id)
+      }),
+    })
 
-    if (updateError) {
-      setError(updateError.message)
+    if (!res.ok) {
+      const data = await res.json()
+      setError(data.error ?? 'Error al enviar el replay')
       setLoading(false)
       return
     }

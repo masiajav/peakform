@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { createClient as createServiceClient } from '@supabase/supabase-js'
 import { NextResponse } from 'next/server'
+import { sendReviewReadyEmail } from '@/lib/email'
 
 export async function POST(request: Request) {
   const supabase = createClient()
@@ -71,6 +72,36 @@ export async function POST(request: Request) {
 
   // best-effort stats increment — silent if RPC not yet created
   await supabaseAdmin.rpc('increment_expert_reviews', { p_expert_id: expert.id })
+
+  // Send email to user — best-effort
+  try {
+    const { data: userAuth } = await supabaseAdmin.auth.admin.getUserById(order.user_id)
+    const userEmail = userAuth?.user?.email
+
+    if (userEmail) {
+      const { data: expertData } = await supabaseAdmin
+        .from('experts')
+        .select('display_name')
+        .eq('id', expert.id)
+        .single()
+
+      const { data: orderData } = await supabaseAdmin
+        .from('orders')
+        .select('tier')
+        .eq('id', orderId)
+        .single()
+
+      const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? ''
+      await sendReviewReadyEmail({
+        to:         userEmail,
+        expertName: expertData?.display_name ?? 'Tu experto',
+        tier:       orderData?.tier ?? 'pro',
+        reviewUrl:  `${appUrl}/dashboard/review/${orderId}`,
+      })
+    }
+  } catch (err) {
+    console.error('[deliver] email to user failed:', err)
+  }
 
   return NextResponse.json({ ok: true })
 }
