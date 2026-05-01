@@ -38,6 +38,33 @@ export default async function ExpertDashboardPage({
   const inReview  = orders?.filter(o => o.status === 'in_review') ?? []
   const delivered = orders?.filter(o => o.status === 'delivered') ?? []
 
+  const totalEarnings = delivered.reduce((sum, o) => sum + (o.amount_base ?? 0), 0)
+
+  const now = new Date()
+  const monthEarnings = delivered
+    .filter(o => {
+      const d = new Date(o.delivered_at ?? o.created_at)
+      return d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth()
+    })
+    .reduce((sum, o) => sum + (o.amount_base ?? 0), 0)
+
+  const deliveredWithTime = delivered.filter(o => o.paid_at && o.delivered_at)
+  const avgDeliveryHours = deliveredWithTime.length > 0
+    ? deliveredWithTime.reduce((sum, o) => {
+        const h = (new Date(o.delivered_at).getTime() - new Date(o.paid_at).getTime()) / 3_600_000
+        return sum + h
+      }, 0) / deliveredWithTime.length
+    : null
+
+  const tierCounts = delivered.reduce((acc, o) => {
+    acc[o.tier] = (acc[o.tier] ?? 0) + 1
+    return acc
+  }, {} as Record<string, number>)
+
+  function fmt(cents: number) {
+    return (cents / 100).toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })
+  }
+
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
       <AppNav role="expert" displayName={profile?.display_name || user.email} />
@@ -80,6 +107,48 @@ export default async function ExpertDashboardPage({
           </div>
         )}
 
+        {/* Estadísticas */}
+        {delivered.length > 0 && (
+          <div style={{ marginBottom: 36 }}>
+            <div style={{ fontSize: 11, letterSpacing: 2, color: 'var(--text2)', fontFamily: 'Bebas Neue, sans-serif', marginBottom: 12 }}>
+              ESTADÍSTICAS
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 12 }}>
+
+              <StatCard label="INGRESOS TOTALES" value={fmt(totalEarnings)} color="var(--green)" />
+              <StatCard label="INGRESOS ESTE MES" value={fmt(monthEarnings)} color="var(--green)" />
+              <StatCard
+                label="ENTREGA MEDIA"
+                value={avgDeliveryHours !== null ? `${Math.round(avgDeliveryHours)}h` : '—'}
+              />
+              <StatCard
+                label="VALORACIÓN MEDIA"
+                value={expert.avg_rating > 0 ? `${Number(expert.avg_rating).toFixed(1)} / 5` : '—'}
+                sub={expert.total_reviews > 0 ? `${expert.total_reviews} valoraciones` : undefined}
+              />
+
+              {Object.keys(tierCounts).length > 0 && (
+                <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '18px 20px' }}>
+                  <div style={{ fontSize: 11, letterSpacing: 1, color: 'var(--text3)', marginBottom: 10 }}>REVIEWS POR TIER</div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                    {(['starter', 'pro', 'deep_dive'] as const).map(tier => tierCounts[tier] ? (
+                      <div key={tier} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <span style={{ fontSize: 12, color: 'var(--text2)', textTransform: 'capitalize' }}>
+                          {tier === 'deep_dive' ? 'Deep Dive' : tier.charAt(0).toUpperCase() + tier.slice(1)}
+                        </span>
+                        <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 16, color: 'var(--text)' }}>
+                          {tierCounts[tier]}
+                        </span>
+                      </div>
+                    ) : null)}
+                  </div>
+                </div>
+              )}
+
+            </div>
+          </div>
+        )}
+
         {/* Esperando replay */}
         {paid.length > 0 && (
           <Section label={`ESPERANDO REPLAY (${paid.length})`} color="var(--yellow)">
@@ -118,6 +187,18 @@ export default async function ExpertDashboardPage({
         )}
 
       </div>
+    </div>
+  )
+}
+
+function StatCard({ label, value, color, sub }: { label: string; value: string; color?: string; sub?: string }) {
+  return (
+    <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '18px 20px' }}>
+      <div style={{ fontSize: 11, letterSpacing: 1, color: 'var(--text3)', marginBottom: 8 }}>{label}</div>
+      <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: color ?? 'var(--text)', lineHeight: 1 }}>
+        {value}
+      </div>
+      {sub && <div style={{ fontSize: 11, color: 'var(--text3)', marginTop: 6 }}>{sub}</div>}
     </div>
   )
 }
