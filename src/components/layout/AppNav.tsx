@@ -74,6 +74,10 @@ export default function AppNav({ role = 'user', displayName, avatarUrl }: AppNav
 
       <div style={{ flex: 1 }} />
 
+      {/* Content links */}
+      <a href="/guides" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</a>
+      <a href="/news" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Noticias</a>
+
       {/* Role badge */}
       {role && (
         <span style={{

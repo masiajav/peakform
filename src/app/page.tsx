@@ -56,6 +56,9 @@ export default async function RootPage() {
         <Link href="/guides" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>
           Guías
         </Link>
+        <Link href="/news" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>
+          Noticias
+        </Link>
         <Link href="/experts" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>
           Expertos
         </Link>
