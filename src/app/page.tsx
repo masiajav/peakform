@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/supabase/admin'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { TIER_CONFIG, formatPrice } from '@/types'
@@ -19,12 +20,21 @@ export default async function RootPage() {
     redirect('/dashboard')
   }
 
-  const { data: experts } = await supabase
-    .from('experts')
-    .select('id, display_name, peak_rank, main_role, specialties, avg_rating, total_reviews, price_starter')
-    .eq('status', 'active')
-    .order('avg_rating', { ascending: false })
-    .limit(6)
+  const adminClient = createAdminClient()
+  const [{ data: experts }, { data: latestNews }] = await Promise.all([
+    supabase
+      .from('experts')
+      .select('id, display_name, peak_rank, main_role, specialties, avg_rating, total_reviews, price_starter')
+      .eq('status', 'active')
+      .order('avg_rating', { ascending: false })
+      .limit(6),
+    adminClient
+      .from('announcements')
+      .select('id, title, body, created_at')
+      .eq('published', true)
+      .order('created_at', { ascending: false })
+      .limit(3),
+  ])
 
   const ROLE_LABELS: Record<string, string> = {
     tank: 'Tank', dps: 'DPS', support: 'Support', flex: 'Flex',
@@ -43,6 +53,9 @@ export default async function RootPage() {
           PEAKFORM
         </span>
         <div style={{ flex: 1 }} />
+        <Link href="/guides" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>
+          Guías
+        </Link>
         <Link href="/experts" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>
           Expertos
         </Link>
@@ -299,6 +312,35 @@ export default async function RootPage() {
         </section>
       )}
 
+      {/* News widget */}
+      {latestNews && latestNews.length > 0 && (
+        <section style={{ borderTop: '1px solid var(--border)', padding: '64px 24px', background: 'var(--bg)' }}>
+          <div style={{ maxWidth: 760, margin: '0 auto' }}>
+            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 32, flexWrap: 'wrap', gap: 12 }}>
+              <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 28, letterSpacing: 2, margin: 0, color: 'var(--text)' }}>
+                ÚLTIMAS NOTICIAS
+              </h2>
+              <Link href="/news" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>VER TODAS →</Link>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              {latestNews.map((n: any) => (
+                <div key={n.id} style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '18px 22px' }}>
+                  <div style={{ fontSize: 11, color: 'var(--text3)', fontFamily: 'Bebas Neue, sans-serif', letterSpacing: 1, marginBottom: 6 }}>
+                    {new Date(n.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' })}
+                  </div>
+                  <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 17, letterSpacing: 0.5, color: 'var(--text)', marginBottom: 6 }}>
+                    {n.title}
+                  </div>
+                  <p style={{ fontSize: 13, color: 'var(--text2)', margin: 0, lineHeight: 1.5 }}>
+                    {n.body.length > 140 ? n.body.slice(0, 140) + '…' : n.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CTA final */}
       <section style={{ padding: '96px 24px', textAlign: 'center', background: 'var(--bg)', borderTop: '1px solid var(--border)' }}>
         <div style={{ maxWidth: 600, margin: '0 auto' }}>
@@ -332,6 +374,8 @@ export default async function RootPage() {
           PEAKFORM
         </span>
         <div style={{ display: 'flex', gap: 24 }}>
+          <Link href="/guides" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Guías</Link>
+          <Link href="/news" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Noticias</Link>
           <Link href="/experts" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Expertos</Link>
           <Link href="/apply" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Ser experto</Link>
           <Link href="/legal" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Legal</Link>

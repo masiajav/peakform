@@ -116,3 +116,25 @@ textarea {
 
 .btn-primary:hover   { background: var(--accent-hov); }
 .btn-secondary:hover { background: var(--surface3); }
+
+/* Guide markdown body */
+.guide-body { font-size: 15px; color: var(--text2); line-height: 1.75; }
+.guide-body h1, .guide-body h2, .guide-body h3 {
+  font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px;
+  color: var(--text); margin: 2em 0 0.6em;
+}
+.guide-body h1 { font-size: 28px; }
+.guide-body h2 { font-size: 22px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+.guide-body h3 { font-size: 18px; color: var(--accent); }
+.guide-body p  { margin: 0 0 1.2em; }
+.guide-body ul, .guide-body ol { margin: 0 0 1.2em; padding-left: 1.4em; }
+.guide-body li { margin-bottom: 0.4em; }
+.guide-body strong { color: var(--text); font-weight: 600; }
+.guide-body em { color: var(--text); }
+.guide-body code { font-family: monospace; font-size: 13px; background: var(--surface2); border: 1px solid var(--border); padding: 1px 6px; }
+.guide-body pre { background: var(--surface2); border: 1px solid var(--border); padding: 16px; overflow-x: auto; margin: 0 0 1.2em; }
+.guide-body pre code { background: none; border: none; padding: 0; }
+.guide-body blockquote { border-left: 3px solid var(--accent); margin: 0 0 1.2em; padding: 8px 0 8px 16px; color: var(--text2); }
+.guide-body a { color: var(--accent); text-decoration: none; }
+.guide-body a:hover { text-decoration: underline; }
+.guide-body hr { border: none; border-top: 1px solid var(--border); margin: 2em 0; }

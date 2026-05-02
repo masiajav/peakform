@@ -4,9 +4,10 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const NAV_ITEMS = [
-  { href: '/admin',         label: 'PANEL' },
-  { href: '/admin/experts', label: 'EXPERTOS' },
-  { href: '/admin/orders',  label: 'PEDIDOS' },
+  { href: '/admin',          label: 'PANEL' },
+  { href: '/admin/experts',  label: 'EXPERTOS' },
+  { href: '/admin/orders',   label: 'PEDIDOS' },
+  { href: '/admin/content',  label: 'CONTENIDO' },
 ]
 
 export default function AdminSidebar() {
