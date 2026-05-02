@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // PeakForm design tokens — extraídos del peakform-ui.jsx
+        // Replaid Lab design tokens — extraídos del peakform-ui.jsx
         bg:       '#0a0a0a',
         surface:  '#141414',
         surface2: '#1c1c1c',
@@ -33,7 +33,7 @@ module.exports = {
         dm:    ["'DM Sans'",    'sans-serif'],
       },
       borderRadius: {
-        DEFAULT: '0px', // Sin border-radius en PeakForm
+        DEFAULT: '0px', // Sin border-radius en Replaid Lab
       },
     },
   },

@@ -34,7 +34,7 @@ export default async function GuidesPage() {
           position: 'sticky', top: 0, zIndex: 100,
         }}>
           <Link href="/" style={{ textDecoration: 'none' }}>
-            <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3 }}>PEAKFORM</span>
+            <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3 }}>REPLAID LAB</span>
           </Link>
           <div style={{ flex: 1 }} />
           <Link href="/news" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Noticias</Link>
@@ -52,7 +52,7 @@ export default async function GuidesPage() {
             GUÍAS Y CONSEJOS
           </h1>
           <p style={{ fontSize: 14, color: 'var(--text2)', margin: 0, lineHeight: 1.6 }}>
-            Artículos escritos por el equipo de PeakForm para ayudarte a mejorar en Overwatch.
+            Artículos escritos por el equipo de Replaid Lab para ayudarte a mejorar en Overwatch.
           </p>
         </div>
 
@@ -103,13 +103,13 @@ export default async function GuidesPage() {
       </section>
 
       <footer style={{ borderTop: '1px solid var(--border)', padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
-        <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 18, color: 'var(--accent)', letterSpacing: 2 }}>PEAKFORM</span>
+        <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 18, color: 'var(--accent)', letterSpacing: 2 }}>REPLAID LAB</span>
         <div style={{ display: 'flex', gap: 24 }}>
           <Link href="/news" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Noticias</Link>
           <Link href="/experts" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Expertos</Link>
           <Link href="/legal" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Legal</Link>
         </div>
-        <span style={{ fontSize: 12, color: 'var(--text3)' }}>© 2026 PeakForm</span>
+        <span style={{ fontSize: 12, color: 'var(--text3)' }}>© 2026 Replaid Lab</span>
       </footer>
 
     </div>

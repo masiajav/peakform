@@ -1,5 +1,5 @@
 // ============================================================
-// PEAKFORM — Tipos TypeScript
+// REPLAID LAB — Tipos TypeScript
 // ============================================================
 
 export type UserRole    = 'user' | 'expert' | 'admin'

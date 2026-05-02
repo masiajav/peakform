@@ -197,7 +197,7 @@ export default function ApplyForm() {
           PRECIOS BASE (€) *
         </div>
         <div style={{ fontSize: 12, color: 'var(--text3)', marginBottom: 14 }}>
-          Tú cobras íntegro el precio que fijes. PeakForm añade un 20% extra que paga el jugador por encima de tu precio.
+          Tú cobras íntegro el precio que fijes. Replaid Lab añade un 20% extra que paga el jugador por encima de tu precio.
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           {([
@@ -235,7 +235,7 @@ export default function ApplyForm() {
         background: 'rgba(245,166,35,0.06)', border: '1px solid rgba(245,166,35,0.2)',
         padding: '12px 16px', fontSize: 13, color: 'var(--yellow)',
       }}>
-        Tu solicitud quedará en estado <strong>pendiente</strong> hasta que el equipo de PeakForm la revise y apruebe. Recibirás acceso al panel de experto en 24-48h.
+        Tu solicitud quedará en estado <strong>pendiente</strong> hasta que el equipo de Replaid Lab la revise y apruebe. Recibirás acceso al panel de experto en 24-48h.
       </div>
 
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>

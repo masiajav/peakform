@@ -25,7 +25,7 @@
 
 * {
   box-sizing: border-box;
-  border-radius: 0 !important; /* PeakForm: sin border-radius en ningún sitio */
+  border-radius: 0 !important; /* Replaid Lab: sin border-radius en ningún sitio */
 }
 
 html, body {

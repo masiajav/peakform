@@ -47,7 +47,7 @@ export default async function ApplyPage() {
         }}>
           <Link href="/" style={{ textDecoration: 'none' }}>
             <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3 }}>
-              PEAKFORM
+              REPLAID LAB
             </span>
           </Link>
           <div style={{ flex: 1 }} />
@@ -79,7 +79,7 @@ export default async function ApplyPage() {
         </h1>
 
         <p style={{ fontSize: 16, color: 'var(--text2)', maxWidth: 520, margin: '0 auto', lineHeight: 1.65 }}>
-          PeakForm conecta jugadores que quieren mejorar con expertos que saben cómo lograrlo.
+          Replaid Lab conecta jugadores que quieren mejorar con expertos que saben cómo lograrlo.
           Tú fijas tus precios, decides tus horarios y cobras directamente.
         </p>
 
@@ -177,7 +177,7 @@ export default async function ApplyPage() {
               {user ? 'COMPLETA TU SOLICITUD' : 'EMPIEZA HOY'}
             </div>
             <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 28, letterSpacing: 1, color: 'var(--text)', margin: '0 0 8px' }}>
-              {user ? 'FORMULARIO DE SOLICITUD' : 'ÚNETE A PEAKFORM'}
+              {user ? 'FORMULARIO DE SOLICITUD' : 'ÚNETE A REPLAID LAB'}
             </h2>
             {!user && (
               <p style={{ fontSize: 13, color: 'var(--text2)', margin: 0 }}>
@@ -197,7 +197,7 @@ export default async function ApplyPage() {
                 <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 16, letterSpacing: 1, marginBottom: 8 }}>
                   SOLICITUD EN REVISIÓN
                 </div>
-                Tu solicitud ya fue enviada y está pendiente de aprobación. El equipo de PeakForm la revisará en 24-48h.
+                Tu solicitud ya fue enviada y está pendiente de aprobación. El equipo de Replaid Lab la revisará en 24-48h.
               </div>
 
             /* Not logged in — show auth */
@@ -219,9 +219,9 @@ export default async function ApplyPage() {
         display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12,
       }}>
         <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 18, color: 'var(--accent)', letterSpacing: 2 }}>
-          PEAKFORM
+          REPLAID LAB
         </span>
-        <span style={{ fontSize: 12, color: 'var(--text3)' }}>© 2026 PeakForm</span>
+        <span style={{ fontSize: 12, color: 'var(--text3)' }}>© 2026 Replaid Lab</span>
       </footer>
 
     </div>

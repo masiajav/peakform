@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'PeakForm — Coaching de Overwatch',
+  title: 'Replaid Lab — Coaching de Overwatch',
   description: 'Reviews personalizadas de replays por expertos verificados. Sube de rango con análisis real.',
   openGraph: {
-    title: 'PeakForm',
+    title: 'Replaid Lab',
     description: 'Coaching de Overwatch por expertos verificados',
-    siteName: 'PeakForm',
+    siteName: 'Replaid Lab',
   },
 }
 

@@ -73,7 +73,7 @@ export default function LoginPage() {
             color: 'var(--accent)',
             letterSpacing: 3,
           }}>
-            PEAKFORM
+            REPLAID LAB
           </span>
         </div>
 

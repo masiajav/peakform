@@ -80,7 +80,7 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
           position: 'sticky', top: 0, zIndex: 100,
         }}>
           <Link href="/" style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3, textDecoration: 'none' }}>
-            PEAKFORM
+            REPLAID LAB
           </Link>
           <div style={{ flex: 1 }} />
           <Link href="/experts" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>

@@ -1,5 +1,5 @@
 -- ============================================================
--- PEAKFORM — Schema de base de datos para Supabase
+-- REPLAID LAB — Schema de base de datos para Supabase
 -- Ejecutar en: Supabase Dashboard > SQL Editor
 -- ============================================================
 

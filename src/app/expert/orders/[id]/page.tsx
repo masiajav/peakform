@@ -115,10 +115,22 @@ export default async function ExpertOrderPage({ params }: { params: { id: string
 
             <ContextRow label="Replay">
               {order.replay_url ? (
-                <a href={order.replay_url} target="_blank" rel="noopener noreferrer"
-                  style={{ fontSize: 14, color: 'var(--accent)', wordBreak: 'break-all', textDecoration: 'none' }}>
-                  {order.replay_url}
-                </a>
+                order.replay_url.startsWith('http') ? (
+                  <a href={order.replay_url} target="_blank" rel="noopener noreferrer"
+                    style={{ fontSize: 14, color: 'var(--accent)', wordBreak: 'break-all', textDecoration: 'none' }}>
+                    {order.replay_url}
+                  </a>
+                ) : (
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <span style={{ fontSize: 11, background: 'rgba(255,107,43,0.12)', color: 'var(--accent)', padding: '2px 7px', border: '1px solid rgba(255,107,43,0.3)', letterSpacing: 1 }}>
+                      CÓDIGO OW
+                    </span>
+                    <span style={{ fontSize: 15, fontFamily: 'monospace', color: 'var(--text)', letterSpacing: 2 }}>
+                      {order.replay_url}
+                    </span>
+                    <span style={{ fontSize: 11, color: 'var(--yellow)' }}>⚠ expira con parches</span>
+                  </div>
+                )
               ) : (
                 <span style={{ fontSize: 14, color: 'var(--text3)' }}>Sin enlace</span>
               )}

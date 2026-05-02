@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Términos y Condiciones — PeakForm',
-  description: 'Condiciones de uso, política de reembolsos y privacidad de PeakForm.',
+  title: 'Términos y Condiciones — Replaid Lab',
+  description: 'Condiciones de uso, política de reembolsos y privacidad de Replaid Lab.',
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -32,7 +32,7 @@ export default function LegalPage() {
         position: 'sticky', top: 0, zIndex: 100,
       }}>
         <Link href="/" style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3, textDecoration: 'none' }}>
-          PEAKFORM
+          REPLAID LAB
         </Link>
         <div style={{ flex: 1 }} />
         <Link href="/experts" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
@@ -57,7 +57,7 @@ export default function LegalPage() {
 
         <Section title="1. Objeto y partes">
           <p>
-            PeakForm es un marketplace que conecta jugadores de Overwatch 2 («Usuarios») con analistas especializados («Expertos») para la revisión de replays de juego. El servicio es operado por PeakForm («nosotros», «la plataforma»).
+            Replaid Lab es un marketplace que conecta jugadores de Overwatch 2 («Usuarios») con analistas especializados («Expertos») para la revisión de replays de juego. El servicio es operado por Replaid Lab («nosotros», «la plataforma»).
           </p>
           <p>
             El acceso y uso de la plataforma implica la aceptación íntegra de los presentes Términos y Condiciones. Si no estás de acuerdo con alguno de ellos, debes abstenerte de utilizar el servicio.
@@ -69,13 +69,13 @@ export default function LegalPage() {
             Para realizar compras o solicitar acceso como Experto es necesario crear una cuenta mediante GitHub OAuth o enlace mágico de email. Eres responsable de mantener la confidencialidad de tu cuenta y de todas las actividades realizadas desde ella.
           </p>
           <p>
-            PeakForm se reserva el derecho de suspender o eliminar cuentas que incumplan estos Términos, sin previo aviso y sin derecho a reembolso de saldos pendientes, salvo en los casos expresamente indicados en la política de reembolsos.
+            Replaid Lab se reserva el derecho de suspender o eliminar cuentas que incumplan estos Términos, sin previo aviso y sin derecho a reembolso de saldos pendientes, salvo en los casos expresamente indicados en la política de reembolsos.
           </p>
         </Section>
 
         <Section title="3. El servicio de análisis">
           <p>
-            PeakForm ofrece tres niveles de análisis («tiers»). Cada Experto fija libremente el precio y el contenido exacto que ofrece en cada tier, respetando los mínimos establecidos por la plataforma:
+            Replaid Lab ofrece tres niveles de análisis («tiers»). Cada Experto fija libremente el precio y el contenido exacto que ofrece en cada tier, respetando los mínimos establecidos por la plataforma:
           </p>
           <ul style={{ margin: 0, paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 6 }}>
             <li><strong style={{ color: 'var(--text)' }}>Starter</strong> — Desde 2 € (precio base del experto). Plazo máximo de entrega: 48 horas desde la recepción del replay.</li>
@@ -89,16 +89,16 @@ export default function LegalPage() {
             Algunos Expertos ofrecen adicionalmente un <strong style={{ color: 'var(--text)' }}>Análisis de Prueba</strong> a precio reducido, disponible una única vez por Usuario y Experto.
           </p>
           <p>
-            Los plazos de entrega comienzan a contar desde que el Usuario envía el replay y el pedido pasa al estado «En revisión». PeakForm actúa como intermediario y no garantiza resultados concretos de mejora en el rendimiento del jugador.
+            Los plazos de entrega comienzan a contar desde que el Usuario envía el replay y el pedido pasa al estado «En revisión». Replaid Lab actúa como intermediario y no garantiza resultados concretos de mejora en el rendimiento del jugador.
           </p>
         </Section>
 
         <Section title="4. Precios, pagos y comisión">
           <p>
-            Cada Experto fija libremente sus precios dentro de los rangos permitidos por la plataforma. El precio que paga el Usuario es el precio base del Experto más una comisión del 20% de PeakForm. El desglose completo (precio experto + comisión + total) es siempre visible antes de confirmar la compra.
+            Cada Experto fija libremente sus precios dentro de los rangos permitidos por la plataforma. El precio que paga el Usuario es el precio base del Experto más una comisión del 20% de Replaid Lab. El desglose completo (precio experto + comisión + total) es siempre visible antes de confirmar la compra.
           </p>
           <p>
-            Los pagos se procesan de forma segura a través de Stripe. PeakForm no almacena datos de tarjeta. Al completar el pago aceptas también las <a href="https://stripe.com/es/legal/consumer" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>Condiciones de uso de Stripe</a>.
+            Los pagos se procesan de forma segura a través de Stripe. Replaid Lab no almacena datos de tarjeta. Al completar el pago aceptas también las <a href="https://stripe.com/es/legal/consumer" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>Condiciones de uso de Stripe</a>.
           </p>
           <p>
             Los precios se muestran en euros (€) e incluyen los impuestos aplicables según la normativa vigente en España.
@@ -107,7 +107,7 @@ export default function LegalPage() {
 
         <Section title="5. Política de cancelación y reembolsos">
           <p>
-            <strong style={{ color: 'var(--text)' }}>Antes de enviar el replay:</strong> puedes cancelar tu pedido y solicitar el reembolso completo mientras el estado sea «Pendiente de replay». Contacta con nosotros en soporte@peakform.gg.
+            <strong style={{ color: 'var(--text)' }}>Antes de enviar el replay:</strong> puedes cancelar tu pedido y solicitar el reembolso completo mientras el estado sea «Pendiente de replay». Contacta con nosotros en soporte@replaidlab.com.
           </p>
           <p>
             <strong style={{ color: 'var(--text)' }}>Una vez enviado el replay:</strong> el pedido pasa a estado «En revisión» y no es posible cancelarlo, ya que el Experto ha comenzado a trabajar en él.
@@ -116,28 +116,28 @@ export default function LegalPage() {
             <strong style={{ color: 'var(--text)' }}>Análisis de Prueba con reembolso garantizado:</strong> si el Experto ha activado esta opción, el Usuario puede solicitar el reembolso completo dentro de los 7 días naturales siguientes a la fecha de entrega de la review, sin necesidad de justificación. El reembolso se tramita en un plazo de 5-10 días hábiles.
           </p>
           <p>
-            <strong style={{ color: 'var(--text)' }}>Incumplimiento de plazo:</strong> si el Experto supera el plazo de entrega acordado, el Usuario puede abrir una disputa. PeakForm evaluará cada caso y podrá emitir un reembolso parcial o total a su criterio.
+            <strong style={{ color: 'var(--text)' }}>Incumplimiento de plazo:</strong> si el Experto supera el plazo de entrega acordado, el Usuario puede abrir una disputa. Replaid Lab evaluará cada caso y podrá emitir un reembolso parcial o total a su criterio.
           </p>
         </Section>
 
         <Section title="6. Obligaciones del Experto">
           <p>
-            Al solicitar y ser aprobado como Experto en PeakForm, te comprometes a:
+            Al solicitar y ser aprobado como Experto en Replaid Lab, te comprometes a:
           </p>
           <ul style={{ margin: 0, paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 6 }}>
             <li>Entregar análisis honestos, de calidad y dentro del plazo acordado.</li>
             <li>Mantener actualizados tus datos de perfil (rango, especialidades, precios).</li>
-            <li>No ofrecer ni aceptar pagos fuera de la plataforma para servicios iniciados en PeakForm.</li>
+            <li>No ofrecer ni aceptar pagos fuera de la plataforma para servicios iniciados en Replaid Lab.</li>
             <li>No revelar datos personales de los Usuarios a terceros.</li>
           </ul>
           <p>
-            PeakForm puede suspender o retirar el acceso de cualquier Experto que incumpla estas obligaciones o que reciba valoraciones reiteradamente negativas.
+            Replaid Lab puede suspender o retirar el acceso de cualquier Experto que incumpla estas obligaciones o que reciba valoraciones reiteradamente negativas.
           </p>
         </Section>
 
         <Section title="7. Obligaciones del Usuario">
           <p>
-            Como Usuario de PeakForm te comprometes a:
+            Como Usuario de Replaid Lab te comprometes a:
           </p>
           <ul style={{ margin: 0, paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 6 }}>
             <li>Enviar replays que sean tuyos o para los que tengas permiso de uso.</li>
@@ -149,37 +149,37 @@ export default function LegalPage() {
 
         <Section title="8. Propiedad intelectual">
           <p>
-            El contenido de los análisis entregados por los Expertos es para uso personal del Usuario. No está permitida su reproducción, distribución o publicación sin el consentimiento expreso del Experto y de PeakForm.
+            El contenido de los análisis entregados por los Expertos es para uso personal del Usuario. No está permitida su reproducción, distribución o publicación sin el consentimiento expreso del Experto y de Replaid Lab.
           </p>
           <p>
-            El nombre, logotipo y marca «PeakForm» son propiedad exclusiva de la plataforma. Queda prohibido su uso sin autorización escrita.
+            El nombre, logotipo y marca «Replaid Lab» son propiedad exclusiva de la plataforma. Queda prohibido su uso sin autorización escrita.
           </p>
         </Section>
 
         <Section title="9. Limitación de responsabilidad">
           <p>
-            PeakForm actúa como intermediario entre Usuarios y Expertos. No somos parte en el contrato de prestación del servicio de análisis y no asumimos responsabilidad por la calidad del contenido entregado más allá de los mecanismos de disputa previstos en estos Términos.
+            Replaid Lab actúa como intermediario entre Usuarios y Expertos. No somos parte en el contrato de prestación del servicio de análisis y no asumimos responsabilidad por la calidad del contenido entregado más allá de los mecanismos de disputa previstos en estos Términos.
           </p>
           <p>
-            En ningún caso PeakForm será responsable de daños indirectos, lucro cesante o pérdida de datos derivados del uso o imposibilidad de uso del servicio.
+            En ningún caso Replaid Lab será responsable de daños indirectos, lucro cesante o pérdida de datos derivados del uso o imposibilidad de uso del servicio.
           </p>
         </Section>
 
         <Section title="10. Protección de datos">
           <p>
-            PeakForm recopila y trata los datos personales necesarios para la prestación del servicio (email, nombre de usuario, battletag) de conformidad con el Reglamento General de Protección de Datos (RGPD) y la Ley Orgánica de Protección de Datos (LOPDGDD).
+            Replaid Lab recopila y trata los datos personales necesarios para la prestación del servicio (email, nombre de usuario, battletag) de conformidad con el Reglamento General de Protección de Datos (RGPD) y la Ley Orgánica de Protección de Datos (LOPDGDD).
           </p>
           <p>
-            Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición contactando en <a href="mailto:soporte@peakform.gg" style={{ color: 'var(--accent)' }}>soporte@peakform.gg</a>.
+            Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición contactando en <a href="mailto:soporte@replaidlab.com" style={{ color: 'var(--accent)' }}>soporte@replaidlab.com</a>.
           </p>
           <p>
-            Los datos de pago son gestionados íntegramente por Stripe y no se almacenan en los servidores de PeakForm.
+            Los datos de pago son gestionados íntegramente por Stripe y no se almacenan en los servidores de Replaid Lab.
           </p>
         </Section>
 
         <Section title="11. Modificaciones de los términos">
           <p>
-            PeakForm se reserva el derecho de modificar estos Términos en cualquier momento. Los cambios relevantes serán comunicados por email con al menos 15 días de antelación. El uso continuado del servicio tras la entrada en vigor de los nuevos Términos implica su aceptación.
+            Replaid Lab se reserva el derecho de modificar estos Términos en cualquier momento. Los cambios relevantes serán comunicados por email con al menos 15 días de antelación. El uso continuado del servicio tras la entrada en vigor de los nuevos Términos implica su aceptación.
           </p>
         </Section>
 
@@ -188,7 +188,7 @@ export default function LegalPage() {
             Estos Términos se rigen por la legislación española. Para cualquier controversia derivada del uso de la plataforma, las partes se someten a los Juzgados y Tribunales de España, con renuncia expresa a cualquier otro fuero que pudiera corresponderles.
           </p>
           <p>
-            Para consultas o reclamaciones: <a href="mailto:soporte@peakform.gg" style={{ color: 'var(--accent)' }}>soporte@peakform.gg</a>
+            Para consultas o reclamaciones: <a href="mailto:soporte@replaidlab.com" style={{ color: 'var(--accent)' }}>soporte@replaidlab.com</a>
           </p>
         </Section>
 
@@ -201,7 +201,7 @@ export default function LegalPage() {
         flexWrap: 'wrap', gap: 12,
       }}>
         <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 18, color: 'var(--accent)', letterSpacing: 2 }}>
-          PEAKFORM
+          REPLAID LAB
         </span>
         <div style={{ display: 'flex', gap: 24 }}>
           <Link href="/experts" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Expertos</Link>
@@ -209,7 +209,7 @@ export default function LegalPage() {
           <Link href="/legal" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Legal</Link>
           <Link href="/login" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Entrar</Link>
         </div>
-        <span style={{ fontSize: 12, color: 'var(--text3)' }}>© 2026 PeakForm</span>
+        <span style={{ fontSize: 12, color: 'var(--text3)' }}>© 2026 Replaid Lab</span>
       </footer>
 
     </div>

@@ -2,7 +2,7 @@ import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-const FROM = 'PeakForm <onboarding@resend.dev>'
+const FROM = 'Replaid Lab <hola@replaidlab.com>'
 
 const TIER_LABELS: Record<string, string> = {
   starter:   'Starter',
@@ -26,7 +26,7 @@ export async function sendReviewReadyEmail({
   await resend.emails.send({
     from: FROM,
     to,
-    subject: `Tu análisis está listo — PeakForm`,
+    subject: `Tu análisis está listo — Replaid Lab`,
     html: `
 <!DOCTYPE html>
 <html>
@@ -38,7 +38,7 @@ export async function sendReviewReadyEmail({
         <!-- Header -->
         <tr>
           <td style="padding:28px 32px;border-bottom:3px solid #ff6b2b;">
-            <span style="font-size:22px;font-weight:700;color:#0a0a0a;letter-spacing:2px;">PEAKFORM</span>
+            <span style="font-size:22px;font-weight:700;color:#0a0a0a;letter-spacing:2px;">REPLAID LAB</span>
           </td>
         </tr>
         <!-- Body -->
@@ -60,7 +60,7 @@ export async function sendReviewReadyEmail({
         <tr>
           <td style="padding:20px 32px;border-top:1px solid #e0e0e0;">
             <p style="margin:0;font-size:12px;color:#999;">
-              PeakForm · Análisis de replays de Overwatch · <a href="${process.env.NEXT_PUBLIC_APP_URL}" style="color:#ff6b2b;text-decoration:none;">peakform.gg</a>
+              Replaid Lab · Análisis de replays de Overwatch · <a href="${process.env.NEXT_PUBLIC_APP_URL}" style="color:#ff6b2b;text-decoration:none;">replaidlab.com</a>
             </p>
           </td>
         </tr>
@@ -85,7 +85,7 @@ export async function sendExpertApprovedEmail({
   await resend.emails.send({
     from: FROM,
     to,
-    subject: `¡Tu solicitud como experto ha sido aprobada! — PeakForm`,
+    subject: `¡Tu solicitud como experto ha sido aprobada! — Replaid Lab`,
     html: `
 <!DOCTYPE html>
 <html>
@@ -97,7 +97,7 @@ export async function sendExpertApprovedEmail({
         <!-- Header -->
         <tr>
           <td style="padding:28px 32px;border-bottom:3px solid #ff6b2b;">
-            <span style="font-size:22px;font-weight:700;color:#0a0a0a;letter-spacing:2px;">PEAKFORM</span>
+            <span style="font-size:22px;font-weight:700;color:#0a0a0a;letter-spacing:2px;">REPLAID LAB</span>
           </td>
         </tr>
         <!-- Body -->
@@ -107,7 +107,7 @@ export async function sendExpertApprovedEmail({
               ¡Solicitud aprobada!
             </h1>
             <p style="margin:0 0 16px;font-size:15px;color:#444;line-height:1.6;">
-              Hola <strong>${displayName}</strong>, tu perfil como experto en PeakForm ha sido verificado y ya está activo.
+              Hola <strong>${displayName}</strong>, tu perfil como experto en Replaid Lab ha sido verificado y ya está activo.
             </p>
             <p style="margin:0 0 24px;font-size:15px;color:#444;line-height:1.6;">
               Ya puedes acceder a tu panel de experto para configurar tu perfil, actualizar precios y gestionar los análisis que lleguen.
@@ -121,7 +121,7 @@ export async function sendExpertApprovedEmail({
         <tr>
           <td style="padding:20px 32px;border-top:1px solid #e0e0e0;">
             <p style="margin:0;font-size:12px;color:#999;">
-              PeakForm · Análisis de replays de Overwatch · <a href="${process.env.NEXT_PUBLIC_APP_URL}" style="color:#ff6b2b;text-decoration:none;">peakform.gg</a>
+              Replaid Lab · Análisis de replays de Overwatch · <a href="${process.env.NEXT_PUBLIC_APP_URL}" style="color:#ff6b2b;text-decoration:none;">replaidlab.com</a>
             </p>
           </td>
         </tr>
@@ -156,7 +156,7 @@ export async function sendNewOrderEmail({
   await resend.emails.send({
     from: FROM,
     to,
-    subject: `Nuevo pedido asignado — PeakForm`,
+    subject: `Nuevo pedido asignado — Replaid Lab`,
     html: `
 <!DOCTYPE html>
 <html>
@@ -168,7 +168,7 @@ export async function sendNewOrderEmail({
         <!-- Header -->
         <tr>
           <td style="padding:28px 32px;border-bottom:3px solid #ff6b2b;">
-            <span style="font-size:22px;font-weight:700;color:#0a0a0a;letter-spacing:2px;">PEAKFORM</span>
+            <span style="font-size:22px;font-weight:700;color:#0a0a0a;letter-spacing:2px;">REPLAID LAB</span>
           </td>
         </tr>
         <!-- Body -->
@@ -204,7 +204,7 @@ export async function sendNewOrderEmail({
         <tr>
           <td style="padding:20px 32px;border-top:1px solid #e0e0e0;">
             <p style="margin:0;font-size:12px;color:#999;">
-              PeakForm · Análisis de replays de Overwatch · <a href="${process.env.NEXT_PUBLIC_APP_URL}" style="color:#ff6b2b;text-decoration:none;">peakform.gg</a>
+              Replaid Lab · Análisis de replays de Overwatch · <a href="${process.env.NEXT_PUBLIC_APP_URL}" style="color:#ff6b2b;text-decoration:none;">replaidlab.com</a>
             </p>
           </td>
         </tr>

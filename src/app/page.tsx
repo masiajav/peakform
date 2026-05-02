@@ -50,7 +50,7 @@ export default async function RootPage() {
         position: 'sticky', top: 0, zIndex: 100,
       }}>
         <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3 }}>
-          PEAKFORM
+          REPLAID LAB
         </span>
         <div style={{ flex: 1 }} />
         <Link href="/guides" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>
@@ -145,7 +145,7 @@ export default async function RootPage() {
               {
                 n: '02',
                 title: 'COMPARTE TU REPLAY',
-                desc: 'Pega el link de replay.gg o sube el fichero. Cuéntale al experto en qué áreas quieres mejorar.',
+                desc: 'Pega el enlace de YouTube o tu código de repetición de Overwatch. Cuéntale al experto en qué áreas quieres mejorar.',
               },
               {
                 n: '03',
@@ -374,7 +374,7 @@ export default async function RootPage() {
         flexWrap: 'wrap', gap: 12,
       }}>
         <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 18, color: 'var(--accent)', letterSpacing: 2 }}>
-          PEAKFORM
+          REPLAID LAB
         </span>
         <div style={{ display: 'flex', gap: 24 }}>
           <Link href="/guides" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Guías</Link>
@@ -384,7 +384,7 @@ export default async function RootPage() {
           <Link href="/legal" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Legal</Link>
           <Link href="/login" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Entrar</Link>
         </div>
-        <span style={{ fontSize: 12, color: 'var(--text3)' }}>© 2026 PeakForm</span>
+        <span style={{ fontSize: 12, color: 'var(--text3)' }}>© 2026 Replaid Lab</span>
       </footer>
 
     </div>

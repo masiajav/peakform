@@ -32,7 +32,7 @@ export default async function NewsPage() {
           position: 'sticky', top: 0, zIndex: 100,
         }}>
           <Link href="/" style={{ textDecoration: 'none' }}>
-            <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3 }}>PEAKFORM</span>
+            <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3 }}>REPLAID LAB</span>
           </Link>
           <div style={{ flex: 1 }} />
           <Link href="/guides" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</Link>
@@ -44,7 +44,7 @@ export default async function NewsPage() {
       <section style={{ maxWidth: 760, margin: '0 auto', padding: '64px 24px 80px' }}>
         <div style={{ marginBottom: 40 }}>
           <div style={{ fontSize: 11, letterSpacing: 2, color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif', marginBottom: 8 }}>
-            PEAKFORM
+            REPLAID LAB
           </div>
           <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 36, letterSpacing: 1, color: 'var(--text)', margin: 0 }}>
             NOTICIAS Y ACTUALIZACIONES
@@ -73,13 +73,13 @@ export default async function NewsPage() {
       </section>
 
       <footer style={{ borderTop: '1px solid var(--border)', padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
-        <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 18, color: 'var(--accent)', letterSpacing: 2 }}>PEAKFORM</span>
+        <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 18, color: 'var(--accent)', letterSpacing: 2 }}>REPLAID LAB</span>
         <div style={{ display: 'flex', gap: 24 }}>
           <Link href="/guides" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Guías</Link>
           <Link href="/experts" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Expertos</Link>
           <Link href="/legal" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Legal</Link>
         </div>
-        <span style={{ fontSize: 12, color: 'var(--text3)' }}>© 2026 PeakForm</span>
+        <span style={{ fontSize: 12, color: 'var(--text3)' }}>© 2026 Replaid Lab</span>
       </footer>
 
     </div>

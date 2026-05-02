@@ -68,7 +68,7 @@ export default function AppNav({ role = 'user', displayName, avatarUrl }: AppNav
           color: 'var(--accent)',
           letterSpacing: 3,
         }}>
-          PEAKFORM
+          REPLAID LAB
         </span>
       </a>
 

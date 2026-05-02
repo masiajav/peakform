@@ -11,7 +11,7 @@ export async function POST(request: Request, { params }: { params: { id: string 
   const { replay_url, player_role, focus_areas, user_notes } = await request.json()
 
   if (!replay_url?.trim()) {
-    return NextResponse.json({ error: 'El enlace al replay es obligatorio' }, { status: 400 })
+    return NextResponse.json({ error: 'El enlace de YouTube o código de repetición es obligatorio' }, { status: 400 })
   }
 
   const { data: order } = await supabase

@@ -27,6 +27,7 @@ export default function SubmitReplayPage({ params }: { params: { id: string } })
 
   const [profile, setProfile] = useState<any>(null)
   const [order, setOrder]     = useState<any>(null)
+  const [replayType, setReplayType] = useState<'youtube' | 'ow-code'>('youtube')
   const [replayUrl, setReplayUrl]   = useState('')
   const [playerRole, setPlayerRole] = useState('dps')
   const [focusAreas, setFocusAreas] = useState<string[]>([])
@@ -61,9 +62,17 @@ export default function SubmitReplayPage({ params }: { params: { id: string } })
     )
   }
 
+  function handleReplayTypeChange(type: 'youtube' | 'ow-code') {
+    setReplayType(type)
+    setReplayUrl('')
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (!replayUrl.trim()) { setError('El enlace al replay es obligatorio'); return }
+    if (!replayUrl.trim()) {
+      setError(replayType === 'youtube' ? 'El enlace de YouTube es obligatorio' : 'El código de repetición es obligatorio')
+      return
+    }
     setLoading(true)
     setError(null)
 
@@ -110,22 +119,62 @@ export default function SubmitReplayPage({ params }: { params: { id: string } })
         </p>
 
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-          {/* Replay URL */}
+          {/* Replay */}
           <div>
-            <label style={{ display: 'block', fontSize: 12, color: 'var(--text2)', marginBottom: 6, textTransform: 'uppercase', letterSpacing: 0.5 }}>
-              Enlace al replay *
+            <label style={{ display: 'block', fontSize: 12, color: 'var(--text2)', marginBottom: 8, textTransform: 'uppercase', letterSpacing: 0.5 }}>
+              Replay *
             </label>
-            <input
-              type="url"
-              value={replayUrl}
-              onChange={e => setReplayUrl(e.target.value)}
-              placeholder="https://replay.gg/..."
-              required
-              autoFocus
-            />
-            <p style={{ fontSize: 12, color: 'var(--text3)', margin: '6px 0 0' }}>
-              Usa replay.gg, Medal.tv, o cualquier enlace de vídeo público
-            </p>
+            {/* Type toggle */}
+            <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
+              {([
+                { value: 'youtube',  label: 'Enlace de YouTube' },
+                { value: 'ow-code', label: 'Código de repetición OW' },
+              ] as const).map(opt => (
+                <button
+                  key={opt.value}
+                  type="button"
+                  onClick={() => handleReplayTypeChange(opt.value)}
+                  style={{
+                    flex: 1, padding: '8px 0', fontSize: 12, cursor: 'pointer',
+                    background: replayType === opt.value ? 'rgba(255,107,43,0.1)' : 'var(--surface)',
+                    border: `1px solid ${replayType === opt.value ? 'var(--accent)' : 'var(--border)'}`,
+                    color: replayType === opt.value ? 'var(--accent)' : 'var(--text2)',
+                  }}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+
+            {replayType === 'youtube' ? (
+              <>
+                <input
+                  type="url"
+                  value={replayUrl}
+                  onChange={e => setReplayUrl(e.target.value)}
+                  placeholder="https://www.youtube.com/watch?v=..."
+                  autoFocus
+                />
+                <p style={{ fontSize: 12, color: 'var(--text3)', margin: '6px 0 0' }}>
+                  Sube la partida a YouTube (puede ser privada con enlace) y pega el link aquí.
+                </p>
+              </>
+            ) : (
+              <>
+                <input
+                  type="text"
+                  value={replayUrl}
+                  onChange={e => setReplayUrl(e.target.value.toUpperCase())}
+                  placeholder="EJ: AB1CD2"
+                  maxLength={12}
+                  autoFocus
+                  style={{ fontFamily: 'monospace', letterSpacing: 2, textTransform: 'uppercase' }}
+                />
+                <p style={{ fontSize: 12, color: 'var(--yellow)', margin: '6px 0 0' }}>
+                  ⚠ Los códigos de repetición de Overwatch expiran con cada nuevo parche. El experto debe revisarlo cuanto antes.
+                </p>
+              </>
+            )}
           </div>
 
           {/* Rol en la partida */}
