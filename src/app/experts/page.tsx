@@ -26,7 +26,7 @@ export default async function ExpertsPage() {
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
-      <AppNav role="user" displayName={profile?.display_name || user.email} />
+      <AppNav role="user" displayName={profile?.display_name || user.email} avatarUrl={profile?.avatar_url} />
 
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: '32px 24px' }}>
         <div style={{ marginBottom: 32 }}>

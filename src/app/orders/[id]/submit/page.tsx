@@ -92,7 +92,7 @@ export default function SubmitReplayPage({ params }: { params: { id: string } })
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
-      <AppNav role="user" displayName={profile?.display_name} />
+      <AppNav role="user" displayName={profile?.display_name} avatarUrl={profile?.avatar_url} />
 
       <div style={{ maxWidth: 600, margin: '0 auto', padding: '32px 24px' }}>
         <a href="/dashboard" style={{ fontSize: 13, color: 'var(--text3)', textDecoration: 'none' }}>

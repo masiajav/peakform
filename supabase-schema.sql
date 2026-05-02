@@ -250,6 +250,70 @@ create policy "Participantes envían mensajes" on followup_messages
   for insert with check (sender_id = auth.uid());
 
 -- ============================================================
+-- MIGRACIÓN: Análisis de prueba (ejecutar en SQL Editor)
+-- ============================================================
+
+-- 1. Nuevo valor en el enum order_tier
+ALTER TYPE order_tier ADD VALUE IF NOT EXISTS 'trial';
+
+-- 2. Campos de prueba en experts
+ALTER TABLE experts
+  ADD COLUMN IF NOT EXISTS trial_enabled        bool        NOT NULL DEFAULT false,
+  ADD COLUMN IF NOT EXISTS trial_price          integer,
+  ADD COLUMN IF NOT EXISTS trial_refundable     bool        NOT NULL DEFAULT false,
+  ADD COLUMN IF NOT EXISTS trial_deadline_hours integer     NOT NULL DEFAULT 48;
+
+-- 3. Campos de reembolso en orders
+ALTER TABLE orders
+  ADD COLUMN IF NOT EXISTS refund_requested_at  timestamptz,
+  ADD COLUMN IF NOT EXISTS refunded_at          timestamptz;
+
+-- 4. Un usuario solo puede tener un análisis de prueba por experto
+CREATE UNIQUE INDEX IF NOT EXISTS orders_one_trial_per_expert
+  ON orders(user_id, expert_id)
+  WHERE tier = 'trial';
+
+-- ============================================================
+-- MIGRACIÓN: Descripciones libres por tier (ejecutar en SQL Editor)
+-- ============================================================
+
+ALTER TABLE experts
+  ADD COLUMN IF NOT EXISTS description_starter   text,
+  ADD COLUMN IF NOT EXISTS description_pro       text,
+  ADD COLUMN IF NOT EXISTS description_deep_dive text;
+
+-- ============================================================
+-- STORAGE (ejecutar en SQL Editor de Supabase)
+-- ============================================================
+
+-- Bucket público para avatares de usuario
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values ('avatars', 'avatars', true, 2097152, '{image/jpeg,image/png,image/gif,image/webp}')
+on conflict (id) do nothing;
+
+-- Políticas de storage
+create policy "Avatares accesibles públicamente" on storage.objects
+  for select using (bucket_id = 'avatars');
+
+create policy "Usuario sube su propio avatar" on storage.objects
+  for insert with check (
+    bucket_id = 'avatars'
+    and auth.uid()::text = (storage.foldername(name))[1]
+  );
+
+create policy "Usuario actualiza su propio avatar" on storage.objects
+  for update using (
+    bucket_id = 'avatars'
+    and auth.uid()::text = (storage.foldername(name))[1]
+  );
+
+create policy "Usuario elimina su propio avatar" on storage.objects
+  for delete using (
+    bucket_id = 'avatars'
+    and auth.uid()::text = (storage.foldername(name))[1]
+  );
+
+-- ============================================================
 -- DATOS DE EJEMPLO (para desarrollo)
 -- ============================================================
 

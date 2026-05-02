@@ -13,7 +13,7 @@ export default async function UserReviewPage({ params }: { params: { id: string 
 
   const { data: profile } = await supabase
     .from('profiles')
-    .select('role, display_name')
+    .select('role, display_name, avatar_url')
     .eq('id', user.id)
     .single()
 
@@ -56,7 +56,7 @@ export default async function UserReviewPage({ params }: { params: { id: string 
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
-      <AppNav role="user" displayName={profile?.display_name || user.email} />
+      <AppNav role="user" displayName={profile?.display_name || user.email} avatarUrl={profile?.avatar_url} />
 
       <div style={{ maxWidth: 860, margin: '0 auto', padding: '32px 24px' }}>
 

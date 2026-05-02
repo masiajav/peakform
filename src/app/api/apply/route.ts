@@ -42,6 +42,9 @@ export async function POST(request: Request) {
     price_starter,
     price_pro,
     price_deep_dive,
+    description_starter,
+    description_pro,
+    description_deep_dive,
   } = body
 
   if (!display_name?.trim() || !battletag?.trim() || !peak_rank || !main_role) {
@@ -64,6 +67,9 @@ export async function POST(request: Request) {
       price_starter:   price_starter || 900,
       price_pro:       price_pro || 1700,
       price_deep_dive: price_deep_dive || 3000,
+      description_starter:   description_starter?.trim() || null,
+      description_pro:       description_pro?.trim()     || null,
+      description_deep_dive: description_deep_dive?.trim() || null,
     })
 
   if (error) {

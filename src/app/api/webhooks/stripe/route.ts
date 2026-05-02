@@ -5,7 +5,7 @@ import { OrderTier } from '@/types'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 
-const DEADLINE_HOURS: Record<OrderTier, number> = {
+const DEADLINE_HOURS: Record<string, number> = {
   starter:   48,
   pro:       24,
   deep_dive: 72,
@@ -29,7 +29,10 @@ export async function POST(request: Request) {
 
     const tier     = meta.tier as OrderTier
     const paidAt   = new Date()
-    const deadline = new Date(paidAt.getTime() + DEADLINE_HOURS[tier] * 3600 * 1000)
+    const deadlineHours = tier === 'trial'
+      ? parseInt(meta.trial_deadline_hours ?? '48')
+      : (DEADLINE_HOURS[tier] ?? 48)
+    const deadline = new Date(paidAt.getTime() + deadlineHours * 3600 * 1000)
 
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,

@@ -27,9 +27,19 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
 
   if (!expert) notFound()
 
+  const { data: existingTrial } = await supabase
+    .from('orders')
+    .select('id')
+    .eq('user_id', user.id)
+    .eq('expert_id', expert.id)
+    .eq('tier', 'trial')
+    .maybeSingle()
+
+  const hasUsedTrial = !!existingTrial
+
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
-      <AppNav role="user" displayName={profile?.display_name || user.email} />
+      <AppNav role="user" displayName={profile?.display_name || user.email} avatarUrl={profile?.avatar_url} />
 
       <div style={{ maxWidth: 860, margin: '0 auto', padding: '32px 24px' }}>
         {/* Breadcrumb */}
@@ -96,7 +106,7 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
         </div>
 
         {/* Tier selector (client) */}
-        <TierSelector expert={expert} />
+        <TierSelector expert={expert} hasUsedTrial={hasUsedTrial} />
       </div>
     </div>
   )

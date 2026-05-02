@@ -14,7 +14,7 @@ export default async function ExpertDashboardPage({
 
   const { data: profile } = await supabase
     .from('profiles')
-    .select('role, display_name')
+    .select('role, display_name, avatar_url')
     .eq('id', user.id)
     .single()
 
@@ -67,7 +67,7 @@ export default async function ExpertDashboardPage({
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
-      <AppNav role="expert" displayName={profile?.display_name || user.email} />
+      <AppNav role="expert" displayName={profile?.display_name || user.email} avatarUrl={profile?.avatar_url} />
 
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: '32px 24px' }}>
 

@@ -5,7 +5,7 @@
 export type UserRole    = 'user' | 'expert' | 'admin'
 export type ExpertStatus = 'pending' | 'active' | 'suspended'
 export type OrderStatus  = 'pending_payment' | 'paid' | 'in_review' | 'delivered' | 'disputed'
-export type OrderTier    = 'starter' | 'pro' | 'deep_dive'
+export type OrderTier    = 'starter' | 'pro' | 'deep_dive' | 'trial'
 export type PlayerRole   = 'tank' | 'dps' | 'support' | 'flex'
 
 export interface Profile {
@@ -33,6 +33,16 @@ export interface Expert {
   price_starter:   number   // en céntimos
   price_pro:       number
   price_deep_dive: number
+
+  description_starter:   string | null
+  description_pro:       string | null
+  description_deep_dive: string | null
+
+  // Análisis de prueba (opcional)
+  trial_enabled:        boolean
+  trial_price:          number | null  // en céntimos
+  trial_refundable:     boolean
+  trial_deadline_hours: number
 
   total_reviews:   number
   avg_rating:      number
@@ -62,14 +72,16 @@ export interface Order {
   stripe_session_id:      string | null
   stripe_payment_intent:  string | null
 
-  paid_at:      string | null
-  delivered_at: string | null
-  deadline_at:  string | null
-  created_at:   string
-  updated_at:   string
+  paid_at:               string | null
+  delivered_at:          string | null
+  deadline_at:           string | null
+  refund_requested_at:   string | null
+  refunded_at:           string | null
+  created_at:            string
+  updated_at:            string
 
   // Joins opcionales
-  expert?: Expert
+  expert?: Partial<Expert>
   review?: Review
 }
 
@@ -145,6 +157,13 @@ export const TIER_CONFIG = {
     followups:   Infinity,
     features:    ['Análisis de 3 replays cruzados', 'Hoja de ruta personalizada', 'Seguimiento ilimitado 7 días', 'Re-review gratuita a las 2 semanas'],
     description: '3 replays + hoja de ruta + seguimiento 7d',
+  },
+  trial: {
+    label:       'Prueba',
+    deliveryHours: 48,
+    followups:   1,
+    features:    ['Review escrita detallada', '1 pregunta de seguimiento'],
+    description: 'Análisis de prueba',
   },
 } as const
 

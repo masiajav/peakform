@@ -61,19 +61,19 @@ export default async function RootPage() {
           fontFamily: 'Bebas Neue, sans-serif', border: '1px solid rgba(255,107,43,0.25)',
           padding: '4px 12px', marginBottom: 32,
         }}>
-          ANÁLISIS DE REPLAYS · OVERWATCH 2
+          ANÁLISIS DE REPLAYS · OVERWATCH
         </div>
 
         <h1 style={{
           fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(52px, 9vw, 84px)',
           letterSpacing: 2, lineHeight: 0.92, margin: '0 0 28px', color: 'var(--text)',
         }}>
-          DOMINA EL JUEGO.<br />
+          DOMINA.<br />
           <span style={{ color: 'var(--accent)' }}>APRENDE DE LOS MEJORES.</span>
         </h1>
 
         <p style={{ fontSize: 17, color: 'var(--text2)', maxWidth: 500, margin: '0 auto 40px', lineHeight: 1.65 }}>
-          Feedback real de jugadores Top 500 y Grandmaster. No IA genérica — un análisis humano, estructurado y accionable.
+          Feedback real de jugadores nivel Champion y Grandmaster. No IA genérica — un análisis humano, estructurado y accionable.
         </p>
 
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -92,7 +92,7 @@ export default async function RootPage() {
         }}>
           {[
             { value: '24-72h', label: 'TIEMPO DE ENTREGA' },
-            { value: 'Top 500', label: 'NIVEL MÍNIMO' },
+            { value: 'Diamond+', label: 'NIVEL MÍNIMO' },
             { value: '3 TIERS', label: 'PLANES DISPONIBLES' },
           ].map(({ value, label }) => (
             <div key={label} style={{ textAlign: 'center' }}>
@@ -124,7 +124,7 @@ export default async function RootPage() {
               {
                 n: '01',
                 title: 'ELIGE UN EXPERTO',
-                desc: 'Filtra por rol, nivel y precio. Todos son jugadores activos Top 500 o Grandmaster en Europa.',
+                desc: 'Filtra por rol, nivel y precio. Todos son jugadores activos Champion o Grandmaster en Europa.',
               },
               {
                 n: '02',
@@ -163,7 +163,7 @@ export default async function RootPage() {
             PLANES
           </h2>
           <p style={{ textAlign: 'center', fontSize: 14, color: 'var(--text2)', marginBottom: 48 }}>
-            Precios desde el experto. El precio final incluye una comisión del 15%.
+            Cada experto fija sus propios precios. Los precios indicados son orientativos — el jugador paga el precio del experto más una comisión de plataforma del 15%.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
             {[
@@ -325,7 +325,7 @@ export default async function RootPage() {
           <Link href="/apply" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Ser experto</Link>
           <Link href="/login" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Entrar</Link>
         </div>
-        <span style={{ fontSize: 12, color: 'var(--text3)' }}>© 2025 PeakForm</span>
+        <span style={{ fontSize: 12, color: 'var(--text3)' }}>© 2026 PeakForm</span>
       </footer>
 
     </div>

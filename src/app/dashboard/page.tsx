@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import AppNav from '@/components/layout/AppNav'
+import RefundButton from './RefundButton'
 
 export default async function DashboardPage({ searchParams }: { searchParams: { order?: string } }) {
   const supabase = createClient()
@@ -16,24 +17,29 @@ export default async function DashboardPage({ searchParams }: { searchParams: { 
 
   const { data: orders } = await supabase
     .from('orders')
-    .select('*, expert:experts(display_name, peak_rank, main_role)')
+    .select('*, expert:experts(display_name, peak_rank, main_role, trial_refundable)')
     .eq('user_id', user.id)
     .order('created_at', { ascending: false })
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
-      <AppNav role="user" displayName={profile?.display_name || user.email} />
+      <AppNav role="user" displayName={profile?.display_name || user.email} avatarUrl={profile?.avatar_url} />
 
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: '32px 24px' }}>
 
         {/* Header */}
-        <div style={{ marginBottom: 32 }}>
-          <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 32, color: 'var(--text)', margin: 0, letterSpacing: 1 }}>
-            MIS REPLAYS
-          </h1>
-          <p style={{ color: 'var(--text2)', fontSize: 14, margin: '6px 0 0' }}>
-            Sigue el progreso de tus análisis
-          </p>
+        <div style={{ marginBottom: 32, display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
+          <div>
+            <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 32, color: 'var(--text)', margin: 0, letterSpacing: 1 }}>
+              MIS REPLAYS
+            </h1>
+            <p style={{ color: 'var(--text2)', fontSize: 14, margin: '6px 0 0' }}>
+              Sigue el progreso de tus análisis
+            </p>
+          </div>
+          <a href="/experts" className="btn btn-primary btn-sm">
+            PEDIR ANÁLISIS →
+          </a>
         </div>
 
         {/* Banner de confirmación post-pago */}
@@ -72,17 +78,52 @@ export default async function DashboardPage({ searchParams }: { searchParams: { 
           </div>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            {orders.map((order: any) => (
-              <OrderCard key={order.id} order={order} />
-            ))}
+            {orders.map((order: any) => {
+              const isTrialRefundable =
+                order.tier === 'trial' &&
+                order.status === 'delivered' &&
+                order.expert?.trial_refundable &&
+                !order.refund_requested_at &&
+                order.delivered_at &&
+                Date.now() - new Date(order.delivered_at).getTime() < 7 * 24 * 60 * 60 * 1000
+              return <OrderCard key={order.id} order={order} showRefund={!!isTrialRefundable} />
+            })}
           </div>
         )}
+        {/* CTA experto */}
+        <div style={{
+          marginTop: 48,
+          borderTop: '1px solid var(--border)',
+          paddingTop: 32,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: 16,
+          flexWrap: 'wrap',
+        }}>
+          <div>
+            <div style={{ fontSize: 13, color: 'var(--text2)', fontWeight: 500 }}>
+              ¿Eres un jugador de alto nivel?
+            </div>
+            <div style={{ fontSize: 12, color: 'var(--text3)', marginTop: 3 }}>
+              Conviértete en experto y gana dinero analizando replays.
+            </div>
+          </div>
+          <a href="/apply" style={{
+            fontSize: 12, letterSpacing: 0.5, fontWeight: 600, color: 'var(--text2)',
+            border: '1px solid var(--border2)', padding: '6px 14px',
+            textDecoration: 'none', fontFamily: 'DM Sans, sans-serif',
+          }}>
+            SOLICITAR ACCESO →
+          </a>
+        </div>
+
       </div>
     </div>
   )
 }
 
-function OrderCard({ order }: { order: any }) {
+function OrderCard({ order, showRefund }: { order: any; showRefund: boolean }) {
   const STATUS_COLORS: Record<string, string> = {
     pending_payment: 'var(--yellow)',
     paid:            'var(--accent)',
@@ -103,6 +144,7 @@ function OrderCard({ order }: { order: any }) {
     starter:   'Starter',
     pro:       'Pro',
     deep_dive: 'Deep Dive',
+    trial:     'Prueba',
   }
 
   const isNew = order.status === 'delivered' && !order.review_seen
@@ -164,11 +206,17 @@ function OrderCard({ order }: { order: any }) {
           SUBIR REPLAY →
         </a>
       )}
+      {order.status === 'in_review' && (
+        <a href={`/dashboard/review/${order.id}`} className="btn btn-secondary btn-sm">
+          VER ESTADO →
+        </a>
+      )}
       {order.status === 'delivered' && (
         <a href={`/dashboard/review/${order.id}`} className="btn btn-primary btn-sm">
           VER REVIEW
         </a>
       )}
+      {showRefund && <RefundButton orderId={order.id} />}
     </div>
   )
 }

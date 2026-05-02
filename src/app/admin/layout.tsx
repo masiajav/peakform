@@ -10,7 +10,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
 
   const { data: profile } = await supabase
     .from('profiles')
-    .select('role, display_name')
+    .select('role, display_name, avatar_url')
     .eq('id', user.id)
     .single()
 
@@ -18,7 +18,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
-      <AppNav role="admin" displayName={profile?.display_name || user.email} />
+      <AppNav role="admin" displayName={profile?.display_name || user.email} avatarUrl={profile?.avatar_url} />
       <div style={{
         maxWidth: 1200, margin: '0 auto', padding: '36px 24px',
         display: 'flex', gap: 36,

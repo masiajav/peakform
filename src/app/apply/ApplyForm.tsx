@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
-const TIER_OPTIONS = ['Top 500', 'Champion', 'Grandmaster', 'Master', 'Diamond']
+const TIER_OPTIONS = ['Champion', 'Grandmaster', 'Master', 'Diamond']
 const DIVISION_OPTIONS = ['1', '2', '3', '4', '5']
 
 const ROLE_OPTIONS = [
@@ -42,12 +42,14 @@ export default function ApplyForm() {
   const [priceStarter,  setPriceStarter]  = useState('9')
   const [pricePro,      setPricePro]      = useState('17')
   const [priceDeepDive, setPriceDeepDive] = useState('30')
+  const [descStarter,   setDescStarter]   = useState('')
+  const [descPro,       setDescPro]       = useState('')
+  const [descDeepDive,  setDescDeepDive]  = useState('')
 
   const [loading, setLoading] = useState(false)
   const [error,   setError]   = useState<string | null>(null)
 
-  const hasDivision = peakTier !== 'Top 500'
-  const peakRank = hasDivision ? `${peakTier} ${peakDivision}` : 'Top 500'
+  const peakRank = `${peakTier} ${peakDivision}`
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -73,6 +75,9 @@ export default function ApplyForm() {
           price_starter:   Math.round(parseFloat(priceStarter) * 100),
           price_pro:       Math.round(parseFloat(pricePro) * 100),
           price_deep_dive: Math.round(parseFloat(priceDeepDive) * 100),
+          description_starter:   descStarter.trim()   || null,
+          description_pro:       descPro.trim()        || null,
+          description_deep_dive: descDeepDive.trim()   || null,
         }),
       })
       if (!res.ok) {
@@ -119,20 +124,18 @@ export default function ApplyForm() {
         </Field>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: hasDivision ? '1fr 1fr 1fr' : '1fr 1fr', gap: 20 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 20 }}>
         <Field label="RANGO PEAK *">
           <select value={peakTier} onChange={e => setPeakTier(e.target.value)}>
             {TIER_OPTIONS.map(t => <option key={t} value={t}>{t}</option>)}
           </select>
         </Field>
 
-        {hasDivision && (
-          <Field label="DIVISIÓN *" hint="5 = más bajo · 1 = más alto">
-            <select value={peakDivision} onChange={e => setPeakDivision(e.target.value)}>
-              {DIVISION_OPTIONS.map(d => <option key={d} value={d}>{d}</option>)}
-            </select>
-          </Field>
-        )}
+        <Field label="DIVISIÓN *" hint="5 = más bajo · 1 = más alto">
+          <select value={peakDivision} onChange={e => setPeakDivision(e.target.value)}>
+            {DIVISION_OPTIONS.map(d => <option key={d} value={d}>{d}</option>)}
+          </select>
+        </Field>
 
         <Field label="ROL PRINCIPAL *">
           <select value={mainRole} onChange={e => setMainRole(e.target.value)}>
@@ -146,7 +149,7 @@ export default function ApplyForm() {
           value={bio}
           onChange={e => setBio(e.target.value)}
           rows={4}
-          placeholder="Jugador activo en Top 500 desde Season 5. Especializado en Support y análisis de posicionamiento..."
+          placeholder="Jugador activo Champion o Grandmaster 1. Especializado en Support y análisis de posicionamiento..."
         />
       </Field>
 
@@ -196,40 +199,35 @@ export default function ApplyForm() {
         <div style={{ fontSize: 12, color: 'var(--text3)', marginBottom: 14 }}>
           PeakForm añade un 15% de comisión al precio que el jugador paga. Tú recibes el precio base.
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
-          <Field label="STARTER (48h · 1 pregunta)">
-            <input
-              type="number"
-              value={priceStarter}
-              onChange={e => setPriceStarter(e.target.value)}
-              min={5}
-              max={50}
-              step={0.5}
-              required
-            />
-          </Field>
-          <Field label="PRO (24h · 3 preguntas · timestamps)">
-            <input
-              type="number"
-              value={pricePro}
-              onChange={e => setPricePro(e.target.value)}
-              min={10}
-              max={100}
-              step={0.5}
-              required
-            />
-          </Field>
-          <Field label="DEEP DIVE (72h · 3 replays · hoja de ruta)">
-            <input
-              type="number"
-              value={priceDeepDive}
-              onChange={e => setPriceDeepDive(e.target.value)}
-              min={20}
-              max={200}
-              step={0.5}
-              required
-            />
-          </Field>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+          {([
+            { label: 'STARTER (48h)',    price: priceStarter,  setPrice: setPriceStarter,  desc: descStarter,  setDesc: setDescStarter,  min: 2,  max: 50  },
+            { label: 'PRO (24h)',        price: pricePro,      setPrice: setPricePro,      desc: descPro,      setDesc: setDescPro,      min: 10, max: 100 },
+            { label: 'DEEP DIVE (72h)',  price: priceDeepDive, setPrice: setPriceDeepDive, desc: descDeepDive, setDesc: setDescDeepDive, min: 20, max: 200 },
+          ] as const).map(({ label, price, setPrice, desc, setDesc, min, max }) => (
+            <div key={label} style={{ display: 'grid', gridTemplateColumns: '140px 1fr', gap: 16, alignItems: 'start' }}>
+              <Field label={label}>
+                <input
+                  type="number"
+                  value={price}
+                  onChange={e => setPrice(e.target.value)}
+                  min={min}
+                  max={max}
+                  step={0.5}
+                  required
+                />
+              </Field>
+              <Field label="QUÉ INCLUYE (opcional)" hint="Describe lo que ofreces en este tier">
+                <textarea
+                  value={desc}
+                  onChange={e => setDesc(e.target.value)}
+                  rows={2}
+                  placeholder="Ej: Análisis escrito de tu replay + corrección de posicionamiento y mecánicas..."
+                  style={{ resize: 'vertical' }}
+                />
+              </Field>
+            </div>
+          ))}
         </div>
       </div>
 

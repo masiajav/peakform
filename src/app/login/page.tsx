@@ -185,8 +185,8 @@ export default function LoginPage() {
             </div>
 
             <p style={{ marginTop: 20, fontSize: 12, color: 'var(--text3)', textAlign: 'center' }}>
-              ¿Eres experto?{' '}
-              <a href="/expert/register" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
+              ¿Quieres ser experto?{' '}
+              <a href="/apply" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
                 Solicita unirte
               </a>
             </p>
