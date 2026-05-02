@@ -1,5 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
-import { redirect, notFound } from 'next/navigation'
+import { createAdminClient } from '@/lib/supabase/admin'
+import { notFound } from 'next/navigation'
+import Link from 'next/link'
 import AppNav from '@/components/layout/AppNav'
 import TierSelector from './TierSelector'
 
@@ -7,18 +9,31 @@ const ROLE_LABELS: Record<string, string> = {
   tank: 'Tank', dps: 'DPS', support: 'Support', flex: 'Flex',
 }
 
+function Stars({ rating }: { rating: number }) {
+  return (
+    <span style={{ color: 'var(--yellow)', fontSize: 13 }}>
+      {Array.from({ length: 5 }, (_, i) => i < rating ? '★' : '☆').join('')}
+    </span>
+  )
+}
+
 export default async function ExpertDetailPage({ params }: { params: { id: string } }) {
   const supabase = createClient()
   const { data: { user } } = await supabase.auth.getUser()
-  if (!user) redirect('/login')
 
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', user.id)
-    .single()
+  let profile = null
+  if (user) {
+    const { data } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('id', user.id)
+      .single()
+    profile = data
+  }
 
-  const { data: expert } = await supabase
+  const admin = createAdminClient()
+
+  const { data: expert } = await admin
     .from('experts')
     .select('*')
     .eq('id', params.id)
@@ -27,33 +42,64 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
 
   if (!expert) notFound()
 
-  const { data: existingTrial } = await supabase
-    .from('orders')
-    .select('id')
-    .eq('user_id', user.id)
-    .eq('expert_id', expert.id)
-    .eq('tier', 'trial')
-    .maybeSingle()
+  // Check if this user has used the trial for this expert
+  let hasUsedTrial = false
+  if (user) {
+    const { data: existingTrial } = await supabase
+      .from('orders')
+      .select('id')
+      .eq('user_id', user.id)
+      .eq('expert_id', expert.id)
+      .eq('tier', 'trial')
+      .maybeSingle()
+    hasUsedTrial = !!existingTrial
+  }
 
-  const hasUsedTrial = !!existingTrial
+  // Fetch public ratings (rating + comment only, not review content)
+  const { data: ratings } = await admin
+    .from('reviews')
+    .select('rating, rating_comment, created_at')
+    .eq('expert_id', expert.id)
+    .not('rating', 'is', null)
+    .order('created_at', { ascending: false })
+    .limit(5)
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
-      <AppNav role="user" displayName={profile?.display_name || user.email} avatarUrl={profile?.avatar_url} />
+
+      {user ? (
+        <AppNav
+          role={profile?.role || 'user'}
+          displayName={profile?.display_name || user.email}
+          avatarUrl={profile?.avatar_url}
+        />
+      ) : (
+        <nav style={{
+          height: 52, background: 'var(--bg)', borderBottom: '1px solid var(--border)',
+          display: 'flex', alignItems: 'center', padding: '0 24px', gap: 20,
+          position: 'sticky', top: 0, zIndex: 100,
+        }}>
+          <Link href="/" style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3, textDecoration: 'none' }}>
+            PEAKFORM
+          </Link>
+          <div style={{ flex: 1 }} />
+          <Link href="/experts" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
+          <Link href="/apply" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Ser experto</Link>
+          <Link href="/login" className="btn btn-primary btn-sm">ENTRAR</Link>
+        </nav>
+      )}
 
       <div style={{ maxWidth: 860, margin: '0 auto', padding: '32px 24px' }}>
+
         {/* Breadcrumb */}
-        <a href="/experts" style={{ fontSize: 13, color: 'var(--text3)', textDecoration: 'none' }}>
+        <Link href="/experts" style={{ fontSize: 13, color: 'var(--text3)', textDecoration: 'none' }}>
           ← Todos los expertos
-        </a>
+        </Link>
 
         {/* Expert header */}
         <div style={{
-          background: 'var(--surface)',
-          border: '1px solid var(--border)',
-          padding: '28px',
-          marginTop: 20,
-          marginBottom: 24,
+          background: 'var(--surface)', border: '1px solid var(--border)',
+          padding: '28px', marginTop: 20, marginBottom: 24,
         }}>
           <div style={{ display: 'flex', gap: 20, alignItems: 'flex-start' }}>
             <div style={{
@@ -77,9 +123,12 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
                 {expert.peak_rank} · {ROLE_LABELS[expert.main_role] ?? expert.main_role} · {expert.battletag}
               </div>
               {expert.total_reviews > 0 && (
-                <div style={{ fontSize: 13, color: 'var(--text2)' }}>
-                  ⭐ {Number(expert.avg_rating).toFixed(1)} · {expert.total_reviews} reviews
-                  {expert.avg_delivery_hours > 0 && ` · entrega media ${Math.round(expert.avg_delivery_hours)}h`}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: 'var(--text2)' }}>
+                  <Stars rating={Math.round(Number(expert.avg_rating))} />
+                  <span>{Number(expert.avg_rating).toFixed(1)} · {expert.total_reviews} valoraciones</span>
+                  {expert.avg_delivery_hours > 0 && (
+                    <span style={{ color: 'var(--text3)' }}>· entrega media {Math.round(expert.avg_delivery_hours)}h</span>
+                  )}
                 </div>
               )}
             </div>
@@ -105,8 +154,38 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
           )}
         </div>
 
+        {/* Ratings */}
+        {ratings && ratings.length > 0 && (
+          <div style={{ marginBottom: 24 }}>
+            <div style={{ fontSize: 11, letterSpacing: 2, color: 'var(--text2)', fontFamily: 'Bebas Neue, sans-serif', marginBottom: 14 }}>
+              VALORACIONES DE JUGADORES
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              {ratings.map((r: any, i: number) => (
+                <div key={i} style={{
+                  background: 'var(--surface)', border: '1px solid var(--border)',
+                  padding: '14px 18px',
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: r.rating_comment ? 8 : 0 }}>
+                    <Stars rating={r.rating} />
+                    <span style={{ fontSize: 12, color: 'var(--text3)' }}>
+                      {new Date(r.created_at).toLocaleDateString('es-ES', { month: 'long', year: 'numeric' })}
+                    </span>
+                  </div>
+                  {r.rating_comment && (
+                    <p style={{ margin: 0, fontSize: 13, color: 'var(--text2)', lineHeight: 1.6 }}>
+                      {r.rating_comment}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Tier selector (client) */}
-        <TierSelector expert={expert} hasUsedTrial={hasUsedTrial} />
+        <TierSelector expert={expert} hasUsedTrial={hasUsedTrial} isLoggedIn={!!user} />
+
       </div>
     </div>
   )

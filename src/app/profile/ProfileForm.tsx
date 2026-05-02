@@ -179,13 +179,13 @@ export default function ProfileForm({
                 PRECIOS Y DESCRIPCIÓN DE TIERS
               </div>
               <div style={{ fontSize: 12, color: 'var(--text3)', marginBottom: 16 }}>
-                Tú recibes el precio base. El jugador paga un 15% adicional de comisión.
+                Tú cobras íntegro el precio que fijes. El jugador paga ese precio más un 20% de comisión de plataforma.
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 {([
-                  { label: 'STARTER (48h)',   price: priceStarter,  setPrice: setPriceStarter,  desc: descStarter,  setDesc: setDescStarter,  min: 2,  max: 50  },
-                  { label: 'PRO (24h)',       price: pricePro,      setPrice: setPricePro,      desc: descPro,      setDesc: setDescPro,      min: 10, max: 100 },
-                  { label: 'DEEP DIVE (72h)', price: priceDeepDive, setPrice: setPriceDeepDive, desc: descDeepDive, setDesc: setDescDeepDive, min: 20, max: 200 },
+                  { label: 'STARTER (48h)',   price: priceStarter,  setPrice: setPriceStarter,  desc: descStarter,  setDesc: setDescStarter,  min: 2, max: 50  },
+                  { label: 'PRO (24h)',       price: pricePro,      setPrice: setPricePro,      desc: descPro,      setDesc: setDescPro,      min: 5, max: 100 },
+                  { label: 'DEEP DIVE (72h)', price: priceDeepDive, setPrice: setPriceDeepDive, desc: descDeepDive, setDesc: setDescDeepDive, min: 8, max: 200 },
                 ] as const).map(({ label, price, setPrice, desc, setDesc, min, max }) => (
                   <div key={label} style={{ display: 'grid', gridTemplateColumns: '140px 1fr', gap: 16, alignItems: 'start' }}>
                     <Field label={label}>

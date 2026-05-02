@@ -89,7 +89,7 @@ export default async function ApplyPage() {
           borderTop: '1px solid var(--border)', paddingTop: 32, flexWrap: 'wrap',
         }}>
           {[
-            { value: '85%', label: 'DE COMISIÓN PARA TI' },
+            { value: '100%', label: 'DEL PRECIO QUE FIJAS' },
             { value: 'Tú', label: 'FIJAS TUS PRECIOS' },
             { value: '24-72h', label: 'PLAZO DE ENTREGA' },
           ].map(({ value, label }) => (
@@ -135,7 +135,7 @@ export default async function ApplyPage() {
               <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 9 }}>
                 {[
                   'Tú fijas tus propios precios por tier',
-                  'Cobras el 85% de cada análisis',
+                  'Cobras el 100% del precio que fijas',
                   'Panel propio para gestionar pedidos',
                   'Los clientes llegan solos — sin prospecting',
                 ].map(r => (

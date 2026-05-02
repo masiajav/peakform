@@ -162,25 +162,28 @@ export default async function RootPage() {
           }}>
             PLANES
           </h2>
-          <p style={{ textAlign: 'center', fontSize: 14, color: 'var(--text2)', marginBottom: 48 }}>
-            Cada experto fija sus propios precios. Los precios indicados son orientativos — el jugador paga el precio del experto más una comisión de plataforma del 15%.
+          <p style={{ textAlign: 'center', fontSize: 14, color: 'var(--text2)', marginBottom: 4 }}>
+            Cada experto fija sus propios precios y describe qué incluye cada tier.
+          </p>
+          <p style={{ textAlign: 'center', fontSize: 13, color: 'var(--text3)', marginBottom: 48 }}>
+            El jugador paga el precio del experto más una comisión de plataforma del 20%.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
             {[
               {
                 tier: 'starter' as const,
                 highlight: false,
-                baseFrom: 900,
+                baseFrom: 200,
               },
               {
                 tier: 'pro' as const,
                 highlight: true,
-                baseFrom: 1700,
+                baseFrom: 500,
               },
               {
                 tier: 'deep_dive' as const,
                 highlight: false,
-                baseFrom: 3000,
+                baseFrom: 800,
               },
             ].map(({ tier, highlight, baseFrom }) => {
               const cfg = TIER_CONFIG[tier]
@@ -204,16 +207,24 @@ export default async function RootPage() {
                   <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 22, letterSpacing: 1, marginBottom: 6, color: 'var(--text)' }}>
                     {cfg.label.toUpperCase()}
                   </div>
-                  <div style={{ fontSize: 13, color: 'var(--text2)', marginBottom: 20 }}>
+                  <div style={{ fontSize: 13, color: 'var(--text2)', marginBottom: 4 }}>
                     Desde <span style={{ color: 'var(--text)', fontWeight: 600 }}>{formatPrice(baseFrom)}</span>
                   </div>
-                  <div style={{ borderTop: '1px solid var(--border)', paddingTop: 16, display: 'flex', flexDirection: 'column', gap: 8 }}>
-                    {cfg.features.map(f => (
-                      <div key={f} style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
-                        <span style={{ color: 'var(--green)', fontSize: 12, marginTop: 2 }}>✓</span>
-                        <span style={{ fontSize: 13, color: 'var(--text2)', lineHeight: 1.4 }}>{f}</span>
-                      </div>
-                    ))}
+                  <div style={{ fontSize: 11, color: 'var(--text3)', marginBottom: 16 }}>
+                    El experto fija el precio y el contenido exacto
+                  </div>
+                  <div style={{ borderTop: '1px solid var(--border)', paddingTop: 14 }}>
+                    <div style={{ fontSize: 10, letterSpacing: 1.5, color: 'var(--text3)', fontFamily: 'Bebas Neue, sans-serif', marginBottom: 10 }}>
+                      INCLUYE HABITUALMENTE
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                      {cfg.features.map(f => (
+                        <div key={f} style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
+                          <span style={{ color: 'var(--green)', fontSize: 12, marginTop: 2 }}>✓</span>
+                          <span style={{ fontSize: 13, color: 'var(--text2)', lineHeight: 1.4 }}>{f}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               )
@@ -323,6 +334,7 @@ export default async function RootPage() {
         <div style={{ display: 'flex', gap: 24 }}>
           <Link href="/experts" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Expertos</Link>
           <Link href="/apply" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Ser experto</Link>
+          <Link href="/legal" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Legal</Link>
           <Link href="/login" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Entrar</Link>
         </div>
         <span style={{ fontSize: 12, color: 'var(--text3)' }}>© 2026 PeakForm</span>

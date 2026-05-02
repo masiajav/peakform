@@ -167,7 +167,7 @@ export const TIER_CONFIG = {
   },
 } as const
 
-export const COMMISSION_RATE = 0.15  // 15%
+export const COMMISSION_RATE = 0.20  // 20%
 
 // Calcular total con comisión
 export function calculateTotal(basePrice: number): {

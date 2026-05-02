@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { NextResponse } from 'next/server'
+import { sendExpertApprovedEmail } from '@/lib/email'
 
 export async function POST(
   request: Request,
@@ -59,6 +60,30 @@ export async function POST(
   if (profileError) {
     console.error('[admin/experts] update profile role failed:', profileError)
     return NextResponse.json({ error: profileError.message }, { status: 500 })
+  }
+
+  // Send approval email — best-effort
+  if (newStatus === 'active') {
+    try {
+      const { data: userAuth } = await admin.auth.admin.getUserById(expert.user_id)
+      const expertEmail = userAuth?.user?.email
+      const { data: expertData } = await admin
+        .from('experts')
+        .select('display_name')
+        .eq('id', params.id)
+        .single()
+
+      if (expertEmail && expertData) {
+        const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? ''
+        await sendExpertApprovedEmail({
+          to:           expertEmail,
+          displayName:  expertData.display_name,
+          dashboardUrl: `${appUrl}/expert/dashboard`,
+        })
+      }
+    } catch (err) {
+      console.error('[admin/experts] approval email failed:', err)
+    }
   }
 
   return NextResponse.json({ ok: true, status: newStatus })

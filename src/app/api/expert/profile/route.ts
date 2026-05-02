@@ -28,7 +28,7 @@ export async function PATCH(request: Request) {
   const priceProCents      = Math.round(parseFloat(price_pro)       * 100)
   const priceDeepDiveCents = Math.round(parseFloat(price_deep_dive) * 100)
 
-  if (priceStarterCents < 200 || priceProCents < 1000 || priceDeepDiveCents < 2000) {
+  if (priceStarterCents < 200 || priceProCents < 500 || priceDeepDiveCents < 800) {
     return NextResponse.json({ error: 'Precio demasiado bajo' }, { status: 400 })
   }
 

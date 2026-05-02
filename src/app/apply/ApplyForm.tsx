@@ -197,13 +197,13 @@ export default function ApplyForm() {
           PRECIOS BASE (€) *
         </div>
         <div style={{ fontSize: 12, color: 'var(--text3)', marginBottom: 14 }}>
-          PeakForm añade un 15% de comisión al precio que el jugador paga. Tú recibes el precio base.
+          Tú cobras íntegro el precio que fijes. PeakForm añade un 20% extra que paga el jugador por encima de tu precio.
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           {([
-            { label: 'STARTER (48h)',    price: priceStarter,  setPrice: setPriceStarter,  desc: descStarter,  setDesc: setDescStarter,  min: 2,  max: 50  },
-            { label: 'PRO (24h)',        price: pricePro,      setPrice: setPricePro,      desc: descPro,      setDesc: setDescPro,      min: 10, max: 100 },
-            { label: 'DEEP DIVE (72h)',  price: priceDeepDive, setPrice: setPriceDeepDive, desc: descDeepDive, setDesc: setDescDeepDive, min: 20, max: 200 },
+            { label: 'STARTER (48h)',    price: priceStarter,  setPrice: setPriceStarter,  desc: descStarter,  setDesc: setDescStarter,  min: 2, max: 50  },
+            { label: 'PRO (24h)',        price: pricePro,      setPrice: setPricePro,      desc: descPro,      setDesc: setDescPro,      min: 5, max: 100 },
+            { label: 'DEEP DIVE (72h)',  price: priceDeepDive, setPrice: setPriceDeepDive, desc: descDeepDive, setDesc: setDescDeepDive, min: 8, max: 200 },
           ] as const).map(({ label, price, setPrice, desc, setDesc, min, max }) => (
             <div key={label} style={{ display: 'grid', gridTemplateColumns: '140px 1fr', gap: 16, alignItems: 'start' }}>
               <Field label={label}>

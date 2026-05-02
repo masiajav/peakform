@@ -73,6 +73,67 @@ export async function sendReviewReadyEmail({
   })
 }
 
+export async function sendExpertApprovedEmail({
+  to,
+  displayName,
+  dashboardUrl,
+}: {
+  to: string
+  displayName: string
+  dashboardUrl: string
+}) {
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: `¡Tu solicitud como experto ha sido aprobada! — PeakForm`,
+    html: `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#f5f5f5;font-family:'DM Sans',Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tr><td align="center" style="padding:40px 16px;">
+      <table width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #e0e0e0;">
+        <!-- Header -->
+        <tr>
+          <td style="padding:28px 32px;border-bottom:3px solid #ff6b2b;">
+            <span style="font-size:22px;font-weight:700;color:#0a0a0a;letter-spacing:2px;">PEAKFORM</span>
+          </td>
+        </tr>
+        <!-- Body -->
+        <tr>
+          <td style="padding:32px;">
+            <h1 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#0a0a0a;">
+              ¡Solicitud aprobada!
+            </h1>
+            <p style="margin:0 0 16px;font-size:15px;color:#444;line-height:1.6;">
+              Hola <strong>${displayName}</strong>, tu perfil como experto en PeakForm ha sido verificado y ya está activo.
+            </p>
+            <p style="margin:0 0 24px;font-size:15px;color:#444;line-height:1.6;">
+              Ya puedes acceder a tu panel de experto para configurar tu perfil, actualizar precios y gestionar los análisis que lleguen.
+            </p>
+            <a href="${dashboardUrl}" style="display:inline-block;padding:12px 28px;background:#ff6b2b;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;letter-spacing:1px;">
+              IR A MI PANEL →
+            </a>
+          </td>
+        </tr>
+        <!-- Footer -->
+        <tr>
+          <td style="padding:20px 32px;border-top:1px solid #e0e0e0;">
+            <p style="margin:0;font-size:12px;color:#999;">
+              PeakForm · Análisis de replays de Overwatch · <a href="${process.env.NEXT_PUBLIC_APP_URL}" style="color:#ff6b2b;text-decoration:none;">peakform.gg</a>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>
+    `.trim(),
+  })
+}
+
 export async function sendNewOrderEmail({
   to,
   tier,

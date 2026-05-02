@@ -20,9 +20,10 @@ const DESC_FIELD: Record<Exclude<OrderTier, 'trial'>, keyof Expert> = {
 interface Props {
   expert: Expert
   hasUsedTrial: boolean
+  isLoggedIn: boolean
 }
 
-export default function TierSelector({ expert, hasUsedTrial }: Props) {
+export default function TierSelector({ expert, hasUsedTrial, isLoggedIn }: Props) {
   const defaultTier: OrderTier = expert.trial_enabled && !hasUsedTrial ? 'trial' : 'pro'
   const [selected, setSelected] = useState<OrderTier>(defaultTier)
   const [loading, setLoading] = useState(false)
@@ -195,7 +196,7 @@ export default function TierSelector({ expert, hasUsedTrial }: Props) {
           <span>{formatPrice(basePrice)}</span>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'var(--text2)', marginBottom: 10 }}>
-          <span>Comisión plataforma (15%)</span>
+          <span>Comisión plataforma (20%)</span>
           <span>{formatPrice(commission)}</span>
         </div>
         <div style={{ borderTop: '1px solid var(--border)', paddingTop: 10, display: 'flex', justifyContent: 'space-between' }}>
@@ -210,18 +211,34 @@ export default function TierSelector({ expert, hasUsedTrial }: Props) {
         </div>
       )}
 
-      <button
-        onClick={handleBuy}
-        disabled={loading}
-        className="btn btn-primary btn-full"
-        style={{ fontSize: 16 }}
-      >
-        {loading ? 'REDIRIGIENDO…' : `COMPRAR ${TIER_CONFIG[selected].label.toUpperCase()} →`}
-      </button>
-
-      <p style={{ fontSize: 12, color: 'var(--text3)', textAlign: 'center', marginTop: 12 }}>
-        Pago seguro via Stripe · Puedes cancelar antes de que el experto empiece
-      </p>
+      {isLoggedIn ? (
+        <>
+          <button
+            onClick={handleBuy}
+            disabled={loading}
+            className="btn btn-primary btn-full"
+            style={{ fontSize: 16 }}
+          >
+            {loading ? 'REDIRIGIENDO…' : `COMPRAR ${TIER_CONFIG[selected].label.toUpperCase()} →`}
+          </button>
+          <p style={{ fontSize: 12, color: 'var(--text3)', textAlign: 'center', marginTop: 12 }}>
+            Pago seguro via Stripe · Puedes cancelar antes de que el experto empiece
+          </p>
+        </>
+      ) : (
+        <>
+          <a
+            href="/login"
+            className="btn btn-primary btn-full"
+            style={{ fontSize: 16, display: 'block', textAlign: 'center', textDecoration: 'none' }}
+          >
+            INICIA SESIÓN PARA COMPRAR →
+          </a>
+          <p style={{ fontSize: 12, color: 'var(--text3)', textAlign: 'center', marginTop: 12 }}>
+            Crea una cuenta gratis para realizar tu pedido
+          </p>
+        </>
+      )}
     </div>
   )
 }
