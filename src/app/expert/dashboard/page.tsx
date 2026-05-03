@@ -292,14 +292,13 @@ function ExpertOrderCard({ order }: { order: any }) {
   }
 
   return (
-    <div style={{
+    <div className="order-card" style={{
       background: 'var(--surface)',
       border: `1px solid ${order.status === 'in_review' ? 'var(--accent)' : 'var(--border)'}`,
       padding: '18px 24px',
       display: 'flex',
       alignItems: 'center',
       gap: 20,
-      flexWrap: 'wrap',
     }}>
       <span style={{
         fontFamily: 'DM Sans, sans-serif',
@@ -336,7 +335,7 @@ function ExpertOrderCard({ order }: { order: any }) {
         </div>
       )}
 
-      <div style={{ fontSize: 12, color: STATUS_COLORS[order.status] ?? 'var(--text2)', fontWeight: 500, minWidth: 110, textAlign: 'right' }}>
+      <div className="order-card-status" style={{ fontSize: 12, color: STATUS_COLORS[order.status] ?? 'var(--text2)', fontWeight: 500, minWidth: 110, textAlign: 'right' }}>
         {STATUS_LABELS[order.status] || order.status}
       </div>
 

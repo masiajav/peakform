@@ -143,4 +143,6 @@ textarea {
 @media (max-width: 639px) {
   .hide-mobile { display: none !important; }
   .footer-links { gap: 16px !important; flex-wrap: wrap !important; }
+  .order-card { flex-wrap: wrap !important; gap: 12px !important; }
+  .order-card-status { min-width: unset !important; text-align: left !important; }
 }

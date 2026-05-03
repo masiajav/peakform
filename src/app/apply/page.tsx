@@ -51,7 +51,7 @@ export default async function ApplyPage() {
             </span>
           </Link>
           <div style={{ flex: 1 }} />
-          <Link href="/experts" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>
+          <Link href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>
             Ver expertos
           </Link>
           <Link href="/login" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>

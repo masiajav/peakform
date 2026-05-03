@@ -150,7 +150,7 @@ function OrderCard({ order, showRefund }: { order: any; showRefund: boolean }) {
   const isNew = order.status === 'delivered' && !order.review_seen
 
   return (
-    <div style={{
+    <div className="order-card" style={{
       background: 'var(--surface)',
       border: `1px solid ${isNew ? 'var(--accent)' : 'var(--border)'}`,
       padding: '20px 24px',
@@ -189,7 +189,7 @@ function OrderCard({ order, showRefund }: { order: any; showRefund: boolean }) {
       </div>
 
       {/* Status */}
-      <div style={{
+      <div className="order-card-status" style={{
         fontSize: 12,
         color: STATUS_COLORS[order.status] || 'var(--text2)',
         fontWeight: 500,
