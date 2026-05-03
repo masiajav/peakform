@@ -53,16 +53,16 @@ export default async function RootPage() {
           REPLAID LAB
         </span>
         <div style={{ flex: 1 }} />
-        <Link href="/guides" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>
+        <Link href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>
           Guías
         </Link>
-        <Link href="/news" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>
+        <Link href="/news" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>
           Noticias
         </Link>
-        <Link href="/experts" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>
+        <Link href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>
           Expertos
         </Link>
-        <Link href="/apply" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>
+        <Link href="/apply" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>
           Ser experto
         </Link>
         <Link href="/login" className="btn btn-primary btn-sm">
@@ -376,7 +376,7 @@ export default async function RootPage() {
         <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 18, color: 'var(--accent)', letterSpacing: 2 }}>
           REPLAID LAB
         </span>
-        <div style={{ display: 'flex', gap: 24 }}>
+        <div className="footer-links" style={{ display: 'flex', gap: 24 }}>
           <Link href="/guides" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Guías</Link>
           <Link href="/news" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Noticias</Link>
           <Link href="/experts" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Expertos</Link>

@@ -138,3 +138,9 @@ textarea {
 .guide-body a { color: var(--accent); text-decoration: none; }
 .guide-body a:hover { text-decoration: underline; }
 .guide-body hr { border: none; border-top: 1px solid var(--border); margin: 2em 0; }
+
+/* ─── Mobile ──────────────────────────────────────── */
+@media (max-width: 639px) {
+  .hide-mobile { display: none !important; }
+  .footer-links { gap: 16px !important; flex-wrap: wrap !important; }
+}

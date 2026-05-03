@@ -75,8 +75,8 @@ export default function AppNav({ role = 'user', displayName, avatarUrl }: AppNav
       <div style={{ flex: 1 }} />
 
       {/* Content links */}
-      <a href="/guides" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</a>
-      <a href="/news" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Noticias</a>
+      <a href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</a>
+      <a href="/news" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Noticias</a>
 
       {/* Role badge */}
       {role && (
@@ -128,7 +128,7 @@ export default function AppNav({ role = 'user', displayName, avatarUrl }: AppNav
               displayName ? displayName[0].toUpperCase() : '?'
             )}
           </div>
-          <span style={{ fontSize: 13, color: 'var(--text2)', maxWidth: 140, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+          <span className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', maxWidth: 140, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
             {displayName}
           </span>
         </button>
