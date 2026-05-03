@@ -48,6 +48,8 @@ export interface Expert {
   avg_rating:      number
   avg_delivery_hours: number
 
+  stripe_account_id: string | null
+
   created_at: string
   updated_at: string
 }

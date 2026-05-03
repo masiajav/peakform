@@ -21,9 +21,10 @@ interface Props {
   expert: Expert
   hasUsedTrial: boolean
   isLoggedIn: boolean
+  stripeConnected: boolean
 }
 
-export default function TierSelector({ expert, hasUsedTrial, isLoggedIn }: Props) {
+export default function TierSelector({ expert, hasUsedTrial, isLoggedIn, stripeConnected }: Props) {
   const defaultTier: OrderTier = expert.trial_enabled && !hasUsedTrial ? 'trial' : 'pro'
   const [selected, setSelected] = useState<OrderTier>(defaultTier)
   const [loading, setLoading] = useState(false)
@@ -211,7 +212,16 @@ export default function TierSelector({ expert, hasUsedTrial, isLoggedIn }: Props
         </div>
       )}
 
-      {isLoggedIn ? (
+      {!stripeConnected ? (
+        <div style={{
+          background: 'var(--surface)', border: '1px solid var(--border)',
+          padding: '16px 20px', textAlign: 'center',
+        }}>
+          <p style={{ fontSize: 13, color: 'var(--text2)', margin: 0 }}>
+            Este experto aún no ha configurado su cuenta de cobro. Vuelve pronto.
+          </p>
+        </div>
+      ) : isLoggedIn ? (
         <>
           <button
             onClick={handleBuy}

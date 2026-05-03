@@ -184,7 +184,7 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
         )}
 
         {/* Tier selector (client) */}
-        <TierSelector expert={expert} hasUsedTrial={hasUsedTrial} isLoggedIn={!!user} />
+        <TierSelector expert={expert} hasUsedTrial={hasUsedTrial} isLoggedIn={!!user} stripeConnected={!!expert.stripe_account_id} />
 
       </div>
     </div>

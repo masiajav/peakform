@@ -2,6 +2,10 @@ import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import AppNav from '@/components/layout/AppNav'
+import ConnectStripeButton from './ConnectStripeButton'
+import Stripe from 'stripe'
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 
 export default async function ExpertDashboardPage({
   searchParams,
@@ -27,6 +31,16 @@ export default async function ExpertDashboardPage({
     .single()
 
   if (!expert) redirect('/dashboard')
+
+  // Check Stripe Connect status
+  let chargesEnabled = false
+  if (expert.stripe_account_id) {
+    try {
+      const account = await stripe.accounts.retrieve(expert.stripe_account_id)
+      chargesEnabled = account.charges_enabled
+    } catch {}
+  }
+  const stripeConnected = !!expert.stripe_account_id && chargesEnabled
 
   const { data: orders } = await supabase
     .from('orders')
@@ -90,6 +104,32 @@ export default async function ExpertDashboardPage({
             />
           </div>
         </div>
+
+        {/* Banner Stripe Connect */}
+        {!stripeConnected && (
+          <div style={{
+            background: 'rgba(255,107,43,0.06)', border: '1px solid rgba(255,107,43,0.3)',
+            padding: '20px 24px', marginBottom: 24,
+          }}>
+            <div style={{ fontSize: 14, color: 'var(--accent)', fontWeight: 600, marginBottom: 6 }}>
+              Conecta tu cuenta de cobro
+            </div>
+            <p style={{ fontSize: 13, color: 'var(--text2)', margin: '0 0 16px', lineHeight: 1.6 }}>
+              Para poder recibir pedidos necesitas vincular tu cuenta de Stripe. Stripe te guiará para añadir tu cuenta bancaria de forma segura.
+            </p>
+            <ConnectStripeButton label={expert.stripe_account_id ? 'COMPLETAR ONBOARDING →' : 'CONECTAR STRIPE →'} />
+          </div>
+        )}
+
+        {stripeConnected && (
+          <div style={{
+            background: 'rgba(0,214,127,0.06)', border: '1px solid rgba(0,214,127,0.2)',
+            padding: '12px 20px', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 10,
+          }}>
+            <span style={{ color: 'var(--green)', fontSize: 16 }}>✓</span>
+            <span style={{ fontSize: 13, color: 'var(--text2)' }}>Cuenta de cobro conectada — los pagos llegan directamente a tu cuenta.</span>
+          </div>
+        )}
 
         {/* Banner entrega completada */}
         {searchParams.delivered === '1' && (

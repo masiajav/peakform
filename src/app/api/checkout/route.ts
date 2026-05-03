@@ -14,6 +14,7 @@ type ExpertRow = {
   trial_enabled: boolean
   trial_price: number | null
   trial_deadline_hours: number
+  stripe_account_id: string | null
 }
 
 const PRICE_FIELD: Record<Exclude<OrderTier, 'trial'>, keyof ExpertRow> = {
@@ -35,13 +36,14 @@ export async function POST(request: Request) {
 
   const { data: expert } = await supabase
     .from('experts')
-    .select('id, display_name, price_starter, price_pro, price_deep_dive, trial_enabled, trial_price, trial_deadline_hours')
+    .select('id, display_name, price_starter, price_pro, price_deep_dive, trial_enabled, trial_price, trial_deadline_hours, stripe_account_id')
     .eq('id', expertId)
     .eq('status', 'active')
     .returns<ExpertRow[]>()
     .single()
 
   if (!expert) return NextResponse.json({ error: 'Experto no encontrado' }, { status: 404 })
+  if (!expert.stripe_account_id) return NextResponse.json({ error: 'Este experto aún no tiene cuenta de cobro configurada' }, { status: 400 })
 
   // Trial-specific validations
   if (tier === 'trial') {
@@ -84,6 +86,10 @@ export async function POST(request: Request) {
         },
         quantity: 1,
       }],
+      payment_intent_data: {
+        application_fee_amount: commission,
+        transfer_data: { destination: expert.stripe_account_id },
+      },
       metadata: {
         user_id:           user.id,
         expert_id:         expertId,
