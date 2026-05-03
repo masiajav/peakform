@@ -69,32 +69,38 @@ export async function POST(request: Request) {
 
   const trialDeadlineHours = tier === 'trial' ? expert.trial_deadline_hours : undefined
 
-  const session = await stripe.checkout.sessions.create({
-    mode: 'payment',
-    line_items: [{
-      price_data: {
-        currency: 'eur',
-        product_data: {
-          name: `${TIER_CONFIG[tier].label} — ${expert.display_name}`,
-          description: TIER_CONFIG[tier].description,
+  let session
+  try {
+    session = await stripe.checkout.sessions.create({
+      mode: 'payment',
+      line_items: [{
+        price_data: {
+          currency: 'eur',
+          product_data: {
+            name: `${TIER_CONFIG[tier].label} — ${expert.display_name}`,
+            description: TIER_CONFIG[tier].description,
+          },
+          unit_amount: total,
         },
-        unit_amount: total,
+        quantity: 1,
+      }],
+      metadata: {
+        user_id:           user.id,
+        expert_id:         expertId,
+        tier,
+        amount_base:       String(basePrice),
+        amount_commission: String(commission),
+        amount_total:      String(total),
+        ...(trialDeadlineHours != null && { trial_deadline_hours: String(trialDeadlineHours) }),
       },
-      quantity: 1,
-    }],
-    metadata: {
-      user_id:           user.id,
-      expert_id:         expertId,
-      tier,
-      amount_base:       String(basePrice),
-      amount_commission: String(commission),
-      amount_total:      String(total),
-      ...(trialDeadlineHours != null && { trial_deadline_hours: String(trialDeadlineHours) }),
-    },
-    customer_email: user.email,
-    success_url: `${origin}/dashboard?order=paid`,
-    cancel_url:  `${origin}/experts/${expertId}`,
-  })
+      customer_email: user.email,
+      success_url: `${origin}/dashboard?order=paid`,
+      cancel_url:  `${origin}/experts/${expertId}`,
+    })
+  } catch (err: any) {
+    console.error('[checkout] Stripe error:', err)
+    return NextResponse.json({ error: err.message ?? 'Error al crear sesión de pago' }, { status: 500 })
+  }
 
   return NextResponse.json({ url: session.url })
 }
