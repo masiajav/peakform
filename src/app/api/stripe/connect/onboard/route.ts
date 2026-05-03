@@ -23,7 +23,7 @@ export async function POST(request: Request) {
     if (!accountId) {
       const account = await stripe.accounts.create({
         type: 'express',
-        capabilities: { transfers: { requested: true } },
+        capabilities: { card_payments: { requested: true }, transfers: { requested: true } },
       })
       accountId = account.id
       await supabase.from('experts').update({ stripe_account_id: accountId }).eq('id', expert.id)
