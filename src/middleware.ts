@@ -29,7 +29,7 @@ export async function middleware(request: NextRequest) {
 
   // Rutas protegidas
   const protectedPaths = ['/dashboard', '/expert', '/admin']
-  const isProtected = protectedPaths.some(p => pathname.startsWith(p))
+  const isProtected = protectedPaths.some(p => pathname === p || pathname.startsWith(`${p}/`))
 
   if (isProtected && !user) {
     const url = request.nextUrl.clone()

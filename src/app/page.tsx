@@ -1,36 +1,34 @@
 import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { TIER_CONFIG, formatPrice } from '@/types'
+import { announcementPath } from '@/lib/content'
 
 export default async function RootPage() {
   const supabase = createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
+  let profileRole: string | null = null
   if (user) {
     const { data: profile } = await supabase
       .from('profiles')
       .select('role')
       .eq('id', user.id)
       .single()
-
-    if (profile?.role === 'admin')  redirect('/admin')
-    if (profile?.role === 'expert') redirect('/expert/dashboard')
-    redirect('/dashboard')
+    profileRole = profile?.role ?? 'user'
   }
 
   const adminClient = createAdminClient()
   const [{ data: experts }, { data: latestNews }] = await Promise.all([
     supabase
       .from('experts')
-      .select('id, display_name, peak_rank, main_role, specialties, avg_rating, total_reviews, price_starter')
+      .select('id, slug, display_name, peak_rank, main_role, specialties, avg_rating, total_reviews, price_starter')
       .eq('status', 'active')
       .order('avg_rating', { ascending: false })
       .limit(6),
     adminClient
       .from('announcements')
-      .select('id, title, body, created_at')
+      .select('id, title, slug, body, excerpt, content_type, created_at')
       .eq('published', true)
       .order('created_at', { ascending: false })
       .limit(3),
@@ -49,9 +47,11 @@ export default async function RootPage() {
         display: 'flex', alignItems: 'center', padding: '0 24px', gap: 20,
         position: 'sticky', top: 0, zIndex: 100,
       }}>
-        <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3 }}>
-          REPLAID LAB
-        </span>
+        <Link href="/" style={{ textDecoration: 'none' }}>
+          <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3 }}>
+            REPLAID LAB
+          </span>
+        </Link>
         <div style={{ flex: 1 }} />
         <Link href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>
           Guías
@@ -65,9 +65,18 @@ export default async function RootPage() {
         <Link href="/apply" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>
           Ser experto
         </Link>
-        <Link href="/login" className="btn btn-primary btn-sm">
-          ENTRAR
-        </Link>
+        {user ? (
+          <Link
+            href={profileRole === 'admin' ? '/admin' : profileRole === 'expert' ? '/expert/dashboard' : '/dashboard'}
+            className="btn btn-primary btn-sm"
+          >
+            MI PANEL
+          </Link>
+        ) : (
+          <Link href="/login" className="btn btn-primary btn-sm">
+            ENTRAR
+          </Link>
+        )}
       </nav>
 
       {/* Hero */}
@@ -263,7 +272,7 @@ export default async function RootPage() {
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 16 }}>
               {experts.map(expert => (
-                <Link key={expert.id} href={`/experts/${expert.id}`} style={{ textDecoration: 'none' }}>
+                <Link key={expert.id} href={`/experts/${expert.slug || expert.id}`} style={{ textDecoration: 'none' }}>
                   <div className="expert-card" style={{
                     background: 'var(--surface2)', border: '1px solid var(--border)',
                     padding: '20px 22px',
@@ -327,7 +336,8 @@ export default async function RootPage() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {latestNews.map((n: any) => (
-                <div key={n.id} style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '18px 22px' }}>
+                <Link key={n.id} href={announcementPath(n)} style={{ textDecoration: 'none' }}>
+                <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '18px 22px' }}>
                   <div style={{ fontSize: 11, color: 'var(--text3)', fontFamily: 'Bebas Neue, sans-serif', letterSpacing: 1, marginBottom: 6 }}>
                     {new Date(n.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' })}
                   </div>
@@ -338,6 +348,7 @@ export default async function RootPage() {
                     {n.body.length > 140 ? n.body.slice(0, 140) + '…' : n.body}
                   </p>
                 </div>
+                </Link>
               ))}
             </div>
           </div>

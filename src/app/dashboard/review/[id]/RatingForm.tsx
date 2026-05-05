@@ -60,7 +60,7 @@ export default function RatingForm({ reviewId, existingRating, existingComment }
           </div>
           {comment && (
             <p style={{ fontSize: 13, color: 'var(--text2)', margin: '8px 0 0', lineHeight: 1.5 }}>
-              "{comment}"
+              &quot;{comment}&quot;
             </p>
           )}
           <p style={{ fontSize: 12, color: 'var(--green)', margin: '10px 0 0' }}>

@@ -192,6 +192,15 @@ export default function LegalPage() {
           </p>
         </Section>
 
+        <Section title="13. Patrocinios, afiliacion y cookies">
+          <p>
+            Algunas paginas publicas de la hemeroteca pueden incluir bloques patrocinados o enlaces de afiliado relacionados con Overwatch, perifericos, herramientas de entrenamiento o recursos para jugadores. Estos espacios se mostraran siempre identificados como patrocinados o afiliados y nunca bloquearan el acceso al contenido principal.
+          </p>
+          <p>
+            Replaid Lab podra usar cookies tecnicas y, solo cuando se active y se solicite el consentimiento correspondiente, cookies de analitica o medicion comercial para entender el rendimiento de contenidos, conversiones y enlaces patrocinados.
+          </p>
+        </Section>
+
       </main>
 
       {/* Footer */}

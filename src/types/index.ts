@@ -22,6 +22,7 @@ export interface Expert {
   user_id:      string
   status:       ExpertStatus
   display_name: string
+  slug:         string | null
   battletag:    string
   peak_sr:      number
   peak_rank:    string
@@ -132,6 +133,44 @@ export interface FollowupMessage {
   created_at: string
   // Join
   sender?: Profile
+}
+
+export interface ContentSeoFields {
+  excerpt: string | null
+  seo_title: string | null
+  seo_description: string | null
+  author: string | null
+  hero: string | null
+  role: PlayerRole | null
+  map: string | null
+  tags: string[]
+  cover_image: string | null
+  content_type: 'guide' | 'news' | 'patch_note'
+  sponsor_label: string | null
+  sponsor_title: string | null
+  sponsor_body: string | null
+  sponsor_url: string | null
+  sponsor_cta: string | null
+  updated_at: string | null
+}
+
+export interface Guide extends ContentSeoFields {
+  id: string
+  title: string
+  slug: string
+  body: string
+  category: string | null
+  published: boolean
+  created_at: string
+}
+
+export interface Announcement extends ContentSeoFields {
+  id: string
+  title: string
+  slug: string
+  body: string
+  published: boolean
+  created_at: string
 }
 
 // ============================================================

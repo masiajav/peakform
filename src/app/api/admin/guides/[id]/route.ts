@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
+import { normalizeRole, normalizeTopic, parseTags, toSlug } from '@/lib/content'
 import { NextResponse } from 'next/server'
 
 async function assertAdmin() {
@@ -10,6 +11,41 @@ async function assertAdmin() {
   return profile?.role === 'admin' ? user : null
 }
 
+function updatePayload(body: any) {
+  const allowed: Record<string, unknown> = {}
+
+  for (const key of [
+    'title',
+    'body',
+    'category',
+    'published',
+    'excerpt',
+    'seo_title',
+    'seo_description',
+    'author',
+    'cover_image',
+    'sponsor_label',
+    'sponsor_title',
+    'sponsor_body',
+    'sponsor_url',
+    'sponsor_cta',
+  ]) {
+    if (key in body) {
+      const value = body[key]
+      allowed[key] = typeof value === 'string' ? value.trim() || null : value
+    }
+  }
+
+  if ('slug' in body) allowed.slug = toSlug(body.slug)
+  if ('hero' in body) allowed.hero = normalizeTopic(body.hero)
+  if ('role' in body) allowed.role = normalizeRole(body.role)
+  if ('map' in body) allowed.map = normalizeTopic(body.map)
+  if ('tags' in body) allowed.tags = parseTags(body.tags)
+  if ('content_type' in body) allowed.content_type = body.content_type === 'patch_note' ? 'patch_note' : 'guide'
+
+  return allowed
+}
+
 export async function PATCH(
   request: Request,
   { params }: { params: { id: string } }
@@ -18,21 +54,17 @@ export async function PATCH(
   if (!user) return NextResponse.json({ error: 'No autorizado' }, { status: 403 })
 
   const body = await request.json()
-  if (body.slug) {
-    body.slug = body.slug.trim().toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-')
-  }
-
   const admin = createAdminClient()
   const { data, error } = await admin
     .from('guides')
-    .update(body)
+    .update(updatePayload(body))
     .eq('id', params.id)
     .select()
     .single()
 
   if (error) {
     if (error.code === '23505') {
-      return NextResponse.json({ error: 'Ya existe una guía con ese slug' }, { status: 409 })
+      return NextResponse.json({ error: 'Ya existe una guia con ese slug' }, { status: 409 })
     }
     return NextResponse.json({ error: error.message }, { status: 500 })
   }

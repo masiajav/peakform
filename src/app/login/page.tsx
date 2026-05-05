@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
+import Link from 'next/link'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -19,11 +20,20 @@ export default function LoginPage() {
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault()
+    const form = e.currentTarget as HTMLFormElement
+    const formEmail = String(new FormData(form).get('email') || '').trim()
+
+    if (!formEmail) {
+      setError('Introduce tu email para recibir el enlace.')
+      return
+    }
+
+    setEmail(formEmail)
     setLoading(true)
     setError(null)
 
     const { error } = await supabase.auth.signInWithOtp({
-      email,
+      email: formEmail,
       options: {
         emailRedirectTo: `${window.location.origin}/auth/callback`,
       },
@@ -67,6 +77,7 @@ export default function LoginPage() {
       <div style={{ width: '100%', maxWidth: 400 }}>
         {/* Logo */}
         <div style={{ marginBottom: 40, textAlign: 'center' }}>
+          <Link href="/" style={{ textDecoration: 'none' }} aria-label="Volver a la landing">
           <span style={{
             fontFamily: 'Bebas Neue, sans-serif',
             fontSize: 36,
@@ -75,6 +86,7 @@ export default function LoginPage() {
           }}>
             REPLAID LAB
           </span>
+          </Link>
         </div>
 
         {sent ? (
@@ -126,6 +138,7 @@ export default function LoginPage() {
                   Email
                 </label>
                 <input
+                  name="email"
                   type="email"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
@@ -143,7 +156,7 @@ export default function LoginPage() {
 
               <button
                 type="submit"
-                disabled={loading || !email}
+                disabled={loading}
                 className="btn btn-primary btn-full"
                 style={{ marginTop: 4 }}
               >

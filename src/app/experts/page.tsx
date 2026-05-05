@@ -2,6 +2,14 @@ import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
 import AppNav from '@/components/layout/AppNav'
 import { Expert, formatPrice } from '@/types'
+import { buildMetadata } from '@/lib/seo'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = buildMetadata({
+  title: 'Expertos de Overwatch',
+  description: 'Encuentra expertos verificados de Overwatch por rol, rango, precio y valoraciones para revisar tu replay.',
+  path: '/experts',
+})
 
 const ROLE_LABELS: Record<string, string> = {
   tank: 'Tank', dps: 'DPS', support: 'Support', flex: 'Flex',
@@ -184,7 +192,7 @@ export default async function ExpertsPage({
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 16 }}>
             {experts.map((expert: Expert) => (
-              <Link key={expert.id} href={`/experts/${expert.id}`} style={{ textDecoration: 'none' }}>
+              <Link key={expert.id} href={`/experts/${expert.slug || expert.id}`} style={{ textDecoration: 'none' }}>
                 <div style={{
                   background: 'var(--surface)', border: '1px solid var(--border)',
                   padding: '24px', cursor: 'pointer', height: '100%', boxSizing: 'border-box',

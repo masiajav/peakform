@@ -4,6 +4,9 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import AppNav from '@/components/layout/AppNav'
 import TierSelector from './TierSelector'
+import JsonLd from '@/components/content/JsonLd'
+import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
+import type { Metadata } from 'next'
 
 const ROLE_LABELS: Record<string, string> = {
   tank: 'Tank', dps: 'DPS', support: 'Support', flex: 'Flex',
@@ -15,6 +18,35 @@ function Stars({ rating }: { rating: number }) {
       {Array.from({ length: 5 }, (_, i) => i < rating ? '★' : '☆').join('')}
     </span>
   )
+}
+
+function isUuid(value: string) {
+  return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value)
+}
+
+async function fetchExpert(identifier: string) {
+  const admin = createAdminClient()
+  let query = admin
+    .from('experts')
+    .select('*')
+    .eq('status', 'active')
+
+  query = isUuid(identifier) ? query.or(`id.eq.${identifier},slug.eq.${identifier}`) : query.eq('slug', identifier)
+
+  const { data } = await query.single()
+  return data
+}
+
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const expert = await fetchExpert(params.id)
+  if (!expert) return {}
+
+  return buildMetadata({
+    title: `${expert.display_name} - Coach de Overwatch`,
+    description: `${expert.display_name} revisa replays de Overwatch. Peak ${expert.peak_rank}, rol ${ROLE_LABELS[expert.main_role] ?? expert.main_role}. Reviews desde su perfil de experto.`,
+    path: `/experts/${expert.slug || expert.id}`,
+    image: expert.avatar_url,
+  })
 }
 
 export default async function ExpertDetailPage({ params }: { params: { id: string } }) {
@@ -32,13 +64,7 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
   }
 
   const admin = createAdminClient()
-
-  const { data: expert } = await admin
-    .from('experts')
-    .select('*')
-    .eq('id', params.id)
-    .eq('status', 'active')
-    .single()
+  const expert = await fetchExpert(params.id)
 
   if (!expert) notFound()
 
@@ -64,8 +90,32 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
     .order('created_at', { ascending: false })
     .limit(5)
 
+  const expertJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: expert.display_name,
+    url: absoluteUrl(`/experts/${expert.slug || expert.id}`),
+    image: expert.avatar_url ? absoluteUrl(expert.avatar_url) : undefined,
+    description: expert.bio || `Experto de Overwatch especializado en ${ROLE_LABELS[expert.main_role] ?? expert.main_role}.`,
+    knowsAbout: ['Overwatch 2', ROLE_LABELS[expert.main_role] ?? expert.main_role, ...(expert.specialties || [])],
+    aggregateRating: expert.total_reviews > 0 ? {
+      '@type': 'AggregateRating',
+      ratingValue: Number(expert.avg_rating).toFixed(1),
+      reviewCount: expert.total_reviews,
+    } : undefined,
+    makesOffer: {
+      '@type': 'Offer',
+      name: `Review de replay por ${expert.display_name}`,
+      priceCurrency: 'EUR',
+      price: (expert.price_starter / 100).toFixed(2),
+      url: absoluteUrl(`/experts/${expert.slug || expert.id}`),
+      offeredBy: { '@type': 'Organization', name: SITE_NAME },
+    },
+  }
+
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
+      <JsonLd data={expertJsonLd} />
 
       {user ? (
         <AppNav

@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
+import { toSlug } from '@/lib/content'
 
 export async function POST(request: Request) {
   const supabase = createClient()
@@ -57,6 +58,7 @@ export async function POST(request: Request) {
       user_id:         user.id,
       status:          'pending',
       display_name:    display_name.trim(),
+      slug:            `${toSlug(display_name)}-${user.id.slice(0, 8)}`,
       battletag:       battletag.trim(),
       peak_rank,
       peak_sr:         0,

@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
+import { normalizeRole, normalizeTopic, parseTags, toSlug } from '@/lib/content'
 import { NextResponse } from 'next/server'
 
 async function assertAdmin() {
@@ -8,6 +9,40 @@ async function assertAdmin() {
   if (!user) return null
   const { data: profile } = await supabase.from('profiles').select('role').eq('id', user.id).single()
   return profile?.role === 'admin' ? user : null
+}
+
+function updatePayload(body: any) {
+  const allowed: Record<string, unknown> = {}
+
+  for (const key of [
+    'title',
+    'body',
+    'published',
+    'excerpt',
+    'seo_title',
+    'seo_description',
+    'author',
+    'cover_image',
+    'sponsor_label',
+    'sponsor_title',
+    'sponsor_body',
+    'sponsor_url',
+    'sponsor_cta',
+  ]) {
+    if (key in body) {
+      const value = body[key]
+      allowed[key] = typeof value === 'string' ? value.trim() || null : value
+    }
+  }
+
+  if ('slug' in body) allowed.slug = toSlug(body.slug)
+  if ('hero' in body) allowed.hero = normalizeTopic(body.hero)
+  if ('role' in body) allowed.role = normalizeRole(body.role)
+  if ('map' in body) allowed.map = normalizeTopic(body.map)
+  if ('tags' in body) allowed.tags = parseTags(body.tags)
+  if ('content_type' in body) allowed.content_type = body.content_type === 'patch_note' ? 'patch_note' : 'news'
+
+  return allowed
 }
 
 export async function PATCH(
@@ -21,12 +56,17 @@ export async function PATCH(
   const admin = createAdminClient()
   const { data, error } = await admin
     .from('announcements')
-    .update(body)
+    .update(updatePayload(body))
     .eq('id', params.id)
     .select()
     .single()
 
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 })
+  if (error) {
+    if (error.code === '23505') {
+      return NextResponse.json({ error: 'Ya existe una noticia con ese slug' }, { status: 409 })
+    }
+    return NextResponse.json({ error: error.message }, { status: 500 })
+  }
   return NextResponse.json(data)
 }
 

@@ -52,6 +52,7 @@ create table experts (
   user_id       uuid references profiles(id) on delete cascade unique not null,
   status        expert_status not null default 'pending',
   display_name  text not null,
+  slug          text unique,
   battletag     text not null,             -- verificado con Battle.net
   peak_sr       integer not null default 0, -- deprecado (OW2 ya no expone SR numérico)
   peak_rank     text not null,             -- 'Top 500', 'Champion 1', 'Grandmaster 3', 'Master 5', etc.
@@ -88,7 +89,7 @@ create table orders (
 
   -- Importes en céntimos
   amount_base     integer not null,   -- precio del experto
-  amount_commission integer not null, -- 15% de comisión
+  amount_commission integer not null, -- 20% de comisión
   amount_total    integer not null,   -- base + comisión
 
   -- Contexto del replay (enviado por el usuario)
@@ -161,10 +162,10 @@ create table followup_messages (
 -- FUNCIONES HELPER
 -- ============================================================
 
--- Calcular comisión del 15%
+-- Calcular comisión del 20%
 create or replace function calculate_commission(base_amount integer)
 returns integer language sql immutable as $$
-  select round(base_amount * 0.15)::integer;
+  select round(base_amount * 0.20)::integer;
 $$;
 
 -- Calcular deadline según tier

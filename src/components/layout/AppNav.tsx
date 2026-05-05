@@ -3,6 +3,7 @@
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
 import { useState, useRef, useEffect } from 'react'
+import type { CSSProperties } from 'react'
 import type { UserRole } from '@/types'
 
 interface AppNavProps {
@@ -12,15 +13,15 @@ interface AppNavProps {
 }
 
 const ROLE_LABELS: Record<UserRole, string> = {
-  user:   'JUGADOR',
+  user: 'JUGADOR',
   expert: 'EXPERTO',
-  admin:  'ADMIN',
+  admin: 'ADMIN',
 }
 
 const ROLE_COLORS: Record<UserRole, string> = {
-  user:   'var(--text3)',
+  user: 'var(--text3)',
   expert: 'var(--accent)',
-  admin:  'var(--yellow)',
+  admin: 'var(--yellow)',
 }
 
 export default function AppNav({ role = 'user', displayName, avatarUrl }: AppNavProps) {
@@ -28,12 +29,11 @@ export default function AppNav({ role = 'user', displayName, avatarUrl }: AppNav
   const supabase = createClient()
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
+  const panelHref = role === 'admin' ? '/admin' : role === 'expert' ? '/expert/dashboard' : '/dashboard'
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
-        setOpen(false)
-      }
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
     }
     document.addEventListener('mousedown', handleClick)
     return () => document.removeEventListener('mousedown', handleClick)
@@ -44,8 +44,6 @@ export default function AppNav({ role = 'user', displayName, avatarUrl }: AppNav
     router.push('/login')
     router.refresh()
   }
-
-  const homeHref = role === 'admin' ? '/admin' : role === 'expert' ? '/expert/dashboard' : '/dashboard'
 
   return (
     <nav style={{
@@ -60,53 +58,37 @@ export default function AppNav({ role = 'user', displayName, avatarUrl }: AppNav
       top: 0,
       zIndex: 100,
     }}>
-      {/* Logo */}
-      <a href={homeHref} style={{ textDecoration: 'none' }}>
-        <span style={{
-          fontFamily: 'Bebas Neue, sans-serif',
-          fontSize: 26,
-          color: 'var(--accent)',
-          letterSpacing: 3,
-        }}>
+      <a href="/" style={{ textDecoration: 'none' }} aria-label="Ir a la landing de Replaid Lab">
+        <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3 }}>
           REPLAID LAB
         </span>
       </a>
 
       <div style={{ flex: 1 }} />
 
-      {/* Content links */}
-      <a href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</a>
+      <a href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guias</a>
       <a href="/news" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Noticias</a>
+      <a href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</a>
+      <a href={panelHref} className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Panel</a>
 
-      {/* Role badge */}
-      {role && (
-        <span style={{
-          fontFamily: 'DM Sans, sans-serif',
-          fontSize: 11,
-          fontWeight: 500,
-          color: ROLE_COLORS[role],
-          background: 'var(--surface2)',
-          border: `1px solid var(--border2)`,
-          padding: '2px 8px',
-          letterSpacing: 0.5,
-        }}>
-          {ROLE_LABELS[role]}
-        </span>
-      )}
+      <span style={{
+        fontFamily: 'DM Sans, sans-serif',
+        fontSize: 11,
+        fontWeight: 500,
+        color: ROLE_COLORS[role],
+        background: 'var(--surface2)',
+        border: '1px solid var(--border2)',
+        padding: '2px 8px',
+        letterSpacing: 0.5,
+      }}>
+        {ROLE_LABELS[role]}
+      </span>
 
-      {/* Avatar dropdown */}
       <div ref={ref} style={{ position: 'relative' }}>
         <button
           onClick={() => setOpen(o => !o)}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 8,
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            padding: 0,
-          }}
+          aria-label="Abrir menu de usuario"
+          style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
         >
           <div style={{
             width: 36,
@@ -123,7 +105,7 @@ export default function AppNav({ role = 'user', displayName, avatarUrl }: AppNav
             flexShrink: 0,
           }}>
             {avatarUrl ? (
-              <img src={avatarUrl} alt="avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src={avatarUrl} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             ) : (
               displayName ? displayName[0].toUpperCase() : '?'
             )}
@@ -144,27 +126,11 @@ export default function AppNav({ role = 'user', displayName, avatarUrl }: AppNav
             zIndex: 200,
           }}>
             <div style={{ padding: '12px 16px', borderBottom: '1px solid var(--border)' }}>
-              <div style={{ fontSize: 13, color: 'var(--text)', fontWeight: 500, marginBottom: 2 }}>
-                {displayName}
-              </div>
-              <div style={{ fontSize: 11, color: 'var(--text3)' }}>
-                {ROLE_LABELS[role]}
-              </div>
+              <div style={{ fontSize: 13, color: 'var(--text)', fontWeight: 500, marginBottom: 2 }}>{displayName}</div>
+              <div style={{ fontSize: 11, color: 'var(--text3)' }}>{ROLE_LABELS[role]}</div>
             </div>
-            <a
-              href="/profile"
-              style={{
-                display: 'block',
-                padding: '12px 16px',
-                fontSize: 13,
-                color: 'var(--text2)',
-                textDecoration: 'none',
-                borderBottom: '1px solid var(--border)',
-              }}
-              onClick={() => setOpen(false)}
-            >
-              Mi perfil
-            </a>
+            <a href={panelHref} style={menuLinkStyle('var(--accent)')} onClick={() => setOpen(false)}>Mi panel</a>
+            <a href="/profile" style={menuLinkStyle('var(--text2)')} onClick={() => setOpen(false)}>Mi perfil</a>
             <button
               onClick={handleSignOut}
               style={{
@@ -179,11 +145,22 @@ export default function AppNav({ role = 'user', displayName, avatarUrl }: AppNav
                 fontFamily: 'DM Sans, sans-serif',
               }}
             >
-              Cerrar sesión
+              Cerrar sesion
             </button>
           </div>
         )}
       </div>
     </nav>
   )
+}
+
+function menuLinkStyle(color: string): CSSProperties {
+  return {
+    display: 'block',
+    padding: '12px 16px',
+    fontSize: 13,
+    color,
+    textDecoration: 'none',
+    borderBottom: '1px solid var(--border)',
+  }
 }
