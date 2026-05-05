@@ -160,7 +160,7 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
       </form>
 
       {items.length === 0 ? (
-        <p style={{ fontSize: 13, color: 'var(--text3)' }}>No hay guias todavia.</p>
+        <p style={{ fontSize: 13, color: 'var(--text3)' }}>No hay guías todavía.</p>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {items.map(item => (

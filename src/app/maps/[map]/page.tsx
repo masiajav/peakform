@@ -7,7 +7,7 @@ export function generateMetadata({ params }: { params: { map: string } }): Metad
   const label = topicLabel(params.map)
   return buildMetadata({
     title: `${label}: setups, rutas y consejos de Overwatch`,
-    description: `Hemeroteca de ${label}: setups, rutas, composiciones, guias, noticias y consejos para revisar tus partidas de Overwatch.`,
+    description: `Hemeroteca de ${label}: setups, rutas, composiciones, guías, noticias y consejos para revisar tus partidas de Overwatch.`,
     path: `/maps/${params.map}`,
   })
 }
@@ -20,7 +20,7 @@ export default function MapPage({ params }: { params: { map: string } }) {
       kind="map"
       slug={params.map}
       title={`${label} en Overwatch`}
-      description={`Setups, rutas, composiciones, guias y noticias para entender mejor tus partidas en ${label}.`}
+      description={`Setups, rutas, composiciones, guías y noticias para entender mejor tus partidas en ${label}.`}
     />
   )
 }

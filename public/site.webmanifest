@@ -1,0 +1,16 @@
+{
+  "name": "Replaid Lab",
+  "short_name": "Replaid Lab",
+  "description": "Coaching de Overwatch, guías y análisis de replays por expertos verificados.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#ff6b2b",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

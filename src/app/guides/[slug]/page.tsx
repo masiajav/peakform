@@ -4,10 +4,10 @@ import { createClient } from '@/lib/supabase/server'
 import { notFound } from 'next/navigation'
 import AppNav from '@/components/layout/AppNav'
 import Link from 'next/link'
-import ReactMarkdown from 'react-markdown'
 import JsonLd from '@/components/content/JsonLd'
 import SponsoredBlock from '@/components/content/SponsoredBlock'
 import ArticleCta from '@/components/content/ArticleCta'
+import GuideMarkdown from '@/components/content/GuideMarkdown'
 import { articleDescription, guidePath, ROLE_LABELS, topicLabel, type GuideContent } from '@/lib/content'
 import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
 import { formatPrice } from '@/types'
@@ -104,7 +104,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Guias', item: absoluteUrl('/guides') },
+      { '@type': 'ListItem', position: 1, name: 'Guías', item: absoluteUrl('/guides') },
       { '@type': 'ListItem', position: 2, name: guide.title, item: absoluteUrl(guidePath(guide.slug)) },
     ],
   }
@@ -126,7 +126,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
             <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3 }}>REPLAID LAB</span>
           </Link>
           <div style={{ flex: 1 }} />
-          <Link href="/guides" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guias</Link>
+          <Link href="/guides" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</Link>
           <Link href="/experts" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
           <Link href="/login" className="btn btn-primary btn-sm">ENTRAR</Link>
         </nav>
@@ -134,7 +134,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
 
       <article style={{ maxWidth: 760, margin: '0 auto', padding: '64px 24px 80px' }}>
         <div style={{ fontSize: 12, color: 'var(--text3)', marginBottom: 32, display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
-          <Link href="/guides" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Guias</Link>
+          <Link href="/guides" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Guías</Link>
           <span>›</span>
           <span>{guide.title}</span>
         </div>
@@ -159,9 +159,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
           </div>
         </header>
 
-        <div className="guide-body">
-          <ReactMarkdown>{guide.body}</ReactMarkdown>
-        </div>
+        <GuideMarkdown>{guide.body}</GuideMarkdown>
 
         <SponsoredBlock item={guide} />
         <ArticleCta role={guide.role} hero={guide.hero ? topicLabel(guide.hero) : null} />

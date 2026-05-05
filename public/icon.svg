@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Replaid Lab">
+  <rect width="512" height="512" fill="#0a0a0a"/>
+  <path d="M92 72h180c85 0 141 48 141 121 0 53-28 91-78 109l98 138H300l-82-121h-31v121H92V72Zm95 78v94h74c34 0 54-18 54-48 0-29-20-46-54-46h-74Z" fill="#ff6b2b"/>
+  <path d="M92 456h326" stroke="#f0efe8" stroke-width="18"/>
+</svg>

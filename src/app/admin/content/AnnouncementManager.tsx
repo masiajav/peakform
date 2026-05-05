@@ -158,7 +158,7 @@ export default function AnnouncementManager({ initialAnnouncements }: { initialA
       </form>
 
       {items.length === 0 ? (
-        <p style={{ fontSize: 13, color: 'var(--text3)' }}>No hay anuncios todavia.</p>
+        <p style={{ fontSize: 13, color: 'var(--text3)' }}>No hay anuncios todavía.</p>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {items.map(item => (

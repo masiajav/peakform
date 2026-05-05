@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 
 export const SITE_NAME = 'Replaid Lab'
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://replaidlab.com').replace(/\/$/, '')
+export const DEFAULT_OG_IMAGE = '/og-image.svg'
 
 export function absoluteUrl(path = '/') {
   if (path.startsWith('http')) return path
@@ -52,7 +53,8 @@ export function buildMetadata({
   type?: 'website' | 'article'
 }): Metadata {
   const url = absoluteUrl(path)
-  const images = image ? [{ url: absoluteUrl(image), alt: title }] : undefined
+  const imagePath = image || DEFAULT_OG_IMAGE
+  const images = [{ url: absoluteUrl(imagePath), alt: title }]
 
   return {
     title,
@@ -68,10 +70,10 @@ export function buildMetadata({
       locale: 'es_ES',
     },
     twitter: {
-      card: image ? 'summary_large_image' : 'summary',
+      card: 'summary_large_image',
       title,
       description,
-      images: image ? [absoluteUrl(image)] : undefined,
+      images: [absoluteUrl(imagePath)],
     },
   }
 }

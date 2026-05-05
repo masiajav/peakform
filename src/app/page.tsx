@@ -1,8 +1,16 @@
+import type { Metadata } from 'next'
 import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import Link from 'next/link'
 import { TIER_CONFIG, formatPrice } from '@/types'
 import { announcementPath } from '@/lib/content'
+import { buildMetadata } from '@/lib/seo'
+
+export const metadata: Metadata = buildMetadata({
+  title: 'Coaching y análisis de replays de Overwatch en español',
+  description: 'Guías, noticias y análisis de replays de Overwatch en español con expertos verificados de Replaid Lab.',
+  path: '/',
+})
 
 export default async function RootPage() {
   const supabase = createClient()
@@ -37,6 +45,33 @@ export default async function RootPage() {
   const ROLE_LABELS: Record<string, string> = {
     tank: 'Tank', dps: 'DPS', support: 'Support', flex: 'Flex',
   }
+
+  const libraryClusters = [
+    {
+      title: 'Guías por rol',
+      body: 'Fundamentos, prioridades y errores comunes de Tank, DPS y Support.',
+      href: '/guides',
+      kicker: 'Roles',
+    },
+    {
+      title: 'Héroes clave',
+      body: 'Ana, Tracer, Reinhardt y otros héroes con consejos aplicables a tus partidas.',
+      href: '/heroes/ana',
+      kicker: 'Héroes',
+    },
+    {
+      title: 'Mapas y rutas',
+      body: 'Setups, chokes, rotaciones y decisiones de macro para revisar tus replays.',
+      href: '/maps/kings-row',
+      kicker: 'Mapas',
+    },
+    {
+      title: 'Meta y patch notes',
+      body: 'Cambios relevantes, tier lists y lectura práctica del estado del juego.',
+      href: '/news',
+      kicker: 'Actualidad',
+    },
+  ]
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
@@ -93,21 +128,21 @@ export default async function RootPage() {
           fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(52px, 9vw, 84px)',
           letterSpacing: 2, lineHeight: 0.92, margin: '0 0 28px', color: 'var(--text)',
         }}>
-          DOMINA.<br />
-          <span style={{ color: 'var(--accent)' }}>APRENDE DE LOS MEJORES.</span>
+          COACHING Y ANÁLISIS DE REPLAYS<br />
+          <span style={{ color: 'var(--accent)' }}>DE OVERWATCH EN ESPAÑOL.</span>
         </h1>
 
         <p style={{ fontSize: 17, color: 'var(--text2)', maxWidth: 500, margin: '0 auto 40px', lineHeight: 1.65 }}>
-          Feedback real de jugadores nivel Champion y Grandmaster. No IA genérica — un análisis humano, estructurado y accionable.
+          Feedback real de jugadores nivel Champion y Grandmaster. Guías para entender el juego y análisis humano cuando necesitas corregir errores concretos de tu replay.
         </p>
 
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link href="/experts" className="btn btn-primary btn-lg">
             VER EXPERTOS →
           </Link>
-          <a href="#como-funciona" className="btn btn-secondary btn-lg">
-            CÓMO FUNCIONA
-          </a>
+          <Link href="/guides" className="btn btn-secondary btn-lg">
+            EXPLORAR GUÍAS
+          </Link>
         </div>
 
         {/* Stats bar */}
@@ -129,6 +164,40 @@ export default async function RootPage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Hemeroteca */}
+      <section style={{ borderTop: '1px solid var(--border)', background: 'var(--surface)', padding: '72px 24px' }}>
+        <div style={{ maxWidth: 1080, margin: '0 auto' }}>
+          <div style={{ maxWidth: 720, marginBottom: 32 }}>
+            <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)', fontSize: 11, letterSpacing: 2, marginBottom: 10 }}>
+              HEMEROTECA OVERWATCH
+            </div>
+            <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 38, letterSpacing: 1, color: 'var(--text)', margin: '0 0 12px' }}>
+              APRENDE EL JUEGO ANTES DE SUBIR TU REPLAY
+            </h2>
+            <p style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.65, margin: 0 }}>
+              Replaid Lab combina guías, noticias y páginas por tema para que encuentres contexto rápido. Cuando una guía no basta, un experto revisa tus decisiones reales en partida.
+            </p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 14 }}>
+            {libraryClusters.map(cluster => (
+              <Link key={cluster.title} href={cluster.href} style={{ textDecoration: 'none' }}>
+                <article style={{ background: 'var(--bg)', border: '1px solid var(--border)', padding: '20px', minHeight: 176 }}>
+                  <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)', fontSize: 10, letterSpacing: 1.6, marginBottom: 12 }}>
+                    {cluster.kicker.toUpperCase()}
+                  </div>
+                  <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 22, letterSpacing: 0.7, margin: '0 0 10px' }}>
+                    {cluster.title}
+                  </h3>
+                  <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.55, margin: 0 }}>
+                    {cluster.body}
+                  </p>
+                </article>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

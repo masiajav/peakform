@@ -43,7 +43,7 @@ export default async function NewsPage() {
             <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3 }}>REPLAID LAB</span>
           </Link>
           <div style={{ flex: 1 }} />
-          <Link href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guias</Link>
+          <Link href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</Link>
           <Link href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
           <Link href="/login" className="btn btn-primary btn-sm">ENTRAR</Link>
         </nav>
@@ -63,7 +63,7 @@ export default async function NewsPage() {
         </div>
 
         {!announcements || announcements.length === 0 ? (
-          <p style={{ fontSize: 14, color: 'var(--text3)' }}>No hay anuncios publicados todavia.</p>
+          <p style={{ fontSize: 14, color: 'var(--text3)' }}>No hay anuncios publicados todavía.</p>
         ) : (
           <div style={{ display: 'grid', gap: 16 }}>
             {announcements.map((a: any) => (

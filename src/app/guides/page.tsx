@@ -5,18 +5,28 @@ import AppNav from '@/components/layout/AppNav'
 import Link from 'next/link'
 import { articleDescription, ROLE_LABELS, topicLabel } from '@/lib/content'
 import { buildMetadata, readingTime } from '@/lib/seo'
+import GuideFilters from '@/components/content/GuideFilters'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Guias de Overwatch',
-  description: 'Guias, consejos y fundamentos de Overwatch por rol, heroe y mapa para mejorar tus partidas.',
+  title: 'Guías de Overwatch',
+  description: 'Guías, consejos y fundamentos de Overwatch por rol, héroe y mapa para mejorar tus partidas.',
   path: '/guides',
 })
 
 export default async function GuidesPage({
   searchParams,
 }: {
-  searchParams: { role?: string; hero?: string; map?: string; q?: string; sort?: string }
+  searchParams: { role?: string; hero?: string; map?: string; category?: string; q?: string; sort?: string }
 }) {
+  const filters = {
+    role: cleanParam(searchParams.role),
+    hero: cleanParam(searchParams.hero),
+    map: cleanParam(searchParams.map),
+    category: cleanParam(searchParams.category),
+    q: cleanParam(searchParams.q),
+    sort: cleanParam(searchParams.sort),
+  }
+
   const supabase = createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
@@ -27,30 +37,41 @@ export default async function GuidesPage({
   }
 
   const admin = createAdminClient()
+  const filterOptionsQuery = admin
+    .from('guides')
+    .select('category, role, hero, map')
+    .eq('published', true)
+
   let query = admin
     .from('guides')
     .select('*')
     .eq('published', true)
 
-  if (searchParams.role) query = query.eq('role', searchParams.role)
-  if (searchParams.hero) query = query.eq('hero', searchParams.hero)
-  if (searchParams.map) query = query.eq('map', searchParams.map)
-  if (searchParams.q) {
-    const term = searchParams.q.replace(/[%_,]/g, '').trim()
+  if (filters.role) query = query.eq('role', filters.role)
+  if (filters.hero) query = query.eq('hero', filters.hero)
+  if (filters.map) query = query.eq('map', filters.map)
+  if (filters.category) query = query.eq('category', filters.category)
+  if (filters.q) {
+    const term = filters.q.replace(/[%_,]/g, '').trim()
     if (term) query = query.or(`title.ilike.%${term}%,excerpt.ilike.%${term}%,body.ilike.%${term}%`)
   }
 
-  if (searchParams.sort === 'oldest') query = query.order('created_at', { ascending: true })
-  else if (searchParams.sort === 'title') query = query.order('title', { ascending: true })
+  if (filters.sort === 'oldest') query = query.order('created_at', { ascending: true })
+  else if (filters.sort === 'title') query = query.order('title', { ascending: true })
   else query = query.order('created_at', { ascending: false })
 
-  const { data: guides } = await query
-  const sortedGuides = searchParams.sort === 'read'
+  const [{ data: guides }, { data: filterOptions }] = await Promise.all([query, filterOptionsQuery])
+  const sortedGuides = filters.sort === 'read'
     ? [...(guides ?? [])].sort((a: any, b: any) => readingTime(a.body) - readingTime(b.body))
     : guides ?? []
 
   const categories = Array.from(new Set(sortedGuides.map((g: any) => g.category).filter(Boolean))) as string[]
-  const activeFilter = searchParams.role || searchParams.hero || searchParams.map || searchParams.q || searchParams.sort
+  const filterCategories = Array.from(new Set((filterOptions ?? []).map((g: any) => g.category).filter(Boolean)))
+    .sort()
+    .map(value => ({ value, label: value }))
+  const filterHeroes = Array.from(new Set((filterOptions ?? []).map((g: any) => g.hero).filter(Boolean)))
+    .sort()
+    .map(value => ({ value, label: topicLabel(value) }))
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
@@ -85,36 +106,30 @@ export default async function GuidesPage({
                 HEMEROTECA
               </div>
               <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 42, letterSpacing: 1, color: 'var(--text)', margin: '0 0 12px' }}>
-                GUIAS Y CONSEJOS
+                GUÍAS Y CONSEJOS
               </h1>
               <p style={{ fontSize: 14, color: 'var(--text2)', margin: 0, lineHeight: 1.6, maxWidth: 680 }}>
-                Filtra por rol, heroe o mapa y ordena los articulos para encontrar antes lo que necesitas revisar.
+                Filtra por rol, héroe o mapa y ordena los artículos para encontrar antes lo que necesitas revisar.
               </p>
             </div>
 
-            <form action="/guides" style={{ display: 'grid', gap: 10 }}>
-              <input name="q" defaultValue={searchParams.q || ''} placeholder="Buscar: aim, Ana, posicionamiento..." style={{ height: 38 }} />
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 112px', gap: 10 }}>
-                <select name="sort" defaultValue={searchParams.sort || 'latest'} style={{ height: 38 }}>
-                  <option value="latest">Recientes</option>
-                  <option value="oldest">Antiguas</option>
-                  <option value="title">Titulo A-Z</option>
-                  <option value="read">Lectura corta</option>
-                </select>
-                <button type="submit" className="btn btn-primary btn-sm" style={{ height: 38 }}>ORDENAR</button>
-              </div>
-            </form>
-          </div>
-
-          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 22, paddingTop: 18, borderTop: '1px solid var(--border)' }}>
-            <Filter href="/guides" label="Todas" accent={!activeFilter} />
-            <Filter href="/roles/tank" label="Tank" />
-            <Filter href="/roles/dps" label="DPS" />
-            <Filter href="/roles/support" label="Support" />
-            <Filter href="/heroes/ana" label="Ana" />
-            <Filter href="/heroes/tracer" label="Tracer" />
-            <Filter href="/maps/kings-row" label="King's Row" />
-            {activeFilter && <Filter href="/guides" label="Limpiar" accent />}
+            <GuideFilters
+              initial={{
+                q: filters.q,
+                sort: filters.sort,
+                role: filters.role,
+                hero: filters.hero,
+                category: filters.category,
+              }}
+              roles={[
+                { value: 'tank', label: 'Tank' },
+                { value: 'dps', label: 'DPS' },
+                { value: 'support', label: 'Support' },
+                { value: 'flex', label: 'Flex' },
+              ]}
+              heroes={filterHeroes}
+              categories={filterCategories}
+            />
           </div>
         </div>
 
@@ -164,33 +179,23 @@ export default async function GuidesPage({
   )
 }
 
-function Filter({ href, label, accent = false }: { href: string; label: string; accent?: boolean }) {
-  return (
-    <Link href={href} style={{
-      fontSize: 12,
-      color: accent ? 'var(--accent)' : 'var(--text2)',
-      background: 'var(--surface)',
-      border: `1px solid ${accent ? 'rgba(255,107,43,0.35)' : 'var(--border)'}`,
-      padding: '5px 12px',
-      textDecoration: 'none',
-    }}>
-      {label}
-    </Link>
-  )
+function cleanParam(value?: string) {
+  if (!value || value === 'all' || value === 'latest') return undefined
+  return value
 }
 
 function EmptyGuides() {
   return (
     <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '28px' }}>
       <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 22, letterSpacing: 1, marginBottom: 8 }}>
-        AUN NO HAY GUIAS PUBLICADAS
+        AÚN NO HAY GUÍAS PUBLICADAS
       </div>
       <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.6, margin: '0 0 20px' }}>
-        Mientras llenas la hemeroteca, estos accesos ya dejan clara la estructura que tendra el contenido.
+        Mientras llenas la hemeroteca, estos accesos ya dejan clara la estructura que tendrá el contenido.
       </p>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 10 }}>
         <EmptyLink href="/roles/support" title="Por rol" text="Tank, DPS y Support" />
-        <EmptyLink href="/heroes/ana" title="Por heroe" text="Counters, errores y consejos" />
+        <EmptyLink href="/heroes/ana" title="Por héroe" text="Counters, errores y consejos" />
         <EmptyLink href="/maps/kings-row" title="Por mapa" text="Setups, rutas y composiciones" />
       </div>
     </div>

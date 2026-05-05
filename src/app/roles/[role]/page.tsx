@@ -13,8 +13,8 @@ export function generateMetadata({ params }: { params: { role: string } }): Meta
   const role = assertRole(params.role)
   const label = ROLE_LABELS[role]
   return buildMetadata({
-    title: `Guias de ${label} en Overwatch`,
-    description: `Hemeroteca de ${label}: guias, noticias, fundamentos, posicionamiento, macro y expertos recomendados para mejorar en Overwatch.`,
+    title: `Guías de ${label} en Overwatch`,
+    description: `Hemeroteca de ${label}: guías, noticias, fundamentos, posicionamiento, macro y expertos recomendados para mejorar en Overwatch.`,
     path: `/roles/${role}`,
   })
 }
@@ -28,7 +28,7 @@ export default function RolePage({ params }: { params: { role: string } }) {
       kind="role"
       slug={role}
       title={`${label} en Overwatch`}
-      description={`Guias, noticias, fundamentos, errores comunes y expertos recomendados para jugadores de ${label}.`}
+      description={`Guías, noticias, fundamentos, errores comunes y expertos recomendados para jugadores de ${label}.`}
     />
   )
 }
