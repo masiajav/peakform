@@ -10,35 +10,69 @@ interface Guide {
   category: string | null
   published: boolean
   created_at: string
+  excerpt?: string | null
+  seo_title?: string | null
+  seo_description?: string | null
+  author?: string | null
   role?: string | null
   hero?: string | null
   map?: string | null
+  tags?: string[] | null
+  sponsor_title?: string | null
+  sponsor_body?: string | null
+  sponsor_url?: string | null
+  sponsor_cta?: string | null
 }
 
 function toSlug(str: string) {
   return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9\s-]/g, '').trim().replace(/\s+/g, '-')
 }
 
+const emptyForm = {
+  title: '',
+  slug: '',
+  body: '',
+  category: '',
+  excerpt: '',
+  seo_title: '',
+  seo_description: '',
+  author: '',
+  role: '',
+  hero: '',
+  map: '',
+  tags: '',
+  sponsor_title: '',
+  sponsor_body: '',
+  sponsor_url: '',
+  sponsor_cta: '',
+}
+
+function formFromGuide(item: Guide) {
+  return {
+    title: item.title || '',
+    slug: item.slug || '',
+    body: item.body || '',
+    category: item.category || '',
+    excerpt: item.excerpt || '',
+    seo_title: item.seo_title || '',
+    seo_description: item.seo_description || '',
+    author: item.author || '',
+    role: item.role || '',
+    hero: item.hero || '',
+    map: item.map || '',
+    tags: Array.isArray(item.tags) ? item.tags.join(', ') : '',
+    sponsor_title: item.sponsor_title || '',
+    sponsor_body: item.sponsor_body || '',
+    sponsor_url: item.sponsor_url || '',
+    sponsor_cta: item.sponsor_cta || '',
+  }
+}
+
 export default function GuideManager({ initialGuides }: { initialGuides: Guide[] }) {
   const [items, setItems] = useState(initialGuides)
-  const [form, setForm] = useState({
-    title: '',
-    slug: '',
-    body: '',
-    category: '',
-    excerpt: '',
-    seo_title: '',
-    seo_description: '',
-    author: '',
-    role: '',
-    hero: '',
-    map: '',
-    tags: '',
-    sponsor_title: '',
-    sponsor_body: '',
-    sponsor_url: '',
-    sponsor_cta: '',
-  })
+  const [form, setForm] = useState(emptyForm)
+  const [editingId, setEditingId] = useState<string | null>(null)
+  const [editForm, setEditForm] = useState(emptyForm)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -58,24 +92,34 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
     const data = await res.json()
     if (!res.ok) { setError(data.error); setSaving(false); return }
     setItems([data, ...items])
-    setForm({
-      title: '',
-      slug: '',
-      body: '',
-      category: '',
-      excerpt: '',
-      seo_title: '',
-      seo_description: '',
-      author: '',
-      role: '',
-      hero: '',
-      map: '',
-      tags: '',
-      sponsor_title: '',
-      sponsor_body: '',
-      sponsor_url: '',
-      sponsor_cta: '',
+    setForm(emptyForm)
+    setSaving(false)
+  }
+
+  function startEdit(item: Guide) {
+    setError(null)
+    setEditingId(item.id)
+    setEditForm(formFromGuide(item))
+  }
+
+  function cancelEdit() {
+    setEditingId(null)
+    setEditForm(emptyForm)
+  }
+
+  async function handleUpdate(e: React.FormEvent, id: string) {
+    e.preventDefault()
+    setSaving(true)
+    setError(null)
+    const res = await fetch(`/api/admin/guides/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(editForm),
     })
+    const data = await res.json()
+    if (!res.ok) { setError(data.error); setSaving(false); return }
+    setItems(items.map(i => i.id === id ? data : i))
+    cancelEdit()
     setSaving(false)
   }
 
@@ -164,7 +208,7 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {items.map(item => (
-            <div key={item.id} style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '16px 20px', display: 'flex', alignItems: 'flex-start', gap: 16 }}>
+            <div key={item.id} style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '16px 20px', display: 'flex', alignItems: 'flex-start', gap: 16, flexWrap: 'wrap' }}>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 4 }}>
                   <span style={{ fontSize: 14, color: 'var(--text)', fontWeight: 500 }}>{item.title}</span>
@@ -186,9 +230,52 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
               </div>
               <div style={{ display: 'flex', gap: 8, flexShrink: 0 }}>
                 <a href={`/guides/${item.slug}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: 'var(--text2)', background: 'transparent', border: '1px solid var(--border)', padding: '4px 10px', textDecoration: 'none', display: 'inline-block' }}>Ver</a>
+                <button onClick={() => startEdit(item)} className="btn btn-secondary btn-sm">Editar</button>
                 <button onClick={() => togglePublished(item)} className="btn btn-secondary btn-sm">{item.published ? 'Ocultar' : 'Publicar'}</button>
                 <button onClick={() => handleDelete(item.id)} style={{ fontSize: 12, color: 'var(--danger)', background: 'transparent', border: '1px solid rgba(255,68,68,0.3)', padding: '4px 10px', cursor: 'pointer' }}>Eliminar</button>
               </div>
+              {editingId === item.id && (
+                <form onSubmit={e => handleUpdate(e, item.id)} style={{ marginTop: 18, flexBasis: '100%', background: 'var(--surface2)', border: '1px solid var(--border2)', padding: 18, display: 'grid', gap: 14 }}>
+                  <div style={{ fontSize: 11, letterSpacing: 1.5, color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif' }}>EDITANDO GUIA</div>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+                    <Field label="TITULO *" value={editForm.title} onChange={v => setEditForm(prev => ({ ...prev, title: v }))} required />
+                    <Field label="SLUG *" value={editForm.slug} onChange={v => setEditForm(prev => ({ ...prev, slug: v }))} required />
+                  </div>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+                    <Field label="CATEGORIA" value={editForm.category} onChange={v => setEditForm(prev => ({ ...prev, category: v }))} />
+                    <Field label="AUTOR" value={editForm.author} onChange={v => setEditForm(prev => ({ ...prev, author: v }))} />
+                  </div>
+                  <Textarea label="EXTRACTO" value={editForm.excerpt} onChange={v => setEditForm(prev => ({ ...prev, excerpt: v }))} rows={2} />
+                  <Field label="SEO TITLE" value={editForm.seo_title} onChange={v => setEditForm(prev => ({ ...prev, seo_title: v }))} />
+                  <Field label="SEO DESCRIPTION" value={editForm.seo_description} onChange={v => setEditForm(prev => ({ ...prev, seo_description: v }))} />
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }}>
+                    <div>
+                      <div style={{ fontSize: 11, color: 'var(--text3)', marginBottom: 6 }}>ROL</div>
+                      <select value={editForm.role} onChange={e => setEditForm(prev => ({ ...prev, role: e.target.value }))}>
+                        <option value="">Sin rol</option>
+                        <option value="tank">Tank</option>
+                        <option value="dps">DPS</option>
+                        <option value="support">Support</option>
+                        <option value="flex">Flex</option>
+                      </select>
+                    </div>
+                    <Field label="HEROE" value={editForm.hero} onChange={v => setEditForm(prev => ({ ...prev, hero: v }))} />
+                    <Field label="MAPA" value={editForm.map} onChange={v => setEditForm(prev => ({ ...prev, map: v }))} />
+                    <Field label="TAGS" value={editForm.tags} onChange={v => setEditForm(prev => ({ ...prev, tags: v }))} />
+                  </div>
+                  <Textarea label="CONTENIDO MARKDOWN *" value={editForm.body} onChange={v => setEditForm(prev => ({ ...prev, body: v }))} rows={10} required monospace />
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+                    <Field label="PATROCINIO TITULO" value={editForm.sponsor_title} onChange={v => setEditForm(prev => ({ ...prev, sponsor_title: v }))} />
+                    <Field label="PATROCINIO CTA" value={editForm.sponsor_cta} onChange={v => setEditForm(prev => ({ ...prev, sponsor_cta: v }))} />
+                    <Field label="PATROCINIO URL" value={editForm.sponsor_url} onChange={v => setEditForm(prev => ({ ...prev, sponsor_url: v }))} />
+                    <Field label="PATROCINIO TEXTO" value={editForm.sponsor_body} onChange={v => setEditForm(prev => ({ ...prev, sponsor_body: v }))} />
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 8 }}>
+                    <button type="button" onClick={cancelEdit} className="btn btn-secondary btn-sm">Cancelar</button>
+                    <button type="submit" disabled={saving} className="btn btn-primary btn-sm">{saving ? 'GUARDANDO...' : 'Guardar cambios'}</button>
+                  </div>
+                </form>
+              )}
             </div>
           ))}
         </div>
