@@ -13,6 +13,9 @@ Ya implementado en el repo:
 - Canonicales absolutos con `NEXT_PUBLIC_SITE_URL`.
 - Sitemap dinamico en `src/app/sitemap.ts`.
 - Robots en `src/app/robots.ts`.
+- Iconos, manifest y OG image en `public/`.
+- JSON-LD global de `Organization` y `WebSite`.
+- `SearchAction` global apuntando a `/guides?q=...`.
 - JSON-LD en articulos y perfiles mediante `src/components/content/JsonLd.tsx`.
 - Rutas publicas indexables para:
   - `/guides`
@@ -26,6 +29,9 @@ Ya implementado en el repo:
   - `/experts`
   - `/experts/[id]`
 - Gestion admin de guias, noticias y patch notes en `/admin/content`.
+- Busqueda y filtros en `/guides` por texto, rol, heroe, categoria y orden.
+- Paginas topic con guia rapida, enlaces internos, articulos relacionados, noticias, CTA a expertos, espacio patrocinado y FAQs con JSON-LD.
+- Home hibrida: propuesta de coaching + entrada a la hemeroteca y clusters SEO.
 - Campos SEO y monetizacion en `guides` y `announcements`.
 - Seed inicial de guias de Overwatch en `supabase/migrations/20260505_zz_seed_initial_overwatch_guides.sql`.
 
@@ -36,16 +42,15 @@ Ya implementado en el repo:
    - Revisar landing, navegacion, login, expertos, pedidos, emails, legal y formularios.
    - Mantener encoding UTF-8 real en los archivos modificados.
 
-2. Completar SEO tecnico global
-   - Anadir JSON-LD global de `Organization` y `WebSite`.
-   - Incluir `SearchAction` si se implementa busqueda real.
-   - Anadir favicon, iconos y OG image real en `public/`.
+2. Validar SEO tecnico global
    - Verificar `robots.txt` y `sitemap.xml` contra URLs de produccion.
+   - Validar JSON-LD global, articulos, breadcrumbs, FAQs y perfiles con herramientas de Google.
+   - Confirmar que `NEXT_PUBLIC_SITE_URL` apunta al dominio final antes de deploy.
 
-3. Fortalecer paginas topic
-   - Heroes, roles y mapas deben aportar contenido util aunque no haya articulos relacionados.
-   - Cada pagina debe tener H1 unico, intro, enlaces internos, articulos relacionados y CTA contextual.
-   - Anadir FAQs cuando el tema tenga busquedas recurrentes.
+3. Refinar paginas topic
+   - Completar contenido unico especifico para los heroes/mapas prioritarios, no solo plantillas genericas.
+   - Anadir mas enlaces internos segun crezca el inventario de guias.
+   - Revisar que FAQs y copy no compitan entre paginas demasiado parecidas.
 
 4. Mejorar rendimiento de paginas publicas
    - Revisar uso de imagenes y migrar a `next/image` cuando aplique.
@@ -58,42 +63,19 @@ Ya implementado en el repo:
    - Priorizar clusters: heroes, roles, mapas, counters, composiciones, patch notes, tier lists y VOD review.
    - Cada articulo debe definir keyword principal, intencion, autor, fecha, enlaces internos y CTA.
 
-## Recomendacion Para La Home / Landing
+## Home / Landing Implementada
 
-La home no debe ser estrictamente una landing de contratacion ni una portada generica de blog. Para maximizar trafico organico sin perder claridad comercial, usar una home hibrida:
+La home ya sigue el enfoque hibrido recomendado: no es estrictamente una landing de contratacion ni una portada generica de blog. Combina propuesta comercial, entrada a la hemeroteca y enlaces a clusters SEO.
 
-- Primer pantallazo enfocado en la propuesta principal: coaching y analisis de replays de Overwatch en espanol.
-- Despues del hero, presentar Replaid Lab como portal/hemeroteca de Overwatch para hispanohablantes.
-- Peso recomendado: 60% autoridad editorial/portal Overwatch y 40% contratacion de expertos.
-- La home debe distribuir autoridad hacia las paginas que realmente captaran trafico: heroes, roles, mapas, counters, tier lists, patch notes y guias.
+Debe mantenerse este equilibrio:
+
+- Primer pantallazo enfocado en coaching y analisis de replays de Overwatch en espanol.
+- Seccion de hemeroteca para guias, heroes, roles, mapas, meta y patch notes.
+- Peso aproximado: 60% autoridad editorial/portal Overwatch y 40% contratacion de expertos.
+- La home debe distribuir autoridad hacia paginas que captaran trafico: heroes, roles, mapas, counters, tier lists, patch notes y guias.
 - La contratacion debe aparecer como siguiente paso natural: "cuando una guia no basta, sube tu replay y recibe feedback personalizado".
 
-Estructura recomendada para la home:
-
-1. Hero comercial claro
-   - H1 sugerido: "Coaching y analisis de replays de Overwatch en espanol".
-   - CTA principal: ver expertos / subir replay.
-   - CTA secundario: explorar guias.
-
-2. Busqueda o entrada a la hemeroteca
-   - Accesos a guias, heroes, roles, mapas, meta y patch notes.
-   - Si se implementa buscador interno, hacerlo visible pronto.
-
-3. Clusters SEO destacados
-   - Guias por rol.
-   - Guias por heroe.
-   - Mapas.
-   - Tier lists / meta.
-   - Counters.
-   - Noticias y patch notes.
-
-4. Puente hacia contratacion
-   - Explicar que las guias ayudan a entender el juego, pero un experto analiza errores concretos del replay del usuario.
-   - Enlazar a expertos filtrados por rol cuando sea posible.
-
-5. Expertos destacados y prueba social
-   - Mostrar expertos activos, rango, rol, valoraciones y precio desde.
-   - Mantener copy orientado a confianza: jugadores verificados, feedback humano, entrega clara.
+Siguiente mejora recomendada: conectar el buscador de `/guides` desde la home si se decide hacerlo visible en primer nivel.
 
 ## Criterios De Aceptacion
 

@@ -9,6 +9,8 @@ Marketplace y hemeroteca SEO de Overwatch para el publico hispanohablante. La ap
 - Stripe Checkout + Stripe Connect para cobrar al jugador y transferir al experto con comision de plataforma.
 - Resend para emails transaccionales.
 - Biblioteca editorial con guias, noticias, patch notes, paginas por heroe, rol y mapa.
+- Home hibrida: propuesta comercial de coaching + entradas a la hemeroteca.
+- SEO tecnico con canonicales, sitemap, robots, JSON-LD global, iconos, manifest y OG image.
 - Paneles protegidos para usuario, experto y admin.
 - Gestion admin de expertos, pedidos, guias y anuncios.
 
@@ -65,6 +67,24 @@ npm run build    # build de produccion
 npm run start    # servir el build
 npm run lint     # lint de Next.js
 ```
+
+## Vercel
+
+El repo incluye `vercel.json` con un `ignoreCommand` que ejecuta `scripts/vercel-ignore-build.mjs`.
+
+Vercel cancelara el build cuando el diff solo toque documentacion o archivos de ejemplo:
+
+- `README.md`
+- `SEO_IMPLEMENTATION_PLAN.md`
+- `CHANGELOG.md`
+- `CONTRIBUTING.md`
+- `LICENSE`
+- `.env.example`
+- `docs/**`
+
+Si cambia cualquier archivo de aplicacion, configuracion de build, dependencias, assets publicos, migraciones o el propio script de Vercel, el build continuara. El primer push que introduce `vercel.json` tambien deberia construir porque cambia configuracion de despliegue.
+
+Nota: Vercel puede seguir creando una entrada de deployment en estado `CANCELED`; lo que se evita es el build/deploy de la aplicacion cuando el cambio es solo documental.
 
 ## Supabase
 
@@ -133,6 +153,7 @@ Publicas:
 - `/experts`: listado de expertos activos.
 - `/experts/[id]`: perfil de experto y selector de tiers.
 - `/guides`, `/guides/[slug]`: guias SEO.
+- `/guides?q=...`: busqueda y filtros por rol, heroe, categoria y orden.
 - `/news`, `/news/[slug]`: noticias.
 - `/patch-notes/[slug]`: patch notes.
 - `/heroes/[hero]`, `/roles/[role]`, `/maps/[map]`: archivos por topic.
@@ -160,9 +181,11 @@ La capa SEO vive principalmente en:
 
 - `src/lib/seo.ts`: nombre de sitio, URL base, canonicales, Open Graph y helpers.
 - `src/lib/content.ts`: tipos editoriales, slugs, labels, excerpts y rutas.
+- `src/app/layout.tsx`: metadata global, iconos, manifest, Open Graph, `Organization`, `WebSite` y `SearchAction`.
 - `src/app/sitemap.ts`: sitemap dinamico para paginas publicas.
 - `src/app/robots.ts`: reglas para crawlers.
 - `src/components/content/*`: render de articulos, JSON-LD, CTAs, filtros y bloques patrocinados.
+- `public/favicon.svg`, `public/icon.svg`, `public/apple-icon.svg`, `public/og-image.svg` y `public/site.webmanifest`: assets de marca/SEO.
 
 Las tablas `guides` y `announcements` soportan:
 
@@ -170,6 +193,8 @@ Las tablas `guides` y `announcements` soportan:
 - Topic fields: `hero`, `role`, `map`, `tags`.
 - `content_type`: `guide`, `news` o `patch_note`.
 - Campos patrocinados: `sponsor_label`, `sponsor_title`, `sponsor_body`, `sponsor_url`, `sponsor_cta`.
+
+Las paginas topic (`/heroes/[hero]`, `/roles/[role]`, `/maps/[map]`) renderizan una guia rapida, articulos relacionados, noticias/patch notes, FAQs con JSON-LD, enlaces internos, CTA a expertos y espacio patrocinado etiquetado.
 
 ## Flujo De Usuario
 
@@ -229,6 +254,13 @@ npm run build
 Tambien conviene probar manualmente:
 
 - `/`, `/experts`, `/guides`, una guia y un perfil de experto.
+- Busqueda y filtros en `/guides`.
+- Una pagina topic, por ejemplo `/heroes/ana`, `/roles/support` o `/maps/kings-row`.
 - Login y redireccion de rutas protegidas.
 - Checkout local con Stripe CLI escuchando el webhook.
 - Creacion/edicion de contenido desde `/admin/content`.
+
+## Pendientes Conocidos
+
+- Hay textos con mojibake visible en algunos archivos (`GuÃ...`, `Â`, `â...`). Esta deuda esta descrita en `SEO_IMPLEMENTATION_PLAN.md`.
+- Queda pendiente validar JSON-LD con herramientas externas y medir Core Web Vitals en entorno real.
