@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import AppNav from '@/components/layout/AppNav'
 import Link from 'next/link'
 import JsonLd from '@/components/content/JsonLd'
+import AdSlot from '@/components/content/AdSlot'
 import SponsoredBlock from '@/components/content/SponsoredBlock'
 import ArticleCta from '@/components/content/ArticleCta'
 import GuideMarkdown from '@/components/content/GuideMarkdown'
@@ -150,7 +151,8 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
         </nav>
       )}
 
-      <article style={{ maxWidth: 760, margin: '0 auto', padding: '64px 24px 80px' }}>
+      <div className="guide-detail-layout">
+      <article className="guide-detail-main">
         <div style={{ fontSize: 12, color: 'var(--text3)', marginBottom: 32, display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
           <Link href="/guides" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Guías</Link>
           <span>›</span>
@@ -184,6 +186,8 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
           </section>
         )}
 
+        <AdSlot variant="inline" slot="guide-after-summary" />
+
         {guide.video_id && (
           <GuideVideo
             videoId={guide.video_id}
@@ -193,6 +197,8 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
             url={guide.video_url}
           />
         )}
+
+        <AdSlot variant="inline" slot="guide-after-video" />
 
         <GuideMarkdown>{guide.body}</GuideMarkdown>
 
@@ -240,6 +246,10 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
           </section>
         )}
       </article>
+      <aside className="guide-detail-sidebar">
+        <AdSlot variant="sidebar" slot="guide-sidebar-rectangle" />
+      </aside>
+      </div>
     </div>
   )
 }

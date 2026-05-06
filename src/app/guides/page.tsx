@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
+import { Fragment } from 'react'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { createClient } from '@/lib/supabase/server'
 import AppNav from '@/components/layout/AppNav'
 import Link from 'next/link'
+import AdSlot from '@/components/content/AdSlot'
 import { articleDescription, ROLE_LABELS, topicLabel } from '@/lib/content'
 import { buildMetadata, readingTime } from '@/lib/seo'
 import GuideFilters from '@/components/content/GuideFilters'
@@ -72,7 +74,6 @@ export default async function GuidesPage({
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
-      <CriticalGuidesStyles />
       {user ? (
         <AppNav role={profile?.role ?? 'user'} displayName={profile?.display_name || user.email} avatarUrl={profile?.avatar_url} />
       ) : (
@@ -131,6 +132,8 @@ export default async function GuidesPage({
           </div>
         </div>
 
+        <AdSlot variant="leaderboard" slot="guides-top-leaderboard" />
+
         {categories.length > 0 && (
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 32 }}>
             {categories.map(cat => (
@@ -148,201 +151,42 @@ export default async function GuidesPage({
           <EmptyGuides />
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
-            {sortedGuides.map((g: any) => (
-              <Link key={g.id} href={`/guides/${g.slug}`} style={{ textDecoration: 'none' }}>
-                <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '22px 24px', height: '100%' }}>
-                  <div style={{ display: 'flex', gap: 7, flexWrap: 'wrap', marginBottom: 10 }}>
-                    {g.video_id && <Tag label="Video" accent />}
-                    {g.category && <Tag label={g.category} accent />}
-                    {g.role && <Tag label={ROLE_LABELS[g.role as keyof typeof ROLE_LABELS] || g.role} />}
-                    {g.hero && <Tag label={topicLabel(g.hero)} />}
-                    {g.map && <Tag label={topicLabel(g.map)} />}
-                  </div>
-                  <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 20, letterSpacing: 0.5, color: 'var(--text)', margin: '0 0 10px', lineHeight: 1.2 }}>
-                    {g.title}
-                  </h2>
-                  <p style={{ fontSize: 13, color: 'var(--text2)', margin: '0 0 16px', lineHeight: 1.5 }}>
-                    {articleDescription(g)}
-                  </p>
-                  <div style={{ fontSize: 11, color: 'var(--text3)', display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-                    <span>{new Date(g.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
-                    <span>{g.video_id ? `video${g.video_channel ? ` de ${g.video_channel}` : ''}` : `${readingTime(g.body)} min de lectura`}</span>
-                  </div>
-                </article>
-              </Link>
+            {sortedGuides.map((g: any, index: number) => (
+              <Fragment key={g.id}>
+                {index > 0 && index % 9 === 0 && (
+                  <AdSlot
+                    variant="inline"
+                    slot={`guides-grid-${index}`}
+                    style={{ gridColumn: '1 / -1', margin: 0 }}
+                  />
+                )}
+                <Link href={`/guides/${g.slug}`} style={{ textDecoration: 'none' }}>
+                  <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '22px 24px', height: '100%' }}>
+                    <div style={{ display: 'flex', gap: 7, flexWrap: 'wrap', marginBottom: 10 }}>
+                      {g.video_id && <Tag label="Video" accent />}
+                      {g.category && <Tag label={g.category} accent />}
+                      {g.role && <Tag label={ROLE_LABELS[g.role as keyof typeof ROLE_LABELS] || g.role} />}
+                      {g.hero && <Tag label={topicLabel(g.hero)} />}
+                      {g.map && <Tag label={topicLabel(g.map)} />}
+                    </div>
+                    <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 20, letterSpacing: 0.5, color: 'var(--text)', margin: '0 0 10px', lineHeight: 1.2 }}>
+                      {g.title}
+                    </h2>
+                    <p style={{ fontSize: 13, color: 'var(--text2)', margin: '0 0 16px', lineHeight: 1.5 }}>
+                      {articleDescription(g)}
+                    </p>
+                    <div style={{ fontSize: 11, color: 'var(--text3)', display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                      <span>{new Date(g.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
+                      <span>{g.video_id ? `video${g.video_channel ? ` de ${g.video_channel}` : ''}` : `${readingTime(g.body)} min de lectura`}</span>
+                    </div>
+                  </article>
+                </Link>
+              </Fragment>
             ))}
           </div>
         )}
       </section>
     </div>
-  )
-}
-
-function CriticalGuidesStyles() {
-  return (
-    <style>{`
-      :root {
-        --bg: #0a0a0a;
-        --surface: #141414;
-        --surface2: #1c1c1c;
-        --surface3: #242424;
-        --border: #242424;
-        --border2: #303030;
-        --border3: #3c3c3c;
-        --text: #f0efe8;
-        --text2: #7a7a7a;
-        --text3: #404040;
-        --accent: #ff6b2b;
-        --accent-hov: #ff8347;
-      }
-
-      html,
-      body {
-        background: var(--bg);
-        color: var(--text);
-      }
-
-      body {
-        margin: 0;
-        font-family: 'DM Sans', Arial, sans-serif;
-      }
-
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        border-radius: 0 !important;
-      }
-
-      .font-bebas,
-      .btn,
-      .guide-filter-field span {
-        font-family: 'Bebas Neue', Impact, sans-serif;
-      }
-
-      .btn {
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border: none;
-        text-decoration: none;
-        white-space: nowrap;
-        letter-spacing: 1.2px;
-      }
-
-      .btn-primary {
-        background: var(--accent);
-        color: #0a0a0a;
-      }
-
-      .btn-primary:hover {
-        background: var(--accent-hov);
-      }
-
-      .btn-sm {
-        min-height: 30px;
-        padding: 0 14px;
-        font-size: 13px;
-      }
-
-      .guide-filter-panel {
-        background: var(--surface2);
-        border: 1px solid var(--border2);
-        padding: 16px;
-      }
-
-      .guide-filter-search {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        gap: 10px;
-        margin-bottom: 12px;
-      }
-
-      .guide-filter-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 10px;
-      }
-
-      .guide-filter-field {
-        display: grid;
-        gap: 6px;
-      }
-
-      .guide-filter-field span {
-        color: var(--text3);
-        font-size: 11px;
-        letter-spacing: 1.4px;
-        text-transform: uppercase;
-      }
-
-      .guide-filter-panel input,
-      .guide-filter-panel select {
-        appearance: auto;
-        background: var(--surface);
-        border: 1px solid var(--border2);
-        color: var(--text);
-        font-family: 'DM Sans', Arial, sans-serif;
-        font-size: 14px;
-        height: 38px;
-        min-width: 0;
-        padding: 0 12px;
-        width: 100%;
-      }
-
-      .guide-filter-panel input:focus,
-      .guide-filter-panel select:focus {
-        border-color: var(--accent);
-        outline: none;
-      }
-
-      .guide-filter-panel button {
-        height: 38px;
-      }
-
-      .guide-filter-footer {
-        align-items: center;
-        border-top: 1px solid var(--border);
-        color: var(--text3);
-        display: flex;
-        font-size: 12px;
-        gap: 12px;
-        justify-content: space-between;
-        margin-top: 12px;
-        padding-top: 12px;
-      }
-
-      .guide-filter-clear {
-        color: var(--accent);
-        font-size: 12px;
-        text-decoration: none;
-      }
-
-      .expert-card {
-        transition: border-color 0.15s;
-      }
-
-      .expert-card:hover {
-        border-color: var(--border3) !important;
-      }
-
-      @media (max-width: 639px) {
-        .hide-mobile {
-          display: none !important;
-        }
-
-        .guide-filter-search,
-        .guide-filter-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .guide-filter-footer {
-          align-items: flex-start;
-          flex-direction: column;
-        }
-      }
-    `}</style>
   )
 }
 

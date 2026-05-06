@@ -97,7 +97,7 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
     url: absoluteUrl(`/experts/${expert.slug || expert.id}`),
     image: expert.avatar_url ? absoluteUrl(expert.avatar_url) : undefined,
     description: expert.bio || `Experto de Overwatch especializado en ${ROLE_LABELS[expert.main_role] ?? expert.main_role}.`,
-    knowsAbout: ['Overwatch 2', ROLE_LABELS[expert.main_role] ?? expert.main_role, ...(expert.specialties || [])],
+    knowsAbout: ['Overwatch', ROLE_LABELS[expert.main_role] ?? expert.main_role, ...(expert.specialties || [])],
     aggregateRating: expert.total_reviews > 0 ? {
       '@type': 'AggregateRating',
       ratingValue: Number(expert.avg_rating).toFixed(1),

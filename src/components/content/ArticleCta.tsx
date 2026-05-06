@@ -9,10 +9,10 @@ export default function ArticleCta({
   hero?: string | null
 }) {
   const copy = role
-    ? `Encuentra expertos de ${ROLE_LABELS[role]} que puedan revisar tus errores en partida.`
+    ? `¿Quieres que un experto de ${ROLE_LABELS[role]} revise tus errores y te diga qué corregir en tu próxima partida?`
     : hero
-      ? `Convierte estos conceptos de ${hero} en un plan de mejora con una review personalizada.`
-      : 'Aplica estos consejos con una review personalizada de tu replay.'
+      ? `¿Quieres que un experto revise tus errores con ${hero} y los convierta en un plan de mejora?`
+      : '¿Quieres que un experto revise tu replay y te diga qué corregir primero?'
 
   return (
     <div style={{

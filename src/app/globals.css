@@ -56,6 +56,45 @@ html, body {
   border-color: var(--border3) !important;
 }
 
+.eyebrow {
+  color: var(--accent);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.quick-link,
+.role-link {
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  display: block;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.quick-link:hover,
+.role-link:hover {
+  border-color: var(--border3);
+}
+
+.role-link span {
+  display: block;
+  font-size: 18px;
+}
+
+.role-link small {
+  color: var(--text3);
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0;
+  margin-top: 4px;
+}
+
 /* Focus visible accesible */
 *:focus-visible {
   outline: 2px solid var(--accent);
@@ -216,6 +255,64 @@ textarea {
   text-decoration: underline;
 }
 
+.ad-slot {
+  background: linear-gradient(180deg, rgba(255,107,43,0.035), rgba(255,107,43,0.015));
+  border: 1px solid var(--border);
+  color: var(--text3);
+  display: grid;
+  place-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.ad-slot-label {
+  color: var(--text3);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 10px;
+  left: 12px;
+  letter-spacing: 1.5px;
+  position: absolute;
+  top: 8px;
+}
+
+.ad-slot-placeholder {
+  color: var(--text3);
+  font-size: 12px;
+}
+
+.ad-slot-leaderboard {
+  margin: 28px auto;
+  max-width: 970px;
+}
+
+.ad-slot-inline {
+  margin: 32px 0;
+}
+
+.ad-slot-sidebar {
+  margin: 0;
+}
+
+.guide-detail-layout {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(0, 760px) 300px;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1120px;
+  padding: 64px 24px 80px;
+}
+
+.guide-detail-main {
+  min-width: 0;
+}
+
+.guide-detail-sidebar {
+  display: block;
+  position: sticky;
+  top: 76px;
+}
+
 .guide-filter-panel {
   background: var(--surface2);
   border: 1px solid var(--border2);
@@ -280,7 +377,25 @@ textarea {
 }
 
 @media (max-width: 860px) {
+  .home-hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+
   .topic-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .guide-detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-detail-sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .home-search {
     grid-template-columns: 1fr !important;
   }
 }

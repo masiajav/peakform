@@ -57,7 +57,7 @@ export default function LegalPage() {
 
         <Section title="1. Objeto y partes">
           <p>
-            Replaid Lab es un marketplace que conecta jugadores de Overwatch 2 («Usuarios») con analistas especializados («Expertos») para la revisión de replays de juego. El servicio es operado por Replaid Lab («nosotros», «la plataforma»).
+            Replaid Lab es un marketplace que conecta jugadores de Overwatch («Usuarios») con analistas especializados («Expertos») para la revisión de replays de juego. El servicio es operado por Replaid Lab («nosotros», «la plataforma»).
           </p>
           <p>
             El acceso y uso de la plataforma implica la aceptación íntegra de los presentes Términos y Condiciones. Si no estás de acuerdo con alguno de ellos, debes abstenerte de utilizar el servicio.
