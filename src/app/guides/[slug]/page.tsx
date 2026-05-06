@@ -8,6 +8,7 @@ import JsonLd from '@/components/content/JsonLd'
 import SponsoredBlock from '@/components/content/SponsoredBlock'
 import ArticleCta from '@/components/content/ArticleCta'
 import GuideMarkdown from '@/components/content/GuideMarkdown'
+import GuideVideo from '@/components/content/GuideVideo'
 import { articleDescription, guidePath, ROLE_LABELS, topicLabel, type GuideContent } from '@/lib/content'
 import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
 import { formatPrice } from '@/types'
@@ -100,6 +101,22 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
     mainEntityOfPage: absoluteUrl(guidePath(guide.slug)),
   }
 
+  const videoJsonLd = guide.video_id ? {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: guide.video_title || guide.title,
+    description: guide.video_summary || description,
+    thumbnailUrl: [`https://i.ytimg.com/vi/${guide.video_id}/hqdefault.jpg`],
+    uploadDate: guide.video_published_at || publishedDate,
+    embedUrl: `https://www.youtube-nocookie.com/embed/${guide.video_id}`,
+    contentUrl: guide.video_url || `https://www.youtube.com/watch?v=${guide.video_id}`,
+    inLanguage: guide.video_language || 'es',
+    publisher: {
+      '@type': 'Organization',
+      name: guide.video_channel || author,
+    },
+  } : null
+
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -112,6 +129,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <JsonLd data={articleJsonLd} />
+      {videoJsonLd && <JsonLd data={videoJsonLd} />}
       <JsonLd data={breadcrumbJsonLd} />
 
       {user ? (
@@ -154,10 +172,27 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
           </p>
           <div style={{ fontSize: 12, color: 'var(--text3)', display: 'flex', gap: 16, flexWrap: 'wrap' }}>
             <span>{new Date(guide.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
-            <span>{readMinutes} min de lectura</span>
+            <span>{guide.video_id ? 'guia en video' : `${readMinutes} min de lectura`}</span>
             <span>{author}</span>
           </div>
         </header>
+
+        {guide.video_id && guide.video_summary && (
+          <section className="guide-video-summary">
+            <div>RESUMEN RAPIDO</div>
+            <p>{guide.video_summary}</p>
+          </section>
+        )}
+
+        {guide.video_id && (
+          <GuideVideo
+            videoId={guide.video_id}
+            title={guide.video_title || guide.title}
+            channel={guide.video_channel}
+            language={guide.video_language}
+            url={guide.video_url}
+          />
+        )}
 
         <GuideMarkdown>{guide.body}</GuideMarkdown>
 

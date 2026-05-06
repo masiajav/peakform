@@ -27,6 +27,14 @@ export interface GuideContent extends SponsoredFields {
   tags?: string[] | null
   cover_image?: string | null
   content_type?: ContentType | string | null
+  video_url?: string | null
+  video_platform?: string | null
+  video_id?: string | null
+  video_title?: string | null
+  video_channel?: string | null
+  video_language?: string | null
+  video_published_at?: string | null
+  video_summary?: string | null
   published?: boolean
   created_at: string
   updated_at?: string | null

@@ -33,6 +33,14 @@ function contentPayload(body: any) {
     sponsor_body: body.sponsor_body?.trim() || null,
     sponsor_url: body.sponsor_url?.trim() || null,
     sponsor_cta: body.sponsor_cta?.trim() || null,
+    video_url: body.video_url?.trim() || null,
+    video_platform: body.video_platform?.trim() || null,
+    video_id: body.video_id?.trim() || null,
+    video_title: body.video_title?.trim() || null,
+    video_channel: body.video_channel?.trim() || null,
+    video_language: body.video_language?.trim() || null,
+    video_published_at: body.video_published_at?.trim() || null,
+    video_summary: body.video_summary?.trim() || null,
   }
 }
 

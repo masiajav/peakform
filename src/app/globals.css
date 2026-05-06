@@ -156,6 +156,66 @@ textarea {
 .guide-body a:hover { text-decoration: underline; }
 .guide-body hr { border: none; border-top: 1px solid var(--border); margin: 2em 0; }
 
+.guide-video-summary {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 18px 20px;
+  margin: 0 0 18px;
+}
+.guide-video-summary div {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1.6px;
+  color: var(--accent);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.guide-video-summary p {
+  color: var(--text2);
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 0;
+}
+.guide-video {
+  margin: 0 0 34px;
+}
+.guide-video-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.guide-video-meta span {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1.4px;
+  color: var(--text3);
+  font-size: 11px;
+}
+.guide-video-meta span:first-child {
+  color: var(--accent);
+}
+.guide-video-frame {
+  background: #000;
+  border: 1px solid var(--border2);
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+.guide-video-frame iframe {
+  border: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.guide-video-source {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 12px;
+  margin-top: 10px;
+  text-decoration: none;
+}
+.guide-video-source:hover {
+  text-decoration: underline;
+}
+
 .guide-filter-panel {
   background: var(--surface2);
   border: 1px solid var(--border2);

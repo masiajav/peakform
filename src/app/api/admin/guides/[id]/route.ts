@@ -29,6 +29,14 @@ function updatePayload(body: any) {
     'sponsor_body',
     'sponsor_url',
     'sponsor_cta',
+    'video_url',
+    'video_platform',
+    'video_id',
+    'video_title',
+    'video_channel',
+    'video_language',
+    'video_published_at',
+    'video_summary',
   ]) {
     if (key in body) {
       const value = body[key]

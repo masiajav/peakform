@@ -22,6 +22,14 @@ interface Guide {
   sponsor_body?: string | null
   sponsor_url?: string | null
   sponsor_cta?: string | null
+  video_url?: string | null
+  video_platform?: string | null
+  video_id?: string | null
+  video_title?: string | null
+  video_channel?: string | null
+  video_language?: string | null
+  video_published_at?: string | null
+  video_summary?: string | null
 }
 
 function toSlug(str: string) {
@@ -45,6 +53,14 @@ const emptyForm = {
   sponsor_body: '',
   sponsor_url: '',
   sponsor_cta: '',
+  video_url: '',
+  video_platform: '',
+  video_id: '',
+  video_title: '',
+  video_channel: '',
+  video_language: '',
+  video_published_at: '',
+  video_summary: '',
 }
 
 function formFromGuide(item: Guide) {
@@ -65,6 +81,14 @@ function formFromGuide(item: Guide) {
     sponsor_body: item.sponsor_body || '',
     sponsor_url: item.sponsor_url || '',
     sponsor_cta: item.sponsor_cta || '',
+    video_url: item.video_url || '',
+    video_platform: item.video_platform || '',
+    video_id: item.video_id || '',
+    video_title: item.video_title || '',
+    video_channel: item.video_channel || '',
+    video_language: item.video_language || '',
+    video_published_at: item.video_published_at || '',
+    video_summary: item.video_summary || '',
   }
 }
 
@@ -190,6 +214,17 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
         <Textarea label="CONTENIDO MARKDOWN *" value={form.body} onChange={v => setField('body', v)} placeholder={'# Titulo\n\nEscribe tu guia en Markdown...'} rows={10} required monospace />
 
         <div style={{ borderTop: '1px solid var(--border)', paddingTop: 14, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+          <Field label="VIDEO URL" value={form.video_url} onChange={v => setField('video_url', v)} placeholder="https://www.youtube.com/watch?v=..." />
+          <Field label="VIDEO ID" value={form.video_id} onChange={v => setField('video_id', v)} placeholder="esfNxqdpGuE" />
+          <Field label="VIDEO TITULO" value={form.video_title} onChange={v => setField('video_title', v)} placeholder="Titulo del video original" />
+          <Field label="CANAL" value={form.video_channel} onChange={v => setField('video_channel', v)} placeholder="Ivajpro" />
+          <Field label="IDIOMA" value={form.video_language} onChange={v => setField('video_language', v)} placeholder="es" />
+          <Field label="PUBLICADO" value={form.video_published_at} onChange={v => setField('video_published_at', v)} placeholder="2022-10-28" />
+          <Field label="PLATAFORMA" value={form.video_platform} onChange={v => setField('video_platform', v)} placeholder="youtube" />
+          <Field label="RESUMEN VIDEO" value={form.video_summary} onChange={v => setField('video_summary', v)} placeholder="Resumen breve que aparece encima del embed" />
+        </div>
+
+        <div style={{ borderTop: '1px solid var(--border)', paddingTop: 14, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
           <Field label="PATROCINIO TITULO" value={form.sponsor_title} onChange={v => setField('sponsor_title', v)} placeholder="Recurso recomendado" />
           <Field label="PATROCINIO CTA" value={form.sponsor_cta} onChange={v => setField('sponsor_cta', v)} placeholder="Ver recurso" />
           <Field label="PATROCINIO URL" value={form.sponsor_url} onChange={v => setField('sponsor_url', v)} placeholder="https://..." />
@@ -264,6 +299,16 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
                     <Field label="TAGS" value={editForm.tags} onChange={v => setEditForm(prev => ({ ...prev, tags: v }))} />
                   </div>
                   <Textarea label="CONTENIDO MARKDOWN *" value={editForm.body} onChange={v => setEditForm(prev => ({ ...prev, body: v }))} rows={10} required monospace />
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+                    <Field label="VIDEO URL" value={editForm.video_url} onChange={v => setEditForm(prev => ({ ...prev, video_url: v }))} />
+                    <Field label="VIDEO ID" value={editForm.video_id} onChange={v => setEditForm(prev => ({ ...prev, video_id: v }))} />
+                    <Field label="VIDEO TITULO" value={editForm.video_title} onChange={v => setEditForm(prev => ({ ...prev, video_title: v }))} />
+                    <Field label="CANAL" value={editForm.video_channel} onChange={v => setEditForm(prev => ({ ...prev, video_channel: v }))} />
+                    <Field label="IDIOMA" value={editForm.video_language} onChange={v => setEditForm(prev => ({ ...prev, video_language: v }))} />
+                    <Field label="PUBLICADO" value={editForm.video_published_at} onChange={v => setEditForm(prev => ({ ...prev, video_published_at: v }))} />
+                    <Field label="PLATAFORMA" value={editForm.video_platform} onChange={v => setEditForm(prev => ({ ...prev, video_platform: v }))} />
+                    <Field label="RESUMEN VIDEO" value={editForm.video_summary} onChange={v => setEditForm(prev => ({ ...prev, video_summary: v }))} />
+                  </div>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
                     <Field label="PATROCINIO TITULO" value={editForm.sponsor_title} onChange={v => setEditForm(prev => ({ ...prev, sponsor_title: v }))} />
                     <Field label="PATROCINIO CTA" value={editForm.sponsor_cta} onChange={v => setEditForm(prev => ({ ...prev, sponsor_cta: v }))} />
