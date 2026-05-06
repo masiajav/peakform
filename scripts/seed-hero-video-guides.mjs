@@ -140,7 +140,7 @@ const rows = tuples.map((tuple) => {
     "",
     "## Cómo usar esta guía",
     "",
-    "Mira primero el vídeo y después vuelve a esta página para quedarte con tres ideas accionables. Si el vídeo está marcado como provisional, úsalo como punto de partida mientras curamos una guía dedicada mejor en español o inglés.",
+    "Mira primero el vídeo y después vuelve a esta página para quedarte con tres ideas accionables. Si el vídeo está marcado como provisional, úsalo como punto de partida mientras creamos una guía dedicada mejor en español o inglés.",
     "",
     "> **6V6**",
     `> En 6v6 hay más recursos, más peel y más cuerpos ocupando espacio. Para ${hero_name}, revisa especialmente si tus ventanas siguen funcionando cuando el rival tiene un segundo tank o más herramientas defensivas.`,
