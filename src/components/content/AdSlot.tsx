@@ -1,4 +1,7 @@
+'use client'
+
 import type { CSSProperties } from 'react'
+import { useEffect } from 'react'
 
 type AdSlotVariant = 'leaderboard' | 'inline' | 'sidebar' | 'mobile'
 
@@ -26,6 +29,15 @@ export default function AdSlot({
 }: AdSlotProps) {
   const clientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID
   const config = CONFIG[variant]
+  const canServeAd = Boolean(clientId && slot && /^\d+$/.test(slot))
+
+  useEffect(() => {
+    if (!canServeAd) return
+
+    const adsWindow = window as typeof window & { adsbygoogle?: unknown[] }
+    adsWindow.adsbygoogle = adsWindow.adsbygoogle || []
+    adsWindow.adsbygoogle.push({})
+  }, [canServeAd])
 
   return (
     <aside
@@ -36,7 +48,7 @@ export default function AdSlot({
       aria-label={label}
     >
       <div className="ad-slot-label">{label}</div>
-      {clientId ? (
+      {canServeAd ? (
         <ins
           className="adsbygoogle"
           style={{ display: 'block' }}
