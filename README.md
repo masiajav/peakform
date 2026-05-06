@@ -66,6 +66,11 @@ npm run dev      # servidor local
 npm run build    # build de produccion
 npm run start    # servir el build
 npm run lint     # lint de Next.js
+
+npm run overlay:dev        # dev server del coach overlay
+npm run overlay:typecheck  # typecheck aislado del overlay
+npm run overlay:test       # tests del motor de reglas
+npm run overlay:build      # build Vite del overlay
 ```
 
 ## Vercel
@@ -230,6 +235,8 @@ src/
 supabase/
   migrations/           Migraciones SQL incrementales y seed editorial
 supabase-schema.sql     Esquema base ejecutable desde SQL Editor
+apps/
+  replaid-coach-overlay/ App Overwolf aislada para el MVP del coach overlay
 ```
 
 ## Convenciones De Producto

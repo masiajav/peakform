@@ -7,6 +7,7 @@
 
 # Production
 /build
+/apps/replaid-coach-overlay/dist/
 
 # Env files — NUNCA subir al repo
 .env

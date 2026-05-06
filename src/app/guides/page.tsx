@@ -51,19 +51,16 @@ export default async function GuidesPage({
   if (filters.hero) query = query.eq('hero', filters.hero)
   if (filters.map) query = query.eq('map', filters.map)
   if (filters.category) query = query.eq('category', filters.category)
-  if (filters.q) {
-    const term = filters.q.replace(/[%_,]/g, '').trim()
-    if (term) query = query.or(`title.ilike.%${term}%,excerpt.ilike.%${term}%,body.ilike.%${term}%`)
-  }
 
   if (filters.sort === 'oldest') query = query.order('created_at', { ascending: true })
   else if (filters.sort === 'title') query = query.order('title', { ascending: true })
   else query = query.order('created_at', { ascending: false })
 
   const [{ data: guides }, { data: filterOptions }] = await Promise.all([query, filterOptionsQuery])
+  const searchedGuides = filterBySearch(guides ?? [], filters.q)
   const sortedGuides = filters.sort === 'read'
-    ? [...(guides ?? [])].sort((a: any, b: any) => readingTime(a.body) - readingTime(b.body))
-    : guides ?? []
+    ? [...searchedGuides].sort((a: any, b: any) => readingTime(a.body) - readingTime(b.body))
+    : searchedGuides
 
   const categories = Array.from(new Set(sortedGuides.map((g: any) => g.category).filter(Boolean))) as string[]
   const filterCategories = Array.from(new Set((filterOptions ?? []).map((g: any) => g.category).filter(Boolean)))
@@ -264,7 +261,7 @@ function CriticalGuidesStyles() {
 
       .guide-filter-grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         gap: 10px;
       }
 
@@ -352,6 +349,36 @@ function CriticalGuidesStyles() {
 function cleanParam(value?: string) {
   if (!value || value === 'all' || value === 'latest') return undefined
   return value
+}
+
+function filterBySearch(guides: any[], query?: string) {
+  const term = normalizeSearchText(query)
+  if (!term) return guides
+
+  return guides.filter(guide => {
+    const haystack = normalizeSearchText([
+      guide.title,
+      guide.excerpt,
+      guide.seo_description,
+      guide.body,
+      guide.category,
+      guide.hero,
+      guide.role,
+      guide.map,
+      guide.video_title,
+      guide.video_channel,
+    ].filter(Boolean).join(' '))
+
+    return haystack.includes(term)
+  })
+}
+
+function normalizeSearchText(value?: string) {
+  return (value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .trim()
 }
 
 function EmptyGuides() {
