@@ -16,13 +16,13 @@ export default function NotFound() {
           404
         </div>
         <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 48, letterSpacing: 1, margin: '0 0 14px' }}>
-          NO HEMOS ENCONTRADO ESTA PAGINA
+          NO HEMOS ENCONTRADO ESTA PÁGINA
         </h1>
         <p style={{ color: 'var(--text2)', lineHeight: 1.6, margin: '0 0 28px' }}>
-          Puede que el articulo haya cambiado de URL o que la hemeroteca aun no tenga esta entrada.
+          Puede que el artículo haya cambiado de URL o que la hemeroteca aún no tenga esta entrada.
         </p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Link href="/guides" className="btn btn-primary">VER GUIAS</Link>
+          <Link href="/guides" className="btn btn-primary">VER GUÍAS</Link>
           <Link href="/experts" className="btn btn-secondary">VER EXPERTOS</Link>
         </div>
       </div>

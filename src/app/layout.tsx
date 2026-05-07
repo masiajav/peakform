@@ -7,22 +7,25 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   applicationName: SITE_NAME,
   title: {
-    default: 'Replaid Lab - Coaching y hemeroteca de Overwatch',
+    default: 'Replaid Lab - Guías, counters y vídeos de Overwatch',
     template: `%s - ${SITE_NAME}`,
   },
-  description: 'Reviews personalizadas de replays, guías, noticias y consejos de Overwatch por expertos verificados.',
-  keywords: [
-    'Overwatch',
-    'coaching Overwatch',
-    'análisis de replays',
-    'guías Overwatch',
-    'expertos Overwatch',
-    'VOD review Overwatch',
-  ],
+  description: 'Guías, counters, vídeos, noticias y consejos de Overwatch para mejorar por héroe, rol y mapa.',
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
   category: 'gaming',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
@@ -33,7 +36,7 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
   openGraph: {
     title: 'Replaid Lab',
-    description: 'Coaching de Overwatch, guías y análisis de replays por expertos verificados.',
+    description: 'Guías, counters, vídeos y consejos de Overwatch para mejorar por héroe, rol y mapa.',
     siteName: SITE_NAME,
     url: SITE_URL,
     locale: 'es_ES',
@@ -43,14 +46,14 @@ export const metadata: Metadata = {
         url: absoluteUrl('/og-image.svg'),
         width: 1200,
         height: 630,
-        alt: 'Replaid Lab - Coaching y guías de Overwatch',
+        alt: 'Replaid Lab - Guías y counters de Overwatch',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Replaid Lab',
-    description: 'Coaching de Overwatch, guías y análisis de replays por expertos verificados.',
+    description: 'Guías, counters, vídeos y consejos de Overwatch para mejorar por héroe, rol y mapa.',
     images: [absoluteUrl('/og-image.svg')],
   },
 }
@@ -70,6 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: SITE_NAME,
+    alternateName: 'Replaid',
     url: SITE_URL,
     inLanguage: 'es',
     publisher: {

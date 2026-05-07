@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import type { FormEvent } from 'react'
+import type { FormEvent, KeyboardEvent } from 'react'
 
 type Option = {
   value: string
@@ -58,6 +58,15 @@ export default function GuideFilters({
     submitForm(event.currentTarget)
   }
 
+  function handleSearchKeyDown(event: KeyboardEvent<HTMLInputElement>) {
+    if (event.key !== 'Enter') return
+    const form = event.currentTarget.form
+    if (!form) return
+
+    event.preventDefault()
+    submitForm(form)
+  }
+
   return (
     <form action="/guides" className="guide-filter-panel" onSubmit={handleSubmit}>
       <div className="guide-filter-search">
@@ -66,8 +75,16 @@ export default function GuideFilters({
           defaultValue={initial.q || ''}
           placeholder="Buscar por concepto, héroe o problema..."
           aria-label="Buscar guías"
+          onKeyDown={handleSearchKeyDown}
         />
-        <button type="submit" className="btn btn-primary btn-sm">
+        <button
+          type="button"
+          className="btn btn-primary btn-sm"
+          onClick={event => {
+            const form = event.currentTarget.form
+            if (form) submitForm(form)
+          }}
+        >
           BUSCAR
         </button>
       </div>

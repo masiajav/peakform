@@ -32,13 +32,13 @@ export default function CounterExplorer() {
 
   return (
     <div className="counter-layout">
-      <section className="counter-picker" aria-label="Selector de heroes">
+      <section className="counter-picker" aria-label="Selector de héroes">
         <div className="counter-toolbar">
           <input
             value={query}
             onChange={event => setQuery(event.target.value)}
-            placeholder="Buscar heroe..."
-            aria-label="Buscar heroe"
+            placeholder="Buscar héroe..."
+            aria-label="Buscar héroe"
           />
           <select value={role} onChange={event => setRole(event.target.value as CounterRole | 'all')} aria-label="Filtrar por rol">
             {Object.entries(ROLE_LABELS).map(([value, label]) => (
@@ -67,20 +67,25 @@ export default function CounterExplorer() {
           <div>
             <div className="eyebrow">MATCHUP</div>
             <h2>{selected.name}</h2>
-            <p>{ROLE_LABELS[selected.role]} · counters, amenazas y guias relacionadas.</p>
+            <p>{ROLE_LABELS[selected.role]} · counters, amenazas y guías relacionadas.</p>
           </div>
-          <Link href={`/guides/${selected.guideSlug}`} className="btn btn-primary btn-sm">
-            GUIA
-          </Link>
+          <div className="counter-panel-actions">
+            <Link href={`/counters/${selected.slug}`} className="btn btn-secondary btn-sm">
+              VER COUNTERS
+            </Link>
+            <Link href={`/guides/${selected.guideSlug}`} className="btn btn-primary btn-sm">
+              GUÍA
+            </Link>
+          </div>
         </div>
 
         <CounterList title={`Counters fuertes contra ${selected.name}`} items={selected.counters} />
         <CounterList title="Ten cuidado con" items={selected.watchOutFor} />
 
         <section className="counter-related">
-          <h3>Guias relacionadas</h3>
+          <h3>Guías relacionadas</h3>
           <div>
-            <Link href={`/heroes/${selected.slug}`}>Pagina de {selected.name}</Link>
+            <Link href={`/heroes/${selected.slug}`}>Página de {selected.name}</Link>
             {related.map(hero => (
               <Link key={hero.slug} href={`/heroes/${hero.slug}`}>
                 {hero.name}

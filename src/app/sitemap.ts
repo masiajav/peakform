@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { announcementPath, DEFAULT_HEROES, DEFAULT_MAPS, ROLE_SLUGS } from '@/lib/content'
+import { COUNTER_HEROES } from '@/lib/overwatch-counters'
 import { absoluteUrl } from '@/lib/seo'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -14,12 +15,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/legal',
     ...ROLE_SLUGS.map(role => `/roles/${role}`),
     ...DEFAULT_HEROES.map(hero => `/heroes/${hero}`),
+    ...COUNTER_HEROES.map(hero => `/counters/${hero.slug}`),
     ...DEFAULT_MAPS.map(map => `/maps/${map}`),
   ].map(path => ({
     url: absoluteUrl(path || '/'),
     lastModified: now,
     changeFrequency: path === '' ? 'daily' : 'weekly',
-    priority: path === '' ? 1 : 0.7,
+    priority: path === '' ? 1 : path.startsWith('/counters/') ? 0.74 : 0.7,
   }))
 
   const admin = createAdminClient()

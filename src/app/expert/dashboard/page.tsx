@@ -63,6 +63,19 @@ export default async function ExpertDashboardPage({
     })
     .reduce((sum, o) => sum + (o.amount_base ?? 0), 0)
 
+  const yearEarnings = delivered
+    .filter(o => {
+      const d = new Date(o.delivered_at ?? o.created_at)
+      return d.getFullYear() === now.getFullYear()
+    })
+    .reduce((sum, o) => sum + (o.amount_base ?? 0), 0)
+
+  const pendingReplayEarnings = paid.reduce((sum, o) => sum + (o.amount_base ?? 0), 0)
+  const inReviewEarnings = inReview.reduce((sum, o) => sum + (o.amount_base ?? 0), 0)
+  const activeEarnings = pendingReplayEarnings + inReviewEarnings
+  const avgDeliveredValue = delivered.length > 0 ? Math.round(totalEarnings / delivered.length) : 0
+  const latestDelivered = delivered.slice(0, 4)
+
   const deliveredWithTime = delivered.filter(o => o.paid_at && o.delivered_at)
   const avgDeliveryHours = deliveredWithTime.length > 0
     ? deliveredWithTime.reduce((sum, o) => {
@@ -149,6 +162,68 @@ export default async function ExpertDashboardPage({
         )}
 
         {/* Estadísticas */}
+        <section style={{ marginBottom: 36 }}>
+          <div style={{ fontSize: 11, letterSpacing: 2, color: 'var(--text2)', fontFamily: 'Bebas Neue, sans-serif', marginBottom: 12 }}>
+            INGRESOS
+          </div>
+          <div className="expert-earnings-grid" style={{
+            display: 'grid',
+            gap: 14,
+          }}>
+            <div style={{
+              background: 'linear-gradient(135deg, rgba(0,214,127,0.12), rgba(255,107,43,0.05))',
+              border: '1px solid rgba(0,214,127,0.28)',
+              padding: '24px',
+            }}>
+              <div style={{ fontSize: 11, letterSpacing: 1.5, color: 'var(--green)', marginBottom: 10 }}>
+                GANADO TOTAL
+              </div>
+              <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 46, lineHeight: 1, color: 'var(--text)' }}>
+                {fmt(totalEarnings)}
+              </div>
+              <p style={{ fontSize: 13, color: 'var(--text2)', lineHeight: 1.6, margin: '14px 0 0' }}>
+                Tu parte de los pedidos entregados. No incluye la comisión de plataforma ni pedidos en disputa.
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 10, marginTop: 20 }}>
+                <MiniMetric label="Este mes" value={fmt(monthEarnings)} />
+                <MiniMetric label="Este año" value={fmt(yearEarnings)} />
+              </div>
+            </div>
+
+            <div className="expert-earnings-cards" style={{ display: 'grid', gap: 12 }}>
+              <StatCard label="EN CURSO" value={fmt(activeEarnings)} color="var(--accent)" sub={`${paid.length + inReview.length} pedidos activos`} />
+              <StatCard label="TICKET MEDIO" value={fmt(avgDeliveredValue)} sub={delivered.length > 0 ? `${delivered.length} entregados` : 'Sin entregas todavía'} />
+              <StatCard label="ESPERANDO REPLAY" value={fmt(pendingReplayEarnings)} sub={`${paid.length} pedidos pagados`} />
+              <StatCard label="EN REVISIÓN" value={fmt(inReviewEarnings)} sub={`${inReview.length} pedidos pendientes`} />
+            </div>
+          </div>
+
+          {latestDelivered.length > 0 && (
+            <div style={{
+              background: 'var(--surface)',
+              border: '1px solid var(--border)',
+              padding: '16px 20px',
+              marginTop: 14,
+            }}>
+              <div style={{ fontSize: 11, letterSpacing: 1.5, color: 'var(--text3)', marginBottom: 12 }}>
+                ÚLTIMOS INGRESOS ENTREGADOS
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                {latestDelivered.map(order => (
+                  <div key={order.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 14, fontSize: 13 }}>
+                    <span style={{ color: 'var(--text2)' }}>
+                      {new Date(order.delivered_at ?? order.created_at).toLocaleDateString('es-ES')} · {order.tier === 'deep_dive' ? 'Deep Dive' : String(order.tier).charAt(0).toUpperCase() + String(order.tier).slice(1)}
+                    </span>
+                    <span style={{ color: 'var(--green)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 18 }}>
+                      {fmt(order.amount_base ?? 0)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+
         <ExpertTierManager
           tiers={{
             starter: {
@@ -181,9 +256,6 @@ export default async function ExpertDashboardPage({
               ESTADÍSTICAS
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 12 }}>
-
-              <StatCard label="INGRESOS TOTALES" value={fmt(totalEarnings)} color="var(--green)" />
-              <StatCard label="INGRESOS ESTE MES" value={fmt(monthEarnings)} color="var(--green)" />
               <StatCard
                 label="ENTREGA MEDIA"
                 value={avgDeliveryHours !== null ? `${Math.round(avgDeliveryHours)}h` : '—'}
@@ -253,6 +325,17 @@ export default async function ExpertDashboardPage({
           </div>
         )}
 
+      </div>
+    </div>
+  )
+}
+
+function MiniMetric({ label, value }: { label: string; value: string }) {
+  return (
+    <div style={{ background: 'rgba(255,255,255,0.035)', border: '1px solid rgba(255,255,255,0.08)', padding: '12px 14px' }}>
+      <div style={{ fontSize: 11, color: 'var(--text3)', marginBottom: 6 }}>{label}</div>
+      <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 22, lineHeight: 1, color: 'var(--text)' }}>
+        {value}
       </div>
     </div>
   )

@@ -5,22 +5,45 @@ import { createClient } from '@/lib/supabase/server'
 import AppNav from '@/components/layout/AppNav'
 import Link from 'next/link'
 import AdSlot from '@/components/content/AdSlot'
+import JsonLd from '@/components/content/JsonLd'
 import { articleDescription, ROLE_LABELS, topicLabel } from '@/lib/content'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
-import { buildMetadata, readingTime } from '@/lib/seo'
+import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
 import GuideFilters from '@/components/content/GuideFilters'
 
-export const metadata: Metadata = buildMetadata({
-  title: 'Guías de Overwatch',
-  description: 'Guías, consejos y fundamentos de Overwatch por rol, héroe y mapa para mejorar tus partidas.',
-  path: '/guides',
-})
+type GuidesSearchParams = {
+  role?: string
+  hero?: string
+  map?: string
+  category?: string
+  q?: string
+  sort?: string
+}
 
-export default async function GuidesPage({
-  searchParams,
-}: {
-  searchParams: { role?: string; hero?: string; map?: string; category?: string; q?: string; sort?: string }
-}) {
+export function generateMetadata({ searchParams }: { searchParams: GuidesSearchParams }): Metadata {
+  const hasFilters = Boolean(
+    cleanParam(searchParams.role) ||
+      cleanParam(searchParams.hero) ||
+      cleanParam(searchParams.map) ||
+      cleanParam(searchParams.category) ||
+      cleanParam(searchParams.q) ||
+      cleanParam(searchParams.sort),
+  )
+
+  const metadata = buildMetadata({
+    title: 'Guías de Overwatch: vídeos, counters y consejos para mejorar',
+    description: 'Guías de Overwatch en español con vídeos, consejos por héroe, counters, fundamentos por rol y recursos para revisar tus partidas.',
+    path: '/guides',
+  })
+
+  if (hasFilters) {
+    metadata.robots = { index: false, follow: true }
+  }
+
+  return metadata
+}
+
+export default async function GuidesPage({ searchParams }: { searchParams: GuidesSearchParams }) {
   const filters = {
     role: cleanParam(searchParams.role),
     hero: cleanParam(searchParams.hero),
@@ -73,8 +96,28 @@ export default async function GuidesPage({
     .sort()
     .map(value => ({ value, label: topicLabel(value) }))
 
+  const collectionJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Guías de Overwatch',
+    description: 'Hemeroteca editorial de guías, vídeos, counters y consejos de Overwatch.',
+    url: absoluteUrl('/guides'),
+    inLanguage: 'es',
+    publisher: { '@type': 'Organization', name: SITE_NAME },
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: sortedGuides.slice(0, 20).map((guide: any, index: number) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: guide.seo_title || guide.title,
+        url: absoluteUrl(`/guides/${guide.slug}`),
+      })),
+    },
+  }
+
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
+      <JsonLd data={collectionJsonLd} />
       {user ? (
         <AppNav role={profile?.role ?? 'user'} displayName={profile?.display_name || user.email} avatarUrl={profile?.avatar_url} />
       ) : (
@@ -108,11 +151,19 @@ export default async function GuidesPage({
                 HEMEROTECA
               </div>
               <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 42, letterSpacing: 1, color: 'var(--text)', margin: '0 0 12px' }}>
-                GUÍAS Y CONSEJOS
+                GUÍAS DE OVERWATCH
               </h1>
-              <p style={{ fontSize: 14, color: 'var(--text2)', margin: 0, lineHeight: 1.6, maxWidth: 680 }}>
-                Filtra por rol, héroe o mapa y ordena los artículos para encontrar antes lo que necesitas revisar.
+              <p style={{ fontSize: 14, color: 'var(--text2)', margin: '0 0 12px', lineHeight: 1.6, maxWidth: 720 }}>
+                Encuentra guías en español por héroe, rol, mapa y problema concreto. La hemeroteca prioriza vídeos útiles, counters, fundamentos y consejos aplicables para revisar tus partidas.
               </p>
+              <div className="guide-cluster-links">
+                <Link href="/counters">Counters</Link>
+                <Link href="/roles/tank">Tank</Link>
+                <Link href="/roles/dps">DPS</Link>
+                <Link href="/roles/support">Support</Link>
+                <Link href="/heroes/ana">Ana</Link>
+                <Link href="/heroes/genji">Genji</Link>
+              </div>
             </div>
 
             <GuideFilters
@@ -166,21 +217,21 @@ export default async function GuidesPage({
                 <Link href={`/guides/${g.slug}`} style={{ textDecoration: 'none' }}>
                   <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '22px 24px', height: '100%' }}>
                     <div style={{ display: 'flex', gap: 7, flexWrap: 'wrap', marginBottom: 10 }}>
-                      {g.video_id && <Tag label="Video" accent />}
+                      {g.video_id && <Tag label="Vídeo" accent />}
                       {g.category && <Tag label={g.category} accent />}
                       {g.role && <Tag label={ROLE_LABELS[g.role as keyof typeof ROLE_LABELS] || g.role} />}
                       {g.hero && <Tag label={topicLabel(g.hero)} />}
                       {g.map && <Tag label={topicLabel(g.map)} />}
                     </div>
                     <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 20, letterSpacing: 0.5, color: 'var(--text)', margin: '0 0 10px', lineHeight: 1.2 }}>
-                      {g.title}
+                      {g.seo_title || g.title}
                     </h2>
                     <p style={{ fontSize: 13, color: 'var(--text2)', margin: '0 0 16px', lineHeight: 1.5 }}>
                       {articleDescription(g)}
                     </p>
                     <div style={{ fontSize: 11, color: 'var(--text3)', display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                       <span>{new Date(g.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
-                      <span>{g.video_id ? `video${g.video_channel ? ` de ${g.video_channel}` : ''}` : `${readingTime(g.body)} min de lectura`}</span>
+                      <span>{g.video_id ? `vídeo${g.video_channel ? ` de ${g.video_channel}` : ''}` : `${readingTime(g.body)} min de lectura`}</span>
                     </div>
                   </article>
                 </Link>

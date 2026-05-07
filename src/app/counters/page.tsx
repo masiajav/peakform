@@ -7,8 +7,8 @@ import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Counters de Overwatch por heroe',
-  description: 'Tabla interactiva de counters de Overwatch: elige un heroe y revisa counters fuertes, amenazas, rol y guias relacionadas.',
+  title: 'Counters de Overwatch por héroe',
+  description: 'Tabla interactiva de counters de Overwatch: elige un héroe y revisa counters fuertes, amenazas, rol y guías relacionadas.',
   path: '/counters',
 })
 
@@ -16,12 +16,12 @@ export default function CountersPage() {
   const itemListJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Counters de heroes de Overwatch',
+    name: 'Counters de héroes de Overwatch',
     itemListElement: COUNTER_HEROES.map((hero, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       name: `Counters de ${hero.name}`,
-      url: absoluteUrl(`/counters#${hero.slug}`),
+      url: absoluteUrl(`/counters/${hero.slug}`),
     })),
   }
 
@@ -37,7 +37,7 @@ export default function CountersPage() {
             COUNTERS DE OVERWATCH
           </h1>
           <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.65, margin: 0 }}>
-            Selecciona un heroe para ver counters fuertes, amenazas que debes respetar y enlaces directos a guias relacionadas. Es una matriz inicial pensada para iterarla con criterio experto.
+            Selecciona un héroe para ver counters fuertes, amenazas que debes respetar y enlaces directos a guías relacionadas. Cada matchup importante tiene también una página indexable para búsquedas concretas.
           </p>
         </header>
 
@@ -58,7 +58,7 @@ function PublicNav() {
         REPLAID LAB
       </Link>
       <div style={{ flex: 1 }} />
-      <Link href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guias</Link>
+      <Link href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</Link>
       <Link href="/counters" className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Counters</Link>
       <Link href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
       <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>

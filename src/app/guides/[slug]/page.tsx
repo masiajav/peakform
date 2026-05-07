@@ -87,13 +87,14 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
   const readMinutes = readingTime(guide.body)
   const description = articleDescription(guide)
   const author = guide.author || SITE_NAME
+  const displayTitle = guide.seo_title || guide.title
   const publishedDate = guide.created_at
   const updatedDate = guide.updated_at || guide.created_at
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
-    headline: guide.title,
+    headline: displayTitle,
     description,
     image: guide.cover_image ? [absoluteUrl(guide.cover_image)] : undefined,
     datePublished: publishedDate,
@@ -106,7 +107,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
   const videoJsonLd = guide.video_id ? {
     '@context': 'https://schema.org',
     '@type': 'VideoObject',
-    name: guide.video_title || guide.title,
+    name: guide.video_title || displayTitle,
     description: guide.video_summary || description,
     thumbnailUrl: [`https://i.ytimg.com/vi/${guide.video_id}/hqdefault.jpg`],
     uploadDate: guide.video_published_at || publishedDate,
@@ -124,7 +125,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Guías', item: absoluteUrl('/guides') },
-      { '@type': 'ListItem', position: 2, name: guide.title, item: absoluteUrl(guidePath(guide.slug)) },
+      { '@type': 'ListItem', position: 2, name: displayTitle, item: absoluteUrl(guidePath(guide.slug)) },
     ],
   }
 
@@ -159,7 +160,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
         <div style={{ fontSize: 12, color: 'var(--text3)', marginBottom: 32, display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
           <Link href="/guides" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Guías</Link>
           <span>›</span>
-          <span>{guide.title}</span>
+          <span>{displayTitle}</span>
         </div>
 
         <header style={{ marginBottom: 40 }}>
@@ -170,21 +171,30 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
             {guide.map && <Topic href={`/maps/${guide.map}`} label={topicLabel(guide.map)} />}
           </div>
           <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(30px, 5vw, 52px)', letterSpacing: 1, color: 'var(--text)', margin: '0 0 16px', lineHeight: 1.05 }}>
-            {guide.title}
+            {displayTitle}
           </h1>
           <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.65, margin: '0 0 18px' }}>
             {description}
           </p>
           <div style={{ fontSize: 12, color: 'var(--text3)', display: 'flex', gap: 16, flexWrap: 'wrap' }}>
             <span>{new Date(guide.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
-            <span>{guide.video_id ? 'guia en video' : `${readMinutes} min de lectura`}</span>
+            <span>{guide.video_id ? 'guía en vídeo' : `${readMinutes} min de lectura`}</span>
             <span>{author}</span>
           </div>
         </header>
 
+        <section style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '16px 18px', margin: '0 0 22px' }}>
+          <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)', fontSize: 11, letterSpacing: 1.6, marginBottom: 6 }}>
+            REVISIÓN EDITORIAL
+          </div>
+          <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>
+            Contenido revisado para mantenerlo útil en Overwatch actual. Si el vídeo o el matchup cambia con un parche, se actualiza la guía en lugar de cambiar la fecha sin aportar valor.
+          </p>
+        </section>
+
         {guide.video_id && guide.video_summary && (
           <section className="guide-video-summary">
-            <div>RESUMEN RAPIDO</div>
+            <div>RESUMEN RÁPIDO</div>
             <p>{guide.video_summary}</p>
           </section>
         )}
@@ -194,7 +204,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
         {guide.video_id && (
           <GuideVideo
             videoId={guide.video_id}
-            title={guide.video_title || guide.title}
+            title={guide.video_title || displayTitle}
             channel={guide.video_channel}
             language={guide.video_language}
             url={guide.video_url}

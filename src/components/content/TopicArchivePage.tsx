@@ -5,6 +5,8 @@ import JsonLd from './JsonLd'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
 import Link from 'next/link'
 import { formatPrice } from '@/types'
+import { getCounterHero } from '@/lib/overwatch-counters'
+import { buildHeroSeoProfile, ROLE_SEO } from '@/lib/overwatch-seo'
 
 export default async function TopicArchivePage({
   kind,
@@ -52,6 +54,9 @@ export default async function TopicArchivePage({
 
   const [{ data: guides }, { data: news }, { data: experts }] = await Promise.all([guideQuery, newsQuery, expertsQuery])
   const topicContent = buildTopicContent(kind, slug, title)
+  const counterHero = kind === 'hero' ? getCounterHero(slug) : null
+  const heroSeo = kind === 'hero' ? buildHeroSeoProfile(slug) : null
+  const roleSeo = kind === 'role' ? ROLE_SEO[slug as keyof typeof ROLE_SEO] : null
 
   const collectionJsonLd = {
     '@context': 'https://schema.org',
@@ -114,6 +119,48 @@ export default async function TopicArchivePage({
             ))}
           </div>
         </section>
+
+        {heroSeo && counterHero && (
+          <section style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '24px', marginBottom: 34 }}>
+            <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)', fontSize: 11, letterSpacing: 1.8, marginBottom: 10 }}>
+              COUNTERS Y MATCHUPS
+            </div>
+            <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.7, margin: '0 0 18px', maxWidth: 820 }}>
+              {heroSeo.intent}
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
+              {counterHero.counters.slice(0, 4).map(counter => (
+                <Link key={counter.slug} href={`/heroes/${counter.slug}`} style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', color: 'var(--text2)', padding: 14, textDecoration: 'none' }}>
+                  <strong style={{ color: 'var(--text)', display: 'block', marginBottom: 5 }}>{counter.name}</strong>
+                  <span style={{ fontSize: 12, lineHeight: 1.5 }}>{counter.reason}</span>
+                </Link>
+              ))}
+            </div>
+            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 16 }}>
+              <Link href={`/counters/${counterHero.slug}`} className="btn btn-secondary btn-sm">VER COUNTERS DE {counterHero.name.toUpperCase()}</Link>
+              <Link href={`/guides/${counterHero.guideSlug}`} className="btn btn-primary btn-sm">VER GUÍA EN VÍDEO</Link>
+            </div>
+          </section>
+        )}
+
+        {roleSeo && (
+          <section style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '24px', marginBottom: 34 }}>
+            <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)', fontSize: 11, letterSpacing: 1.8, marginBottom: 10 }}>
+              FUNDAMENTOS DEL ROL
+            </div>
+            <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.7, margin: '0 0 18px', maxWidth: 820 }}>
+              {roleSeo.overview}
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
+              {roleSeo.commonMistakes.map(item => (
+                <div key={item.title} style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', padding: 14 }}>
+                  <strong style={{ color: 'var(--text)', display: 'block', marginBottom: 5 }}>{item.title}</strong>
+                  <span style={{ color: 'var(--text2)', fontSize: 12, lineHeight: 1.5 }}>{item.body}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         <div className="topic-layout" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 300px', gap: 28, alignItems: 'start' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 44 }}>

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import TopicArchivePage from '@/components/content/TopicArchivePage'
 import { ROLE_LABELS, ROLE_SLUGS, type ContentRole } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
+import { ROLE_SEO } from '@/lib/overwatch-seo'
 import { notFound } from 'next/navigation'
 
 function assertRole(role: string): ContentRole {
@@ -12,9 +13,11 @@ function assertRole(role: string): ContentRole {
 export function generateMetadata({ params }: { params: { role: string } }): Metadata {
   const role = assertRole(params.role)
   const label = ROLE_LABELS[role]
+  const roleSeo = ROLE_SEO[role as keyof typeof ROLE_SEO]
+
   return buildMetadata({
-    title: `Guías de ${label} en Overwatch`,
-    description: `Hemeroteca de ${label}: guías, noticias, fundamentos, posicionamiento, macro y expertos recomendados para mejorar en Overwatch.`,
+    title: roleSeo?.searchTitle || `Guías de ${label} en Overwatch`,
+    description: roleSeo?.searchDescription || `Hemeroteca de ${label}: guías, noticias, fundamentos, posicionamiento, macro y expertos recomendados para mejorar en Overwatch.`,
     path: `/roles/${role}`,
   })
 }
@@ -22,13 +25,14 @@ export function generateMetadata({ params }: { params: { role: string } }): Meta
 export default function RolePage({ params }: { params: { role: string } }) {
   const role = assertRole(params.role)
   const label = ROLE_LABELS[role]
+  const roleSeo = ROLE_SEO[role as keyof typeof ROLE_SEO]
 
   return (
     <TopicArchivePage
       kind="role"
       slug={role}
-      title={`${label} en Overwatch`}
-      description={`Guías, noticias, fundamentos, errores comunes y expertos recomendados para jugadores de ${label}.`}
+      title={roleSeo?.searchTitle || `${label} en Overwatch`}
+      description={roleSeo?.searchDescription || `Guías, noticias, fundamentos, errores comunes y expertos recomendados para jugadores de ${label}.`}
     />
   )
 }
