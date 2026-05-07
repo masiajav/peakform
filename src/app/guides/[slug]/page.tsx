@@ -11,6 +11,7 @@ import ArticleCta from '@/components/content/ArticleCta'
 import GuideMarkdown from '@/components/content/GuideMarkdown'
 import GuideVideo from '@/components/content/GuideVideo'
 import { articleDescription, guidePath, ROLE_LABELS, topicLabel, type GuideContent } from '@/lib/content'
+import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
 import { formatPrice } from '@/types'
 
@@ -146,7 +147,9 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
           </Link>
           <div style={{ flex: 1 }} />
           <Link href="/guides" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</Link>
+          <Link href="/counters" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Counters</Link>
           <Link href="/experts" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
+          <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>
           <Link href="/login" className="btn btn-primary btn-sm">ENTRAR</Link>
         </nav>
       )}

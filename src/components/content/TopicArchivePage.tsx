@@ -1,5 +1,6 @@
 import { createAdminClient } from '@/lib/supabase/admin'
 import { announcementPath, articleDescription, guidePath, ROLE_LABELS, topicLabel, type ContentRole } from '@/lib/content'
+import { REPLAID_DISCORD_URL } from '@/lib/community'
 import JsonLd from './JsonLd'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
 import Link from 'next/link'
@@ -227,8 +228,10 @@ function PublicNav() {
       </Link>
       <div style={{ flex: 1 }} />
       <Link href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</Link>
+      <Link href="/counters" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Counters</Link>
       <Link href="/news" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Noticias</Link>
       <Link href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
+      <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>
       <Link href="/login" className="btn btn-primary btn-sm">ENTRAR</Link>
     </nav>
   )

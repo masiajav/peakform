@@ -9,6 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '',
     '/experts',
     '/guides',
+    '/counters',
     '/news',
     '/legal',
     ...ROLE_SLUGS.map(role => `/roles/${role}`),

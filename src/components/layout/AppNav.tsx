@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useState, useRef, useEffect } from 'react'
 import type { CSSProperties } from 'react'
 import type { UserRole } from '@/types'
+import { REPLAID_DISCORD_URL } from '@/lib/community'
 
 interface AppNavProps {
   role?: UserRole
@@ -67,8 +68,10 @@ export default function AppNav({ role = 'user', displayName, avatarUrl }: AppNav
       <div style={{ flex: 1 }} />
 
       <a href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</a>
+      <a href="/counters" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Counters</a>
       <a href="/news" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Noticias</a>
       <a href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</a>
+      <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>
       <a href={panelHref} className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Panel</a>
 
       <span style={{
@@ -131,6 +134,8 @@ export default function AppNav({ role = 'user', displayName, avatarUrl }: AppNav
             </div>
             <a href={panelHref} style={menuLinkStyle('var(--accent)')} onClick={() => setOpen(false)}>Mi panel</a>
             <a href="/profile" style={menuLinkStyle('var(--text2)')} onClick={() => setOpen(false)}>Mi perfil</a>
+            <a href="/counters" style={menuLinkStyle('var(--text2)')} onClick={() => setOpen(false)}>Counters</a>
+            <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" style={menuLinkStyle('var(--accent)')} onClick={() => setOpen(false)}>Discord Replaid Lab</a>
             <button
               onClick={handleSignOut}
               style={{

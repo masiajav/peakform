@@ -5,6 +5,7 @@ import Link from 'next/link'
 import AppNav from '@/components/layout/AppNav'
 import TierSelector from './TierSelector'
 import JsonLd from '@/components/content/JsonLd'
+import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 import type { Metadata } from 'next'
 
@@ -133,7 +134,10 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
             REPLAID LAB
           </Link>
           <div style={{ flex: 1 }} />
+          <Link href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guias</Link>
+          <Link href="/counters" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Counters</Link>
           <Link href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
+          <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>
           <Link href="/apply" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Ser experto</Link>
           <Link href="/login" className="btn btn-primary btn-sm">ENTRAR</Link>
         </nav>
@@ -179,6 +183,11 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
                   {expert.avg_delivery_hours > 0 && (
                     <span style={{ color: 'var(--text3)' }}>· entrega media {Math.round(expert.avg_delivery_hours)}h</span>
                   )}
+                </div>
+              )}
+              {expert.discord_handle && (
+                <div style={{ marginTop: 10, display: 'inline-flex', border: '1px solid var(--border2)', background: 'var(--surface2)', padding: '5px 10px', color: 'var(--text2)', fontSize: 12 }}>
+                  Discord: <span style={{ color: 'var(--text)', marginLeft: 5 }}>{expert.discord_handle}</span>
                 </div>
               )}
             </div>

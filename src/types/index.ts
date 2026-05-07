@@ -38,6 +38,9 @@ export interface Expert {
   description_starter:   string | null
   description_pro:       string | null
   description_deep_dive: string | null
+  tier_starter_enabled:   boolean
+  tier_pro_enabled:       boolean
+  tier_deep_dive_enabled: boolean
 
   // Análisis de prueba (opcional)
   trial_enabled:        boolean
@@ -50,6 +53,7 @@ export interface Expert {
   avg_delivery_hours: number
 
   stripe_account_id: string | null
+  discord_handle: string | null
 
   created_at: string
   updated_at: string

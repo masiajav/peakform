@@ -6,6 +6,7 @@ import AppNav from '@/components/layout/AppNav'
 import Link from 'next/link'
 import AdSlot from '@/components/content/AdSlot'
 import { articleDescription, ROLE_LABELS, topicLabel } from '@/lib/content'
+import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { buildMetadata, readingTime } from '@/lib/seo'
 import GuideFilters from '@/components/content/GuideFilters'
 
@@ -86,8 +87,10 @@ export default async function GuidesPage({
             <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3 }}>REPLAID LAB</span>
           </Link>
           <div style={{ flex: 1 }} />
+          <Link href="/counters" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Counters</Link>
           <Link href="/news" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Noticias</Link>
           <Link href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
+          <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>
           <Link href="/login" className="btn btn-primary btn-sm">ENTRAR</Link>
         </nav>
       )}

@@ -7,6 +7,7 @@ interface ProfileFormProps {
   battletag:   string | null
   isExpert:    boolean
   bio:         string | null
+  discordHandle: string | null
   specialties: string[]
   priceStarter:        number
   pricePro:            number
@@ -39,6 +40,7 @@ export default function ProfileForm({
   battletag:   initialBattletag,
   isExpert,
   bio:         initialBio,
+  discordHandle: initialDiscordHandle,
   specialties: initialSpecialties,
   priceStarter:       initialStarter,
   pricePro:           initialPro,
@@ -54,6 +56,7 @@ export default function ProfileForm({
   const [displayName, setDisplayName] = useState(initialName)
   const [battletag,   setBattletag]   = useState(initialBattletag ?? '')
   const [bio,         setBio]         = useState(initialBio ?? '')
+  const [discordHandle, setDiscordHandle] = useState(initialDiscordHandle ?? '')
   const [specialties, setSpecialties] = useState(initialSpecialties.join(', '))
   const [priceStarter,  setPriceStarter]  = useState((initialStarter  / 100).toFixed(0))
   const [pricePro,      setPricePro]      = useState((initialPro       / 100).toFixed(0))
@@ -76,7 +79,6 @@ export default function ProfileForm({
     setSaved(false)
     setError(null)
 
-    // Update base profile
     const profileRes = await fetch('/api/profile', {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
@@ -89,13 +91,13 @@ export default function ProfileForm({
       return
     }
 
-    // Update expert profile if applicable
     if (isExpert) {
       const expertRes = await fetch('/api/expert/profile', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           bio,
+          discord_handle: discordHandle.trim() || null,
           specialties,
           price_starter:         priceStarter,
           price_pro:             pricePro,
@@ -124,14 +126,12 @@ export default function ProfileForm({
 
   return (
     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
-
-      {/* Basic info */}
       <div>
         <div style={{ fontSize: 11, letterSpacing: 2, color: 'var(--text2)', fontFamily: 'Bebas Neue, sans-serif', marginBottom: 16 }}>
-          INFORMACIÓN BÁSICA
+          INFORMACION BASICA
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
-          <Field label="NOMBRE PÚBLICO *" hint="Nombre que verán otros usuarios">
+          <Field label="NOMBRE PUBLICO *" hint="Nombre que veran otros usuarios">
             <input
               value={displayName}
               onChange={e => setDisplayName(e.target.value)}
@@ -149,37 +149,43 @@ export default function ProfileForm({
         </div>
       </div>
 
-      {/* Expert fields */}
       {isExpert && (
         <div style={{ borderTop: '1px solid var(--border2)', paddingTop: 28 }}>
           <div style={{ fontSize: 11, letterSpacing: 2, color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif', marginBottom: 16 }}>
             PERFIL DE EXPERTO
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-
-            <Field label="BIO" hint="Descripción que verán los jugadores en tu perfil">
+            <Field label="BIO" hint="Descripcion que veran los jugadores en tu perfil">
               <textarea
                 value={bio}
                 onChange={e => setBio(e.target.value)}
                 rows={4}
-                placeholder="Cuéntale a los jugadores tu experiencia y estilo de análisis..."
+                placeholder="Cuentale a los jugadores tu experiencia y estilo de analisis..."
               />
             </Field>
 
-            <Field label="ESPECIALIDADES" hint="Separa con comas: Posicionamiento, Mecánicas de Ana...">
+            <Field label="DISCORD PERSONAL" hint="Opcional. Se muestra en tu perfil publico de experto. Ej: ivajpro o ivajpro#1234">
+              <input
+                value={discordHandle}
+                onChange={e => setDiscordHandle(e.target.value)}
+                placeholder="ivajpro"
+              />
+            </Field>
+
+            <Field label="ESPECIALIDADES" hint="Separa con comas: Posicionamiento, Mecanicas de Ana...">
               <input
                 value={specialties}
                 onChange={e => setSpecialties(e.target.value)}
-                placeholder="Posicionamiento, Mecánicas de Ana, Gestión de ultimates"
+                placeholder="Posicionamiento, Mecanicas de Ana, Gestion de ultimates"
               />
             </Field>
 
             <div>
               <div style={{ fontSize: 11, letterSpacing: 1.5, color: 'var(--text2)', fontFamily: 'Bebas Neue, sans-serif', marginBottom: 6 }}>
-                PRECIOS Y DESCRIPCIÓN DE TIERS
+                PRECIOS Y DESCRIPCION DE TIERS
               </div>
               <div style={{ fontSize: 12, color: 'var(--text3)', marginBottom: 16 }}>
-                Tú cobras íntegro el precio que fijes. El jugador paga ese precio más un 20% de comisión de plataforma.
+                Tu cobras integro el precio que fijes. El jugador paga ese precio mas un 20% de comision de plataforma.
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 {([
@@ -195,12 +201,12 @@ export default function ProfileForm({
                         min={min} max={max} step={0.5} required
                       />
                     </Field>
-                    <Field label="QUÉ INCLUYE (opcional)" hint="Descripción que verán los jugadores">
+                    <Field label="QUE INCLUYE (opcional)" hint="Descripcion que veran los jugadores">
                       <textarea
                         value={desc}
                         onChange={e => setDesc(e.target.value)}
                         rows={2}
-                        placeholder="Ej: Análisis escrito de tu replay con feedback de posicionamiento y mecánicas..."
+                        placeholder="Ej: Analisis escrito de tu replay con feedback de posicionamiento y mecanicas..."
                         style={{ resize: 'vertical' }}
                       />
                     </Field>
@@ -209,15 +215,14 @@ export default function ProfileForm({
               </div>
             </div>
 
-            {/* Trial section */}
             <div style={{ borderTop: '1px solid var(--border2)', paddingTop: 20 }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6 }}>
                 <div>
                   <div style={{ fontSize: 11, letterSpacing: 1.5, color: 'var(--text2)', fontFamily: 'Bebas Neue, sans-serif' }}>
-                    ANÁLISIS DE PRUEBA
+                    ANALISIS DE PRUEBA
                   </div>
                   <div style={{ fontSize: 12, color: 'var(--text3)', marginTop: 3 }}>
-                    Ofrece un análisis a precio reducido para que el jugador te conozca.
+                    Ofrece un analisis a precio reducido para que el jugador te conozca.
                   </div>
                 </div>
                 <label style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer' }}>
@@ -234,7 +239,7 @@ export default function ProfileForm({
               {trialEnabled && (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginTop: 16 }}>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
-                    <Field label="PRECIO BASE (€)" hint="Mínimo 2€">
+                    <Field label="PRECIO BASE (EUR)" hint="Minimo 2 EUR">
                       <input
                         type="number"
                         value={trialPrice}
@@ -261,14 +266,13 @@ export default function ProfileForm({
                     <div>
                       <div style={{ fontSize: 13, color: 'var(--text2)' }}>Reembolso garantizado</div>
                       <div style={{ fontSize: 12, color: 'var(--text3)' }}>
-                        El jugador puede pedir reembolso en los 7 días siguientes a la entrega.
+                        El jugador puede pedir reembolso en los 7 dias siguientes a la entrega.
                       </div>
                     </div>
                   </label>
                 </div>
               )}
             </div>
-
           </div>
         </div>
       )}
@@ -281,13 +285,12 @@ export default function ProfileForm({
 
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 16 }}>
         {saved && (
-          <span style={{ fontSize: 13, color: 'var(--green)' }}>✓ Cambios guardados</span>
+          <span style={{ fontSize: 13, color: 'var(--green)' }}>Cambios guardados</span>
         )}
         <button type="submit" disabled={saving} className="btn btn-primary">
           {saving ? 'GUARDANDO...' : 'GUARDAR CAMBIOS'}
         </button>
       </div>
-
     </form>
   )
 }

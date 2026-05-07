@@ -19,6 +19,7 @@ export async function PATCH(request: Request) {
   const body = await request.json()
   const {
     bio, specialties,
+    discord_handle,
     price_starter, price_pro, price_deep_dive,
     description_starter, description_pro, description_deep_dive,
     trial_enabled, trial_price, trial_refundable, trial_deadline_hours,
@@ -49,6 +50,7 @@ export async function PATCH(request: Request) {
     .from('experts')
     .update({
       bio:             bio?.trim() || null,
+      discord_handle:  discord_handle?.trim() || null,
       specialties:     Array.isArray(specialties)
                          ? specialties
                          : (specialties as string)?.split(',').map((s: string) => s.trim()).filter(Boolean),

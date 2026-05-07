@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import AppNav from '@/components/layout/AppNav'
 import ConnectStripeButton from './ConnectStripeButton'
+import ExpertTierManager from './ExpertTierManager'
 import Stripe from 'stripe'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
@@ -148,6 +149,32 @@ export default async function ExpertDashboardPage({
         )}
 
         {/* Estadísticas */}
+        <ExpertTierManager
+          tiers={{
+            starter: {
+              label: 'Starter',
+              price: ((expert.price_starter ?? 900) / 100).toFixed(0),
+              min: 2,
+              description: expert.description_starter ?? '',
+              enabled: expert.tier_starter_enabled !== false,
+            },
+            pro: {
+              label: 'Pro',
+              price: ((expert.price_pro ?? 1900) / 100).toFixed(0),
+              min: 5,
+              description: expert.description_pro ?? '',
+              enabled: expert.tier_pro_enabled !== false,
+            },
+            deep_dive: {
+              label: 'Deep Dive',
+              price: ((expert.price_deep_dive ?? 3900) / 100).toFixed(0),
+              min: 8,
+              description: expert.description_deep_dive ?? '',
+              enabled: expert.tier_deep_dive_enabled !== false,
+            },
+          }}
+        />
+
         {delivered.length > 0 && (
           <div style={{ marginBottom: 36 }}>
             <div style={{ fontSize: 11, letterSpacing: 2, color: 'var(--text2)', fontFamily: 'Bebas Neue, sans-serif', marginBottom: 12 }}>

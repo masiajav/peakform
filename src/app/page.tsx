@@ -6,6 +6,7 @@ import { createAdminClient } from '@/lib/supabase/admin'
 import JsonLd from '@/components/content/JsonLd'
 import AdSlot from '@/components/content/AdSlot'
 import { announcementPath, articleDescription, ROLE_LABELS, topicLabel } from '@/lib/content'
+import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
 import { formatPrice } from '@/types'
 
@@ -36,7 +37,7 @@ const clusters = [
   {
     title: 'Counters y composiciones',
     text: 'Lectura de matchups, brawl, poke, dive y cambios de héroe.',
-    href: '/guides?q=counters',
+    href: '/counters',
   },
   {
     title: 'Vídeos actualizados',
@@ -244,8 +245,10 @@ function TopNav({ user, profileRole }: { user: any; profileRole: string | null }
       </Link>
       <div style={{ flex: 1 }} />
       <Link href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</Link>
+      <Link href="/counters" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Counters</Link>
       <Link href="/news" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Noticias</Link>
       <Link href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
+      <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>
       {user ? (
         <Link href={profileRole === 'admin' ? '/admin' : profileRole === 'expert' ? '/expert/dashboard' : '/dashboard'} className="btn btn-primary btn-sm">
           MI PANEL
@@ -312,8 +315,10 @@ function Footer() {
       <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 18, color: 'var(--accent)', letterSpacing: 2 }}>REPLAID LAB</span>
       <div className="footer-links" style={{ display: 'flex', gap: 24 }}>
         <Link href="/guides" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Guías</Link>
+        <Link href="/counters" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Counters</Link>
         <Link href="/news" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Noticias</Link>
         <Link href="/experts" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Expertos</Link>
+        <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>
         <Link href="/legal" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Legal</Link>
       </div>
       <span style={{ fontSize: 12, color: 'var(--text3)' }}>© 2026 Replaid Lab</span>

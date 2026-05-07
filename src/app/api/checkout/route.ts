@@ -11,6 +11,9 @@ type ExpertRow = {
   price_starter: number
   price_pro: number
   price_deep_dive: number
+  tier_starter_enabled: boolean
+  tier_pro_enabled: boolean
+  tier_deep_dive_enabled: boolean
   trial_enabled: boolean
   trial_price: number | null
   trial_deadline_hours: number
@@ -21,6 +24,12 @@ const PRICE_FIELD: Record<Exclude<OrderTier, 'trial'>, keyof ExpertRow> = {
   starter:   'price_starter',
   pro:       'price_pro',
   deep_dive: 'price_deep_dive',
+}
+
+const ENABLED_FIELD: Record<Exclude<OrderTier, 'trial'>, keyof ExpertRow> = {
+  starter:   'tier_starter_enabled',
+  pro:       'tier_pro_enabled',
+  deep_dive: 'tier_deep_dive_enabled',
 }
 
 export async function POST(request: Request) {
@@ -36,13 +45,16 @@ export async function POST(request: Request) {
 
   const { data: expert } = await supabase
     .from('experts')
-    .select('id, display_name, price_starter, price_pro, price_deep_dive, trial_enabled, trial_price, trial_deadline_hours, stripe_account_id')
+    .select('id, display_name, price_starter, price_pro, price_deep_dive, tier_starter_enabled, tier_pro_enabled, tier_deep_dive_enabled, trial_enabled, trial_price, trial_deadline_hours, stripe_account_id')
     .eq('id', expertId)
     .eq('status', 'active')
     .returns<ExpertRow[]>()
     .single()
 
   if (!expert) return NextResponse.json({ error: 'Experto no encontrado' }, { status: 404 })
+  if (tier !== 'trial' && expert[ENABLED_FIELD[tier]] === false) {
+    return NextResponse.json({ error: 'Este tier no esta disponible ahora mismo' }, { status: 400 })
+  }
   if (!expert.stripe_account_id) return NextResponse.json({ error: 'Este experto aún no tiene cuenta de cobro configurada' }, { status: 400 })
 
   // Trial-specific validations

@@ -21,7 +21,7 @@ export default async function ProfilePage() {
   if (isExpert) {
     const { data } = await supabase
       .from('experts')
-      .select('bio, specialties, price_starter, price_pro, price_deep_dive, description_starter, description_pro, description_deep_dive, peak_rank, main_role, display_name, trial_enabled, trial_price, trial_refundable, trial_deadline_hours')
+      .select('bio, specialties, price_starter, price_pro, price_deep_dive, description_starter, description_pro, description_deep_dive, peak_rank, main_role, display_name, discord_handle, trial_enabled, trial_price, trial_refundable, trial_deadline_hours')
       .eq('user_id', user.id)
       .single()
     expert = data
@@ -74,6 +74,7 @@ export default async function ProfilePage() {
             battletag={profile?.battletag ?? null}
             isExpert={isExpert}
             bio={expert?.bio ?? null}
+            discordHandle={expert?.discord_handle ?? null}
             specialties={expert?.specialties ?? []}
             priceStarter={expert?.price_starter ?? 900}
             pricePro={expert?.price_pro ?? 1700}
