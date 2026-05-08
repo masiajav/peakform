@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/supabase/admin'
 import { redirect, notFound } from 'next/navigation'
 import Link from 'next/link'
 import AppNav from '@/components/layout/AppNav'
@@ -36,11 +37,15 @@ export default async function ExpertOrderPage({ params }: { params: { id: string
 
   if (!order) notFound()
 
-  const { data: review } = await supabase
+  const admin = createAdminClient()
+  const { data: reviewRows } = await admin
     .from('reviews')
     .select('*')
     .eq('order_id', order.id)
-    .maybeSingle()
+    .order('created_at', { ascending: true })
+    .limit(1)
+
+  const review = reviewRows?.[0] ?? null
 
   const { data: messages } = order.status === 'delivered'
     ? await supabase
@@ -176,16 +181,20 @@ export default async function ExpertOrderPage({ params }: { params: { id: string
         </div>
 
         {/* Review section */}
-        {order.status === 'delivered' && review ? (
-          <>
-            <DeliveredReview review={review} tier={order.tier} />
-            <FollowupThread
-              orderId={order.id}
-              currentUserId={user.id}
-              otherPartyLabel="Jugador"
-              initialMessages={messages ?? []}
-            />
-          </>
+        {order.status === 'delivered' ? (
+          review ? (
+            <>
+              <DeliveredReview review={review} tier={order.tier} />
+              <FollowupThread
+                orderId={order.id}
+                currentUserId={user.id}
+                otherPartyLabel="Jugador"
+                initialMessages={messages ?? []}
+              />
+            </>
+          ) : (
+            <DeliveredWithoutReview orderId={order.id} />
+          )
         ) : (
           <ReviewForm
             orderId={order.id}
@@ -207,7 +216,21 @@ function ContextRow({ label, children }: { label: string; children: React.ReactN
   )
 }
 
+function DeliveredWithoutReview({ orderId }: { orderId: string }) {
+  return (
+    <div style={{ background: 'rgba(255,68,68,0.06)', border: '1px solid rgba(255,68,68,0.24)', padding: '20px 24px' }}>
+      <div style={{ fontSize: 11, letterSpacing: 2, color: 'var(--danger)', fontFamily: 'Bebas Neue, sans-serif', marginBottom: 10 }}>
+        INCONSISTENCIA DE ENTREGA
+      </div>
+      <p style={{ fontSize: 14, color: 'var(--text2)', lineHeight: 1.7, margin: 0 }}>
+        El pedido {orderId} aparece como entregado, pero no hay feedback asociado. No se muestra el formulario para evitar duplicados; revisa el pedido en Supabase o contacta con soporte.
+      </p>
+    </div>
+  )
+}
+
 function DeliveredReview({ review, tier }: { review: any; tier: string }) {
+  const timestamps = Array.isArray(review.timestamps) ? review.timestamps : []
   const sections = [
     { label: 'RESUMEN EJECUTIVO',    key: 'summary' },
     { label: 'ERRORES IDENTIFICADOS', key: 'errors' },
@@ -223,6 +246,25 @@ function DeliveredReview({ review, tier }: { review: any; tier: string }) {
         REVIEW ENTREGADA · {new Date(review.created_at).toLocaleDateString('es-ES')}
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+        {(tier === 'pro' || tier === 'deep_dive') && timestamps.length > 0 && (
+          <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '20px 24px' }}>
+            <div style={{ fontSize: 11, letterSpacing: 2, color: 'var(--text2)', fontFamily: 'Bebas Neue, sans-serif', marginBottom: 12 }}>
+              TIMESTAMPS ENTREGADOS
+            </div>
+            <div style={{ display: 'grid', gap: 8 }}>
+              {timestamps.map((item: any, index: number) => (
+                <div key={`${item.time}-${index}`} style={{ display: 'grid', gridTemplateColumns: '72px 92px 1fr', gap: 10, alignItems: 'center', fontSize: 13 }}>
+                  <span style={{ color: 'var(--accent)', fontFamily: 'monospace' }}>{item.time || '--:--'}</span>
+                  <span style={{ color: item.type === 'positive' ? 'var(--green)' : item.type === 'note' ? 'var(--yellow)' : 'var(--danger)', textTransform: 'uppercase', fontSize: 11 }}>
+                    {item.type || 'note'}
+                  </span>
+                  <span style={{ color: 'var(--text2)' }}>{item.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {sections.map(({ label, key }) =>
           review[key] ? (
             <div key={key} style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '20px 24px' }}>

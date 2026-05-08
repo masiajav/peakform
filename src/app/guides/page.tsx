@@ -131,6 +131,7 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
           </Link>
           <div style={{ flex: 1 }} />
           <Link href="/counters" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Counters</Link>
+          <Link href="/team-comps" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Composiciones</Link>
           <Link href="/news" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Noticias</Link>
           <Link href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
           <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>
@@ -158,6 +159,7 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
               </p>
               <div className="guide-cluster-links">
                 <Link href="/counters">Counters</Link>
+                <Link href="/team-comps">Composiciones</Link>
                 <Link href="/roles/tank">Tank</Link>
                 <Link href="/roles/dps">DPS</Link>
                 <Link href="/roles/support">Support</Link>

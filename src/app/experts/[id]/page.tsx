@@ -110,6 +110,7 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
       priceCurrency: 'EUR',
       price: (expert.price_starter / 100).toFixed(2),
       url: absoluteUrl(`/experts/${expert.slug || expert.id}`),
+      availability: expert.service_paused ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
       offeredBy: { '@type': 'Organization', name: SITE_NAME },
     },
   }
@@ -136,6 +137,7 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
           <div style={{ flex: 1 }} />
           <Link href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guias</Link>
           <Link href="/counters" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Counters</Link>
+          <Link href="/team-comps" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Composiciones</Link>
           <Link href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
           <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>
           <Link href="/apply" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Ser experto</Link>
@@ -197,6 +199,22 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
             <p style={{ fontSize: 14, color: 'var(--text2)', margin: '20px 0 0', lineHeight: 1.7 }}>
               {expert.bio}
             </p>
+          )}
+
+          {expert.service_paused && (
+            <div style={{
+              marginTop: 18,
+              background: 'rgba(255,214,0,0.06)',
+              border: '1px solid rgba(255,214,0,0.24)',
+              padding: '12px 14px',
+              color: 'var(--text2)',
+              fontSize: 13,
+              lineHeight: 1.6,
+            }}>
+              <strong style={{ color: 'var(--yellow)' }}>Servicio pausado.</strong>{' '}
+              Ahora mismo no acepta nuevos pedidos.
+              {expert.service_pause_reason ? ` ${expert.service_pause_reason}` : ''}
+            </div>
           )}
 
           {expert.specialties?.length > 0 && (

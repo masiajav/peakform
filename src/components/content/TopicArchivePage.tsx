@@ -42,6 +42,7 @@ export default async function TopicArchivePage({
         .from('experts')
         .select('id, slug, display_name, peak_rank, main_role, avg_rating, total_reviews, price_starter')
         .eq('status', 'active')
+        .eq('service_paused', false)
         .eq('main_role', slug)
         .order('avg_rating', { ascending: false })
         .limit(6)
@@ -49,6 +50,7 @@ export default async function TopicArchivePage({
         .from('experts')
         .select('id, slug, display_name, peak_rank, main_role, avg_rating, total_reviews, price_starter')
         .eq('status', 'active')
+        .eq('service_paused', false)
         .order('avg_rating', { ascending: false })
         .limit(3)
 
@@ -138,6 +140,7 @@ export default async function TopicArchivePage({
             </div>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 16 }}>
               <Link href={`/counters/${counterHero.slug}`} className="btn btn-secondary btn-sm">VER COUNTERS DE {counterHero.name.toUpperCase()}</Link>
+              <Link href={`/team-comps/${counterHero.slug}`} className="btn btn-secondary btn-sm">VER COMPOSICIONES</Link>
               <Link href={`/guides/${counterHero.guideSlug}`} className="btn btn-primary btn-sm">VER GUÍA EN VÍDEO</Link>
             </div>
           </section>
@@ -276,6 +279,7 @@ function PublicNav() {
       <div style={{ flex: 1 }} />
       <Link href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</Link>
       <Link href="/counters" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Counters</Link>
+      <Link href="/team-comps" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Composiciones</Link>
       <Link href="/news" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Noticias</Link>
       <Link href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
       <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>
@@ -365,6 +369,7 @@ function buildTopicContent(kind: 'hero' | 'role' | 'map', slug: string, title: s
       ],
       links: [
         { label: 'Guías de héroes', href: '/guides?category=Héroe' },
+        { label: 'Composiciones recomendadas', href: `/team-comps/${slug}` },
         { label: 'Expertos recomendados', href: '/experts' },
         { label: 'Fundamentos de Overwatch', href: '/guides/fundamentos-overwatch-5v5-revisar-partidas' },
       ],

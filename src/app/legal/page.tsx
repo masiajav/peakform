@@ -78,9 +78,9 @@ export default function LegalPage() {
             Replaid Lab ofrece tres niveles de análisis («tiers»). Cada Experto fija libremente el precio y el contenido exacto que ofrece en cada tier, respetando los mínimos establecidos por la plataforma:
           </p>
           <ul style={{ margin: 0, paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 6 }}>
-            <li><strong style={{ color: 'var(--text)' }}>Starter</strong> — Desde 2 € (precio base del experto). Plazo máximo de entrega: 48 horas desde la recepción del replay.</li>
-            <li><strong style={{ color: 'var(--text)' }}>Pro</strong> — Desde 5 € (precio base del experto). Plazo máximo de entrega: 24 horas.</li>
-            <li><strong style={{ color: 'var(--text)' }}>Deep Dive</strong> — Desde 8 € (precio base del experto). Plazo máximo de entrega: 72 horas.</li>
+            <li><strong style={{ color: 'var(--text)' }}>Starter</strong> — Desde 2 € (precio base del experto). Plazo maximo de entrega: 7 dias desde la recepcion del replay.</li>
+            <li><strong style={{ color: 'var(--text)' }}>Pro</strong> — Desde 5 € (precio base del experto). Plazo maximo de entrega: 7 dias.</li>
+            <li><strong style={{ color: 'var(--text)' }}>Deep Dive</strong> — Desde 8 € (precio base del experto). Plazo maximo de entrega: 7 dias.</li>
           </ul>
           <p>
             El contenido exacto que incluye cada tier (secciones del análisis, timestamps de vídeo, número de replays, preguntas de seguimiento, etc.) lo determina cada Experto y queda descrito en su perfil público antes de realizar la compra.

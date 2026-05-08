@@ -73,6 +73,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
           .from('experts')
           .select('id, slug, display_name, peak_rank, main_role, avg_rating, total_reviews, price_starter')
           .eq('status', 'active')
+          .eq('service_paused', false)
           .eq('main_role', guide.role)
           .order('avg_rating', { ascending: false })
           .limit(3)
@@ -80,6 +81,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
           .from('experts')
           .select('id, slug, display_name, peak_rank, main_role, avg_rating, total_reviews, price_starter')
           .eq('status', 'active')
+          .eq('service_paused', false)
           .order('avg_rating', { ascending: false })
           .limit(3),
   ])
@@ -149,6 +151,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
           <div style={{ flex: 1 }} />
           <Link href="/guides" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</Link>
           <Link href="/counters" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Counters</Link>
+          <Link href="/team-comps" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Composiciones</Link>
           <Link href="/experts" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
           <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>
           <Link href="/login" className="btn btn-primary btn-sm">ENTRAR</Link>

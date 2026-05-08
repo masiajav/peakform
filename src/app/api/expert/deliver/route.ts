@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
-import { createClient as createServiceClient } from '@supabase/supabase-js'
+import { createAdminClient } from '@/lib/supabase/admin'
 import { NextResponse } from 'next/server'
 import { sendReviewReadyEmail } from '@/lib/email'
 
@@ -31,49 +31,71 @@ export async function POST(request: Request) {
     .single()
 
   if (!order) return NextResponse.json({ error: 'Pedido no encontrado' }, { status: 404 })
-  if (order.status !== 'in_review') {
-    return NextResponse.json({ error: 'El pedido no está en revisión' }, { status: 400 })
-  }
 
-  const { error: reviewError } = await supabase
+  const supabaseAdmin = createAdminClient()
+
+  const { data: existingReviews, error: existingReviewError } = await supabaseAdmin
     .from('reviews')
-    .insert({
-      order_id:      orderId,
-      expert_id:     expert.id,
-      user_id:       order.user_id,
-      summary:       summary.trim(),
-      errors:        errors.trim(),
-      positives:     positives.trim(),
-      action_plan:   action_plan.trim(),
-      timestamps:    timestamps ?? [],
-      cross_analysis: cross_analysis ?? null,
-      roadmap:       roadmap ?? null,
-    })
+    .select('id')
+    .eq('order_id', orderId)
+    .limit(1)
 
-  if (reviewError) {
-    console.error('[deliver] insert review failed:', reviewError)
-    return NextResponse.json({ error: reviewError.message }, { status: 500 })
+  if (existingReviewError) {
+    console.error('[deliver] existing review lookup failed:', existingReviewError)
+    return NextResponse.json({ error: existingReviewError.message }, { status: 500 })
   }
 
-  const supabaseAdmin = createServiceClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
-  )
+  const existingReview = existingReviews?.[0] ?? null
 
+  if (order.status === 'delivered' && existingReview) {
+    return NextResponse.json({ ok: true, orderId, reviewId: existingReview.id, alreadyDelivered: true })
+  }
+
+  if (order.status !== 'in_review') {
+    return NextResponse.json({ error: 'El pedido no esta en revision' }, { status: 400 })
+  }
+
+  let reviewId = existingReview?.id ?? null
+  if (!reviewId) {
+    const { data: insertedReview, error: reviewError } = await supabaseAdmin
+      .from('reviews')
+      .insert({
+        order_id:      orderId,
+        expert_id:     expert.id,
+        user_id:       order.user_id,
+        summary:       summary.trim(),
+        errors:        errors.trim(),
+        positives:     positives.trim(),
+        action_plan:   action_plan.trim(),
+        timestamps:    timestamps ?? [],
+        cross_analysis: cross_analysis ?? null,
+        roadmap:       roadmap ?? null,
+      })
+      .select('id')
+      .single()
+
+    if (reviewError) {
+      console.error('[deliver] insert review failed:', reviewError)
+      return NextResponse.json({ error: reviewError.message }, { status: 500 })
+    }
+
+    reviewId = insertedReview.id
+  }
+
+  const deliveredAt = new Date().toISOString()
   const { error: orderError } = await supabaseAdmin
     .from('orders')
-    .update({ status: 'delivered', delivered_at: new Date().toISOString() })
+    .update({ status: 'delivered', delivered_at: deliveredAt })
     .eq('id', orderId)
+    .eq('expert_id', expert.id)
 
   if (orderError) {
     console.error('[deliver] update order failed:', orderError)
     return NextResponse.json({ error: orderError.message }, { status: 500 })
   }
 
-  // best-effort stats increment — silent if RPC not yet created
   await supabaseAdmin.rpc('increment_expert_reviews', { p_expert_id: expert.id })
 
-  // Send email to user — best-effort
   try {
     const { data: userAuth } = await supabaseAdmin.auth.admin.getUserById(order.user_id)
     const userEmail = userAuth?.user?.email
@@ -103,5 +125,5 @@ export async function POST(request: Request) {
     console.error('[deliver] email to user failed:', err)
   }
 
-  return NextResponse.json({ ok: true })
+  return NextResponse.json({ ok: true, orderId, reviewId })
 }

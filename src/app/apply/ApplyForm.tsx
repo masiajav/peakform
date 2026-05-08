@@ -201,9 +201,9 @@ export default function ApplyForm() {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           {([
-            { label: 'STARTER (48h)',    price: priceStarter,  setPrice: setPriceStarter,  desc: descStarter,  setDesc: setDescStarter,  min: 2, max: 50  },
-            { label: 'PRO (24h)',        price: pricePro,      setPrice: setPricePro,      desc: descPro,      setDesc: setDescPro,      min: 5, max: 100 },
-            { label: 'DEEP DIVE (72h)',  price: priceDeepDive, setPrice: setPriceDeepDive, desc: descDeepDive, setDesc: setDescDeepDive, min: 8, max: 200 },
+            { label: 'STARTER (7 dias)',   price: priceStarter,  setPrice: setPriceStarter,  desc: descStarter,  setDesc: setDescStarter,  min: 2, max: 50  },
+            { label: 'PRO (7 dias)',       price: pricePro,      setPrice: setPricePro,      desc: descPro,      setDesc: setDescPro,      min: 5, max: 100 },
+            { label: 'DEEP DIVE (7 dias)', price: priceDeepDive, setPrice: setPriceDeepDive, desc: descDeepDive, setDesc: setDescDeepDive, min: 8, max: 200 },
           ] as const).map(({ label, price, setPrice, desc, setDesc, min, max }) => (
             <div key={label} style={{ display: 'grid', gridTemplateColumns: '140px 1fr', gap: 16, alignItems: 'start' }}>
               <Field label={label}>

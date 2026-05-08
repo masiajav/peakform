@@ -37,7 +37,7 @@ const clusters = [
   {
     title: 'Counters y composiciones',
     text: 'Lectura de matchups, brawl, poke, dive y cambios de héroe.',
-    href: '/counters',
+    href: '/team-comps',
   },
   {
     title: 'Vídeos actualizados',
@@ -80,6 +80,7 @@ export default async function RootPage() {
       .from('experts')
       .select('id, slug, display_name, peak_rank, main_role, specialties, avg_rating, total_reviews, price_starter')
       .eq('status', 'active')
+      .eq('service_paused', false)
       .order('avg_rating', { ascending: false })
       .limit(3),
     admin
@@ -246,6 +247,7 @@ function TopNav({ user, profileRole }: { user: any; profileRole: string | null }
       <div style={{ flex: 1 }} />
       <Link href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</Link>
       <Link href="/counters" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Counters</Link>
+      <Link href="/team-comps" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Composiciones</Link>
       <Link href="/news" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Noticias</Link>
       <Link href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
       <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>
@@ -316,6 +318,7 @@ function Footer() {
       <div className="footer-links" style={{ display: 'flex', gap: 24 }}>
         <Link href="/guides" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Guías</Link>
         <Link href="/counters" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Counters</Link>
+        <Link href="/team-comps" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Composiciones</Link>
         <Link href="/news" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Noticias</Link>
         <Link href="/experts" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Expertos</Link>
         <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>

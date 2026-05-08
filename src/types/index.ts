@@ -54,6 +54,9 @@ export interface Expert {
 
   stripe_account_id: string | null
   discord_handle: string | null
+  service_paused: boolean
+  service_paused_at: string | null
+  service_pause_reason: string | null
 
   created_at: string
   updated_at: string
@@ -184,23 +187,23 @@ export interface Announcement extends ContentSeoFields {
 export const TIER_CONFIG = {
   starter: {
     label:       'Starter',
-    deliveryHours: 48,
+    deliveryHours: 168,
     followups:   1,
-    features:    ['Review escrita detallada', 'Entrega en 48h', '1 pregunta de seguimiento'],
+    features:    ['Review escrita detallada', 'Entrega en hasta 7 dias', '1 pregunta de seguimiento'],
     description: 'Review escrita + 1 pregunta',
   },
   pro: {
     label:       'Pro',
-    deliveryHours: 24,
+    deliveryHours: 168,
     followups:   3,
-    features:    ['Review escrita detallada', 'Timestamps de vídeo', 'Entrega en 24h', '3 preguntas de seguimiento', 'Seguimiento de progreso'],
+    features:    ['Review escrita detallada', 'Timestamps de video', 'Entrega en hasta 7 dias', '3 preguntas de seguimiento', 'Seguimiento de progreso'],
     description: 'Review + timestamps + 3 preguntas',
   },
   deep_dive: {
     label:       'Deep Dive',
-    deliveryHours: 72,
+    deliveryHours: 168,
     followups:   Infinity,
-    features:    ['Análisis de 3 replays cruzados', 'Hoja de ruta personalizada', 'Seguimiento ilimitado 7 días', 'Re-review gratuita a las 2 semanas'],
+    features:    ['Analisis de 3 replays cruzados', 'Hoja de ruta personalizada', 'Entrega en hasta 7 dias', 'Seguimiento ilimitado 7 dias', 'Re-review gratuita a las 2 semanas'],
     description: '3 replays + hoja de ruta + seguimiento 7d',
   },
   trial: {

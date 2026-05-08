@@ -67,6 +67,20 @@ export default function TierSelector({ expert, hasUsedTrial, isLoggedIn, stripeC
     }
   }
 
+  if (expert.service_paused) {
+    return (
+      <div style={{ background: 'rgba(255,214,0,0.06)', border: '1px solid rgba(255,214,0,0.24)', padding: '20px 24px' }}>
+        <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 22, color: 'var(--yellow)', margin: '0 0 8px', letterSpacing: 1 }}>
+          SERVICIO PAUSADO
+        </h2>
+        <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>
+          Este experto sigue visible, pero ahora mismo no acepta pedidos nuevos.
+          {expert.service_pause_reason ? ` ${expert.service_pause_reason}` : ' Vuelve pronto o elige otro experto disponible.'}
+        </p>
+      </div>
+    )
+  }
+
   if (enabledTiers.length === 0 && (!expert.trial_enabled || hasUsedTrial)) {
     return (
       <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '18px 20px' }}>

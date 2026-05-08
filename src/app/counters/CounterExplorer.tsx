@@ -73,6 +73,9 @@ export default function CounterExplorer() {
             <Link href={`/counters/${selected.slug}`} className="btn btn-secondary btn-sm">
               VER COUNTERS
             </Link>
+            <Link href={`/team-comps/${selected.slug}`} className="btn btn-secondary btn-sm">
+              COMPOS
+            </Link>
             <Link href={`/guides/${selected.guideSlug}`} className="btn btn-primary btn-sm">
               GUÍA
             </Link>

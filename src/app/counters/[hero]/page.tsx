@@ -133,6 +133,7 @@ export default function CounterHeroPage({ params }: { params: { hero: string } }
             <div>
               <div className="eyebrow">ENLACES INTERNOS</div>
               <Link href="/counters">Todos los counters</Link>
+              <Link href={`/team-comps/${hero.slug}`}>Composiciones de {hero.name}</Link>
               <Link href={`/heroes/${hero.slug}`}>Guía pilar de {hero.name}</Link>
               <Link href={`/roles/${hero.role}`}>Aprender {roleLabel}</Link>
               <Link href="/guides">Todas las guías</Link>

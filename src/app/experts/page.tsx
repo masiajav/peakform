@@ -64,6 +64,7 @@ export default async function ExpertsPage({
     .from('experts')
     .select('*')
     .eq('status', 'active')
+    .order('service_paused', { ascending: true })
     .order('avg_rating', { ascending: false })
 
   if (roleFilter) query = query.eq('main_role', roleFilter)
@@ -215,6 +216,11 @@ export default async function ExpertsPage({
                       <div style={{ fontSize: 12, color: 'var(--accent)', marginTop: 2 }}>
                         {expert.peak_rank} · {ROLE_LABELS[expert.main_role] ?? expert.main_role}
                       </div>
+                      {expert.service_paused && (
+                        <div style={{ marginTop: 6, display: 'inline-flex', fontSize: 10, letterSpacing: 1, color: 'var(--yellow)', border: '1px solid rgba(255,214,0,0.28)', padding: '2px 7px' }}>
+                          PAUSADO
+                        </div>
+                      )}
                     </div>
                   </div>
 
@@ -248,7 +254,7 @@ export default async function ExpertsPage({
                       }
                     </div>
                     <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 18, color: 'var(--text)' }}>
-                      desde {formatPrice(expert.price_starter)}
+                      {expert.service_paused ? 'no disponible' : `desde ${formatPrice(expert.price_starter)}`}
                     </div>
                   </div>
                 </div>

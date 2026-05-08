@@ -91,7 +91,7 @@ export default async function ApplyPage() {
           {[
             { value: '100%', label: 'DEL PRECIO QUE FIJAS' },
             { value: 'Tú', label: 'FIJAS TUS PRECIOS' },
-            { value: '24-72h', label: 'PLAZO DE ENTREGA' },
+            { value: 'Hasta 7 dias', label: 'PLAZO DE ENTREGA' },
           ].map(({ value, label }) => (
             <div key={label} style={{ textAlign: 'center' }}>
               <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 28, color: 'var(--text)', letterSpacing: 1 }}>

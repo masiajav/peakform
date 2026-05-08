@@ -4,6 +4,7 @@ import Link from 'next/link'
 import AppNav from '@/components/layout/AppNav'
 import ConnectStripeButton from './ConnectStripeButton'
 import ExpertTierManager from './ExpertTierManager'
+import ExpertAvailabilityToggle from './ExpertAvailabilityToggle'
 import Stripe from 'stripe'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
@@ -118,6 +119,11 @@ export default async function ExpertDashboardPage({
             />
           </div>
         </div>
+
+        <ExpertAvailabilityToggle
+          initialPaused={expert.service_paused === true}
+          initialReason={expert.service_pause_reason ?? null}
+        />
 
         {/* Banner Stripe Connect */}
         {!stripeConnected && (

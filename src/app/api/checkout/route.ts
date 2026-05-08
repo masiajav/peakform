@@ -18,6 +18,7 @@ type ExpertRow = {
   trial_price: number | null
   trial_deadline_hours: number
   stripe_account_id: string | null
+  service_paused: boolean
 }
 
 const PRICE_FIELD: Record<Exclude<OrderTier, 'trial'>, keyof ExpertRow> = {
@@ -45,13 +46,16 @@ export async function POST(request: Request) {
 
   const { data: expert } = await supabase
     .from('experts')
-    .select('id, display_name, price_starter, price_pro, price_deep_dive, tier_starter_enabled, tier_pro_enabled, tier_deep_dive_enabled, trial_enabled, trial_price, trial_deadline_hours, stripe_account_id')
+    .select('id, display_name, price_starter, price_pro, price_deep_dive, tier_starter_enabled, tier_pro_enabled, tier_deep_dive_enabled, trial_enabled, trial_price, trial_deadline_hours, stripe_account_id, service_paused')
     .eq('id', expertId)
     .eq('status', 'active')
     .returns<ExpertRow[]>()
     .single()
 
   if (!expert) return NextResponse.json({ error: 'Experto no encontrado' }, { status: 404 })
+  if (expert.service_paused) {
+    return NextResponse.json({ error: 'Este experto ha pausado temporalmente nuevos pedidos' }, { status: 400 })
+  }
   if (tier !== 'trial' && expert[ENABLED_FIELD[tier]] === false) {
     return NextResponse.json({ error: 'Este tier no esta disponible ahora mismo' }, { status: 400 })
   }

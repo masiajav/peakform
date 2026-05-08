@@ -58,7 +58,9 @@ export default function ReviewForm({ orderId, tier }: Props) {
         const d = await res.json()
         throw new Error(d.error || 'Error al entregar la review')
       }
-      router.push('/expert/dashboard?delivered=1')
+      const data = await res.json()
+      router.push(`/expert/orders/${data.orderId ?? orderId}?delivered=1`)
+      router.refresh()
     } catch (e: any) {
       setError(e.message)
     } finally {
