@@ -2,12 +2,11 @@ import type { Metadata } from 'next'
 import { Fragment } from 'react'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { createClient } from '@/lib/supabase/server'
-import AppNav from '@/components/layout/AppNav'
 import Link from 'next/link'
 import AdSlot from '@/components/content/AdSlot'
 import JsonLd from '@/components/content/JsonLd'
+import PublicNav from '@/components/layout/PublicNav'
 import { articleDescription, ROLE_LABELS, topicLabel } from '@/lib/content'
-import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
 import GuideFilters from '@/components/content/GuideFilters'
 
@@ -118,26 +117,10 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <JsonLd data={collectionJsonLd} />
-      {user ? (
-        <AppNav role={profile?.role ?? 'user'} displayName={profile?.display_name || user.email} avatarUrl={profile?.avatar_url} />
-      ) : (
-        <nav style={{
-          height: 52, background: 'var(--bg)', borderBottom: '1px solid var(--border)',
-          display: 'flex', alignItems: 'center', padding: '0 24px', gap: 20,
-          position: 'sticky', top: 0, zIndex: 100,
-        }}>
-          <Link href="/" style={{ textDecoration: 'none' }}>
-            <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3 }}>REPLAID LAB</span>
-          </Link>
-          <div style={{ flex: 1 }} />
-          <Link href="/counters" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Counters</Link>
-          <Link href="/team-comps" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Composiciones</Link>
-          <Link href="/news" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Noticias</Link>
-          <Link href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
-          <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>
-          <Link href="/login" className="btn btn-primary btn-sm">ENTRAR</Link>
-        </nav>
-      )}
+      <PublicNav
+        ctaHref={user ? profile?.role === 'admin' ? '/admin' : profile?.role === 'expert' ? '/expert/dashboard' : '/dashboard' : '/login'}
+        ctaLabel={user ? 'MI PANEL' : 'ENTRAR'}
+      />
 
       <section style={{ maxWidth: 1120, margin: '0 auto', padding: '56px 24px 80px' }}>
         <div style={{

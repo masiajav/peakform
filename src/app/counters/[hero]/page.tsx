@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import JsonLd from '@/components/content/JsonLd'
+import SiteNav from '@/components/layout/PublicNav'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { COUNTER_HEROES, getCounterHero, type CounterPick } from '@/lib/overwatch-counters'
 import { ROLE_LABELS } from '@/lib/content'
@@ -64,7 +65,7 @@ export default function CounterHeroPage({ params }: { params: { hero: string } }
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <JsonLd data={counterJsonLd} />
       <JsonLd data={breadcrumbJsonLd} />
-      <PublicNav />
+      <SiteNav />
 
       <main style={{ maxWidth: 1120, margin: '0 auto', padding: '56px 24px 88px' }}>
         <div style={{ marginBottom: 28, fontSize: 12, color: 'var(--text3)', display: 'flex', gap: 8, flexWrap: 'wrap' }}>

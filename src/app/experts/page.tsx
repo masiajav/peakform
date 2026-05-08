@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
-import AppNav from '@/components/layout/AppNav'
+import PublicNav from '@/components/layout/PublicNav'
 import { Expert, formatPrice } from '@/types'
 import { buildMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
@@ -75,27 +75,10 @@ export default async function ExpertsPage({
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
 
-      {user ? (
-        <AppNav
-          role={profile?.role || 'user'}
-          displayName={profile?.display_name || user.email}
-          avatarUrl={profile?.avatar_url}
-        />
-      ) : (
-        <nav style={{
-          height: 52, background: 'var(--bg)', borderBottom: '1px solid var(--border)',
-          display: 'flex', alignItems: 'center', padding: '0 24px', gap: 20,
-          position: 'sticky', top: 0, zIndex: 100,
-        }}>
-          <Link href="/" style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3, textDecoration: 'none' }}>
-            REPLAID LAB
-          </Link>
-          <div style={{ flex: 1 }} />
-          <Link href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
-          <Link href="/apply" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Ser experto</Link>
-          <Link href="/login" className="btn btn-primary btn-sm">ENTRAR</Link>
-        </nav>
-      )}
+      <PublicNav
+        ctaHref={user ? profile?.role === 'admin' ? '/admin' : profile?.role === 'expert' ? '/expert/dashboard' : '/dashboard' : '/login'}
+        ctaLabel={user ? 'MI PANEL' : 'ENTRAR'}
+      />
 
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: '32px 24px' }}>
 

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import JsonLd from '@/components/content/JsonLd'
+import SiteNav from '@/components/layout/PublicNav'
 import {
   TEAM_COMP_HEROES,
   TEAM_COMP_STYLE_LABELS,
@@ -57,7 +58,7 @@ export default function TeamCompHeroPage({ params }: { params: { hero: string } 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <JsonLd data={jsonLd} />
-      <PublicNav />
+      <SiteNav />
 
       <main style={{ maxWidth: 1120, margin: '0 auto', padding: '48px 24px 88px' }}>
         <Link href="/team-comps" style={{ color: 'var(--text3)', textDecoration: 'none', fontSize: 13 }}>

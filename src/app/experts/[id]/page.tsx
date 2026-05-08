@@ -3,6 +3,7 @@ import { createAdminClient } from '@/lib/supabase/admin'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import AppNav from '@/components/layout/AppNav'
+import PublicNav from '@/components/layout/PublicNav'
 import TierSelector from './TierSelector'
 import JsonLd from '@/components/content/JsonLd'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
@@ -119,10 +120,14 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
     <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
       <JsonLd data={expertJsonLd} />
 
-      {user ? (
+      <PublicNav
+        ctaHref={user ? profile?.role === 'admin' ? '/admin' : profile?.role === 'expert' ? '/expert/dashboard' : '/dashboard' : '/login'}
+        ctaLabel={user ? 'MI PANEL' : 'ENTRAR'}
+      />
+      {false && (user ? (
         <AppNav
           role={profile?.role || 'user'}
-          displayName={profile?.display_name || user.email}
+          displayName={profile?.display_name || user?.email}
           avatarUrl={profile?.avatar_url}
         />
       ) : (
@@ -143,7 +148,7 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
           <Link href="/apply" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Ser experto</Link>
           <Link href="/login" className="btn btn-primary btn-sm">ENTRAR</Link>
         </nav>
-      )}
+      ))}
 
       <div style={{ maxWidth: 860, margin: '0 auto', padding: '32px 24px' }}>
 

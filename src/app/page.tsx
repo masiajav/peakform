@@ -5,6 +5,7 @@ import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import JsonLd from '@/components/content/JsonLd'
 import AdSlot from '@/components/content/AdSlot'
+import PublicNav from '@/components/layout/PublicNav'
 import { announcementPath, articleDescription, ROLE_LABELS, topicLabel } from '@/lib/content'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
@@ -106,7 +107,10 @@ export default async function RootPage() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <JsonLd data={itemListJsonLd} />
-      <TopNav user={user} profileRole={profileRole} />
+      <PublicNav
+        ctaHref={user ? profileRole === 'admin' ? '/admin' : profileRole === 'expert' ? '/expert/dashboard' : '/dashboard' : '/login'}
+        ctaLabel={user ? 'MI PANEL' : 'ENTRAR'}
+      />
 
       <main>
         <section style={{ maxWidth: 1120, margin: '0 auto', padding: '72px 24px 36px' }}>

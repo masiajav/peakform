@@ -2,6 +2,7 @@ import { createAdminClient } from '@/lib/supabase/admin'
 import { announcementPath, articleDescription, guidePath, ROLE_LABELS, topicLabel, type ContentRole } from '@/lib/content'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import JsonLd from './JsonLd'
+import SiteNav from '@/components/layout/PublicNav'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
 import Link from 'next/link'
 import { formatPrice } from '@/types'
@@ -86,7 +87,7 @@ export default async function TopicArchivePage({
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <JsonLd data={collectionJsonLd} />
       <JsonLd data={faqJsonLd} />
-      <PublicNav />
+      <SiteNav />
 
       <main style={{ maxWidth: 1120, margin: '0 auto', padding: '56px 24px 88px' }}>
         <header style={{ marginBottom: 40, maxWidth: 760 }}>

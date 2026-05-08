@@ -3,6 +3,7 @@ import { createAdminClient } from '@/lib/supabase/admin'
 import { createClient } from '@/lib/supabase/server'
 import { notFound } from 'next/navigation'
 import AppNav from '@/components/layout/AppNav'
+import PublicNav from '@/components/layout/PublicNav'
 import Link from 'next/link'
 import JsonLd from '@/components/content/JsonLd'
 import AdSlot from '@/components/content/AdSlot'
@@ -137,8 +138,12 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
       {videoJsonLd && <JsonLd data={videoJsonLd} />}
       <JsonLd data={breadcrumbJsonLd} />
 
-      {user ? (
-        <AppNav role={profile?.role ?? 'user'} displayName={profile?.display_name || user.email} avatarUrl={profile?.avatar_url} />
+      <PublicNav
+        ctaHref={user ? profile?.role === 'admin' ? '/admin' : profile?.role === 'expert' ? '/expert/dashboard' : '/dashboard' : '/login'}
+        ctaLabel={user ? 'MI PANEL' : 'ENTRAR'}
+      />
+      {false && (user ? (
+        <AppNav role={profile?.role ?? 'user'} displayName={profile?.display_name || user?.email} avatarUrl={profile?.avatar_url} />
       ) : (
         <nav style={{
           height: 52, background: 'var(--bg)', borderBottom: '1px solid var(--border)',
@@ -156,7 +161,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
           <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>
           <Link href="/login" className="btn btn-primary btn-sm">ENTRAR</Link>
         </nav>
-      )}
+      ))}
 
       <div className="guide-detail-layout">
       <article className="guide-detail-main">

@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import AppNav from '@/components/layout/AppNav'
+import PublicNav from '@/components/layout/PublicNav'
 import ArticleCta from '@/components/content/ArticleCta'
 import JsonLd from '@/components/content/JsonLd'
 import SponsoredBlock from '@/components/content/SponsoredBlock'
@@ -59,8 +60,12 @@ export default async function AnnouncementArticlePage({
       <JsonLd data={articleJsonLd} />
       <JsonLd data={breadcrumbJsonLd} />
 
-      {user ? (
-        <AppNav role={profile?.role ?? 'user'} displayName={profile?.display_name || user.email} avatarUrl={profile?.avatar_url} />
+      <PublicNav
+        ctaHref={user ? profile?.role === 'admin' ? '/admin' : profile?.role === 'expert' ? '/expert/dashboard' : '/dashboard' : '/login'}
+        ctaLabel={user ? 'MI PANEL' : 'ENTRAR'}
+      />
+      {false && (user ? (
+        <AppNav role={profile?.role ?? 'user'} displayName={profile?.display_name || user?.email} avatarUrl={profile?.avatar_url} />
       ) : (
         <nav style={{
           height: 52, background: 'var(--bg)', borderBottom: '1px solid var(--border)',
@@ -76,7 +81,7 @@ export default async function AnnouncementArticlePage({
           <Link href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
           <Link href="/login" className="btn btn-primary btn-sm">ENTRAR</Link>
         </nav>
-      )}
+      ))}
 
       <article style={{ maxWidth: 760, margin: '0 auto', padding: '64px 24px 80px' }}>
         <div style={{ fontSize: 12, color: 'var(--text3)', marginBottom: 32, display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import JsonLd from '@/components/content/JsonLd'
 import CounterExplorer from './CounterExplorer'
 import { COUNTER_HEROES } from '@/lib/overwatch-counters'
+import SiteNav from '@/components/layout/PublicNav'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
 
@@ -28,7 +29,7 @@ export default function CountersPage() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <JsonLd data={itemListJsonLd} />
-      <PublicNav />
+      <SiteNav />
 
       <main style={{ maxWidth: 1180, margin: '0 auto', padding: '56px 24px 88px' }}>
         <header style={{ maxWidth: 820, marginBottom: 28 }}>

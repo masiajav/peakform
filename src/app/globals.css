@@ -834,3 +834,66 @@ textarea {
     flex-direction: column;
   }
 }
+
+.public-nav {
+  align-items: center;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 20px;
+  height: 52px;
+  overflow-x: auto;
+  padding: 0 24px;
+  position: sticky;
+  scrollbar-width: none;
+  top: 0;
+  z-index: 100;
+}
+
+.public-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.public-nav-brand {
+  color: var(--accent);
+  flex: 0 0 auto;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  letter-spacing: 3px;
+  text-decoration: none;
+}
+
+.public-nav-spacer {
+  flex: 1 0 24px;
+}
+
+.public-nav-links {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 20px;
+}
+
+.public-nav-cta {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 639px) {
+  .public-nav {
+    gap: 14px;
+    padding: 0 14px;
+  }
+
+  .public-nav-brand {
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
+
+  .public-nav-spacer {
+    flex-basis: 8px;
+  }
+
+  .public-nav-links {
+    gap: 16px;
+  }
+}
