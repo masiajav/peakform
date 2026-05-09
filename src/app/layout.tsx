@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 import JsonLd from '@/components/content/JsonLd'
 import { absoluteUrl, SITE_NAME, SITE_URL } from '@/lib/seo'
@@ -106,6 +107,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd data={organizationJsonLd} />
         <JsonLd data={websiteJsonLd} />
         {children}
+        <Analytics />
       </body>
     </html>
   )
