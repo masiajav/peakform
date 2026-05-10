@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { announcementPath, DEFAULT_HEROES, DEFAULT_MAPS, ROLE_SLUGS } from '@/lib/content'
+import { announcementPath, DEFAULT_HEROES, ROLE_SLUGS } from '@/lib/content'
 import { COUNTER_HEROES } from '@/lib/overwatch-counters'
 import { TEAM_COMP_HEROES } from '@/lib/overwatch-team-comps'
 import { absoluteUrl } from '@/lib/seo'
@@ -19,7 +19,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...DEFAULT_HEROES.map(hero => `/heroes/${hero}`),
     ...COUNTER_HEROES.map(hero => `/counters/${hero.slug}`),
     ...TEAM_COMP_HEROES.map(hero => `/team-comps/${hero.slug}`),
-    ...DEFAULT_MAPS.map(map => `/maps/${map}`),
   ].map(path => ({
     url: absoluteUrl(path || '/'),
     lastModified: now,
@@ -29,8 +28,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const admin = createAdminClient()
   const [{ data: guides }, { data: announcements }, { data: experts }] = await Promise.all([
-    admin.from('guides').select('slug, updated_at, created_at').eq('published', true),
-    admin.from('announcements').select('slug, content_type, updated_at, created_at').eq('published', true),
+    admin.from('guides').select('slug, map, updated_at, created_at').eq('published', true),
+    admin.from('announcements').select('slug, content_type, map, updated_at, created_at').eq('published', true),
     admin.from('experts').select('id, slug, updated_at, created_at').eq('status', 'active'),
   ])
 
@@ -55,5 +54,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }))
 
-  return [...staticRoutes, ...guideRoutes, ...announcementRoutes, ...expertRoutes]
+  const mapRecords = [...(guides ?? []), ...(announcements ?? [])].filter((item: any) => item.map)
+  const mapRoutes = Array.from(new Map(mapRecords.map((item: any) => [
+    item.map,
+    {
+      url: absoluteUrl(`/maps/${item.map}`),
+      lastModified: new Date(item.updated_at || item.created_at || now),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    },
+  ])).values())
+
+  return [...staticRoutes, ...guideRoutes, ...announcementRoutes, ...expertRoutes, ...mapRoutes]
 }

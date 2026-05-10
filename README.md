@@ -49,6 +49,10 @@ STRIPE_WEBHOOK_SECRET=
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 
+# Produccion
+NEXT_PUBLIC_APP_URL=https://www.replaidlab.com
+NEXT_PUBLIC_SITE_URL=https://www.replaidlab.com
+
 RESEND_API_KEY=
 ANTHROPIC_API_KEY=
 ```
@@ -57,6 +61,7 @@ Notas:
 
 - `NEXT_PUBLIC_APP_URL` se usa para redirects y enlaces internos en emails.
 - `NEXT_PUBLIC_SITE_URL` se usa para canonicales, Open Graph y URLs absolutas SEO.
+- En produccion, ambas deben apuntar al host canonico `https://www.replaidlab.com`, que es el host publico al que redirige Vercel.
 - `SUPABASE_SERVICE_ROLE_KEY` solo debe usarse en servidor. Nunca la expongas como `NEXT_PUBLIC_*`.
 
 ## Scripts

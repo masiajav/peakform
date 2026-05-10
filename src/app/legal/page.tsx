@@ -1,11 +1,15 @@
+import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
 import Link from 'next/link'
+import { buildMetadata } from '@/lib/seo'
 
-export const metadata = {
-  title: 'Términos y Condiciones — Replaid Lab',
+export const metadata: Metadata = buildMetadata({
+  title: 'Términos y condiciones',
   description: 'Condiciones de uso, política de reembolsos y privacidad de Replaid Lab.',
-}
+  path: '/legal',
+})
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section style={{ marginBottom: 48 }}>
       <h2 style={{
@@ -78,9 +82,9 @@ export default function LegalPage() {
             Replaid Lab ofrece tres niveles de análisis («tiers»). Cada Experto fija libremente el precio y el contenido exacto que ofrece en cada tier, respetando los mínimos establecidos por la plataforma:
           </p>
           <ul style={{ margin: 0, paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 6 }}>
-            <li><strong style={{ color: 'var(--text)' }}>Starter</strong> — Desde 2 € (precio base del experto). Plazo maximo de entrega: 7 dias desde la recepcion del replay.</li>
-            <li><strong style={{ color: 'var(--text)' }}>Pro</strong> — Desde 5 € (precio base del experto). Plazo maximo de entrega: 7 dias.</li>
-            <li><strong style={{ color: 'var(--text)' }}>Deep Dive</strong> — Desde 8 € (precio base del experto). Plazo maximo de entrega: 7 dias.</li>
+            <li><strong style={{ color: 'var(--text)' }}>Starter</strong> - Desde 2 € (precio base del experto). Plazo máximo de entrega: 7 días desde la recepción del replay.</li>
+            <li><strong style={{ color: 'var(--text)' }}>Pro</strong> - Desde 5 € (precio base del experto). Plazo máximo de entrega: 7 días.</li>
+            <li><strong style={{ color: 'var(--text)' }}>Deep Dive</strong> - Desde 8 € (precio base del experto). Plazo máximo de entrega: 7 días.</li>
           </ul>
           <p>
             El contenido exacto que incluye cada tier (secciones del análisis, timestamps de vídeo, número de replays, preguntas de seguimiento, etc.) lo determina cada Experto y queda descrito en su perfil público antes de realizar la compra.
@@ -192,12 +196,12 @@ export default function LegalPage() {
           </p>
         </Section>
 
-        <Section title="13. Patrocinios, afiliacion y cookies">
+        <Section title="13. Patrocinios, afiliación y cookies">
           <p>
-            Algunas paginas publicas de la hemeroteca pueden incluir bloques patrocinados o enlaces de afiliado relacionados con Overwatch, perifericos, herramientas de entrenamiento o recursos para jugadores. Estos espacios se mostraran siempre identificados como patrocinados o afiliados y nunca bloquearan el acceso al contenido principal.
+            Algunas páginas públicas de la hemeroteca pueden incluir bloques patrocinados o enlaces de afiliado relacionados con Overwatch, periféricos, herramientas de entrenamiento o recursos para jugadores. Estos espacios se mostrarán siempre identificados como patrocinados o afiliados y nunca bloquearán el acceso al contenido principal.
           </p>
           <p>
-            Replaid Lab podra usar cookies tecnicas y, solo cuando se active y se solicite el consentimiento correspondiente, cookies de analitica o medicion comercial para entender el rendimiento de contenidos, conversiones y enlaces patrocinados.
+            Replaid Lab podrá usar cookies técnicas y, solo cuando se active y se solicite el consentimiento correspondiente, cookies de analítica o medición comercial para entender el rendimiento de contenidos, conversiones y enlaces patrocinados.
           </p>
         </Section>
 

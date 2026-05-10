@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
 
 export const SITE_NAME = 'Replaid Lab'
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://replaidlab.com').replace(/\/$/, '')
+const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.replaidlab.com'
+export const SITE_URL = configuredSiteUrl
+  .replace(/\/$/, '')
+  .replace(/^https?:\/\/replaidlab\.com$/i, 'https://www.replaidlab.com')
 export const DEFAULT_OG_IMAGE = '/og-image.svg'
 
 export function absoluteUrl(path = '/') {
