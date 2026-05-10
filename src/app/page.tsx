@@ -12,8 +12,8 @@ import { absoluteUrl, buildMetadata } from '@/lib/seo'
 import { formatPrice } from '@/types'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Guías de Overwatch, vídeos y consejos para mejorar',
-  description: 'Aprende Overwatch con guías por héroe, rol y mapa, vídeos actualizados, counters, composiciones y análisis de partidas.',
+  title: 'Guías de Overwatch, héroes y consejos para mejorar',
+  description: 'Aprende Overwatch con guías por héroe, rol y mapa, explicaciones de habilidades, counters, composiciones y análisis de partidas.',
   path: '/',
 })
 
@@ -27,8 +27,8 @@ const roleLinks = [
 const clusters = [
   {
     title: 'Guías por héroe',
-    text: 'Encuentra vídeos, counters y errores comunes para cada héroe.',
-    href: '/guides?category=Video+gu%C3%ADa',
+    text: 'Explora todos los héroes, sus habilidades, counters y guías relacionadas.',
+    href: '/heroes',
   },
   {
     title: 'Cómo mejorar en Overwatch',
@@ -41,9 +41,9 @@ const clusters = [
     href: '/team-comps',
   },
   {
-    title: 'Vídeos actualizados',
-    text: 'Guías en vídeo priorizadas por actualidad y utilidad real.',
-    href: '/guides?sort=latest',
+    title: 'Habilidades y matchups',
+    text: 'Entiende el kit de cada héroe antes de entrar en counters o composiciones.',
+    href: '/heroes',
   },
 ]
 
@@ -62,20 +62,12 @@ export default async function RootPage() {
   }
 
   const admin = createAdminClient()
-  const [{ data: featuredGuides }, { data: videoGuides }, { data: experts }, { data: latestNews }] = await Promise.all([
+  const [{ data: featuredGuides }, { data: experts }, { data: latestNews }] = await Promise.all([
     admin
       .from('guides')
       .select('id, title, slug, excerpt, body, category, hero, role, video_id, video_channel, created_at, seo_description')
       .eq('published', true)
       .order('created_at', { ascending: false })
-      .limit(6),
-    admin
-      .from('guides')
-      .select('id, title, slug, excerpt, body, hero, role, video_id, video_title, video_channel, video_published_at, seo_description')
-      .eq('published', true)
-      .not('video_id', 'is', null)
-      .gte('video_published_at', '2025-01-01')
-      .order('video_published_at', { ascending: false })
       .limit(6),
     admin
       .from('experts')
@@ -119,7 +111,7 @@ export default async function RootPage() {
               <div className="eyebrow">HEMEROTECA DE OVERWATCH</div>
               <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(46px, 8vw, 82px)', lineHeight: 0.94, letterSpacing: 1.5, margin: '0 0 22px', color: 'var(--text)' }}>
                 GUÍAS DE OVERWATCH,<br />
-                <span style={{ color: 'var(--accent)' }}>VÍDEOS Y CONSEJOS</span><br />
+                <span style={{ color: 'var(--accent)' }}>HÉROES Y CONSEJOS</span><br />
                 PARA MEJORAR
               </h1>
               <p style={{ color: 'var(--text2)', fontSize: 17, lineHeight: 1.65, maxWidth: 610, margin: '0 0 28px' }}>
@@ -140,6 +132,9 @@ export default async function RootPage() {
                   </Link>
                 ))}
               </div>
+              <Link href="/heroes" className="btn btn-secondary btn-sm" style={{ width: '100%', marginTop: 12 }}>
+                VER TODOS LOS HÉROES
+              </Link>
               <div style={{ borderTop: '1px solid var(--border)', marginTop: 16, paddingTop: 16, display: 'grid', gap: 8 }}>
                 {roleLinks.map(role => (
                   <Link key={role.href} href={role.href} className="role-link">
@@ -164,12 +159,14 @@ export default async function RootPage() {
           </CardGrid>
         </Section>
 
-        <Section title="Vídeos actualizados" kicker="2025+" href="/guides?sort=latest" linkLabel="Explorar vídeos">
-          <CardGrid>
-            {(videoGuides ?? []).map((guide: any) => (
-              <GuideCard key={guide.id} guide={guide} compactMeta />
+        <Section title="Héroes y habilidades" kicker="HUB" href="/heroes" linkLabel="Ver todos">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 10 }}>
+            {featuredHeroes.map(hero => (
+              <Link key={hero} href={`/heroes/${hero}`} className="quick-link" style={{ minHeight: 74, alignItems: 'center' }}>
+                {topicLabel(hero)}
+              </Link>
             ))}
-          </CardGrid>
+          </div>
         </Section>
 
         <section style={{ maxWidth: 1120, margin: '0 auto', padding: '0 24px' }}>
