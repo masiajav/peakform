@@ -20,14 +20,14 @@ export interface CounterHero {
 
 const heroSeeds = [
   ['Ana', 'support'],
-  ['Anran', 'tank'],
+  ['Anran', 'dps'],
   ['Ashe', 'dps'],
   ['Baptiste', 'support'],
   ['Bastion', 'dps'],
   ['Brigitte', 'support'],
   ['Cassidy', 'dps'],
   ['D.Va', 'tank'],
-  ['Domina', 'support'],
+  ['Domina', 'tank'],
   ['Doomfist', 'tank'],
   ['Echo', 'dps'],
   ['Emre', 'dps'],
