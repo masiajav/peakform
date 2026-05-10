@@ -128,6 +128,10 @@ const counterMatrix: Record<string, string[]> = {
 
 const nameBySlug = Object.fromEntries(heroSeeds.map(([name]) => [heroSlug(name), name]))
 
+const guideSlugOverrides: Record<string, string> = {
+  ana: 'ana-primeros-habitos-impactar-mas',
+}
+
 export const COUNTER_HEROES: CounterHero[] = heroSeeds.map(([name, role]) => {
   const slug = heroSlug(name)
   const counters = (counterMatrix[slug] ?? []).slice(0, 4).map(counterSlug => pick(counterSlug, slug))
@@ -137,7 +141,7 @@ export const COUNTER_HEROES: CounterHero[] = heroSeeds.map(([name, role]) => {
     slug,
     name,
     role,
-    guideSlug: `${slug}-guia-video-overwatch`,
+    guideSlug: guideSlugOverrides[slug] ?? `${slug}-guia-video-overwatch`,
     counters,
     watchOutFor: watchOutFor.length > 0 ? watchOutFor : counters.slice(0, 3),
     related: relatedForRole(role, slug),
