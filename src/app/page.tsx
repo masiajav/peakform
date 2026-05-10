@@ -13,7 +13,7 @@ import { formatPrice } from '@/types'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Guías de Overwatch, héroes y consejos para mejorar',
-  description: 'Aprende Overwatch con guías por héroe, rol y mapa, explicaciones de habilidades, counters, composiciones y análisis de partidas.',
+  description: 'Aprende Overwatch con guías por héroe, rol y mapa, counters, composiciones y análisis de partidas.',
   path: '/',
 })
 
@@ -27,7 +27,7 @@ const roleLinks = [
 const clusters = [
   {
     title: 'Guías por héroe',
-    text: 'Explora todos los héroes, sus habilidades, counters y guías relacionadas.',
+    text: 'Explora todos los héroes por rol y abre su guía relacionada.',
     href: '/heroes',
   },
   {
@@ -41,8 +41,8 @@ const clusters = [
     href: '/team-comps',
   },
   {
-    title: 'Habilidades y matchups',
-    text: 'Entiende el kit de cada héroe antes de entrar en counters o composiciones.',
+    title: 'Héroes por rol',
+    text: 'Tank, DPS y Support organizados para llegar rápido a cada guía.',
     href: '/heroes',
   },
 ]
@@ -159,7 +159,7 @@ export default async function RootPage() {
           </CardGrid>
         </Section>
 
-        <Section title="Héroes y habilidades" kicker="HUB" href="/heroes" linkLabel="Ver todos">
+        <Section title="Héroes por rol" kicker="HUB" href="/heroes" linkLabel="Ver todos">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 10 }}>
             {featuredHeroes.map(hero => (
               <Link key={hero} href={`/heroes/${hero}`} className="quick-link" style={{ minHeight: 74, alignItems: 'center' }}>
