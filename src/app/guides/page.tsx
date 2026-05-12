@@ -6,7 +6,7 @@ import Link from 'next/link'
 import AdSlot from '@/components/content/AdSlot'
 import JsonLd from '@/components/content/JsonLd'
 import PublicNav from '@/components/layout/PublicNav'
-import { articleDescription, ROLE_LABELS, topicLabel } from '@/lib/content'
+import { articleDescription, DEFAULT_HEROES, ROLE_LABELS, topicLabel } from '@/lib/content'
 import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
 import GuideFilters from '@/components/content/GuideFilters'
 
@@ -62,6 +62,10 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
   }
 
   const admin = createAdminClient()
+  const searchIntent = resolveSearchIntent(filters.q)
+  const effectiveHero = filters.hero || searchIntent.hero
+  const effectiveRole = filters.role || searchIntent.role
+  const freeTextQuery = searchIntent.hero || searchIntent.role ? undefined : filters.q
   const filterOptionsQuery = admin
     .from('guides')
     .select('category, role, hero, map')
@@ -72,8 +76,8 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
     .select('*')
     .eq('published', true)
 
-  if (filters.role) query = query.eq('role', filters.role)
-  if (filters.hero) query = query.eq('hero', filters.hero)
+  if (effectiveRole) query = query.eq('role', effectiveRole)
+  if (effectiveHero) query = query.eq('hero', effectiveHero)
   if (filters.map) query = query.eq('map', filters.map)
   if (filters.category) query = query.eq('category', filters.category)
 
@@ -82,7 +86,7 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
   else query = query.order('created_at', { ascending: false })
 
   const [{ data: guides }, { data: filterOptions }] = await Promise.all([query, filterOptionsQuery])
-  const searchedGuides = filterBySearch(guides ?? [], filters.q)
+  const searchedGuides = filterBySearch(guides ?? [], freeTextQuery)
   const sortedGuides = filters.sort === 'read'
     ? [...searchedGuides].sort((a: any, b: any) => readingTime(a.body) - readingTime(b.body))
     : searchedGuides
@@ -243,11 +247,13 @@ function filterBySearch(guides: any[], query?: string) {
       guide.title,
       guide.excerpt,
       guide.seo_description,
-      guide.body,
       guide.category,
       guide.hero,
+      guide.hero ? topicLabel(guide.hero) : null,
       guide.role,
+      guide.role ? ROLE_LABELS[guide.role as keyof typeof ROLE_LABELS] : null,
       guide.map,
+      guide.map ? topicLabel(guide.map) : null,
       guide.video_title,
       guide.video_channel,
     ].filter(Boolean).join(' '))
@@ -256,12 +262,48 @@ function filterBySearch(guides: any[], query?: string) {
   })
 }
 
+function resolveSearchIntent(query?: string) {
+  const term = normalizeSearchText(query)
+  if (!term) return {}
+
+  const hero = DEFAULT_HEROES.find(heroSlug => {
+    const heroTerms = [
+      normalizeSearchText(heroSlug),
+      normalizeSearchText(topicLabel(heroSlug)),
+    ]
+
+    return heroTerms.some(heroTerm => containsSearchToken(term, heroTerm))
+  })
+
+  if (hero) return { hero }
+
+  const role = (Object.keys(ROLE_LABELS) as Array<keyof typeof ROLE_LABELS>).find(roleSlug => {
+    const roleTerms = [
+      normalizeSearchText(roleSlug),
+      normalizeSearchText(ROLE_LABELS[roleSlug]),
+    ]
+
+    return roleTerms.some(roleTerm => containsSearchToken(term, roleTerm))
+  })
+
+  return role ? { role } : {}
+}
+
 function normalizeSearchText(value?: string) {
   return (value || '')
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
     .toLowerCase()
     .trim()
+    .replace(/\s+/g, ' ')
+}
+
+function containsSearchToken(term: string, token: string) {
+  if (!token) return false
+  if (term === token) return true
+
+  return ` ${term} `.includes(` ${token} `)
 }
 
 function EmptyGuides() {
