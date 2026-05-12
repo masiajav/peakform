@@ -9,7 +9,7 @@ import { buildMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Noticias de Overwatch',
-  description: 'Noticias, actualizaciones, patch notes y anuncios de Overwatch seleccionados por Replaid Lab.',
+  description: 'Noticias, actualizaciones y anuncios de Overwatch seleccionados por Replaid Lab.',
   path: '/news',
 })
 
@@ -28,6 +28,7 @@ export default async function NewsPage() {
     .from('announcements')
     .select('*')
     .eq('published', true)
+    .neq('content_type', 'patch_note')
     .order('created_at', { ascending: false })
 
   return (
@@ -60,16 +61,11 @@ export default async function NewsPage() {
             HEMEROTECA
           </div>
           <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 42, letterSpacing: 1, color: 'var(--text)', margin: '0 0 12px' }}>
-            NOTICIAS Y PATCH NOTES
+            NOTICIAS
           </h1>
           <p style={{ fontSize: 14, color: 'var(--text2)', margin: 0, lineHeight: 1.6 }}>
-            Actualizaciones, contexto competitivo y cambios relevantes para jugadores de Overwatch.
+            Actualizaciones, contexto competitivo y anuncios relevantes para jugadores de Overwatch.
           </p>
-          <div style={{ marginTop: 18 }}>
-            <Link href="/patch-notes" className="btn btn-secondary btn-sm">
-              VER PATCH NOTES
-            </Link>
-          </div>
         </div>
 
         {!announcements || announcements.length === 0 ? (
@@ -81,7 +77,7 @@ export default async function NewsPage() {
                 <article style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '22px 24px' }}>
                   <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 10 }}>
                     <span style={{ fontSize: 10, letterSpacing: 1.5, color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif' }}>
-                      {(a.content_type === 'patch_note' ? 'PATCH NOTE' : 'NOTICIA')}
+                      NOTICIA
                     </span>
                     <span style={{ fontSize: 11, color: 'var(--text3)' }}>
                       {new Date(a.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}

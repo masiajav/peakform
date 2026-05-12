@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { href: '/counters', label: 'Counters' },
   { href: '/team-comps', label: 'Composiciones' },
   { href: '/news', label: 'Noticias' },
+  { href: '/patch-notes', label: 'Patch notes' },
   { href: '/experts', label: 'Expertos' },
 ]
 
