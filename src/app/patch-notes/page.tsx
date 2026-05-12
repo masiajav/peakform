@@ -5,6 +5,8 @@ import { createAdminClient } from '@/lib/supabase/admin'
 import { announcementPath, articleDescription } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = buildMetadata({
   title: 'Patch notes de Overwatch',
   description: 'Últimas notas de parche de Overwatch importadas desde Blizzard y resumidas por Replaid Lab.',
@@ -18,7 +20,6 @@ export default async function PatchNotesPage() {
     .select('*')
     .eq('published', true)
     .eq('content_type', 'patch_note')
-    .order('source_published_at', { ascending: false, nullsFirst: false })
     .order('created_at', { ascending: false })
 
   return (

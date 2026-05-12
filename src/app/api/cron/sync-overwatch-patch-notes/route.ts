@@ -34,14 +34,40 @@ export async function GET(request: Request) {
   const created: string[] = []
   const skipped: string[] = []
   const errors: { sourceId: string; error: string }[] = []
+  let sourceColumnsAvailable = true
 
   for (const note of notes) {
-    const { data: existing, error: lookupError } = await admin
-      .from('announcements')
-      .select('id')
-      .eq('source_name', BLIZZARD_PATCH_SOURCE_NAME)
-      .eq('source_id', note.sourceId)
-      .maybeSingle()
+    let existing = null
+    let lookupError = null
+
+    if (sourceColumnsAvailable) {
+      const lookup = await admin
+        .from('announcements')
+        .select('id')
+        .eq('source_name', BLIZZARD_PATCH_SOURCE_NAME)
+        .eq('source_id', note.sourceId)
+        .maybeSingle()
+
+      existing = lookup.data
+      lookupError = lookup.error
+
+      if (isMissingSourceColumn(lookupError?.message)) {
+        sourceColumnsAvailable = false
+        existing = null
+        lookupError = null
+      }
+    }
+
+    if (!sourceColumnsAvailable) {
+      const fallbackLookup = await admin
+        .from('announcements')
+        .select('id')
+        .eq('slug', note.slug)
+        .maybeSingle()
+
+      existing = fallbackLookup.data
+      lookupError = fallbackLookup.error
+    }
 
     if (lookupError) {
       errors.push({ sourceId: note.sourceId, error: lookupError.message })
@@ -53,27 +79,42 @@ export async function GET(request: Request) {
       continue
     }
 
-    const { error: insertError } = await admin
-      .from('announcements')
-      .insert({
-        title: note.title,
-        slug: note.slug,
-        body: note.body,
-        published: true,
-        excerpt: note.excerpt,
-        seo_title: note.title,
-        seo_description: note.excerpt,
-        author: 'Replaid Lab / Blizzard',
-        tags: ['overwatch', 'patch-notes', 'blizzard', 'auto-import'],
-        content_type: 'patch_note',
+    const baseInsert = {
+      title: note.title,
+      slug: note.slug,
+      body: note.body,
+      published: true,
+      excerpt: note.excerpt,
+      seo_title: note.title,
+      seo_description: note.excerpt,
+      author: 'Replaid Lab / Blizzard',
+      tags: ['overwatch', 'patch-notes', 'blizzard', 'auto-import'],
+      content_type: 'patch_note',
+      created_at: note.sourcePublishedAt,
+      updated_at: note.sourcePublishedAt,
+    }
+    const sourceInsert = sourceColumnsAvailable
+      ? {
         source_name: BLIZZARD_PATCH_SOURCE_NAME,
         source_url: note.sourceUrl,
         source_id: note.sourceId,
         source_published_at: note.sourcePublishedAt,
         auto_imported: true,
-        created_at: note.sourcePublishedAt,
-        updated_at: note.sourcePublishedAt,
-      })
+      }
+      : {}
+
+    let { error: insertError } = await admin
+      .from('announcements')
+      .insert({ ...baseInsert, ...sourceInsert })
+
+    if (isMissingSourceColumn(insertError?.message)) {
+      sourceColumnsAvailable = false
+      const fallbackInsert = await admin
+        .from('announcements')
+        .insert(baseInsert)
+
+      insertError = fallbackInsert.error
+    }
 
     if (insertError) {
       errors.push({ sourceId: note.sourceId, error: insertError.message })
@@ -107,4 +148,12 @@ function authorizeCron(request: Request) {
   }
 
   return null
+}
+
+function isMissingSourceColumn(message?: string) {
+  return Boolean(message && (
+    message.includes('announcements.source_name does not exist') ||
+    message.includes('source_name') && message.includes('does not exist') ||
+    message.includes('source_published_at') && message.includes('does not exist')
+  ))
 }
