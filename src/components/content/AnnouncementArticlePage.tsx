@@ -100,9 +100,6 @@ export default async function AnnouncementArticlePage({
           <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(30px, 5vw, 52px)', letterSpacing: 1, color: 'var(--text)', margin: '0 0 16px', lineHeight: 1.05 }}>
             {article.title}
           </h1>
-          <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.65, margin: '0 0 18px' }}>
-            {description}
-          </p>
           <div style={{ fontSize: 12, color: 'var(--text3)', display: 'flex', gap: 16, flexWrap: 'wrap' }}>
             <span>{new Date(article.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
             <span>{readMinutes} min de lectura</span>
