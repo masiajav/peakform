@@ -65,6 +65,11 @@ export default async function NewsPage() {
           <p style={{ fontSize: 14, color: 'var(--text2)', margin: 0, lineHeight: 1.6 }}>
             Actualizaciones, contexto competitivo y cambios relevantes para jugadores de Overwatch.
           </p>
+          <div style={{ marginTop: 18 }}>
+            <Link href="/patch-notes" className="btn btn-secondary btn-sm">
+              VER PATCH NOTES
+            </Link>
+          </div>
         </div>
 
         {!announcements || announcements.length === 0 ? (

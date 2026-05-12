@@ -11,6 +11,14 @@ export interface SponsoredFields {
   sponsor_cta?: string | null
 }
 
+export interface SourceFields {
+  source_name?: string | null
+  source_url?: string | null
+  source_id?: string | null
+  source_published_at?: string | null
+  auto_imported?: boolean | null
+}
+
 export interface GuideContent extends SponsoredFields {
   id: string
   title: string
@@ -40,7 +48,7 @@ export interface GuideContent extends SponsoredFields {
   updated_at?: string | null
 }
 
-export interface AnnouncementContent extends SponsoredFields {
+export interface AnnouncementContent extends SponsoredFields, SourceFields {
   id: string
   title: string
   slug: string

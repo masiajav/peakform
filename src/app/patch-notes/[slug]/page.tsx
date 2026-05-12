@@ -35,5 +35,5 @@ export default async function PatchNoteDetailPage({ params }: { params: { slug: 
   const article = await fetchPatchNote(params.slug)
   if (!article) notFound()
 
-  return <AnnouncementArticlePage article={article} sectionLabel="Patch notes" sectionHref="/news" schemaType="Article" />
+  return <AnnouncementArticlePage article={article} sectionLabel="Patch notes" sectionHref="/patch-notes" schemaType="Article" />
 }

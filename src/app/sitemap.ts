@@ -15,6 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/counters',
     '/team-comps',
     '/news',
+    '/patch-notes',
     '/legal',
     ...ROLE_SLUGS.map(role => `/roles/${role}`),
     ...DEFAULT_HEROES.map(hero => `/heroes/${hero}`),

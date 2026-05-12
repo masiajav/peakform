@@ -159,6 +159,11 @@ export interface ContentSeoFields {
   sponsor_url: string | null
   sponsor_cta: string | null
   updated_at: string | null
+  source_name?: string | null
+  source_url?: string | null
+  source_id?: string | null
+  source_published_at?: string | null
+  auto_imported?: boolean | null
 }
 
 export interface Guide extends ContentSeoFields {
