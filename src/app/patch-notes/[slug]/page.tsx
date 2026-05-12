@@ -3,9 +3,14 @@ import { createAdminClient } from '@/lib/supabase/admin'
 import AnnouncementArticlePage from '@/components/content/AnnouncementArticlePage'
 import { announcementPath, articleDescription, type AnnouncementContent } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
+import { unstable_noStore as noStore } from 'next/cache'
 import { notFound } from 'next/navigation'
 
+export const dynamic = 'force-dynamic'
+
 async function fetchPatchNote(slug: string) {
+  noStore()
+
   const admin = createAdminClient()
   const { data } = await admin
     .from('announcements')

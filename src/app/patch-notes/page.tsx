@@ -4,6 +4,7 @@ import PublicNav from '@/components/layout/PublicNav'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { announcementPath, articleDescription } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
+import { unstable_noStore as noStore } from 'next/cache'
 
 export const dynamic = 'force-dynamic'
 
@@ -14,6 +15,8 @@ export const metadata: Metadata = buildMetadata({
 })
 
 export default async function PatchNotesPage() {
+  noStore()
+
   const admin = createAdminClient()
   const { data: notes } = await admin
     .from('announcements')

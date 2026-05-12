@@ -92,7 +92,7 @@ export default async function AnnouncementArticlePage({
 
         <header style={{ marginBottom: 40 }}>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 14 }}>
-            {article.content_type === 'patch_note' && <Topic href="/news" label="Patch notes" accent />}
+            {article.content_type === 'patch_note' && <Topic href="/patch-notes" label="Patch notes" accent />}
             {article.role && <Topic href={`/roles/${article.role}`} label={ROLE_LABELS[article.role]} />}
             {article.hero && <Topic href={`/heroes/${article.hero}`} label={topicLabel(article.hero)} />}
             {article.map && <Topic href={`/maps/${article.map}`} label={topicLabel(article.map)} />}

@@ -56,21 +56,17 @@ function parsePatchBlock(block: string): BlizzardPatchNote | null {
       .filter(Boolean)
       .slice(0, 6)
   )
-  const sectionSummary = sections.length > 0
-    ? `Bloques principales detectados: ${sections.join(', ')}.`
-    : 'Blizzard publicó cambios de juego y correcciones en esta actualización.'
-
-  const titleDate = title.replace(/^Notas del parche de Overwatch\s*[–-]\s*/i, '').trim() || dateLabel
+  const titleDate = title.replace(/^Notas del parche de Overwatch\s*(?:-|\u2013)\s*/i, '').trim() || dateLabel
   const slug = toSlug(`notas-parche-overwatch-${sourcePublishedAt.slice(0, 10)}`)
-  const excerpt = `Resumen propio de las notas oficiales de Overwatch publicadas por Blizzard el ${dateLabel}.`
+  const excerpt = `Blizzard publico una nueva actualizacion de Overwatch el ${dateLabel}. Te dejamos el contexto rapido y el enlace a la nota oficial.`
   const body = [
-    `Blizzard publicó nuevas notas oficiales de Overwatch el ${dateLabel}.`,
+    `Blizzard publico una nueva actualizacion de Overwatch el ${dateLabel}.`,
     '',
-    sectionSummary,
+    describeSections(sections),
     '',
-    'Esta entrada de Replaid Lab resume la existencia de la actualización y apunta a la fuente oficial para consultar el detalle completo de cambios, ajustes y correcciones.',
+    'En Replaid Lab la guardamos para tener a mano el contexto de cada parche sin copiar la nota completa. Si un heroe, mapa o sistema que usas a menudo aparece en la lista, conviene leer el detalle antes de sacar conclusiones en partida.',
     '',
-    `Fuente oficial: [${title}](${sourceUrl})`,
+    `Puedes leer todos los cambios en la web oficial de Blizzard: [${title}](${sourceUrl}).`,
   ].join('\n')
 
   return {
@@ -87,7 +83,7 @@ function parsePatchBlock(block: string): BlizzardPatchNote | null {
 }
 
 function parseSpanishDate(value: string) {
-  const match = cleanText(value).toLowerCase().match(/^(\d{1,2}) de ([a-záéíóúñ]+) de (\d{4})$/i)
+  const match = cleanText(value).toLowerCase().match(/^(\d{1,2}) de ([^ ]+) de (\d{4})$/i)
   if (!match) return null
 
   const day = Number(match[1])
@@ -96,6 +92,14 @@ function parseSpanishDate(value: string) {
   if (!day || month === undefined || !year) return null
 
   return new Date(Date.UTC(year, month, day, 12, 0, 0)).toISOString()
+}
+
+function describeSections(sections: string[]) {
+  if (sections.length === 0) {
+    return 'Esta nota deja cambios y correcciones que merece la pena revisar antes de jugar, sobre todo si estas entrando a ranked o ajustando composiciones con tu equipo.'
+  }
+
+  return `La nota se centra sobre todo en ${formatNaturalList(sections.slice(0, 4))}. Conviene revisarla si estos cambios pueden afectar a tus picks, composiciones o rutinas de ranked.`
 }
 
 function textFromMatch(value: string, pattern: RegExp) {
@@ -127,4 +131,11 @@ function removeAccents(value: string) {
 
 function unique(values: string[]) {
   return Array.from(new Set(values))
+}
+
+function formatNaturalList(values: string[]) {
+  if (values.length <= 1) return values[0] || 'los cambios principales'
+  if (values.length === 2) return `${values[0]} y ${values[1]}`
+
+  return `${values.slice(0, -1).join(', ')} y ${values[values.length - 1]}`
 }
