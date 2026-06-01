@@ -9,6 +9,7 @@ type AdSlotProps = {
   variant?: AdSlotVariant
   slot?: string
   label?: string
+  allowAds?: boolean
   className?: string
   style?: CSSProperties
 }
@@ -20,24 +21,38 @@ const CONFIG: Record<AdSlotVariant, { minHeight: number; format: string; display
   mobile: { minHeight: 112, format: 'auto', display: '320 x 100' },
 }
 
+const NAMED_SLOTS: Record<string, string | undefined> = {
+  'home-top-leaderboard': process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME_TOP,
+  'home-mid-leaderboard': process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME_MID,
+  'guides-top-leaderboard': process.env.NEXT_PUBLIC_ADSENSE_SLOT_GUIDES_TOP,
+  'guide-after-summary': process.env.NEXT_PUBLIC_ADSENSE_SLOT_GUIDE_AFTER_SUMMARY,
+  'guide-after-video': process.env.NEXT_PUBLIC_ADSENSE_SLOT_GUIDE_AFTER_VIDEO,
+  'guide-sidebar-rectangle': process.env.NEXT_PUBLIC_ADSENSE_SLOT_GUIDE_SIDEBAR,
+}
+
 export default function AdSlot({
   variant = 'inline',
   slot,
   label = 'Publicidad',
+  allowAds = true,
   className,
   style,
 }: AdSlotProps) {
   const clientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID
   const config = CONFIG[variant]
-  const canServeAd = Boolean(clientId && slot && /^\d+$/.test(slot))
+  const showPlaceholder = process.env.NODE_ENV !== 'production'
+  const resolvedSlot = resolveSlot(slot)
+  const canServeAd = Boolean(clientId && resolvedSlot)
 
   useEffect(() => {
-    if (!canServeAd) return
+    if (!allowAds || !canServeAd) return
 
     const adsWindow = window as typeof window & { adsbygoogle?: unknown[] }
     adsWindow.adsbygoogle = adsWindow.adsbygoogle || []
     adsWindow.adsbygoogle.push({})
-  }, [canServeAd])
+  }, [allowAds, canServeAd])
+
+  if (!allowAds || (!canServeAd && !showPlaceholder)) return null
 
   return (
     <aside
@@ -53,7 +68,7 @@ export default function AdSlot({
           className="adsbygoogle"
           style={{ display: 'block' }}
           data-ad-client={clientId}
-          data-ad-slot={slot}
+          data-ad-slot={resolvedSlot}
           data-ad-format={config.format}
           data-full-width-responsive="true"
         />
@@ -62,4 +77,12 @@ export default function AdSlot({
       )}
     </aside>
   )
+}
+
+function resolveSlot(slot?: string) {
+  if (!slot) return null
+  if (/^\d+$/.test(slot)) return slot
+  if (slot.startsWith('guides-grid-')) return process.env.NEXT_PUBLIC_ADSENSE_SLOT_GUIDES_INLINE || null
+  const namedSlot = NAMED_SLOTS[slot]
+  return namedSlot && /^\d+$/.test(namedSlot) ? namedSlot : null
 }

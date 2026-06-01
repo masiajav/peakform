@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import Link from 'next/link'
+import PublicNav from '@/components/layout/PublicNav'
 import { buildMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
@@ -29,20 +30,7 @@ export default function LegalPage() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
 
-      {/* Nav */}
-      <nav style={{
-        height: 52, background: 'var(--bg)', borderBottom: '1px solid var(--border)',
-        display: 'flex', alignItems: 'center', padding: '0 24px', gap: 20,
-        position: 'sticky', top: 0, zIndex: 100,
-      }}>
-        <Link href="/" style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3, textDecoration: 'none' }}>
-          REPLAID LAB
-        </Link>
-        <div style={{ flex: 1 }} />
-        <Link href="/experts" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
-        <Link href="/apply" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Ser experto</Link>
-        <Link href="/login" className="btn btn-primary btn-sm">ENTRAR</Link>
-      </nav>
+      <PublicNav />
 
       <main style={{ maxWidth: 760, margin: '0 auto', padding: '64px 24px 96px' }}>
 

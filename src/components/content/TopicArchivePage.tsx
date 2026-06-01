@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { formatPrice } from '@/types'
 import { getCounterHero } from '@/lib/overwatch-counters'
 import { buildHeroSeoProfile, ROLE_SEO } from '@/lib/overwatch-seo'
+import { guideEditorial } from '@/lib/guide-editorial'
 
 export default async function TopicArchivePage({
   kind,
@@ -70,6 +71,16 @@ export default async function TopicArchivePage({
     publisher: { '@type': 'Organization', name: SITE_NAME },
   }
 
+  const topicPath = `/${kind === 'role' ? 'roles' : kind === 'hero' ? 'heroes' : 'maps'}/${slug}`
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: kind === 'role' ? 'Roles' : kind === 'hero' ? 'Héroes' : 'Mapas', item: absoluteUrl(kind === 'role' ? '/guides' : kind === 'hero' ? '/heroes' : '/guides') },
+      { '@type': 'ListItem', position: 2, name: title, item: absoluteUrl(topicPath) },
+    ],
+  }
+
   const faqJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -86,6 +97,7 @@ export default async function TopicArchivePage({
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <JsonLd data={collectionJsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
       <JsonLd data={faqJsonLd} />
       <SiteNav />
 
@@ -174,7 +186,7 @@ export default async function TopicArchivePage({
               ) : (
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 14 }}>
                   {guides.map((guide: any) => (
-                    <ArticleCard key={guide.id} href={guidePath(guide.slug)} title={guide.title} body={guide.excerpt || guide.body} meta={guide.category || labelForTopic(guide)} />
+                    <ArticleCard key={guide.id} href={guidePath(guide.slug)} title={guideEditorial(guide).title} body={guideEditorial(guide).description} meta={guide.category || labelForTopic(guide)} />
                   ))}
                 </div>
               )}

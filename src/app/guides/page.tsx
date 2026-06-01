@@ -6,8 +6,9 @@ import Link from 'next/link'
 import AdSlot from '@/components/content/AdSlot'
 import JsonLd from '@/components/content/JsonLd'
 import PublicNav from '@/components/layout/PublicNav'
-import { articleDescription, DEFAULT_HEROES, ROLE_LABELS, topicLabel } from '@/lib/content'
+import { DEFAULT_HEROES, ROLE_LABELS, topicLabel } from '@/lib/content'
 import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
+import { guideEditorial } from '@/lib/guide-editorial'
 import GuideFilters from '@/components/content/GuideFilters'
 
 type GuidesSearchParams = {
@@ -51,6 +52,7 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
     q: cleanParam(searchParams.q),
     sort: cleanParam(searchParams.sort),
   }
+  const hasFilters = Boolean(filters.role || filters.hero || filters.map || filters.category || filters.q || filters.sort)
 
   const supabase = createClient()
   const { data: { user } } = await supabase.auth.getUser()
@@ -112,7 +114,7 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
       itemListElement: sortedGuides.slice(0, 20).map((guide: any, index: number) => ({
         '@type': 'ListItem',
         position: index + 1,
-        name: guide.seo_title || guide.title,
+        name: guideEditorial(guide).seoTitle,
         url: absoluteUrl(`/guides/${guide.slug}`),
       })),
     },
@@ -175,7 +177,7 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
           </div>
         </div>
 
-        <AdSlot variant="leaderboard" slot="guides-top-leaderboard" />
+        <AdSlot variant="leaderboard" slot="guides-top-leaderboard" allowAds={!hasFilters} />
 
         {categories.length > 0 && (
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 32 }}>
@@ -200,6 +202,7 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
                   <AdSlot
                     variant="inline"
                     slot={`guides-grid-${index}`}
+                    allowAds={!hasFilters}
                     style={{ gridColumn: '1 / -1', margin: 0 }}
                   />
                 )}
@@ -213,10 +216,10 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
                       {g.map && <Tag label={topicLabel(g.map)} />}
                     </div>
                     <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 20, letterSpacing: 0.5, color: 'var(--text)', margin: '0 0 10px', lineHeight: 1.2 }}>
-                      {g.seo_title || g.title}
+                      {guideEditorial(g).title}
                     </h2>
                     <p style={{ fontSize: 13, color: 'var(--text2)', margin: '0 0 16px', lineHeight: 1.5 }}>
-                      {articleDescription(g)}
+                      {guideEditorial(g).description}
                     </p>
                     <div style={{ fontSize: 11, color: 'var(--text3)', display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                       <span>{new Date(g.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' })}</span>

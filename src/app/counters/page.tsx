@@ -3,6 +3,7 @@ import Link from 'next/link'
 import JsonLd from '@/components/content/JsonLd'
 import CounterExplorer from './CounterExplorer'
 import { COUNTER_HEROES } from '@/lib/overwatch-counters'
+import { PILLAR_COUNTER_SLUGS } from '@/lib/indexing-policy'
 import SiteNav from '@/components/layout/PublicNav'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
@@ -18,7 +19,7 @@ export default function CountersPage() {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'Counters de héroes de Overwatch',
-    itemListElement: COUNTER_HEROES.map((hero, index) => ({
+    itemListElement: COUNTER_HEROES.filter(hero => PILLAR_COUNTER_SLUGS.includes(hero.slug)).map((hero, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       name: `Counters de ${hero.name}`,

@@ -6,8 +6,9 @@ import { createAdminClient } from '@/lib/supabase/admin'
 import JsonLd from '@/components/content/JsonLd'
 import AdSlot from '@/components/content/AdSlot'
 import PublicNav from '@/components/layout/PublicNav'
-import { announcementPath, articleDescription, ROLE_LABELS, topicLabel } from '@/lib/content'
+import { announcementPath, ROLE_LABELS, topicLabel } from '@/lib/content'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
+import { guideEditorial } from '@/lib/guide-editorial'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
 import { formatPrice } from '@/types'
 
@@ -33,7 +34,7 @@ const clusters = [
   {
     title: 'Cómo mejorar en Overwatch',
     text: 'Fundamentos para revisar tus partidas sin depender solo de mecánicas.',
-    href: '/guides?q=fundamentos',
+    href: '/guides/como-mejorar-en-overwatch',
   },
   {
     title: 'Counters y composiciones',
@@ -91,7 +92,7 @@ export default async function RootPage() {
     itemListElement: (featuredGuides ?? []).map((guide: any, index: number) => ({
       '@type': 'ListItem',
       position: index + 1,
-      name: guide.title,
+      name: guideEditorial(guide).seoTitle,
       url: absoluteUrl(`/guides/${guide.slug}`),
     })),
   }
@@ -283,6 +284,8 @@ function CardGrid({ children }: { children: ReactNode }) {
 }
 
 function GuideCard({ guide, compactMeta = false }: { guide: any; compactMeta?: boolean }) {
+  const editorial = guideEditorial(guide)
+
   return (
     <Link href={`/guides/${guide.slug}`} style={{ textDecoration: 'none' }}>
       <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 20, height: '100%' }}>
@@ -291,8 +294,8 @@ function GuideCard({ guide, compactMeta = false }: { guide: any; compactMeta?: b
           {guide.role && <Tag label={ROLE_LABELS[guide.role as keyof typeof ROLE_LABELS] || guide.role} />}
           {guide.hero && <Tag label={topicLabel(guide.hero)} />}
         </div>
-        <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 22, letterSpacing: 0.7, lineHeight: 1.15, margin: '0 0 10px' }}>{guide.title}</h3>
-        <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.5, margin: '0 0 14px' }}>{articleDescription(guide)}</p>
+        <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 22, letterSpacing: 0.7, lineHeight: 1.15, margin: '0 0 10px' }}>{editorial.title}</h3>
+        <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.5, margin: '0 0 14px' }}>{editorial.description}</p>
         <div style={{ color: 'var(--text3)', fontSize: 11 }}>
           {compactMeta && guide.video_published_at
             ? `Vídeo ${new Date(guide.video_published_at).getFullYear()}`
@@ -323,6 +326,9 @@ function Footer() {
         <Link href="/news" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Noticias</Link>
         <Link href="/experts" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Expertos</Link>
         <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>
+        <Link href="/about" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Sobre</Link>
+        <Link href="/privacy" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Privacidad</Link>
+        <Link href="/editorial-methodology" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Método</Link>
         <Link href="/legal" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Legal</Link>
       </div>
       <span style={{ fontSize: 12, color: 'var(--text3)' }}>© 2026 Replaid Lab</span>

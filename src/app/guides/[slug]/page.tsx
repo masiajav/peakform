@@ -11,9 +11,11 @@ import SponsoredBlock from '@/components/content/SponsoredBlock'
 import ArticleCta from '@/components/content/ArticleCta'
 import GuideMarkdown from '@/components/content/GuideMarkdown'
 import GuideVideo from '@/components/content/GuideVideo'
-import { articleDescription, guidePath, ROLE_LABELS, topicLabel, type GuideContent } from '@/lib/content'
+import { guidePath, ROLE_LABELS, topicLabel, type GuideContent } from '@/lib/content'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
+import { isGuideAdEligible } from '@/lib/indexing-policy'
+import { guideEditorial } from '@/lib/guide-editorial'
 import { formatPrice } from '@/types'
 
 async function fetchGuide(slug: string) {
@@ -31,10 +33,11 @@ async function fetchGuide(slug: string) {
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const guide = await fetchGuide(params.slug)
   if (!guide) return {}
+  const editorial = guideEditorial(guide)
 
   return buildMetadata({
-    title: guide.seo_title || guide.title,
-    description: articleDescription(guide),
+    title: editorial.seoTitle,
+    description: editorial.description,
     path: guidePath(guide.slug),
     image: guide.cover_image,
     type: 'article',
@@ -88,11 +91,13 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
   ])
 
   const readMinutes = readingTime(guide.body)
-  const description = articleDescription(guide)
+  const editorial = guideEditorial(guide)
+  const description = editorial.description
   const author = guide.author || SITE_NAME
-  const displayTitle = guide.seo_title || guide.title
+  const displayTitle = editorial.title
   const publishedDate = guide.created_at
   const updatedDate = guide.updated_at || guide.created_at
+  const allowAds = isGuideAdEligible(guide)
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -207,7 +212,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
           </section>
         )}
 
-        <AdSlot variant="inline" slot="guide-after-summary" />
+        <AdSlot variant="inline" slot="guide-after-summary" allowAds={allowAds} />
 
         {guide.video_id && (
           <GuideVideo
@@ -219,7 +224,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
           />
         )}
 
-        <AdSlot variant="inline" slot="guide-after-video" />
+        <AdSlot variant="inline" slot="guide-after-video" allowAds={allowAds} />
 
         <GuideMarkdown>{guide.body}</GuideMarkdown>
 
@@ -268,7 +273,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
         )}
       </article>
       <aside className="guide-detail-sidebar">
-        <AdSlot variant="sidebar" slot="guide-sidebar-rectangle" />
+        <AdSlot variant="sidebar" slot="guide-sidebar-rectangle" allowAds={allowAds} />
       </aside>
       </div>
     </div>

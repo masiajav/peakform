@@ -3,6 +3,7 @@ import TopicArchivePage from '@/components/content/TopicArchivePage'
 import { topicLabel } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 import { createAdminClient } from '@/lib/supabase/admin'
+import { notFound } from 'next/navigation'
 
 async function hasPublishedMapContent(map: string) {
   const admin = createAdminClient()
@@ -29,7 +30,9 @@ export async function generateMetadata({ params }: { params: { map: string } }):
   return metadata
 }
 
-export default function MapPage({ params }: { params: { map: string } }) {
+export default async function MapPage({ params }: { params: { map: string } }) {
+  if (!(await hasPublishedMapContent(params.map))) notFound()
+
   const label = topicLabel(params.map)
 
   return (

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import JsonLd from '@/components/content/JsonLd'
 import TeamCompExplorer from './TeamCompExplorer'
 import { TEAM_COMP_HEROES } from '@/lib/overwatch-team-comps'
+import { PILLAR_TEAM_COMP_SLUGS } from '@/lib/indexing-policy'
 import SiteNav from '@/components/layout/PublicNav'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
@@ -18,7 +19,7 @@ export default function TeamCompsPage() {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'Composiciones de Overwatch por heroe',
-    itemListElement: TEAM_COMP_HEROES.map((hero, index) => ({
+    itemListElement: TEAM_COMP_HEROES.filter(hero => PILLAR_TEAM_COMP_SLUGS.includes(hero.slug)).map((hero, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       name: `Composiciones con ${hero.name}`,

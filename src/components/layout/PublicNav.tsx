@@ -7,12 +7,10 @@ type PublicNavProps = {
 }
 
 const NAV_LINKS = [
-  { href: '/heroes', label: 'Héroes' },
   { href: '/guides', label: 'Guías' },
   { href: '/counters', label: 'Counters' },
   { href: '/team-comps', label: 'Composiciones' },
   { href: '/news', label: 'Noticias' },
-  { href: '/patch-notes', label: 'Patch notes' },
   { href: '/experts', label: 'Expertos' },
 ]
 

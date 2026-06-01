@@ -3,6 +3,13 @@ import { createAdminClient } from '@/lib/supabase/admin'
 import { announcementPath, DEFAULT_HEROES, ROLE_SLUGS } from '@/lib/content'
 import { COUNTER_HEROES } from '@/lib/overwatch-counters'
 import { TEAM_COMP_HEROES } from '@/lib/overwatch-team-comps'
+import {
+  PILLAR_COUNTER_SLUGS,
+  PILLAR_HERO_SLUGS,
+  PILLAR_TEAM_COMP_SLUGS,
+  TRUST_ROUTES,
+  isGuideSitemapEligible,
+} from '@/lib/indexing-policy'
 import { absoluteUrl } from '@/lib/seo'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -16,11 +23,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/team-comps',
     '/news',
     '/patch-notes',
-    '/legal',
+    '/guides/como-mejorar-en-overwatch',
+    ...TRUST_ROUTES,
     ...ROLE_SLUGS.map(role => `/roles/${role}`),
-    ...DEFAULT_HEROES.map(hero => `/heroes/${hero}`),
-    ...COUNTER_HEROES.map(hero => `/counters/${hero.slug}`),
-    ...TEAM_COMP_HEROES.map(hero => `/team-comps/${hero.slug}`),
+    ...DEFAULT_HEROES.filter(hero => PILLAR_HERO_SLUGS.includes(hero)).map(hero => `/heroes/${hero}`),
+    ...COUNTER_HEROES.filter(hero => PILLAR_COUNTER_SLUGS.includes(hero.slug)).map(hero => `/counters/${hero.slug}`),
+    ...TEAM_COMP_HEROES.filter(hero => PILLAR_TEAM_COMP_SLUGS.includes(hero.slug)).map(hero => `/team-comps/${hero.slug}`),
   ].map(path => ({
     url: absoluteUrl(path || '/'),
     lastModified: now,
@@ -30,17 +38,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const admin = createAdminClient()
   const [{ data: guides }, { data: announcements }, { data: experts }] = await Promise.all([
-    admin.from('guides').select('slug, map, updated_at, created_at').eq('published', true),
+    admin.from('guides').select('slug, title, excerpt, seo_description, body, category, content_type, map, updated_at, created_at').eq('published', true),
     admin.from('announcements').select('slug, content_type, map, updated_at, created_at').eq('published', true),
     admin.from('experts').select('id, slug, updated_at, created_at').eq('status', 'active'),
   ])
 
-  const guideRoutes = (guides ?? []).map((guide: any) => ({
-    url: absoluteUrl(`/guides/${guide.slug}`),
-    lastModified: new Date(guide.updated_at || guide.created_at),
-    changeFrequency: 'weekly' as const,
-    priority: 0.75,
-  }))
+  const guideRoutes = (guides ?? [])
+    .filter((guide: any) => isGuideSitemapEligible(guide))
+    .map((guide: any) => ({
+      url: absoluteUrl(`/guides/${guide.slug}`),
+      lastModified: new Date(guide.updated_at || guide.created_at),
+      changeFrequency: 'weekly' as const,
+      priority: 0.75,
+    }))
 
   const announcementRoutes = (announcements ?? []).map((item: any) => ({
     url: absoluteUrl(announcementPath(item)),
