@@ -8,6 +8,7 @@ import { COUNTER_HEROES, getCounterHero, type CounterPick } from '@/lib/overwatc
 import { ROLE_LABELS } from '@/lib/content'
 import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 import { buildHeroSeoProfile, counterPageDescription, counterPageTitle } from '@/lib/overwatch-seo'
+import { robotsForQuality, topicQualityDecision } from '@/lib/indexing-policy'
 
 export function generateStaticParams() {
   return COUNTER_HEROES.map(hero => ({ hero: hero.slug }))
@@ -16,11 +17,13 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { hero: string } }): Metadata {
   const hero = getCounterHero(params.hero)
   if (!hero) return {}
+  const quality = topicQualityDecision('counter', params.hero)
 
   return buildMetadata({
     title: counterPageTitle(hero),
     description: counterPageDescription(hero),
     path: `/counters/${hero.slug}`,
+    robots: robotsForQuality(quality),
   })
 }
 

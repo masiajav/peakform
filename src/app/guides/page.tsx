@@ -147,6 +147,7 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
                 Encuentra guías en español por héroe, rol, mapa y problema concreto. La hemeroteca prioriza vídeos útiles, counters, fundamentos y consejos aplicables para revisar tus partidas.
               </p>
               <div className="guide-cluster-links">
+                <Link href="/heroes">Todos los héroes</Link>
                 <Link href="/counters">Counters</Link>
                 <Link href="/team-comps">Composiciones</Link>
                 <Link href="/roles/tank">Tank</Link>

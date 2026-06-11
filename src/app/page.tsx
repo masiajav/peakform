@@ -122,6 +122,10 @@ export default async function RootPage() {
                 <input name="q" placeholder="Buscar Genji, counters, support, 6v6..." aria-label="Buscar guías de Overwatch" />
                 <button className="btn btn-primary" type="submit">BUSCAR GUÍAS</button>
               </form>
+              <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 12 }}>
+                <Link href="/heroes" className="btn btn-secondary btn-sm">VER HÉROES</Link>
+                <Link href="/guides/como-mejorar-en-overwatch" className="btn btn-secondary btn-sm">EMPEZAR A MEJORAR</Link>
+              </div>
             </div>
 
             <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 20 }}>
@@ -320,6 +324,7 @@ function Footer() {
     <footer style={{ borderTop: '1px solid var(--border)', padding: 24, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
       <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 18, color: 'var(--accent)', letterSpacing: 2 }}>REPLAID LAB</span>
       <div className="footer-links" style={{ display: 'flex', gap: 24 }}>
+        <Link href="/heroes" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Héroes</Link>
         <Link href="/guides" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Guías</Link>
         <Link href="/counters" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Counters</Link>
         <Link href="/team-comps" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Composiciones</Link>

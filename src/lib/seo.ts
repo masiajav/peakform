@@ -48,12 +48,14 @@ export function buildMetadata({
   path,
   image,
   type = 'website',
+  robots,
 }: {
   title: string
   description: string
   path: string
   image?: string | null
   type?: 'website' | 'article'
+  robots?: Metadata['robots']
 }): Metadata {
   const url = absoluteUrl(path)
   const imagePath = image || DEFAULT_OG_IMAGE
@@ -78,5 +80,6 @@ export function buildMetadata({
       description,
       images: [absoluteUrl(imagePath)],
     },
+    robots,
   }
 }

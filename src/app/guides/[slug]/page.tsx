@@ -14,7 +14,7 @@ import GuideVideo from '@/components/content/GuideVideo'
 import { guidePath, ROLE_LABELS, topicLabel, type GuideContent } from '@/lib/content'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
-import { isGuideAdEligible } from '@/lib/indexing-policy'
+import { guideQualityDecision, robotsForQuality } from '@/lib/indexing-policy'
 import { guideEditorial } from '@/lib/guide-editorial'
 import { formatPrice } from '@/types'
 
@@ -34,6 +34,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const guide = await fetchGuide(params.slug)
   if (!guide) return {}
   const editorial = guideEditorial(guide)
+  const quality = guideQualityDecision(guide)
 
   return buildMetadata({
     title: editorial.seoTitle,
@@ -41,6 +42,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     path: guidePath(guide.slug),
     image: guide.cover_image,
     type: 'article',
+    robots: robotsForQuality(quality),
   })
 }
 
@@ -97,7 +99,8 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
   const displayTitle = editorial.title
   const publishedDate = guide.created_at
   const updatedDate = guide.updated_at || guide.created_at
-  const allowAds = isGuideAdEligible(guide)
+  const quality = guideQualityDecision(guide)
+  const allowAds = quality.adsAllowed
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -190,7 +193,8 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
             {description}
           </p>
           <div style={{ fontSize: 12, color: 'var(--text3)', display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-            <span>{new Date(guide.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
+            <span>Publicado: {new Date(guide.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
+            <span>Ultima revision: {new Date(updatedDate).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
             <span>{guide.video_id ? 'guía en vídeo' : `${readMinutes} min de lectura`}</span>
             <span>{author}</span>
           </div>
@@ -201,7 +205,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
             REVISIÓN EDITORIAL
           </div>
           <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>
-            Contenido revisado para mantenerlo útil en Overwatch actual. Si el vídeo o el matchup cambia con un parche, se actualiza la guía en lugar de cambiar la fecha sin aportar valor.
+            Contenido revisado para mantenerlo util en Overwatch actual. Estado: {quality.status === 'index_ads' ? 'apto para indexacion y anuncios' : quality.status === 'index_no_ads' ? 'indexable, pendiente de monetizacion' : 'en revision, sin anuncios'}. Motivo: {quality.reason}.
           </p>
         </section>
 

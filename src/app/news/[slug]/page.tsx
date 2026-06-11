@@ -3,6 +3,7 @@ import { createAdminClient } from '@/lib/supabase/admin'
 import AnnouncementArticlePage from '@/components/content/AnnouncementArticlePage'
 import { announcementPath, articleDescription, type AnnouncementContent } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
+import { announcementQualityDecision, robotsForQuality } from '@/lib/indexing-policy'
 import { notFound } from 'next/navigation'
 
 async function fetchNews(slug: string) {
@@ -21,6 +22,7 @@ async function fetchNews(slug: string) {
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const article = await fetchNews(params.slug)
   if (!article) return {}
+  const quality = announcementQualityDecision(article)
 
   return buildMetadata({
     title: article.seo_title || article.title,
@@ -28,6 +30,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     path: announcementPath(article),
     image: article.cover_image,
     type: 'article',
+    robots: robotsForQuality(quality),
   })
 }
 

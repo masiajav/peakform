@@ -8,6 +8,7 @@ import {
   PILLAR_HERO_SLUGS,
   PILLAR_TEAM_COMP_SLUGS,
   TRUST_ROUTES,
+  isAnnouncementSitemapEligible,
   isGuideSitemapEligible,
 } from '@/lib/indexing-policy'
 import { absoluteUrl } from '@/lib/seo'
@@ -39,7 +40,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const admin = createAdminClient()
   const [{ data: guides }, { data: announcements }, { data: experts }] = await Promise.all([
     admin.from('guides').select('slug, title, excerpt, seo_description, body, category, content_type, map, updated_at, created_at').eq('published', true),
-    admin.from('announcements').select('slug, content_type, map, updated_at, created_at').eq('published', true),
+    admin.from('announcements').select('slug, title, excerpt, seo_description, body, content_type, map, updated_at, created_at').eq('published', true),
     admin.from('experts').select('id, slug, updated_at, created_at').eq('status', 'active'),
   ])
 
@@ -52,12 +53,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.75,
     }))
 
-  const announcementRoutes = (announcements ?? []).map((item: any) => ({
-    url: absoluteUrl(announcementPath(item)),
-    lastModified: new Date(item.updated_at || item.created_at),
-    changeFrequency: item.content_type === 'patch_note' ? 'weekly' as const : 'daily' as const,
-    priority: item.content_type === 'patch_note' ? 0.72 : 0.65,
-  }))
+  const announcementRoutes = (announcements ?? [])
+    .filter((item: any) => isAnnouncementSitemapEligible(item))
+    .map((item: any) => ({
+      url: absoluteUrl(announcementPath(item)),
+      lastModified: new Date(item.updated_at || item.created_at),
+      changeFrequency: item.content_type === 'patch_note' ? 'weekly' as const : 'daily' as const,
+      priority: item.content_type === 'patch_note' ? 0.72 : 0.65,
+    }))
 
   const expertRoutes = (experts ?? []).map((expert: any) => ({
     url: absoluteUrl(`/experts/${expert.slug || expert.id}`),

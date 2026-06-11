@@ -13,6 +13,7 @@ import {
 } from '@/lib/overwatch-team-comps'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
+import { robotsForQuality, topicQualityDecision } from '@/lib/indexing-policy'
 
 export function generateStaticParams() {
   return TEAM_COMP_HEROES.map(hero => ({ hero: hero.slug }))
@@ -21,10 +22,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { hero: string } }): Promise<Metadata> {
   const hero = getTeamCompHero(params.hero)
   if (!hero) return {}
+  const quality = topicQualityDecision('team_comp', params.hero)
   return buildMetadata({
     title: teamCompPageTitle(hero),
     description: teamCompPageDescription(hero),
     path: `/team-comps/${hero.slug}`,
+    robots: robotsForQuality(quality),
   })
 }
 

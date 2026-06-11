@@ -6,6 +6,7 @@ import PublicNav from '@/components/layout/PublicNav'
 import { ROLE_LABELS } from '@/lib/content'
 import { COUNTER_HEROES, type CounterHero, type CounterRole } from '@/lib/overwatch-counters'
 import { getHeroPortrait } from '@/lib/overwatch-hero-portraits'
+import { UPCOMING_HERO_SLUGS } from '@/lib/indexing-policy'
 import { buildMetadata, absoluteUrl, SITE_NAME } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
@@ -60,6 +61,35 @@ export default function HeroesIndexPage() {
           ))}
           <Link href="/guides" className="btn btn-primary btn-sm">VER GUÍAS</Link>
         </div>
+
+        <section style={{ marginBottom: 54 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', gap: 16, marginBottom: 18 }}>
+            <div>
+              <div className="eyebrow">PROXIMAMENTE</div>
+              <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 38, letterSpacing: 1, margin: 0 }}>
+                Heroes en seguimiento
+              </h2>
+            </div>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 14 }}>
+            {UPCOMING_HERO_SLUGS.map(slug => (
+              <Link key={slug} href={`/heroes/${slug}`} style={{ textDecoration: 'none' }}>
+                <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', minHeight: 160, padding: 18 }}>
+                  <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)', fontSize: 11, letterSpacing: 1.6, marginBottom: 14 }}>
+                    PRE-RELEASE
+                  </div>
+                  <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 30, letterSpacing: 0.8, margin: '0 0 8px' }}>
+                    {slug.toUpperCase()}
+                  </h3>
+                  <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.55, margin: 0 }}>
+                    Seguimiento verificado. Sin rol ni habilidades inventadas hasta tener datos oficiales suficientes.
+                  </p>
+                </article>
+              </Link>
+            ))}
+          </div>
+        </section>
 
         {roleOrder.map(role => (
           <RoleSection

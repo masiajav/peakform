@@ -8,6 +8,7 @@ const NAV_ITEMS = [
   { href: '/admin/experts',  label: 'EXPERTOS' },
   { href: '/admin/orders',   label: 'PEDIDOS' },
   { href: '/admin/content',  label: 'CONTENIDO' },
+  { href: '/admin/quality',  label: 'CALIDAD SEO' },
 ]
 
 export default function AdminSidebar() {
