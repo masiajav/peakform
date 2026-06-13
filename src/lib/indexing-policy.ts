@@ -146,19 +146,19 @@ export function guideQualityDecision(guide: GuideLike): PageQualityDecision {
   const words = wordCount(guide.body)
 
   if (!guide.slug) {
-    return blocked('Guia sin slug canonico', words)
+    return blocked('Guía sin slug canónico', words)
   }
 
   if (isGuideAdEligible(guide)) {
-    return allowedWithAds('Guia pilar o contenido editorial suficiente', words)
+    return allowedWithAds('Guía pilar o contenido editorial suficiente', words)
   }
 
   if (isGuideSitemapEligible(guide)) {
-    return indexNoAds('Guia util, pendiente de reforzar antes de monetizar', words)
+    return indexNoAds('Guía útil, pendiente de reforzar antes de monetizar', words)
   }
 
   if (isVideoOnlyGuide(guide)) {
-    return blocked('Guia basada principalmente en video externo o plantilla', words)
+    return blocked('Guía basada principalmente en vídeo externo o plantilla', words)
   }
 
   return blocked('Contenido insuficiente para sitemap o anuncios', words)
@@ -195,18 +195,18 @@ export function announcementQualityDecision(item: AnnouncementLike): PageQuality
     return allowedWithAds('Contenido editorial suficiente para anuncios', words)
   }
 
-  return indexNoAds('Indexable, pero pendiente de mas valor propio antes de anuncios', words)
+  return indexNoAds('Indexable, pero pendiente de más valor propio antes de anuncios', words)
 }
 
 export function topicQualityDecision(kind: 'hero' | 'counter' | 'team_comp' | 'role' | 'map', slug: string): PageQualityDecision {
   if (kind === 'hero' && isUpcomingHeroSlug(slug)) {
-    return blocked('Heroe pre-release: visible para usuarios, no indexable hasta datos oficiales', 0)
+    return blocked('Héroe en seguimiento: visible para usuarios, no indexable hasta guía definitiva y balance final', 0)
   }
 
   if (kind === 'hero') {
     return isPillarHeroSlug(slug)
-      ? indexNoAds('Heroe pilar indexable; monetizacion pendiente de contenido propio completo', 0)
-      : blocked('Pagina de heroe programatica pendiente de contenido editorial unico', 0)
+      ? indexNoAds('Héroe pilar indexable; monetización pendiente de contenido propio completo', 0)
+      : blocked('Página de héroe programática pendiente de contenido editorial único', 0)
   }
 
   if (kind === 'counter') {

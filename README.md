@@ -182,6 +182,10 @@ El middleware protege `/dashboard`, `/expert` y `/admin`; las rutas admin requie
 
 ## Contenido Y SEO
 
+Guía operativa para editar textos, añadir contenido y revisar SEO sin depender de IA:
+
+- `docs/content-editing-guide.md`
+
 La capa SEO vive principalmente en:
 
 - `src/lib/seo.ts`: nombre de sitio, URL base, canonicales, Open Graph y helpers.

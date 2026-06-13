@@ -115,6 +115,7 @@ export const DEFAULT_HEROES = [
   'roadhog',
   'sierra',
   'sigma',
+  'shion',
   'sojourn',
   'soldier-76',
   'sombra',

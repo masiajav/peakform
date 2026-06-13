@@ -18,7 +18,7 @@ export const metadata: Metadata = buildMetadata({
   path: '/',
 })
 
-const featuredHeroes = ['ana', 'genji', 'tracer', 'kiriko', 'reinhardt', 'juno']
+const featuredHeroes = ['shion', 'ana', 'genji', 'tracer', 'kiriko', 'reinhardt', 'juno']
 const roleLinks = [
   { href: '/roles/tank', label: 'Tank', text: 'Espacio, recursos y engages.' },
   { href: '/roles/dps', label: 'DPS', text: 'Ángulos, picks y presión útil.' },
@@ -154,6 +154,23 @@ export default async function RootPage() {
 
         <section style={{ maxWidth: 1120, margin: '0 auto', padding: '0 24px' }}>
           <AdSlot variant="leaderboard" slot="home-top-leaderboard" />
+        </section>
+
+        <section style={{ maxWidth: 1120, margin: '0 auto', padding: '34px 24px 0' }}>
+          <Link href="/heroes/shion" style={{ textDecoration: 'none' }}>
+            <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 24, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 20, alignItems: 'center' }}>
+              <div>
+                <div className="eyebrow" style={{ marginBottom: 10 }}>NUEVO HÉROE</div>
+                <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(30px, 5vw, 48px)', letterSpacing: 1, lineHeight: 0.95, margin: '0 0 10px' }}>
+                  SHION: DPS FLANKER EN SEGUIMIENTO
+                </h2>
+                <p style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.65, margin: 0, maxWidth: 760 }}>
+                  Ficha editorial con rol, habilidades, perks y primera lectura para prepararte antes de la guía definitiva.
+                </p>
+              </div>
+              <span className="btn btn-primary btn-sm">VER SHION</span>
+            </article>
+          </Link>
         </section>
 
         <Section title="Guías populares" kicker="SEO HUB" href="/guides" linkLabel="Ver todas">
