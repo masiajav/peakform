@@ -95,6 +95,250 @@ html, body {
   margin-top: 4px;
 }
 
+.footer-links {
+  flex-wrap: wrap;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.footer-links a {
+  flex: 0 0 auto;
+}
+
+.home-hero-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 18px;
+}
+
+.home-hero-panel-link,
+.home-role-lane-header a {
+  color: var(--accent);
+  flex: 0 0 auto;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  text-decoration: none;
+}
+
+.home-hero-panel-link:hover,
+.home-role-lane-header a:hover {
+  color: var(--accent-hov);
+}
+
+.home-hero-card-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.home-hero-card {
+  color: inherit;
+  display: block;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.home-hero-card article {
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  display: flex;
+  flex-direction: column;
+  min-height: 176px;
+  overflow: hidden;
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+}
+
+.home-hero-card:hover article {
+  background: var(--surface3);
+  border-color: var(--border3);
+  transform: translateY(-2px);
+}
+
+.home-hero-card-image {
+  background: #101010;
+  border-bottom: 1px solid var(--border);
+  height: 118px;
+  overflow: hidden;
+  position: relative;
+}
+
+.home-hero-card-fallback {
+  color: var(--text3);
+  display: grid;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 44px;
+  height: 100%;
+  letter-spacing: 1px;
+  place-items: center;
+}
+
+.home-hero-card-badge {
+  background: var(--accent);
+  color: #0a0a0a;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  padding: 3px 7px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+
+.home-hero-card-body {
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px 12px;
+}
+
+.home-hero-card-name {
+  color: var(--text);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 21px;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-hero-card-role {
+  color: var(--accent);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.home-role-showcase {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.home-all-heroes-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 18px;
+}
+
+.home-role-summary {
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+}
+
+.home-role-summary a {
+  align-items: center;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  display: flex;
+  justify-content: space-between;
+  min-width: 0;
+  padding: 10px 12px;
+  text-decoration: none;
+}
+
+.home-role-summary a:hover {
+  border-color: var(--border3);
+}
+
+.home-role-summary span,
+.home-role-summary strong {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.home-role-summary span {
+  font-size: 18px;
+}
+
+.home-role-summary strong {
+  color: var(--accent);
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.home-all-hero-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+}
+
+.home-role-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.home-role-lane {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  min-width: 0;
+  padding: 18px;
+}
+
+.home-role-lane-header {
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+}
+
+.home-role-lane-header span {
+  color: var(--text);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.8px;
+  line-height: 1;
+}
+
+.home-role-hero-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(124px, 1fr));
+}
+
+.home-hero-card.is-compact article {
+  min-height: 130px;
+}
+
+.home-hero-card.is-compact .home-hero-card-image {
+  height: 74px;
+}
+
+.home-hero-card.is-compact .home-hero-card-name {
+  font-size: 17px;
+}
+
+.home-hero-panel .home-hero-card-grid {
+  gap: 8px;
+}
+
+.home-hero-panel .home-hero-card article {
+  min-height: 116px;
+}
+
+.home-hero-panel .home-hero-card-image {
+  height: 68px;
+}
+
+.home-hero-panel .home-hero-card-body {
+  padding: 8px 10px 10px;
+}
+
+.home-hero-panel .home-hero-card-name {
+  font-size: 18px;
+}
+
 /* Focus visible accesible */
 *:focus-visible {
   outline: 2px solid var(--accent);
@@ -417,6 +661,14 @@ textarea {
     grid-template-columns: 1fr !important;
   }
 
+  .home-role-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .home-all-hero-grid {
+    grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+  }
+
   .topic-layout {
     grid-template-columns: 1fr !important;
   }
@@ -433,6 +685,43 @@ textarea {
 @media (max-width: 639px) {
   .home-search {
     grid-template-columns: 1fr !important;
+  }
+
+  .home-hero-panel {
+    padding: 14px;
+  }
+
+  .home-hero-card-grid,
+  .home-role-hero-grid {
+    gap: 8px;
+  }
+
+  .home-hero-card article {
+    min-height: 154px;
+  }
+
+  .home-hero-card-image {
+    height: 96px;
+  }
+
+  .home-hero-card-name {
+    font-size: 18px;
+  }
+
+  .home-role-lane {
+    padding: 14px;
+  }
+
+  .home-all-heroes-panel {
+    padding: 14px;
+  }
+
+  .home-role-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .home-all-hero-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -842,7 +1131,8 @@ textarea {
   display: flex;
   gap: 20px;
   height: 52px;
-  overflow-x: auto;
+  max-width: 100%;
+  overflow: hidden;
   padding: 0 24px;
   position: sticky;
   scrollbar-width: none;
@@ -864,14 +1154,22 @@ textarea {
 }
 
 .public-nav-spacer {
-  flex: 1 0 24px;
+  flex: 1 1 24px;
+  min-width: 8px;
 }
 
 .public-nav-links {
   align-items: center;
   display: flex;
-  flex: 0 0 auto;
+  flex: 0 1 auto;
   gap: 20px;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.public-nav-links::-webkit-scrollbar {
+  display: none;
 }
 
 .public-nav-cta {

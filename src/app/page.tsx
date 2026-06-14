@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
@@ -9,6 +10,8 @@ import PublicNav from '@/components/layout/PublicNav'
 import { announcementPath, ROLE_LABELS, topicLabel } from '@/lib/content'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { guideEditorial } from '@/lib/guide-editorial'
+import { COUNTER_HEROES, type CounterHero, type CounterRole } from '@/lib/overwatch-counters'
+import { getHeroPortrait } from '@/lib/overwatch-hero-portraits'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
 import { formatPrice } from '@/types'
 
@@ -18,35 +21,10 @@ export const metadata: Metadata = buildMetadata({
   path: '/',
 })
 
-const featuredHeroes = ['shion', 'ana', 'genji', 'tracer', 'kiriko', 'reinhardt', 'juno']
-const roleLinks = [
-  { href: '/roles/tank', label: 'Tank', text: 'Espacio, recursos y engages.' },
-  { href: '/roles/dps', label: 'DPS', text: 'Ángulos, picks y presión útil.' },
-  { href: '/roles/support', label: 'Support', text: 'Sustain, utilidad y supervivencia.' },
-]
-
-const clusters = [
-  {
-    title: 'Guías por héroe',
-    text: 'Explora todos los héroes por rol y abre su guía relacionada.',
-    href: '/heroes',
-  },
-  {
-    title: 'Cómo mejorar en Overwatch',
-    text: 'Fundamentos para revisar tus partidas sin depender solo de mecánicas.',
-    href: '/guides/como-mejorar-en-overwatch',
-  },
-  {
-    title: 'Counters y composiciones',
-    text: 'Lectura de matchups, brawl, poke, dive y cambios de héroe.',
-    href: '/team-comps',
-  },
-  {
-    title: 'Héroes por rol',
-    text: 'Tank, DPS y Support organizados para llegar rápido a cada guía.',
-    href: '/heroes',
-  },
-]
+const spotlightHeroSlugs = ['shion', 'sierra', 'jetpack-cat', 'mizuki']
+const roleOrder: CounterRole[] = ['tank', 'dps', 'support']
+const heroBySlug = new Map(COUNTER_HEROES.map(hero => [hero.slug, hero]))
+const spotlightHeroes = pickHeroes(spotlightHeroSlugs)
 
 export default async function RootPage() {
   const supabase = createClient()
@@ -128,49 +106,52 @@ export default async function RootPage() {
               </div>
             </div>
 
-            <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 20 }}>
-              <div className="eyebrow" style={{ marginBottom: 12 }}>ACCESOS RÁPIDOS</div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 8 }}>
-                {featuredHeroes.map(hero => (
-                  <Link key={hero} href={`/heroes/${hero}`} className="quick-link">
-                    {topicLabel(hero)}
-                  </Link>
-                ))}
+            <div className="home-hero-panel">
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, marginBottom: 14 }}>
+                <div className="eyebrow" style={{ marginBottom: 0 }}>ÚLTIMOS HÉROES</div>
+                <Link href="/heroes" className="home-hero-panel-link">TODOS</Link>
               </div>
-              <Link href="/heroes" className="btn btn-secondary btn-sm" style={{ width: '100%', marginTop: 12 }}>
-                VER TODOS LOS HÉROES
-              </Link>
-              <div style={{ borderTop: '1px solid var(--border)', marginTop: 16, paddingTop: 16, display: 'grid', gap: 8 }}>
-                {roleLinks.map(role => (
-                  <Link key={role.href} href={role.href} className="role-link">
-                    <span>{role.label}</span>
-                    <small>{role.text}</small>
-                  </Link>
+              <div className="home-hero-card-grid">
+                {spotlightHeroes.map((hero, index) => (
+                  <HomeHeroCard key={hero.slug} hero={hero} priority={index < 4} />
                 ))}
               </div>
             </div>
           </div>
         </section>
 
+        <Section title="Héroes por rol" kicker="HUB VISUAL" href="/heroes" linkLabel="Abrir hub">
+          <div className="home-all-heroes-panel">
+            <div className="home-role-summary">
+              {roleOrder.map(role => (
+                <Link key={role} href={`/roles/${role}`}>
+                  <span>{ROLE_LABELS[role]}</span>
+                  <strong>{COUNTER_HEROES.filter(hero => hero.role === role).length}</strong>
+                </Link>
+              ))}
+            </div>
+            <div className="home-role-stack">
+              {roleOrder.map(role => (
+                <div key={role} className="home-role-lane">
+                  <div className="home-role-lane-header">
+                    <span>{ROLE_LABELS[role]}</span>
+                    <Link href={`/roles/${role}`}>VER ROL</Link>
+                  </div>
+                  <div className="home-role-hero-grid">
+                    {COUNTER_HEROES
+                      .filter(hero => hero.role === role)
+                      .map(hero => (
+                        <HomeHeroCard key={hero.slug} hero={hero} compact />
+                      ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Section>
+
         <section style={{ maxWidth: 1120, margin: '0 auto', padding: '0 24px' }}>
           <AdSlot variant="leaderboard" slot="home-top-leaderboard" />
-        </section>
-
-        <section style={{ maxWidth: 1120, margin: '0 auto', padding: '34px 24px 0' }}>
-          <Link href="/heroes/shion" style={{ textDecoration: 'none' }}>
-            <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 24, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 20, alignItems: 'center' }}>
-              <div>
-                <div className="eyebrow" style={{ marginBottom: 10 }}>NUEVO HÉROE</div>
-                <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(30px, 5vw, 48px)', letterSpacing: 1, lineHeight: 0.95, margin: '0 0 10px' }}>
-                  SHION: DPS FLANKER EN SEGUIMIENTO
-                </h2>
-                <p style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.65, margin: 0, maxWidth: 760 }}>
-                  Ficha editorial con rol, habilidades, perks y primera lectura para prepararte antes de la guía definitiva.
-                </p>
-              </div>
-              <span className="btn btn-primary btn-sm">VER SHION</span>
-            </article>
-          </Link>
         </section>
 
         <Section title="Guías populares" kicker="SEO HUB" href="/guides" linkLabel="Ver todas">
@@ -181,32 +162,9 @@ export default async function RootPage() {
           </CardGrid>
         </Section>
 
-        <Section title="Héroes por rol" kicker="HUB" href="/heroes" linkLabel="Ver todos">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 10 }}>
-            {featuredHeroes.map(hero => (
-              <Link key={hero} href={`/heroes/${hero}`} className="quick-link" style={{ minHeight: 74, alignItems: 'center' }}>
-                {topicLabel(hero)}
-              </Link>
-            ))}
-          </div>
-        </Section>
-
         <section style={{ maxWidth: 1120, margin: '0 auto', padding: '0 24px' }}>
           <AdSlot variant="leaderboard" slot="home-mid-leaderboard" />
         </section>
-
-        <Section title="Aprende por intención" kicker="CLUSTERS" href="/guides" linkLabel="Abrir hemeroteca">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: 14 }}>
-            {clusters.map(cluster => (
-              <Link key={cluster.title} href={cluster.href} style={{ textDecoration: 'none' }}>
-                <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 20, minHeight: 160 }}>
-                  <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 24, letterSpacing: 0.8, margin: '0 0 10px' }}>{cluster.title}</h3>
-                  <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.55, margin: 0 }}>{cluster.text}</p>
-                </article>
-              </Link>
-            ))}
-          </div>
-        </Section>
 
         {experts && experts.length > 0 && (
           <Section title="Feedback personalizado" kicker="SIGUIENTE PASO" href="/experts" linkLabel="Ver expertos">
@@ -304,6 +262,36 @@ function CardGrid({ children }: { children: ReactNode }) {
   return <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 14 }}>{children}</div>
 }
 
+function HomeHeroCard({ hero, compact = false, priority = false }: { hero: CounterHero; compact?: boolean; priority?: boolean }) {
+  const portrait = getHeroPortrait(hero.slug)
+
+  return (
+    <Link href={`/heroes/${hero.slug}`} className={`home-hero-card${compact ? ' is-compact' : ''}`} aria-label={`Ver información de ${hero.name}`}>
+      <article>
+        <div className="home-hero-card-image">
+          {portrait ? (
+            <Image
+              src={portrait}
+              alt={hero.name}
+              fill
+              priority={priority}
+              sizes={compact ? '(max-width: 768px) 42vw, 150px' : '(max-width: 768px) 42vw, 180px'}
+              style={{ objectFit: 'contain', objectPosition: 'center bottom' }}
+            />
+          ) : (
+            <div className="home-hero-card-fallback">{hero.name.slice(0, 1)}</div>
+          )}
+          {hero.slug === 'shion' && <span className="home-hero-card-badge">NUEVO</span>}
+        </div>
+        <div className="home-hero-card-body">
+          <span className="home-hero-card-name">{hero.name}</span>
+          <span className="home-hero-card-role">{ROLE_LABELS[hero.role]}</span>
+        </div>
+      </article>
+    </Link>
+  )
+}
+
 function GuideCard({ guide, compactMeta = false }: { guide: any; compactMeta?: boolean }) {
   const editorial = guideEditorial(guide)
 
@@ -334,6 +322,12 @@ function Tag({ label, accent = false }: { label: string; accent?: boolean }) {
       {label.toUpperCase()}
     </span>
   )
+}
+
+function pickHeroes(slugs: string[]) {
+  return slugs
+    .map(slug => heroBySlug.get(slug))
+    .filter((hero): hero is CounterHero => Boolean(hero))
 }
 
 function Footer() {
