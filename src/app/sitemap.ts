@@ -24,6 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/team-comps',
     '/news',
     '/patch-notes',
+    '/overwatch-temporada-3-into-the-tigers-den',
     '/guides/como-mejorar-en-overwatch',
     ...TRUST_ROUTES,
     ...ROLE_SLUGS.map(role => `/roles/${role}`),

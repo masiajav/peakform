@@ -319,6 +319,7 @@ function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
           <h2 style={headingStyle}>Más contenido relacionado con Shion</h2>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
             <Link href="/counters/shion" className="btn btn-primary btn-sm">COUNTERS DE SHION</Link>
+            <Link href="/overwatch-temporada-3-into-the-tigers-den" className="btn btn-secondary btn-sm">TEMPORADA 3</Link>
             <Link href="/team-comps/shion" className="btn btn-secondary btn-sm">COMPOSICIONES</Link>
             <Link href="/roles/dps" className="btn btn-secondary btn-sm">VER DPS</Link>
             <Link href="/patch-notes" className="btn btn-secondary btn-sm">PATCH NOTES</Link>

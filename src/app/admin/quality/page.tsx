@@ -43,6 +43,7 @@ export default async function QualityAuditPage() {
     '/team-comps',
     '/news',
     '/patch-notes',
+    '/overwatch-temporada-3-into-the-tigers-den',
     ...TRUST_ROUTES,
   ].map(path => ({
     url: path,

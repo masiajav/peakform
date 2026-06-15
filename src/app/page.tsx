@@ -102,6 +102,7 @@ export default async function RootPage() {
               </form>
               <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 12 }}>
                 <Link href="/heroes" className="btn btn-secondary btn-sm">VER HÉROES</Link>
+                <Link href="/overwatch-temporada-3-into-the-tigers-den" className="btn btn-secondary btn-sm">NUEVA TEMPORADA</Link>
                 <Link href="/guides/como-mejorar-en-overwatch" className="btn btn-secondary btn-sm">EMPEZAR A MEJORAR</Link>
               </div>
             </div>
