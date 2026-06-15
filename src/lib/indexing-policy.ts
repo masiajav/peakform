@@ -38,9 +38,10 @@ export const QUALITY_MINIMUMS = {
   patchNoteAdsWords: 420,
 }
 
-export const UPCOMING_HERO_SLUGS = ['shion']
+export const UPCOMING_HERO_SLUGS: string[] = []
 
 export const PILLAR_HERO_SLUGS = [
+  'shion',
   'ana',
   'genji',
   'tracer',

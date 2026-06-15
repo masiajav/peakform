@@ -62,6 +62,7 @@ export default function HeroesIndexPage() {
           <Link href="/guides" className="btn btn-primary btn-sm">VER GUÍAS</Link>
         </div>
 
+        {UPCOMING_HERO_SLUGS.length > 0 && (
         <section style={{ marginBottom: 54 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', gap: 16, marginBottom: 18 }}>
             <div>
@@ -90,6 +91,7 @@ export default function HeroesIndexPage() {
             ))}
           </div>
         </section>
+        )}
 
         {roleOrder.map(role => (
           <RoleSection
