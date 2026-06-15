@@ -12,8 +12,8 @@ const SEASON_NAME = "Season 3: Into the Tiger's Den"
 const SOURCE_URL = 'https://www.gamesradar.com/games/fps/overwatch-gives-new-hero-shion-a-motorcycle-which-you-can-throw-at-people-when-youre-not-akira-sliding-all-over-the-place/'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Overwatch Season 3 Into the Tiger’s Den: Shion y novedades',
-  description: 'Resumen en español de Overwatch Season 3: Into the Tiger’s Den, con Shion, fecha de lanzamiento, habilidades conocidas y qué preparar antes de jugar.',
+  title: 'Overwatch Season 3 Into the Tiger’s Den: Shion, mapa y eventos',
+  description: 'Todo lo nuevo de Overwatch Season 3 Into the Tiger’s Den: Shion, Neon Junction, Anima Strike, Summer Games, skins, mythics, hero bans y más novedades.',
   path: PAGE_PATH,
   image: '/heroes/shion.png',
   type: 'article',
@@ -21,20 +21,79 @@ export const metadata: Metadata = buildMetadata({
 
 const keyPoints = [
   {
-    title: 'Shion es el gran foco',
-    body: 'La temporada gira alrededor de Shion, una DPS de movilidad alta que apunta a flanker agresiva: entra por laterales, busca objetivos tocados y sale antes de que el rival pueda fijarla.',
+    title: 'Nuevo héroe DPS: Shion',
+    body: 'Shion es la gran cara de la temporada. Llega como DPS de movilidad alta, con pistolas, dash, una moto como pieza central del kit y un estilo pensado para flanquear y rematar.',
   },
   {
-    title: 'La moto cambia la lectura',
-    body: 'Joyride introduce una herramienta de movilidad muy marcada. No basta con mirar el daño: habrá que aprender rutas, timings de entrada y cuándo guardar control para cortarla.',
+    title: 'Nuevo mapa híbrido',
+    body: 'Neon Junction entra como nuevo mapa híbrido. Por lo que se ve en el resumen, apunta a un entorno urbano muy vertical, con rutas laterales y espacios que pueden favorecer a héroes móviles.',
   },
   {
-    title: 'Los counters importan desde el día uno',
-    body: 'Winston, D.Va, Sombra, Cassidy, Brigitte y Kiriko son los primeros nombres a vigilar porque pueden cortar entradas, proteger supports o castigar rutas previsibles.',
+    title: 'Evento Anima Strike',
+    body: 'La temporada suma Anima Strike como nuevo evento. Habrá que ver si funciona como modo temporal, evento de desafíos o experiencia PvE ligera, pero será uno de los focos del arranque.',
   },
   {
-    title: 'Faltan números definitivos',
-    body: 'Hasta que Blizzard publique las notas completas y empiecen las partidas reales, conviene tratar los detalles finos como provisionales: daño, cooldowns, coste de ultimate y matchups pueden cambiar.',
+    title: 'Mucho contenido de sistema',
+    body: 'Además del contenido jugable, llegan cambios a hero bans, reworks para Stadium, Quick Play: Hacked, Excavation Initiative y eventos cosméticos como Summer Games.',
+  },
+]
+
+const seasonFeatures = [
+  {
+    label: 'Héroe',
+    title: 'Shion',
+    body: 'Nueva heroína de daño. La página de Shion ya recoge rol, kit conocido, perks y primeros counters para preparar ranked desde el primer día.',
+    href: '/heroes/shion',
+  },
+  {
+    label: 'Mapa',
+    title: 'Neon Junction',
+    body: 'Nuevo mapa híbrido con estética urbana y mucha presencia visual de ciudad futurista. Lo importante será aprender rutas, alturas y defensas iniciales.',
+  },
+  {
+    label: 'Evento',
+    title: 'Anima Strike',
+    body: 'Nuevo evento de temporada. Lo dejamos marcado como prioridad para actualizar en cuanto se conozcan reglas, recompensas y duración.',
+  },
+  {
+    label: 'Cosmético',
+    title: 'Ultra Skin',
+    body: 'La temporada presenta una nueva Ultra Skin. La trataremos como contenido cosmético principal hasta tener nombre, precio y forma de desbloqueo.',
+  },
+  {
+    label: 'Cosméticos',
+    title: 'New Mythics',
+    body: 'Llegan nuevos mythics. Conviene separar mythic skin, mythic weapon y recompensas del pase cuando Blizzard detalle exactamente qué incluye cada una.',
+  },
+  {
+    label: 'Evento',
+    title: 'Summer Games 2026',
+    body: 'Vuelven los Summer Games. Es una oportunidad clara para búsquedas de evento, recompensas, desafíos y modos temporales.',
+  },
+  {
+    label: 'Colaboración',
+    title: 'Overwatch x YOASOBI',
+    body: 'La colaboración con YOASOBI puede traer skins, música, desafíos o contenido especial. Es una de las novedades con más potencial de búsquedas fuera del público competitivo.',
+  },
+  {
+    label: 'Sistema',
+    title: 'Hero Ban Updates',
+    body: 'Los hero bans reciben ajustes. Esto puede afectar directamente a ranked, composición de equipo y picks seguros al inicio de la temporada.',
+  },
+  {
+    label: 'Stadium',
+    title: 'Hero Reworks',
+    body: 'Stadium tendrá reworks de héroes. Actualizaremos esta parte cuando estén claros los héroes afectados y el impacto real en partidas.',
+  },
+  {
+    label: 'Modo',
+    title: 'Quick Play: Hacked',
+    body: 'Vuelve Quick Play: Hacked, normalmente asociado a pruebas de reglas o cambios experimentales para partidas rápidas.',
+  },
+  {
+    label: 'Sistema',
+    title: 'Excavation Initiative',
+    body: 'Excavation Initiative aparece como novedad de temporada. De momento la dejamos identificada hasta que Blizzard explique exactamente cómo funciona.',
   },
 ]
 
@@ -42,7 +101,9 @@ const prepChecklist = [
   'Revisa rutas laterales en mapas donde una DPS móvil pueda entrar sin cruzar la frontal.',
   'Prepara héroes con peel o control para proteger supports cuando Shion busque remates.',
   'No gastes todos los cooldowns defensivos antes de que use Joyride o Evade.',
-  'Mira las patch notes en cuanto salgan para confirmar daño, vida extra, recargas y cambios de última hora.',
+  'Mira Neon Junction pronto: los mapas híbridos se ganan mucho antes cuando conoces rutas de ataque y puntos de defensa.',
+  'Comprueba hero bans y reworks de Stadium antes de asumir que tus picks habituales siguen funcionando igual.',
+  'Revisa las patch notes en cuanto salgan para confirmar daño, vida extra, recargas y cambios de última hora.',
 ]
 
 const faq = [
@@ -55,6 +116,14 @@ const faq = [
     answer: 'La novedad principal conocida es Shion, una heroína DPS con movilidad alta, pistolas, dash y una moto como parte central de su kit.',
   },
   {
+    question: 'Qué mapa nuevo llega en Overwatch Season 3?',
+    answer: 'La temporada incluye Neon Junction, un nuevo mapa híbrido. Actualizaremos rutas, composición y consejos cuando esté disponible para jugar.',
+  },
+  {
+    question: 'Qué eventos aparecen en Into the Tiger’s Den?',
+    answer: 'El resumen de temporada menciona Anima Strike, Summer Games 2026, una colaboración Overwatch x YOASOBI, Quick Play: Hacked y Excavation Initiative.',
+  },
+  {
     question: 'Esta página sustituye a las patch notes oficiales?',
     answer: 'No. Es un resumen editorial en español para preparar la temporada. Las cifras finales y cambios completos deben confirmarse siempre con las patch notes oficiales de Blizzard.',
   },
@@ -65,8 +134,8 @@ export default function SeasonThreePage() {
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Overwatch Season 3 Into the Tiger’s Den: Shion y novedades',
-    description: 'Resumen editorial en español de la nueva temporada de Overwatch, centrado en Shion, fecha, counters iniciales y preparación competitiva.',
+    headline: 'Overwatch Season 3 Into the Tiger’s Den: Shion, mapa y eventos',
+    description: 'Resumen editorial en español de la nueva temporada de Overwatch, con Shion, Neon Junction, Anima Strike, Summer Games, YOASOBI y cambios de sistema.',
     image: absoluteUrl('/heroes/shion.png'),
     url: pageUrl,
     datePublished: '2026-06-15',
@@ -115,7 +184,7 @@ export default function SeasonThreePage() {
               <span style={{ color: 'var(--accent)' }}>INTO THE TIGER’S DEN</span>
             </h1>
             <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.75, margin: '0 0 18px', maxWidth: 760 }}>
-              La Season 3 de Overwatch llega con Shion como principal punto de atención. Esta página resume lo que conviene saber antes de entrar a jugar: fecha, rol, kit conocido, counters iniciales y qué mirar cuando salgan las notas completas.
+              La Season 3 de Overwatch llega cargada: Shion como nueva DPS, Neon Junction como mapa híbrido, Anima Strike, Summer Games, colaboración con YOASOBI, mythics, hero bans y más cambios de sistema. Aquí tienes el resumen ordenado para saber qué mirar primero.
             </p>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
               <MetaPill label="Actualizado" value={UPDATED_AT} />
@@ -149,10 +218,29 @@ export default function SeasonThreePage() {
 
         <section style={sectionStyle}>
           <div className="eyebrow" style={{ marginBottom: 10 }}>RESUMEN RÁPIDO</div>
-          <h2 style={headingStyle}>Qué viene en la nueva temporada</h2>
+          <h2 style={headingStyle}>Qué trae Overwatch Season 3</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: 12 }}>
             {keyPoints.map(point => (
               <InfoCard key={point.title} title={point.title} body={point.body} />
+            ))}
+          </div>
+        </section>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>TODAS LAS NOVEDADES</div>
+          <h2 style={headingStyle}>Contenido anunciado para Into the Tiger’s Den</h2>
+          <p style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.75, margin: '0 0 16px', maxWidth: 820 }}>
+            El resumen de temporada mezcla contenido jugable, eventos, cosméticos y cambios de sistema. Lo importante ahora es separar lo que afecta a tus partidas desde el día uno de lo que iremos ampliando cuando salgan las notas completas.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
+            {seasonFeatures.map(feature => (
+              feature.href ? (
+                <Link key={feature.title} href={feature.href} style={{ textDecoration: 'none' }}>
+                  <FeatureCard feature={feature} />
+                </Link>
+              ) : (
+                <FeatureCard key={feature.title} feature={feature} />
+              )
             ))}
           </div>
         </section>
@@ -165,7 +253,7 @@ export default function SeasonThreePage() {
               Shion no parece diseñada para jugar lento. Su valor debería aparecer en entradas cortas, presión desde ángulos incómodos y remates sobre enemigos ya tocados. Si Joyride le permite cruzar mucho espacio y Evade le da salida real, el rival tendrá que decidir entre mirar a Shion o mantener la frontal.
             </p>
             <p style={{ margin: 0 }}>
-              Para jugadores de ranked, la adaptación principal será de disciplina: no regalar supports aislados, no gastar peel demasiado pronto y no perseguirla si todavía conserva movilidad. En los primeros días, muchas partidas se decidirán por quién entiende antes sus rutas.
+              Para jugadores de ranked, la adaptación principal será de disciplina: no regalar supports aislados, no gastar peel demasiado pronto y no perseguirla si todavía conserva movilidad. En los primeros días, muchas partidas se decidirán por quién entiende antes sus rutas, especialmente si Neon Junction favorece rotaciones rápidas.
             </p>
           </div>
           <div style={{ marginTop: 18, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
@@ -192,7 +280,7 @@ export default function SeasonThreePage() {
           <div className="eyebrow" style={{ marginBottom: 10 }}>FUENTES Y ESTADO</div>
           <h2 style={headingStyle}>Qué está pendiente de confirmar</h2>
           <p style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.8, margin: '0 0 14px' }}>
-            Este resumen se basa en la información disponible antes del lanzamiento y en cobertura previa de la temporada. Los números definitivos de daño, cooldowns, coste de ultimate, ajustes de equilibrio y posibles cambios de última hora se actualizarán cuando Blizzard publique las patch notes completas.
+            Este resumen se basa en la información del avance de temporada y en cobertura previa. Los números definitivos de daño, cooldowns, coste de ultimate, ajustes de equilibrio, reglas de eventos, recompensas y posibles cambios de última hora se actualizarán cuando Blizzard publique las patch notes completas.
           </p>
           <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.7, margin: 0 }}>
             Fuente de contexto: <a href={SOURCE_URL} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>GamesRadar sobre Shion y Season 3</a>. Para cambios oficiales, revisa también las <Link href="/patch-notes" style={{ color: 'var(--accent)' }}>patch notes de Overwatch</Link>.
@@ -215,6 +303,20 @@ export default function SeasonThreePage() {
         </section>
       </main>
     </div>
+  )
+}
+
+function FeatureCard({ feature }: { feature: { label: string; title: string; body: string } }) {
+  return (
+    <article style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', padding: 16, minHeight: 176 }}>
+      <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)', fontSize: 11, letterSpacing: 1.4, marginBottom: 8 }}>
+        {feature.label.toUpperCase()}
+      </div>
+      <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 22, letterSpacing: 0.8, margin: '0 0 8px' }}>
+        {feature.title}
+      </h3>
+      <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>{feature.body}</p>
+    </article>
   )
 }
 

@@ -25,6 +25,12 @@ const spotlightHeroSlugs = ['shion', 'sierra', 'jetpack-cat', 'mizuki']
 const roleOrder: CounterRole[] = ['tank', 'dps', 'support']
 const heroBySlug = new Map(COUNTER_HEROES.map(hero => [hero.slug, hero]))
 const spotlightHeroes = pickHeroes(spotlightHeroSlugs)
+const seasonNews = [
+  { title: 'Shion', label: 'Nuevo DPS', body: 'Nueva heroína de daño, movilidad alta y kit pensado para flanquear.' },
+  { title: 'Neon Junction', label: 'Mapa híbrido', body: 'Nuevo mapa urbano para aprender rutas, alturas y defensas cuanto antes.' },
+  { title: 'Anima Strike', label: 'Evento', body: 'Evento principal de temporada, pendiente de reglas y recompensas finales.' },
+  { title: 'YOASOBI', label: 'Colaboración', body: 'Nueva colaboración de Overwatch con potencial cosmético y musical.' },
+]
 
 export default async function RootPage() {
   const supabase = createClient()
@@ -119,6 +125,39 @@ export default async function RootPage() {
               </div>
             </div>
           </div>
+        </section>
+
+        <section style={{ maxWidth: 1120, margin: '0 auto', padding: '20px 24px 44px' }}>
+          <Link href="/overwatch-temporada-3-into-the-tigers-den" style={{ textDecoration: 'none' }}>
+            <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 24 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16, alignItems: 'start', marginBottom: 18, flexWrap: 'wrap' }}>
+                <div>
+                  <div className="eyebrow">ÚLTIMAS NOVEDADES</div>
+                  <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(32px, 5vw, 48px)', letterSpacing: 1, lineHeight: 1, margin: '0 0 8px' }}>
+                    OVERWATCH SEASON 3: INTO THE TIGER’S DEN
+                  </h2>
+                  <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0, maxWidth: 760 }}>
+                    Shion, Neon Junction, Anima Strike, Summer Games, YOASOBI, mythics, hero bans y más cambios de temporada resumidos en una página SEO actualizada.
+                  </p>
+                </div>
+                <span className="btn btn-primary btn-sm">VER TODO</span>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: 10 }}>
+                {seasonNews.map(item => (
+                  <div key={item.title} style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', padding: 14, minHeight: 118 }}>
+                    <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)', fontSize: 10, letterSpacing: 1.3, marginBottom: 7 }}>
+                      {item.label.toUpperCase()}
+                    </div>
+                    <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 22, letterSpacing: 0.8, margin: '0 0 6px' }}>
+                      {item.title}
+                    </h3>
+                    <p style={{ color: 'var(--text2)', fontSize: 12, lineHeight: 1.45, margin: 0 }}>{item.body}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+          </Link>
         </section>
 
         <Section title="Héroes por rol" kicker="HUB VISUAL" href="/heroes" linkLabel="Abrir hub">
