@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import JsonLd from '@/components/content/JsonLd'
 import AdSlot from '@/components/content/AdSlot'
 import PublicNav from '@/components/layout/PublicNav'
+import HeroPortraitImage from '@/components/heroes/HeroPortraitImage'
 import { announcementPath, ROLE_LABELS, topicLabel } from '@/lib/content'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { guideEditorial } from '@/lib/guide-editorial'
@@ -26,10 +26,10 @@ const roleOrder: CounterRole[] = ['tank', 'dps', 'support']
 const heroBySlug = new Map(COUNTER_HEROES.map(hero => [hero.slug, hero]))
 const spotlightHeroes = pickHeroes(spotlightHeroSlugs)
 const seasonNews = [
-  { title: 'Shion', label: 'Nuevo DPS', body: 'Nueva heroína de daño, movilidad alta y kit pensado para flanquear.' },
-  { title: 'Neon Junction', label: 'Mapa híbrido', body: 'Nuevo mapa urbano para aprender rutas, alturas y defensas cuanto antes.' },
-  { title: 'Anima Strike', label: 'Evento', body: 'Evento principal de temporada, pendiente de reglas y recompensas finales.' },
-  { title: 'YOASOBI', label: 'Colaboración', body: 'Nueva colaboración de Overwatch con potencial cosmético y musical.' },
+  { title: 'Shion', label: 'Nuevo DPS', body: 'Ómnica del Clan Hashimoto, pistolas duales, dashes y moto ofensiva.' },
+  { title: 'Neon Junction', label: 'Mapa híbrido', body: 'Nuevo mapa en Tokio con arcades, callejones y payload hacia Zuiko-za.' },
+  { title: 'Anima Strike', label: 'Evento', body: 'Tres semanas de desafíos, rutas ramificadas y más de 50 recompensas.' },
+  { title: 'Stadium', label: 'Gran update', body: 'Reworks para varios héroes, Oasis University y ranked sin restricciones de grupo.' },
 ]
 
 export default async function RootPage() {
@@ -95,8 +95,8 @@ export default async function RootPage() {
             <div>
               <div className="eyebrow">HEMEROTECA DE OVERWATCH</div>
               <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(46px, 8vw, 82px)', lineHeight: 0.94, letterSpacing: 1.5, margin: '0 0 22px', color: 'var(--text)' }}>
-                GUÍAS DE OVERWATCH,<br />
-                <span style={{ color: 'var(--accent)' }}>HÉROES Y CONSEJOS</span><br />
+                GUÍAS DE OVERWATCH, <br />
+                <span style={{ color: 'var(--accent)' }}>HÉROES Y CONSEJOS</span> <br />
                 PARA MEJORAR
               </h1>
               <p style={{ color: 'var(--text2)', fontSize: 17, lineHeight: 1.65, maxWidth: 610, margin: '0 0 28px' }}>
@@ -137,7 +137,7 @@ export default async function RootPage() {
                     OVERWATCH SEASON 3: INTO THE TIGER’S DEN
                   </h2>
                   <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0, maxWidth: 760 }}>
-                    Shion, Neon Junction, Anima Strike, Summer Games, YOASOBI, mythics, hero bans y más cambios de temporada resumidos en una página SEO actualizada.
+                    Shion, Neon Junction, Anima Strike, Community Crafted, Stadium, Battle Pass, mythics, Ultra Skins y eventos de temporada resumidos en una página SEO actualizada.
                   </p>
                 </div>
                 <span className="btn btn-primary btn-sm">VER TODO</span>
@@ -309,18 +309,14 @@ function HomeHeroCard({ hero, compact = false, priority = false }: { hero: Count
     <Link href={`/heroes/${hero.slug}`} className={`home-hero-card${compact ? ' is-compact' : ''}`} aria-label={`Ver información de ${hero.name}`}>
       <article>
         <div className="home-hero-card-image">
-          {portrait ? (
-            <Image
-              src={portrait}
-              alt={hero.name}
-              fill
-              priority={priority}
-              sizes={compact ? '(max-width: 768px) 42vw, 150px' : '(max-width: 768px) 42vw, 180px'}
-              style={{ objectFit: 'contain', objectPosition: 'center bottom' }}
-            />
-          ) : (
-            <div className="home-hero-card-fallback">{hero.name.slice(0, 1)}</div>
-          )}
+          <HeroPortraitImage
+            src={portrait}
+            name={hero.name}
+            fallbackClassName="home-hero-card-fallback"
+            priority={priority}
+            sizes={compact ? '(max-width: 768px) 42vw, 150px' : '(max-width: 768px) 42vw, 180px'}
+            imageStyle={{ objectFit: 'contain', objectPosition: 'center bottom' }}
+          />
           {hero.slug === 'shion' && <span className="home-hero-card-badge">NUEVO</span>}
         </div>
         <div className="home-hero-card-body">

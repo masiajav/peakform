@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import JsonLd from '@/components/content/JsonLd'
 import PublicNav from '@/components/layout/PublicNav'
+import HeroPortraitImage from '@/components/heroes/HeroPortraitImage'
 import { ROLE_LABELS } from '@/lib/content'
 import { COUNTER_HEROES, type CounterHero, type CounterRole } from '@/lib/overwatch-counters'
 import { getHeroPortrait } from '@/lib/overwatch-hero-portraits'
@@ -136,19 +136,13 @@ function HeroCard({ hero }: { hero: CounterHero }) {
     <Link href={`/heroes/${hero.slug}`} style={{ textDecoration: 'none' }}>
       <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', minHeight: 238, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
         <div style={{ position: 'relative', height: 168, background: 'var(--surface2)', borderBottom: '1px solid var(--border)' }}>
-          {portrait ? (
-            <Image
-              src={portrait}
-              alt={hero.name}
-              fill
-              sizes="(max-width: 768px) 50vw, 180px"
-              style={{ objectFit: 'contain', objectPosition: 'center bottom' }}
-            />
-          ) : (
-            <div style={{ height: '100%', display: 'grid', placeItems: 'center', fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text3)', fontSize: 42 }}>
-              {hero.name.slice(0, 1)}
-            </div>
-          )}
+          <HeroPortraitImage
+            src={portrait}
+            name={hero.name}
+            sizes="(max-width: 768px) 50vw, 180px"
+            imageStyle={{ objectFit: 'contain', objectPosition: 'center bottom' }}
+            fallbackClassName="hero-portrait-fallback"
+          />
         </div>
 
         <div style={{ padding: 14 }}>

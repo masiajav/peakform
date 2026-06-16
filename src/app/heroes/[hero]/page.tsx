@@ -11,23 +11,24 @@ import { robotsForQuality, topicQualityDecision } from '@/lib/indexing-policy'
 
 const SHION_SLUG = 'shion'
 const SHION_IMAGE = '/heroes/shion.png'
-const SHION_UPDATED_AT = '15 de junio de 2026'
+const SHION_UPDATED_AT = '16 de junio de 2026'
 const SHION_RELEASE_DATE = '16 de junio de 2026'
 const SHION_SEASON = "Season 3: Into the Tiger's Den"
 
 const shionFacts = [
   { label: 'Rol', value: 'DPS' },
   { label: 'Subrol', value: 'Flanker' },
-  { label: 'Origen', value: 'Japón' },
+  { label: 'Tipo', value: 'Ómnica' },
   { label: 'Base', value: 'Neon Junction, Tokio' },
-  { label: 'Facción', value: 'Hashimoto / Talon' },
+  { label: 'Facción', value: 'Clan Hashimoto' },
+  { label: 'Cargo', value: 'Five Elders' },
   { label: 'Lanzamiento', value: SHION_RELEASE_DATE },
 ]
 
 const shionAbilities = [
   {
     title: 'Kira Pistols',
-    body: 'Pistolas de ritmo alto para jugar ángulos, castigar objetivos tocados y mantener presión sin quedarse plantada en la frontal.',
+    body: 'Pistolas duales con una cadencia propia de tres disparos. La lectura importante será controlar el ritmo: no es solo disparar rápido, sino encadenar presión y precisión.',
   },
   {
     title: 'Execution',
@@ -35,11 +36,11 @@ const shionAbilities = [
   },
   {
     title: 'Evade',
-    body: 'Dash corto con supervivencia extra. Le permite entrar, reposicionarse o salir si el rival guarda control para cortarle la ruta.',
+    body: 'Sus dashes le permiten cruzar peleas y cambiar de ángulo antes de que el rival pueda fijarla. Si gasta movilidad sin plan, ahí aparece la ventana para castigarla.',
   },
   {
     title: 'Joyride',
-    body: 'Activa una moto y puede relanzarla al desmontar. Es su herramienta más importante: movilidad, engage y amenaza de remate en una sola acción.',
+    body: 'La moto es su firma: puede atravesar el campo de batalla y convertirla en un proyectil. No solo mueve a Shion; también obliga al rival a respetar el espacio por donde entra.',
   },
   {
     title: 'Satsuriku Spree',
@@ -106,11 +107,11 @@ const shionCounters = [
 const shionFaq = [
   {
     question: 'Cuándo sale Shion en Overwatch?',
-    answer: `El lanzamiento previsto de Shion es el ${SHION_RELEASE_DATE}, junto a ${SHION_SEASON}.`,
+    answer: `Shion llega a Overwatch el ${SHION_RELEASE_DATE}, junto a ${SHION_SEASON}.`,
   },
   {
     question: 'Qué rol tiene Shion?',
-    answer: 'Shion es una heroína DPS enfocada a flanqueo, movilidad alta y remates sobre objetivos tocados.',
+    answer: 'Shion es una heroína DPS: una ómnica del Clan Hashimoto con movilidad alta, presión constante, pistolas duales y una moto ofensiva.',
   },
   {
     question: 'Quién puede counterear a Shion?',
@@ -126,7 +127,7 @@ export function generateMetadata({ params }: { params: { hero: string } }): Meta
   if (params.hero === SHION_SLUG) {
     return buildMetadata({
       title: 'Shion en Overwatch: habilidades, rol, counters y guía',
-      description: `Guía de Shion en Overwatch para ${SHION_SEASON}: rol DPS, habilidades, perks, counters iniciales y cómo prepararte para su lanzamiento el ${SHION_RELEASE_DATE}.`,
+      description: `Guía de Shion en Overwatch para ${SHION_SEASON}: nueva DPS ómnica del Clan Hashimoto, habilidades, moto, counters iniciales y cómo jugar contra ella.`,
       path: `/heroes/${params.hero}`,
       image: SHION_IMAGE,
       robots: robotsForQuality(quality),
@@ -169,7 +170,7 @@ function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
     image: absoluteUrl(SHION_IMAGE),
     url: pageUrl,
     datePublished: '2026-06-15',
-    dateModified: '2026-06-15',
+    dateModified: '2026-06-16',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -214,12 +215,12 @@ function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
               <span style={{ color: 'var(--accent)' }}>HABILIDADES, ROL Y COUNTERS</span>
             </h1>
             <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.75, margin: '0 0 18px', maxWidth: 760 }}>
-              Shion llega como DPS flanker en la nueva temporada de Overwatch. Esta página resume lo importante antes del lanzamiento: qué hace su kit, cómo puede encajar en partida, qué perks conviene vigilar y qué héroes deberían frenarla mejor al principio.
+              Shion llega como nueva DPS de Overwatch: una ómnica del Clan Hashimoto, peligrosa, elegante y hecha para jugar con ritmo alto. Su kit mezcla pistolas duales, dashes y una moto que no solo sirve para moverse: también puede convertirse en amenaza directa.
             </p>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
               <MetaPill label="Actualizado" value={SHION_UPDATED_AT} />
               <MetaPill label="Lanzamiento" value={SHION_RELEASE_DATE} />
-              <MetaPill label="Anuncios" value="Sin anuncios hasta guía definitiva" />
+              <MetaPill label="Estado" value="Guía en seguimiento competitivo" />
             </div>
           </div>
 
@@ -246,14 +247,14 @@ function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
         </header>
 
         <section style={sectionStyle}>
-          <div className="eyebrow" style={{ marginBottom: 10 }}>LECTURA SEO Y DE PARTIDA</div>
-          <h2 style={headingStyle}>Qué sabemos de Shion antes de la temporada</h2>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>LECTURA DE PARTIDA</div>
+          <h2 style={headingStyle}>Quién es Shion en Overwatch</h2>
           <div style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.8, display: 'grid', gap: 12 }}>
             <p style={{ margin: 0 }}>
-              La intención de Shion parece clara: no es una DPS para quedarse disparando desde la misma esquina toda la pelea. Su kit gira alrededor de movilidad, ángulos laterales y remates. Si entra bien, fuerza a los supports a mirar atrás; si entra mal, debería ser castigable por control, peel y buena lectura de rutas.
+              Shion entra en Overwatch como una ómnica temible, líder del Clan Hashimoto y una de las figuras más peligrosas de los Five Elders. Su historia no empieza arriba: antes de controlar las calles, fue capturada, aislada y usada como bot de entrenamiento por quienes la temían.
             </p>
             <p style={{ margin: 0 }}>
-              Esta página se irá actualizando cuando salgan las notas completas, números finales y primeras partidas de la temporada. Hasta entonces, el foco está en explicar lo confirmado con lenguaje útil: qué amenaza representa, qué errores evitar y qué héroes preparar para jugar contra ella.
+              Ese trasfondo encaja muy bien con su diseño jugable. Shion no transmite calma ni paciencia: entra con estilo, presiona con pistolas, cambia de ángulo con dashes y usa la moto para convertir una rotación en una amenaza. En partida, eso significa una DPS que obliga a mirar laterales y castigar mal posicionamiento.
             </p>
           </div>
         </section>
