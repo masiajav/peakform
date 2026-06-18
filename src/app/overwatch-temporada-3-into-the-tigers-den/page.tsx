@@ -2,17 +2,21 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import JsonLd from '@/components/content/JsonLd'
+import GuideVideo from '@/components/content/GuideVideo'
 import PublicNav from '@/components/layout/PublicNav'
 import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 
 const PAGE_PATH = '/overwatch-temporada-3-into-the-tigers-den'
-const UPDATED_AT = '16 de junio de 2026'
+const UPDATED_AT = '18 de junio de 2026'
 const RELEASE_DATE = '16 de junio de 2026'
 const SEASON_NAME = "Season 3: Into the Tiger's Den"
+const SHION_VIDEO_ID = '9abTdz8uD3g'
+const SHION_VIDEO_URL = `https://youtu.be/${SHION_VIDEO_ID}`
+const SHION_VIDEO_TITLE = "Don't Play SHION Without Knowing This First | Overwatch Shion Guide"
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Overwatch Season 3 Into the Tiger’s Den: Shion, Neon Junction y eventos',
-  description: 'Resumen completo en español de Overwatch Season 3 Into the Tiger’s Den: Shion, Neon Junction, Anima Strike, Community Crafted, mythics, Ultra Skins y más.',
+  title: "Overwatch Season 3 Into the Tiger's Den: Shion, mapa, eventos y cambios",
+  description: "Resumen completo de Overwatch Season 3: Into the Tiger's Den. Shion, Neon Junction, eventos, hero bans, Summer Games, YOASOBI, mythics y cambios clave de temporada.",
   path: PAGE_PATH,
   image: '/heroes/shion.png',
   type: 'article',
@@ -20,20 +24,20 @@ export const metadata: Metadata = buildMetadata({
 
 const keyPoints = [
   {
-    title: 'Nuevo héroe DPS: Shion',
-    body: 'Shion llega como líder ómnica del Clan Hashimoto, una DPS de presión agresiva con pistolas, dashes y una moto que también puede convertirse en proyectil.',
+    title: 'Shion, nueva DPS',
+    body: 'La gran protagonista de la temporada es Shion: una flanker de daño con pistolas duales, dash, Execution y Joyride como herramienta de movilidad y amenaza.',
   },
   {
-    title: 'Nuevo mapa híbrido',
-    body: 'Neon Junction es el nuevo mapa híbrido ambientado en Tokio. Empieza en calles llenas de tiendas, arcades y callejones, y empuja el payload hacia el corazón del territorio Hashimoto.',
+    title: 'Neon Junction',
+    body: 'Nuevo mapa híbrido en Tokio. Las primeras horas serán clave para aprender rutas laterales, defensas iniciales, health packs y zonas donde Shion puede aparecer.',
   },
   {
-    title: 'Evento Anima Strike',
-    body: 'Anima Strike dura tres semanas, del 16 de junio al 6 de julio. Avanzas por Neon Junction con desafíos diarios y semanales, rutas ramificadas y más de 50 recompensas temáticas.',
+    title: 'Eventos de temporada',
+    body: 'Anima Strike, Summer Games 2026, Quick Play: Hacked, Excavation Initiative y colaboración Overwatch x YOASOBI dan contenido más allá de ranked.',
   },
   {
-    title: 'Más que Shion',
-    body: 'La temporada también trae Community Crafted, rediseño de Hero Select, nuevos mythics, Excavation Initiative, una gran actualización de Stadium, Battle Pass, Ultra Skins y colecciones de tienda.',
+    title: 'Cambios de sistema',
+    body: 'Hero bans, Stadium, Hero Select, mythics y Ultra Skins hacen que la temporada no dependa solo de Shion. Hay cambios competitivos y cosméticos que conviene separar.',
   },
 ]
 
@@ -41,99 +45,87 @@ const seasonFeatures = [
   {
     label: 'Héroe',
     title: 'Shion',
-    body: 'Nueva heroína de daño: ómnica, líder del Clan Hashimoto y uno de los Cinco Ancianos. Su kit mezcla presión, dashes, pistolas y una moto ofensiva.',
+    body: 'Nueva heroína de daño con subrol de flanker. Su kit premia movilidad, presión lateral y remates sobre objetivos tocados.',
     href: '/heroes/shion',
   },
   {
     label: 'Mapa',
     title: 'Neon Junction',
-    body: 'Nuevo mapa híbrido en Tokio. Primero se captura zona y luego se escolta el payload hacia Zuiko-za, con arcades, tiendas nocturnas, cápsulas y callejones.',
+    body: 'Nuevo mapa híbrido con estética urbana, neones y rutas que probablemente favorezcan DPS móviles y defensas que sepan controlar laterales.',
   },
   {
     label: 'Evento',
     title: 'Anima Strike',
-    body: 'Evento narrativo del 16 de junio al 6 de julio. Tiene desafíos diarios y semanales, rutas con decisiones, ubicaciones Hashimoto/Yokai/Subway y más de 50 recompensas.',
+    body: 'Evento destacado de temporada. Lo importante será revisar duración, recompensas, desafíos y si tiene rutas o modos propios que merezcan guía separada.',
   },
   {
-    label: 'Modo temporal',
-    title: 'Community Crafted',
-    body: 'Del 30 de junio al 13 de julio, Guxue, Ocie, Apply y mL7support prueban versiones especiales de Reinhardt, Sombra, Ashe y Baptiste.',
+    label: 'Evento',
+    title: 'Summer Games 2026',
+    body: 'Vuelven los Summer Games. Es buen candidato para búsquedas de recompensas, skins, desafíos y modos temporales cuando esté todo confirmado.',
   },
   {
-    label: 'Sistema',
-    title: 'Hero Select',
-    body: 'Rediseño de selección de héroe con filtros por rol, retratos más grandes, mejor navegación con mando, acceso a skins e información de rol/subrol visible.',
+    label: 'Colaboración',
+    title: 'Overwatch x YOASOBI',
+    body: 'Una colaboración con potencial fuera del público competitivo. Si trae skins, música o recompensas, merece seguimiento propio.',
   },
   {
-    label: 'Mythic Skin',
-    title: 'Ascendant Phoenix Illari',
-    body: 'Nueva skin mítica de Illari con progresión por niveles, variantes de alas, colores adicionales y efectos visuales de fuego.',
-  },
-  {
-    label: 'Mythic Weapon',
-    title: 'Tokyo Rebel Hanzo',
-    body: 'Nuevo arco mítico para Hanzo con estética de ronin cyberpunk, dragones holográficos, animación personalizada y efecto de eliminación.',
-  },
-  {
-    label: 'Sistema',
-    title: 'Excavation Initiative',
-    body: 'Evento de progreso de temporada con Venture: cajas por iniciar sesión, completar desafíos, ganar partidas y jugar de forma constante. Hay 17 Loot Boxes, 1 épica y 1 legendaria.',
+    label: 'Ranked',
+    title: 'Hero bans',
+    body: 'Los ajustes de hero bans pueden alterar picks seguros, composiciones y respuestas contra Shion durante los primeros días.',
   },
   {
     label: 'Stadium',
-    title: 'Gran actualización',
-    body: 'Stadium recibe ajustes en casi todo el roster, reworks grandes para Hazard, Tracer, Kiriko, Sojourn y Doomfist, sin restricciones de grupo en ranked y Oasis University en el map pool.',
+    title: 'Hero reworks',
+    body: 'Stadium recibe cambios y reworks de héroes. Antes de volver a tus builds favoritas, conviene revisar si tu héroe juega distinto.',
   },
   {
-    label: 'Battle Pass',
-    title: 'Skins y 80 prismas',
-    body: 'El pase trae cosméticos de verano y calle, skins como Summer Festival Sombra/Freja, Matsuri Junkrat, Vigilante Genji, Street Rebel Lúcio y hasta 80 Mythic Prisms.',
-  },
-  {
-    label: 'Ultra Skins',
-    title: 'Nyan Café Kiriko y Sierra',
-    body: 'Las Ultra Skins debutan con Kiriko y Sierra, centradas en sonido, efectos visuales, kill effects, animaciones y detalles premium.',
-  },
-  {
-    label: 'Tienda',
-    title: 'Nyan Café y Street Rebels',
-    body: 'Nyan Café llega del 23 de junio al 13 de julio. Street Rebels va del 16 de junio al 6 de julio con skins para Junker Queen, Mercy, Mizuki, Wuyang y Jetpack Cat.',
+    label: 'Cosméticos',
+    title: 'Mythics y Ultra Skins',
+    body: 'La temporada trae mythics, Ultra Skins y colecciones de tienda. No todo se consigue igual, así que conviene separar pase, tienda y eventos.',
   },
 ]
 
 const prepChecklist = [
-  'Entra pronto a Neon Junction: en mapas híbridos nuevos, conocer rutas de ataque y defensas iniciales vale más que cualquier tier list.',
-  'Si vas a jugar contra Shion, guarda peel o control para después de su entrada, no para el primer amago.',
-  'Haz Anima Strike durante la primera semana si quieres avanzar por las rutas del evento sin acumular demasiadas tareas.',
-  'Revisa los cambios de Stadium antes de volver a tus builds favoritas: varios héroes importantes jugarán distinto.',
-  'Si te interesan los cosméticos, separa Mythic Prisms, Ultra Skins, Battle Pass y colecciones de tienda; no todo se desbloquea igual.',
-  'Mira las patch notes cuando estén disponibles en detalle para confirmar números, cooldowns y cambios de balance.',
+  'Lee la guía de Shion antes de jugar ranked si todavía no sabes cómo funciona Joyride.',
+  'Aprende al menos dos respuestas contra Shion: control, peel o daño fiable cuando gaste movilidad.',
+  'Prueba Neon Junction en partidas rápidas antes de asumir rutas de ataque o defensa.',
+  'No juzgues el meta por el primer día: el inicio de temporada siempre mezcla hype, errores y picks poco optimizados.',
+  'Revisa hero bans antes de elegir composición, especialmente si juegas support o DPS vulnerable a flankers.',
+  'Comprueba las patch notes para confirmar daño, cooldowns, perks y hotfixes.',
 ]
 
 const faq = [
   {
-    question: 'Cuándo sale Overwatch Season 3: Into the Tiger’s Den?',
-    answer: `Overwatch Season 3: Into the Tiger’s Den se publica el ${RELEASE_DATE}. Es el arranque de Shion, Neon Junction, Anima Strike y la nueva oleada de cambios de temporada.`,
+    question: "¿Cuándo sale Overwatch Season 3: Into the Tiger's Den?",
+    answer: `Overwatch Season 3: Into the Tiger's Den tiene lanzamiento el ${RELEASE_DATE}. Esta página se irá actualizando con patch notes, cambios finales y datos reales de partida.`,
   },
   {
-    question: 'Qué héroe nuevo llega en la Season 3?',
-    answer: 'La novedad principal es Shion, una heroína DPS ómnica vinculada al Clan Hashimoto, con pistolas, dashes y una moto que puede usarse de forma ofensiva.',
+    question: '¿Qué héroe nuevo llega en Overwatch Season 3?',
+    answer: 'La principal novedad jugable es Shion, una heroína de daño rápida y agresiva vinculada al Clan Hashimoto.',
   },
   {
-    question: 'Qué mapa nuevo llega en Overwatch Season 3?',
-    answer: 'La temporada incluye Neon Junction, un nuevo mapa híbrido. Actualizaremos rutas, composición y consejos cuando esté disponible para jugar.',
+    question: '¿Qué rol tiene Shion?',
+    answer: 'Shion es una heroína de daño con estilo de flanker. Su kit se centra en movilidad, presión lateral y remates.',
   },
   {
-    question: 'Qué eventos aparecen en Into the Tiger’s Den?',
-    answer: 'La temporada incluye Anima Strike, Community Crafted, Excavation Initiative, nuevas colecciones de tienda, Battle Pass de verano y una gran actualización de Stadium.',
+    question: "¿Qué mapa nuevo llega en Into the Tiger's Den?",
+    answer: 'La temporada introduce Neon Junction, un nuevo mapa híbrido con estética urbana y rutas que conviene aprender cuanto antes.',
   },
   {
-    question: 'Qué mythics trae la Season 3?',
-    answer: 'La temporada trae Mythic Ascendant Phoenix Illari y el arma mítica Tokyo Rebel para Hanzo. El Battle Pass permite conseguir hasta 80 Mythic Prisms.',
+    question: '¿Qué eventos trae Overwatch Season 3?',
+    answer: 'La temporada incluye Anima Strike, Summer Games 2026, Quick Play: Hacked, Excavation Initiative y una colaboración Overwatch x YOASOBI.',
   },
   {
-    question: 'Esta página sustituye a las patch notes?',
-    answer: 'No. Es un resumen editorial en español para orientarte rápido. Las cifras exactas de balance y cualquier hotfix deben revisarse en las patch notes.',
+    question: '¿Qué héroes pueden parar a Shion?',
+    answer: 'Los primeros counters recomendados son Sombra, Ana, Junkrat, Brigitte, D.Va y Cassidy. Funcionan bien por control, peel o capacidad para castigar movilidad mal usada.',
+  },
+  {
+    question: '¿Shion funciona mejor en dive o brawl?',
+    answer: 'Por su kit, Shion parece funcionar bien en composiciones de dive y brawl rápido. Quiere equipos que creen caos, entren con ella o aprovechen la presión que genera en los laterales.',
+  },
+  {
+    question: "¿Esta página sustituye a las patch notes oficiales?",
+    answer: 'No. Esta página es un resumen editorial en español para entender rápido la temporada. Las cifras exactas de daño, cooldowns, perks, eventos y balance deben comprobarse con las patch notes.',
   },
 ]
 
@@ -142,12 +134,12 @@ export default function SeasonThreePage() {
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Overwatch Season 3 Into the Tiger’s Den: Shion, Neon Junction y eventos',
-    description: 'Resumen editorial en español de la nueva temporada de Overwatch, con Shion, Neon Junction, Anima Strike, Community Crafted, Stadium, mythics y Ultra Skins.',
+    headline: "Overwatch Season 3 Into the Tiger's Den: Shion, Neon Junction, eventos y cambios clave",
+    description: "Resumen editorial de Overwatch Season 3: Into the Tiger's Den con Shion, Neon Junction, eventos, hero bans, Summer Games, YOASOBI, mythics y cambios de temporada.",
     image: absoluteUrl('/heroes/shion.png'),
     url: pageUrl,
     datePublished: '2026-06-15',
-    dateModified: '2026-06-16',
+    dateModified: '2026-06-18',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -169,12 +161,24 @@ export default function SeasonThreePage() {
       acceptedAnswer: { '@type': 'Answer', text: item.answer },
     })),
   }
+  const videoJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: SHION_VIDEO_TITLE,
+    description: 'Vídeo complementario para entender Shion antes de jugarla en la nueva temporada.',
+    thumbnailUrl: [`https://i.ytimg.com/vi/${SHION_VIDEO_ID}/hqdefault.jpg`],
+    uploadDate: '2026-06-18',
+    embedUrl: `https://www.youtube-nocookie.com/embed/${SHION_VIDEO_ID}`,
+    contentUrl: SHION_VIDEO_URL,
+    inLanguage: 'en',
+  }
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <JsonLd data={articleJsonLd} />
       <JsonLd data={breadcrumbJsonLd} />
       <JsonLd data={faqJsonLd} />
+      <JsonLd data={videoJsonLd} />
       <PublicNav />
 
       <main style={{ maxWidth: 1120, margin: '0 auto', padding: '56px 24px 88px' }}>
@@ -189,15 +193,15 @@ export default function SeasonThreePage() {
             <div className="eyebrow">NUEVA TEMPORADA · {RELEASE_DATE.toUpperCase()}</div>
             <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(44px, 8vw, 84px)', letterSpacing: 1, lineHeight: 0.94, margin: '0 0 16px' }}>
               OVERWATCH SEASON 3: <br />
-              <span style={{ color: 'var(--accent)' }}>INTO THE TIGER’S DEN</span>
+              <span style={{ color: 'var(--accent)' }}>INTO THE TIGER&apos;S DEN</span>
             </h1>
             <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.75, margin: '0 0 18px', maxWidth: 760 }}>
-              La Season 3 de Overwatch llega con Shion como nueva DPS, Neon Junction como mapa híbrido, Anima Strike, Community Crafted, mythics, Ultra Skins, Battle Pass, Excavation Initiative y una actualización grande de Stadium. Aquí tienes el resumen ordenado para saber qué mirar primero.
+              Overwatch Season 3 abre una etapa centrada en velocidad, neones, crimen organizado y cambios importantes para ranked. La gran protagonista es Shion, pero también llegan Neon Junction, eventos temporales, hero bans, Stadium, mythics, Ultra Skins y contenido cosmético de temporada.
             </p>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
               <MetaPill label="Actualizado" value={UPDATED_AT} />
               <MetaPill label="Lanzamiento" value={RELEASE_DATE} />
-              <MetaPill label="Estado" value="Resumen completo de temporada" />
+              <MetaPill label="Estado" value="Resumen SEO en seguimiento" />
             </div>
           </div>
 
@@ -205,7 +209,7 @@ export default function SeasonThreePage() {
             <div style={{ position: 'relative', height: 330, background: 'var(--surface2)' }}>
               <Image
                 src="/heroes/shion.png"
-                alt="Shion, nueva heroína de Overwatch Season 3"
+                alt="Overwatch Season 3 Into the Tiger's Den con Shion"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 420px"
@@ -227,7 +231,7 @@ export default function SeasonThreePage() {
         <section style={sectionStyle}>
           <div className="eyebrow" style={{ marginBottom: 10 }}>RESUMEN RÁPIDO</div>
           <h2 style={headingStyle}>Qué trae Overwatch Season 3</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: 12 }}>
+          <div style={cardGridStyle}>
             {keyPoints.map(point => (
               <InfoCard key={point.title} title={point.title} body={point.body} />
             ))}
@@ -235,12 +239,44 @@ export default function SeasonThreePage() {
         </section>
 
         <section style={sectionStyle}>
-          <div className="eyebrow" style={{ marginBottom: 10 }}>TODAS LAS NOVEDADES</div>
-          <h2 style={headingStyle}>Contenido anunciado para Into the Tiger’s Den</h2>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>SHION</div>
+          <h2 style={headingStyle}>La gran protagonista de Into the Tiger&apos;s Den</h2>
+          <div style={copyGridStyle}>
+            <p style={{ margin: 0 }}>
+              Shion es el contenido jugable más importante de la temporada. Llega como heroína de daño con subrol de flanker, pistolas duales, una habilidad de ejecución, dash con supervivencia, una moto ofensiva y una definitiva basada en avances rápidos con disparos.
+            </p>
+            <p style={{ margin: 0 }}>
+              Su impacto en el meta puede ser alto porque obliga a los equipos a prestar más atención a laterales, supports aislados y control de cooldowns. No basta con saber que tiene movilidad: la clave será entender cuándo puede entrar, cuándo puede salir y qué héroes pueden pararla.
+            </p>
+          </div>
+          <div style={{ marginTop: 18, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+            <Link href="/heroes/shion" className="btn btn-primary btn-sm">GUÍA COMPLETA DE SHION</Link>
+            <Link href="/counters/shion" className="btn btn-secondary btn-sm">COUNTERS DE SHION</Link>
+            <Link href="/team-comps/shion" className="btn btn-secondary btn-sm">COMPOSICIONES</Link>
+          </div>
+        </section>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>VIDEO</div>
+          <h2 style={headingStyle}>Antes de llevar a Shion a ranked</h2>
           <p style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.75, margin: '0 0 16px', maxWidth: 820 }}>
-            El resumen de temporada mezcla contenido jugable, eventos, cosméticos y cambios de sistema. Lo importante ahora es separar lo que afecta a tus partidas desde el día uno de lo que iremos ampliando cuando salgan las notas completas.
+            Este vídeo complementa la guía de Shion y resume las ideas que más importan durante los primeros días: movilidad, perks, errores comunes y cómo no regalar la entrada.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
+          <GuideVideo
+            videoId={SHION_VIDEO_ID}
+            title={SHION_VIDEO_TITLE}
+            language="en"
+            url={SHION_VIDEO_URL}
+          />
+        </section>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>TODAS LAS NOVEDADES</div>
+          <h2 style={headingStyle}>Contenido anunciado para Into the Tiger&apos;s Den</h2>
+          <p style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.75, margin: '0 0 16px', maxWidth: 820 }}>
+            La temporada mezcla novedades jugables, eventos, cosméticos y cambios de sistema. Lo importante es separar lo que afecta a tus partidas desde el día uno de lo que conviene seguir cuando salgan patch notes y hotfixes.
+          </p>
+          <div style={cardGridStyle}>
             {seasonFeatures.map(feature => (
               feature.href ? (
                 <Link key={feature.title} href={feature.href} style={{ textDecoration: 'none' }}>
@@ -254,30 +290,25 @@ export default function SeasonThreePage() {
         </section>
 
         <section style={sectionStyle}>
-          <div className="eyebrow" style={{ marginBottom: 10 }}>SHION</div>
-          <h2 style={headingStyle}>Por qué Shion puede marcar el meta inicial</h2>
-          <div style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.8, display: 'grid', gap: 12 }}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>META INICIAL</div>
+          <h2 style={headingStyle}>Cómo puede cambiar el meta con Shion</h2>
+          <div style={copyGridStyle}>
             <p style={{ margin: 0 }}>
-              Shion no parece diseñada para jugar lento. Su valor debería aparecer en entradas cortas, presión desde ángulos incómodos y remates sobre enemigos ya tocados. Si Joyride le permite cruzar mucho espacio y Evade le da salida real, el rival tendrá que decidir entre mirar a Shion o mantener la frontal.
+              Shion puede cambiar el ritmo de las partidas porque añade una amenaza constante sobre la backline. Si sus números acompañan, los equipos tendrán que jugar con más disciplina: supports menos aislados, más atención a rutas laterales y más cuidado al gastar cooldowns defensivos.
             </p>
             <p style={{ margin: 0 }}>
-              Para jugadores de ranked, la adaptación principal será de disciplina: no regalar supports aislados, no gastar peel demasiado pronto y no perseguirla si todavía conserva movilidad. En los primeros días, muchas partidas se decidirán por quién entiende antes sus rutas, especialmente si Neon Junction favorece rotaciones rápidas.
+              Los héroes con control y peel ganan valor contra ella. Sombra, Ana, Junkrat, Brigitte, D.Va y Cassidy parecen respuestas iniciales sólidas porque pueden cortar su entrada, castigar Joyride o proteger al objetivo que Shion quiere rematar.
             </p>
-          </div>
-          <div style={{ marginTop: 18, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-            <Link href="/heroes/shion" className="btn btn-primary btn-sm">GUÍA DE SHION</Link>
-            <Link href="/counters/shion" className="btn btn-secondary btn-sm">COUNTERS DE SHION</Link>
-            <Link href="/team-comps/shion" className="btn btn-secondary btn-sm">COMPOSICIONES</Link>
           </div>
         </section>
 
         <section style={sectionStyle}>
           <div className="eyebrow" style={{ marginBottom: 10 }}>PREPARACIÓN</div>
-          <h2 style={headingStyle}>Checklist antes de jugar la Season 3</h2>
+          <h2 style={headingStyle}>Checklist antes de jugar ranked en Season 3</h2>
           <div style={{ display: 'grid', gap: 10 }}>
             {prepChecklist.map(item => (
               <div key={item} style={{ display: 'grid', gridTemplateColumns: '22px minmax(0, 1fr)', gap: 10, alignItems: 'start', color: 'var(--text2)', fontSize: 14, lineHeight: 1.65 }}>
-                <span style={{ color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 18 }}>✓</span>
+                <span style={{ color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 18 }}>-</span>
                 <span>{item}</span>
               </div>
             ))}
@@ -285,14 +316,17 @@ export default function SeasonThreePage() {
         </section>
 
         <section style={sectionStyle}>
-          <div className="eyebrow" style={{ marginBottom: 10 }}>SIGUIENTE PASO</div>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>CONTENIDO RELACIONADO</div>
           <h2 style={headingStyle}>Qué revisar después del lanzamiento</h2>
           <p style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.8, margin: '0 0 14px' }}>
-            A partir de aquí, lo importante será vigilar las patch notes, posibles hotfixes y cómo se comportan Shion, Neon Junction y Stadium cuando la temporada lleve unas horas en manos de la comunidad.
+            A partir de aquí, lo importante será vigilar patch notes, posibles hotfixes y cómo se comportan Shion, Neon Junction y Stadium cuando la temporada lleve unas horas en manos de la comunidad.
           </p>
-          <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.7, margin: 0 }}>
-            Para cambios de balance, revisa las <Link href="/patch-notes" style={{ color: 'var(--accent)' }}>patch notes de Overwatch</Link> y vuelve a mirar esta página cuando haya datos reales de Shion, Neon Junction y Stadium.
-          </p>
+          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+            <Link href="/heroes/shion" className="btn btn-primary btn-sm">CÓMO JUGAR SHION</Link>
+            <Link href="/patch-notes" className="btn btn-secondary btn-sm">PATCH NOTES</Link>
+            <Link href="/heroes" className="btn btn-secondary btn-sm">TODOS LOS HÉROES</Link>
+            <Link href="/guides/como-mejorar-en-overwatch" className="btn btn-secondary btn-sm">MEJORAR EN RANKED</Link>
+          </div>
         </section>
 
         <section style={sectionStyle}>
@@ -361,4 +395,18 @@ const headingStyle = {
   fontSize: 32,
   letterSpacing: 1,
   margin: '0 0 14px',
+} as const
+
+const cardGridStyle = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+  gap: 12,
+} as const
+
+const copyGridStyle = {
+  color: 'var(--text2)',
+  fontSize: 15,
+  lineHeight: 1.8,
+  display: 'grid',
+  gap: 12,
 } as const
