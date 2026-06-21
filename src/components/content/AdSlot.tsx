@@ -40,9 +40,11 @@ export default function AdSlot({
 }: AdSlotProps) {
   const clientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID
   const config = CONFIG[variant]
+  // Ads remain disabled until AdSense approves the site. Set the public flag to true only after approval and redeploy.
+  const adsApproved = process.env.NEXT_PUBLIC_ADSENSE_APPROVED === 'true'
   const showPlaceholder = process.env.NODE_ENV !== 'production'
   const resolvedSlot = resolveSlot(slot)
-  const canServeAd = Boolean(clientId && resolvedSlot)
+  const canServeAd = adsApproved && Boolean(clientId && resolvedSlot)
 
   useEffect(() => {
     if (!allowAds || !canServeAd) return

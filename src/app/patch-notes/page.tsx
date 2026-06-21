@@ -12,6 +12,7 @@ export const metadata: Metadata = buildMetadata({
   title: 'Patch notes de Overwatch',
   description: 'Últimas notas de parche de Overwatch importadas desde Blizzard y resumidas por Replaid Lab.',
   path: '/patch-notes',
+  robots: { index: false, follow: true },
 })
 
 export default async function PatchNotesPage() {

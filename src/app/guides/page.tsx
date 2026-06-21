@@ -5,6 +5,7 @@ import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
 import AdSlot from '@/components/content/AdSlot'
 import JsonLd from '@/components/content/JsonLd'
+import SeoFaq from '@/components/content/SeoFaq'
 import PublicNav from '@/components/layout/PublicNav'
 import { DEFAULT_HEROES, ROLE_LABELS, topicLabel } from '@/lib/content'
 import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
@@ -31,8 +32,8 @@ export function generateMetadata({ searchParams }: { searchParams: GuidesSearchP
   )
 
   const metadata = buildMetadata({
-    title: 'Guías de Overwatch: vídeos, counters y consejos para mejorar',
-    description: 'Guías de Overwatch en español con vídeos, consejos por héroe, counters, fundamentos por rol y recursos para revisar tus partidas.',
+    title: 'Guías de Overwatch en español: héroes, ranked, counters y VOD',
+    description: 'Encuentra guías de Overwatch en español por héroe, rol y problema: posicionamiento, cooldowns, counters, composiciones y revisión de VOD.',
     path: '/guides',
   })
 
@@ -120,6 +121,20 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
     },
   }
 
+  const faq = [
+    {
+      question: '¿Cuál es la mejor guía para empezar?',
+      answer: 'Empieza por Cómo mejorar en Overwatch si no tienes claro qué error estás cometiendo. Después baja a tu rol, héroe o matchup concreto.',
+    },
+    {
+      question: '¿Las guías están pensadas para ranked?',
+      answer: 'Sí. El objetivo es aplicar una decisión concreta en ranked: jugar mejor posición, gastar menos cooldowns o mejorar timing.',
+    },
+    {
+      question: '¿Las guías de vídeo sustituyen al vídeo?',
+      answer: 'No. La página resume qué aprender del vídeo, cómo aplicarlo y qué revisar después en tus propias partidas.',
+    },
+  ]
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <JsonLd data={collectionJsonLd} />
@@ -144,7 +159,7 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
                 GUÍAS DE OVERWATCH
               </h1>
               <p style={{ fontSize: 14, color: 'var(--text2)', margin: '0 0 12px', lineHeight: 1.6, maxWidth: 720 }}>
-                Encuentra guías en español por héroe, rol, mapa y problema concreto. La hemeroteca prioriza vídeos útiles, counters, fundamentos y consejos aplicables para revisar tus partidas.
+                Encuentra guías de Overwatch por héroe, rol, mapa y problema concreto. La hemeroteca prioriza contenido útil para ranked: posicionamiento, cooldowns, ultimates, counters, composiciones y revisión de VOD.
               </p>
               <div className="guide-cluster-links">
                 <Link href="/heroes">Todos los héroes</Link>
@@ -178,6 +193,13 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
           </div>
         </div>
 
+        <section style={{ background: 'var(--surface2)', border: '1px solid var(--border)', padding: 18, marginBottom: 22 }}>
+          <div className="eyebrow">CÓMO USAR LA HEMEROTECA</div>
+          <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0 }}>
+            Busca por problema, no solo por héroe: si mueres demasiado revisa posicionamiento; si no conviertes daño en bajas, revisa ángulos y follow-up; si pierdes contra un héroe concreto, entra en counters.
+          </p>
+        </section>
+
         <AdSlot variant="leaderboard" slot="guides-top-leaderboard" allowAds={!hasFilters} />
 
         {categories.length > 0 && (
@@ -194,7 +216,7 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
         )}
 
         {sortedGuides.length === 0 ? (
-          <EmptyGuides />
+          <EmptyGuides hasFilters={hasFilters} />
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
             {sortedGuides.map((g: any, index: number) => (
@@ -310,15 +332,38 @@ function containsSearchToken(term: string, token: string) {
   return ` ${term} `.includes(` ${token} `)
 }
 
-function EmptyGuides() {
+function EmptyGuides({ hasFilters }: { hasFilters: boolean }) {
+  const title = hasFilters ? 'NO HEMOS ENCONTRADO GUÍAS PARA ESTA BÚSQUEDA' : 'AÚN NO HAY GUÍAS PUBLICADAS'
+  const description = hasFilters
+    ? 'Prueba con otro héroe, rol o palabra clave. También puedes borrar los filtros para volver a toda la hemeroteca.'
+    : 'Mientras llenas la hemeroteca, estos accesos ya dejan clara la estructura que tendrá el contenido.'
+  const faq = [
+    {
+      question: '¿Cuál es la mejor guía para empezar?',
+      answer: 'Empieza por Cómo mejorar en Overwatch si no tienes claro qué error estás cometiendo. Después baja a tu rol, héroe o matchup concreto.',
+    },
+    {
+      question: '¿Las guías están pensadas para ranked?',
+      answer: 'Sí. El objetivo es aplicar una decisión concreta en ranked: jugar mejor posición, gastar menos cooldowns o mejorar timing.',
+    },
+    {
+      question: '¿Las guías de vídeo sustituyen al vídeo?',
+      answer: 'No. La página resume qué aprender del vídeo, cómo aplicarlo y qué revisar después en tus propias partidas.',
+    },
+  ]
   return (
     <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '28px' }}>
       <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 22, letterSpacing: 1, marginBottom: 8 }}>
-        AÚN NO HAY GUÍAS PUBLICADAS
+        {title}
       </div>
       <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.6, margin: '0 0 20px' }}>
-        Mientras llenas la hemeroteca, estos accesos ya dejan clara la estructura que tendrá el contenido.
+        {description}
       </p>
+      {hasFilters && (
+        <Link href="/guides" className="btn btn-secondary btn-sm" style={{ marginBottom: 20 }}>
+          LIMPIAR BÚSQUEDA
+        </Link>
+      )}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 10 }}>
         <EmptyLink href="/roles/support" title="Por rol" text="Tank, DPS y Support" />
         <EmptyLink href="/heroes/ana" title="Por héroe" text="Counters, errores y consejos" />

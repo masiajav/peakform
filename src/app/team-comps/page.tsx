@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import JsonLd from '@/components/content/JsonLd'
+import SeoFaq from '@/components/content/SeoFaq'
 import TeamCompExplorer from './TeamCompExplorer'
 import { TEAM_COMP_HEROES } from '@/lib/overwatch-team-comps'
 import { PILLAR_TEAM_COMP_SLUGS } from '@/lib/indexing-policy'
@@ -9,8 +10,8 @@ import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Composiciones de Overwatch: equipos 5v5 y 6v6 por heroe',
-  description: 'Herramienta interactiva de composiciones de Overwatch: elige un heroe y encuentra equipos recomendados para 5v5 y 6v6 con dive, poke, rush, brawl y flyers.',
+  title: 'Composiciones de Overwatch: dive, poke, brawl, 5v5 y 6v6',
+  description: 'Consulta composiciones de Overwatch por héroe para 5v5 y 6v6: dive, poke, rush, brawl, flyers y anti-dive con condiciones de victoria.',
   path: '/team-comps',
 })
 
@@ -27,6 +28,20 @@ export default function TeamCompsPage() {
     })),
   }
 
+  const faq = [
+    {
+      question: '¿Cuál es la mejor composición de Overwatch?',
+      answer: 'No hay una única mejor composición. Depende del mapa, héroes disponibles, counters rivales y coordinación del equipo.',
+    },
+    {
+      question: '¿Qué diferencia hay entre dive, poke y brawl?',
+      answer: 'Dive entra rápido sobre un objetivo vulnerable, poke gana desde rango y brawl pelea junto a corta distancia con sustain y daño explosivo.',
+    },
+    {
+      question: '¿Sirven estas composiciones para ranked?',
+      answer: 'Sí, como punto de partida. En ranked importa más entender la condición de victoria que copiar cinco héroes sin un plan común.',
+    },
+  ]
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <JsonLd data={itemListJsonLd} />
@@ -43,7 +58,18 @@ export default function TeamCompsPage() {
           </p>
         </header>
 
+        <section style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 22, marginBottom: 20 }}>
+          <div className="eyebrow">CÓMO ELEGIR COMPOSICIÓN</div>
+          <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: '0 0 12px' }}>
+            Una composición no es solo una lista de héroes. Necesita una condición de victoria clara: entrar juntos, ganar rango, controlar altura, proteger la backline o castigar un cooldown concreto.
+          </p>
+          <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0 }}>
+            En 5v5 el timing individual pesa más. En 6v6 hay más peel, más mitigación y menos ventanas individuales, así que simplificar el plan suele funcionar mejor que buscar una composición perfecta.
+          </p>
+        </section>
+
         <TeamCompExplorer />
+        <SeoFaq items={faq} title="Preguntas sobre composiciones de Overwatch" />
       </main>
     </div>
   )

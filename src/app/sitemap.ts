@@ -6,12 +6,15 @@ import { TEAM_COMP_HEROES } from '@/lib/overwatch-team-comps'
 import {
   PILLAR_COUNTER_SLUGS,
   PILLAR_HERO_SLUGS,
+  PILLAR_GUIDE_SLUGS,
   PILLAR_TEAM_COMP_SLUGS,
   TRUST_ROUTES,
   isAnnouncementSitemapEligible,
   isGuideSitemapEligible,
 } from '@/lib/indexing-policy'
 import { absoluteUrl } from '@/lib/seo'
+
+export const dynamic = 'force-dynamic'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date()
@@ -23,12 +26,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/counters',
     '/team-comps',
     '/news',
-    '/patch-notes',
     '/overwatch-temporada-3-into-the-tigers-den',
-    '/guides/como-mejorar-en-overwatch',
+    ...PILLAR_GUIDE_SLUGS.map(slug => `/guides/${slug}`),
     ...TRUST_ROUTES,
     ...ROLE_SLUGS.map(role => `/roles/${role}`),
-    ...DEFAULT_HEROES.filter(hero => PILLAR_HERO_SLUGS.includes(hero)).map(hero => `/heroes/${hero}`),
+    ...PILLAR_HERO_SLUGS.map(hero => `/heroes/${hero}`),
     ...COUNTER_HEROES.filter(hero => PILLAR_COUNTER_SLUGS.includes(hero.slug)).map(hero => `/counters/${hero.slug}`),
     ...TEAM_COMP_HEROES.filter(hero => PILLAR_TEAM_COMP_SLUGS.includes(hero.slug)).map(hero => `/team-comps/${hero.slug}`),
   ].map(path => ({
@@ -55,7 +57,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
 
   const announcementRoutes = (announcements ?? [])
-    .filter((item: any) => isAnnouncementSitemapEligible(item))
+    .filter((item: any) => item.content_type !== 'patch_note' && isAnnouncementSitemapEligible(item))
     .map((item: any) => ({
       url: absoluteUrl(announcementPath(item)),
       lastModified: new Date(item.updated_at || item.created_at),
@@ -81,5 +83,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ])).values())
 
-  return [...staticRoutes, ...guideRoutes, ...announcementRoutes, ...expertRoutes, ...mapRoutes]
+  const routes = [...staticRoutes, ...guideRoutes, ...announcementRoutes, ...expertRoutes, ...mapRoutes]
+  return Array.from(new Map(routes.map(route => [route.url, route])).values())
 }

@@ -24,6 +24,7 @@ type AuditRow = {
 
 export default async function QualityAuditPage() {
   const supabase = createAdminClient()
+  const adsApproved = process.env.NEXT_PUBLIC_ADSENSE_APPROVED === 'true'
   const [{ data: guides }, { data: announcements }] = await Promise.all([
     supabase
       .from('guides')
@@ -45,17 +46,20 @@ export default async function QualityAuditPage() {
     '/patch-notes',
     '/overwatch-temporada-3-into-the-tigers-den',
     ...TRUST_ROUTES,
-  ].map(path => ({
-    url: path,
-    type: 'static',
-    title: path === '/' ? 'Home' : path,
-    decision: {
-      status: isPathAdEligible(path) ? 'index_ads' : 'index_no_ads',
-      indexable: true,
-      adsAllowed: isPathAdEligible(path),
-      reason: isPathAdEligible(path) ? 'Ruta estatica apta para anuncios' : 'Ruta estatica indexable sin anuncios',
-    },
-  }))
+  ].map(path => {
+    const adsAllowed = adsApproved && isPathAdEligible(path)
+    return {
+      url: path,
+      type: 'static',
+      title: path === '/' ? 'Home' : path,
+      decision: {
+        status: adsAllowed ? 'index_ads' : 'index_no_ads',
+        indexable: true,
+        adsAllowed,
+        reason: adsAllowed ? 'Ruta estática apta para anuncios' : 'Ruta estática indexable sin anuncios durante la recuperación de AdSense',
+      },
+    }
+  })
 
   const guideRows: AuditRow[] = (guides ?? []).map((guide: any) => ({
     url: guidePath(guide.slug),

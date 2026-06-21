@@ -7,8 +7,9 @@ import { isPathAdEligible } from '@/lib/indexing-policy'
 export default function AdSenseScript() {
   const pathname = usePathname()
   const clientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID
+  const adsApproved = process.env.NEXT_PUBLIC_ADSENSE_APPROVED === 'true'
 
-  if (!clientId || !isPathAdEligible(pathname)) return null
+  if (!adsApproved || !clientId || !isPathAdEligible(pathname)) return null
 
   return (
     <Script

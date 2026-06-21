@@ -42,47 +42,27 @@ export const UPCOMING_HERO_SLUGS: string[] = []
 
 export const PILLAR_HERO_SLUGS = [
   'shion',
-  'ana',
-  'genji',
-  'tracer',
-  'kiriko',
-  'reinhardt',
-  'dva',
-  'winston',
-  'mercy',
-  'cassidy',
-  'zarya',
 ]
 
-export const PILLAR_COUNTER_SLUGS = [
-  'genji',
-  'ana',
-  'tracer',
-  'winston',
-  'reinhardt',
-  'kiriko',
-]
+export const PILLAR_COUNTER_SLUGS: string[] = []
 
-export const PILLAR_TEAM_COMP_SLUGS = [
-  'genji',
-  'ana',
-  'tracer',
-  'reinhardt',
-  'winston',
-]
+export const PILLAR_TEAM_COMP_SLUGS: string[] = []
 
 export const PILLAR_GUIDE_SLUGS = [
   'como-mejorar-en-overwatch',
-  'ana-primeros-habitos-impactar-mas',
-  'genji-guia-video-overwatch',
-  'tracer-guia-video-overwatch',
-  'kiriko-guia-video-overwatch',
-  'reinhardt-guia-video-overwatch',
-  'dva-guia-video-overwatch',
-  'winston-guia-video-overwatch',
-  'mercy-guia-video-overwatch',
-  'cassidy-guia-video-overwatch',
-  'zarya-guia-video-overwatch',
+  'como-mejorar-en-overwatch-revisando-vod',
+  'como-jugar-ana-ranked-overwatch',
+  'como-jugar-cassidy-ranked-overwatch',
+  'como-jugar-genji-ranked-overwatch',
+  'como-jugar-kiriko-ranked-overwatch',
+  'como-jugar-reinhardt-ranked-overwatch',
+  'como-jugar-dva-ranked-overwatch',
+  'como-jugar-winston-ranked-overwatch',
+  'como-mejorar-como-tank-overwatch',
+  'como-mejorar-como-dps-overwatch',
+  'como-mejorar-como-support-overwatch',
+  'como-revisar-cooldowns-overwatch',
+  'como-elegir-composicion-dive-poke-brawl',
 ]
 
 export const TRUST_ROUTES = [
@@ -127,7 +107,6 @@ export function isVideoOnlyGuide(guide: GuideLike) {
 export function isGuideSitemapEligible(guide: GuideLike) {
   if (!guide.slug) return false
   if (isPillarGuideSlug(guide.slug)) return true
-
   const bodyWords = wordCount(guide.body)
   const summaryWords = wordCount([guide.excerpt, guide.seo_description].filter(Boolean).join(' '))
 
@@ -138,8 +117,6 @@ export function isGuideSitemapEligible(guide: GuideLike) {
 
 export function isGuideAdEligible(guide: GuideLike) {
   if (!guide.slug) return false
-  if (isPillarGuideSlug(guide.slug)) return true
-
   return isGuideSitemapEligible(guide) && wordCount(guide.body) >= QUALITY_MINIMUMS.guideAdsWords
 }
 
@@ -171,8 +148,7 @@ export function isAnnouncementSitemapEligible(item: AnnouncementLike) {
   const summaryWords = wordCount([item.excerpt, item.seo_description].filter(Boolean).join(' '))
 
   if (item.content_type === 'patch_note') {
-    const hasSource = Boolean(item.source_url || item.source_name || item.auto_imported || /overwatch\.blizzard\.com/i.test(item.body ?? ''))
-    return words >= QUALITY_MINIMUMS.patchNoteIndexWords && hasSource
+    return false
   }
 
   return words >= QUALITY_MINIMUMS.newsIndexWords && summaryWords >= 12
@@ -240,7 +216,6 @@ export function isStaticPathAdEligible(path: string) {
     '/counters',
     '/team-comps',
     '/news',
-    '/patch-notes',
     '/guides/como-mejorar-en-overwatch',
   ].includes(path)
 }

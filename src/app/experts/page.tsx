@@ -5,11 +5,19 @@ import { Expert, formatPrice } from '@/types'
 import { buildMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = buildMetadata({
-  title: 'Expertos de Overwatch',
-  description: 'Encuentra expertos verificados de Overwatch por rol, rango, precio y valoraciones para revisar tu replay.',
-  path: '/experts',
-})
+export function generateMetadata({ searchParams }: { searchParams: { role?: string; rank?: string } }): Metadata {
+  const metadata = buildMetadata({
+    title: 'Expertos de Overwatch',
+    description: 'Encuentra expertos verificados de Overwatch por rol, rango, precio y valoraciones para revisar tu replay.',
+    path: '/experts',
+  })
+
+  if (searchParams.role || searchParams.rank) {
+    metadata.robots = { index: false, follow: true }
+  }
+
+  return metadata
+}
 
 const ROLE_LABELS: Record<string, string> = {
   tank: 'Tank', dps: 'DPS', support: 'Support', flex: 'Flex',

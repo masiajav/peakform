@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import JsonLd from '@/components/content/JsonLd'
+import SeoFaq from '@/components/content/SeoFaq'
 import PublicNav from '@/components/layout/PublicNav'
 import HeroPortraitImage from '@/components/heroes/HeroPortraitImage'
 import { ROLE_LABELS } from '@/lib/content'
@@ -10,12 +11,26 @@ import { UPCOMING_HERO_SLUGS } from '@/lib/indexing-policy'
 import { buildMetadata, absoluteUrl, SITE_NAME } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Héroes de Overwatch: roles y guías',
-  description: 'Lista completa de héroes de Overwatch con imagen, rol y acceso directo a sus guías.',
+  title: 'Héroes de Overwatch: guías, roles, counters y composiciones',
+  description: 'Explora todos los héroes de Overwatch por rol: Tank, DPS y Support. Abre guías, counters, composiciones y consejos para mejorar con cada héroe.',
   path: '/heroes',
 })
 
 const roleOrder: CounterRole[] = ['tank', 'dps', 'support']
+const heroesFaq = [
+  {
+    question: '¿Qué héroe debería jugar para subir en ranked?',
+    answer: 'Depende de tu rol, mapa y nivel. Empieza con un héroe que entiendas bien y revisa si sus counters o composiciones encajan con tus partidas habituales.',
+  },
+  {
+    question: '¿Qué diferencia hay entre rol y subrol?',
+    answer: 'El rol define la categoría general: Tank, DPS o Support. El subrol explica mejor la función real, como dive, poke, brawl, flanker o flex support.',
+  },
+  {
+    question: '¿Dónde veo counters de cada héroe?',
+    answer: 'Desde cada página de héroe puedes abrir sus counters. También puedes usar el hub de counters para comparar matchups concretos.',
+  },
+]
 
 export default function HeroesIndexPage() {
   const itemListJsonLd = {
@@ -49,10 +64,17 @@ export default function HeroesIndexPage() {
             <span style={{ color: 'var(--accent)' }}>POR ROL</span>
           </h1>
           <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.65, margin: 0 }}>
-            Elige un héroe para abrir su guía, ver counters y encontrar contenido relacionado.
+            Encuentra todos los héroes de Overwatch organizados por rol. Abre la guía que necesitas para entender cómo jugarlo, qué counters respetar, qué composiciones encajan mejor y qué revisar en tus partidas.
           </p>
         </header>
 
+        <section style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 20, marginBottom: 28, maxWidth: 900 }}>
+          <div className="eyebrow">CÓMO USAR ESTE HUB</div>
+          <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 28, letterSpacing: 1, margin: '0 0 8px' }}>ELIGE HÉROE, PERO PIENSA EN FUNCIÓN</h2>
+          <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0 }}>
+            Antes de copiar un pick de tier list, revisa qué trabajo cumple dentro del equipo: el Tank crea espacio y marca el engage; el DPS abre ángulos y convierte ventajas; el Support sostiene recursos clave y niega amenazas.
+          </p>
+        </section>
         <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 34 }}>
           {roleOrder.map(role => (
             <a key={role} href={`#${role}`} className="btn btn-secondary btn-sm">
@@ -73,7 +95,9 @@ export default function HeroesIndexPage() {
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 14 }}>
+
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 14 }}>
             {UPCOMING_HERO_SLUGS.map(slug => (
               <Link key={slug} href={`/heroes/${slug}`} style={{ textDecoration: 'none' }}>
                 <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', minHeight: 160, padding: 18 }}>
@@ -93,6 +117,7 @@ export default function HeroesIndexPage() {
         </section>
         )}
 
+        <SeoFaq items={heroesFaq} title="Preguntas sobre héroes de Overwatch" />
         {roleOrder.map(role => (
           <RoleSection
             key={role}
@@ -119,6 +144,14 @@ function RoleSection({ role, heroes }: { role: CounterRole; heroes: CounterHero[
           Aprender {ROLE_LABELS[role]} →
         </Link>
       </div>
+
+<p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: '0 0 16px', maxWidth: 820 }}>
+        {role === 'tank'
+          ? 'Los tanks no están para recibir daño sin plan. Crean espacio, fuerzan cooldowns importantes y permiten que el equipo juegue mejores posiciones.'
+          : role === 'dps'
+            ? 'Los DPS no solo hacen daño: crean presión útil, obligan al rival a mirar otro ángulo y convierten enemigos tocados en bajas reales.'
+            : 'Los supports ganan peleas sobreviviendo, usando cooldowns con intención y negando las condiciones de victoria del rival.'}
+      </p>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 14 }}>
         {heroes.map(hero => (

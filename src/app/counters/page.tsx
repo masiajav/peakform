@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import JsonLd from '@/components/content/JsonLd'
+import SeoFaq from '@/components/content/SeoFaq'
 import CounterExplorer from './CounterExplorer'
 import { COUNTER_HEROES } from '@/lib/overwatch-counters'
 import { PILLAR_COUNTER_SLUGS } from '@/lib/indexing-policy'
@@ -9,8 +10,8 @@ import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Counters de Overwatch por héroe',
-  description: 'Tabla interactiva de counters de Overwatch: elige un héroe y revisa counters fuertes, amenazas, rol y guías relacionadas.',
+  title: 'Counters de Overwatch por héroe: matchups y consejos',
+  description: 'Consulta counters de Overwatch por héroe: picks fuertes, amenazas que debes respetar, consejos de matchup y enlaces a guías relacionadas.',
   path: '/counters',
 })
 
@@ -27,6 +28,20 @@ export default function CountersPage() {
     })),
   }
 
+  const faq = [
+    {
+      question: '¿Qué significa counter en Overwatch?',
+      answer: 'Un counter es un héroe, estilo de juego o composición que reduce mucho el valor de otro héroe al negar su recurso principal o castigar su debilidad.',
+    },
+    {
+      question: '¿Tengo que cambiar siempre si me counterean?',
+      answer: 'No siempre. A veces basta con cambiar posición, timing o cooldowns. Cambia cuando tu héroe ya no puede cumplir su función.',
+    },
+    {
+      question: '¿Los counters cambian con los parches?',
+      answer: 'Sí. Cambios de daño, cooldowns, perks o formato pueden alterar los matchups, así que conviene revisar patch notes antes de asumir valores.',
+    },
+  ]
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <JsonLd data={itemListJsonLd} />
@@ -43,7 +58,18 @@ export default function CountersPage() {
           </p>
         </header>
 
+        <section style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 22, marginBottom: 20 }}>
+          <div className="eyebrow">CÓMO LEER UN COUNTER</div>
+          <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: '0 0 12px' }}>
+            Un counter funciona cuando niega movilidad, fuerza un cooldown clave, castiga el rango cómodo del rival o protege el objetivo que quiere matar. No se trata solo de cambiar de pick.
+          </p>
+          <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0 }}>
+            Antes de cambiar, revisa si el problema es realmente el matchup o si estás entrando demasiado pronto, jugando sin cobertura o gastando recursos antes de la amenaza real.
+          </p>
+        </section>
+
         <CounterExplorer />
+        <SeoFaq items={faq} title="Preguntas sobre counters de Overwatch" />
       </main>
     </div>
   )
