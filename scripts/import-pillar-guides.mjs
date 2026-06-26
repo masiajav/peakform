@@ -96,9 +96,18 @@ const linkLabels = {
   '/heroes/winston': 'Guía de Winston',
   '/counters/ana': 'Counters de Ana',
   '/counters/cassidy': 'Counters de Cassidy',
+  '/counters/dva': 'Counters de D.Va',
+  '/counters/reinhardt': 'Counters de Reinhardt',
   '/counters/shion': 'Counters de Shion',
+  '/counters/winston': 'Counters de Winston',
   '/team-comps/ana': 'Composiciones con Ana',
+  '/team-comps/cassidy': 'Composiciones con Cassidy',
+  '/team-comps/dva': 'Composiciones con D.Va',
+  '/team-comps/reinhardt': 'Composiciones con Reinhardt',
   '/team-comps/shion': 'Composiciones con Shion',
+  '/team-comps/winston': 'Composiciones con Winston',
+  '/roles/dps': 'Guías de DPS',
+  '/roles/tank': 'Guías de Tank',
   '/guides/como-mejorar-en-overwatch': 'Cómo mejorar en Overwatch',
   '/guides/como-mejorar-en-overwatch-revisando-vod': 'Cómo revisar una VOD',
   '/guides/como-revisar-cooldowns-overwatch': 'Cómo revisar cooldowns',
@@ -106,25 +115,44 @@ const linkLabels = {
 }
 
 function valueAfterHeading(markdown, heading) {
-  const match = markdown.match(new RegExp(`^${heading}\\r?\\n(.+)$`, 'm'))
+  const match = markdown.match(new RegExp(`^${heading}\\s*\\r?\\n\\s*([^\\r\\n]+)`, 'm'))
   if (!match) throw new Error(`Missing ${heading}`)
   return match[1].trim()
+}
+
+function firstValueAfterHeading(markdown, headings) {
+  for (const heading of headings) {
+    const match = markdown.match(new RegExp(`^${heading}\\s*\\r?\\n\\s*([^\\r\\n]+)`, 'm'))
+    if (match) return match[1].trim()
+  }
+  throw new Error(`Missing one of ${headings.join(', ')}`)
+}
+
+function optionalValueAfterHeading(markdown, heading) {
+  const match = markdown.match(new RegExp(`^${heading}\\s*\\r?\\n\\s*([^\\r\\n]+)`, 'm'))
+  return match ? match[1].trim() : null
 }
 
 function parseGuide(markdown, filename) {
   const details = guideDetails[filename]
   if (!details) return null
 
-  const url = valueAfterHeading(markdown, '## URL recomendada').replaceAll('`', '')
+  const url = firstValueAfterHeading(markdown, ['## URL recomendada', '## URL']).replaceAll('`', '')
   const slug = url.split('/').pop()
   const seoTitle = valueAfterHeading(markdown, '## Title SEO')
   const seoDescription = valueAfterHeading(markdown, '## Meta description')
-  const titleMatch = markdown.match(/^# (?!Pieza )(.*)$/m)
-  if (!titleMatch) throw new Error(`Missing H1 in ${filename}`)
+  const declaredH1 = optionalValueAfterHeading(markdown, '## H1')
+  const titleMatch = declaredH1
+    ? { 0: `# ${declaredH1}`, 1: declaredH1, index: markdown.indexOf(`# ${declaredH1}`) }
+    : markdown.match(/^# (?!Pieza )(.*)$/m)
+  if (!titleMatch || titleMatch.index === -1) throw new Error(`Missing public H1 in ${filename}`)
 
-  const afterH1 = markdown.slice(markdown.indexOf(titleMatch[0]) + titleMatch[0].length).trim()
+  const title = titleMatch[1].trim()
+  const afterH1 = markdown.slice(titleMatch.index + titleMatch[0].length).trim()
   const bodyBeforeNotes = afterH1.split(/^## Notas para Codex$/m)[0].trim()
   const body = [bodyBeforeNotes, editorialExtensions[filename]].filter(Boolean).join('\n\n')
+    .replace(/^## Enlaces internos recomendados$/gm, '## Lecturas relacionadas')
+    .replace(/^## CTA recomendado$/gm, '## Revisa tu partida con criterio')
     .replace(/- `([^`]+)`/g, (_, href) => `- [${linkLabels[href] || 'Ver contenido relacionado'}](${href})`)
     .replace(/\*\*Botón:\*\* Ver expertos de Overwatch/g, '[Ver expertos de Overwatch](/experts)')
     .replace(/\*\*Botón:\*\* Ver guía de Shion en YouTube/g, '[Ver guía de Shion en YouTube](https://youtu.be/9abTdz8uD3g)')
@@ -132,7 +160,7 @@ function parseGuide(markdown, filename) {
   const extendedDescription = seoDescription + ' Incluye consejos prácticos, errores frecuentes, checklist de VOD y enlaces internos para tomar mejores decisiones en partidas competitivas.'
 
   return {
-    title: titleMatch[1].trim(),
+    title,
     slug,
     body,
     excerpt: extendedDescription,

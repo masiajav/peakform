@@ -45,6 +45,10 @@ export const PILLAR_HERO_SLUGS = [
   'ana',
   'kiriko',
   'genji',
+  'reinhardt',
+  'dva',
+  'winston',
+  'cassidy',
 ]
 
 export const PILLAR_COUNTER_SLUGS: string[] = []

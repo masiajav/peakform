@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { createClient } from '@/lib/supabase/server'
 import { notFound } from 'next/navigation'
@@ -101,6 +101,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
   const updatedDate = guide.updated_at || guide.created_at
   const quality = guideQualityDecision(guide)
   const allowAds = quality.adsAllowed
+  const faqEntries = extractFaqEntries(guide.body)
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -140,11 +141,25 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
     ],
   }
 
+  const faqJsonLd = faqEntries.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqEntries.map(item => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  } : null
+
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <JsonLd data={articleJsonLd} />
       {videoJsonLd && <JsonLd data={videoJsonLd} />}
       <JsonLd data={breadcrumbJsonLd} />
+      {faqJsonLd && <JsonLd data={faqJsonLd} />}
 
       <PublicNav
         ctaHref={user ? profile?.role === 'admin' ? '/admin' : profile?.role === 'expert' ? '/expert/dashboard' : '/dashboard' : '/login'}
@@ -194,20 +209,12 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
           </p>
           <div style={{ fontSize: 12, color: 'var(--text3)', display: 'flex', gap: 16, flexWrap: 'wrap' }}>
             <span>Publicado: {new Date(guide.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
-            <span>Ultima revision: {new Date(updatedDate).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
+            <span>Última revisión: {new Date(updatedDate).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
             <span>{guide.video_id ? 'guía en vídeo' : `${readMinutes} min de lectura`}</span>
             <span>{author}</span>
           </div>
         </header>
 
-        <section style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '16px 18px', margin: '0 0 22px' }}>
-          <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)', fontSize: 11, letterSpacing: 1.6, marginBottom: 6 }}>
-            REVISIÓN EDITORIAL
-          </div>
-          <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>
-            Contenido revisado para mantenerlo util en Overwatch actual. Estado: {quality.status === 'index_ads' ? 'apto para indexacion y anuncios' : quality.status === 'index_no_ads' ? 'indexable, pendiente de monetizacion' : 'en revision, sin anuncios'}. Motivo: {quality.reason}.
-          </p>
-        </section>
 
         {guide.video_id && guide.video_summary && (
           <section className="guide-video-summary">
@@ -306,4 +313,25 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
       {children}
     </div>
   )
+}
+
+function extractFaqEntries(markdown: string) {
+  const faqStart = markdown.search(/^## FAQ\s*$/m)
+  if (faqStart === -1) return []
+
+  const faqBlock = markdown.slice(faqStart).split(/^## (?!FAQ\s*$).+$/m)[0]
+  const matches = Array.from(faqBlock.matchAll(/^###\s+(.+?)\s*\r?\n+([\s\S]*?)(?=^###\s+|$)/gm))
+
+  return matches.map(match => ({
+    question: cleanMarkdownText(match[1]),
+    answer: cleanMarkdownText(match[2]),
+  })).filter(item => item.question && item.answer)
+}
+
+function cleanMarkdownText(value: string) {
+  return value
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/[*_`>#-]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
 }
