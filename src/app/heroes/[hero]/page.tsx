@@ -12,7 +12,7 @@ import { robotsForQuality, topicQualityDecision } from '@/lib/indexing-policy'
 
 const SHION_SLUG = 'shion'
 const SHION_IMAGE = '/heroes/shion.png'
-const SHION_UPDATED_AT = '18 de junio de 2026'
+const SHION_UPDATED_AT = '26 de junio de 2026'
 const SHION_RELEASE_DATE = '16 de junio de 2026'
 const SHION_SEASON = "Season 3: Into the Tiger's Den"
 const SHION_VIDEO_ID = '9abTdz8uD3g'
@@ -26,6 +26,7 @@ const shionFacts = [
   { label: 'Dificultad', value: 'Media-alta' },
   { label: 'Punto fuerte', value: 'Castigar enemigos aislados o tocados' },
   { label: 'Punto débil', value: 'Depende mucho del timing y sus rutas' },
+  { label: 'Último ajuste', value: 'Execution nerfeada' },
   { label: 'Lanzamiento', value: SHION_RELEASE_DATE },
 ]
 
@@ -135,7 +136,11 @@ const shionFaq = [
   },
   {
     question: '¿Shion es buena para ranked?',
-    answer: 'Puede serlo, pero requiere práctica. Antes de usarla en ranked conviene aprender rutas, cooldowns, matchups y cuándo usar Joyride o Evade sin quedarse vendida.',
+    answer: 'Puede serlo, pero requiere práctica. Tras el nerf a Execution se siente menos cómoda para rematar, así que conviene jugar con más paciencia y no forzar entradas sin ventaja.',
+  },
+  {
+    question: '¿Qué ha cambiado en Shion con el último nerf?',
+    answer: 'Execution tiene un proyectil bastante más pequeño y ahora deja más recuperación después de disparar. En la práctica, Shion castiga menos fácil, falla más remates ajustados y queda más expuesta si usa la habilidad sin preparar la pelea.',
   },
 ]
 
@@ -146,8 +151,8 @@ export function generateMetadata({ params }: { params: { hero: string } }): Meta
 
   if (params.hero === SHION_SLUG) {
     return buildMetadata({
-      title: 'Shion Overwatch Guide: habilidades, perks, counters y cómo jugarla',
-      description: 'Guía completa de Shion en Overwatch: habilidades, perks, counters, mejores composiciones, errores comunes y consejos antes de jugarla en ranked.',
+      title: 'Shion Overwatch Guide: habilidades, nerf de Execution, counters y perks',
+      description: 'Guía actualizada de Shion en Overwatch: nerf de Execution, habilidades, perks, counters, mejores composiciones, errores comunes y consejos para ranked.',
       path: `/heroes/${params.hero}`,
       image: SHION_IMAGE,
       robots: robotsForQuality(quality),
@@ -186,11 +191,11 @@ function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: 'Shion en Overwatch: habilidades, rol, counters y guía rápida',
-    description: 'Guía de Shion en Overwatch con habilidades, Joyride, Execution, perks, counters, composiciones y consejos para ranked.',
+    description: 'Guía de Shion en Overwatch con habilidades, nerf de Execution, Joyride, perks, counters, composiciones y consejos para ranked.',
     image: absoluteUrl(SHION_IMAGE),
     url: pageUrl,
     datePublished: '2026-06-15',
-    dateModified: '2026-06-18',
+    dateModified: '2026-06-26',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -247,7 +252,7 @@ function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
               <span style={{ color: 'var(--accent)' }}>HABILIDADES, PERKS Y COUNTERS</span>
             </h1>
             <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.75, margin: '0 0 18px', maxWidth: 760 }}>
-              Shion llega como una DPS flanker de ritmo alto, movilidad agresiva y mucha capacidad para castigar errores de posicionamiento. Su kit gira alrededor de pistolas duales, entradas rápidas, remates sobre enemigos tocados y una moto que sirve tanto para rotar como para amenazar espacios clave.
+              Shion llega como una DPS flanker de ritmo alto, movilidad agresiva y mucha capacidad para castigar errores de posicionamiento. Tras el nerf a Execution se siente algo peor al jugarla, pero sigue siendo peligrosa si eliges bien las ventanas de entrada y no regalas tus cooldowns.
             </p>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
               <MetaPill label="Actualizado" value={SHION_UPDATED_AT} />
@@ -324,6 +329,36 @@ function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
             {shionAbilities.map(ability => (
               <StatusCard key={ability.title} title={ability.title} body={ability.body} />
             ))}
+          </div>
+        </section>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>CAMBIO DE BALANCE</div>
+          <h2 style={headingStyle}>Nerf a Execution: Shion ahora castiga menos fácil</h2>
+          <div style={copyGridStyle}>
+            <p style={{ margin: 0 }}>
+              El primer ajuste serio a Shion ha ido directo a Execution. El tamaño del proyectil baja de 0.17 a 0.07 y la recuperación después de disparar pasa de 0 a 0.4 segundos. Sobre el papel parecen números pequeños; en partida se notan bastante, porque ahora cuesta más cerrar remates rápidos y fallar la habilidad deja una ventana más clara para que te castiguen.
+            </p>
+            <p style={{ margin: 0 }}>
+              Esto hace que Shion se sienta algo peor, sobre todo si la estabas jugando a base de entradas muy agresivas y remates instantáneos. Sigue teniendo movilidad y amenaza lateral, pero ya no perdona tanto: necesitas preparar mejor el engage, esperar enemigos tocados y evitar tirar Execution solo “por probar”.
+            </p>
+          </div>
+          <div style={{ ...cardGridStyle, marginTop: 16 }}>
+            <StatusCard
+              title="Qué cambia al jugarla"
+              body="Hay que ser más paciente. Si entras sin información y fallas Execution, el rival tiene más tiempo para girarse, curar al objetivo o castigarte antes de que puedas salir."
+              badge="Shion nerf"
+            />
+            <StatusCard
+              title="Qué cambia al jugar contra ella"
+              body="Ahora merece más la pena aguantar la calma y castigar después del disparo. Si Shion gasta Execution mal, su amenaza baja mucho durante unos segundos."
+              badge="Counterplay"
+            />
+            <StatusCard
+              title="Nuestra lectura"
+              body="El nerf parece duro para una heroína recién estrenada. Ojalá Blizzard rectifique parte del ajuste si Shion cae demasiado, porque el personaje pierde fluidez cuando Execution deja de sentirse fiable."
+              badge="Opinión"
+            />
           </div>
         </section>
 
