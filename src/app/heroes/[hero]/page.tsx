@@ -9,6 +9,8 @@ import { topicLabel } from '@/lib/content'
 import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 import { buildHeroSeoProfile } from '@/lib/overwatch-seo'
 import { robotsForQuality, topicQualityDecision } from '@/lib/indexing-policy'
+import { getHeroPillar, type HeroPillar } from '@/lib/hero-pillars'
+import { getHeroPortrait } from '@/lib/overwatch-hero-portraits'
 
 const SHION_SLUG = 'shion'
 const SHION_IMAGE = '/heroes/shion.png'
@@ -148,6 +150,7 @@ export function generateMetadata({ params }: { params: { hero: string } }): Meta
   const label = topicLabel(params.hero)
   const profile = buildHeroSeoProfile(params.hero)
   const quality = topicQualityDecision('hero', params.hero)
+  const pillar = getHeroPillar(params.hero)
 
   if (params.hero === SHION_SLUG) {
     return buildMetadata({
@@ -155,6 +158,16 @@ export function generateMetadata({ params }: { params: { hero: string } }): Meta
       description: 'Guía actualizada de Shion en Overwatch: nerf de Execution, habilidades, perks, counters, mejores composiciones, errores comunes y consejos para ranked.',
       path: `/heroes/${params.hero}`,
       image: SHION_IMAGE,
+      robots: robotsForQuality(quality),
+    })
+  }
+
+  if (pillar) {
+    return buildMetadata({
+      title: pillar.seoTitle,
+      description: pillar.seoDescription,
+      path: `/heroes/${params.hero}`,
+      image: getHeroPortrait(params.hero) || undefined,
       robots: robotsForQuality(quality),
     })
   }
@@ -170,9 +183,14 @@ export function generateMetadata({ params }: { params: { hero: string } }): Meta
 export default function HeroPage({ params }: { params: { hero: string } }) {
   const label = topicLabel(params.hero)
   const profile = buildHeroSeoProfile(params.hero)
+  const pillar = getHeroPillar(params.hero)
 
   if (params.hero === SHION_SLUG) {
     return <ShionHeroPage slug={params.hero} name={label} />
+  }
+
+  if (pillar) {
+    return <HeroPillarPage pillar={pillar} />
   }
 
   return (
@@ -182,6 +200,220 @@ export default function HeroPage({ params }: { params: { hero: string } }) {
       title={`Guía de ${label} en Overwatch`}
       description={profile?.searchDescription || `Guías, counters, mapas, noticias y consejos aplicables para jugar mejor con ${label}.`}
     />
+  )
+}
+
+function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
+  const image = getHeroPortrait(pillar.slug)
+  const pageUrl = absoluteUrl(`/heroes/${pillar.slug}`)
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: pillar.h1,
+    description: pillar.seoDescription,
+    image: image ? absoluteUrl(image) : undefined,
+    url: pageUrl,
+    datePublished: '2026-06-26',
+    dateModified: '2026-06-26',
+    author: { '@type': 'Organization', name: SITE_NAME },
+    publisher: { '@type': 'Organization', name: SITE_NAME },
+    mainEntityOfPage: pageUrl,
+  }
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Héroes', item: absoluteUrl('/heroes') },
+      { '@type': 'ListItem', position: 2, name: pillar.name, item: pageUrl },
+    ],
+  }
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: pillar.faqs.map(item => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  }
+
+  return (
+    <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
+      <JsonLd data={articleJsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
+      <JsonLd data={faqJsonLd} />
+      <PublicNav />
+
+      <main style={{ maxWidth: 1120, margin: '0 auto', padding: '56px 24px 88px' }}>
+        <div style={{ marginBottom: 28, fontSize: 12, color: 'var(--text3)', display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          <Link href="/heroes" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Héroes</Link>
+          <span>/</span>
+          <span>{pillar.name}</span>
+        </div>
+
+        <header style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.05fr) minmax(280px, 0.75fr)', gap: 24, alignItems: 'center', marginBottom: 28 }} className="home-hero-grid">
+          <div>
+            <div className="eyebrow">{pillar.role.toUpperCase()} · GUÍA PILAR DE RANKED</div>
+            <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(42px, 8vw, 78px)', letterSpacing: 1, lineHeight: 0.95, margin: '0 0 16px' }}>
+              {pillar.h1}
+            </h1>
+            <div style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.75, display: 'grid', gap: 12, marginBottom: 18, maxWidth: 800 }}>
+              {pillar.intro.map(paragraph => (
+                <p key={paragraph} style={{ margin: 0 }}>{paragraph}</p>
+              ))}
+            </div>
+            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+              <MetaPill label="Actualizado" value={pillar.updatedAt} />
+              <MetaPill label="Rol" value={pillar.role} />
+              <MetaPill label="Estado" value="Guía pilar indexable" />
+            </div>
+          </div>
+
+          <aside style={{ background: 'var(--surface)', border: '1px solid var(--border)', overflow: 'hidden' }}>
+            <div style={{ position: 'relative', height: 330, background: 'var(--surface2)' }}>
+              {image ? (
+                <Image
+                  src={image}
+                  alt={`${pillar.name} en Overwatch`}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 420px"
+                  style={{ objectFit: 'cover', objectPosition: 'center' }}
+                />
+              ) : (
+                <div style={{ height: '100%', display: 'grid', placeItems: 'center', color: 'var(--text3)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 84 }}>
+                  {pillar.name.slice(0, 1)}
+                </div>
+              )}
+            </div>
+            <div style={{ padding: 18, display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 10 }}>
+              {pillar.facts.map(fact => (
+                <div key={fact.title}>
+                  <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)', fontSize: 11, letterSpacing: 1.3 }}>{fact.title}</div>
+                  <div style={{ color: 'var(--text)', fontSize: 13, lineHeight: 1.45 }}>{fact.body}</div>
+                </div>
+              ))}
+            </div>
+          </aside>
+        </header>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>RESUMEN</div>
+          <h2 style={headingStyle}>{pillar.kicker}</h2>
+          <div style={cardGridStyle}>
+            {pillar.facts.map(fact => (
+              <StatusCard key={fact.title} title={fact.title} body={fact.body} />
+            ))}
+          </div>
+        </section>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>PLAN DE JUEGO</div>
+          <h2 style={headingStyle}>Cómo jugar {pillar.name} en ranked</h2>
+          <NumberedList items={pillar.rankedPlan} />
+        </section>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>CLAVES</div>
+          <h2 style={headingStyle}>Decisiones que marcan la diferencia</h2>
+          <div style={cardGridStyle}>
+            {pillar.sections.map(section => (
+              <StatusCard key={section.title} title={section.title} body={section.body} />
+            ))}
+          </div>
+        </section>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>KIT</div>
+          <h2 style={headingStyle}>Habilidades de {pillar.name}</h2>
+          <div style={cardGridStyle}>
+            {pillar.abilities.map(ability => (
+              <StatusCard key={ability.title} title={ability.title} body={ability.body} />
+            ))}
+          </div>
+        </section>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>ERRORES COMUNES</div>
+          <h2 style={headingStyle}>Errores que debes evitar con {pillar.name}</h2>
+          <TextChecklist items={pillar.mistakes} />
+        </section>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>COUNTERS</div>
+          <h2 style={headingStyle}>Counters y amenazas contra {pillar.name}</h2>
+          <div style={cardGridStyle}>
+            {pillar.counters.map(counter => (
+              <StatusCard key={counter.title} title={counter.title} body={counter.body} badge="Amenaza" />
+            ))}
+          </div>
+          <div style={{ marginTop: 16 }}>
+            <Link href={`/counters/${pillar.slug}`} className="btn btn-primary btn-sm">VER COUNTERS DE {pillar.name.toUpperCase()}</Link>
+          </div>
+        </section>
+
+        <section style={sectionStyle}>
+          <h2 style={headingStyle}>Cómo jugar contra sus counters</h2>
+          <TextChecklist items={pillar.counterplay} />
+        </section>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>COMPOSICIONES</div>
+          <h2 style={headingStyle}>Composiciones buenas con {pillar.name}</h2>
+          <div style={cardGridStyle}>
+            {pillar.compositions.map(comp => (
+              <StatusCard key={comp.title} title={comp.title} body={comp.body} />
+            ))}
+          </div>
+          <div style={{ marginTop: 16 }}>
+            <Link href={`/team-comps/${pillar.slug}`} className="btn btn-secondary btn-sm">VER COMPOSICIONES</Link>
+          </div>
+        </section>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>VOD REVIEW</div>
+          <h2 style={headingStyle}>Qué revisar en tu VOD como {pillar.name}</h2>
+          <NumberedList items={pillar.vodReview} />
+          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 18 }}>
+            <Link href="/guides/como-mejorar-en-overwatch-revisando-vod" className="btn btn-secondary btn-sm">CÓMO REVISAR UNA VOD</Link>
+            <Link href="/experts" className="btn btn-primary btn-sm">VER EXPERTOS</Link>
+          </div>
+        </section>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>CHECKLIST</div>
+          <h2 style={headingStyle}>Checklist rápido antes de ranked</h2>
+          <TextChecklist items={pillar.checklist} />
+        </section>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>PREGUNTAS RÁPIDAS</div>
+          <h2 style={headingStyle}>FAQ de {pillar.name}</h2>
+          <div style={{ display: 'grid', gap: 12 }}>
+            {pillar.faqs.map(item => (
+              <article key={item.question} style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', padding: 16 }}>
+                <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 22, letterSpacing: 0.8, margin: '0 0 8px' }}>
+                  {item.question}
+                </h3>
+                <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>{item.answer}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>SIGUIENTE PASO</div>
+          <h2 style={headingStyle}>Más contenido relacionado con {pillar.name}</h2>
+          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+            {pillar.links.map(link => (
+              <Link key={link.href} href={link.href} className={link.href === '/experts' ? 'btn btn-primary btn-sm' : 'btn btn-secondary btn-sm'}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </section>
+      </main>
+    </div>
   )
 }
 
@@ -500,6 +732,34 @@ function StatusCard({ title, body, badge }: { title: string; body: string; badge
       </h3>
       <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>{body}</p>
     </article>
+  )
+}
+
+function NumberedList({ items }: { items: string[] }) {
+  return (
+    <div style={{ display: 'grid', gap: 12 }}>
+      {items.map((item, index) => (
+        <div key={item} style={{ display: 'grid', gridTemplateColumns: '34px minmax(0, 1fr)', gap: 12, alignItems: 'start' }}>
+          <span style={{ border: '1px solid var(--border2)', background: 'var(--surface2)', color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 18, display: 'grid', placeItems: 'center', minHeight: 34 }}>
+            {index + 1}
+          </span>
+          <p style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.75, margin: 0 }}>{item}</p>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function TextChecklist({ items }: { items: string[] }) {
+  return (
+    <div style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.8, display: 'grid', gap: 10 }}>
+      {items.map(item => (
+        <div key={item} style={{ display: 'grid', gridTemplateColumns: '22px minmax(0, 1fr)', gap: 10 }}>
+          <span style={{ color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 18 }}>-</span>
+          <span>{item}</span>
+        </div>
+      ))}
+    </div>
   )
 }
 

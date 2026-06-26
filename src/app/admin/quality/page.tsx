@@ -166,7 +166,7 @@ export default async function QualityAuditPage() {
       </div>
 
       <div style={{ marginTop: 18, color: 'var(--text3)', fontSize: 12 }}>
-        Pilares actuales: héroes {PILLAR_HERO_SLUGS.length}, counters {PILLAR_COUNTER_SLUGS.length}, composiciones {PILLAR_TEAM_COMP_SLUGS.length}. SHION queda como héroe pilar indexable sin anuncios hasta completar la guía definitiva.
+        Pilares actuales: héroes {PILLAR_HERO_SLUGS.length}, counters {PILLAR_COUNTER_SLUGS.length}, composiciones {PILLAR_TEAM_COMP_SLUGS.length}. Los héroes pilar quedan indexables sin anuncios mientras se consolida la calidad editorial.
       </div>
     </div>
   )

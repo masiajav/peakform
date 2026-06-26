@@ -42,6 +42,9 @@ export const UPCOMING_HERO_SLUGS: string[] = []
 
 export const PILLAR_HERO_SLUGS = [
   'shion',
+  'ana',
+  'kiriko',
+  'genji',
 ]
 
 export const PILLAR_COUNTER_SLUGS: string[] = []
