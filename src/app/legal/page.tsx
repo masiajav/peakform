@@ -195,24 +195,6 @@ export default function LegalPage() {
 
       </main>
 
-      {/* Footer */}
-      <footer style={{
-        borderTop: '1px solid var(--border)', padding: '24px',
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        flexWrap: 'wrap', gap: 12,
-      }}>
-        <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 18, color: 'var(--accent)', letterSpacing: 2 }}>
-          REPLAID LAB
-        </span>
-        <div style={{ display: 'flex', gap: 24 }}>
-          <Link href="/experts" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Expertos</Link>
-          <Link href="/apply" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Ser experto</Link>
-          <Link href="/legal" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Legal</Link>
-          <Link href="/login" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Entrar</Link>
-        </div>
-        <span style={{ fontSize: 12, color: 'var(--text3)' }}>© 2026 Replaid Lab</span>
-      </footer>
-
     </div>
   )
 }

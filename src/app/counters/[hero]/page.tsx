@@ -9,6 +9,8 @@ import { ROLE_LABELS } from '@/lib/content'
 import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 import { buildHeroSeoProfile, counterPageDescription, counterPageTitle } from '@/lib/overwatch-seo'
 import { robotsForQuality, topicQualityDecision } from '@/lib/indexing-policy'
+import CounterPillarPage from '@/components/content/CounterPillarPage'
+import { getCounterPillar } from '@/lib/seo-clusters'
 
 export function generateStaticParams() {
   return COUNTER_HEROES.map(hero => ({ hero: hero.slug }))
@@ -18,10 +20,11 @@ export function generateMetadata({ params }: { params: { hero: string } }): Meta
   const hero = getCounterHero(params.hero)
   if (!hero) return {}
   const quality = topicQualityDecision('counter', params.hero)
+  const pillar = getCounterPillar(params.hero)
 
   return buildMetadata({
-    title: counterPageTitle(hero),
-    description: counterPageDescription(hero),
+    title: pillar?.seoTitle || counterPageTitle(hero),
+    description: pillar?.seoDescription || counterPageDescription(hero),
     path: `/counters/${hero.slug}`,
     robots: robotsForQuality(quality),
   })
@@ -29,8 +32,10 @@ export function generateMetadata({ params }: { params: { hero: string } }): Meta
 
 export default function CounterHeroPage({ params }: { params: { hero: string } }) {
   const hero = getCounterHero(params.hero)
+  const pillar = getCounterPillar(params.hero)
   const profile = buildHeroSeoProfile(params.hero)
 
+  if (pillar) return <CounterPillarPage pillar={pillar} />
   if (!hero || !profile) notFound()
 
   const roleLabel = ROLE_LABELS[hero.role]

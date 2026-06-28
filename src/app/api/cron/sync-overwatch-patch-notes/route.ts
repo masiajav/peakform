@@ -31,7 +31,7 @@ export async function GET(request: Request) {
   }
 
   const admin = createAdminClient()
-  const created: string[] = []
+  const createdDrafts: string[] = []
   const skipped: string[] = []
   const errors: { sourceId: string; error: string }[] = []
   let sourceColumnsAvailable = true
@@ -83,12 +83,12 @@ export async function GET(request: Request) {
       title: note.title,
       slug: note.slug,
       body: note.body,
-      published: true,
+      published: false,
       excerpt: note.excerpt,
       seo_title: note.title,
       seo_description: note.excerpt,
       author: 'Replaid Lab / Blizzard',
-      tags: ['overwatch', 'patch-notes', 'blizzard', 'auto-import'],
+      tags: ['overwatch', 'patch-notes', 'blizzard', 'auto-import', 'editorial-draft'],
       content_type: 'patch_note',
       created_at: note.sourcePublishedAt,
       updated_at: note.sourcePublishedAt,
@@ -121,13 +121,13 @@ export async function GET(request: Request) {
       continue
     }
 
-    created.push(note.sourceId)
+    createdDrafts.push(note.sourceId)
   }
 
   return NextResponse.json({
     ok: errors.length === 0,
     found: notes.length,
-    created,
+    createdDrafts,
     skipped,
     errors,
   }, { status: errors.length === notes.length ? 500 : 200 })

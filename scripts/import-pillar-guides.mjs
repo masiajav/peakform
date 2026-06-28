@@ -47,6 +47,9 @@ const guideDetails = {
   '15_como_elegir_composicion_dive_poke_brawl.md': {
     category: 'Composiciones', tags: ['overwatch', 'dive', 'poke', 'brawl', 'ranked'], role: 'flex',
   },
+  '16_como_usar_ultimates_overwatch.md': {
+    category: 'Fundamentos', tags: ['overwatch', 'ultimates', 'economia-de-ultis', 'vod', 'ranked'], role: 'flex',
+  },
 }
 
 const editorialExtensions = {
@@ -111,6 +114,9 @@ const linkLabels = {
   '/guides/como-mejorar-en-overwatch': 'Cómo mejorar en Overwatch',
   '/guides/como-mejorar-en-overwatch-revisando-vod': 'Cómo revisar una VOD',
   '/guides/como-revisar-cooldowns-overwatch': 'Cómo revisar cooldowns',
+  '/guides/como-usar-ultimates-overwatch': 'Cómo usar ultimates',
+  '/guides/como-elegir-composicion-dive-poke-brawl': 'Cómo elegir una composición',
+  '/guides/cuando-cambiar-de-heroe-overwatch': 'Cuándo cambiar de héroe',
   '/overwatch-temporada-3-into-the-tigers-den': 'Guía de la temporada 3',
 }
 

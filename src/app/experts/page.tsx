@@ -4,6 +4,8 @@ import PublicNav from '@/components/layout/PublicNav'
 import { Expert, formatPrice } from '@/types'
 import { buildMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
+import JsonLd from '@/components/content/JsonLd'
+import { absoluteUrl, SITE_NAME } from '@/lib/seo'
 
 export function generateMetadata({ searchParams }: { searchParams: { role?: string; rank?: string } }): Metadata {
   const metadata = buildMetadata({
@@ -37,6 +39,25 @@ const RANK_OPTIONS = [
   { value: 'Grandmaster',  label: 'Grandmaster' },
   { value: 'Master',       label: 'Master' },
   { value: 'Diamond',      label: 'Diamond' },
+]
+
+const EXPERT_FAQS = [
+  {
+    question: '¿Qué es una VOD review de Overwatch?',
+    answer: 'Es una revisión de una partida completa. El experto identifica decisiones repetidas de posicionamiento, cooldowns, engages y ultimates, y las convierte en un plan de práctica concreto.',
+  },
+  {
+    question: '¿Qué replay debería enviar?',
+    answer: 'Una partida competitiva reciente, igualada y en la que no tengas claro por qué perdiste. Una derrota unilateral suele enseñar menos que una partida donde varias decisiones pequeñas cambiaron el resultado.',
+  },
+  {
+    question: '¿Cómo elijo al experto adecuado?',
+    answer: 'Busca experiencia en tu rol y en el problema que quieres revisar. Las especialidades, el tipo de análisis, las valoraciones y el plazo de entrega ayudan más que elegir únicamente por rango.',
+  },
+  {
+    question: '¿Una review garantiza que subiré de rango?',
+    answer: 'No. La review ofrece diagnóstico y prioridades de práctica, pero la mejora depende de aplicar esas correcciones durante varias sesiones. Replaid Lab no promete una subida de rango concreta.',
+  },
 ]
 
 function buildUrl(role: string, rank: string) {
@@ -79,9 +100,29 @@ export default async function ExpertsPage({
   if (rankFilter) query = query.ilike('peak_rank', `${rankFilter}%`)
 
   const { data: experts } = await query
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'Expertos de Overwatch',
+      description: 'Expertos de Overwatch para revisar partidas, detectar errores repetidos y preparar un plan de mejora.',
+      url: absoluteUrl('/experts'),
+      publisher: { '@type': 'Organization', name: SITE_NAME },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: EXPERT_FAQS.map(item => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: { '@type': 'Answer', text: item.answer },
+      })),
+    },
+  ]
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
+      <JsonLd data={jsonLd} />
 
       <PublicNav
         ctaHref={user ? profile?.role === 'admin' ? '/admin' : profile?.role === 'expert' ? '/expert/dashboard' : '/dashboard' : '/login'}
@@ -96,7 +137,7 @@ export default async function ExpertsPage({
             EXPERTOS
           </h1>
           <p style={{ color: 'var(--text2)', fontSize: 14, margin: 0 }}>
-            Jugadores Champion y Grandmaster que analizarán tu replay
+            Elige a una persona con experiencia en tu rol para revisar una partida y convertir errores repetidos en un plan de práctica claro.
           </p>
         </div>
 
@@ -253,6 +294,54 @@ export default async function ExpertsPage({
             ))}
           </div>
         )}
+
+        <section className="experts-editorial-section">
+          <div className="eyebrow">CÓMO FUNCIONA</div>
+          <h2>Una review centrada en decisiones, no solo en estadísticas</h2>
+          <div className="experts-editorial-grid">
+            <article>
+              <span>01</span>
+              <h3>Elige una partida útil</h3>
+              <p>Envía una ranked reciente y competida. Cuéntanos tu rol, el héroe y la situación que más dudas te genera.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>El experto revisa el patrón</h3>
+              <p>Se buscan primeras muertes, cooldowns sin propósito, rutas previsibles, engages descoordinados y ultimates que no cambian la pelea.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Practica una prioridad cada vez</h3>
+              <p>Recibes ejemplos y un orden de trabajo. La intención es que sepas qué mirar en tus siguientes partidas, no abrumarte con veinte correcciones.</p>
+            </article>
+          </div>
+        </section>
+
+        <section className="experts-editorial-section experts-editorial-split">
+          <div>
+            <div className="eyebrow">ANTES DE ENVIAR</div>
+            <h2>Qué replay merece la pena revisar</h2>
+            <p>Prioriza una partida donde pudiste jugar con normalidad y aun así sentiste que te faltó impacto. Añade una pregunta concreta: por qué morías primero, cuándo debías entrar o qué recurso estabas gastando demasiado pronto.</p>
+          </div>
+          <div>
+            <div className="eyebrow">EXPECTATIVAS</div>
+            <h2>Qué puedes esperar del feedback</h2>
+            <p>Una review no garantiza rango ni sustituye la práctica. Sí puede ahorrarte partidas repitiendo el mismo error sin verlo y darte una forma más objetiva de revisar tus propias VODs.</p>
+          </div>
+        </section>
+
+        <section className="experts-editorial-section">
+          <div className="eyebrow">PREGUNTAS FRECUENTES</div>
+          <h2>Antes de elegir experto</h2>
+          <div className="experts-faq-list">
+            {EXPERT_FAQS.map(item => (
+              <details key={item.question}>
+                <summary>{item.question}</summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
 
       </div>
     </div>

@@ -32,26 +32,28 @@ const SPANISH_MONTHS: Record<string, number> = {
 }
 
 export function parseBlizzardPatchNotes(html: string, limit = 5): BlizzardPatchNote[] {
-  const blocks = html.match(/<div class="PatchNotes-patch[\s\S]*?(?=<div class="PatchNotes-patch|<div class="PatchNotesTop">|<\/div><\/div><\/blz-section>)/g) ?? []
+  const blocks = extractPatchBlocks(html)
 
-  return blocks
+  return uniqueBySourceId(blocks
     .map(parsePatchBlock)
     .filter((item): item is BlizzardPatchNote => Boolean(item))
+    .sort((a, b) => b.sourcePublishedAt.localeCompare(a.sourcePublishedAt)))
     .slice(0, limit)
 }
 
 function parsePatchBlock(block: string): BlizzardPatchNote | null {
-  const dateLabel = textFromMatch(block, /<div class="PatchNotes-date">([\s\S]*?)<\/div>/)
-  const title = textFromMatch(block, /<h3 class="PatchNotes-patchTitle">([\s\S]*?)<\/h3>/)
-  const anchor = textFromMatch(block, /<div class="anchor" id="([^"]+)"><\/div>/)
-  const sourcePublishedAt = parseSpanishDate(dateLabel)
+  const dateLabel = textFromMatch(block, /<div[^>]*class="[^"]*\bPatchNotes-date\b[^"]*"[^>]*>([\s\S]*?)<\/div>/i)
+  const title = textFromMatch(block, /<h3[^>]*class="[^"]*\bPatchNotes-patchTitle\b[^"]*"[^>]*>([\s\S]*?)<\/h3>/i)
+  const anchor = attributeFromMatch(block, /<div[^>]*class="[^"]*\banchor\b[^"]*"[^>]*\bid="([^"]+)"[^>]*>/i)
+  const datetime = attributeFromMatch(block, /<time[^>]*datetime="([^"]+)"[^>]*>/i)
+  const sourcePublishedAt = parseSpanishDate(dateLabel) || parseIsoDate(datetime)
 
   if (!dateLabel || !title || !sourcePublishedAt) return null
 
   const sourceId = anchor || `patch-${sourcePublishedAt.slice(0, 10)}`
   const sourceUrl = `${BLIZZARD_PATCH_NOTES_URL}#${sourceId}`
   const sections = unique(
-    Array.from(block.matchAll(/<h4 class="PatchNotes-sectionTitle">([\s\S]*?)<\/h4>/g))
+    Array.from(block.matchAll(/<h4[^>]*class="[^"]*\bPatchNotes-sectionTitle\b[^"]*"[^>]*>([\s\S]*?)<\/h4>/gi))
       .map(match => cleanText(match[1]))
       .filter(Boolean)
       .slice(0, 6)
@@ -82,6 +84,14 @@ function parsePatchBlock(block: string): BlizzardPatchNote | null {
   }
 }
 
+function extractPatchBlocks(html: string) {
+  const starts = Array.from(html.matchAll(/<div[^>]*class="[^"]*\bPatchNotes-patch\b[^"]*"[^>]*>/gi))
+    .map(match => match.index)
+    .filter((index): index is number => typeof index === 'number')
+
+  return starts.map((start, index) => html.slice(start, starts[index + 1] ?? html.length))
+}
+
 function parseSpanishDate(value: string) {
   const match = cleanText(value).toLowerCase().match(/^(\d{1,2}) de ([^ ]+) de (\d{4})$/i)
   if (!match) return null
@@ -92,6 +102,12 @@ function parseSpanishDate(value: string) {
   if (!day || month === undefined || !year) return null
 
   return new Date(Date.UTC(year, month, day, 12, 0, 0)).toISOString()
+}
+
+function parseIsoDate(value: string) {
+  if (!/^\d{4}-\d{2}-\d{2}/.test(value)) return null
+  const parsed = new Date(`${value.slice(0, 10)}T12:00:00.000Z`)
+  return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString()
 }
 
 function describeSections(sections: string[]) {
@@ -105,6 +121,10 @@ function describeSections(sections: string[]) {
 function textFromMatch(value: string, pattern: RegExp) {
   const match = value.match(pattern)
   return match ? cleanText(match[1]) : ''
+}
+
+function attributeFromMatch(value: string, pattern: RegExp) {
+  return value.match(pattern)?.[1]?.trim() || ''
 }
 
 function cleanText(value: string) {
@@ -131,6 +151,10 @@ function removeAccents(value: string) {
 
 function unique(values: string[]) {
   return Array.from(new Set(values))
+}
+
+function uniqueBySourceId(values: BlizzardPatchNote[]) {
+  return Array.from(new Map(values.map(value => [value.sourceId, value])).values())
 }
 
 function formatNaturalList(values: string[]) {

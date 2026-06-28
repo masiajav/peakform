@@ -9,6 +9,7 @@ import JsonLd from '@/components/content/JsonLd'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 import type { Metadata } from 'next'
+import { expertQualityDecision, robotsForQuality } from '@/lib/indexing-policy'
 
 const ROLE_LABELS: Record<string, string> = {
   tank: 'Tank', dps: 'DPS', support: 'Support', flex: 'Flex',
@@ -42,12 +43,14 @@ async function fetchExpert(identifier: string) {
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const expert = await fetchExpert(params.id)
   if (!expert) return {}
+  const quality = expertQualityDecision(expert)
 
   return buildMetadata({
     title: `${expert.display_name} - Coach de Overwatch`,
     description: `${expert.display_name} revisa replays de Overwatch. Peak ${expert.peak_rank}, rol ${ROLE_LABELS[expert.main_role] ?? expert.main_role}. Reviews desde su perfil de experto.`,
     path: `/experts/${expert.slug || expert.id}`,
     image: expert.avatar_url,
+    robots: robotsForQuality(quality),
   })
 }
 

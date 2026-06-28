@@ -14,7 +14,7 @@ import { getHeroPortrait } from '@/lib/overwatch-hero-portraits'
 
 const SHION_SLUG = 'shion'
 const SHION_IMAGE = '/heroes/shion.png'
-const SHION_UPDATED_AT = '26 de junio de 2026'
+const SHION_UPDATED_AT = '28 de junio de 2026'
 const SHION_RELEASE_DATE = '16 de junio de 2026'
 const SHION_SEASON = "Season 3: Into the Tiger's Den"
 const SHION_VIDEO_ID = '9abTdz8uD3g'
@@ -214,7 +214,7 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
     image: image ? absoluteUrl(image) : undefined,
     url: pageUrl,
     datePublished: '2026-06-26',
-    dateModified: '2026-06-26',
+    dateModified: '2026-06-28',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -489,7 +489,7 @@ function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
               <MetaPill label="Actualizado" value={SHION_UPDATED_AT} />
               <MetaPill label="Lanzamiento" value={SHION_RELEASE_DATE} />
-              <MetaPill label="Estado" value="Guía completa en seguimiento competitivo" />
+              <MetaPill label="Parche revisado" value="Season 3 · ajuste de Execution" />
             </div>
           </div>
 

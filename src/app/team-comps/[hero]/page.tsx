@@ -14,6 +14,8 @@ import {
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
 import { robotsForQuality, topicQualityDecision } from '@/lib/indexing-policy'
+import TeamCompPillarPage from '@/components/content/TeamCompPillarPage'
+import { getTeamCompPillar } from '@/lib/seo-clusters'
 
 export function generateStaticParams() {
   return TEAM_COMP_HEROES.map(hero => ({ hero: hero.slug }))
@@ -23,9 +25,10 @@ export async function generateMetadata({ params }: { params: { hero: string } })
   const hero = getTeamCompHero(params.hero)
   if (!hero) return {}
   const quality = topicQualityDecision('team_comp', params.hero)
+  const pillar = getTeamCompPillar(params.hero)
   return buildMetadata({
-    title: teamCompPageTitle(hero),
-    description: teamCompPageDescription(hero),
+    title: pillar?.seoTitle || teamCompPageTitle(hero),
+    description: pillar?.seoDescription || teamCompPageDescription(hero),
     path: `/team-comps/${hero.slug}`,
     robots: robotsForQuality(quality),
   })
@@ -33,6 +36,8 @@ export async function generateMetadata({ params }: { params: { hero: string } })
 
 export default function TeamCompHeroPage({ params }: { params: { hero: string } }) {
   const hero = getTeamCompHero(params.hero)
+  const pillar = getTeamCompPillar(params.hero)
+  if (pillar) return <TeamCompPillarPage pillar={pillar} />
   if (!hero) notFound()
 
   const comps5 = getTeamCompsForHero(hero.slug, '5v5').slice(0, 3)

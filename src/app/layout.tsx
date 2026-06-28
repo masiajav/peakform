@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 import JsonLd from '@/components/content/JsonLd'
 import AdSenseScript from '@/components/content/AdSenseScript'
+import PublicFooter from '@/components/layout/PublicFooter'
 import { absoluteUrl, SITE_NAME, SITE_URL } from '@/lib/seo'
 
 export const metadata: Metadata = {
@@ -99,6 +100,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd data={websiteJsonLd} />
         <AdSenseScript />
         {children}
+        <PublicFooter />
         <Analytics />
       </body>
     </html>

@@ -254,7 +254,6 @@ export default async function RootPage() {
         )}
       </main>
 
-      <Footer />
     </div>
   )
 }
@@ -364,26 +363,4 @@ function pickHeroes(slugs: string[]) {
   return slugs
     .map(slug => heroBySlug.get(slug))
     .filter((hero): hero is CounterHero => Boolean(hero))
-}
-
-function Footer() {
-  return (
-    <footer style={{ borderTop: '1px solid var(--border)', padding: 24, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
-      <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 18, color: 'var(--accent)', letterSpacing: 2 }}>REPLAID LAB</span>
-      <div className="footer-links" style={{ display: 'flex', gap: 24 }}>
-        <Link href="/heroes" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Héroes</Link>
-        <Link href="/guides" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Guías</Link>
-        <Link href="/counters" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Counters</Link>
-        <Link href="/team-comps" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Composiciones</Link>
-        <Link href="/news" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Noticias</Link>
-        <Link href="/experts" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Expertos</Link>
-        <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>
-        <Link href="/about" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Sobre</Link>
-        <Link href="/privacy" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Privacidad</Link>
-        <Link href="/editorial-methodology" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Método</Link>
-        <Link href="/legal" style={{ fontSize: 12, color: 'var(--text3)', textDecoration: 'none' }}>Legal</Link>
-      </div>
-      <span style={{ fontSize: 12, color: 'var(--text3)' }}>© 2026 Replaid Lab</span>
-    </footer>
-  )
 }

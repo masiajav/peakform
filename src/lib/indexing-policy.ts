@@ -26,6 +26,21 @@ type AnnouncementLike = GuideLike & {
   source_url?: string | null
   source_published_at?: string | null
   auto_imported?: boolean | null
+  tags?: string[] | null
+}
+
+type ExpertLike = {
+  slug?: string | null
+  display_name?: string | null
+  bio?: string | null
+  specialties?: string[] | null
+  avatar_url?: string | null
+  peak_rank?: string | null
+  main_role?: string | null
+  status?: string | null
+  tier_starter_enabled?: boolean | null
+  tier_pro_enabled?: boolean | null
+  tier_deep_dive_enabled?: boolean | null
 }
 
 export const QUALITY_MINIMUMS = {
@@ -51,9 +66,17 @@ export const PILLAR_HERO_SLUGS = [
   'cassidy',
 ]
 
-export const PILLAR_COUNTER_SLUGS: string[] = []
+export const PILLAR_COUNTER_SLUGS = ['shion']
 
-export const PILLAR_TEAM_COMP_SLUGS: string[] = []
+export const PILLAR_TEAM_COMP_SLUGS = ['shion']
+
+export const PILLAR_MAP_SLUGS: string[] = []
+
+export const EXCLUDED_GUIDE_SLUGS = [
+  'tier-list-season-2-overwatch-mejores-heroes-rol',
+]
+
+export const PATCH_NOTE_EDITORIAL_TAG = 'editorial-review-complete'
 
 export const PILLAR_GUIDE_SLUGS = [
   'como-mejorar-en-overwatch',
@@ -70,6 +93,7 @@ export const PILLAR_GUIDE_SLUGS = [
   'como-mejorar-como-support-overwatch',
   'como-revisar-cooldowns-overwatch',
   'como-elegir-composicion-dive-poke-brawl',
+  'como-usar-ultimates-overwatch',
 ]
 
 export const TRUST_ROUTES = [
@@ -113,6 +137,7 @@ export function isVideoOnlyGuide(guide: GuideLike) {
 
 export function isGuideSitemapEligible(guide: GuideLike) {
   if (!guide.slug) return false
+  if (EXCLUDED_GUIDE_SLUGS.includes(guide.slug)) return false
   if (isPillarGuideSlug(guide.slug)) return true
   const bodyWords = wordCount(guide.body)
   const summaryWords = wordCount([guide.excerpt, guide.seo_description].filter(Boolean).join(' '))
@@ -155,7 +180,12 @@ export function isAnnouncementSitemapEligible(item: AnnouncementLike) {
   const summaryWords = wordCount([item.excerpt, item.seo_description].filter(Boolean).join(' '))
 
   if (item.content_type === 'patch_note') {
-    return false
+    return Boolean(
+      item.source_url &&
+      item.tags?.includes(PATCH_NOTE_EDITORIAL_TAG) &&
+      words >= QUALITY_MINIMUMS.patchNoteAdsWords &&
+      summaryWords >= 12
+    )
   }
 
   return words >= QUALITY_MINIMUMS.newsIndexWords && summaryWords >= 12
@@ -180,6 +210,30 @@ export function announcementQualityDecision(item: AnnouncementLike): PageQuality
   }
 
   return indexNoAds('Indexable, pero pendiente de más valor propio antes de anuncios', words)
+}
+
+export function expertQualityDecision(expert: ExpertLike): PageQualityDecision {
+  const bioWords = wordCount(expert.bio)
+  const hasService = Boolean(
+    expert.tier_starter_enabled ||
+    expert.tier_pro_enabled ||
+    expert.tier_deep_dive_enabled
+  )
+  const isComplete = Boolean(
+    expert.status === 'active' &&
+    expert.slug &&
+    expert.display_name &&
+    expert.avatar_url &&
+    expert.peak_rank &&
+    expert.main_role &&
+    expert.specialties?.length &&
+    bioWords >= 40 &&
+    hasService
+  )
+
+  return isComplete
+    ? indexNoAds('Perfil de experto completo e indexable', bioWords)
+    : blocked('Perfil de experto incompleto para indexación', bioWords)
 }
 
 export function topicQualityDecision(kind: 'hero' | 'counter' | 'team_comp' | 'role' | 'map', slug: string): PageQualityDecision {
@@ -209,7 +263,9 @@ export function topicQualityDecision(kind: 'hero' | 'counter' | 'team_comp' | 'r
     return indexNoAds('Hub de rol indexable; sin anuncios hasta ampliar contenido propio', 0)
   }
 
-  return blocked('Mapa pendiente de contenido publicado suficiente', 0)
+  return PILLAR_MAP_SLUGS.includes(slug)
+    ? indexNoAds('Mapa pilar indexable; sin anuncios hasta consolidar señales de calidad', 0)
+    : blocked('Mapa pendiente de contenido publicado suficiente', 0)
 }
 
 export function robotsForQuality(decision: PageQualityDecision) {

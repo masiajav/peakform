@@ -30,3 +30,8 @@ next-env.d.ts
 
 # Claude Code local settings
 .claude/
+playwright-report/
+test-results/
+next-*.log
+next-*.pid
+tmp-*.png
