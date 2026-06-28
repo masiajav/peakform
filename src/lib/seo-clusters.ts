@@ -287,10 +287,229 @@ const SHION_TEAM_COMP: TeamCompPillar = {
   ],
 }
 
+const ANA_COUNTER: CounterPillar = {
+  slug: 'ana',
+  name: 'Ana',
+  role: 'Support',
+  updatedAt: '28 de junio de 2026',
+  reviewedPatch: 'Season 3, Into the Tiger\'s Den',
+  seoTitle: 'Counters de Ana en Overwatch: cómo presionarla en ranked',
+  seoDescription: 'Aprende a jugar contra Ana en Overwatch: mejores counters, ventanas tras Sleep Dart y Granada Biótica, adaptaciones por rol y errores que debes evitar.',
+  h1: 'Counters de Ana en Overwatch: cómo presionarla en ranked',
+  intro: [
+    'Ana controla una pelea cuando puede verla desde una posición cómoda. Desde ahí sostiene a su Tank, corta curación con Granada Biótica y conserva Sleep Dart para cualquier entrada. La forma más fiable de frenarla no es lanzarse sobre ella sin pensar, sino obligarla a mirar dos amenazas y gastar uno de sus cooldowns antes del engage importante.',
+    'También conviene distinguir entre molestar a Ana y regalarle una baja. Un flanker que entra solo, recibe Sleep y obliga a su equipo a retroceder no la está countereando. La presión funciona cuando tiene timing, una ruta de salida y alguien preparado para aprovechar el recurso que Ana acaba de gastar.',
+  ],
+  summary: [
+    'Corta su línea de visión antes de comprometer recursos.',
+    'Fuerza Sleep Dart antes de la entrada principal.',
+    'Ataca después de Granada Biótica, no mientras aún la conserva.',
+    'No despiertes a un aliado dormido sin poder protegerlo.',
+  ],
+  threats: [
+    {
+      name: 'Winston',
+      href: '/heroes/winston',
+      danger: 'Su salto y Barrier Projector aíslan a Ana de su equipo y hacen incómodo acertar Sleep o recibir ayuda desde la frontal.',
+      signal: 'Ana juega lejos de su segundo support o ha gastado Granada Biótica en la frontline.',
+      response: 'Salta con una ruta de vuelta y coloca la barrera entre Ana y sus aliados. Si no cae rápido, fuerza recursos y sal antes de quedarte sin armadura.',
+    },
+    {
+      name: 'D.Va',
+      href: '/heroes/dva',
+      danger: 'Defense Matrix puede negar Granada Biótica y parte de su curación mientras Boosters permiten contestar posiciones elevadas.',
+      signal: 'Ana asoma sin cobertura cercana o prepara la granada para salvar a un aliado bajo presión.',
+      response: 'Usa Matrix con intención, no durante toda la entrada. Niega el recurso importante, acércate y conserva Boosters para volver con tu equipo.',
+    },
+    {
+      name: 'Tracer',
+      href: '/heroes/tracer',
+      danger: 'Puede repetir ángulos cortos, obligar a Ana a girarse y forzar granada defensiva sin comprometer una entrada larga.',
+      signal: 'Sleep Dart ya no está disponible o el otro support se ha separado para ayudar a la frontline.',
+      response: 'Alterna presión y salida. Si fuerzas granada o atención, no necesitas terminar la baja: vuelve a tiempo para aprovechar la ventaja creada.',
+    },
+    {
+      name: 'Genji',
+      href: '/heroes/genji',
+      danger: 'La verticalidad y Deflect complican los disparos de Ana y pueden devolver un cooldown lanzado con prisa.',
+      signal: 'Ana ha usado Sleep o está mirando al Tank mientras Genji ya tiene acceso a su altura.',
+      response: 'Entra después de la primera distracción y no abras con Deflect. Guárdalo para el momento en que Ana intente responder con disparo, granada o Sleep.',
+    },
+    {
+      name: 'Sombra',
+      href: '/heroes/sombra',
+      danger: 'Puede negar la preparación de Ana, revelar una posición aislada y coordinar un foco antes de que llegue peel.',
+      signal: 'Ana repite la misma cobertura y su equipo depende de ella para sostener una pelea larga.',
+      response: 'No dispares por inercia al primer hack. Avisa, confirma que tu equipo puede seguir la presión y sal si aparece el segundo support.',
+    },
+    {
+      name: 'Kiriko',
+      href: '/heroes/kiriko',
+      danger: 'Protection Suzu elimina la anti-curación y su movilidad le permite acompañar un ángulo agresivo contra Ana.',
+      signal: 'Ana gasta la granada para abrir una ventana y su equipo intenta entrar inmediatamente.',
+      response: 'Limpia solo cuando el efecto cambia la pelea. Después puedes buscar un ángulo corto, pero conserva Swift Step si Ana aún tiene Sleep.',
+    },
+  ],
+  cooldownWindows: [
+    { title: 'Sleep Dart fallado', body: 'Es la ventana más clara para dive o flank. Ana sigue teniendo daño y granada, así que entra desde cobertura y evita convertir la oportunidad en una persecución larga.' },
+    { title: 'Granada defensiva', body: 'Si Ana se cura a sí misma con Granada Biótica, pierde su mejor herramienta para cortar la curación de tu Tank. Presiona su equipo o repite la entrada cuando termine el efecto.' },
+    { title: 'Línea de visión rota', body: 'Una barrera, una esquina o una rotación vertical pueden desconectar a Ana de su objetivo. No hace falta eliminarla: varios segundos sin curación ya pueden decidir la frontline.' },
+    { title: 'Nano Boost comprometido', body: 'Cuando Nano ya tiene objetivo, decide rápido si puedes kitear, usar una defensiva o castigar a Ana. Dividir daño entre el aliado nano y la backline suele ser peor que seguir un plan claro.' },
+  ],
+  adaptations: [
+    'Juega alrededor de coberturas que corten su mira. Una esquina obliga a Ana a moverse o deja de curar al objetivo que presionas.',
+    'Finge una entrada para provocar Sleep y vuelve con tu movilidad disponible. La segunda amenaza será mucho más difícil de detener.',
+    'Si eres Tank, no cruces una zona abierta con anti-curación. Espera, usa cobertura y vuelve a tomar espacio cuando termine el efecto.',
+    'Si eres Support, guarda limpieza o una defensiva para la granada que realmente acompaña un engage, no para cualquier punto de daño.',
+    'Cambia de ruta después de que Ana te haya leído. Repetir el mismo salto o flank hace que un proyectil difícil se convierta en un disparo preparado.',
+    'Cambia de héroe solo si el mapa y el matchup impiden cumplir tu función incluso después de ajustar timing, ruta y objetivo.',
+  ],
+  mistakes: [
+    'Entrar solo mientras Ana conserva Sleep y granada.',
+    'Despertar inmediatamente a un aliado dormido y regalar una baja fácil.',
+    'Seguir disparando a un Tank nanoestimulado sin una condición clara.',
+    'Usar toda la movilidad para llegar hasta Ana y no conservar salida.',
+    'Pelear en una línea larga donde Ana ve a todo su equipo sin moverse.',
+    'Cambiar a un flanker por obligación aunque no conozcas sus rutas ni timing.',
+  ],
+  examples: [
+    { title: 'Dive sobre una altura', body: 'Winston muestra el salto, Ana lanza Sleep y falla contra la barrera. Genji espera ese momento para subir. Aunque Ana use granada y sobreviva, la frontline rival se queda varios segundos sin apoyo y debe retroceder.' },
+    { title: 'Presión sin buscar la baja', body: 'Tracer obliga a Ana a usar granada defensiva y sale con Recall. Su Tank avanza entonces sobre el rival, que ya no puede recibir anti ni el aumento de curación. La jugada útil fue forzar el recurso, no insistir en el duelo.' },
+    { title: 'Adaptación sin cambiar', body: 'Reinhardt recibe dos granadas al cruzar la misma calle. En la tercera pelea rota por cobertura, espera a que D.Va fuerce la granada y entra después. El pick no cambió; cambió el orden de los recursos.' },
+  ],
+  checklist: [
+    'Sé desde qué cobertura está jugando Ana.',
+    'Conozco el estado de Sleep Dart antes de entrar.',
+    'Tengo una salida después de forzar granada.',
+    'No despierto a un aliado sin poder salvarlo.',
+    'Corto su línea de visión cuando no puedo alcanzarla.',
+    'Distingo entre forzar recursos y perseguir una baja.',
+  ],
+  faqs: [
+    { question: '¿Cuál es el mejor counter de Ana?', answer: 'Winston, D.Va, Tracer y Genji pueden presionarla de formas distintas, pero ninguno funciona entrando solo. El mejor counter es el que puede acceder a su posición, forzar recursos y salir con el equipo preparado para aprovecharlo.' },
+    { question: '¿Cómo evito Sleep Dart?', answer: 'Varía el timing, entra desde un ángulo menos obvio y usa cobertura o barreras. También puedes amagar la entrada para provocar el disparo antes de comprometer movilidad.' },
+    { question: '¿Qué hago cuando Ana usa Granada Biótica sobre mi Tank?', answer: 'Deja de invertir curación inútil, usa cobertura y espera a que termine si no hay limpieza disponible. Entrar más profundo mientras el Tank no puede recibir curación suele convertir una desventaja corta en una pelea perdida.' },
+    { question: '¿Kiriko anula por completo a Ana?', answer: 'No. Suzu responde a la granada, pero tiene otros usos y Ana puede forzarlo antes de un engage. El matchup depende de quién consigue que el rival gaste primero su recurso importante.' },
+    { question: '¿Tengo que jugar dive contra Ana?', answer: 'No siempre. También puedes romper su línea de visión con barreras, poke desde un ángulo que la obligue a moverse o una rotación que acerque la pelea. Lo importante es que no juegue cómoda desde el mismo sitio.' },
+  ],
+  links: [
+    { href: '/heroes/ana', label: 'Guía completa de Ana' },
+    { href: '/team-comps/ana', label: 'Composiciones con Ana' },
+    { href: '/guides/cuando-cambiar-de-heroe-overwatch', label: 'Cuándo cambiar de héroe' },
+    { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Cómo revisar cooldowns' },
+    { href: '/guides/como-mejorar-en-overwatch-revisando-vod', label: 'Cómo revisar una VOD' },
+    { href: '/experts', label: 'Revisar una partida con un experto' },
+  ],
+}
+
+const ANA_TEAM_COMP: TeamCompPillar = {
+  slug: 'ana',
+  name: 'Ana',
+  updatedAt: '28 de junio de 2026',
+  reviewedPatch: 'Season 3, Into the Tiger\'s Den',
+  seoTitle: 'Composiciones con Ana en Overwatch: dive, brawl y 6v6',
+  seoDescription: 'Descubre composiciones con Ana en Overwatch para dive, brawl y 6v6: lineups, Nano Boost, rotaciones, responsabilidades, debilidades y sustituciones.',
+  h1: 'Composiciones con Ana en Overwatch: dive, brawl y 6v6',
+  intro: [
+    'Ana encaja mejor en equipos que le ofrecen una línea de visión estable y convierten sus cooldowns en una acción inmediata. Sleep Dart detiene una entrada, Granada Biótica abre una ventana y Nano Boost acelera a un aliado que ya está listo. Si el equipo no puede aprovechar ninguna de esas tres cosas, Ana termina curando desde lejos sin cambiar el rumbo de la pelea.',
+    'Una buena composición con Ana también debe pensar en su supervivencia. No necesita que cuatro jugadores permanezcan pegados a ella, pero sí una ruta de retirada, alguien capaz de responder a dive y un frente que no desaparezca detrás de dos paredes cada vez que empieza el engage.',
+  ],
+  summary: [
+    'Una frontline visible que no obligue a Ana a cruzar zonas abiertas.',
+    'Un objetivo claro para Nano Boost antes de empezar la pelea.',
+    'Peel o presión cruzada cuando el rival juega dive.',
+    'Capacidad para aprovechar una buena granada en pocos segundos.',
+  ],
+  compositions: [
+    {
+      name: 'Dive con Nano coordinado',
+      format: '5v5',
+      style: 'Dive',
+      lineup: ['Winston', 'Genji', 'Tracer', 'Ana', 'Brigitte'],
+      winCondition: 'Winston y los DPS fuerzan atención sobre la misma zona mientras Ana prepara daño, granada o Nano. Brigitte evita que la respuesta rival llegue gratis hasta Ana.',
+      engagePlan: 'Winston marca el objetivo y entra con una salida prevista. Ana no lanza la granada por rutina: espera a que la barrera aisle al objetivo o a que aparezca el primer recurso defensivo. Genji y Tracer llegan después del salto, no antes.',
+      goodMaps: 'Mapas con alturas, laterales y coberturas desde las que Ana pueda ver la entrada sin quedarse en la ruta directa del rival.',
+      weakAgainst: 'Dive que alcanza a Ana antes de que su equipo esté colocado, rotaciones muy rápidas y peleas que cruzan varias paredes.',
+      substitutions: 'D.Va por Winston para más peel; Echo por Tracer en mapas verticales; Kiriko por Brigitte cuando limpiar anti o control sea más importante.',
+    },
+    {
+      name: 'Brawl con control de esquina',
+      format: '5v5',
+      style: 'Brawl',
+      lineup: ['Reinhardt', 'Cassidy', 'Mei', 'Ana', 'Lúcio'],
+      winCondition: 'El equipo rota unido hasta una esquina, fuerza una pelea corta y usa Granada Biótica o Nano Boost para romper el intercambio frontal.',
+      engagePlan: 'Lúcio guarda velocidad para cerrar el último tramo. Reinhardt toma la esquina, Mei corta la salida y Ana busca una granada cuando ambos equipos ya están comprometidos. Nano sirve para mantener el avance, no para iniciar desde demasiado lejos.',
+      goodMaps: 'Calles, puntos cerrados y zonas con coberturas consecutivas donde Ana pueda avanzar de una esquina a otra.',
+      weakAgainst: 'Poke desde varias alturas, flancos largos y equipos que pueden separar a Ana de la frontline antes del engage.',
+      substitutions: 'Junker Queen por Reinhardt para más ritmo; Reaper por Cassidy en espacios muy cortos; Kiriko por Lúcio si el rival depende de anti-curación o control.',
+    },
+    {
+      name: 'Doble Tank con backline protegida',
+      format: '6v6',
+      style: 'Dive',
+      lineup: ['Winston', 'D.Va', 'Genji', 'Tracer', 'Ana', 'Brigitte'],
+      winCondition: 'Winston abre la pelea, D.Va decide entre acompañar el dive y proteger a Ana, y los DPS atacan la reacción que fuerce el primer salto.',
+      engagePlan: 'Ana y Brigitte fijan una posición con salida. Winston entra primero; D.Va conserva parte de Matrix para Sleep, granada o la retirada. Nano llega cuando Genji o Winston ya tienen contacto real con el objetivo.',
+      goodMaps: 'Escenarios con varias alturas y rutas donde los Tanks puedan crear dos capas de presión sin perder completamente la línea de visión de Ana.',
+      weakAgainst: 'Brawl cerrado que llegue junto hasta la backline y poke que obligue a Ana a moverse antes de que el dive esté preparado.',
+      substitutions: 'Zarya por D.Va para proteger una entrada concreta; Echo por Tracer para presión vertical; Juno por Brigitte si el equipo necesita rotar más rápido y el dive rival no amenaza directamente a Ana.',
+    },
+  ],
+  responsibilities: [
+    { title: 'Tank', body: 'Debe pelear dentro de una línea de visión razonable y avisar antes de cruzar una esquina. Ana puede sostener una entrada agresiva, pero no puede curar a través del mapa.' },
+    { title: 'DPS', body: 'Tienen que aprovechar anti-curación, Sleep y Nano. Si Ana fuerza dos recursos y nadie cambia de objetivo, su utilidad se convierte en una oportunidad perdida.' },
+    { title: 'Segundo Support', body: 'Equilibra la debilidad de Ana. Brigitte aporta peel, Lúcio ayuda a rotar y Kiriko limpia efectos; la elección depende del mapa y de cómo amenaza el rival.' },
+    { title: 'Ana', body: 'Juega una cobertura desde la que pueda ver la entrada y también retirarse. Su objetivo no es mantener a todos al máximo, sino conservar al equipo durante la ventana decisiva y usar utilidad con intención.' },
+  ],
+  rotationPlan: [
+    'Elige primero la cobertura de Ana y la siguiente posición a la que puede avanzar.',
+    'Rota sin gastar la movilidad o velocidad que hará falta para cerrar el engage.',
+    'Muestra presión frontal y descubre qué héroe puede llegar hasta Ana.',
+    'Fuerza un cooldown con el Tank o un ángulo DPS antes de lanzar la granada importante.',
+    'Entra sobre el efecto de anti-curación, Sleep o Nano y termina la pelea antes de que el rival recupere recursos.',
+  ],
+  weaknesses: [
+    'El Tank desaparece detrás de una pared y obliga a Ana a abandonar su cobertura.',
+    'Granada Biótica se usa para curar daño leve antes de cada engage.',
+    'Nano Boost se lanza a un aliado que todavía no puede tocar a nadie.',
+    'El segundo Support sigue a la frontline y deja a Ana sola contra flankers.',
+    'El equipo rota por una zona abierta sin velocidad, barrera ni presión previa.',
+    'Todos esperan que Sleep Dart resuelva una entrada que nadie estaba vigilando.',
+  ],
+  examples: [
+    { title: 'Nano con contacto real', body: 'Winston salta y obliga a Kiriko a usar Suzu. Ana espera a que la burbuja aisle a dos rivales y usa Nano cuando Winston ya está pegando. El recurso amplifica una pelea iniciada en lugar de pedir al Tank que recorra medio mapa.' },
+    { title: 'Brawl que cuida la mira', body: 'Reinhardt avanza hasta una esquina y se detiene antes de cruzar la siguiente pared. Ana cambia de cobertura, Lúcio conserva velocidad y el equipo entra cuando todos vuelven a tener visión. La pausa evita una muerte que parecía falta de curación.' },
+    { title: 'Peel sin abandonar la pelea', body: 'Tracer rival entra sobre Ana. Brigitte usa Whip Shot y Ana conserva Sleep. No persiguen la baja: fuerzan Recall y vuelven a mirar al frente, donde su equipo todavía puede aprovechar la ventaja de recursos.' },
+  ],
+  checklist: [
+    'Ana tiene una cobertura y una ruta de retirada.',
+    'El Tank sabe qué esquinas cortan la línea de visión.',
+    'Hay un objetivo razonable para Nano Boost.',
+    'Alguien puede responder al primer dive sobre la backline.',
+    'La composición puede aprovechar anti-curación rápidamente.',
+    'El segundo Support compensa la necesidad real del mapa.',
+  ],
+  faqs: [
+    { question: '¿Cuál es la mejor composición con Ana?', answer: 'Ana funciona muy bien en dive coordinado y en brawl que avanza de cobertura en cobertura. La mejor composición es la que mantiene su línea de visión, aprovecha granada y Nano, y no la deja sola contra la amenaza rival.' },
+    { question: '¿Qué Tank combina mejor con Ana?', answer: 'Winston aprovecha Nano y granada en dive; Reinhardt crea un frente estable en brawl; D.Va puede protegerla y negar recursos. El mapa y el estilo del equipo importan más que una pareja fija.' },
+    { question: '¿Qué Support debería acompañar a Ana?', answer: 'Brigitte es útil contra dive, Lúcio facilita rotaciones y Kiriko aporta limpieza y movilidad. Elige según la amenaza que impide a Ana jugar, no solo por una combinación popular.' },
+    { question: '¿Ana sirve con equipos muy móviles?', answer: 'Sí, si las entradas son previsibles y conserva visión de la zona donde terminan. Si cada aliado salta a una dirección distinta, Ana tendrá que exponerse o perderá valor.' },
+    { question: '¿Cuándo debería cambiar Ana dentro de esta composición?', answer: 'Cuando el mapa o el rival le impiden sobrevivir y mantener visión incluso después de ajustar posición y pedir peel. La guía de cambio de héroe ayuda a separar un problema de pick de un problema de ejecución.' },
+  ],
+  links: [
+    { href: '/heroes/ana', label: 'Guía completa de Ana' },
+    { href: '/counters/ana', label: 'Counters de Ana' },
+    { href: '/guides/como-jugar-ana-ranked-overwatch', label: 'Cómo jugar Ana en ranked' },
+    { href: '/guides/cuando-cambiar-de-heroe-overwatch', label: 'Cuándo cambiar de héroe' },
+    { href: '/guides/como-elegir-composicion-dive-poke-brawl', label: 'Cómo elegir una composición' },
+    { href: '/experts', label: 'Revisar una composición en tu VOD' },
+  ],
+}
+
 export function getCounterPillar(slug: string) {
-  return slug === SHION_COUNTER.slug ? SHION_COUNTER : null
+  return [SHION_COUNTER, ANA_COUNTER].find(pillar => pillar.slug === slug) ?? null
 }
 
 export function getTeamCompPillar(slug: string) {
-  return slug === SHION_TEAM_COMP.slug ? SHION_TEAM_COMP : null
+  return [SHION_TEAM_COMP, ANA_TEAM_COMP].find(pillar => pillar.slug === slug) ?? null
 }

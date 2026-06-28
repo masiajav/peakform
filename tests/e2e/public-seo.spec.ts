@@ -6,7 +6,10 @@ const PUBLIC_ROUTES = [
   '/heroes/shion',
   '/counters/shion',
   '/team-comps/shion',
+  '/counters/ana',
+  '/team-comps/ana',
   '/guides/como-usar-ultimates-overwatch',
+  '/guides/cuando-cambiar-de-heroe-overwatch',
   '/experts',
   '/about',
   '/contact',
@@ -48,16 +51,19 @@ for (const route of PUBLIC_ROUTES) {
   })
 }
 
-test('pillar guide does not expose implementation notes', async ({ page }) => {
-  await page.goto('/guides/como-usar-ultimates-overwatch', { waitUntil: 'networkidle' })
-  const articleText = await page.locator('article').innerText()
-  expect(articleText).not.toContain('Title SEO')
-  expect(articleText).not.toContain('Meta description')
-  expect(articleText).not.toContain('Notas para Codex')
-  expect(articleText).not.toContain('Keywords principales')
-})
+for (const route of ['/guides/como-usar-ultimates-overwatch', '/guides/cuando-cambiar-de-heroe-overwatch']) {
+  test(`${route} does not expose implementation notes`, async ({ page }) => {
+    await page.goto(route, { waitUntil: 'networkidle' })
+    const articleText = await page.locator('article').innerText()
+    expect(articleText).not.toContain('Title SEO')
+    expect(articleText).not.toContain('Meta description')
+    expect(articleText).not.toContain('Notas para Codex')
+    expect(articleText).not.toContain('Keywords principales')
+    await expect(page.locator('.ad-slot')).toHaveCount(0)
+  })
+}
 
-test('sitemap contains only the completed first batch', async ({ request }) => {
+test('sitemap contains only the completed editorial batches', async ({ request }) => {
   const response = await request.get('/sitemap.xml')
   expect(response.status()).toBe(200)
   const xml = await response.text()
@@ -65,11 +71,21 @@ test('sitemap contains only the completed first batch', async ({ request }) => {
   expect(xml).toContain('/counters/shion')
   expect(xml).toContain('/team-comps/shion')
   expect(xml).toContain('/guides/como-usar-ultimates-overwatch')
+  expect(xml).toContain('/counters/ana')
+  expect(xml).toContain('/team-comps/ana')
+  expect(xml).toContain('/guides/cuando-cambiar-de-heroe-overwatch')
   expect(xml).not.toContain('tier-list-season-2-overwatch-mejores-heroes-rol')
-  expect(xml).not.toContain('/counters/ana')
+  expect(xml).not.toContain('/counters/genji')
 })
 
-for (const route of ['/counters/shion', '/team-comps/shion', '/guides/como-usar-ultimates-overwatch']) {
+for (const route of [
+  '/counters/shion',
+  '/team-comps/shion',
+  '/guides/como-usar-ultimates-overwatch',
+  '/counters/ana',
+  '/team-comps/ana',
+  '/guides/cuando-cambiar-de-heroe-overwatch',
+]) {
   test(`${route} has no broken internal links`, async ({ page, request }) => {
     await page.goto(route, { waitUntil: 'networkidle' })
     const links = await page.locator('main a[href^="/"]').evaluateAll(anchors => Array.from(new Set(

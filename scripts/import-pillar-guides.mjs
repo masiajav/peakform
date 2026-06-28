@@ -50,6 +50,9 @@ const guideDetails = {
   '16_como_usar_ultimates_overwatch.md': {
     category: 'Fundamentos', tags: ['overwatch', 'ultimates', 'economia-de-ultis', 'vod', 'ranked'], role: 'flex',
   },
+  '17_cuando_cambiar_heroe_overwatch.md': {
+    category: 'Fundamentos', tags: ['overwatch', 'cambio-de-heroe', 'counters', 'vod', 'ranked'], role: 'flex',
+  },
 }
 
 const editorialExtensions = {

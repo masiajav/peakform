@@ -14,11 +14,11 @@ type AdSlotProps = {
   style?: CSSProperties
 }
 
-const CONFIG: Record<AdSlotVariant, { minHeight: number; format: string; display: string }> = {
-  leaderboard: { minHeight: 96, format: 'horizontal', display: '728 x 90' },
-  inline: { minHeight: 156, format: 'auto', display: 'Contenido patrocinado' },
-  sidebar: { minHeight: 280, format: 'rectangle', display: '300 x 250' },
-  mobile: { minHeight: 112, format: 'auto', display: '320 x 100' },
+const CONFIG: Record<AdSlotVariant, { minHeight: number; format: string }> = {
+  leaderboard: { minHeight: 96, format: 'horizontal' },
+  inline: { minHeight: 156, format: 'auto' },
+  sidebar: { minHeight: 280, format: 'rectangle' },
+  mobile: { minHeight: 112, format: 'auto' },
 }
 
 const NAMED_SLOTS: Record<string, string | undefined> = {
@@ -42,7 +42,6 @@ export default function AdSlot({
   const config = CONFIG[variant]
   // Ads remain disabled until AdSense approves the site. Set the public flag to true only after approval and redeploy.
   const adsApproved = process.env.NEXT_PUBLIC_ADSENSE_APPROVED === 'true'
-  const showPlaceholder = process.env.NODE_ENV !== 'production'
   const resolvedSlot = resolveSlot(slot)
   const canServeAd = adsApproved && Boolean(clientId && resolvedSlot)
 
@@ -54,7 +53,7 @@ export default function AdSlot({
     adsWindow.adsbygoogle.push({})
   }, [allowAds, canServeAd])
 
-  if (!allowAds || (!canServeAd && !showPlaceholder)) return null
+  if (!allowAds || !canServeAd) return null
 
   return (
     <aside
@@ -65,18 +64,14 @@ export default function AdSlot({
       aria-label={label}
     >
       <div className="ad-slot-label">{label}</div>
-      {canServeAd ? (
-        <ins
-          className="adsbygoogle"
-          style={{ display: 'block' }}
-          data-ad-client={clientId}
-          data-ad-slot={resolvedSlot}
-          data-ad-format={config.format}
-          data-full-width-responsive="true"
-        />
-      ) : (
-        <div className="ad-slot-placeholder">{config.display}</div>
-      )}
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block' }}
+        data-ad-client={clientId}
+        data-ad-slot={resolvedSlot}
+        data-ad-format={config.format}
+        data-full-width-responsive="true"
+      />
     </aside>
   )
 }

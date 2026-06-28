@@ -21,6 +21,10 @@ describe('indexing quality gates', () => {
       slug: 'como-usar-ultimates-overwatch',
       body: 'contenido editorial',
     })).toBe(true)
+    expect(isGuideSitemapEligible({
+      slug: 'cuando-cambiar-de-heroe-overwatch',
+      body: 'contenido editorial',
+    })).toBe(true)
   })
 
   it('requires an editorial review before indexing a patch note', () => {
@@ -59,6 +63,8 @@ describe('indexing quality gates', () => {
   it('indexes only the completed counter and composition batch', () => {
     expect(topicQualityDecision('counter', 'shion').indexable).toBe(true)
     expect(topicQualityDecision('team_comp', 'shion').indexable).toBe(true)
-    expect(topicQualityDecision('counter', 'ana').indexable).toBe(false)
+    expect(topicQualityDecision('counter', 'ana').indexable).toBe(true)
+    expect(topicQualityDecision('team_comp', 'ana').indexable).toBe(true)
+    expect(topicQualityDecision('counter', 'genji').indexable).toBe(false)
   })
 })

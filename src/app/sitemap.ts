@@ -21,6 +21,8 @@ const STATIC_LAST_MODIFIED: Record<string, string> = {
   '/overwatch-temporada-3-into-the-tigers-den': '2026-06-16',
   '/counters/shion': '2026-06-28',
   '/team-comps/shion': '2026-06-28',
+  '/counters/ana': '2026-06-28',
+  '/team-comps/ana': '2026-06-28',
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

@@ -66,9 +66,9 @@ export const PILLAR_HERO_SLUGS = [
   'cassidy',
 ]
 
-export const PILLAR_COUNTER_SLUGS = ['shion']
+export const PILLAR_COUNTER_SLUGS = ['shion', 'ana']
 
-export const PILLAR_TEAM_COMP_SLUGS = ['shion']
+export const PILLAR_TEAM_COMP_SLUGS = ['shion', 'ana']
 
 export const PILLAR_MAP_SLUGS: string[] = []
 
@@ -94,6 +94,7 @@ export const PILLAR_GUIDE_SLUGS = [
   'como-revisar-cooldowns-overwatch',
   'como-elegir-composicion-dive-poke-brawl',
   'como-usar-ultimates-overwatch',
+  'cuando-cambiar-de-heroe-overwatch',
 ]
 
 export const TRUST_ROUTES = [
