@@ -8,6 +8,9 @@ const PUBLIC_ROUTES = [
   '/team-comps/shion',
   '/counters/ana',
   '/team-comps/ana',
+  '/counters/genji',
+  '/team-comps/genji',
+  '/counters/kiriko',
   '/guides/como-usar-ultimates-overwatch',
   '/guides/cuando-cambiar-de-heroe-overwatch',
   '/experts',
@@ -73,9 +76,12 @@ test('sitemap contains only the completed editorial batches', async ({ request }
   expect(xml).toContain('/guides/como-usar-ultimates-overwatch')
   expect(xml).toContain('/counters/ana')
   expect(xml).toContain('/team-comps/ana')
+  expect(xml).toContain('/counters/genji')
+  expect(xml).toContain('/team-comps/genji')
+  expect(xml).toContain('/counters/kiriko')
   expect(xml).toContain('/guides/cuando-cambiar-de-heroe-overwatch')
   expect(xml).not.toContain('tier-list-season-2-overwatch-mejores-heroes-rol')
-  expect(xml).not.toContain('/counters/genji')
+  expect(xml).not.toContain('/team-comps/kiriko')
 })
 
 for (const route of [
@@ -84,6 +90,9 @@ for (const route of [
   '/guides/como-usar-ultimates-overwatch',
   '/counters/ana',
   '/team-comps/ana',
+  '/counters/genji',
+  '/team-comps/genji',
+  '/counters/kiriko',
   '/guides/cuando-cambiar-de-heroe-overwatch',
 ]) {
   test(`${route} has no broken internal links`, async ({ page, request }) => {
