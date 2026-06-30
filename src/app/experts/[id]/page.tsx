@@ -10,6 +10,7 @@ import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 import type { Metadata } from 'next'
 import { expertQualityDecision, robotsForQuality } from '@/lib/indexing-policy'
+import { getStripeConnectStatus } from '@/lib/stripe-connect'
 
 const ROLE_LABELS: Record<string, string> = {
   tank: 'Tank', dps: 'DPS', support: 'Support', flex: 'Flex',
@@ -72,6 +73,8 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
   const expert = await fetchExpert(params.id)
 
   if (!expert) notFound()
+
+  const stripeStatus = await getStripeConnectStatus(expert.stripe_account_id)
 
   // Check if this user has used the trial for this expert
   let hasUsedTrial = false
@@ -269,7 +272,12 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
         )}
 
         {/* Tier selector (client) */}
-        <TierSelector expert={expert} hasUsedTrial={hasUsedTrial} isLoggedIn={!!user} stripeConnected={!!expert.stripe_account_id} />
+        <TierSelector
+          expert={expert}
+          hasUsedTrial={hasUsedTrial}
+          isLoggedIn={!!user}
+          stripeConnected={stripeStatus.readyForDestinationCharges || stripeStatus.statusCheckFailed}
+        />
 
       </div>
     </div>

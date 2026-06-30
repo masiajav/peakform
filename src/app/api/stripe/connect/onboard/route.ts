@@ -1,8 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
-import Stripe from 'stripe'
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
+import { getStripe } from '@/lib/stripe'
+import { getStripeErrorCode, getStripeConnectStatus, requestTransfersCapability } from '@/lib/stripe-connect'
 
 export async function POST(request: Request) {
   const supabase = createClient()
@@ -18,15 +17,19 @@ export async function POST(request: Request) {
   const origin = request.headers.get('origin') ?? process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'
 
   try {
+    const stripe = getStripe()
     let accountId = expert.stripe_account_id
 
-    if (!accountId) {
+    const currentStatus = await getStripeConnectStatus(accountId)
+    if (!accountId || !currentStatus.accountExists) {
       const account = await stripe.accounts.create({
         type: 'express',
         capabilities: { card_payments: { requested: true }, transfers: { requested: true } },
       })
       accountId = account.id
       await supabase.from('experts').update({ stripe_account_id: accountId }).eq('id', expert.id)
+    } else if (!currentStatus.readyForDestinationCharges && !currentStatus.statusCheckFailed) {
+      await requestTransfersCapability(accountId)
     }
 
     const accountLink = await stripe.accountLinks.create({
@@ -37,8 +40,13 @@ export async function POST(request: Request) {
     })
 
     return NextResponse.json({ url: accountLink.url })
-  } catch (err: any) {
-    console.error('[stripe/connect/onboard]', err)
-    return NextResponse.json({ error: err.message ?? 'Error al conectar Stripe' }, { status: 500 })
+  } catch (error) {
+    console.error('[stripe/connect/onboard] Unable to continue onboarding', {
+      code: getStripeErrorCode(error),
+      expertId: expert.id,
+    })
+    return NextResponse.json({
+      error: 'No hemos podido abrir la configuración de Stripe. Inténtalo de nuevo en unos minutos.',
+    }, { status: 500 })
   }
 }

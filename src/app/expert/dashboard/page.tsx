@@ -5,9 +5,7 @@ import AppNav from '@/components/layout/AppNav'
 import ConnectStripeButton from './ConnectStripeButton'
 import ExpertTierManager from './ExpertTierManager'
 import ExpertAvailabilityToggle from './ExpertAvailabilityToggle'
-import Stripe from 'stripe'
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
+import { getStripeConnectStatus } from '@/lib/stripe-connect'
 
 export default async function ExpertDashboardPage({
   searchParams,
@@ -34,15 +32,9 @@ export default async function ExpertDashboardPage({
 
   if (!expert) redirect('/dashboard')
 
-  // Check Stripe Connect status
-  let chargesEnabled = false
-  if (expert.stripe_account_id) {
-    try {
-      const account = await stripe.accounts.retrieve(expert.stripe_account_id)
-      chargesEnabled = account.charges_enabled
-    } catch {}
-  }
-  const stripeConnected = !!expert.stripe_account_id && chargesEnabled
+  const stripeStatus = await getStripeConnectStatus(expert.stripe_account_id)
+  const stripeConnected = stripeStatus.readyForDestinationCharges
+  const stripeStatusUnavailable = !!expert.stripe_account_id && stripeStatus.statusCheckFailed
 
   const { data: orders } = await supabase
     .from('orders')
@@ -126,18 +118,32 @@ export default async function ExpertDashboardPage({
         />
 
         {/* Banner Stripe Connect */}
-        {!stripeConnected && (
+        {!stripeConnected && !stripeStatusUnavailable && (
           <div style={{
             background: 'rgba(255,107,43,0.06)', border: '1px solid rgba(255,107,43,0.3)',
             padding: '20px 24px', marginBottom: 24,
           }}>
             <div style={{ fontSize: 14, color: 'var(--accent)', fontWeight: 600, marginBottom: 6 }}>
-              Conecta tu cuenta de cobro
+              {expert.stripe_account_id ? 'Completa la configuración de cobro' : 'Conecta tu cuenta de cobro'}
             </div>
             <p style={{ fontSize: 13, color: 'var(--text2)', margin: '0 0 16px', lineHeight: 1.6 }}>
-              Para poder recibir pedidos necesitas vincular tu cuenta de Stripe. Stripe te guiará para añadir tu cuenta bancaria de forma segura.
+              Para poder recibir pedidos, Stripe debe confirmar que tu cuenta puede aceptar transferencias. Abre la configuración y completa cualquier dato pendiente.
             </p>
             <ConnectStripeButton label={expert.stripe_account_id ? 'COMPLETAR ONBOARDING →' : 'CONECTAR STRIPE →'} />
+          </div>
+        )}
+
+        {stripeStatusUnavailable && (
+          <div style={{
+            background: 'rgba(255,214,0,0.06)', border: '1px solid rgba(255,214,0,0.24)',
+            padding: '16px 20px', marginBottom: 24,
+          }}>
+            <div style={{ fontSize: 14, color: 'var(--yellow)', fontWeight: 600, marginBottom: 6 }}>
+              No podemos comprobar Stripe ahora mismo
+            </div>
+            <p style={{ fontSize: 13, color: 'var(--text2)', margin: 0, lineHeight: 1.6 }}>
+              Tu cuenta sigue vinculada. Vuelve a cargar el panel en unos minutos antes de aceptar un nuevo pedido.
+            </p>
           </div>
         )}
 

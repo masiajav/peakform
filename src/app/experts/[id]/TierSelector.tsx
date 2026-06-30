@@ -59,7 +59,7 @@ export default function TierSelector({ expert, hasUsedTrial, isLoggedIn, stripeC
         body: JSON.stringify({ expertId: expert.id, tier: currentSelection }),
       })
       const data = await res.json()
-      if (!res.ok) throw new Error(data.error || 'Error al crear la sesion de pago')
+      if (!res.ok) throw new Error(data.error || 'No hemos podido iniciar el pago')
       window.location.href = data.url
     } catch (e: any) {
       setError(e.message)
@@ -251,7 +251,7 @@ export default function TierSelector({ expert, hasUsedTrial, isLoggedIn, stripeC
           padding: '16px 20px', textAlign: 'center',
         }}>
           <p style={{ fontSize: 13, color: 'var(--text2)', margin: 0 }}>
-            Este experto aun no ha configurado su cuenta de cobro. Vuelve pronto.
+            La cuenta de cobro de este experto todavía no está disponible. No puedes completar el pedido ahora mismo.
           </p>
         </div>
       ) : isLoggedIn ? (

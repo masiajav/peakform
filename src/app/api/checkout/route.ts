@@ -1,9 +1,8 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
-import Stripe from 'stripe'
 import { calculateTotal, TIER_CONFIG, OrderTier } from '@/types'
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
+import { getStripe } from '@/lib/stripe'
+import { getStripeConnectStatus, getStripeErrorCode } from '@/lib/stripe-connect'
 
 type ExpertRow = {
   id: string
@@ -38,9 +37,15 @@ export async function POST(request: Request) {
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
-  const { expertId, tier } = await request.json() as { expertId: string; tier: OrderTier }
+  let payload: { expertId?: string; tier?: OrderTier }
+  try {
+    payload = await request.json()
+  } catch {
+    return NextResponse.json({ error: 'La solicitud de pago no es válida' }, { status: 400 })
+  }
+  const { expertId, tier } = payload
 
-  if (!expertId || !['starter', 'pro', 'deep_dive', 'trial'].includes(tier)) {
+  if (!expertId || !tier || !['starter', 'pro', 'deep_dive', 'trial'].includes(tier)) {
     return NextResponse.json({ error: 'Parámetros inválidos' }, { status: 400 })
   }
 
@@ -59,7 +64,21 @@ export async function POST(request: Request) {
   if (tier !== 'trial' && expert[ENABLED_FIELD[tier]] === false) {
     return NextResponse.json({ error: 'Este tier no esta disponible ahora mismo' }, { status: 400 })
   }
-  if (!expert.stripe_account_id) return NextResponse.json({ error: 'Este experto aún no tiene cuenta de cobro configurada' }, { status: 400 })
+  if (!expert.stripe_account_id) {
+    return NextResponse.json({ error: 'La cuenta de cobro de este experto todavía no está disponible' }, { status: 409 })
+  }
+
+  const connectStatus = await getStripeConnectStatus(expert.stripe_account_id)
+  if (connectStatus.statusCheckFailed) {
+    return NextResponse.json({
+      error: 'No hemos podido comprobar la cuenta de cobro en este momento. No se ha realizado ningún cargo. Inténtalo de nuevo en unos minutos.',
+    }, { status: 503 })
+  }
+  if (!connectStatus.readyForDestinationCharges) {
+    return NextResponse.json({
+      error: 'La cuenta de cobro de este experto todavía no está lista. No se ha realizado ningún cargo. Prueba de nuevo más tarde o elige otro experto.',
+    }, { status: 409 })
+  }
 
   // Trial-specific validations
   if (tier === 'trial') {
@@ -89,6 +108,7 @@ export async function POST(request: Request) {
 
   let session
   try {
+    const stripe = getStripe()
     session = await stripe.checkout.sessions.create({
       mode: 'payment',
       line_items: [{
@@ -119,9 +139,15 @@ export async function POST(request: Request) {
       success_url: `${origin}/dashboard?order=paid`,
       cancel_url:  `${origin}/experts/${expertId}`,
     })
-  } catch (err: any) {
-    console.error('[checkout] Stripe error:', err)
-    return NextResponse.json({ error: err.message ?? 'Error al crear sesión de pago' }, { status: 500 })
+  } catch (error) {
+    const code = getStripeErrorCode(error)
+    console.error('[checkout] Stripe session creation failed', { code, expertId })
+    const capabilityError = code === 'account_invalid' || code === 'transfers_not_allowed'
+    return NextResponse.json({
+      error: capabilityError
+        ? 'La cuenta de cobro de este experto todavía no está lista. No se ha realizado ningún cargo.'
+        : 'No hemos podido iniciar el pago. Inténtalo de nuevo en unos minutos.',
+    }, { status: capabilityError ? 409 : 500 })
   }
 
   return NextResponse.json({ url: session.url })
