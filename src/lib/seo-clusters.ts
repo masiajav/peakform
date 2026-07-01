@@ -21,6 +21,7 @@ export type CounterPillar = {
   name: string
   role: string
   updatedAt: string
+  schemaDate?: string
   reviewedPatch: string
   seoTitle: string
   seoDescription: string
@@ -53,6 +54,7 @@ export type TeamCompPillar = {
   slug: string
   name: string
   updatedAt: string
+  schemaDate?: string
   reviewedPatch: string
   seoTitle: string
   seoDescription: string
@@ -840,10 +842,336 @@ const KIRIKO_COUNTER: CounterPillar = {
   ],
 }
 
+const KIRIKO_TEAM_COMP: TeamCompPillar = {
+  slug: 'kiriko',
+  name: 'Kiriko',
+  updatedAt: '1 de julio de 2026',
+  schemaDate: '2026-07-01',
+  reviewedPatch: 'Season 3, Into the Tiger\'s Den',
+  seoTitle: 'Composiciones con Kiriko en Overwatch: dive, rush y Kitsune',
+  seoDescription: 'Composiciones recomendadas con Kiriko en Overwatch para 5v5 y 6v6: dive, rush, Kitsune Rush, responsabilidades, rotaciones, sustituciones y errores comunes.',
+  h1: 'Composiciones con Kiriko en Overwatch: dive, rush y Kitsune',
+  intro: [
+    'Kiriko encaja en muchos equipos, pero eso no significa que todas las composiciones aprovechen igual su kit. Su mejor versión aparece cuando puede alternar curación con presión, llegar a una entrada mediante Paso ligero y guardar Suzu de protección para el momento que realmente decide la pelea.',
+    'La composición debe ofrecerle destinos seguros para teletransportarse y una dirección clara para Kitsune Rush. Si cada compañero entra por un lugar distinto, Kiriko acaba usando Paso ligero para reparar una mala decisión y se queda atrapada sin salida. Estas propuestas buscan que su movilidad acompañe un plan, no que sustituya la coordinación.',
+  ],
+  summary: [
+    'Un destino seguro para Paso ligero después del engage.',
+    'Amenazas que obliguen al rival a gastar recursos antes de Kitsune Rush.',
+    'Una ruta despejada donde el equipo pueda aprovechar la ultimate.',
+    'Otro Support que mantenga la pelea si Kiriko toma un ángulo corto.',
+  ],
+  compositions: [
+    {
+      name: 'Dive con salida doble',
+      format: '5v5',
+      style: 'Dive',
+      lineup: ['Winston', 'Genji', 'Tracer', 'Kiriko', 'Ana'],
+      winCondition: 'Winston divide la atención y los DPS atacan al objetivo que pierde movilidad. Kiriko acompaña la segunda parte del salto, mientras Ana sostiene desde una posición con visión.',
+      engagePlan: 'Winston entra con una salida prevista. Genji y Tracer esperan la primera respuesta defensiva; Kiriko usa Paso ligero solo cuando su llegada conserva una ruta segura o permite cerrar una baja. Suzu queda para negar el contraataque, no para corregir el primer daño recibido.',
+      goodMaps: 'Mapas con alturas, coberturas intermedias y laterales que permitan entrar y salir sin atravesar una calle abierta.',
+      weakAgainst: 'Equipos compactos con varias herramientas de peel, control acumulado y posiciones donde Ana pierde visión del dive.',
+      substitutions: 'D.Va por Winston si hace falta más protección; Sombra por Tracer para preparar el foco; Brigitte por Ana cuando la backline necesite resistir el dive rival.',
+    },
+    {
+      name: 'Rush de Kitsune',
+      format: '5v5',
+      style: 'Brawl',
+      lineup: ['Reinhardt', 'Mei', 'Cassidy', 'Kiriko', 'Lúcio'],
+      winCondition: 'El equipo cruza una zona peligrosa con velocidad, fija la pelea en una esquina y usa Kitsune Rush para repetir recursos antes de que el rival pueda separarse.',
+      engagePlan: 'Lúcio acelera la rotación y Reinhardt conserva barrera para el último tramo. Mei corta una salida, Cassidy controla el rango medio y Kiriko coloca Kitsune sobre una ruta que termine en cobertura, no en mitad de una línea abierta.',
+      goodMaps: 'Calles, puntos de Control y zonas con esquinas cercanas donde el rival no pueda retroceder indefinidamente.',
+      weakAgainst: 'Poke desde varias alturas, desplazamientos que rompen la formación y mapas donde la ruta de Kitsune se puede abandonar por un lateral.',
+      substitutions: 'Reaper por Cassidy para más presión cercana; Junker Queen por Reinhardt para un ritmo más agresivo; Baptiste por Lúcio si el equipo ya puede cerrar distancia sin velocidad.',
+    },
+    {
+      name: 'Dive de dos Tanks',
+      format: '6v6',
+      style: 'Dive',
+      lineup: ['Winston', 'D.Va', 'Genji', 'Tracer', 'Kiriko', 'Ana'],
+      winCondition: 'Winston inicia, D.Va corta el peel y los DPS convierten la presión simultánea en una baja. Kiriko estabiliza la zona de contacto sin obligar a Ana a abandonar su posición.',
+      engagePlan: 'La primera entrada fuerza movilidad, Suzu rival o control. D.Va protege la salida y Kiriko decide si acompaña con Paso ligero o mantiene una ruta secundaria. Kitsune sirve para encadenar una segunda oleada antes de que vuelvan los recursos enemigos.',
+      goodMaps: 'Escenarios verticales con varios accesos a la backline y espacio suficiente para que Ana mantenga línea de visión.',
+      weakAgainst: 'Brawl cerrado, control en área y equipos que sobreviven al primer salto sin perder su posición.',
+      substitutions: 'Zarya por D.Va para proteger una entrada concreta; Brigitte por Ana frente a dive; Echo por Tracer si la presión aérea abre mejores ángulos.',
+    },
+  ],
+  responsibilities: [
+    { title: 'Tank', body: 'Marca una entrada que Kiriko pueda leer y deja una cobertura o un aliado accesible para su salida. Si encadena movilidad sin mirar atrás, Paso ligero se convierte en una trampa.' },
+    { title: 'DPS', body: 'Fuerzan el primer recurso sin exigir Suzu de inmediato. La presión cruzada es más útil que apilarse en el mismo ángulo y recibir todos el mismo control.' },
+    { title: 'Segundo Support', body: 'Mantiene al equipo estable durante los segundos en que Kiriko busca daño o acompaña una entrada. También acuerda qué defensiva responde a cada amenaza.' },
+    { title: 'Kiriko', body: 'Alterna Ofuda y kunáis desde una cobertura cercana, conserva Paso ligero cuando no conoce la salida y usa Suzu contra una condición concreta, no contra cualquier daño pequeño.' },
+  ],
+  rotationPlan: [
+    'Elige la siguiente cobertura y comprueba quién será el destino de Paso ligero.',
+    'Presenta presión desde dos ángulos sin gastar todavía Suzu ni la movilidad principal.',
+    'Fuerza una defensiva rival antes de comprometer el engage completo.',
+    'Entra en la misma zona y usa Kitsune Rush sobre una ruta que tenga final seguro.',
+    'Si no aparece una baja, corta la persecución y conserva una salida para la segunda oleada.',
+  ],
+  weaknesses: [
+    'Kiriko usa Paso ligero hacia el primer compañero que recibe daño y pierde su salida.',
+    'Suzu se gasta durante la preparación y falta cuando llega anti-curación, control o una ultimate.',
+    'Kitsune Rush apunta a una calle que el rival puede abandonar sin ceder el objetivo.',
+    'El segundo Support queda aislado mientras Kiriko acompaña cada entrada.',
+    'Todo el equipo se apila dentro de Kitsune y recibe la misma respuesta en área.',
+    'Kiriko solo cura y la composición pierde la presión que debía abrir el engage.',
+  ],
+  examples: [
+    { title: 'Paso ligero con salida', body: 'Winston salta a una altura y fuerza movilidad. Kiriko espera a que D.Va ocupe una cobertura cercana antes de teletransportarse. Cuando el rival gira, Suzu protege la retirada y ambos Tanks vuelven con vida.' },
+    { title: 'Kitsune con destino', body: 'Reinhardt rota hasta una esquina con velocidad. Kiriko no lanza la ultimate desde el spawn: espera a que Mei corte la salida y coloca Kitsune hacia la siguiente cobertura. El equipo puede avanzar sin quedar expuesto al terminar.' },
+    { title: 'No reparar cada error', body: 'Genji entra antes del salto y queda fuera de visión. Kiriko no usa Paso ligero por reflejo. Mantiene al Tank, conserva Suzu y el equipo prepara una segunda entrada en lugar de convertir un error en dos muertes.' },
+  ],
+  checklist: [
+    'Sé quién será mi destino de Paso ligero antes del engage.',
+    'Suzu tiene una amenaza concreta que responder.',
+    'Kitsune Rush conduce hacia cobertura u objetivo útil.',
+    'El segundo Support puede sostener al equipo si tomo un ángulo.',
+    'La composición crea presión aunque la ultimate no esté disponible.',
+    'Existe un plan de salida si el primer engage no consigue una baja.',
+  ],
+  faqs: [
+    { question: '¿Cuál es la mejor composición con Kiriko?', answer: 'Dive con Winston o un rush rápido aprovechan muy bien su movilidad, Suzu y Kitsune Rush. La mejor opción depende del mapa: Kiriko necesita destinos seguros en dive y una ruta clara en brawl.' },
+    { question: '¿Kiriko combina bien con Reinhardt?', answer: 'Sí. Suzu puede proteger una entrada comprometida y Kitsune acelera el ritmo del brawl. A cambio, el equipo necesita velocidad o coberturas para llegar al rango de martillo sin gastar todos sus recursos.' },
+    { question: '¿Qué Support funciona mejor junto a Kiriko?', answer: 'Ana aporta alcance y Nano, Lúcio da velocidad y Brigitte protege la backline. Baptiste también encaja en brawl. Elige según quién sostendrá la pelea cuando Kiriko acompañe un ángulo.' },
+    { question: '¿Cuándo debería usar Kitsune Rush?', answer: 'Cuando el equipo pueda recorrer su ruta y ya exista una razón para avanzar: un cooldown rival gastado, una rotación terminada o un objetivo aislado. Lanzarla sin espacio permite al rival retirarse.' },
+    { question: '¿Kiriko debe seguir siempre al dive?', answer: 'No. Paso ligero permite acompañarlo, pero no obliga a hacerlo. Si la llegada no tiene salida o deja solo al otro Support, suele ser mejor sostener desde atrás y preparar la siguiente oleada.' },
+  ],
+  links: [
+    { href: '/heroes/kiriko', label: 'Guía completa de Kiriko' },
+    { href: '/counters/kiriko', label: 'Counters de Kiriko' },
+    { href: '/guides/como-jugar-kiriko-ranked-overwatch', label: 'Cómo jugar Kiriko en ranked' },
+    { href: '/team-comps/genji', label: 'Composiciones con Genji' },
+    { href: '/guides/como-elegir-composicion-dive-poke-brawl', label: 'Cómo elegir una composición' },
+    { href: '/experts', label: 'Revisar una composición en tu VOD' },
+  ],
+}
+
+const REINHARDT_COUNTER: CounterPillar = {
+  slug: 'reinhardt',
+  name: 'Reinhardt',
+  role: 'Tank',
+  updatedAt: '1 de julio de 2026',
+  schemaDate: '2026-07-01',
+  reviewedPatch: 'Season 3, Into the Tiger\'s Den',
+  seoTitle: 'Counters de Reinhardt en Overwatch: rompe su ritmo de brawl',
+  seoDescription: 'Aprende a jugar contra Reinhardt en Overwatch: mejores counters, cómo presionar su barrera, castigar Charge, respetar Earthshatter y adaptar cada rol.',
+  h1: 'Counters de Reinhardt en Overwatch: rompe su ritmo de brawl',
+  intro: [
+    'Reinhardt domina cuando consigue caminar hasta una esquina con recursos, obliga a tu equipo a retroceder y convierte la pelea en un intercambio corto de martillo. Su counter más fiable no es disparar sin pausa a la barrera: es hacerle pagar cada metro, abrir más de un ángulo y entrar cuando ya no puede proteger al mismo tiempo su vida y la de su equipo.',
+    'También conviene separar al héroe de la composición. Un Reinhardt sin velocidad, sin curación cercana o sin una ruta segura tiene muchos más problemas que uno acompañado por Mei, Lúcio y una backline estable. Si solo miras al Tank, puedes ignorar los recursos que realmente le permiten avanzar.',
+  ],
+  summary: [
+    'Ataca desde más de un ángulo para que la barrera no cubra todo.',
+    'Presiona cuando la barrera esté baja, no después de que se haya recuperado.',
+    'Mantén distancia de Charge cerca de paredes y esquinas.',
+    'Cuenta Earthshatter y evita una formación completamente alineada.',
+  ],
+  threats: [
+    {
+      name: 'Orisa',
+      href: '/heroes/orisa',
+      danger: 'Puede disputar el espacio cercano, interrumpir una entrada y resistir el momento en que Reinhardt quiere convertir la pelea en martillazos.',
+      signal: 'Reinhardt baja la barrera para avanzar o prepara Charge cerca de una pared.',
+      response: 'No gastes todas las herramientas sobre la barrera. Conserva una respuesta para su avance y vuelve a presionar cuando pierda apoyo o tenga que cubrirse.',
+    },
+    {
+      name: 'Ramattra',
+      href: '/heroes/ramattra',
+      danger: 'Alterna presión a distancia con una fase cercana que obliga a Reinhardt a ceder o recibir daño sin resolverlo únicamente con la barrera.',
+      signal: 'La barrera de Reinhardt ya ha absorbido poke y su equipo no puede acompañar el siguiente paso.',
+      response: 'Usa el cambio de ritmo para forzar espacio, pero no persigas más allá de tu propia cobertura cuando termine la ventana fuerte.',
+    },
+    {
+      name: 'Bastion',
+      href: '/heroes/bastion',
+      danger: 'Su ventana de daño obliga a Reinhardt a gastar barrera, esconderse o perderla antes de llegar al rango que necesita.',
+      signal: 'Reinhardt cruza una zona abierta sin una esquina cercana o levanta barrera demasiado pronto.',
+      response: 'Coordina el burst cuando no pueda cortar línea de visión. Si se cubre, no persigas la configuración: ya has frenado la rotación.',
+    },
+    {
+      name: 'Mei',
+      href: '/heroes/mei',
+      danger: 'Muro de hielo puede separar a Reinhardt de sus supports y castigar una rotación que parecía segura detrás de la barrera.',
+      signal: 'Reinhardt cruza primero una puerta o esquina mientras su backline aún está al otro lado.',
+      response: 'Espera la separación y concentra daño. Evita usar el muro sin seguimiento, porque puede regalarle cobertura para recuperar recursos.',
+    },
+    {
+      name: 'Ana',
+      href: '/heroes/ana',
+      danger: 'Dardo tranquilizante castiga Charge y Granada biótica elimina el sustain que necesita cuando baja la barrera para pelear.',
+      signal: 'Reinhardt entra sin barrera o queda aislado delante de la cobertura de sus supports.',
+      response: 'No lances ambos cooldowns contra la barrera. Espera la animación de Charge, una esquina mal tomada o el momento en que empiece a golpear.',
+    },
+    {
+      name: 'Echo',
+      href: '/heroes/echo',
+      danger: 'Crea presión vertical y lateral que la barrera frontal no puede cubrir a la vez, especialmente en mapas abiertos.',
+      signal: 'Reinhardt mira al frente mientras su backline carece de una cobertura superior o lateral.',
+      response: 'Mantén el ángulo sin volar sobre todo el equipo. La meta es dividir su atención y forzar recursos, no entrar sola a rango de brawl.',
+    },
+  ],
+  cooldownWindows: [
+    { title: 'Barrera baja o rota', body: 'Es la ventana más clara para daño, anti-curación y control. Comunica su estado y avanza antes de que Reinhardt pueda esconderse y recuperarla por completo.' },
+    { title: 'Charge comprometida', body: 'Cuando atraviesa a su equipo o falla contra una pared, pierde la protección de la formación. Castiga la posición final, pero comprueba antes si sus compañeros pueden seguirlo.' },
+    { title: 'Sin esquina cercana', body: 'En espacio abierto debe elegir entre caminar con barrera o recibir daño. Mantén la distancia y no le regales una pelea corta avanzando hacia él.' },
+    { title: 'Earthshatter gastado', body: 'Después de usar la ultimate, puedes jugar más alineado y agresivo durante la siguiente ventana. Antes de verla, reparte posiciones para que una sola caída no decida toda la pelea.' },
+  ],
+  adaptations: [
+    'Como Tank, disputa la esquina y su ruta, no solo la barra de vida de Reinhardt. Oblígalo a gastar recursos antes de llegar al objetivo.',
+    'Como DPS, crea un ángulo lateral corto que siga conectado con tu equipo. Dos líneas de daño son más difíciles de cubrir que una sola muy fuerte.',
+    'Como Support, guarda anti-curación, control o desplazamiento para cuando baje la barrera y se comprometa.',
+    'Retrocede antes de estar a rango de martillo. Ceder dos metros a tiempo es mejor que intentar escapar cuando ya está encima.',
+    'Si tiene Lúcio, vigila el cambio de velocidad. El engage empieza cuando acelera la esquina, no cuando Reinhardt ya te está golpeando.',
+    'En mapas cerrados, usa alturas y rutas laterales para evitar que todas las peleas ocurran en su distancia favorita.',
+  ],
+  mistakes: [
+    'Disparar todos al centro de la barrera desde el mismo ángulo.',
+    'Acercarse a una pared cuando Charge sigue disponible.',
+    'Gastar control sobre la barrera y no tener respuesta cuando avanza.',
+    'Olvidar Earthshatter después de varias peleas sin verlo.',
+    'Perseguir a Reinhardt hacia una esquina donde recupera barrera y curación.',
+    'Elegir poke y después abandonar la distancia para pelear el objetivo demasiado pronto.',
+  ],
+  examples: [
+    { title: 'La esquina cuesta recursos', body: 'Reinhardt avanza con barrera por una calle. Echo toma un lateral alto y Bastion mantiene el frente. La barrera no puede mirar a ambos; cuando queda baja, Ana espera el paso de la esquina y usa Granada sobre el brawl.' },
+    { title: 'Charge no arrastra al equipo', body: 'Reinhardt carga sobre Orisa y termina detrás de la cobertura. Orisa no lo sigue a ciegas: gira, corta la ayuda rival y permite que sus DPS castiguen la posición aislada.' },
+    { title: 'Respeto a Earthshatter', body: 'El equipo sabe que Reinhardt no ha usado ultimate en dos peleas. Ana juega desplazada y el Tank evita saltar a la vez que sus DPS. Earthshatter derriba a una persona, no a cinco, y la pelea continúa.' },
+  ],
+  checklist: [
+    'Atacamos la barrera desde más de una dirección.',
+    'Sé dónde puede terminar una Charge.',
+    'Conservo un recurso para cuando Reinhardt baje la barrera.',
+    'No entro a rango de martillo sin una ventaja clara.',
+    'Tengo localizada la velocidad y curación que acompañan su engage.',
+    'Repartimos posiciones cuando Earthshatter está disponible.',
+  ],
+  faqs: [
+    { question: '¿Cuál es el mejor counter de Reinhardt?', answer: 'Orisa y Ramattra pueden disputar su ritmo, mientras Bastion, Mei, Ana y Echo castigan barrera, rotaciones o ángulos. El mejor counter depende de si el problema es su avance, su sustain o el mapa.' },
+    { question: '¿Debo romper siempre la barrera de Reinhardt?', answer: 'Solo si tu equipo puede aprovechar la ventana. Dispararla sin coordinación permite que la recupere detrás de una esquina. Es mejor presionarla desde varios ángulos y avanzar cuando esté realmente baja.' },
+    { question: '¿Cómo evito Earthshatter?', answer: 'Cuenta la ultimate, evita una línea de cinco jugadores y conserva barreras, movilidad o cobertura cuando esperes su uso. No necesitas adivinar el instante exacto si tu formación limita su impacto.' },
+    { question: '¿Cómo juego contra Reinhardt en un mapa cerrado?', answer: 'Disputa las esquinas antes de que llegue, usa alturas cuando existan y no te quedes atrapado en una puerta. Mei, desplazamientos y anti-curación ganan valor cuando su ruta es previsible.' },
+    { question: '¿Hace falta cambiar de Tank contra Reinhardt?', answer: 'No siempre. Puedes ganar con otro Tank si controlas distancia, esquinas y recursos. Cambia cuando el mapa te obliga a pelear en su rango y tu elección no puede crear una condición de victoria distinta.' },
+  ],
+  links: [
+    { href: '/heroes/reinhardt', label: 'Guía completa de Reinhardt' },
+    { href: '/team-comps/reinhardt', label: 'Composiciones con Reinhardt' },
+    { href: '/guides/como-jugar-reinhardt-ranked-overwatch', label: 'Cómo jugar Reinhardt en ranked' },
+    { href: '/guides/como-mejorar-como-tank-overwatch', label: 'Cómo mejorar como Tank' },
+    { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Cómo revisar cooldowns' },
+    { href: '/experts', label: 'Revisar una partida con un experto' },
+  ],
+}
+
+const REINHARDT_TEAM_COMP: TeamCompPillar = {
+  slug: 'reinhardt',
+  name: 'Reinhardt',
+  updatedAt: '1 de julio de 2026',
+  schemaDate: '2026-07-01',
+  reviewedPatch: 'Season 3, Into the Tiger\'s Den',
+  seoTitle: 'Composiciones con Reinhardt en Overwatch: brawl y rush',
+  seoDescription: 'Composiciones recomendadas con Reinhardt en Overwatch para 5v5 y 6v6: rush, brawl, rotaciones, responsabilidades, mapas, sustituciones y errores comunes.',
+  h1: 'Composiciones con Reinhardt en Overwatch: brawl y rush',
+  intro: [
+    'Reinhardt necesita que el equipo comparta su ruta y su ritmo. La barrera puede ayudar a cruzar una zona, pero no sustituye la cobertura ni permite caminar indefinidamente contra cinco jugadores. Sus mejores composiciones reducen el tiempo que pasa expuesto, fijan la pelea cerca de una esquina y convierten cada recurso rival gastado en espacio real.',
+    'El error habitual es formar un brawl en la selección de héroes y jugarlo como cinco duelos separados. Reinhardt funciona cuando velocidad, Muro de hielo, daño cercano y curación se encadenan. No hace falta una comunicación perfecta: basta con acordar qué esquina se toma, quién abre la entrada y qué señal indica que toca retroceder.',
+  ],
+  summary: [
+    'Velocidad, cobertura o control para llegar al rango de martillo.',
+    'DPS capaces de castigar al objetivo que no puede retroceder.',
+    'Supports que sobrevivan cerca sin apilarse detrás de la barrera.',
+    'Una señal para avanzar y otra para cortar la pelea.',
+  ],
+  compositions: [
+    {
+      name: 'Rush clásico de esquina',
+      format: '5v5',
+      style: 'Brawl',
+      lineup: ['Reinhardt', 'Mei', 'Cassidy', 'Lúcio', 'Kiriko'],
+      winCondition: 'Lúcio reduce el tiempo de aproximación, Mei corta la retirada y Reinhardt fija una pelea corta donde Cassidy puede castigar al objetivo aislado.',
+      engagePlan: 'El equipo rota por cobertura y guarda barrera para el último cruce. Lúcio acelera la entrada, Mei espera a que un rival pase la esquina y Kiriko conserva Suzu para el contraataque o el control que detenga a Reinhardt.',
+      goodMaps: 'Control, calles estrechas y puntos con esquinas frecuentes donde el rival no pueda mantener una línea larga de poke.',
+      weakAgainst: 'Alturas separadas, poke desde varios ángulos y equipos que pueden abandonar el Muro sin ceder espacio importante.',
+      substitutions: 'Reaper por Cassidy para más daño cercano; Symmetra por Mei para rotaciones concretas; Baptiste por Kiriko si hace falta más daño frontal y una segunda red defensiva.',
+    },
+    {
+      name: 'Brawl de sustain',
+      format: '5v5',
+      style: 'Brawl',
+      lineup: ['Reinhardt', 'Reaper', 'Mei', 'Lúcio', 'Baptiste'],
+      winCondition: 'El equipo sobrevive al primer intercambio, mantiene al rival dentro de una zona pequeña y gana por daño sostenido cuando ya no quedan salidas cómodas.',
+      engagePlan: 'Reinhardt y Mei toman la primera esquina sin precipitar Charge. Lúcio acelera solo cuando el rival ha gastado movilidad o cede la cobertura. Baptiste coloca su utilidad donde el equipo pueda pelear sin abandonar el ángulo.',
+      goodMaps: 'Zonas cerradas, objetivos que obligan a acercarse y rutas donde Reaper puede cambiar de ángulo sin desconectarse del equipo.',
+      weakAgainst: 'Anti-curación bien ordenada, burst que fuerza recursos antes del contacto y mapas abiertos con demasiada distancia.',
+      substitutions: 'Cassidy por Reaper para controlar rango medio; Kiriko por Baptiste contra efectos que deban limpiarse; Junkrat por Mei en pasillos donde la presión de área sea más valiosa que el muro.',
+    },
+    {
+      name: 'Reinhardt y Zarya 6v6',
+      format: '6v6',
+      style: 'Brawl',
+      lineup: ['Reinhardt', 'Zarya', 'Cassidy', 'Mei', 'Lúcio', 'Baptiste'],
+      winCondition: 'Zarya protege el momento en que Reinhardt baja la barrera, mientras Mei y Cassidy controlan la zona en la que el brawl quiere quedarse.',
+      engagePlan: 'La primera burbuja permite cruzar o dar los primeros golpes, no cargar solo hasta la backline. Lúcio mantiene unido al bloque y Baptiste guarda su recurso defensivo para cuando barrera y burbujas ya no puedan sostener la pelea.',
+      goodMaps: 'Calles, puntos cerrados y escenarios donde dos Tanks puedan rotar recursos sin perder contacto con sus supports.',
+      weakAgainst: 'Presión vertical, composiciones que dividen el mapa y equipos que esperan a que se gasten las burbujas antes de comprometer daño.',
+      substitutions: 'D.Va por Zarya para cubrir alturas; Reaper por Cassidy en peleas muy cercanas; Kiriko por Baptiste cuando Suzu resuelva mejor el control rival.',
+    },
+  ],
+  responsibilities: [
+    { title: 'Reinhardt', body: 'Elige la ruta, administra barrera y decide cuándo termina el avance. Charge sirve para confirmar una ventaja o recorrer una distancia segura, no para abandonar a cuatro compañeros.' },
+    { title: 'Segundo Tank o DPS', body: 'Castiga al objetivo que Reinhardt obliga a retroceder y cubre el ángulo que la barrera no mira. En 6v6, el segundo Tank alterna recursos en lugar de duplicarlos.' },
+    { title: 'Lúcio o iniciador', body: 'Marca el cambio de ritmo. La velocidad debe cruzar una zona o cerrar una baja; usarla sin que el equipo esté listo deja a Reinhardt solo.' },
+    { title: 'Backline', body: 'Juega cerca de coberturas diferentes y conserva una respuesta para el momento en que la barrera quede baja. Seguir la ruta no significa apilarse en una sola línea.' },
+  ],
+  rotationPlan: [
+    'Señala la siguiente esquina y llega a ella usando cobertura antes que barrera.',
+    'Presiona desde el rango disponible para forzar una respuesta rival.',
+    'Acelera el último tramo cuando exista un objetivo o cooldown concreto que castigar.',
+    'Fija la pelea con Muro, control o daño cruzado y evita seguir avanzando por inercia.',
+    'Si no consigues ventaja, vuelve a la esquina y recupera barrera antes del siguiente intento.',
+  ],
+  weaknesses: [
+    'Reinhardt consume toda la barrera antes de llegar a la zona de pelea.',
+    'Lúcio acelera cuando los DPS y supports todavía están rotando.',
+    'Mei separa a un objetivo, pero el equipo continúa golpeando al Tank equivocado.',
+    'La backline se coloca en fila y una sola ultimate alcanza a todos.',
+    'Charge convierte una entrada coordinada en una persecución sin cobertura.',
+    'La composición insiste en el frente mientras el rival domina alturas y laterales.',
+  ],
+  examples: [
+    { title: 'Barrera para el tramo importante', body: 'El equipo cruza la primera calle por edificios y Reinhardt apenas gasta barrera. Lúcio acelera los últimos metros, Mei corta al Tank rival y la barrera sigue disponible para proteger el intercambio real.' },
+    { title: 'Kitsune no sustituye la rotación', body: 'Kiriko espera a que el grupo alcance la esquina antes de usar Kitsune Rush. La ruta termina en el objetivo y Reinhardt puede alternar martillo y barrera sin atravesar espacio abierto durante toda la ultimate.' },
+    { title: 'Salida acordada', body: 'El primer engage fuerza dos defensivas, pero no una baja. Reinhardt vuelve a la esquina en lugar de cargar. El equipo recupera barrera y velocidad, y la segunda entrada llega antes de que vuelvan los recursos rivales.' },
+  ],
+  checklist: [
+    'El equipo conoce la primera esquina que quiere ocupar.',
+    'Existe velocidad, control o cobertura para cerrar distancia.',
+    'La barrera llegará con vida al intercambio principal.',
+    'Los DPS saben qué objetivo castigar cuando empiece el brawl.',
+    'Los supports no dependen de colocarse exactamente detrás de Reinhardt.',
+    'Tenemos una señal para retirarnos y preparar otra entrada.',
+  ],
+  faqs: [
+    { question: '¿Cuál es la mejor composición con Reinhardt?', answer: 'Un rush con Mei, un DPS de rango medio, Lúcio y Kiriko es una base flexible. En mapas muy cerrados, Reaper y Baptiste aportan más sustain y daño cercano.' },
+    { question: '¿Reinhardt necesita a Lúcio?', answer: 'No es obligatorio, pero la velocidad corrige su principal limitación: llegar al rango útil sin perder todos los recursos. Sin Lúcio, el mapa debe ofrecer coberturas o el equipo necesita otra herramienta de rotación.' },
+    { question: '¿Kiriko o Baptiste con Reinhardt?', answer: 'Kiriko ofrece limpieza, movilidad y Kitsune Rush; Baptiste aporta daño frontal y una defensiva estable. Elige según las amenazas rivales y la facilidad con la que tu equipo llegue a la pelea.' },
+    { question: '¿Qué DPS funcionan con Reinhardt?', answer: 'Mei ayuda a fijar la pelea, Cassidy controla rango medio y Reaper castiga de cerca. Symmetra puede resolver rotaciones específicas. Lo importante es que aprovechen el espacio, no que caminen todos detrás de la barrera.' },
+    { question: '¿Cuándo no conviene jugar una composición de Reinhardt?', answer: 'Cuando el mapa obliga a contestar varias alturas o el rival puede mantener poke desde ángulos que tu equipo no alcanza. Si cada rotación consume toda la barrera, necesitas otra ruta o un Tank distinto.' },
+  ],
+  links: [
+    { href: '/heroes/reinhardt', label: 'Guía completa de Reinhardt' },
+    { href: '/counters/reinhardt', label: 'Counters de Reinhardt' },
+    { href: '/guides/como-jugar-reinhardt-ranked-overwatch', label: 'Cómo jugar Reinhardt en ranked' },
+    { href: '/team-comps/kiriko', label: 'Composiciones con Kiriko' },
+    { href: '/guides/como-elegir-composicion-dive-poke-brawl', label: 'Cómo elegir una composición' },
+    { href: '/experts', label: 'Revisar una composición en tu VOD' },
+  ],
+}
+
 export function getCounterPillar(slug: string) {
-  return [SHION_COUNTER, ANA_COUNTER, GENJI_COUNTER, KIRIKO_COUNTER].find(pillar => pillar.slug === slug) ?? null
+  return [SHION_COUNTER, ANA_COUNTER, GENJI_COUNTER, KIRIKO_COUNTER, REINHARDT_COUNTER].find(pillar => pillar.slug === slug) ?? null
 }
 
 export function getTeamCompPillar(slug: string) {
-  return [SHION_TEAM_COMP, ANA_TEAM_COMP, GENJI_TEAM_COMP].find(pillar => pillar.slug === slug) ?? null
+  return [SHION_TEAM_COMP, ANA_TEAM_COMP, GENJI_TEAM_COMP, KIRIKO_TEAM_COMP, REINHARDT_TEAM_COMP].find(pillar => pillar.slug === slug) ?? null
 }
