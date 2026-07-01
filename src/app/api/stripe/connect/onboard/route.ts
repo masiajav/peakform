@@ -54,12 +54,6 @@ export async function POST(request: Request) {
       && currentStatus.country !== country
 
     if (countryMismatch) {
-      const supportedReplacement = currentStatus.country === 'ES' && country === 'CL'
-      if (!supportedReplacement) {
-        return NextResponse.json({
-          error: 'Este cambio de país necesita revisión manual. Contacta con soporte.',
-        }, { status: 409 })
-      }
       if (currentStatus.detailsSubmitted || currentStatus.readyForDestinationCharges) {
         return NextResponse.json({
           error: 'Esta cuenta de Stripe ya tiene actividad y no puede cambiar de país automáticamente. Contacta con soporte.',

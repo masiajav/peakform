@@ -1,10 +1,12 @@
+import { STRIPE_PLATFORM_COUNTRY, stripeCountryLabel } from '@/lib/stripe-countries'
+
 type Props = {
   country?: string | null
   compact?: boolean
 }
 
 export default function ExpertFeesNotice({ country, compact = false }: Props) {
-  const isChile = country === 'CL'
+  const isInternational = !!country && country !== STRIPE_PLATFORM_COUNTRY
 
   return (
     <section
@@ -35,8 +37,8 @@ export default function ExpertFeesNotice({ country, compact = false }: Props) {
           Replaid Lab asume la comisión de procesamiento de Stripe para estos pagos.
         </li>
         <li style={{ fontSize: 12, color: 'var(--text2)', lineHeight: 1.55 }}>
-          {isChile
-            ? 'En Chile, Stripe liquida el cobro según la moneda y el calendario de tu cuenta chilena. El cambio de divisa y posibles costes del banco pueden variar el importe final recibido.'
+          {isInternational
+            ? `En ${stripeCountryLabel(country)}, Stripe liquida el cobro según la moneda y el calendario de tu cuenta. El cambio de divisa y posibles costes del banco pueden variar el importe final recibido.`
             : 'Si tu cuenta liquida en una moneda distinta del euro, el cambio de divisa y posibles costes del banco pueden variar el importe final recibido.'}
         </li>
       </ul>

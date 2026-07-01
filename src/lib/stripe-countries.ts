@@ -1,8 +1,22 @@
 export const STRIPE_PLATFORM_COUNTRY = 'ES'
 
 export const STRIPE_COUNTRY_OPTIONS = [
-  { code: 'ES', label: 'España' },
-  { code: 'CL', label: 'Chile' },
+  { code: 'ES', label: 'España', region: 'Europa' },
+  { code: 'AR', label: 'Argentina', region: 'Latinoamérica' },
+  { code: 'BO', label: 'Bolivia', region: 'Latinoamérica' },
+  { code: 'BR', label: 'Brasil', region: 'Latinoamérica' },
+  { code: 'CL', label: 'Chile', region: 'Latinoamérica' },
+  { code: 'CO', label: 'Colombia', region: 'Latinoamérica' },
+  { code: 'CR', label: 'Costa Rica', region: 'Latinoamérica' },
+  { code: 'EC', label: 'Ecuador', region: 'Latinoamérica' },
+  { code: 'SV', label: 'El Salvador', region: 'Latinoamérica' },
+  { code: 'GT', label: 'Guatemala', region: 'Latinoamérica' },
+  { code: 'MX', label: 'México', region: 'Latinoamérica' },
+  { code: 'PA', label: 'Panamá', region: 'Latinoamérica' },
+  { code: 'PY', label: 'Paraguay', region: 'Latinoamérica' },
+  { code: 'PE', label: 'Perú', region: 'Latinoamérica' },
+  { code: 'DO', label: 'República Dominicana', region: 'Latinoamérica' },
+  { code: 'UY', label: 'Uruguay', region: 'Latinoamérica' },
 ] as const
 
 export type StripeCountryCode = typeof STRIPE_COUNTRY_OPTIONS[number]['code']

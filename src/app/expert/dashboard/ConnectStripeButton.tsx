@@ -17,6 +17,7 @@ export default function ConnectStripeButton({ label, initialCountry, existingCou
   const [country, setCountry] = useState(initialCountry)
 
   const replacingCountry = !!existingCountry && existingCountry !== country
+  const countryGroups = Array.from(new Set(STRIPE_COUNTRY_OPTIONS.map(option => option.region)))
 
   async function handleClick() {
     setLoading(true)
@@ -46,8 +47,14 @@ export default function ConnectStripeButton({ label, initialCountry, existingCou
           disabled={loading || !canChangeCountry}
           style={{ minWidth: 220 }}
         >
-          {STRIPE_COUNTRY_OPTIONS.map(option => (
-            <option key={option.code} value={option.code}>{option.label}</option>
+          {countryGroups.map(region => (
+            <optgroup key={region} label={region}>
+              {STRIPE_COUNTRY_OPTIONS
+                .filter(option => option.region === region)
+                .map(option => (
+                  <option key={option.code} value={option.code}>{option.label}</option>
+                ))}
+            </optgroup>
           ))}
         </select>
       </label>
