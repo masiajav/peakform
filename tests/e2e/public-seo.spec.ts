@@ -14,6 +14,9 @@ const PUBLIC_ROUTES = [
   '/team-comps/kiriko',
   '/counters/reinhardt',
   '/team-comps/reinhardt',
+  '/counters/dva',
+  '/team-comps/dva',
+  '/counters/winston',
   '/guides/como-usar-ultimates-overwatch',
   '/guides/cuando-cambiar-de-heroe-overwatch',
   '/experts',
@@ -85,9 +88,12 @@ test('sitemap contains only the completed editorial batches', async ({ request }
   expect(xml).toContain('/team-comps/kiriko')
   expect(xml).toContain('/counters/reinhardt')
   expect(xml).toContain('/team-comps/reinhardt')
+  expect(xml).toContain('/counters/dva')
+  expect(xml).toContain('/team-comps/dva')
+  expect(xml).toContain('/counters/winston')
   expect(xml).toContain('/guides/cuando-cambiar-de-heroe-overwatch')
   expect(xml).not.toContain('tier-list-season-2-overwatch-mejores-heroes-rol')
-  expect(xml).not.toContain('/counters/dva')
+  expect(xml).not.toContain('/team-comps/winston')
 })
 
 for (const route of [
@@ -102,6 +108,9 @@ for (const route of [
   '/team-comps/kiriko',
   '/counters/reinhardt',
   '/team-comps/reinhardt',
+  '/counters/dva',
+  '/team-comps/dva',
+  '/counters/winston',
   '/guides/cuando-cambiar-de-heroe-overwatch',
 ]) {
   test(`${route} has no broken internal links`, async ({ page, request }) => {

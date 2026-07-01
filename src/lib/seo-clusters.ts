@@ -1168,10 +1168,245 @@ const REINHARDT_TEAM_COMP: TeamCompPillar = {
   ],
 }
 
+const DVA_COUNTER: CounterPillar = {
+  slug: 'dva',
+  name: 'D.Va',
+  role: 'Tank',
+  updatedAt: '1 de julio de 2026',
+  schemaDate: '2026-07-01',
+  reviewedPatch: 'Season 3, Into the Tiger\'s Den',
+  seoTitle: 'Counters de D.Va en Overwatch: juega alrededor de Matriz',
+  seoDescription: 'Aprende a jugar contra D.Va en Overwatch: mejores counters, cómo agotar Matriz de defensa, castigar Impulsores, evitar Autodestrucción y adaptar cada rol.',
+  h1: 'Counters de D.Va en Overwatch: juega alrededor de Matriz',
+  intro: [
+    'D.Va controla una pelea cuando puede alternar Matriz de defensa, Impulsores y presión cercana sin comprometer el meca. Puede negar el proyectil que abría tu engage, girar hacia un lateral y regresar a su equipo antes de que la castigues. Ganarle no consiste en disparar todo dentro de Matriz, sino en obligarla a elegir qué amenaza protege.',
+    'La posición también importa más que el daño bruto. Si D.Va usa Impulsores para perseguir un objetivo y aterriza lejos de cobertura, pierde la posibilidad de responder al otro ángulo. Esa ventana vale más que intentar destruir el meca mientras conserva todos sus recursos.',
+  ],
+  summary: [
+    'Separa proyectiles y presión de haz o cuerpo a cuerpo.',
+    'Fuerza Matriz antes de usar el recurso que decide la pelea.',
+    'Castiga el lugar donde terminan los Impulsores.',
+    'Mantén cobertura para Autodestrucción antes de que la lance.',
+  ],
+  threats: [
+    { name: 'Zarya', href: '/heroes/zarya', danger: 'Su haz mantiene presión sin depender de proyectiles que Matriz pueda negar y las burbujas castigan una entrada impulsiva.', signal: 'D.Va entra a rango cercano con Matriz activa o persigue a un aliado protegido.', response: 'Mantén el haz sobre el meca cuando baje Matriz, pero no regales energía disparando burbujas sin una baja posible.' },
+    { name: 'Symmetra', href: '/heroes/symmetra', danger: 'El haz obliga a D.Va a respetar el espacio cercano y los portales pueden cambiar el ángulo del equipo sin atravesar Matriz.', signal: 'D.Va mantiene una esquina estrecha o usa Impulsores para entrar sin apoyo inmediato.', response: 'Carga presión desde cobertura y usa el cambio de ángulo para dividir su atención; no permanezcas expuesta intentando perseguir el meca.' },
+    { name: 'Mei', href: '/heroes/mei', danger: 'Su presión cercana y Muro de hielo pueden cortar la retirada de D.Va cuando ya ha gastado Impulsores.', signal: 'D.Va cruza una puerta o aterriza delante de sus supports.', response: 'Espera el final de Impulsores y coloca el muro detrás, no delante. El equipo debe atacar al meca aislado durante esa ventana.' },
+    { name: 'Doomfist', href: '/heroes/doomfist', danger: 'Su control y daño cercano no dependen solo de proyectiles y pueden desplazar a D.Va fuera de la zona que quería proteger.', signal: 'D.Va usa Matriz mirando a un único ángulo o aterriza junto a una pared.', response: 'Coordina el desplazamiento con el daño del equipo. Entrar solo para golpear Matriz no sirve si nadie aprovecha la nueva posición.' },
+    { name: 'Brigitte', href: '/heroes/brigitte', danger: 'Protege la backline y responde a una entrada de Impulsores con daño y desplazamiento que Matriz no resuelve por sí sola.', signal: 'D.Va se lanza sobre un Support o DPS que juega cerca de Brigitte.', response: 'Conserva Whip Shot para el final de la entrada y mantén Inspire; perseguir el meca lejos de tu equipo elimina tu propia ventaja.' },
+    { name: 'Winston', href: '/heroes/winston', danger: 'Tesla y la burbuja crean una pelea que Matriz no puede controlar únicamente desde el frente.', signal: 'D.Va está separada de su backline o gasta Impulsores antes del salto.', response: 'Salta sobre la zona que ya no puede cubrir, divide la curación con la burbuja y abandona si D.Va recupera su movilidad antes de conseguir ventaja.' },
+  ],
+  cooldownWindows: [
+    { title: 'Matriz agotada', body: 'Es el momento para proyectiles, ultimates y burst. No hace falta vaciar todos los cargadores para forzarla: alterna amenazas y comunica cuándo deja de cubrir.' },
+    { title: 'Impulsores comprometidos', body: 'Mira el punto de aterrizaje. D.Va ya no puede corregir posición ni volver de inmediato a su backline, así que puedes castigarla o atacar el sector que abandonó.' },
+    { title: 'Micromisiles gastados', body: 'Su amenaza de burst baja y el duelo es más fácil de sostener. Usa esa ventana para mantener distancia, recuperar cobertura o devolver presión sin entrar en pánico.' },
+    { title: 'Meca destruido', body: 'Evita regalar la recuperación persiguiendo sin orden. Controla a la piloto, ocupa el espacio y termina la baja cuando sea seguro en lugar de abandonar el objetivo.' },
+  ],
+  adaptations: [
+    'Escalona tus proyectiles: fuerza Matriz con una amenaza y guarda la siguiente para cuando termine.',
+    'Ataca desde dos direcciones cortas. D.Va puede cubrir un frente, pero no girar gratis entre ambos.',
+    'Como Tank, castiga el espacio que abandona cuando usa Impulsores sobre tu backline.',
+    'Como DPS, espera el final de Matriz antes de usar el burst que no puedes recuperar.',
+    'Como Support, juega cerca de una cobertura que corte Micromisiles y permita sobrevivir al primer contacto.',
+    'Antes de Autodestrucción, identifica una esquina sólida; no dependas de reaccionar cuando el meca ya está volando.',
+  ],
+  mistakes: [
+    'Lanzar todos los proyectiles importantes dentro de Matriz.',
+    'Perseguir a D.Va después de Impulsores sin mirar dónde está su equipo.',
+    'Ignorar el ángulo que deja libre cuando gira para proteger a un aliado.',
+    'Gastar movilidad antes de que empiece su presión cercana.',
+    'Quedarse en espacio abierto cuando Autodestrucción está disponible.',
+    'Celebrar la pérdida del meca y regalar una recuperación por falta de foco.',
+  ],
+  examples: [
+    { title: 'Dos amenazas, una Matriz', body: 'Ana amaga Granada biótica y D.Va gira para cubrir a su Tank. Echo conserva sus proyectiles y ataca desde el lateral cuando Matriz termina. D.Va no puede negar ambas acciones con el mismo recurso.' },
+    { title: 'Castigar el aterrizaje', body: 'D.Va usa Impulsores sobre Cassidy. Mei espera el final de la trayectoria, cierra la retirada con Muro y el equipo presiona el meca antes de que recupere movilidad.' },
+    { title: 'No perseguir a la piloto', body: 'El meca cae lejos del objetivo. En vez de cruzar una puerta peligrosa para buscar a la piloto, el equipo ocupa la esquina, elimina a su Support aislado y termina la pelea con ventaja de espacio.' },
+  ],
+  checklist: [
+    'Sé qué recurso quiero usar después de Matriz.',
+    'Vigilo dónde terminan los Impulsores.',
+    'Tenemos más de un ángulo de presión.',
+    'No gasto mi movilidad antes de su entrada.',
+    'Conozco mi cobertura contra Autodestrucción.',
+    'Tras destruir el meca, priorizo la pelea antes que una persecución larga.',
+  ],
+  faqs: [
+    { question: '¿Cuál es el mejor counter de D.Va?', answer: 'Zarya, Symmetra y Mei mantienen presión que Matriz no resuelve bien; Doomfist y Brigitte castigan su posición; Winston puede atacar la zona que abandona. El mapa y el objetivo que D.Va persigue determinan la mejor respuesta.' },
+    { question: '¿Cómo se juega contra Matriz de defensa?', answer: 'Fuerza parte del recurso con una amenaza secundaria, separa tus acciones en el tiempo y usa ángulos distintos. No entregues varios cooldowns importantes a la misma Matriz.' },
+    { question: '¿Cuándo debo atacar a D.Va?', answer: 'Después de Impulsores, con Matriz baja o cuando se separa de sus supports. Son ventanas más fiables que dispararle de frente mientras conserva todo el kit.' },
+    { question: '¿Cómo evito Autodestrucción?', answer: 'Juega cerca de cobertura sólida y piensa en la trayectoria antes de que lance el meca. Barreras y movilidad ayudan, pero una esquina preparada es la respuesta más repetible.' },
+    { question: '¿Tengo que jugar Zarya contra D.Va?', answer: 'No. Zarya facilita el matchup, pero cualquier composición puede ganar si divide ángulos, fuerza Matriz y castiga Impulsores. Cambia solo si tu equipo no puede crear esas ventanas con sus picks actuales.' },
+  ],
+  links: [
+    { href: '/heroes/dva', label: 'Guía completa de D.Va' },
+    { href: '/team-comps/dva', label: 'Composiciones con D.Va' },
+    { href: '/guides/como-jugar-dva-ranked-overwatch', label: 'Cómo jugar D.Va en ranked' },
+    { href: '/guides/como-mejorar-como-tank-overwatch', label: 'Cómo mejorar como Tank' },
+    { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Cómo revisar cooldowns' },
+    { href: '/experts', label: 'Revisar una partida con un experto' },
+  ],
+}
+
+const DVA_TEAM_COMP: TeamCompPillar = {
+  slug: 'dva',
+  name: 'D.Va',
+  updatedAt: '1 de julio de 2026',
+  schemaDate: '2026-07-01',
+  reviewedPatch: 'Season 3, Into the Tiger\'s Den',
+  seoTitle: 'Composiciones con D.Va en Overwatch: dive, peel y 6v6',
+  seoDescription: 'Composiciones recomendadas con D.Va en Overwatch para 5v5 y 6v6: dive, control de alturas, peel, rotaciones, responsabilidades y sustituciones.',
+  h1: 'Composiciones con D.Va en Overwatch: dive, peel y 6v6',
+  intro: [
+    'D.Va aporta algo que pocos Tanks combinan igual: puede iniciar una presión, cubrir un recurso con Matriz y volver hacia su backline en la misma pelea. Esa flexibilidad funciona cuando el equipo crea varios ángulos y entiende qué amenaza debe negar. Si todos caminan detrás del meca, D.Va pierde gran parte de su valor.',
+    'Una buena composición tampoco exige que persiga cada objetivo. Impulsores deben llevarla a una posición útil y con salida; Matriz debe proteger el momento que decide la pelea. Las propuestas siguientes priorizan movilidad, alturas y una segunda amenaza que castigue al rival cuando gira hacia D.Va.',
+  ],
+  summary: [
+    'DPS que aprovechen el ángulo que abre D.Va.',
+    'Supports con línea de visión sobre el lugar de aterrizaje.',
+    'Una amenaza concreta que Matriz deba proteger.',
+    'Rutas de entrada y salida que no dependan de una baja inmediata.',
+  ],
+  compositions: [
+    { name: 'Dive flexible 5v5', format: '5v5', style: 'Dive', lineup: ['D.Va', 'Tracer', 'Sombra', 'Kiriko', 'Ana'], winCondition: 'Sombra identifica o fuerza un recurso, Tracer mantiene el segundo ángulo y D.Va usa Impulsores para cerrar la zona sin abandonar una ruta de vuelta.', engagePlan: 'Ana prepara daño o granada desde cobertura. D.Va entra después de ver el primer cooldown, usa Matriz sobre la respuesta importante y Kiriko conserva Paso ligero para estabilizar una entrada que tenga destino seguro.', goodMaps: 'Mapas verticales con health packs, laterales cortos y coberturas desde las que Ana pueda ver el aterrizaje.', weakAgainst: 'Anti-dive compacto, haces que atraviesan Matriz y posiciones donde D.Va debe cruzar demasiado espacio abierto.', substitutions: 'Genji por Sombra para más capacidad de remate; Brigitte por Ana frente a dive rival; Echo por Tracer si las alturas exigen presión aérea.' },
+    { name: 'Control de alturas y peel', format: '5v5', style: 'Poke', lineup: ['D.Va', 'Sojourn', 'Echo', 'Mercy', 'Kiriko'], winCondition: 'Echo y Sojourn presionan desde alturas distintas, mientras D.Va niega el burst rival y decide si acompañar la ofensiva o proteger la backline.', engagePlan: 'El equipo ocupa primero posiciones separadas pero conectadas. D.Va no entra hasta que un DPS fuerce movilidad o consiga daño; Matriz cubre la ventana de disparo y Kiriko mantiene una salida para el ángulo más agresivo.', goodMaps: 'Escenarios con high grounds, líneas medias y rutas rápidas entre posiciones elevadas.', weakAgainst: 'Brawl que alcanza el objetivo antes de que el poke cree ventaja y composiciones capaces de aislar a Mercy o Kiriko.', substitutions: 'Cassidy por Sojourn para más control cercano; Ana por Kiriko si el mapa ofrece una posición estable; Pharah por Echo según la cobertura aérea.' },
+    { name: 'Dive clásico de dos Tanks', format: '6v6', style: 'Dive', lineup: ['Winston', 'D.Va', 'Genji', 'Tracer', 'Ana', 'Brigitte'], winCondition: 'Winston inicia y D.Va cubre la entrada o corta el peel. Los DPS atacan el mismo sector mientras Ana y Brigitte sostienen una backline difícil de desplazar.', engagePlan: 'Winston marca el salto y D.Va espera medio segundo para leer la respuesta. Matriz niega Sleep, proyectiles o burst sobre la retirada; Genji y Tracer convierten el objetivo tocado en una baja.', goodMaps: 'Mapas con varias rutas verticales y una zona segura desde la que Ana pueda acompañar el dive.', weakAgainst: 'Brawl cerrado, control acumulado y saltos que atraviesan demasiadas paredes para recibir ayuda.', substitutions: 'Kiriko por Brigitte cuando la limpieza sea esencial; Sombra por Tracer para preparar foco; Zarya por D.Va si una burbuja directa protege mejor el engage.' },
+  ],
+  responsibilities: [
+    { title: 'D.Va', body: 'Decide si la pelea necesita entrada o peel. Usa Impulsores hacia cobertura y reserva Matriz para un recurso reconocible, no para daño ambiental.' },
+    { title: 'DPS', body: 'Crean presión desde ángulos distintos y avisan qué objetivo pierde movilidad. No deben esperar que D.Va haga sola la primera baja.' },
+    { title: 'Supports', body: 'Mantienen visión del destino, no de toda la trayectoria. También juegan a una distancia desde la que D.Va pueda regresar sin abandonar el frente por completo.' },
+    { title: 'Segundo Tank en 6v6', body: 'Inicia o mantiene el espacio para que D.Va pueda usar Matriz con intención. Ambos Tanks no deben gastar movilidad y defensivas al mismo tiempo.' },
+  ],
+  rotationPlan: [
+    'Ocupa un ángulo o altura antes de gastar Impulsores.',
+    'Fuerza atención con los DPS y localiza el cooldown que Matriz debe negar.',
+    'Entra sobre el mismo sector con una cobertura de aterrizaje prevista.',
+    'Si el rival gira, el segundo ángulo avanza; si no gira, D.Va mantiene presión.',
+    'Sal antes de perder el meca y prepara otra oleada con Matriz recuperada.',
+  ],
+  weaknesses: [
+    'D.Va usa Impulsores antes de que exista presión desde otro ángulo.',
+    'Matriz se consume contra daño pequeño y falta frente al cooldown importante.',
+    'Los supports intentan seguir una trayectoria que atraviesa paredes.',
+    'El equipo persigue al mismo objetivo y abandona todas las posiciones útiles.',
+    'D.Va permanece demasiado tiempo en primera línea contra haces y daño cercano.',
+    'La composición no sabe si el Tank debe entrar o proteger la backline.',
+  ],
+  examples: [
+    { title: 'Matriz con propósito', body: 'Sombra fuerza Suzu y Tracer entra por el lateral. D.Va vuela hacia Ana rival y guarda Matriz para Sleep, en vez de gastarla durante el trayecto. La entrada conserva su recurso decisivo.' },
+    { title: 'Peel sin abandonar el mapa', body: 'Un flanker salta sobre Mercy. D.Va gira con Impulsores, usa Matriz durante el burst y vuelve a la altura central. No persigue hasta el spawn: protege y recupera su posición.' },
+    { title: 'Dos Tanks, dos tiempos', body: 'Winston salta y coloca burbuja. D.Va no lo sigue de inmediato; espera a que el rival gaste control y entra entonces con Matriz. La segunda oleada evita que todas las respuestas alcancen a ambos.' },
+  ],
+  checklist: [
+    'D.Va tiene una cobertura donde terminar Impulsores.',
+    'Los DPS pueden presionar desde otro ángulo.',
+    'Matriz tiene un cooldown rival asignado.',
+    'Los supports ven la zona de contacto sin sobreextenderse.',
+    'Existe una ruta de vuelta si no aparece una baja.',
+    'El equipo sabe cuándo D.Va debe hacer peel en vez de entrar.',
+  ],
+  faqs: [
+    { question: '¿Cuál es la mejor composición con D.Va?', answer: 'Dive con DPS móviles aprovecha Impulsores y Matriz, pero también funciona en equipos de alturas donde alterna presión y peel. En 6v6, Winston y D.Va forman una pareja muy natural.' },
+    { question: '¿Qué DPS combinan con D.Va?', answer: 'Tracer, Sombra y Genji siguen entradas rápidas; Echo y Sojourn aprovechan el control de alturas. La clave es crear un segundo ángulo, no copiar exactamente la ruta del Tank.' },
+    { question: '¿Qué Supports funcionan con D.Va?', answer: 'Ana aporta alcance, Kiriko puede acompañar una entrada segura y Brigitte protege la backline. Mercy encaja en composiciones aéreas o de alturas si mantiene buenas rutas de escape.' },
+    { question: '¿D.Va debe iniciar siempre?', answer: 'No. Algunas peleas las gana protegiendo a un DPS durante su ventana o negando el burst sobre un Support. Antes de usar Impulsores, decide qué amenaza tiene más valor.' },
+    { question: '¿Cuándo no conviene jugar D.Va?', answer: 'Cuando el mapa no ofrece rutas de movilidad y el rival acumula presión cercana que Matriz no puede negar. Antes de cambiar, comprueba si estás entrando demasiado pronto o sin un segundo ángulo.' },
+  ],
+  links: [
+    { href: '/heroes/dva', label: 'Guía completa de D.Va' },
+    { href: '/counters/dva', label: 'Counters de D.Va' },
+    { href: '/guides/como-jugar-dva-ranked-overwatch', label: 'Cómo jugar D.Va en ranked' },
+    { href: '/counters/winston', label: 'Counters de Winston' },
+    { href: '/guides/como-elegir-composicion-dive-poke-brawl', label: 'Cómo elegir una composición' },
+    { href: '/experts', label: 'Revisar una composición en tu VOD' },
+  ],
+}
+
+const WINSTON_COUNTER: CounterPillar = {
+  slug: 'winston',
+  name: 'Winston',
+  role: 'Tank',
+  updatedAt: '1 de julio de 2026',
+  schemaDate: '2026-07-01',
+  reviewedPatch: 'Season 3, Into the Tiger\'s Den',
+  seoTitle: 'Counters de Winston en Overwatch: castiga su salto y burbuja',
+  seoDescription: 'Aprende a jugar contra Winston en Overwatch: mejores counters, cómo responder a Salto, jugar alrededor de la burbuja, sobrevivir a Primal Rage y adaptar cada rol.',
+  h1: 'Counters de Winston en Overwatch: castiga su salto y burbuja',
+  intro: [
+    'Winston gana valor cuando aterriza sobre un objetivo aislado, coloca la burbuja entre ese jugador y su ayuda y sale antes de que llegue la respuesta. El duelo no se resuelve mirando al aire y esperando el salto: se prepara jugando a distancia de ayuda, conservando un recurso y reconociendo dónde puede aterrizar sin cobertura.',
+    'La burbuja no solo protege a Winston. También corta curación, daño y control. Entrar y salir de ella con intención suele ser más importante que romperla de inmediato. Si obligas a Winston a usar Salto para escapar sin conseguir una baja, ya has ganado la primera parte de la pelea.',
+  ],
+  summary: [
+    'Juega a distancia de ayuda, no pegado a todo el equipo.',
+    'Guarda burst, control o desplazamiento para el aterrizaje.',
+    'Cruza la burbuja con intención para recuperar línea de visión.',
+    'Castiga cuando Salto se usa para entrar y no hay salida inmediata.',
+  ],
+  threats: [
+    { name: 'Reaper', href: '/heroes/reaper', danger: 'Su daño cercano obliga a Winston a salir antes y protege una zona de la backline sin depender de proyectiles precisos.', signal: 'Winston aterriza dentro de una cobertura cerrada o usa burbuja sobre un Support.', response: 'Espera el aterrizaje y pelea cerca de ayuda. No persigas más allá de la burbuja si el resto del dive puede aislarte.' },
+    { name: 'Bastion', href: '/heroes/bastion', danger: 'Su ventana de daño castiga un salto previsible y puede obligar a Winston a gastar burbuja solo para sobrevivir.', signal: 'Winston entra sin haber forzado antes la configuración de daño o aterriza en una zona abierta.', response: 'Activa el burst cuando la trayectoria ya esté comprometida. Si se retira, no hace falta perseguir: has negado el engage.' },
+    { name: 'D.Va', href: '/heroes/dva', danger: 'Puede acompañar el salto, negar parte del apoyo del dive y usar Impulsores para proteger al objetivo atacado.', signal: 'Winston salta lejos de su backline o coloca burbuja antes de recibir la respuesta.', response: 'Vuela hacia la zona de contacto, usa Matriz sobre el burst de sus DPS y corta la salida en lugar de quedarte golpeando la burbuja desde fuera.' },
+    { name: 'Roadhog', href: '/heroes/roadhog', danger: 'Amenaza el aterrizaje con control y daño cercano, especialmente cuando Winston no puede esconderse dentro de la burbuja.', signal: 'La burbuja está mal colocada o Winston cruza su borde para terminar una baja.', response: 'Espera a que quede fuera de la protección y coordina el control. Un intento lanzado contra la barrera solo consume tu mejor respuesta.' },
+    { name: 'Brigitte', href: '/heroes/brigitte', danger: 'Mantiene cerca a la backline, activa Inspire y usa desplazamiento para romper el ritmo del salto.', signal: 'Winston entra sobre el otro Support y sus DPS todavía no han llegado a la zona.', response: 'Guarda Whip Shot para el aterrizaje o la persecución, no para poke. Protege la salida del aliado y evita alejarte de la formación.' },
+    { name: 'Ana', href: '/heroes/ana', danger: 'Sleep Dart y Granada biótica pueden convertir un salto sin salida en una eliminación si esperan al momento correcto.', signal: 'Winston atraviesa la burbuja, aterriza sin cobertura o gasta Salto para perseguir.', response: 'No lances los cooldowns contra la barrera. Cambia de lado, recupera línea de visión y úsalos cuando Winston se comprometa.' },
+  ],
+  cooldownWindows: [
+    { title: 'Después del aterrizaje', body: 'Salto ya no está disponible de inmediato. Concentra daño y control mientras Winston decide si permanece dentro de la burbuja o retrocede.' },
+    { title: 'Burbuja mal colocada', body: 'Si no separa al objetivo de su ayuda, pierde gran parte de su valor. Mantén líneas cruzadas y obliga a Winston a pelear fuera de ella.' },
+    { title: 'Dive sin acompañamiento', body: 'Winston puede llegar antes que sus DPS o supports. Castiga esos segundos y evita gastar movilidad persiguiendo a quienes todavía no han entrado.' },
+    { title: 'Primal sin objetivo aislado', body: 'Separación y cobertura reducen su capacidad de encadenar golpes. No corras todos hacia el mismo rincón; conserva rutas distintas y vuelve al objetivo cuando termine.' },
+  ],
+  adaptations: [
+    'Juega lo bastante cerca para recibir ayuda, pero evita que Tesla y el aterrizaje alcancen a varias personas.',
+    'Mira la posible zona de caída, no toda la trayectoria del salto.',
+    'Cruza el borde de la burbuja para recuperar curación o línea de tiro en vez de quedarte bloqueado dentro.',
+    'Como Tank, presiona la backline que Winston abandona o gira para negar la baja según cuál cree más ventaja.',
+    'Como DPS, conserva burst o movilidad hasta confirmar el aterrizaje.',
+    'Como Support, cambia de posición entre peleas para que Winston no pueda repetir el mismo salto preparado.',
+  ],
+  mistakes: [
+    'Jugar completamente aislado en una altura sin ruta de ayuda.',
+    'Gastar control antes de que Winston use Salto.',
+    'Disparar a la burbuja desde fuera mientras el aliado muere dentro.',
+    'Apilarse para ayudarse y recibir todos el daño de Tesla.',
+    'Perseguir a Winston después de que escape y abandonar la pelea principal.',
+    'Correr en línea recta durante Primal Rage hacia la misma esquina que el equipo.',
+  ],
+  examples: [
+    { title: 'Ayuda sin apilarse', body: 'Ana juega en una altura y Cassidy mantiene una cobertura cercana. Winston salta sobre Ana; Cassidy gira sin colocarse dentro de Tesla, obliga a usar burbuja y ambos cruzan el borde para recuperar línea de visión.' },
+    { title: 'Castigar el salto temprano', body: 'Winston entra antes que Tracer. D.Va usa Impulsores hacia la zona, protege a Kiriko con Matriz y corta la salida. El dive pierde su primer tiempo y debe retirarse sin baja.' },
+    { title: 'Primal sin rincón gratis', body: 'Winston activa Primal Rage. Los supports se separan hacia coberturas distintas y el Tank mantiene el objetivo. Winston empuja a una persona, pero no puede encadenar todo el equipo ni convertir la ultimate en captura.' },
+  ],
+  checklist: [
+    'Tengo un aliado que puede ayudarme después del salto.',
+    'Conservo mi recurso principal para el aterrizaje.',
+    'Sé cómo cruzar o rodear la burbuja.',
+    'No regalo daño múltiple colocándome encima del equipo.',
+    'Castigo Salto sin perseguir una retirada larga.',
+    'Mantengo rutas separadas cuando Primal Rage está disponible.',
+  ],
+  faqs: [
+    { question: '¿Cuál es el mejor counter de Winston?', answer: 'Reaper y Bastion castigan el aterrizaje, D.Va puede proteger a su objetivo, Roadhog amenaza control y Brigitte o Ana aportan peel. La mejor respuesta depende de quién esté recibiendo el dive.' },
+    { question: '¿Cómo se juega alrededor de la burbuja?', answer: 'Cambia de lado para recuperar líneas de curación y daño, y evita gastar cooldowns contra la barrera. Romperla ayuda si el equipo puede hacerlo rápido, pero no siempre es la primera prioridad.' },
+    { question: '¿Cuándo debo atacar a Winston?', answer: 'Después de que use Salto para entrar, cuando la burbuja no separe bien al objetivo o si llega antes que el resto del dive. Son ventanas claras para concentrar daño.' },
+    { question: '¿Cómo sobrevivo a Primal Rage?', answer: 'Evita rincones sin salida, separa las rutas del equipo y usa cobertura para cortar la cadena de golpes. Su objetivo suele ser aislarte o sacarte del mapa, no solo hacer daño.' },
+    { question: '¿Tengo que cambiar de Support contra Winston?', answer: 'No necesariamente. Posición, distancia de ayuda y gestión de cooldowns suelen resolver más que un cambio inmediato. Cambia si el mapa te deja sin rutas seguras incluso después de ajustar esos puntos.' },
+  ],
+  links: [
+    { href: '/heroes/winston', label: 'Guía completa de Winston' },
+    { href: '/team-comps/winston', label: 'Composiciones con Winston' },
+    { href: '/guides/como-jugar-winston-ranked-overwatch', label: 'Cómo jugar Winston en ranked' },
+    { href: '/counters/dva', label: 'Counters de D.Va' },
+    { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Cómo revisar cooldowns' },
+    { href: '/experts', label: 'Revisar una partida con un experto' },
+  ],
+}
+
 export function getCounterPillar(slug: string) {
-  return [SHION_COUNTER, ANA_COUNTER, GENJI_COUNTER, KIRIKO_COUNTER, REINHARDT_COUNTER].find(pillar => pillar.slug === slug) ?? null
+  return [SHION_COUNTER, ANA_COUNTER, GENJI_COUNTER, KIRIKO_COUNTER, REINHARDT_COUNTER, DVA_COUNTER, WINSTON_COUNTER].find(pillar => pillar.slug === slug) ?? null
 }
 
 export function getTeamCompPillar(slug: string) {
-  return [SHION_TEAM_COMP, ANA_TEAM_COMP, GENJI_TEAM_COMP, KIRIKO_TEAM_COMP, REINHARDT_TEAM_COMP].find(pillar => pillar.slug === slug) ?? null
+  return [SHION_TEAM_COMP, ANA_TEAM_COMP, GENJI_TEAM_COMP, KIRIKO_TEAM_COMP, REINHARDT_TEAM_COMP, DVA_TEAM_COMP].find(pillar => pillar.slug === slug) ?? null
 }
