@@ -66,9 +66,9 @@ export const PILLAR_HERO_SLUGS = [
   'cassidy',
 ]
 
-export const PILLAR_COUNTER_SLUGS = ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston']
+export const PILLAR_COUNTER_SLUGS = ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy']
 
-export const PILLAR_TEAM_COMP_SLUGS = ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva']
+export const PILLAR_TEAM_COMP_SLUGS = ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy']
 
 export const PILLAR_MAP_SLUGS: string[] = []
 

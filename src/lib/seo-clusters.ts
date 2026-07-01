@@ -1403,10 +1403,240 @@ const WINSTON_COUNTER: CounterPillar = {
   ],
 }
 
+const WINSTON_TEAM_COMP: TeamCompPillar = {
+  slug: 'winston',
+  name: 'Winston',
+  updatedAt: '1 de julio de 2026',
+  schemaDate: '2026-07-01',
+  reviewedPatch: 'Season 3, Into the Tiger\'s Den',
+  seoTitle: 'Composiciones con Winston en Overwatch: dive coordinado',
+  seoDescription: 'Composiciones con Winston en Overwatch para 5v5 y 6v6: dive, objetivos, orden del salto, responsabilidades, mapas, sustituciones y errores comunes.',
+  h1: 'Composiciones con Winston en Overwatch: dive coordinado',
+  intro: [
+    'Winston funciona mejor cuando su salto inicia una amenaza que el resto del equipo puede leer. No necesita que todos aterricen en el mismo píxel, pero sí que presionen el mismo sector antes de que la burbuja desaparezca. Si entra sin daño cruzado o sin una ruta de salida, el dive se convierte en una donación de recursos.',
+    'Una composición de Winston debe decidir qué fuerza primero: movilidad, Suzu, control o una posición. La primera entrada no siempre busca matar. A menudo basta con retirar una defensiva, salir con vida y volver antes de que el rival recupere sus cooldowns.',
+  ],
+  summary: [
+    'DPS que presionen el mismo sector desde ángulos distintos.',
+    'Supports con visión sobre la zona de aterrizaje.',
+    'Una salida prevista antes de usar Salto.',
+    'Una segunda oleada cuando el primer dive solo fuerza recursos.',
+  ],
+  compositions: [
+    { name: 'Dive clásico 5v5', format: '5v5', style: 'Dive', lineup: ['Winston', 'Genji', 'Tracer', 'Ana', 'Kiriko'], winCondition: 'Winston divide la atención, Ana prepara daño y Genji o Tracer convierten al objetivo tocado en una baja mientras Kiriko estabiliza la entrada.', engagePlan: 'Ana presiona desde una posición segura; Winston salta con cobertura de salida y coloca la burbuja entre el objetivo y su ayuda. Los DPS entran después de ver la primera respuesta, no antes.', goodMaps: 'Mapas verticales con coberturas intermedias y varias rutas hacia la backline.', weakAgainst: 'Anti-dive compacto, control acumulado y zonas donde Ana pierde visión durante todo el salto.', substitutions: 'D.Va por Winston si hace falta más peel; Sombra por Tracer para preparar foco; Brigitte por Ana frente a un dive rival muy agresivo.' },
+    { name: 'Dive de presión aérea', format: '5v5', style: 'Dive', lineup: ['Winston', 'Echo', 'Sombra', 'Mercy', 'Ana'], winCondition: 'Sombra identifica el objetivo y Echo amenaza desde arriba; Winston corta la ayuda con burbuja mientras Mercy sostiene el ángulo aéreo y Ana acompaña desde lejos.', engagePlan: 'Echo y Sombra obligan al rival a mirar dos alturas. Winston no salta hasta que una movilidad o defensiva se haya usado; la burbuja cierra el sector y el equipo abandona la entrada si no aparece una ventaja rápida.', goodMaps: 'Escenarios abiertos con alturas conectadas y espacio para que Mercy mantenga rutas seguras.', weakAgainst: 'Hitscan protegido, interiores estrechos y composiciones que pueden girar juntas sin perder posición.', substitutions: 'Tracer por Sombra para presión constante; Kiriko por Mercy si el engage necesita limpieza; Sojourn por Echo cuando el mapa favorezca líneas medias.' },
+    { name: 'Dive de dos Tanks', format: '6v6', style: 'Dive', lineup: ['Winston', 'D.Va', 'Genji', 'Tracer', 'Ana', 'Brigitte'], winCondition: 'Winston inicia, D.Va niega la respuesta y los DPS atacan el mismo sector. Ana y Brigitte forman una base que no necesita seguir físicamente cada salto.', engagePlan: 'Winston fuerza la primera reacción. D.Va entra un instante después con Matriz sobre el cooldown peligroso; Genji y Tracer buscan el reset y ambos Tanks salen por rutas acordadas.', goodMaps: 'Mapas verticales con acceso simultáneo desde varias coberturas.', weakAgainst: 'Brawl cerrado, haces y control en área que sobreviven al primer contacto.', substitutions: 'Kiriko por Brigitte si la limpieza es prioritaria; Sombra por Genji para preparar objetivos; Zarya por D.Va para proteger una entrada más directa.' },
+  ],
+  responsibilities: [
+    { title: 'Winston', body: 'Elige el sector, aterriza cerca de cobertura y usa la burbuja para separar, no por reflejo al empezar el salto.' },
+    { title: 'DPS', body: 'Llegan después de la primera reacción y atacan el mismo sector desde ángulos distintos. Una vida baja vale más que dos duelos separados.' },
+    { title: 'Supports', body: 'Mantienen visión de la zona final y acuerdan qué recurso acompaña la entrada. No deben abandonar una buena posición para perseguir cada salto.' },
+    { title: 'Segundo Tank en 6v6', body: 'Cubre el momento en que Winston recibe la respuesta y conserva movilidad para la salida o el peel.' },
+  ],
+  rotationPlan: [
+    'Localiza un objetivo y una cobertura de aterrizaje.',
+    'Presenta presión lateral antes de comprometer Salto.',
+    'Fuerza movilidad o control con la primera entrada.',
+    'Concentra el segundo tiempo sobre el sector que queda sin recursos.',
+    'Sal si no aparece una baja y repite antes de que vuelvan los cooldowns.',
+  ],
+  weaknesses: [
+    'Winston salta antes de que los DPS tengan ángulo.',
+    'La burbuja no corta curación ni línea de tiro útil.',
+    'Ana pierde visión porque el dive atraviesa demasiadas paredes.',
+    'Todo el equipo gasta movilidad en la primera oleada.',
+    'Los DPS atacan objetivos diferentes y no fuerzan ninguna baja.',
+    'Winston persigue después de perder armadura y ruta de salida.',
+  ],
+  examples: [
+    { title: 'Primera entrada sin obsesión', body: 'Winston salta, fuerza Suzu y sale. El equipo espera unos segundos y vuelve con Tracer y Genji antes de que la limpieza esté disponible. La segunda entrada consigue la baja.' },
+    { title: 'Burbuja que separa', body: 'Ana rival juega detrás de su Tank. Winston aterriza a un lado y coloca la burbuja entre ambos; Echo presiona desde arriba mientras Sombra corta la retirada. La curación deja de llegar durante el momento importante.' },
+    { title: 'D.Va entra después', body: 'En 6v6, Winston fuerza Sleep contra la burbuja. D.Va espera ese recurso y entonces cruza con Matriz. El orden evita que una sola respuesta frene a los dos Tanks.' },
+  ],
+  checklist: [
+    'Winston tiene objetivo y salida antes de saltar.',
+    'Los DPS pueden presionar el mismo sector.',
+    'La backline ve la zona de contacto.',
+    'La burbuja separará una ayuda concreta.',
+    'Queda movilidad para abandonar un engage fallido.',
+    'El equipo acepta ganar por dos oleadas, no por una sola entrada.',
+  ],
+  faqs: [
+    { question: '¿Cuál es la mejor composición con Winston?', answer: 'Dive con Genji o Tracer y supports capaces de acompañar desde lejos suele ser la base más estable. En 6v6, D.Va completa muy bien su entrada y salida.' },
+    { question: '¿Winston necesita a Ana?', answer: 'No, pero Ana ofrece alcance, Granada y Nano. Kiriko, Brigitte o Mercy pueden encajar según el mapa y los DPS; lo importante es que la backline sobreviva y vea el aterrizaje.' },
+    { question: '¿Qué DPS combinan con Winston?', answer: 'Tracer, Genji y Sombra aprovechan el espacio y los recursos forzados. Echo añade presión vertical. Deben compartir sector, aunque no recorran exactamente la misma ruta.' },
+    { question: '¿Cuándo debe salir Winston?', answer: 'Cuando la burbuja deja de separar, no aparece una baja o llega más ayuda rival de la prevista. Salir con vida permite repetir antes de que vuelvan sus cooldowns.' },
+    { question: '¿Cuándo no conviene jugar Winston?', answer: 'Cuando no existen rutas de salto seguras y el rival puede permanecer unido con varias respuestas cercanas. Antes de cambiar, revisa si el problema es el mapa o un engage demasiado temprano.' },
+  ],
+  links: [
+    { href: '/heroes/winston', label: 'Guía completa de Winston' },
+    { href: '/counters/winston', label: 'Counters de Winston' },
+    { href: '/guides/como-jugar-winston-ranked-overwatch', label: 'Cómo jugar Winston en ranked' },
+    { href: '/team-comps/dva', label: 'Composiciones con D.Va' },
+    { href: '/guides/como-elegir-composicion-dive-poke-brawl', label: 'Cómo elegir una composición' },
+    { href: '/experts', label: 'Revisar una composición en tu VOD' },
+  ],
+}
+
+const CASSIDY_COUNTER: CounterPillar = {
+  slug: 'cassidy',
+  name: 'Cassidy',
+  role: 'DPS',
+  updatedAt: '1 de julio de 2026',
+  schemaDate: '2026-07-01',
+  reviewedPatch: 'Season 3, Into the Tiger\'s Den',
+  seoTitle: 'Counters de Cassidy en Overwatch: distancia y cobertura',
+  seoDescription: 'Aprende a jugar contra Cassidy en Overwatch: mejores counters, cómo respetar su rango medio, castigar Rodar, evitar Deadeye y adaptar cada rol.',
+  h1: 'Counters de Cassidy en Overwatch: distancia y cobertura',
+  intro: [
+    'Cassidy castiga a quien cruza su rango medio sin cobertura y a los héroes móviles que entran cuando todavía conserva control y Rodar. No necesitas ganarle un duelo limpio de revólver. Puedes obligarlo a mirar dos ángulos, mantener una distancia incómoda o entrar después de que haya usado su herramienta defensiva.',
+    'También depende mucho de dónde empieza la pelea. Cerca de una esquina puede asomarse, disparar y recargar con seguridad; en una rotación abierta debe elegir entre avanzar o mantener precisión. Atacar esa transición suele ser más fiable que desafiarlo en su posición favorita.',
+  ],
+  summary: [
+    'Evita duelos frontales dentro de su rango cómodo.',
+    'Fuerza Rodar antes de comprometer movilidad o burst.',
+    'Ataca desde dos ángulos para dividir su puntería.',
+    'Guarda cobertura o una respuesta para Deadeye.',
+  ],
+  threats: [
+    { name: 'Widowmaker', href: '/heroes/widowmaker', danger: 'Controla líneas más largas y obliga a Cassidy a cruzar espacio antes de responder.', signal: 'Cassidy abandona una esquina o rota por una calle abierta.', response: 'Mantén la distancia y cambia de posición después de disparar; no permitas que cierre metros por una ruta protegida.' },
+    { name: 'Ashe', href: '/heroes/ashe', danger: 'Presiona desde más alcance y puede desplazarlo cuando intenta fijar una cobertura de rango medio.', signal: 'Cassidy ocupa una posición baja sin acceso rápido a tu altura.', response: 'Usa el alcance y la dinamita para forzar movimiento, pero conserva una salida si su Tank abre el espacio.' },
+    { name: 'Genji', href: '/heroes/genji', danger: 'Puede contestar alturas, negar disparos con Deflect y entrar cuando Cassidy ya ha gastado control.', signal: 'Rodar o el recurso de control ya se usaron y Cassidy queda separado.', response: 'No entres con todos sus cooldowns disponibles. Fuerza uno, conserva Dash para salir y termina el duelo solo con ventaja.' },
+    { name: 'D.Va', href: '/heroes/dva', danger: 'Matriz niega su ventana de disparo y los Impulsores contestan posiciones de rango medio.', signal: 'Cassidy dispara desde una altura sin apoyo cercano o activa Deadeye.', response: 'Usa Matriz durante la ventana importante y ocupa su cobertura; no gastes todo el recurso antes de llegar.' },
+    { name: 'Winston', href: '/heroes/winston', danger: 'Burbuja rompe su línea de tiro y el salto obliga a Cassidy a gastar Rodar para sobrevivir.', signal: 'Cassidy juega separado de sus supports o sin una ruta clara hacia el Tank.', response: 'Salta con ayuda disponible, corta la curación con la burbuja y abandona si su equipo gira antes de forzar recursos.' },
+    { name: 'Sigma', href: '/heroes/sigma', danger: 'Puede disputar el rango, interponer barrera y obligar a Cassidy a reposicionarse sin acercarse a su zona fuerte.', signal: 'Cassidy depende de una sola línea de tiro para mantener presión.', response: 'Alterna barrera y poke para cortar sus disparos importantes; evita regalar una pelea cercana persiguiéndolo tras la cobertura.' },
+  ],
+  cooldownWindows: [
+    { title: 'Después de Rodar', body: 'Pierde una recarga inmediata, mitigación y reposicionamiento. Es la ventana más clara para cerrar distancia o forzar su salida.' },
+    { title: 'Control gastado', body: 'Los héroes móviles pueden entrar con menos riesgo. Aun así, comprueba su vida y apoyo: gastar un cooldown no convierte automáticamente el duelo en gratuito.' },
+    { title: 'Durante la recarga', body: 'Cassidy necesita cortar su presión. Avanza de cobertura a cobertura o cambia el ángulo mientras no puede mantener el mismo ritmo de disparo.' },
+    { title: 'Deadeye sin línea limpia', body: 'Cobertura, barreras y presión lateral reducen su valor. No asomes por ansiedad; obliga a cancelar o a disparar sobre un objetivo protegido.' },
+  ],
+  adaptations: [
+    'Usa coberturas más pequeñas y cambia de ángulo tras cada intercambio.',
+    'Si eres móvil, fuerza Rodar o control antes de entrar de verdad.',
+    'Como Tank, corta su línea hacia la backline en lugar de perseguir cada disparo.',
+    'Como DPS de rango, mantén distancia y no avances a su zona sin una razón.',
+    'Como Support, evita rutas previsibles y conserva movilidad para cuando tenga visión directa.',
+    'Contra Deadeye, deja de disparar un instante y confirma una cobertura antes de volver a presionar.',
+  ],
+  mistakes: [
+    'Repetir un duelo frontal desde la misma esquina.',
+    'Entrar con movilidad cuando Cassidy conserva todas sus respuestas.',
+    'Pelear dentro de su rango por orgullo aunque tu héroe tenga más alcance.',
+    'Ignorar la recarga y dejar pasar la mejor ventana de avance.',
+    'Salir de cobertura durante Deadeye sin barrera ni plan.',
+    'Perseguirlo hasta su equipo después de forzar Rodar.',
+  ],
+  examples: [
+    { title: 'El rango decide el intercambio', body: 'Ashe mantiene una altura y obliga a Cassidy a cruzar una calle. En lugar de bajar para terminar el duelo, cambia de cobertura y conserva la distancia. Cassidy llega sin vida suficiente para sostener la posición.' },
+    { title: 'Dive por orden', body: 'Winston salta y fuerza Rodar. Genji no entra antes: espera el desplazamiento, usa el lateral y conserva Deflect para el siguiente disparo. Cassidy ya no puede resolver ambas amenazas.' },
+    { title: 'Deadeye sin regalo', body: 'Cassidy activa Deadeye al final de una calle. D.Va guarda Matriz y el resto corta visión. La ultimate no consigue baja y el equipo vuelve a ocupar espacio cuando termina.' },
+  ],
+  checklist: [
+    'Conozco el rango en el que mi héroe quiere pelear.',
+    'Sé si Rodar y el control están disponibles.',
+    'No repito la misma esquina tras perder un intercambio.',
+    'El equipo crea más de una línea de presión.',
+    'Tengo cobertura o una respuesta para Deadeye.',
+    'No persigo a Cassidy hacia la protección de su equipo.',
+  ],
+  faqs: [
+    { question: '¿Cuál es el mejor counter de Cassidy?', answer: 'Widowmaker y Ashe lo superan en alcance; Winston y D.Va contestan su posición; Genji castiga cooldowns gastados y Sigma corta sus líneas. El mapa determina qué respuesta es más fácil de ejecutar.' },
+    { question: '¿Cómo peleo contra Cassidy con un flanker?', answer: 'Fuerza Rodar o su control antes de comprometer tu movilidad. Entra desde un ángulo conectado con tu equipo y conserva una salida si no consigues ventaja inmediata.' },
+    { question: '¿Cómo se counterea Deadeye?', answer: 'Corta línea de visión, usa barreras o Matriz y presiona desde un lateral si es seguro. La respuesta más fiable es tener cobertura identificada antes de escuchar la ultimate.' },
+    { question: '¿Cassidy es débil a larga distancia?', answer: 'Su impacto cae cuando debe cruzar espacio o disputar líneas largas. Aun así, su Tank puede acercarlo; cambia de posición antes de que la pelea llegue a su rango favorito.' },
+    { question: '¿Debo cambiar de héroe contra Cassidy?', answer: 'No si puedes adaptar distancia, cobertura y timing. Cambia cuando el mapa te obliga a entrar siempre por su línea y tu héroe no puede forzar sus cooldowns con seguridad.' },
+  ],
+  links: [
+    { href: '/heroes/cassidy', label: 'Guía completa de Cassidy' },
+    { href: '/team-comps/cassidy', label: 'Composiciones con Cassidy' },
+    { href: '/guides/como-jugar-cassidy-ranked-overwatch', label: 'Cómo jugar Cassidy en ranked' },
+    { href: '/guides/como-mejorar-como-dps-overwatch', label: 'Cómo mejorar como DPS' },
+    { href: '/guides/cuando-cambiar-de-heroe-overwatch', label: 'Cuándo cambiar de héroe' },
+    { href: '/experts', label: 'Revisar una partida con un experto' },
+  ],
+}
+
+const CASSIDY_TEAM_COMP: TeamCompPillar = {
+  slug: 'cassidy',
+  name: 'Cassidy',
+  updatedAt: '1 de julio de 2026',
+  schemaDate: '2026-07-01',
+  reviewedPatch: 'Season 3, Into the Tiger\'s Den',
+  seoTitle: 'Composiciones con Cassidy en Overwatch: brawl y control',
+  seoDescription: 'Composiciones con Cassidy en Overwatch para 5v5 y 6v6: brawl, poke, control de rango medio, responsabilidades, mapas y sustituciones.',
+  h1: 'Composiciones con Cassidy en Overwatch: brawl y control',
+  intro: [
+    'Cassidy encaja en equipos que quieren controlar el rango medio y castigar a quien entra sin recursos. No abre el mapa solo: necesita un Tank que le entregue una esquina, un Support que mantenga su posición y otro DPS que cree una amenaza distinta.',
+    'La composición debe evitar convertirlo en una torreta inmóvil. Rodar permite corregir una cobertura, no cruzar todo el mapa. Si el equipo rota por rutas seguras y fija la pelea en una distancia manejable, Cassidy puede aportar presión constante y proteger la backline al mismo tiempo.',
+  ],
+  summary: [
+    'Un Tank que cree una esquina o línea estable.',
+    'Otro DPS que cubra largo alcance o cierre distancia.',
+    'Supports capaces de sostener rango medio sin apilarse.',
+    'Una rotación que no dependa de Rodar para llegar vivo.',
+  ],
+  compositions: [
+    { name: 'Rush de rango medio', format: '5v5', style: 'Brawl', lineup: ['Reinhardt', 'Cassidy', 'Mei', 'Lúcio', 'Kiriko'], winCondition: 'Reinhardt y Lúcio cierran distancia, Mei fija un objetivo y Cassidy castiga desde la segunda línea sin entrar al centro del brawl.', engagePlan: 'El equipo rota por cobertura, acelera el último tramo y conserva Rodar para el intercambio. Kiriko guarda Suzu para el control que frene la entrada.', goodMaps: 'Calles y puntos con esquinas cercanas y líneas medias.', weakAgainst: 'Poke desde alturas separadas y composiciones que pueden retirarse sin ceder objetivo.', substitutions: 'Reaper por Mei para más daño cercano; Baptiste por Kiriko si falta presión frontal; Junker Queen por Reinhardt para un ritmo más agresivo.' },
+    { name: 'Poke con control', format: '5v5', style: 'Poke', lineup: ['Sigma', 'Cassidy', 'Ashe', 'Baptiste', 'Illari'], winCondition: 'Sigma estabiliza la línea, Ashe obliga a respetar el largo alcance y Cassidy protege el rango medio frente a quien intenta cerrar distancia.', engagePlan: 'El equipo ocupa dos ángulos conectados. Sigma corta la principal respuesta rival y Cassidy no abandona cobertura para perseguir; el avance llega después de conseguir daño o forzar movilidad.', goodMaps: 'Líneas largas con coberturas intermedias y alturas accesibles.', weakAgainst: 'Dive coordinado sobre la backline y rotaciones rápidas por interiores.', substitutions: 'Sojourn por Ashe para más movilidad; Kiriko por Illari contra efectos que deban limpiarse; D.Va por Sigma si las alturas exigen respuesta rápida.' },
+    { name: 'Brawl de dos Tanks', format: '6v6', style: 'Brawl', lineup: ['Reinhardt', 'Zarya', 'Cassidy', 'Mei', 'Lúcio', 'Baptiste'], winCondition: 'Reinhardt y Zarya toman la esquina, Mei corta la salida y Cassidy castiga al objetivo aislado desde una distancia segura.', engagePlan: 'La burbuja protege el primer paso de Reinhardt, Lúcio acelera la formación y Cassidy mantiene visión del sector sin colocarse delante de ambos Tanks.', goodMaps: 'Puntos cerrados, calles y zonas donde dos Tanks puedan alternar recursos.', weakAgainst: 'Presión vertical y equipos que dividen el mapa antes de que el brawl llegue.', substitutions: 'D.Va por Zarya para contestar alturas; Reaper por Mei en peleas muy cercanas; Kiriko por Baptiste si la limpieza pesa más.' },
+  ],
+  responsibilities: [
+    { title: 'Tank', body: 'Crea una cobertura desde la que Cassidy pueda disparar y evita avanzar más rápido de lo que la línea media puede acompañar.' },
+    { title: 'Segundo DPS', body: 'Amenaza otra distancia o fija el objetivo. Cassidy pierde valor si ambos DPS miran la misma esquina sin dividir atención.' },
+    { title: 'Supports', body: 'Mantienen la posición sin colocarse todos en fila y guardan una respuesta para el dive que intente llegar a Cassidy.' },
+    { title: 'Cassidy', body: 'Controla rango medio, conserva Rodar para el intercambio importante y protege la backline sin abandonar el ángulo que sostiene al equipo.' },
+  ],
+  rotationPlan: [
+    'Elige la siguiente cobertura antes de abandonar la actual.',
+    'Deja que el Tank o el segundo DPS fuerce la primera atención.',
+    'Avanza durante recargas, barreras o movilidad rival gastada.',
+    'Fija el rango medio y evita perseguir más allá de la zona ganada.',
+    'Recolócate después de cada pelea para que no preparen un dive gratuito.',
+  ],
+  weaknesses: [
+    'Cassidy usa Rodar para llegar y no lo tiene durante el duelo.',
+    'El equipo permanece en una sola línea frente a poke o dive.',
+    'Reinhardt acelera sin que Cassidy pueda cruzar la esquina.',
+    'El segundo DPS duplica su rango y nadie amenaza alturas o laterales.',
+    'Deadeye se activa sin cobertura ni recursos rivales gastados.',
+    'Cassidy persigue una baja y deja desprotegida la backline.',
+  ],
+  examples: [
+    { title: 'Segunda línea útil', body: 'Reinhardt y Mei entran en la esquina. Cassidy no cruza delante: mantiene unos metros, castiga al objetivo aislado y conserva Rodar para cuando el rival intenta responder.' },
+    { title: 'Dos rangos conectados', body: 'Ashe toma una altura y Cassidy controla la calle. Cuando el rival salta sobre Ashe, Sigma corta la ayuda y Cassidy gira sin abandonar su cobertura. El dive debe elegir entre dos amenazas.' },
+    { title: 'Deadeye como espacio', body: 'El equipo ya ha forzado movilidad y barrera. Cassidy activa Deadeye desde cobertura; aunque no consiga una baja inmediata, obliga al rival a esconderse y permite capturar la esquina.' },
+  ],
+  checklist: [
+    'Cassidy tiene una cobertura de rango medio.',
+    'El Tank no avanzará más rápido que su línea de tiro.',
+    'El segundo DPS aporta una amenaza diferente.',
+    'Los supports tienen respuesta al dive rival.',
+    'Rodar queda disponible para el intercambio principal.',
+    'La composición puede crear espacio sin depender de Deadeye.',
+  ],
+  faqs: [
+    { question: '¿Cuál es la mejor composición con Cassidy?', answer: 'Un brawl con Reinhardt, Mei, Lúcio y Kiriko le da una línea media estable. También funciona con Sigma y otro hitscan en mapas abiertos.' },
+    { question: '¿Qué Tank combina mejor con Cassidy?', answer: 'Reinhardt crea esquinas y Sigma controla líneas; D.Va puede proteger su ventana y contestar alturas. La elección depende de la distancia del mapa.' },
+    { question: '¿Qué Support funciona con Cassidy?', answer: 'Baptiste sostiene poke y brawl, Kiriko aporta limpieza y Lúcio resuelve rotaciones. Ana funciona cuando puede mantener línea de visión sin quedar expuesta al dive.' },
+    { question: '¿Cassidy sirve contra dive?', answer: 'Sí, especialmente si conserva control y juega a distancia de ayuda. No debe perseguir al flanker: protege la zona y castiga la entrada comprometida.' },
+    { question: '¿Cuándo no conviene jugar Cassidy?', answer: 'Cuando el mapa exige movilidad vertical constante o el rival mantiene líneas mucho más largas que tu equipo no puede cerrar. Antes de cambiar, prueba una ruta y cobertura distintas.' },
+  ],
+  links: [
+    { href: '/heroes/cassidy', label: 'Guía completa de Cassidy' },
+    { href: '/counters/cassidy', label: 'Counters de Cassidy' },
+    { href: '/guides/como-jugar-cassidy-ranked-overwatch', label: 'Cómo jugar Cassidy en ranked' },
+    { href: '/team-comps/reinhardt', label: 'Composiciones con Reinhardt' },
+    { href: '/guides/como-elegir-composicion-dive-poke-brawl', label: 'Cómo elegir una composición' },
+    { href: '/experts', label: 'Revisar una composición en tu VOD' },
+  ],
+}
+
 export function getCounterPillar(slug: string) {
-  return [SHION_COUNTER, ANA_COUNTER, GENJI_COUNTER, KIRIKO_COUNTER, REINHARDT_COUNTER, DVA_COUNTER, WINSTON_COUNTER].find(pillar => pillar.slug === slug) ?? null
+  return [SHION_COUNTER, ANA_COUNTER, GENJI_COUNTER, KIRIKO_COUNTER, REINHARDT_COUNTER, DVA_COUNTER, WINSTON_COUNTER, CASSIDY_COUNTER].find(pillar => pillar.slug === slug) ?? null
 }
 
 export function getTeamCompPillar(slug: string) {
-  return [SHION_TEAM_COMP, ANA_TEAM_COMP, GENJI_TEAM_COMP, KIRIKO_TEAM_COMP, REINHARDT_TEAM_COMP, DVA_TEAM_COMP].find(pillar => pillar.slug === slug) ?? null
+  return [SHION_TEAM_COMP, ANA_TEAM_COMP, GENJI_TEAM_COMP, KIRIKO_TEAM_COMP, REINHARDT_TEAM_COMP, DVA_TEAM_COMP, WINSTON_TEAM_COMP, CASSIDY_TEAM_COMP].find(pillar => pillar.slug === slug) ?? null
 }

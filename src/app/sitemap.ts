@@ -32,6 +32,9 @@ const STATIC_LAST_MODIFIED: Record<string, string> = {
   '/counters/dva': '2026-07-01',
   '/team-comps/dva': '2026-07-01',
   '/counters/winston': '2026-07-01',
+  '/team-comps/winston': '2026-07-01',
+  '/counters/cassidy': '2026-07-01',
+  '/team-comps/cassidy': '2026-07-01',
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
