@@ -5,7 +5,9 @@ import AppNav from '@/components/layout/AppNav'
 import ConnectStripeButton from './ConnectStripeButton'
 import ExpertTierManager from './ExpertTierManager'
 import ExpertAvailabilityToggle from './ExpertAvailabilityToggle'
-import { getStripeConnectStatus } from '@/lib/stripe-connect'
+import { getStripeConnectStatus, isStripeAccountReadyForCheckout } from '@/lib/stripe-connect'
+import { STRIPE_PLATFORM_COUNTRY } from '@/lib/stripe-countries'
+import ExpertFeesNotice from '@/components/payments/ExpertFeesNotice'
 
 export default async function ExpertDashboardPage({
   searchParams,
@@ -33,8 +35,11 @@ export default async function ExpertDashboardPage({
   if (!expert) redirect('/dashboard')
 
   const stripeStatus = await getStripeConnectStatus(expert.stripe_account_id)
-  const stripeConnected = stripeStatus.readyForDestinationCharges
+  const stripeConnected = isStripeAccountReadyForCheckout(stripeStatus)
   const stripeStatusUnavailable = !!expert.stripe_account_id && stripeStatus.statusCheckFailed
+  const stripeCountry = stripeStatus.country || STRIPE_PLATFORM_COUNTRY
+  const canChangeStripeCountry = !expert.stripe_account_id
+    || (!stripeStatus.detailsSubmitted && !stripeStatus.readyForDestinationCharges && !stripeStatus.statusCheckFailed)
 
   const { data: orders } = await supabase
     .from('orders')
@@ -129,7 +134,12 @@ export default async function ExpertDashboardPage({
             <p style={{ fontSize: 13, color: 'var(--text2)', margin: '0 0 16px', lineHeight: 1.6 }}>
               Para poder recibir pedidos, Stripe debe confirmar que tu cuenta puede aceptar transferencias. Abre la configuración y completa cualquier dato pendiente.
             </p>
-            <ConnectStripeButton label={expert.stripe_account_id ? 'COMPLETAR ONBOARDING →' : 'CONECTAR STRIPE →'} />
+            <ConnectStripeButton
+              label={expert.stripe_account_id ? 'COMPLETAR ONBOARDING →' : 'CONECTAR STRIPE →'}
+              initialCountry={stripeCountry}
+              existingCountry={stripeStatus.country}
+              canChangeCountry={canChangeStripeCountry}
+            />
           </div>
         )}
 
@@ -154,6 +164,12 @@ export default async function ExpertDashboardPage({
           }}>
             <span style={{ color: 'var(--green)', fontSize: 16 }}>✓</span>
             <span style={{ fontSize: 13, color: 'var(--text2)' }}>Cuenta de cobro conectada — los pagos llegan directamente a tu cuenta.</span>
+          </div>
+        )}
+
+        {stripeConnected && (
+          <div style={{ marginBottom: 24 }}>
+            <ExpertFeesNotice country={stripeCountry} />
           </div>
         )}
 

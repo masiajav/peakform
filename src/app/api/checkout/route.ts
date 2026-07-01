@@ -2,7 +2,13 @@ import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 import { calculateTotal, TIER_CONFIG, OrderTier } from '@/types'
 import { getStripe } from '@/lib/stripe'
-import { getStripeConnectStatus, getStripeErrorCode } from '@/lib/stripe-connect'
+import {
+  buildDestinationPaymentData,
+  getStripeConnectStatus,
+  getStripeErrorCode,
+  isStripeAccountReadyForCheckout,
+  requiresOnBehalfOf,
+} from '@/lib/stripe-connect'
 
 type ExpertRow = {
   id: string
@@ -74,7 +80,7 @@ export async function POST(request: Request) {
       error: 'No hemos podido comprobar la cuenta de cobro en este momento. No se ha realizado ningún cargo. Inténtalo de nuevo en unos minutos.',
     }, { status: 503 })
   }
-  if (!connectStatus.readyForDestinationCharges) {
+  if (!isStripeAccountReadyForCheckout(connectStatus)) {
     return NextResponse.json({
       error: 'La cuenta de cobro de este experto todavía no está lista. No se ha realizado ningún cargo. Prueba de nuevo más tarde o elige otro experto.',
     }, { status: 409 })
@@ -122,10 +128,11 @@ export async function POST(request: Request) {
         },
         quantity: 1,
       }],
-      payment_intent_data: {
-        application_fee_amount: commission,
-        transfer_data: { destination: expert.stripe_account_id },
-      },
+      payment_intent_data: buildDestinationPaymentData(
+        expert.stripe_account_id,
+        commission,
+        connectStatus.country,
+      ),
       metadata: {
         user_id:           user.id,
         expert_id:         expertId,
@@ -133,6 +140,8 @@ export async function POST(request: Request) {
         amount_base:       String(basePrice),
         amount_commission: String(commission),
         amount_total:      String(total),
+        stripe_country:    connectStatus.country ?? '',
+        on_behalf_of:      String(requiresOnBehalfOf(connectStatus.country)),
         ...(trialDeadlineHours != null && { trial_deadline_hours: String(trialDeadlineHours) }),
       },
       customer_email: user.email,

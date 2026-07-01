@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import ExpertFeesNotice from '@/components/payments/ExpertFeesNotice'
 
 const TIER_OPTIONS = ['Champion', 'Grandmaster', 'Master', 'Diamond']
 const DIVISION_OPTIONS = ['1', '2', '3', '4', '5']
@@ -237,6 +238,8 @@ export default function ApplyForm() {
       }}>
         Tu solicitud quedará en estado <strong>pendiente</strong> hasta que el equipo de Replaid Lab la revise y apruebe. Recibirás acceso al panel de experto en 24-48h.
       </div>
+
+      <ExpertFeesNotice />
 
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
         <button type="submit" disabled={loading} className="btn btn-primary btn-lg">

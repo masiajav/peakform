@@ -1,5 +1,6 @@
 import type Stripe from 'stripe'
 import { getStripe } from '@/lib/stripe'
+import { STRIPE_PLATFORM_COUNTRY } from '@/lib/stripe-countries'
 
 const RECIPIENT_CAPABILITIES = ['transfers', 'crypto_transfers', 'legacy_payments'] as const
 
@@ -10,6 +11,8 @@ export type StripeConnectStatus = {
   readyForDestinationCharges: boolean
   statusCheckFailed: boolean
   transfersStatus: CapabilityStatus
+  cardPaymentsStatus: CapabilityStatus
+  country: string | null
   detailsSubmitted: boolean
   payoutsEnabled: boolean
   currentlyDueCount: number
@@ -20,6 +23,7 @@ type AccountLike = {
   capabilities?: Record<string, CapabilityStatus> | null
   details_submitted?: boolean
   payouts_enabled?: boolean
+  country?: string | null
   requirements?: { currently_due?: string[] | null } | null
 }
 
@@ -30,6 +34,8 @@ export function evaluateStripeConnectAccount(account: AccountLike): StripeConnec
       readyForDestinationCharges: false,
       statusCheckFailed: false,
       transfersStatus: null,
+      cardPaymentsStatus: null,
+      country: null,
       detailsSubmitted: false,
       payoutsEnabled: false,
       currentlyDueCount: 0,
@@ -46,9 +52,33 @@ export function evaluateStripeConnectAccount(account: AccountLike): StripeConnec
     readyForDestinationCharges: recipientCapabilityActive,
     statusCheckFailed: false,
     transfersStatus: capabilities.transfers,
+    cardPaymentsStatus: capabilities.card_payments,
+    country: account.country?.toUpperCase() ?? null,
     detailsSubmitted: account.details_submitted === true,
     payoutsEnabled: account.payouts_enabled === true,
     currentlyDueCount: account.requirements?.currently_due?.length ?? 0,
+  }
+}
+
+export function requiresOnBehalfOf(country: string | null | undefined) {
+  return !!country && country.toUpperCase() !== STRIPE_PLATFORM_COUNTRY
+}
+
+export function isStripeAccountReadyForCheckout(status: StripeConnectStatus) {
+  if (!status.readyForDestinationCharges) return false
+  if (!requiresOnBehalfOf(status.country)) return true
+  return status.cardPaymentsStatus === 'active'
+}
+
+export function buildDestinationPaymentData(
+  accountId: string,
+  applicationFeeAmount: number,
+  country: string | null | undefined,
+) {
+  return {
+    application_fee_amount: applicationFeeAmount,
+    transfer_data: { destination: accountId },
+    ...(requiresOnBehalfOf(country) ? { on_behalf_of: accountId } : {}),
   }
 }
 
@@ -73,17 +103,23 @@ export async function getStripeConnectStatus(accountId: string | null | undefine
   }
 }
 
-export async function requestTransfersCapability(accountId: string) {
+export async function requestDestinationChargeCapabilities(accountId: string) {
   const stripe = getStripe()
   const account = await stripe.accounts.retrieve(accountId)
   const status = evaluateStripeConnectAccount(account as Stripe.Account & AccountLike)
 
-  if (!status.accountExists || status.readyForDestinationCharges || status.transfersStatus === 'pending') {
+  const transfersRequested = status.transfersStatus === 'active' || status.transfersStatus === 'pending'
+  const cardPaymentsRequested = status.cardPaymentsStatus === 'active' || status.cardPaymentsStatus === 'pending'
+
+  if (!status.accountExists || (transfersRequested && cardPaymentsRequested)) {
     return status
   }
 
   const updatedAccount = await stripe.accounts.update(accountId, {
-    capabilities: { transfers: { requested: true } },
+    capabilities: {
+      ...(!transfersRequested ? { transfers: { requested: true } } : {}),
+      ...(!cardPaymentsRequested ? { card_payments: { requested: true } } : {}),
+    },
   })
 
   return evaluateStripeConnectAccount(updatedAccount as Stripe.Account & AccountLike)

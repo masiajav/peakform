@@ -10,7 +10,7 @@ import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 import type { Metadata } from 'next'
 import { expertQualityDecision, robotsForQuality } from '@/lib/indexing-policy'
-import { getStripeConnectStatus } from '@/lib/stripe-connect'
+import { getStripeConnectStatus, isStripeAccountReadyForCheckout } from '@/lib/stripe-connect'
 
 const ROLE_LABELS: Record<string, string> = {
   tank: 'Tank', dps: 'DPS', support: 'Support', flex: 'Flex',
@@ -276,7 +276,7 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
           expert={expert}
           hasUsedTrial={hasUsedTrial}
           isLoggedIn={!!user}
-          stripeConnected={stripeStatus.readyForDestinationCharges || stripeStatus.statusCheckFailed}
+          stripeConnected={isStripeAccountReadyForCheckout(stripeStatus) || stripeStatus.statusCheckFailed}
         />
 
       </div>

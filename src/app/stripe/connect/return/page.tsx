@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
-import { getStripeConnectStatus } from '@/lib/stripe-connect'
+import { getStripeConnectStatus, isStripeAccountReadyForCheckout } from '@/lib/stripe-connect'
 
 export default async function StripeConnectReturnPage() {
   const supabase = createClient()
@@ -9,7 +9,7 @@ export default async function StripeConnectReturnPage() {
     ? await supabase.from('experts').select('stripe_account_id').eq('user_id', user.id).maybeSingle()
     : { data: null }
   const stripeStatus = await getStripeConnectStatus(expert?.stripe_account_id)
-  const ready = stripeStatus.readyForDestinationCharges
+  const ready = isStripeAccountReadyForCheckout(stripeStatus)
   const unavailable = stripeStatus.statusCheckFailed
 
   return (
