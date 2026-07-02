@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
   buildDestinationPaymentData,
+  canResetStripeConnection,
   evaluateStripeConnectAccount,
   isStripeAccountReadyForCheckout,
   requiresOnBehalfOf,
@@ -83,5 +84,40 @@ describe('Stripe Connect destination account readiness', () => {
       application_fee_amount: 500,
       transfer_data: { destination: 'acct_spain' },
     })
+  })
+
+  it('allows resetting an inaccessible account without orders', () => {
+    const status = {
+      ...evaluateStripeConnectAccount({}),
+      statusCheckFailed: true,
+    }
+
+    expect(canResetStripeConnection(status, false)).toBe(true)
+  })
+
+  it('never resets an account that has orders', () => {
+    const missing = evaluateStripeConnectAccount({ deleted: true })
+
+    expect(canResetStripeConnection(missing, true)).toBe(false)
+  })
+
+  it('allows replacing an unused and incomplete account', () => {
+    const incomplete = evaluateStripeConnectAccount({
+      capabilities: { transfers: 'inactive', card_payments: 'inactive' },
+      details_submitted: false,
+      payouts_enabled: false,
+    })
+
+    expect(canResetStripeConnection(incomplete, false)).toBe(true)
+  })
+
+  it('protects completed or payout-enabled accounts from reset', () => {
+    const completed = evaluateStripeConnectAccount({
+      capabilities: { transfers: 'active', card_payments: 'active' },
+      details_submitted: true,
+      payouts_enabled: true,
+    })
+
+    expect(canResetStripeConnection(completed, false)).toBe(false)
   })
 })

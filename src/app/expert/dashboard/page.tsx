@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import AppNav from '@/components/layout/AppNav'
 import ConnectStripeButton from './ConnectStripeButton'
+import ResetStripeConnectionButton from './ResetStripeConnectionButton'
 import ExpertTierManager from './ExpertTierManager'
 import ExpertAvailabilityToggle from './ExpertAvailabilityToggle'
 import { getStripeConnectStatus, isStripeAccountReadyForCheckout } from '@/lib/stripe-connect'
@@ -152,8 +153,10 @@ export default async function ExpertDashboardPage({
               No podemos comprobar Stripe ahora mismo
             </div>
             <p style={{ fontSize: 13, color: 'var(--text2)', margin: 0, lineHeight: 1.6 }}>
-              Tu cuenta sigue vinculada. Vuelve a cargar el panel en unos minutos antes de aceptar un nuevo pedido.
+              Stripe ya no permite acceder a la cuenta vinculada. Si la eliminaste o vas a crearla de nuevo,
+              desvincúlala aquí y vuelve a completar la configuración con tu país correcto.
             </p>
+            <ResetStripeConnectionButton />
           </div>
         )}
 

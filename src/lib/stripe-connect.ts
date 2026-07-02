@@ -70,6 +70,16 @@ export function isStripeAccountReadyForCheckout(status: StripeConnectStatus) {
   return status.cardPaymentsStatus === 'active'
 }
 
+export function canResetStripeConnection(status: StripeConnectStatus, hasOrders: boolean) {
+  if (hasOrders) return false
+  if (!status.accountExists || status.statusCheckFailed) return true
+
+  return !status.detailsSubmitted
+    && !status.readyForDestinationCharges
+    && status.cardPaymentsStatus !== 'active'
+    && !status.payoutsEnabled
+}
+
 export function buildDestinationPaymentData(
   accountId: string,
   applicationFeeAmount: number,
