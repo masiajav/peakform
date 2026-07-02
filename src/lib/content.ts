@@ -17,6 +17,7 @@ export interface SourceFields {
   source_id?: string | null
   source_published_at?: string | null
   auto_imported?: boolean | null
+  source_sections?: string[] | null
 }
 
 export interface GuideContent extends SponsoredFields {

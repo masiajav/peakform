@@ -3,7 +3,9 @@ import { createAdminClient } from '@/lib/supabase/admin'
 import {
   BLIZZARD_PATCH_NOTES_URL,
   BLIZZARD_PATCH_SOURCE_NAME,
+  extractBlizzardPatchArchiveUrls,
   parseBlizzardPatchNotes,
+  type BlizzardPatchNote,
 } from '@/lib/overwatch-patch-notes'
 
 export const dynamic = 'force-dynamic'
@@ -25,9 +27,45 @@ export async function GET(request: Request) {
   }
 
   const html = await response.text()
-  const notes = parseBlizzardPatchNotes(html, 5)
+  const pagesScanned = [BLIZZARD_PATCH_NOTES_URL]
+  let notes = parseBlizzardPatchNotes(html, 5, BLIZZARD_PATCH_NOTES_URL)
+
+  if (notes.length < 5) {
+    for (const archiveUrl of extractBlizzardPatchArchiveUrls(html)) {
+      const archiveResponse = await fetch(archiveUrl, {
+        cache: 'no-store',
+        headers: {
+          'user-agent': 'ReplaidLabBot/1.0 (+https://www.replaidlab.com)',
+          accept: 'text/html',
+        },
+      })
+
+      if (!archiveResponse.ok) continue
+      pagesScanned.push(archiveUrl)
+      const archiveNotes = parseBlizzardPatchNotes(await archiveResponse.text(), 5, archiveUrl)
+      notes = mergeLatestPatchNotes(notes, archiveNotes, 5)
+      if (notes.length >= 5) break
+    }
+  }
+
   if (notes.length === 0) {
-    return NextResponse.json({ error: 'No patch notes detected' }, { status: 502 })
+    return NextResponse.json({ error: 'No patch notes detected', pagesScanned }, { status: 502 })
+  }
+
+  const dryRun = new URL(request.url).searchParams.get('dryRun') === '1'
+  if (dryRun) {
+    return NextResponse.json({
+      ok: true,
+      dryRun: true,
+      found: notes.length,
+      pagesScanned,
+      notes: notes.map(note => ({
+        sourceId: note.sourceId,
+        sourceUrl: note.sourceUrl,
+        sourcePublishedAt: note.sourcePublishedAt,
+        sections: note.sections,
+      })),
+    })
   }
 
   const admin = createAdminClient()
@@ -100,6 +138,7 @@ export async function GET(request: Request) {
         source_id: note.sourceId,
         source_published_at: note.sourcePublishedAt,
         auto_imported: true,
+        source_sections: note.sections,
       }
       : {}
 
@@ -130,7 +169,14 @@ export async function GET(request: Request) {
     createdDrafts,
     skipped,
     errors,
+    pagesScanned,
   }, { status: errors.length === notes.length ? 500 : 200 })
+}
+
+function mergeLatestPatchNotes(current: BlizzardPatchNote[], incoming: BlizzardPatchNote[], limit: number) {
+  return Array.from(new Map([...current, ...incoming].map(note => [note.sourceId, note])).values())
+    .sort((a, b) => b.sourcePublishedAt.localeCompare(a.sourcePublishedAt))
+    .slice(0, limit)
 }
 
 function authorizeCron(request: Request) {
@@ -154,6 +200,7 @@ function isMissingSourceColumn(message?: string) {
   return Boolean(message && (
     message.includes('announcements.source_name does not exist') ||
     message.includes('source_name') && message.includes('does not exist') ||
-    message.includes('source_published_at') && message.includes('does not exist')
+    message.includes('source_published_at') && message.includes('does not exist') ||
+    message.includes('source_sections') && message.includes('does not exist')
   ))
 }

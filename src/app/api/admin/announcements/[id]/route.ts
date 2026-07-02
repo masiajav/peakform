@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { normalizeRole, normalizeTopic, parseTags, toSlug } from '@/lib/content'
 import { NextResponse } from 'next/server'
+import { patchNotePublicationIssues } from '@/lib/indexing-policy'
 
 async function assertAdmin() {
   const supabase = createClient()
@@ -54,9 +55,31 @@ export async function PATCH(
 
   const body = await request.json()
   const admin = createAdminClient()
+  const payload = updatePayload(body)
+
+  if (body.published === true) {
+    const { data: current, error: currentError } = await admin
+      .from('announcements')
+      .select('*')
+      .eq('id', params.id)
+      .single()
+
+    if (currentError || !current) {
+      return NextResponse.json({ error: 'No se ha podido revisar la entrada antes de publicarla' }, { status: 404 })
+    }
+
+    const issues = patchNotePublicationIssues({ ...current, ...payload })
+    if (issues.length > 0) {
+      return NextResponse.json({
+        error: 'La patch note todavía no está lista para publicarse',
+        issues,
+      }, { status: 422 })
+    }
+  }
+
   const { data, error } = await admin
     .from('announcements')
-    .update(updatePayload(body))
+    .update(payload)
     .eq('id', params.id)
     .select()
     .single()

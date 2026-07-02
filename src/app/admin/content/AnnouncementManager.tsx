@@ -22,6 +22,10 @@ interface Announcement {
   sponsor_body?: string | null
   sponsor_url?: string | null
   sponsor_cta?: string | null
+  source_url?: string | null
+  source_published_at?: string | null
+  source_sections?: string[] | null
+  auto_imported?: boolean | null
 }
 
 function toSlug(str: string) {
@@ -124,6 +128,7 @@ export default function AnnouncementManager({ initialAnnouncements }: { initialA
   }
 
   async function togglePublished(item: Announcement) {
+    setError(null)
     const res = await fetch(`/api/admin/announcements/${item.id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
@@ -132,7 +137,12 @@ export default function AnnouncementManager({ initialAnnouncements }: { initialA
     if (res.ok) {
       const updated = await res.json()
       setItems(items.map(i => i.id === item.id ? updated : i))
+      return
     }
+
+    const data = await res.json()
+    const details = Array.isArray(data.issues) ? `: ${data.issues.join('. ')}` : ''
+    setError(`${data.error || 'No se ha podido cambiar el estado'}${details}`)
   }
 
   async function handleDelete(id: string) {
@@ -220,6 +230,13 @@ export default function AnnouncementManager({ initialAnnouncements }: { initialA
                 <div style={{ fontSize: 12, color: 'var(--text3)', marginBottom: 4 }}>
                   /{item.content_type === 'patch_note' ? 'patch-notes' : 'news'}/{item.slug}
                 </div>
+                {item.auto_imported && (
+                  <div style={{ fontSize: 11, color: 'var(--text3)', marginBottom: 6, lineHeight: 1.5 }}>
+                    Importada el {new Date(item.source_published_at || item.created_at).toLocaleDateString('es-ES')}
+                    {item.source_sections?.length ? ` · Secciones: ${item.source_sections.join(', ')}` : ''}
+                    {item.source_url && <> · <a href={item.source_url} target="_blank" rel="noreferrer" style={{ color: 'var(--accent)' }}>Abrir nota oficial</a></>}
+                  </div>
+                )}
                 {(item.role || item.hero || item.map) && (
                   <div style={{ fontSize: 11, color: 'var(--accent)', marginBottom: 4 }}>
                     {[item.role, item.hero, item.map].filter(Boolean).join(' · ')}

@@ -31,17 +31,41 @@ const SPANISH_MONTHS: Record<string, number> = {
   diciembre: 11,
 }
 
-export function parseBlizzardPatchNotes(html: string, limit = 5): BlizzardPatchNote[] {
+export function parseBlizzardPatchNotes(
+  html: string,
+  limit = 5,
+  sourcePageUrl = BLIZZARD_PATCH_NOTES_URL,
+): BlizzardPatchNote[] {
   const blocks = extractPatchBlocks(html)
 
   return uniqueBySourceId(blocks
-    .map(parsePatchBlock)
+    .map(block => parsePatchBlock(block, sourcePageUrl))
     .filter((item): item is BlizzardPatchNote => Boolean(item))
     .sort((a, b) => b.sourcePublishedAt.localeCompare(a.sourcePublishedAt)))
     .slice(0, limit)
 }
 
-function parsePatchBlock(block: string): BlizzardPatchNote | null {
+export function extractBlizzardPatchArchiveUrls(html: string, limit = 4) {
+  const serializedDates = html.match(/patchNotesDates\s*=\s*(\{[\s\S]*?\});/i)?.[1]
+  if (!serializedDates) return []
+
+  try {
+    const dates = JSON.parse(serializedDates) as { live?: unknown }
+    if (!Array.isArray(dates.live)) return []
+
+    return dates.live
+      .filter((value): value is string => typeof value === 'string' && /^\d{4}-\d{2}$/.test(value))
+      .slice(0, limit)
+      .map(value => {
+        const [year, month] = value.split('-')
+        return `${BLIZZARD_PATCH_NOTES_URL}live/${year}/${month}`
+      })
+  } catch {
+    return []
+  }
+}
+
+function parsePatchBlock(block: string, sourcePageUrl: string): BlizzardPatchNote | null {
   const dateLabel = textFromMatch(block, /<div[^>]*class="[^"]*\bPatchNotes-date\b[^"]*"[^>]*>([\s\S]*?)<\/div>/i)
   const title = textFromMatch(block, /<h3[^>]*class="[^"]*\bPatchNotes-patchTitle\b[^"]*"[^>]*>([\s\S]*?)<\/h3>/i)
   const anchor = attributeFromMatch(block, /<div[^>]*class="[^"]*\banchor\b[^"]*"[^>]*\bid="([^"]+)"[^>]*>/i)
@@ -51,7 +75,7 @@ function parsePatchBlock(block: string): BlizzardPatchNote | null {
   if (!dateLabel || !title || !sourcePublishedAt) return null
 
   const sourceId = anchor || `patch-${sourcePublishedAt.slice(0, 10)}`
-  const sourceUrl = `${BLIZZARD_PATCH_NOTES_URL}#${sourceId}`
+  const sourceUrl = `${sourcePageUrl.replace(/\/$/, '')}#${sourceId}`
   const sections = unique(
     Array.from(block.matchAll(/<h4[^>]*class="[^"]*\bPatchNotes-sectionTitle\b[^"]*"[^>]*>([\s\S]*?)<\/h4>/gi))
       .map(match => cleanText(match[1]))
@@ -60,15 +84,22 @@ function parsePatchBlock(block: string): BlizzardPatchNote | null {
   )
   const titleDate = title.replace(/^Notas del parche de Overwatch\s*(?:-|\u2013)\s*/i, '').trim() || dateLabel
   const slug = toSlug(`notas-parche-overwatch-${sourcePublishedAt.slice(0, 10)}`)
-  const excerpt = `Blizzard publico una nueva actualizacion de Overwatch el ${dateLabel}. Te dejamos el contexto rapido y el enlace a la nota oficial.`
+  const excerpt = `Blizzard publicó una nueva actualización de Overwatch el ${dateLabel}. Este borrador queda pendiente de análisis editorial antes de publicarse.`
   const body = [
-    `Blizzard publico una nueva actualizacion de Overwatch el ${dateLabel}.`,
+    `Blizzard publicó una nueva actualización de Overwatch el ${dateLabel}.`,
     '',
+    '## Qué cambia en este parche',
     describeSections(sections),
     '',
-    'En Replaid Lab la guardamos para tener a mano el contexto de cada parche sin copiar la nota completa. Si un heroe, mapa o sistema que usas a menudo aparece en la lista, conviene leer el detalle antes de sacar conclusiones en partida.',
+    '[Completar con un resumen propio de los cambios importantes, sin copiar la nota oficial.]',
     '',
-    `Puedes leer todos los cambios en la web oficial de Blizzard: [${title}](${sourceUrl}).`,
+    '## Impacto en ranked',
+    '[Explicar qué cambia al jugar, qué roles lo notarán y si afecta a composiciones, matchups o gestión de cooldowns.]',
+    '',
+    '## Héroes y guías relacionadas',
+    '[Añadir héroes afectados y enlaces internos útiles a guías, counters o composiciones de Replaid Lab.]',
+    '',
+    `Puedes consultar todos los cambios en la [nota oficial de Blizzard](${sourceUrl}).`,
   ].join('\n')
 
   return {
@@ -112,7 +143,7 @@ function parseIsoDate(value: string) {
 
 function describeSections(sections: string[]) {
   if (sections.length === 0) {
-    return 'Esta nota deja cambios y correcciones que merece la pena revisar antes de jugar, sobre todo si estas entrando a ranked o ajustando composiciones con tu equipo.'
+    return 'La nota incluye cambios y correcciones que deben revisarse antes de preparar el resumen editorial.'
   }
 
   return `La nota se centra sobre todo en ${formatNaturalList(sections.slice(0, 4))}. Conviene revisarla si estos cambios pueden afectar a tus picks, composiciones o rutinas de ranked.`

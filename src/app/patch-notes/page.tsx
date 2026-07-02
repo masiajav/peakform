@@ -24,7 +24,7 @@ export default async function PatchNotesPage() {
     .select('*')
     .eq('published', true)
     .eq('content_type', 'patch_note')
-    .order('created_at', { ascending: false })
+    .order('source_published_at', { ascending: false, nullsFirst: false })
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>

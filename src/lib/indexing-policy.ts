@@ -16,6 +16,7 @@ type GuideLike = {
   title?: string | null
   body?: string | null
   excerpt?: string | null
+  seo_title?: string | null
   seo_description?: string | null
   category?: string | null
   content_type?: string | null
@@ -108,6 +109,28 @@ export const TRUST_ROUTES = [
 export function wordCount(value?: string | null) {
   if (!value) return 0
   return stripMarkdown(value).split(/\s+/).filter(Boolean).length
+}
+
+export function patchNotePublicationIssues(item: AnnouncementLike) {
+  if (item.content_type !== 'patch_note') return []
+
+  const issues: string[] = []
+  const body = item.body || ''
+  const hasInternalLink = /\]\(\/(?:heroes|guides|counters|team-comps|roles)\//i.test(body)
+  const hasDraftMarkers = /\[(?:Completar|Explicar|Añadir)\b/i.test(body)
+  const hasVisibleSourceLink = Boolean(item.source_url && body.includes(item.source_url))
+
+  if (!item.source_url) issues.push('Falta el enlace oficial de Blizzard')
+  if (!item.source_published_at) issues.push('Falta la fecha oficial del parche')
+  if (!item.tags?.includes(PATCH_NOTE_EDITORIAL_TAG)) issues.push(`Añade la etiqueta ${PATCH_NOTE_EDITORIAL_TAG}`)
+  if (wordCount(body) < QUALITY_MINIMUMS.patchNoteAdsWords) issues.push(`El análisis propio debe alcanzar ${QUALITY_MINIMUMS.patchNoteAdsWords} palabras`)
+  if (wordCount(item.excerpt) < 8) issues.push('Completa un extracto editorial útil')
+  if (!item.seo_title || wordCount(item.seo_description) < 8) issues.push('Completa el título y la descripción SEO')
+  if (!hasInternalLink) issues.push('Añade al menos un enlace interno a una guía, héroe, counter o composición')
+  if (!hasVisibleSourceLink) issues.push('Mantén visible el enlace a la nota oficial de Blizzard')
+  if (hasDraftMarkers) issues.push('Elimina todos los marcadores pendientes del borrador')
+
+  return issues
 }
 
 export function isPillarGuideSlug(slug?: string | null) {
