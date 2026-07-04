@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { MAP_CATALOG, MAP_MODE_ORDER } from '@/lib/overwatch-map-catalog'
 import { getMapPillar, MAP_PILLARS, MAP_PILLAR_SLUGS } from '@/lib/overwatch-maps'
 import { wordCount } from '@/lib/indexing-policy'
 
@@ -10,6 +11,13 @@ function editorialText(value: unknown): string {
 }
 
 describe('Overwatch map pillars', () => {
+  it('keeps a complete unique catalog grouped by core mode', () => {
+    expect(MAP_CATALOG).toHaveLength(30)
+    expect(new Set(MAP_CATALOG.map(map => map.slug)).size).toBe(MAP_CATALOG.length)
+    expect(new Set(MAP_CATALOG.map(map => map.mode))).toEqual(new Set(MAP_MODE_ORDER))
+    expect(MAP_PILLAR_SLUGS.every(slug => MAP_CATALOG.some(map => map.slug === slug))).toBe(true)
+  })
+
   it('publishes only unique curated map slugs', () => {
     expect(MAP_PILLAR_SLUGS).toEqual(['neon-junction', 'kings-row', 'lijiang-tower', 'dorado'])
     expect(new Set(MAP_PILLAR_SLUGS).size).toBe(MAP_PILLAR_SLUGS.length)

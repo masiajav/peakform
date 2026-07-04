@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import JsonLd from '@/components/content/JsonLd'
 import PublicNav from '@/components/layout/PublicNav'
+import { getMapsByMode, MAP_CATALOG, MAP_MODE_ORDER } from '@/lib/overwatch-map-catalog'
 import { MAP_PILLARS } from '@/lib/overwatch-maps'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
 
@@ -33,7 +34,7 @@ export default function MapsPage() {
         <header className="maps-hub-header">
           <div className="eyebrow">GUÍAS DE OVERWATCH</div>
           <h1>MAPAS DE OVERWATCH</h1>
-          <p>Aprende dónde pelear, cuándo rotar y qué revisar después de una derrota. Solo publicamos mapas con una guía completa y decisiones específicas para ranked.</p>
+          <p>Consulta todos los mapas principales de Overwatch por modo. Las guías completas explican dónde pelear, cuándo rotar y qué revisar después de una derrota.</p>
         </header>
 
         <section className="maps-hub-grid" aria-label="Mapas con guía completa">
@@ -52,6 +53,46 @@ export default function MapsPage() {
               </article>
             </Link>
           ))}
+        </section>
+
+        <section className="map-catalog-section" aria-labelledby="map-catalog-title">
+          <div className="map-catalog-heading">
+            <div>
+              <div className="eyebrow">CATÁLOGO COMPLETO</div>
+              <h2 id="map-catalog-title">Todos los mapas por modo</h2>
+            </div>
+            <span>{MAP_PILLARS.length} guías completas · {MAP_CATALOG.length} mapas</span>
+          </div>
+
+          <div className="map-catalog-groups">
+            {MAP_MODE_ORDER.map(mode => {
+              const maps = getMapsByMode(mode)
+
+              return (
+                <section key={mode} className="map-catalog-group" aria-labelledby={`map-mode-${mode}`}>
+                  <header>
+                    <h3 id={`map-mode-${mode}`}>{mode}</h3>
+                    <span>{maps.length}</span>
+                  </header>
+                  <div className="map-catalog-list">
+                    {maps.map(map => {
+                      const ready = MAP_PILLARS.some(pillar => pillar.slug === map.slug)
+                      const content = (
+                        <>
+                          <div><strong>{map.name}</strong><span>{map.location}</span></div>
+                          <small>{ready ? 'GUÍA COMPLETA →' : 'EN PREPARACIÓN'}</small>
+                        </>
+                      )
+
+                      return ready
+                        ? <Link key={map.slug} href={`/maps/${map.slug}`} className="map-catalog-item is-ready">{content}</Link>
+                        : <div key={map.slug} className="map-catalog-item">{content}</div>
+                    })}
+                  </div>
+                </section>
+              )
+            })}
+          </div>
         </section>
 
         <section className="maps-hub-method">
