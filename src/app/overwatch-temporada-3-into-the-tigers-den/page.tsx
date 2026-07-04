@@ -52,6 +52,7 @@ const seasonFeatures = [
     label: 'Mapa',
     title: 'Neon Junction',
     body: 'Nuevo mapa híbrido con estética urbana, neones y rutas que probablemente favorezcan DPS móviles y defensas que sepan controlar laterales.',
+    href: '/maps/neon-junction',
   },
   {
     label: 'Evento',
@@ -324,6 +325,7 @@ export default function SeasonThreePage() {
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
             <Link href="/heroes/shion" className="btn btn-primary btn-sm">CÓMO JUGAR SHION</Link>
             <Link href="/patch-notes" className="btn btn-secondary btn-sm">PATCH NOTES</Link>
+            <Link href="/maps/neon-junction" className="btn btn-secondary btn-sm">GUÍA DE NEON JUNCTION</Link>
             <Link href="/heroes" className="btn btn-secondary btn-sm">TODOS LOS HÉROES</Link>
             <Link href="/guides/como-mejorar-en-overwatch" className="btn btn-secondary btn-sm">MEJORAR EN RANKED</Link>
           </div>

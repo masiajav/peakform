@@ -1,4 +1,5 @@
 import { stripMarkdown } from './seo'
+import { MAP_PILLAR_SLUGS } from './overwatch-maps'
 
 export type IndexingDecision = 'indexable' | 'noindex_follow' | 'not_found'
 export type QualityStatus = 'index_ads' | 'index_no_ads' | 'noindex_no_ads'
@@ -71,7 +72,7 @@ export const PILLAR_COUNTER_SLUGS = ['shion', 'ana', 'genji', 'kiriko', 'reinhar
 
 export const PILLAR_TEAM_COMP_SLUGS = ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy']
 
-export const PILLAR_MAP_SLUGS: string[] = []
+export const PILLAR_MAP_SLUGS = MAP_PILLAR_SLUGS
 
 export const EXCLUDED_GUIDE_SLUGS = [
   'tier-list-season-2-overwatch-mejores-heroes-rol',

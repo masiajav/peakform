@@ -1,46 +1,31 @@
 import type { Metadata } from 'next'
-import TopicArchivePage from '@/components/content/TopicArchivePage'
-import { topicLabel } from '@/lib/content'
-import { buildMetadata } from '@/lib/seo'
-import { createAdminClient } from '@/lib/supabase/admin'
 import { notFound } from 'next/navigation'
+import MapPillarPage from '@/components/content/MapPillarPage'
+import { getMapPillar, MAP_PILLAR_SLUGS } from '@/lib/overwatch-maps'
+import { robotsForQuality, topicQualityDecision } from '@/lib/indexing-policy'
+import { buildMetadata } from '@/lib/seo'
 
-async function hasPublishedMapContent(map: string) {
-  const admin = createAdminClient()
-  const [{ count: guideCount }, { count: announcementCount }] = await Promise.all([
-    admin.from('guides').select('id', { count: 'exact', head: true }).eq('published', true).eq('map', map),
-    admin.from('announcements').select('id', { count: 'exact', head: true }).eq('published', true).eq('map', map),
-  ])
-
-  return Boolean((guideCount ?? 0) + (announcementCount ?? 0))
+export function generateStaticParams() {
+  return MAP_PILLAR_SLUGS.map(map => ({ map }))
 }
 
-export async function generateMetadata({ params }: { params: { map: string } }): Promise<Metadata> {
-  const label = topicLabel(params.map)
-  const metadata = buildMetadata({
-    title: `${label}: setups, rutas y consejos de Overwatch`,
-    description: `Hemeroteca de ${label}: setups, rutas, composiciones, guias, noticias y consejos para revisar tus partidas de Overwatch.`,
-    path: `/maps/${params.map}`,
+export function generateMetadata({ params }: { params: { map: string } }): Metadata {
+  const map = getMapPillar(params.map)
+  if (!map) return {}
+
+  return buildMetadata({
+    title: map.seoTitle,
+    description: map.seoDescription,
+    path: `/maps/${map.slug}`,
+    image: map.image,
+    type: 'article',
+    robots: robotsForQuality(topicQualityDecision('map', map.slug)),
   })
-
-  if (!(await hasPublishedMapContent(params.map))) {
-    metadata.robots = { index: false, follow: true }
-  }
-
-  return metadata
 }
 
-export default async function MapPage({ params }: { params: { map: string } }) {
-  if (!(await hasPublishedMapContent(params.map))) notFound()
+export default function MapPage({ params }: { params: { map: string } }) {
+  const map = getMapPillar(params.map)
+  if (!map) notFound()
 
-  const label = topicLabel(params.map)
-
-  return (
-    <TopicArchivePage
-      kind="map"
-      slug={params.map}
-      title={`${label} en Overwatch`}
-      description={`Setups, rutas, composiciones, guias y noticias para entender mejor tus partidas en ${label}.`}
-    />
-  )
+  return <MapPillarPage map={map} />
 }

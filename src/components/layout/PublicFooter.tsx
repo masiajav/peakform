@@ -21,6 +21,7 @@ const CONTENT_LINKS = [
   { href: '/guides', label: 'Guías' },
   { href: '/counters', label: 'Counters' },
   { href: '/team-comps', label: 'Composiciones' },
+  { href: '/maps', label: 'Mapas' },
 ]
 
 const TRUST_LINKS = [
