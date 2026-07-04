@@ -1,3 +1,9 @@
+import { CONTROL_MAP_PILLARS } from './overwatch-control-maps'
+import { ESCORT_MAP_PILLARS } from './overwatch-escort-maps'
+import { FLASHPOINT_MAP_PILLARS } from './overwatch-flashpoint-maps'
+import { HYBRID_MAP_PILLARS } from './overwatch-hybrid-maps'
+import { PUSH_MAP_PILLARS } from './overwatch-push-maps'
+
 export type MapRole = 'tank' | 'dps' | 'support'
 
 export type MapPillar = {
@@ -9,6 +15,7 @@ export type MapPillar = {
   imageAlt: string
   seoTitle: string
   seoDescription: string
+  updatedAtIso: string
   updatedAt: string
   intro: string[]
   quickRead: { title: string; body: string }[]
@@ -24,6 +31,11 @@ export type MapPillar = {
 }
 
 export const MAP_PILLARS: MapPillar[] = [
+  ...CONTROL_MAP_PILLARS,
+  ...ESCORT_MAP_PILLARS,
+  ...FLASHPOINT_MAP_PILLARS,
+  ...HYBRID_MAP_PILLARS,
+  ...PUSH_MAP_PILLARS,
   {
     slug: 'neon-junction',
     name: 'Neon Junction',
@@ -33,10 +45,11 @@ export const MAP_PILLARS: MapPillar[] = [
     imageAlt: 'Calles iluminadas y edificios de Neon Junction en Overwatch',
     seoTitle: 'Neon Junction en Overwatch: rutas, héroes y composiciones',
     seoDescription: 'Guía de Neon Junction en Overwatch: cómo atacar y defender el mapa híbrido, rutas, héroes recomendados, composiciones, errores y checklist de VOD.',
-    updatedAt: '2 de julio de 2026',
+    updatedAtIso: '2026-07-04',
+    updatedAt: '4 de julio de 2026',
     intro: [
-      'Neon Junction es un mapa híbrido ambientado en las calles nocturnas de Tokio. La partida empieza con una captura y continúa escoltando a ANDROMEDA III hacia Zuiko-za. Esa mezcla obliga a cambiar de ritmo: el equipo que funciona bien delante del primer punto puede quedarse sin respuestas cuando la carga empieza a avanzar por calles con más ángulos y rutas laterales.',
-      'La primera prioridad no es memorizar cada esquina, sino entender qué espacio necesita tu composición. Los equipos de brawl quieren cruzar juntos y pelear alrededor de cobertura; las composiciones de dive buscan una backline aislada; el poke necesita líneas limpias sin quedarse atrapado cuando la pelea gira. Si sabes qué condición persigues, el mapa deja de parecer una colección de callejones y empieza a tener decisiones claras.',
+      'Neon Junction te deja una sensación engañosa: las calles de Tokio parecen ofrecer una ruta para cada jugador, pero la partida se rompe en cuanto cada uno elige la suya. Primero hay que abrir el punto y después acompañar a ANDROMEDA III hasta Zuiko-za. Lo que funcionó en la captura puede quedarse corto cuando la carga entra en calles con más ángulos y salidas laterales.',
+      'No necesitas aprenderte cada esquina de memoria. Necesitas saber qué espacio busca tu equipo. Brawl quiere cruzar junto y pelear alrededor de cobertura; dive necesita que varios jugadores lleguen sobre la misma backline; poke depende de líneas limpias y de rotar antes de quedar encerrado. Cuando esa intención está clara, los callejones dejan de ser ruido y empiezan a ofrecer decisiones útiles.',
     ],
     quickRead: [
       { title: 'Condición principal', body: 'Controlar los laterales antes de tocar el objetivo. Entrar recto mientras el rival conserva dos ángulos suele convertir la pelea en una lenta pérdida de recursos.' },
@@ -134,10 +147,11 @@ export const MAP_PILLARS: MapPillar[] = [
     imageAlt: "Estatua y calles nocturnas de King's Row en Overwatch",
     seoTitle: "King's Row en Overwatch: ataque, defensa y composiciones",
     seoDescription: "Guía de King's Row en Overwatch: cómo atacar y defender cada tramo, mejores héroes y composiciones, errores frecuentes y checklist para revisar tu VOD.",
-    updatedAt: '2 de julio de 2026',
+    updatedAtIso: '2026-07-04',
+    updatedAt: '4 de julio de 2026',
     intro: [
-      "King's Row es uno de los mapas híbridos más conocidos de Overwatch: primero se captura el punto A y después se escolta la carga por las calles hasta el tramo final. Su fama de mapa de brawl tiene sentido porque abundan las esquinas y las peleas a media y corta distancia, pero reducirlo a 'elige Reinhardt y avanza' deja fuera buena parte de lo que decide una partida.",
-      'El mapa recompensa a los equipos que controlan la siguiente esquina antes de mover la carga. También castiga mucho las muertes tardías: una defensa que cae escalonada puede perder dos tramos seguidos, y un ataque que persigue demasiado puede llegar al siguiente engage sin posiciones ni cooldowns. La pregunta útil no es quién empuja, sino qué espacio permite que la carga siga avanzando sin regalar la backline.',
+      "King's Row tiene fama de ser el mapa de Reinhardt, y se entiende: sobran esquinas y muchas peleas terminan a corta distancia. Pero elegir brawl y caminar hacia delante no resuelve hotel, la estatua ni las alturas de calles. Primero hay que abrir el punto A y después conseguir que la carga avance sin regalar la backline en cada giro.",
+      'Las buenas rondas se notan en lo que ocurre después de ganar una pelea. Una persona empuja y el resto toma la siguiente esquina antes de que vuelva la defensa. Las malas se alargan persiguiendo una baja, terminan con la carga parada y comienzan el siguiente contacto sin posiciones ni cooldowns. El mapa premia más esa disciplina que cualquier pick obligatorio.',
     ],
     quickRead: [
       { title: 'Condición principal', body: 'Ganar la esquina y la altura que dominan el siguiente tramo. La carga avanza como consecuencia de ese control, no al revés.' },
@@ -235,34 +249,35 @@ export const MAP_PILLARS: MapPillar[] = [
     imageAlt: 'Pagoda iluminada y accesos al punto de Lijiang Tower en Overwatch',
     seoTitle: 'Guía de Lijiang Tower: mapas, héroes y composiciones',
     seoDescription: 'Guía de Lijiang Tower en Overwatch: cómo jugar Night Market, Garden y Control Center, mejores héroes, composiciones, errores y revisión de VOD.',
+    updatedAtIso: '2026-07-04',
     updatedAt: '4 de julio de 2026',
     intro: [
-      'Lijiang Tower es un mapa de Control formado por tres escenarios: Night Market, Garden y Control Center. Los dos equipos parten en igualdad de condiciones y pelean por un único objetivo; gana la ronda quien consiga mantenerlo hasta completar el progreso. La regla parece sencilla, pero cada escenario cambia por completo la distancia de combate, las rutas de entrada y el valor de los héroes con movilidad.',
-      'La clave no es correr al punto en cuanto se abre, sino llegar a la primera pelea con una formación que pueda sostenerse. Control premia mucho la ventaja inicial porque el equipo que captura obliga al rival a cruzar puertas estrechas y jugar contra el reloj. Aun así, tocar sin recursos o entrar por turnos no recupera nada. Conviene reagruparse, elegir una entrada y preparar una pelea que deje tiempo para capturar después.',
+      'Lijiang Tower tiene una pequeña crueldad: los tres escenarios parecen favorecer las peleas rápidas, pero cada uno castiga una prisa distinta. En Night Market se entra antes de haber repartido las puertas, Garden invita a saltar sin comprobar quién puede seguirte y Control Center convierte una rotación dudosa en cinco jugadores atrapados en el mismo pasillo.',
+      'La primera captura importa, aunque no merece llegar al punto con medio equipo. Quien gana puede defender accesos y obligar al rival a jugar contra el porcentaje. Para darle la vuelta hay que resistir la tentación de tocar por turnos: agrupa, decide una puerta y abre una segunda mirada cercana. En Lijiang, una entrada sencilla ejecutada a la vez suele funcionar mejor que el flanco más imaginativo del servidor.',
     ],
     quickRead: [
-      { title: 'Condición principal', body: 'Ganar una entrada y mantener acceso al punto sin encerrar a tus supports. El porcentaje llega solo cuando el equipo conserva una posición defendible.' },
-      { title: 'Lo que más castiga', body: 'Tocar por reflejo mientras faltan compañeros. Cinco segundos de progreso rara vez compensan otra pelea perdida y más carga de ultimate para el rival.' },
-      { title: 'Cambio entre rondas', body: 'Revisa la composición al conocer el escenario. Un pick cómodo en Garden puede quedarse sin espacio o alcance en Control Center.' },
+      { title: 'La puerta es la pelea', body: 'En Night Market y Control Center, cruzar con recursos vale más que disparar mucho desde fuera. Provoca una habilidad y entra antes de que vuelva.' },
+      { title: 'Tocar no siempre ayuda', body: 'Un contacto aislado puede regalar otra baja y retrasar el regroup. Si todavía queda tiempo, espera a los cinco y prepara un intento que pueda terminar en captura.' },
+      { title: 'Cambia entre rondas', body: 'Garden permite movilidad y ángulos abiertos; Control Center comprime todo. Un héroe cómodo no tiene por qué seguir siendo útil cuando cambia el escenario.' },
     ],
     phases: [
       {
         name: 'Night Market',
-        attack: 'El punto está dentro de un edificio con varias puertas, de modo que entrar todos por el mismo acceso facilita demasiado el daño rival. Abre una segunda amenaza corta sin separar al equipo durante medio mapa. Un Tank puede presionar la puerta principal mientras un DPS enseña un lateral y vuelve a la línea de curación. El objetivo es cruzar después de forzar una habilidad, no intercambiar daño desde fuera indefinidamente.',
-        defense: 'Cuando tienes el punto, no hace falta esperar en el centro. Controla las puertas desde cobertura y conserva una ruta para retroceder. Si el rival se divide, presiona al grupo que no puede recibir ayuda; si entra compacto, cede unos metros y responde con recursos. Perseguir fuera del edificio puede regalar el acceso contrario y convertir una defensa favorable en una carrera desordenada.',
-        vodReview: 'Pausa antes de cada entrada y comprueba por qué puerta miraba cada jugador. Si tres compañeros vigilaban el mismo ángulo y nadie veía el lateral, el problema no fue de puntería sino de reparto del espacio.',
+        attack: 'Night Market se vuelve insoportable cuando los cinco intentan entrar por la misma puerta. Enseña una amenaza corta en el lateral mientras el Tank presiona la entrada que todos pueden seguir. No hace falta que el DPS dé la vuelta al edificio: su trabajo es conseguir que alguien dentro mire hacia otro sitio. En cuanto salga una habilidad defensiva o un rival abandone su esquina, cruza. Quedarse intercambiando daño desde la calle solo alimenta ultimates y el porcentaje contrario.',
+        defense: 'Con el punto capturado, reparte las puertas y juega desde las esquinas interiores. Puedes molestar al rival fuera, pero debes seguir teniendo una retirada hacia la sala. Si alguien aparece por detrás, márcalo sin mandar a tres compañeros a perseguirlo. La defensa pierde su ventaja cuando abandona el edificio y convierte una entrada difícil en una carrera abierta.',
+        vodReview: 'Pausa antes del cruce. ¿Cuántas puertas estaba mirando el equipo y quién podía ayudar al jugador del lateral? Si todos enfocaban el mismo acceso, ya tienes una explicación bastante honesta de la derrota.',
       },
       {
         name: 'Garden',
-        attack: 'Garden ofrece rutas abiertas, puentes y peligro de expulsión. La movilidad ayuda, pero saltar primero sin confirmar dónde está la backline suele terminar en una eliminación rápida. Cruza por cobertura, toma el terreno que permite mirar al punto y ataca al mismo sector. Los héroes con empuje ganan valor cerca de los bordes, siempre que no abandonen la pelea por buscar una jugada espectacular.',
-        defense: 'Defender Garden exige vigilar los accesos sin quedarse expuesto en una pasarela. La primera línea debe saber dónde puede recibir curación y qué salto o esquina utilizará para salir. Si el rival entra por un lateral, rota como bloque; enviar un jugador distinto a cada puerta rompe la formación y deja al objetivo sin una defensa reconocible.',
-        vodReview: 'Revisa cada muerte ambiental y cada salto sin apoyo. Anota si se conocía la posición del rival, si existía una ruta de vuelta y si el equipo podía aprovechar el espacio creado durante esa entrada.',
+        attack: 'Garden da ganas de saltar al otro lado en cuanto ves una oportunidad. Antes, mira si tus supports conservan visión y si el resto puede aprovechar ese movimiento. Usa las paredes para acercarte, localiza a los héroes con empuje y ataca un mismo lado. El puente es una ruta, no una obligación. Si el rival lo controla, el interior ofrece una entrada menos vistosa y bastante más fiable.',
+        defense: 'Juega las pasarelas con una salida prevista. Amenazar una caída ya reduce el espacio del ataque; no necesitas exponerte tú también para buscarla. Cuando el rival cambie de lado, rota con el núcleo del equipo y deja que un jugador móvil vigile la ruta anterior. Repartir a una persona por acceso suele acabar con todas demasiado lejos para ayudarse.',
+        vodReview: 'En cada muerte ambiental, retrocede unos segundos. Comprueba por qué estabas junto al borde y si habías gastado la movilidad de salida. El empujón casi siempre remata un error anterior.',
       },
       {
         name: 'Control Center',
-        attack: 'Control Center favorece peleas cercanas y rotaciones rápidas alrededor del punto. Para recuperar, fuerza primero el recurso que puede frenar tu entrada y cruza con velocidad o protección. Dar vueltas por el exterior sin una decisión solo consume tiempo. Una vez dentro, evita apilar a los cinco jugadores: ocupa la cobertura inmediata y mantén un ángulo que castigue la retirada rival.',
-        defense: 'Con el control asegurado, usa las paredes y accesos para acortar las líneas de tiro. No regales el centro por intentar defender la puerta del spawn. El equipo debe reconocer cuándo ceder hacia el punto y cuándo acelerar sobre un enemigo aislado. Guardar una ultimate defensiva para el último engage suele valer más que usarla en una pelea ya ganada.',
-        vodReview: 'Observa cuándo empezó realmente cada engage. Si el Tank cruzó antes de que los DPS tuvieran ángulo o los supports pudieran seguirlo, apunta la diferencia de tiempo y no solo el resultado final.',
+        attack: 'Control Center no deja mucho espacio para corregir una entrada a medias. Asoma para forzar Muro, Suzu, control o la herramienta que pueda detenerte y cruza mientras no esté disponible. Después ocupa dos esquinas dentro de la sala; cinco jugadores sobre el círculo reciben el mismo daño y se estorban al retroceder. Dar una vuelta completa por fuera solo tiene sentido si el equipo la hace junto y todavía queda tiempo.',
+        defense: 'Recibe en la puerta, pero no mueras en ella. Cuando el ataque gaste velocidad o protección, vuelve a la cobertura del punto y responde allí. Si un rival se adelanta, acelera sobre él; si entra el grupo entero, conserva la forma y evita perseguir al primero que se retire. La última defensa necesita una ultimate útil, no cinco recursos gastados para ganar una pelea que ya era favorable.',
+        vodReview: 'Busca el segundo exacto en que el Tank cruzó. Después comprueba dónde estaban los DPS y si los supports podían verlo. Una diferencia de dos segundos explica muchas peleas que parecían simplemente falta de daño.',
       },
     ],
     attackPlan: [
@@ -336,15 +351,16 @@ export const MAP_PILLARS: MapPillar[] = [
     imageAlt: 'Plaza nocturna y calles de Dorado en Overwatch',
     seoTitle: 'Guía de Dorado en Overwatch: rutas, héroes y defensa',
     seoDescription: 'Guía de Dorado en Overwatch: cómo atacar y defender los tres tramos, controlar las alturas, elegir héroes y revisar errores en tus VOD.',
+    updatedAtIso: '2026-07-04',
     updatedAt: '4 de julio de 2026',
     intro: [
-      'Dorado es un mapa de Escolta ambientado en México. El ataque acompaña la carga desde las calles exteriores hasta las instalaciones de LumériCo, mientras la defensa intenta agotar el tiempo en tres tramos con alturas, esquinas y líneas de tiro muy distintas. El mapa ha recibido cambios importantes con el paso de las temporadas, así que muchas rutas antiguas ya no explican por sí solas cómo se juega la versión actual.',
-      'La altura sigue siendo valiosa, pero no porque un DPS deba vivir allí toda la partida. Sirve para ver antes la rotación, disparar sin atravesar al propio Tank y obligar al rival a gastar movilidad. La carga solo progresa de forma segura cuando alguien controla la posición desde la que la defensa quiere detenerla. Empujar sin mirar arriba suele acabar en una pelea iniciada por el enemigo y con el equipo atacante atrapado en la calle.',
+      'Dorado tiene una costumbre muy clara: coloca la carga debajo de la posición que la defensa quiere ocupar. Sucede al salir, vuelve a ocurrir entre los tejados y se repite al entrar en LumériCo. Si el ataque mira únicamente al coche, acabará recibiendo daño desde arriba durante todo el recorrido y preguntándose por qué nunca encuentra una pelea limpia.',
+      'La solución no consiste en mandar a todo el equipo a perseguir un DPS por los tejados. Basta con desplazarlo, cortar su visión y ocupar la esquina que protege la carga. Después, una persona empuja mientras las demás preparan la siguiente calle. Dorado se vuelve mucho más sencillo cuando altura y objetivo dejan de ser dos tareas separadas y empiezan a formar parte del mismo avance.',
     ],
     quickRead: [
-      { title: 'Condición principal', body: 'Disputar la altura antes de que la carga llegue debajo. Quien controla la siguiente posición decide cuándo empieza la pelea.' },
-      { title: 'Lo que más castiga', body: 'Empujar con cuatro jugadores mientras la defensa conserva todos los ángulos. La carga no protege de una línea cruzada ni corrige una rotación tardía.' },
-      { title: 'Ritmo de escolta', body: 'Después de una baja, adelanta el equipo y deja un solo jugador empujando cuando sea seguro. Convierte la ventaja en espacio, no solo en metros.' },
+      { title: 'Mira dónde pasará la carga', body: 'Si hay un balcón o tejado encima de la ruta, resuélvelo antes de llegar debajo. Allí la defensa tendrá todos los ángulos y tú ninguno.' },
+      { title: 'Desplazar ya es ganar', body: 'No necesitas perseguir una eliminación por los tejados. Obliga al rival a retroceder, toma su posición y vuelve a mirar el objetivo.' },
+      { title: 'Una persona empuja', body: 'Tras ganar una pelea, adelanta cuatro jugadores hasta la siguiente esquina. La carga avanzará y la defensa perderá su colocación favorita.' },
     ],
     phases: [
       {

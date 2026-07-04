@@ -19,7 +19,38 @@ describe('Overwatch map pillars', () => {
   })
 
   it('publishes only unique curated map slugs', () => {
-    expect(MAP_PILLAR_SLUGS).toEqual(['neon-junction', 'kings-row', 'lijiang-tower', 'dorado'])
+    expect(MAP_PILLAR_SLUGS).toEqual([
+      'antarctic-peninsula',
+      'busan',
+      'ilios',
+      'nepal',
+      'oasis',
+      'samoa',
+      'circuit-royal',
+      'havana',
+      'junkertown',
+      'rialto',
+      'route-66',
+      'shambali-monastery',
+      'watchpoint-gibraltar',
+      'aatlis',
+      'new-junk-city',
+      'suravasa',
+      'blizzard-world',
+      'eichenwalde',
+      'hollywood',
+      'midtown',
+      'numbani',
+      'paraiso',
+      'colosseo',
+      'esperanca',
+      'new-queen-street',
+      'runasapi',
+      'neon-junction',
+      'kings-row',
+      'lijiang-tower',
+      'dorado',
+    ])
     expect(new Set(MAP_PILLAR_SLUGS).size).toBe(MAP_PILLAR_SLUGS.length)
     expect(getMapPillar('unknown-map')).toBeUndefined()
   })

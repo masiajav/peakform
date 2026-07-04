@@ -17,7 +17,7 @@ export default function MapPillarPage({ map }: { map: MapPillar }) {
     description: map.seoDescription,
     url: pageUrl,
     inLanguage: 'es',
-    dateModified: '2026-07-02',
+    dateModified: map.updatedAtIso,
     publisher: { '@type': 'Organization', name: SITE_NAME },
     about: {
       '@type': 'VideoGame',
