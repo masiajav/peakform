@@ -63,4 +63,20 @@ describe('Overwatch map pillars', () => {
     expect(map.faq.length).toBeGreaterThanOrEqual(4)
     expect(map.relatedLinks.some(link => link.href.startsWith('/guides/'))).toBe(true)
   })
+
+  it.each(MAP_PILLARS)('$name uses clean, reader-facing Spanish', map => {
+    const text = editorialText(map)
+    expect(text).not.toMatch(/[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]\?[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]/)
+    expect(text).not.toMatch(/\b(backline|frontline|cooldowns?|flankers?|high ground|payload|recontest|regroup|spawn|timing)\b/i)
+    expect(text).not.toMatch(/\b(title seo|meta description|keywords principales|pregunta que resuelve)\b/i)
+  })
+
+  it.each(MAP_PILLARS)('$name has useful quick-read advice', map => {
+    expect(map.quickRead).toHaveLength(3)
+    for (const item of map.quickRead) {
+      expect(item.title).not.toMatch(/^(condición principal|lo que más castiga|consejo|clave)$/i)
+      expect(wordCount(item.body)).toBeGreaterThanOrEqual(12)
+      expect(`${item.title} ${item.body}`).not.toMatch(/\b(picks?|snipers?|backline|frontline|cooldowns?|recontest|spawn|timing)\b/i)
+    }
+  })
 })

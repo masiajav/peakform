@@ -14,12 +14,12 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
     updatedAt: '4 de julio de 2026',
     intro: [
       'Antarctic Peninsula dejó de ser aquel mapa en el que uno podía perderse entre pasillos blancos y llegar tarde a una pelea que ya había terminado. Su versión actual conserva el ambiente de expedición helada, pero ordena mejor las rutas de Drilling Rig, Icebreaker y Anomaly. Sigue siendo un mapa con muchos accesos, solo que ahora resulta más fácil entender adónde conduce cada uno y qué espacio estás intentando ganar.',
-      'Aquí las rondas rara vez se deciden por quedarse plantado en el objetivo. Drilling Rig obliga a vigilar la altura que rodea el punto; Icebreaker premia a quien usa el barco como cobertura y cambia de lado a tiempo; Anomaly mezcla un interior estrecho con un borde exterior que puede convertirse en una trampa. Antes de entrar, mira dónde está tu backline y decide por qué puerta va a jugar el equipo. Esa pequeña pausa evita más derrotas que cualquier flanco brillante improvisado.',
+      'Aquí las rondas rara vez se deciden por quedarse plantado en el objetivo. Drilling Rig obliga a vigilar la altura que rodea el punto; Icebreaker premia a quien usa el barco como cobertura y cambia de lado a tiempo; Anomaly mezcla un interior estrecho con un borde exterior que puede convertirse en una trampa. Antes de entrar, mira dónde está tu retaguardia y decide por qué puerta va a jugar el equipo. Esa pequeña pausa evita más derrotas que cualquier flanco brillante improvisado.',
     ],
     quickRead: [
-      { title: 'No persigas entre pasillos', body: 'Las rutas laterales parecen cortas hasta que doblas dos esquinas y ya nadie puede ayudarte. Si el rival se retira, quédate con la puerta o la altura que acaba de ceder.' },
-      { title: 'El punto llega después', body: 'Primero limpia la cobertura desde la que el rival puede disparar al objetivo. Tocar antes de hacerlo suele dejar al Tank rodeado y al resto del equipo buscando una entrada.' },
-      { title: 'Cuidado con el borde', body: 'En Anomaly y varias zonas exteriores, un empujón cambia una pelea. No juegues pegado al vacío cuando puedas usar la pared interior y conservar la misma línea de tiro.' },
+      { title: 'No alargues los flancos', body: 'Si doblas dos esquinas, tus supports dejarán de verte. Usa los pasillos para abrir un ángulo corto y vuelve al equipo en cuanto el rival abandone la posición.' },
+      { title: 'Limpia la entrada antes de tocar', body: 'El punto está expuesto desde varios lados. Desaloja primero la altura o la esquina más peligrosa y entra cuando tu Tank pueda recibir ayuda.' },
+      { title: 'Juega lejos del borde', body: 'En Anomaly hay peleas que se pierden por colocarse junto al vacío sin necesidad. La pared interior ofrece casi la misma visión y te protege de los empujes.' },
     ],
     phases: [
       {
@@ -31,33 +31,33 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       {
         name: 'Icebreaker',
         attack: 'El barco da refugio, pero también corta líneas de curación con una facilidad desesperante. Avanza por el lado que permita a tus supports seguir viendo la pelea y usa el interior para cruzar, no para quedarte librando un duelo eterno. Cuando el rival acumula gente en una entrada, cambiar al otro costado es mejor que insistir durante treinta segundos. Hazlo juntos: una rotación de cinco tarda poco; cinco rutas distintas no son una rotación.',
-        defense: 'No esperes literalmente sobre el círculo. Las esquinas del barco permiten forzar movilidad y regresar al punto con recursos. Si un flanker entra por dentro, una persona puede marcarlo mientras el resto mantiene la puerta principal; enviar a tres jugadores detrás de él abre el objetivo. Cuando tengas que ceder, cruza al lado opuesto con tiempo. Morir en el pasillo del barco deja a tu equipo sin una segunda pelea limpia.',
+        defense: 'No esperes literalmente sobre el círculo. Las esquinas del barco permiten forzar movilidad y regresar al punto con recursos. Si un héroe de flanco entra por dentro, una persona puede marcarlo mientras el resto mantiene la puerta principal; enviar a tres jugadores detrás de él abre el objetivo. Cuando tengas que ceder, cruza al lado opuesto con tiempo. Morir en el pasillo del barco deja a tu equipo sin una segunda pelea limpia.',
         vodReview: 'Fíjate en cuántas veces una pared del barco cortó la curación. Si la respuesta es varias, el problema seguramente fue la ruta elegida o el momento de cruzar, no la cantidad de healing.',
       },
       {
         name: 'Anomaly',
         attack: 'Anomaly invita a entrar rápido porque el objetivo parece estar a mano, pero la primera puerta suele concentrar demasiado daño. Asoma, fuerza una habilidad defensiva y decide si cruzas por dentro o rodeas por el exterior. La ruta exterior funciona para abrir la mirada rival, no para mandar solo a un compañero junto al precipicio. Una vez dentro, ocupa las esquinas alrededor del punto; cinco jugadores dentro del círculo ofrecen un blanco demasiado sencillo.',
-        defense: 'Defiende la puerta que el rival necesita, pero deja libre tu retirada. Los héroes con empuje pueden amenazar el exterior sin exponerse ellos mismos, mientras que los de rango medio funcionan mejor desde la pared interior. Si el ataque gasta varias ultimates para entrar, no respondas con todo por orgullo. Cede, sobrevive y prepara el retake: la cercanía de las rutas permite volver con una pelea completa.',
+        defense: 'Defiende la puerta que el rival necesita, pero deja libre tu retirada. Los héroes con empuje pueden amenazar el exterior sin exponerse ellos mismos, mientras que los de rango medio funcionan mejor desde la pared interior. Si el ataque gasta varias definitivas para entrar, no respondas con todo por orgullo. Cede, sobrevive y prepara la recuperación: las rutas son cortas y permiten volver con el equipo completo.',
         vodReview: 'Revisa cada caída ambiental y cada muerte en una puerta. Pregúntate si estabas allí por una razón concreta o simplemente seguiste al primer compañero que avanzó.',
       },
     ],
     attackPlan: [
       { title: 'Mira antes de elegir puerta', body: 'Localiza al Tank rival y a sus supports. En Antarctic, diez metros de pasillo pueden ocultar a media composición y cambiar qué entrada es segura.' },
       { title: 'Abre un ángulo corto', body: 'Un DPS lateral no necesita desaparecer. Basta con colocarse donde obligue al rival a girarse mientras sigue a distancia de ayuda.' },
-      { title: 'Cruza después del cooldown', body: 'Fuerza primero la habilidad que puede frenar la entrada. Cuando desaparezca, avanza de verdad; no gastes movilidad solo para asomarte.' },
+      { title: 'Cruza después del habilidad', body: 'Fuerza primero la habilidad que puede frenar la entrada. Cuando desaparezca, avanza de verdad; no gastes movilidad solo para asomarte.' },
       { title: 'Quédate con el espacio', body: 'Si ganas una baja, ocupa la altura o la puerta importante. Perseguir por los corredores suele regalar justo el terreno que acababas de conquistar.' },
     ],
     defensePlan: [
       { title: 'Recibe fuera del círculo', body: 'Presiona desde una cobertura adelantada y vuelve al punto cuando sea necesario. Esperar dentro permite que el rival elija todas las distancias.' },
       { title: 'Reparte las miradas', body: 'Una persona vigila el lateral y el resto sostiene la entrada principal. Comunicar un flanco no significa abandonar la pelea para perseguirlo.' },
-      { title: 'Retrocede con vida', body: 'Los pasillos castigan las retiradas tardías. Si has perdido a dos compañeros, sal antes de que la siguiente ronda empiece con respawns separados.' },
-      { title: 'Prepara el retake', body: 'Decide qué ultimate abre el regreso y desde qué puerta. Tocar por turnos solo añade porcentaje al rival sin crear una oportunidad real.' },
+      { title: 'Retrocede con vida', body: 'Los pasillos castigan las retiradas tardías. Si has perdido a dos compañeros, sal antes de que la siguiente ronda empiece con reapariciones separadas.' },
+      { title: 'Prepara la recuperación', body: 'Decide qué definitiva abre el regreso y desde qué puerta. Tocar por turnos solo añade porcentaje al rival sin crear una oportunidad real.' },
     ],
     heroPicks: [
       { name: 'Winston', slug: 'winston', role: 'tank', reason: 'Salta entre plataformas y puede romper una formación que se acomoda demasiado en una puerta.' },
-      { name: 'D.Va', slug: 'dva', role: 'tank', reason: 'Disputa altura, protege un cruce con Matriz y corrige rápido si aparece un flanker por otro pasillo.' },
+      { name: 'D.Va', slug: 'dva', role: 'tank', reason: 'Disputa altura, protege un cruce con Matriz y corrige rápido si aparece un héroe de flanco por otro pasillo.' },
       { name: 'Mei', slug: 'mei', role: 'dps', reason: 'Muro resulta muy incómodo en las entradas estrechas y ayuda a separar a quien cruza antes que su equipo.' },
-      { name: 'Tracer', slug: 'tracer', role: 'dps', reason: 'Recorre los laterales sin quedar atrapada y obliga a la backline a apartar la vista de la puerta principal.' },
+      { name: 'Tracer', slug: 'tracer', role: 'dps', reason: 'Recorre los laterales sin quedar atrapada y obliga a la retaguardia a apartar la vista de la puerta principal.' },
       { name: 'Kiriko', slug: 'kiriko', role: 'support', reason: 'Puede seguir cambios de ruta repentinos y salir de un pasillo que deje de ser seguro.' },
       { name: 'Lúcio', slug: 'lucio', role: 'support', reason: 'Acelera los cruces, ayuda a reagrupar y convierte los bordes del mapa en una amenaza constante.' },
     ],
@@ -87,8 +87,8 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       '¿El Tank podía recibir ayuda al cruzar la primera esquina?',
       '¿Se controló la altura antes de bajar al objetivo?',
       '¿Cuántas muertes ocurrieron persiguiendo por un pasillo?',
-      '¿Se conservaron recursos para salir después del engage?',
-      '¿El retake empezó agrupado o con alguien tocando por obligación?',
+      '¿Se conservaron recursos para salir después dla entrada?',
+      '¿La recuperación empezó con el equipo agrupado o con alguien tocando por obligación?',
     ],
     faq: [
       { question: '¿Cuáles son los escenarios actuales de Antarctic Peninsula?', answer: 'La versión actual se juega en Drilling Rig, Icebreaker y Anomaly. Anomaly sustituyó al antiguo Sublevel y el conjunto recibió rutas más claras, más cobertura y cambios importantes en el espacio alrededor de los objetivos.' },
@@ -119,9 +119,9 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       'La constante está en saber desde dónde quieres pelear antes de pisar el objetivo. En Busan se pierde mucho tiempo intentando desalojar a alguien que ni siquiera necesita morir. Si lo echas del balcón, de la puerta o de la cobertura que estaba usando, ya has conseguido lo importante. Captura, obliga al rival a entrar y no conviertas cada ventaja en una persecución por las calles.',
     ],
     quickRead: [
-      { title: 'Tres rondas, tres ritmos', body: 'Downtown premia movilidad, Sanctuary abre las distancias y MEKA Base comprime las peleas. Revisa al menos el Tank y la velocidad del equipo entre escenarios.' },
-      { title: 'La primera captura pesa', body: 'Quien gana el centro puede recibir desde cobertura mientras el rival cruza. Llega junto a la primera pelea; un rodeo tardío puede costar un 30 %.' },
-      { title: 'Gana la posición, no el duelo', body: 'Si un rival abandona la altura o una puerta, no siempre hace falta seguirlo. Quédate con ese espacio y haz que vuelva a disputarlo.' },
+      { title: 'Cambia el plan entre rondas', body: 'Downtown favorece la movilidad, Sanctuary abre las distancias y MEKA Base obliga a pelear más cerca. Revisa la composición cuando cambie el escenario.' },
+      { title: 'Llega junto a la primera pelea', body: 'Capturar primero permite defender las entradas desde cobertura. Un flanco largo al comienzo puede regalar demasiado porcentaje antes de volver.' },
+      { title: 'No persigas a quien ya se va', body: 'Si expulsas a un rival de la altura o de una puerta, ya has hecho el trabajo. Ocupa su posición y obliga a que vuelva a exponerse.' },
     ],
     phases: [
       {
@@ -133,27 +133,27 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       {
         name: 'Sanctuary',
         attack: 'El patio de Sanctuary parece abierto, pero sus paredes y desniveles ofrecen rutas bastante seguras si no corres por el centro. Acércate usando cobertura, fuerza al rival a enseñar su posición y abre un ángulo corto por uno de los lados. Los puentes y bordes convierten el empuje en una amenaza real, así que evita agruparte junto al vacío. Capturar no exige limpiar todo el santuario: basta con expulsar al rival del área desde la que puede contestar.',
-        defense: 'Defiende con espacio a la espalda. Si te plantas en el borde delantero sin salida, cualquier presión te obliga a gastar supervivencia demasiado pronto. Los supports funcionan mejor desde una esquina que vea el punto y permita ocultarse del ángulo opuesto. Cuando el rival rodee, gira la formación en lugar de dividirla: el objetivo es que la nueva frontline siga estando entre la amenaza y la backline.',
+        defense: 'Defiende con espacio a la espalda. Si te plantas en el borde delantero sin salida, cualquier presión te obliga a gastar supervivencia demasiado pronto. Los supports funcionan mejor desde una esquina que vea el punto y permita ocultarse del ángulo opuesto. Cuando el rival rodee, gira la formación en lugar de dividirla: el objetivo es que la nueva primera línea siga estando entre la amenaza y la retaguardia.',
         vodReview: 'Comprueba si cruzaste zonas abiertas por costumbre y si las muertes ambientales empezaron por una mala posición previa. El empujón suele ser el final del error, no el principio.',
       },
       {
         name: 'MEKA Base',
         attack: 'En MEKA Base, disparar desde fuera durante medio minuto rara vez mejora la entrada. Hay que elegir una puerta, forzar el recurso que la bloquea y cruzar con decisión. Una amenaza por la entrada opuesta puede ayudar, siempre que no llegue cuando la pelea ya terminó. Dentro, reparte al equipo alrededor de las paredes del punto: apilarse en el centro facilita el daño de área y hace imposible proteger a quien queda detrás.',
-        defense: 'La puerta es una ventaja mientras puedas abandonarla. Presiona el cruce, pero retrocede en cuanto el rival comprometa velocidad, barrera o ultimates. Las paredes móviles cambian la visión y pueden separar curación, así que no des por hecho que tu support sigue viéndote. Si pierdes el punto, reagrupa fuera y vuelve por dos accesos cercanos; entrar uno por cada puerta solo maquilla una pelea perdida.',
-        vodReview: 'Revisa qué habilidades se gastaron antes de atravesar la puerta y cuántas veces una pared cortó la visión. Después compara el primer intento con el que sí funcionó: casi siempre cambia el timing, no la puntería.',
+        defense: 'La puerta es una ventaja mientras puedas abandonarla. Presiona el cruce, pero retrocede en cuanto el rival comprometa velocidad, barrera o definitivas. Las paredes móviles cambian la visión y pueden separar curación, así que no des por hecho que tu support sigue viéndote. Si pierdes el punto, reagrupa fuera y vuelve por dos accesos cercanos; entrar uno por cada puerta solo maquilla una pelea perdida.',
+        vodReview: 'Revisa qué habilidades se gastaron antes de atravesar la puerta y cuántas veces una pared cortó la visión. Después compara el primer intento con el que sí funcionó: casi siempre cambia la coordinación, no la puntería.',
       },
     ],
     attackPlan: [
-      { title: 'Reconoce el escenario', body: 'No salgas de spawn en piloto automático. Decide si necesitas movilidad, alcance o velocidad para el escenario concreto que ha tocado.' },
+      { title: 'Reconoce el escenario', body: 'No salgas de zona de reaparición en piloto automático. Decide si necesitas movilidad, alcance o velocidad para el escenario concreto que ha tocado.' },
       { title: 'Llega a una cobertura', body: 'La primera meta no es el círculo, sino una esquina desde la que el equipo pueda pelear sin gastar todo para sobrevivir.' },
       { title: 'Mueve una sola pieza', body: 'Un lateral bien elegido basta para romper la mirada rival. Mandar a ambos DPS por rutas distintas suele dejar al Tank sin presión útil.' },
-      { title: 'Captura y frena', body: 'Tras ganar, no persigas hasta spawn. Adelanta una línea razonable, cuenta respawns y vuelve antes de que el rival pueda aislarte.' },
+      { title: 'Captura y frena', body: 'Tras ganar, no persigas hasta zona de reaparición. Adelanta una línea razonable, cuenta reapariciones y vuelve antes de que el rival pueda aislarte.' },
     ],
     defensePlan: [
       { title: 'Asigna el lateral', body: 'Que alguien mire el acceso secundario y lo comunique. Si nadie tiene esa tarea, todo flanco parecerá una sorpresa.' },
       { title: 'No mueras en la puerta', body: 'MEKA Base castiga especialmente la retirada tardía. Cede la entrada mientras aún conserves habilidades para jugar el punto.' },
       { title: 'Respeta los bordes', body: 'En Sanctuary, posiciónate a un paso de cobertura interior. No regales una eliminación ambiental antes de que empiece el intercambio.' },
-      { title: 'Cambia de forma', body: 'Si el rival entra por detrás o por arriba, gira como equipo. Mantener la frontline apuntando al sitio equivocado no protege a nadie.' },
+      { title: 'Cambia de forma', body: 'Si el rival entra por detrás o por arriba, gira como equipo. Mantener la primera línea apuntando al sitio equivocado no protege a nadie.' },
     ],
     heroPicks: [
       { name: 'D.Va', slug: 'dva', role: 'tank', reason: 'Puede subir a los balcones de Downtown y volver a proteger al equipo cuando cambia el ángulo.' },
@@ -200,7 +200,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
     ],
     relatedLinks: [
       { href: '/guides/como-elegir-composicion-dive-poke-brawl', label: 'Dive, poke o brawl' },
-      { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Cómo revisar cooldowns' },
+      { href: '/guides/como-revisar-habilidades-overwatch', label: 'Cómo revisar habilidades' },
       { href: '/heroes/dva', label: 'Guía de D.Va' },
       { href: '/heroes/kiriko', label: 'Guía de Kiriko' },
     ],
@@ -222,26 +222,26 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
     ],
     quickRead: [
       { title: 'El borde no es cobertura', body: 'Acercarte al vacío para ganar un metro de visión rara vez compensa. Juega desde la pared interior y obliga al rival a exponerse si quiere buscar el empujón.' },
-      { title: 'Ruins pide alcance', body: 'Si tu equipo no puede disputar la altura ni cruzar las líneas largas, cambia el plan o los picks. Avanzar por el centro una y otra vez no cerrará la distancia por sí solo.' },
+      { title: 'Ruins pide alcance', body: 'Si tu equipo no puede disputar la altura ni cruzar las líneas largas, cambia el plan o los héroes. Avanzar por el centro una y otra vez no cerrará la distancia por sí solo.' },
       { title: 'Lighthouse se gana en la puerta', body: 'Quien controla las entradas puede pelear sin apilarse dentro del punto. Fuerza recursos fuera y entra cuando la defensa ya no pueda sostener la primera esquina.' },
     ],
     phases: [
       {
         name: 'Lighthouse',
         attack: 'La puerta principal de Lighthouse recibe daño desde demasiados sitios si cruzas despacio. Elige una entrada, acerca al equipo usando la pared y enseña un lateral corto para que la defensa no pueda mirar a los cinco a la vez. No todos tienen que entrar en la habitación: el Tank puede ocupar una esquina, un DPS vigilar la salida y los supports mantener una línea segura desde fuera. El punto se captura cuando el rival ya no puede asomarse, no cuando todo el equipo se amontona en él.',
-        defense: 'Defiende las puertas desde una distancia que permita retroceder alrededor de la casa. Si te quedas pegado a la entrada, una sola habilidad puede separarte del equipo. El jugador que controla el lateral debe avisar pronto y regresar; perseguir alrededor del faro abre la puerta contraria. Cuando el ataque comprometa varias ultimates, salir por detrás y preparar el retake puede ser mejor que morir dentro intentando conservar un porcentaje que ya está perdido.',
-        vodReview: 'Pausa al comenzar cada entrada y dibuja mentalmente la línea de curación. Si el Tank cruzó la puerta y desapareció de la vista, la solución no es pedir más curación, sino cambiar el ángulo o el timing.',
+        defense: 'Defiende las puertas desde una distancia que permita retroceder alrededor de la casa. Si te quedas pegado a la entrada, una sola habilidad puede separarte del equipo. El jugador que controla el lateral debe avisar pronto y regresar; perseguir alrededor del faro abre la puerta contraria. Cuando el ataque gaste varias definitivas, salir con vida y preparar la recuperación puede ser mejor que morir dentro por un porcentaje que ya está perdido.',
+        vodReview: 'Pausa al comenzar cada entrada y dibuja mentalmente la línea de curación. Si el Tank cruzó la puerta y desapareció de la vista, la solución no es pedir más curación, sino cambiar el ángulo o la coordinación.',
       },
       {
         name: 'Ruins',
         attack: 'Ruins castiga a los equipos que pretenden caminar por la zona abierta sin haber molestado antes a quienes disparan desde arriba. Usa columnas y desniveles para acercarte, manda movilidad a disputar la altura o responde con alcance propio. No es necesario eliminar al sniper para avanzar; obligarlo a abandonar su posición durante unos segundos ya abre la ventana. Cuando llegues al punto, conserva algún jugador fuera del círculo para vigilar la siguiente rotación.',
-        defense: 'La altura sirve mientras tengas una ruta para bajar. Quédate demasiado tiempo y el ataque convertirá tu buena posición en una jaula. Los jugadores de rango deben cambiar de ángulo después de ser vistos, mientras el resto protege el acceso al objetivo. Si el rival cruza con cobertura, evita bajar todos sobre el mismo blanco. Mantén una línea larga activa para que su backline tampoco pueda caminar gratis.',
+        defense: 'La altura sirve mientras tengas una ruta para bajar. Quédate demasiado tiempo y el ataque convertirá tu buena posición en una jaula. Los jugadores de rango deben cambiar de ángulo después de ser vistos, mientras el resto protege el acceso al objetivo. Si el rival cruza con cobertura, evita bajar todos sobre el mismo blanco. Mantén una línea larga activa para que su retaguardia tampoco pueda caminar gratis.',
         vodReview: 'Observa las muertes en campo abierto y retrocede cinco segundos. ¿Qué cobertura acababas de dejar? ¿Se había marcado la posición del rival de largo alcance? Esa información suele explicar más que el disparo final.',
       },
       {
         name: 'Well',
         attack: 'La ruta más corta al objetivo pasa junto al pozo y por eso no siempre es la más segura. Acércate por la pared exterior, controla primero la casa lateral o amenaza desde el lado opuesto. Un héroe con empuje condiciona el espacio incluso sin usar la habilidad: si lo tienes localizado, puedes jugar donde su ángulo no funcione. Tras ganar la entrada, reparte posiciones alrededor del punto y deja de mirar al pozo como si fuera el único peligro.',
-        defense: 'La defensa puede recibir antes del punto, pero no debería regalarse por buscar una jugada ambiental. Mantén una esquina interior y obliga al ataque a cruzar hacia tu daño. Si alguien cae al pozo, aprovecha la ventaja sin lanzarte detrás del resto; muchas rondas vuelven a igualarse porque el equipo ganador se separa para perseguir. En el recontest, una persona toca y las demás recuperan cobertura antes de comprometer ultimates.',
+        defense: 'La defensa puede recibir antes del punto, pero no debería regalarse por buscar una jugada ambiental. Mantén una esquina interior y obliga al ataque a cruzar hacia tu daño. Si alguien cae al pozo, aprovecha la ventaja sin lanzarte detrás del resto; muchas rondas vuelven a igualarse porque el equipo ganador se separa para perseguir. En el último intento, una persona toca y las demás recuperan cobertura antes de comprometer definitivas.',
         vodReview: 'Anota cada vez que cambiaste tu ruta por miedo al empujón y cada vez que lo ignoraste. La meta es reconocer la amenaza sin permitir que controle todas tus decisiones.',
       },
     ],
@@ -262,14 +262,14 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       { name: 'D.Va', slug: 'dva', role: 'tank', reason: 'Llega a posiciones elevadas, protege cruces y puede volver con rapidez si la pelea gira alrededor del punto.' },
       { name: 'Widowmaker', slug: 'widowmaker', role: 'dps', reason: 'Ruins ofrece líneas largas y ángulos que obligan al rival a moverse con más cuidado.' },
       { name: 'Pharah', slug: 'pharah', role: 'dps', reason: 'Aprovecha el espacio vertical y amenaza desplazamientos cerca del pozo y de los bordes.' },
-      { name: 'Ana', slug: 'ana', role: 'support', reason: 'Tiene buenas líneas en Ruins y Well si rota antes de que una pared corte la visión de su frontline.' },
+      { name: 'Ana', slug: 'ana', role: 'support', reason: 'Tiene buenas líneas en Ruins y Well si rota antes de que una pared corte la visión de su primera línea.' },
       { name: 'Lúcio', slug: 'lucio', role: 'support', reason: 'Ayuda a cruzar zonas abiertas y su mera presencia obliga a respetar los bordes de Well y Lighthouse.' },
     ],
     compositions: [
       {
         name: 'Dive para Ruins',
         lineup: ['Winston', 'Tracer', 'Genji', 'Ana', 'Kiriko'],
-        plan: 'Ana juega una cobertura desde la que pueda ver el aterrizaje. Winston salta para desplazar al rival de altura, no para perseguirlo hasta spawn; Tracer y Genji aprovechan ese movimiento y Kiriko mantiene una salida para el segundo tiempo.',
+        plan: 'Ana juega una cobertura desde la que pueda ver el aterrizaje. Winston salta para desplazar al rival de altura, no para perseguirlo hasta zona de reaparición; Tracer y Genji aprovechan ese movimiento y Kiriko mantiene una salida para el segundo tiempo.',
         weakness: 'Si el salto cruza detrás de una columna o los DPS llegan antes que Winston, la composición se fragmenta. También necesita paciencia contra equipos que esperan juntos y conservan todo su control.',
       },
       {
@@ -290,7 +290,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       '¿La ruta elegida respetaba los empujones y las líneas largas?',
       '¿Quién disputó la altura de Ruins y cuándo lo hizo?',
       '¿Se cruzó Lighthouse con recursos o después de gastarlos?',
-      '¿Las paredes cortaron la visión entre frontline y supports?',
+      '¿Las paredes cortaron la visión entre primera línea y supports?',
       '¿El equipo ocupó entradas tras capturar o esperó sobre el círculo?',
       '¿Se adaptaron los picks al cambiar de escenario?',
     ],
@@ -323,21 +323,21 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       'Los tres escenarios comparten una idea: el equipo que captura puede defender un acceso sin permanecer sobre el objetivo. Village gira alrededor de edificios y patios; Shrine abre varios caminos hacia una zona central; Sanctum añade alturas, columnas y un borde que castiga cualquier despiste. Para recuperar, no necesitas sorprender con una ruta de cinco minutos. Necesitas llegar juntos, enseñar una segunda amenaza y conservar suficientes habilidades para aguantar después del primer contacto.',
     ],
     quickRead: [
-      { title: 'Village no es solo brawl', body: 'Las peleas son cercanas, pero los laterales importan. Si todo el equipo mira la puerta principal, un DPS puede disparar desde la casa hasta que sea demasiado tarde.' },
-      { title: 'Shrine premia la paciencia', body: 'Hay varias rutas válidas y por eso conviene ver dónde defiende el rival antes de comprometerse. Cambiar de acceso a tiempo es parte del engage.' },
+      { title: 'Village no se gana solo de frente', body: 'Las peleas son cercanas, pero los laterales importan. Si todo el equipo mira la puerta principal, un DPS puede disparar desde la casa hasta que sea demasiado tarde.' },
+      { title: 'Mira la defensa antes de entrar', body: 'Shrine tiene varias rutas útiles. Asómate, identifica dónde está colocado el rival y cambia de acceso antes de gastar tus habilidades.' },
       { title: 'Sanctum castiga un paso', body: 'El borde y las columnas reducen el margen de error. Mantén una salida interior y no gastes movilidad únicamente para llegar primero al punto.' },
     ],
     phases: [
       {
         name: 'Village',
         attack: 'La puerta principal conduce a una pelea corta, pero no tiene por qué ser frontal. Usa la casa o el lateral para obligar a la defensa a repartir la atención y entra cuando uno de sus jugadores ya no pueda recibir ayuda. El Tank debe tomar una esquina, no correr hasta el fondo del patio. Desde esa esquina, el equipo puede decidir si presiona el punto, limpia la casa o cambia de lado sin perderse de vista.',
-        defense: 'Defiende la primera entrada con una retirada hacia el objetivo. Mei, Cassidy y otros héroes de rango cercano pueden castigar a quien cruza antes, pero perseguirlo dentro de la casa suele romper la formación. Si el rival ocupa un lateral, gira la frontline y cede unos metros. Village favorece la defensa mientras conserve sus cooldowns; quedarse sin ellos delante de la puerta convierte el patio en una trampa.',
+        defense: 'Defiende la primera entrada con una retirada hacia el objetivo. Mei, Cassidy y otros héroes de rango cercano pueden castigar a quien cruza antes, pero perseguirlo dentro de la casa suele romper la formación. Si el rival ocupa un lateral, gira la primera línea y cede unos metros. Village favorece la defensa mientras conserve sus habilidades; quedarse sin ellos delante de la puerta convierte el patio en una trampa.',
         vodReview: 'Revisa quién cruzó primero y cuánto tardó el resto en poder ayudarlo. Después mira las persecuciones dentro de la casa: ¿protegían el punto o solo continuaban un duelo que ya no importaba?',
       },
       {
         name: 'Shrine',
         attack: 'Shrine ofrece más aire y varias entradas, así que primero hay que descubrir dónde está la fuerza rival. Asoma desde cobertura, abre un lateral que siga conectado y ataca el sector con menos ayuda. Caminar directamente al círculo deja a los supports expuestos en los accesos. En cambio, ocupar una de las plataformas o esquinas cercanas permite sostener la pelea y hace que la captura llegue sin forzarla.',
-        defense: 'No intentes cubrir todas las rutas desde el punto. Coloca la frontline en el acceso más probable y usa a un jugador móvil para informar del otro lado. Cuando el rival cambie de puerta, rota por dentro y mantén la forma del equipo. Si te quedas defendiendo una entrada vacía por orgullo, la backline acabará recibiendo el engage antes de que puedas regresar.',
+        defense: 'No intentes cubrir todas las rutas desde el punto. Coloca la primera línea en el acceso más probable y usa a un jugador móvil para informar del otro lado. Cuando el rival cambie de puerta, rota por dentro y mantén la forma del equipo. Si te quedas defendiendo una entrada vacía por orgullo, la retaguardia acabará recibiendo la entrada antes de que puedas regresar.',
         vodReview: 'Mira el minimapa mental de la pelea: dónde estaba cada compañero cuando se vio al rival. Si el equipo tardó demasiado en girar, apunta si faltó información o si alguien decidió seguir presionando una ruta vacía.',
       },
       {
@@ -351,13 +351,13 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       { title: 'Elige una esquina cercana', body: 'Avanza hasta una cobertura desde la que el equipo pueda verse. El punto será la siguiente decisión, no el destino automático de la primera habilidad de movilidad.' },
       { title: 'Haz una pregunta', body: 'Asoma un lateral o presiona una puerta para descubrir cómo responde la defensa. En Shrine, esa información evita comprometerse contra su lado más fuerte.' },
       { title: 'Acelera cuando toca', body: 'Lúcio, barreras y movilidad sirven para cruzar la zona peligrosa, no para llegar diez segundos antes que tus supports.' },
-      { title: 'Cierra la salida', body: 'Después de una baja, toma la puerta por la que el rival quiere retirarse sin perseguir hasta spawn. Así conviertes ventaja en captura.' },
+      { title: 'Cierra la salida', body: 'Después de una baja, toma la puerta por la que el rival quiere retirarse sin perseguir hasta zona de reaparición. Así conviertes ventaja en captura.' },
     ],
     defensePlan: [
       { title: 'Recibe con retirada', body: 'Toda posición adelantada necesita una segunda esquina. Si la única salida exige cruzar al rival, estabas defendiendo demasiado lejos.' },
       { title: 'Un jugador informa', body: 'No mandes a media composición a vigilar el lateral. Una llamada temprana permite que todo el equipo gire sin perder su estructura.' },
       { title: 'Respeta el interior', body: 'En Sanctum, juega a una distancia del borde que permita reaccionar. La pared interior sigue ofreciendo visión y reduce las jugadas gratuitas.' },
-      { title: 'Abandona la pelea perdida', body: 'Morir tarde en Nepal da al rival una defensa cómoda de la siguiente entrada. Sal, agrupa y conserva la ultimate que pueda abrir el retake.' },
+      { title: 'Abandona la pelea perdida', body: 'Morir tarde en Nepal da al rival una defensa cómoda de la siguiente entrada. Sal, agrupa y conserva la definitiva que pueda abrir la recuperación.' },
     ],
     heroPicks: [
       { name: 'Reinhardt', slug: 'reinhardt', role: 'tank', reason: 'Disfruta las esquinas de Village y puede liderar cruces cortos cuando el equipo conserva velocidad.' },
@@ -400,11 +400,11 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       { question: '¿Cuáles son los escenarios de Nepal?', answer: 'Nepal tiene Village, Shrine y Sanctum. Village favorece peleas cercanas alrededor de casas, Shrine ofrece varias rutas y más espacio, y Sanctum combina columnas, alturas y un borde peligroso junto al objetivo.' },
       { question: '¿Qué héroes son buenos en Nepal?', answer: 'Reinhardt, Mei y Lúcio funcionan bien en Village. Winston, Genji, Ana y Kiriko ofrecen más movilidad y ángulos en Shrine y Sanctum. La mejor elección depende del escenario y de cómo quiera entrar el equipo.' },
       { question: '¿Cómo atacar Sanctum sin caer al vacío?', answer: 'Avanza usando las columnas, localiza a los héroes con empuje y conserva movilidad para el intercambio. Juega desde el lado interior siempre que puedas y abre un ángulo que obligue al rival a mirar lejos del borde.' },
-      { question: '¿Cómo recuperar un punto en Nepal?', answer: 'Reagrupa fuera, elige una entrada principal y usa un lateral cercano para obtener información. Fuerza un cooldown, cruza hasta una cobertura y reparte posiciones alrededor del objetivo en vez de apilar a todo el equipo dentro.' },
+      { question: '¿Cómo recuperar un punto en Nepal?', answer: 'Reagrupa fuera, elige una entrada principal y usa un lateral cercano para obtener información. Fuerza una habilidad, cruza hasta una cobertura y reparte posiciones alrededor del objetivo en vez de apilar a todo el equipo dentro.' },
     ],
     relatedLinks: [
       { href: '/guides/como-mejorar-en-overwatch-revisando-vod', label: 'Revisar una partida' },
-      { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Revisar el uso de cooldowns' },
+      { href: '/guides/como-revisar-habilidades-overwatch', label: 'Revisar el uso de habilidades' },
       { href: '/heroes/reinhardt', label: 'Guía de Reinhardt' },
       { href: '/heroes/genji', label: 'Guía de Genji' },
     ],
@@ -422,7 +422,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
     updatedAt: '4 de julio de 2026',
     intro: [
       'Oasis es uno de esos mapas donde una mala rotación se nota enseguida. City Center tiene una zona elevada que observa buena parte de la entrada; Gardens separa el punto de las rutas por las que se gana; University encierra la pelea y convierte cada puerta en una decisión. Si el equipo camina directamente al círculo en los tres escenarios, jugará siempre desde la parte menos cómoda del mapa.',
-      'La alternativa no consiste en diseñar una ruta complicada. Basta con reconocer la posición que permite al rival disparar sin moverse y quitársela antes de capturar. A veces será la plataforma de City Center, otras el lateral de Gardens o la esquina interior de University. Oasis recompensa a los equipos que llegan a esa conclusión pronto y castiga a quienes gastan dos ultimates solo para descubrir desde dónde les estaban disparando.',
+      'La alternativa no consiste en diseñar una ruta complicada. Basta con reconocer la posición que permite al rival disparar sin moverse y quitársela antes de capturar. A veces será la plataforma de City Center, otras el lateral de Gardens o la esquina interior de University. Oasis recompensa a los equipos que llegan a esa conclusión pronto y castiga a quienes gastan dos definitivas solo para descubrir desde dónde les estaban disparando.',
     ],
     quickRead: [
       { title: 'Mira arriba en City Center', body: 'La plataforma elevada condiciona el acceso al punto. Disputarla, bloquear su visión o cruzar fuera de su ángulo debe formar parte del primer plan.' },
@@ -445,7 +445,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       {
         name: 'University',
         attack: 'University es corto y ruidoso. Hay daño en la puerta, habilidades en el suelo y muy poco tiempo para entender qué ha pasado. Evita entrar lentamente por el centro. Asoma para provocar control, utiliza una ruta lateral cercana y cruza cuando el equipo pueda ocupar dos esquinas interiores. Una vez dentro, no persigas por los pasillos: protege la salida de tus supports y haz que la defensa regrese a través de la misma puerta difícil.',
-        defense: 'Presiona la entrada sin gastar todo en el primer amago. La defensa que conserva control y supervivencia para cuando el rival cruza es mucho más peligrosa que la que llena el choke de efectos durante cinco segundos. Si pierdes la puerta, retrocede alrededor del punto y vuelve a crear una frontline. Morir en el pasillo exterior suele impedir el retake y regala porcentaje mientras esperas respawn.',
+        defense: 'Presiona la entrada sin gastar todo en el primer amago. La defensa que conserva control y supervivencia para cuando el rival cruza es mucho más peligrosa que la que llena la puerta de efectos durante cinco segundos. Si pierdes el acceso, retrocede alrededor del punto y vuelve a formar una primera línea. Morir en el pasillo exterior impide reagruparse y regala porcentaje mientras vuelves desde la zona de reaparición.',
         vodReview: 'Anota el orden de habilidades en cada cruce. Si las herramientas defensivas salieron antes de que el rival entrara o el ataque gastó movilidad sin avanzar, ahí está la ventana que decidió la pelea.',
       },
     ],
@@ -474,12 +474,12 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
         name: 'Dive vertical',
         lineup: ['Winston', 'Tracer', 'Genji', 'Ana', 'Kiriko'],
         plan: 'Winston desplaza al rival de la plataforma y aterriza donde Ana aún pueda verlo. Tracer y Genji cierran sobre el mismo lado, mientras Kiriko guarda la posibilidad de acompañar el segundo movimiento o salvar la salida.',
-        weakness: 'En University puede quedarse sin espacio para organizar el salto. También falla cuando la presión de los DPS llega antes o después de Winston y la defensa recupera sus cooldowns entre ambas entradas.',
+        weakness: 'En University puede quedarse sin espacio para organizar el salto. También falla cuando la presión de los DPS llega antes o después de Winston y la defensa recupera sus habilidades entre ambas entradas.',
       },
       {
         name: 'Brawl de University',
         lineup: ['Reinhardt', 'Mei', 'Cassidy', 'Lúcio', 'Kiriko'],
-        plan: 'Lúcio acelera el cruce, Reinhardt ocupa una esquina interior y Mei reserva Muro para separar al rival que retrocede. Cassidy controla el espacio cercano y evita que un flanker entre gratis por el pasillo.',
+        plan: 'Lúcio acelera el cruce, Reinhardt ocupa una esquina interior y Mei reserva Muro para separar al rival que retrocede. Cassidy controla el espacio cercano y evita que un héroe de flanco entre gratis por el pasillo.',
         weakness: 'Tiene dificultades en Gardens si no encuentra cobertura para acercarse. Si usa velocidad solo para llegar a la puerta y se detiene allí, el poke rival puede vaciar sus recursos antes de la pelea.',
       },
     ],
@@ -487,7 +487,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       'Mirar la plataforma de City Center desde abajo durante toda la pelea sin disputarla ni cambiar de ruta.',
       'Mandar a varios jugadores al punto de Gardens y abandonar las pasarelas que permiten defenderlo.',
       'Cruzar la puerta de University de uno en uno después de gastar las habilidades en el amago.',
-      'Perseguir a un héroe móvil por detrás de la estructura y dejar a la backline sin frontline.',
+      'Perseguir a un héroe móvil por detrás de la estructura y dejar a la retaguardia sin primera línea.',
       'Morir tarde en una posición elevada cuando ya existía una ruta segura para regresar al objetivo.',
     ],
     vodChecklist: [
@@ -527,7 +527,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       'La forma más estable de jugar Samoa es pensar en parejas de posiciones. ¿Desde qué cobertura avanza el Tank y qué ángulo cercano lo acompaña? ¿Dónde se coloca el support si el equipo gira al otro lado? Cuando esas dos respuestas encajan, el mapa ofrece muchas opciones. Cuando no, cada ruta adicional solo multiplica las paredes que separan a los cinco jugadores.',
     ],
     quickRead: [
-      { title: 'El flanco tiene reloj', body: 'Una ruta lateral es buena si crea presión durante la entrada principal. Si llegas cuando tus compañeros ya están saliendo de spawn, solo has dado un paseo largo.' },
+      { title: 'El flanco tiene reloj', body: 'Una ruta lateral es buena si crea presión durante la entrada principal. Si llegas cuando tus compañeros ya están saliendo de zona de reaparición, solo has dado un paseo largo.' },
       { title: 'Volcano exige calma', body: 'El espacio parece pequeño y anima a gastar todo de golpe. Conserva movilidad o protección para el segundo intercambio y respeta la lava incluso con ventaja.' },
       { title: 'Downtown mira en vertical', body: 'Los balcones cambian quién puede disparar al punto. Antes de capturar, expulsa o bloquea al jugador que mantiene la altura.' },
     ],
@@ -536,7 +536,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
         name: 'Beach',
         attack: 'Beach tiene desniveles, habitaciones y rutas junto al agua. Empieza por una cobertura desde la que el equipo pueda ver tanto el punto como la entrada lateral. Un DPS puede rodear por el nivel superior, pero debe anunciar cuándo está listo; el Tank no gana nada absorbiendo daño durante veinte segundos mientras espera. Cuando la defensa gire hacia el flanco, avanza. Si decide ignorarlo, deja que ese ángulo trabaje antes de saltar al círculo.',
         defense: 'La defensa puede jugar adelantada porque hay varias rutas de retirada, aunque tiene que elegir una. Vigila la entrada larga sin enviar a todo el equipo y mantén el núcleo cerca de una cobertura que permita bajar al punto. Los bordes amenazan, pero salir a buscarlos te coloca en el mismo peligro. Después de una baja, cierra rutas hacia el objetivo y deja que el porcentaje haga presión por ti.',
-        vodReview: 'Compara el momento del flanco con el del engage principal. Si hubo más de tres o cuatro segundos entre ambos, seguramente el rival nunca tuvo que responder a dos amenazas a la vez.',
+        vodReview: 'Compara el momento del flanco con el dla entrada principal. Si hubo más de tres o cuatro segundos entre ambos, seguramente el rival nunca tuvo que responder a dos amenazas a la vez.',
       },
       {
         name: 'Downtown',
@@ -548,7 +548,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
         name: 'Volcano',
         attack: 'Volcano castiga las entradas impulsivas. Acércate por una pared, identifica el control y los desplazamientos rivales, y fuerza uno antes de cruzar la zona estrecha. La lava no solo mata: reduce las rutas disponibles y hace más previsible la retirada. Ocupa la cobertura interior y abre un segundo ángulo pequeño. Un flanco profundo cerca del borde es difícil de ayudar y muy fácil de convertir en una eliminación gratuita.',
         defense: 'Amenaza el acceso, no la jugada del año. Mantener al rival preocupado por un empujón ya facilita todo el daño frontal; exponerte para buscarlo puede regalar el punto. Si el ataque consigue entrar, retrocede alrededor del objetivo y conserva una salida que no pase junto a la lava. En overtime, decide quién toca primero. Cinco saltos desesperados por la misma puerta producen una repetición corta y poco instructiva.',
-        vodReview: 'Revisa las habilidades de movimiento y desplazamiento como si fueran ultimates pequeñas. ¿Se usaron para ganar posición, para confirmar una baja o simplemente porque estaban disponibles?',
+        vodReview: 'Revisa las habilidades de movimiento y desplazamiento como si fueran definitivas pequeñas. ¿Se usaron para ganar posición, para confirmar una baja o simplemente porque estaban disponibles?',
       },
     ],
     attackPlan: [
@@ -593,7 +593,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       'Perseguir entre edificios después de capturar y abrir el punto por el acceso contrario.',
     ],
     vodChecklist: [
-      '¿El flanco coincidió con el engage principal?',
+      '¿El flanco coincidió con la entrada principal?',
       '¿Quién tenía la tarea de disputar el balcón de Downtown?',
       '¿La posición del Tank mantenía una línea con sus supports?',
       '¿Se conservó movilidad para salir de Volcano?',
