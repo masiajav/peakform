@@ -6,6 +6,7 @@ import { TEAM_COMP_HEROES } from '@/lib/overwatch-team-comps'
 import {
   PILLAR_COUNTER_SLUGS,
   PILLAR_HERO_SLUGS,
+  PILLAR_MAP_SLUGS,
   PILLAR_GUIDE_SLUGS,
   PILLAR_TEAM_COMP_SLUGS,
   TRUST_ROUTES,
@@ -35,6 +36,10 @@ const STATIC_LAST_MODIFIED: Record<string, string> = {
   '/team-comps/winston': '2026-07-01',
   '/counters/cassidy': '2026-07-01',
   '/team-comps/cassidy': '2026-07-01',
+  '/maps/neon-junction': '2026-07-02',
+  '/maps/kings-row': '2026-07-02',
+  '/maps/lijiang-tower': '2026-07-04',
+  '/maps/dorado': '2026-07-04',
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -45,12 +50,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/guides',
     '/counters',
     '/team-comps',
+    '/maps',
     '/news',
     '/overwatch-temporada-3-into-the-tigers-den',
     ...PILLAR_GUIDE_SLUGS.map(slug => `/guides/${slug}`),
     ...TRUST_ROUTES,
     ...ROLE_SLUGS.map(role => `/roles/${role}`),
     ...PILLAR_HERO_SLUGS.map(hero => `/heroes/${hero}`),
+    ...PILLAR_MAP_SLUGS.map(map => `/maps/${map}`),
     ...COUNTER_HEROES.filter(hero => PILLAR_COUNTER_SLUGS.includes(hero.slug)).map(hero => `/counters/${hero.slug}`),
     ...TEAM_COMP_HEROES.filter(hero => PILLAR_TEAM_COMP_SLUGS.includes(hero.slug)).map(hero => `/team-comps/${hero.slug}`),
   ].map(path => {
