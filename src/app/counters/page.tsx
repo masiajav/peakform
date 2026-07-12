@@ -10,8 +10,8 @@ import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Counters de Overwatch por héroe: matchups y consejos',
-  description: 'Consulta counters de Overwatch por héroe: picks fuertes, amenazas que debes respetar, consejos de matchup y enlaces a guías relacionadas.',
+  title: 'Counters de Overwatch por héroe: mejores picks y consejos',
+  description: 'Busca counters de Overwatch para cada héroe: Zarya, Tracer, Genji, Ana, Shion y más, con picks fuertes, amenazas y consejos de matchup.',
   path: '/counters',
 })
 
@@ -49,12 +49,12 @@ export default function CountersPage() {
 
       <main style={{ maxWidth: 1180, margin: '0 auto', padding: '56px 24px 88px' }}>
         <header style={{ maxWidth: 820, marginBottom: 28 }}>
-          <div className="eyebrow">HERRAMIENTA SEO</div>
+          <div className="eyebrow">COUNTERS POR HÉROE</div>
           <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(42px, 7vw, 76px)', letterSpacing: 1, lineHeight: 0.96, margin: '0 0 16px' }}>
-            COUNTERS DE OVERWATCH
+            COUNTERS DE OVERWATCH POR HÉROE
           </h1>
           <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.65, margin: 0 }}>
-            Selecciona un héroe para ver counters fuertes, amenazas que debes respetar y enlaces directos a guías relacionadas. Cada matchup importante tiene también una página indexable para búsquedas concretas.
+            Selecciona un héroe para ver counters fuertes, amenazas que debes respetar y enlaces directos a guías relacionadas. Si buscas counter de Zarya, Tracer, Genji, Ana o Shion, empieza por aquí y baja después al matchup concreto.
           </p>
         </header>
 
@@ -66,6 +66,24 @@ export default function CountersPage() {
           <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0 }}>
             Antes de cambiar, revisa si el problema es realmente el matchup o si estás entrando demasiado pronto, jugando sin cobertura o gastando recursos antes de la amenaza real.
           </p>
+        </section>
+
+        <section style={{ background: 'var(--surface2)', border: '1px solid var(--border)', padding: 18, marginBottom: 20 }}>
+          <div className="eyebrow">BÚSQUEDAS POPULARES</div>
+          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 10 }}>
+            {[
+              { href: '/counters/zarya', label: 'Counter Zarya' },
+              { href: '/counters/tracer', label: 'Counter Tracer' },
+              { href: '/counters/genji', label: 'Counter Genji' },
+              { href: '/counters/ana', label: 'Counter Ana' },
+              { href: '/counters/domina', label: 'Counter Domina' },
+              { href: '/counters/shion', label: 'Counter Shion' },
+            ].map(link => (
+              <Link key={link.href} href={link.href} className="btn btn-secondary btn-sm">
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </section>
 
         <CounterExplorer />

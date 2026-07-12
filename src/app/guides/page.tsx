@@ -32,8 +32,8 @@ export function generateMetadata({ searchParams }: { searchParams: GuidesSearchP
   )
 
   const metadata = buildMetadata({
-    title: 'Guías de Overwatch en español: héroes, ranked, counters y VOD',
-    description: 'Encuentra guías de Overwatch en español por héroe, rol y problema: posicionamiento, cooldowns, counters, composiciones y revisión de VOD.',
+    title: 'Guías de Overwatch en español: héroes, counters, ranked y VOD',
+    description: 'Guías de héroes en Overwatch para ranked: counters, composiciones, mapas, posicionamiento, cooldowns, ultimates y revisión de VOD.',
     path: '/guides',
   })
 
@@ -156,10 +156,10 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
                 HEMEROTECA
               </div>
               <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 42, letterSpacing: 1, color: 'var(--text)', margin: '0 0 12px' }}>
-                GUÍAS DE OVERWATCH
+                GUÍAS DE OVERWATCH EN ESPAÑOL
               </h1>
               <p style={{ fontSize: 14, color: 'var(--text2)', margin: '0 0 12px', lineHeight: 1.6, maxWidth: 720 }}>
-                Encuentra guías de Overwatch por héroe, rol, mapa y problema concreto. La hemeroteca prioriza contenido útil para ranked: posicionamiento, cooldowns, ultimates, counters, composiciones y revisión de VOD.
+                Encuentra guías de Overwatch por héroe, rol, mapa y problema concreto. La hemeroteca prioriza contenido útil para ranked: counters, composiciones, posicionamiento, cooldowns, ultimates y revisión de VOD.
               </p>
               <div className="guide-cluster-links">
                 <Link href="/heroes">Todos los héroes</Link>

@@ -264,6 +264,24 @@ const HERO_FOCUS: Record<string, { title: string; seoTitle: string; description:
   },
 }
 
+const PILLAR_GUIDE_FOCUS: Record<string, { title: string; seoTitle: string; description: string }> = {
+  'como-elegir-composicion-dive-poke-brawl': {
+    title: 'Dive, poke y brawl en Overwatch: cómo elegir composición',
+    seoTitle: 'Composiciones de Overwatch: cómo elegir dive, poke o brawl',
+    description: 'Aprende cuándo jugar dive, poke o brawl en Overwatch según mapa, héroes, rango y condición de victoria, con ejemplos prácticos para ranked.',
+  },
+  'como-usar-ultimates-overwatch': {
+    title: 'Cómo usar ultimates en Overwatch sin desperdiciar peleas',
+    seoTitle: 'Cómo usar ultimates en Overwatch: timing, combos y errores comunes',
+    description: 'Guía para usar ultimates en Overwatch con mejor timing: cuándo iniciar, cuándo guardar, cómo combinar recursos y qué revisar en tus VODs.',
+  },
+  'cuando-cambiar-de-heroe-overwatch': {
+    title: 'Cuándo cambiar de héroe en Overwatch y cuándo insistir',
+    seoTitle: 'Cuándo cambiar de héroe en Overwatch: counters, mapas y señales',
+    description: 'Aprende cuándo cambiar de héroe en Overwatch por counters, mapa o composición, y cuándo el problema real es timing, posición o cooldowns.',
+  },
+}
+
 const ROLE_FOCUS: Record<string, { suffix: string; seoSuffix: string; description: string }> = {
   tank: {
     suffix: 'espacio, recursos y matchups',
@@ -283,6 +301,10 @@ const ROLE_FOCUS: Record<string, { suffix: string; seoSuffix: string; descriptio
 }
 
 export function guideEditorial(guide: GuideContent): GuideEditorial {
+  if (guide.slug && PILLAR_GUIDE_FOCUS[guide.slug]) {
+    return PILLAR_GUIDE_FOCUS[guide.slug]
+  }
+
   if (guide.hero && isHeroVideoGuide(guide)) {
     const heroName = topicLabel(guide.hero)
     const custom = HERO_FOCUS[guide.hero]

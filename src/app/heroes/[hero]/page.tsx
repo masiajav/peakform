@@ -154,8 +154,8 @@ export function generateMetadata({ params }: { params: { hero: string } }): Meta
 
   if (params.hero === SHION_SLUG) {
     return buildMetadata({
-      title: 'Shion Overwatch Guide: habilidades, nerf de Execution, counters y perks',
-      description: 'Guía actualizada de Shion en Overwatch: nerf de Execution, habilidades, perks, counters, mejores composiciones, errores comunes y consejos para ranked.',
+      title: 'Guía de Shion en Overwatch: habilidades, counters y cómo jugarla',
+      description: 'Aprende cómo jugar Shion en Overwatch: habilidades, perks, counters, composiciones, nerf de Execution y consejos prácticos para ranked.',
       path: `/heroes/${params.hero}`,
       image: SHION_IMAGE,
       robots: robotsForQuality(quality),
