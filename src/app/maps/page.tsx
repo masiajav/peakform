@@ -99,7 +99,7 @@ export default function MapsPage() {
           <div><div className="eyebrow">CÓMO USARLAS</div><h2>Del mapa a una decisión concreta</h2></div>
           <div className="map-card-grid three">
             <article><strong>01</strong><h3>Identifica la fase</h3><p>No revises toda la partida a la vez. Empieza por el punto o tramo donde el equipo dejó de controlar espacio.</p></article>
-            <article><strong>02</strong><h3>Busca la condición</h3><p>Comprueba si tu composición quería cerrar distancia, mantener líneas o saltar sobre una zona concreta.</p></article>
+            <article><strong>02</strong><h3>Define cómo ganar la pelea</h3><p>Comprueba si tu composición quería cerrar distancia, mantener líneas de visión o hacer dive sobre una zona concreta.</p></article>
             <article><strong>03</strong><h3>Revisa la VOD</h3><p>Anota posición, recursos y salida antes de valorar la puntería. El mapa suele explicar errores que parecían mecánicos.</p></article>
           </div>
         </section>

@@ -11,7 +11,7 @@ import { absoluteUrl, buildMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Composiciones de Overwatch para ranked: dive, poke, brawl y 6v6',
-  description: 'Encuentra composiciones de Overwatch para ranked: dive, poke, rush, brawl, 5v5 y 6v6 con héroes recomendados y condición de victoria.',
+    description: 'Encuentra composiciones de Overwatch para ranked: dive, poke, rush, brawl, 5v5 y 6v6 con héroes recomendados y un plan claro para cada pelea.',
   path: '/team-comps',
 })
 
@@ -19,7 +19,7 @@ export default function TeamCompsPage() {
   const itemListJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Composiciones de Overwatch por heroe',
+    name: 'Composiciones de Overwatch por héroe',
     itemListElement: TEAM_COMP_HEROES.filter(hero => PILLAR_TEAM_COMP_SLUGS.includes(hero.slug)).map((hero, index) => ({
       '@type': 'ListItem',
       position: index + 1,
@@ -39,7 +39,7 @@ export default function TeamCompsPage() {
     },
     {
       question: '¿Sirven estas composiciones para ranked?',
-      answer: 'Sí, como punto de partida. En ranked importa más entender la condición de victoria que copiar cinco héroes sin un plan común.',
+      answer: 'Sí, como punto de partida. En ranked importa más entender cómo quiere ganar tu equipo que copiar cinco héroes sin un plan común.',
     },
   ]
   return (
@@ -61,7 +61,7 @@ export default function TeamCompsPage() {
         <section style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 22, marginBottom: 20 }}>
           <div className="eyebrow">CÓMO ELEGIR COMPOSICIÓN</div>
           <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: '0 0 12px' }}>
-            Una composición no es solo una lista de héroes. Necesita una condición de victoria clara: entrar juntos, ganar rango, controlar altura, proteger la backline o castigar un cooldown concreto.
+            Una composición no es solo una lista de héroes. Necesita un plan claro: entrar juntos, ganar rango, controlar altura, proteger la backline o castigar un cooldown concreto.
           </p>
           <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0 }}>
             En 5v5 el timing individual pesa más. En 6v6 hay más peel, más mitigación y menos ventanas individuales, así que simplificar el plan suele funcionar mejor que buscar una composición perfecta.
@@ -104,7 +104,7 @@ function PublicNav() {
         REPLAID LAB
       </Link>
       <div style={{ flex: 1 }} />
-      <Link href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guias</Link>
+      <Link href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</Link>
       <Link href="/counters" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Counters</Link>
       <Link href="/team-comps" className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Composiciones</Link>
       <Link href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>

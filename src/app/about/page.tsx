@@ -28,20 +28,20 @@ export default function AboutPage() {
         <div className="eyebrow">REPLAID LAB</div>
         <h1>Sobre Replaid Lab</h1>
         <p className="trust-lead">
-          Replaid Lab es una hemeroteca editorial y plataforma de review de VOD para jugadores de Overwatch. El objetivo no es acumular paginas por volumen, sino publicar recursos que ayuden a tomar mejores decisiones dentro de partida.
+          Replaid Lab es una hemeroteca editorial y una plataforma de review de VOD para jugadores de Overwatch. El objetivo no es acumular páginas por volumen, sino publicar recursos que ayuden a tomar mejores decisiones dentro de partida.
         </p>
 
         <section>
-          <h2>Que publicamos</h2>
+          <h2>Qué publicamos</h2>
           <p>
-            Publicamos guias por heroe, fundamentos por rol, counters, composiciones 5v5 y 6v6, noticias relevantes y recursos para revisar partidas. Cuando usamos un video externo, lo tratamos como apoyo: la pagina debe aportar contexto propio, errores frecuentes y una forma practica de aplicar lo aprendido.
+            Publicamos guías por héroe, fundamentos por rol, counters, composiciones 5v5 y 6v6, noticias relevantes y recursos para revisar partidas. Cuando usamos un vídeo externo, lo tratamos como apoyo: la página debe aportar contexto propio, errores frecuentes y una forma práctica de aplicar lo aprendido.
           </p>
         </section>
 
         <section>
-          <h2>Quien revisa el criterio</h2>
+          <h2>Quién revisa el criterio</h2>
           <p>
-            Las paginas prioritarias se preparan con estructura editorial y se revisan con criterio experto antes de tratarlas como contenido pilar. Cuando una guia depende de un parche o de cambios de balance, se actualiza por cambios reales, no solo para parecer reciente.
+            Las páginas prioritarias se preparan con estructura editorial y se revisan con criterio experto antes de tratarlas como contenido pilar. Cuando una guía depende de un parche o de cambios de balance, se actualiza por cambios reales, no solo para parecer reciente.
           </p>
         </section>
 
@@ -53,9 +53,9 @@ export default function AboutPage() {
         </section>
 
         <div className="trust-links">
-          <Link href="/editorial-methodology">Metodologia editorial</Link>
+          <Link href="/editorial-methodology">Metodología editorial</Link>
           <Link href="/privacy">Privacidad y cookies</Link>
-          <Link href="/legal">Terminos</Link>
+          <Link href="/legal">Términos</Link>
         </div>
       </main>
     </div>

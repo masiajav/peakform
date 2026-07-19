@@ -146,7 +146,7 @@ export default function TierSelector({ expert, hasUsedTrial, isLoggedIn, stripeC
                 </div>
                 <div style={{ fontSize: 12, color: 'var(--text3)', marginTop: 2 }}>
                   {hasUsedTrial
-                    ? 'Ya usaste tu analisis de prueba con este experto'
+                    ? 'Ya usaste tu análisis de prueba con este experto'
                     : `Review escrita · Entrega en ${expert.trial_deadline_hours}h · 1 pregunta de seguimiento`
                   }
                 </div>

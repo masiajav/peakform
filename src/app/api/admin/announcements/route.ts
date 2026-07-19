@@ -55,7 +55,7 @@ export async function POST(request: Request) {
 
   const body = await request.json()
   if (!body.title?.trim() || !body.body?.trim()) {
-    return NextResponse.json({ error: 'Titulo y contenido son obligatorios' }, { status: 400 })
+    return NextResponse.json({ error: 'Título y contenido son obligatorios' }, { status: 400 })
   }
 
   const admin = createAdminClient()

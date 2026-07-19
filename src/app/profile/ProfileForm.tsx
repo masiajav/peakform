@@ -128,10 +128,10 @@ export default function ProfileForm({
     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
       <div>
         <div style={{ fontSize: 11, letterSpacing: 2, color: 'var(--text2)', fontFamily: 'Bebas Neue, sans-serif', marginBottom: 16 }}>
-          INFORMACION BASICA
+          INFORMACIÓN BÁSICA
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
-          <Field label="NOMBRE PUBLICO *" hint="Nombre que veran otros usuarios">
+          <Field label="NOMBRE PÚBLICO *" hint="Nombre que verán otros usuarios">
             <input
               value={displayName}
               onChange={e => setDisplayName(e.target.value)}
@@ -155,16 +155,16 @@ export default function ProfileForm({
             PERFIL DE EXPERTO
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-            <Field label="BIO" hint="Descripcion que veran los jugadores en tu perfil">
+            <Field label="BIO" hint="Descripción que verán los jugadores en tu perfil">
               <textarea
                 value={bio}
                 onChange={e => setBio(e.target.value)}
                 rows={4}
-                placeholder="Cuentale a los jugadores tu experiencia y estilo de analisis..."
+                placeholder="Cuéntale a los jugadores tu experiencia y estilo de análisis..."
               />
             </Field>
 
-            <Field label="DISCORD PERSONAL" hint="Opcional. Se muestra en tu perfil publico de experto. Ej: ivajpro o ivajpro#1234">
+            <Field label="DISCORD PERSONAL" hint="Opcional. Se muestra en tu perfil público de experto. Ej: ivajpro o ivajpro#1234">
               <input
                 value={discordHandle}
                 onChange={e => setDiscordHandle(e.target.value)}
@@ -172,20 +172,20 @@ export default function ProfileForm({
               />
             </Field>
 
-            <Field label="ESPECIALIDADES" hint="Separa con comas: Posicionamiento, Mecanicas de Ana...">
+            <Field label="ESPECIALIDADES" hint="Separa con comas: posicionamiento, mecánicas de Ana...">
               <input
                 value={specialties}
                 onChange={e => setSpecialties(e.target.value)}
-                placeholder="Posicionamiento, Mecanicas de Ana, Gestion de ultimates"
+                placeholder="Posicionamiento, mecánicas de Ana, gestión de ultimates"
               />
             </Field>
 
             <div>
               <div style={{ fontSize: 11, letterSpacing: 1.5, color: 'var(--text2)', fontFamily: 'Bebas Neue, sans-serif', marginBottom: 6 }}>
-                PRECIOS Y DESCRIPCION DE TIERS
+                PRECIOS Y DESCRIPCIÓN DE TIERS
               </div>
               <div style={{ fontSize: 12, color: 'var(--text3)', marginBottom: 16 }}>
-                Tu cobras integro el precio que fijes. El jugador paga ese precio mas un 20% de comision de plataforma.
+                Tú cobras íntegro el precio que fijes. El jugador paga ese precio más un 20% de comisión de plataforma.
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 {([
@@ -201,12 +201,12 @@ export default function ProfileForm({
                         min={min} max={max} step={0.5} required
                       />
                     </Field>
-                    <Field label="QUE INCLUYE (opcional)" hint="Descripcion que veran los jugadores">
+                    <Field label="QUÉ INCLUYE (opcional)" hint="Descripción que verán los jugadores">
                       <textarea
                         value={desc}
                         onChange={e => setDesc(e.target.value)}
                         rows={2}
-                        placeholder="Ej: Analisis escrito de tu replay con feedback de posicionamiento y mecanicas..."
+                        placeholder="Ej: análisis escrito de tu replay con feedback de posicionamiento y mecánicas..."
                         style={{ resize: 'vertical' }}
                       />
                     </Field>
@@ -219,10 +219,10 @@ export default function ProfileForm({
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6 }}>
                 <div>
                   <div style={{ fontSize: 11, letterSpacing: 1.5, color: 'var(--text2)', fontFamily: 'Bebas Neue, sans-serif' }}>
-                    ANALISIS DE PRUEBA
+                    ANÁLISIS DE PRUEBA
                   </div>
                   <div style={{ fontSize: 12, color: 'var(--text3)', marginTop: 3 }}>
-                    Ofrece un analisis a precio reducido para que el jugador te conozca.
+                    Ofrece un análisis a precio reducido para que el jugador te conozca.
                   </div>
                 </div>
                 <label style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer' }}>
@@ -239,7 +239,7 @@ export default function ProfileForm({
               {trialEnabled && (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginTop: 16 }}>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
-                    <Field label="PRECIO BASE (EUR)" hint="Minimo 2 EUR">
+                    <Field label="PRECIO BASE (EUR)" hint="Mínimo 2 EUR">
                       <input
                         type="number"
                         value={trialPrice}

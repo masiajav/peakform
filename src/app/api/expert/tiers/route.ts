@@ -46,7 +46,7 @@ export async function PATCH(request: Request) {
   const deepDiveEnabled = !!tier_deep_dive_enabled
 
   if (!starterEnabled && !proEnabled && !deepDiveEnabled) {
-    return NextResponse.json({ error: 'Deja al menos un tier estandar activo' }, { status: 400 })
+    return NextResponse.json({ error: 'Deja al menos un tier estándar activo' }, { status: 400 })
   }
 
   const { error } = await supabase

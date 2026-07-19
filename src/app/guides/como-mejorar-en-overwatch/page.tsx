@@ -50,7 +50,7 @@ export default function ImproveOverwatchGuidePage() {
         </div>
 
         <header style={{ marginBottom: 38 }}>
-          <div className="eyebrow">GUIA PILAR</div>
+          <div className="eyebrow">GUÍA PILAR</div>
           <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(38px, 7vw, 68px)', lineHeight: 0.98, letterSpacing: 1, margin: '0 0 18px' }}>
             Cómo mejorar en Overwatch sin depender solo de la mecánica
           </h1>
@@ -65,9 +65,9 @@ export default function ImproveOverwatchGuidePage() {
         </header>
 
         <section className="guide-video-summary">
-          <div>RESUMEN RAPIDO</div>
+          <div>RESUMEN RÁPIDO</div>
           <p>
-            Elige una sola prioridad por semana: morir menos primero, gastar mejor cooldowns después y sincronizar engages cuando ya sobrevives. Si intentas arreglar aim, posición, ultimates y composición a la vez, no sabrás que cambio funciono.
+            Elige una sola prioridad por semana: morir menos primero, gastar mejor cooldowns después y sincronizar engages cuando ya sobrevives. Si intentas arreglar aim, posición, ultimates y composición a la vez, no sabrás qué cambio funcionó.
           </p>
         </section>
 
@@ -85,12 +85,12 @@ export default function ImproveOverwatchGuidePage() {
             Fallar tiros importa, pero muchas partidas se pierden antes del disparo. Un DPS que juega un ángulo sin salida, un support que cura desde campo abierto o un tank que entra sin cooldown defensivo dependen de una jugada perfecta para sobrevivir. Eso no es un problema de aim; es un problema de decisión.
           </p>
           <p>
-            La pregunta práctica es: si hubiera fallado menos, la posición seguía siendo buena? Si la respuesta es no, corrige posición y timing antes de dedicar la semana a mecánicas.
+            La pregunta práctica es: si hubiera fallado menos, ¿la posición seguía siendo buena? Si la respuesta es no, corrige posición y timing antes de dedicar la semana a mecánicas.
           </p>
 
           <h2>3. Prioridades por rol</h2>
           <p>
-            Tank debe crear espacio sin cambiar toda su vida por nada. Antes de avanzar, decide que recurso rival quieres forzar y donde puede jugar tu equipo después. Si entras y todos te miran pero nadie de tu equipo gana ángulo, solo has comprado tiempo caro.
+            Tank debe crear espacio sin cambiar toda su vida por nada. Antes de avanzar, decide qué recurso rival quieres forzar y dónde puede jugar tu equipo después. Si entras y todos te miran pero nadie de tu equipo gana ángulo, solo has comprado tiempo caro.
           </p>
           <p>
             DPS debe crear presión útil, no daño decorativo. Un buen ángulo obliga al rival a mirar dos sitios o a gastar recursos defensivos. Si disparas desde el mismo frente que tu tank durante toda la partida, probablemente estás facilitando la defensa rival.
@@ -99,7 +99,7 @@ export default function ImproveOverwatchGuidePage() {
             Support debe sobrevivir y negar condiciones de victoria. Curar mucho no compensa gastar Suzu, Sleep, Lamp o movilidad por ansiedad. Si tu cooldown principal no niega una amenaza real, revisa si podías resolver la situación con posición.
           </p>
 
-          <h2>4. Como revisar cooldowns</h2>
+          <h2>4. Cómo revisar cooldowns</h2>
           <p>
             El error más común es mirar solo si un cooldown acertó. La revisión buena pregunta si hacía falta gastarlo. Un Sleep que acierta a un tank sin follow-up puede ser peor que guardarlo para un flanker. Un dash que confirma una baja puede ser malo si te deja sin salida cuando la pelea aún no está ganada.
           </p>

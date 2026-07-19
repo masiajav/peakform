@@ -88,7 +88,7 @@ export default function HeroesIndexPage() {
         <section style={{ marginBottom: 54 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', gap: 16, marginBottom: 18 }}>
             <div>
-              <div className="eyebrow">PROXIMAMENTE</div>
+              <div className="eyebrow">PRÓXIMAMENTE</div>
               <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 38, letterSpacing: 1, margin: 0 }}>
                 Héroes en seguimiento
               </h2>

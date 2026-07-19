@@ -28,13 +28,13 @@ export default function ContactPage() {
         <div className="eyebrow">CONTACTO</div>
         <h1>Contacto editorial y soporte</h1>
         <p className="trust-lead">
-          Usa esta pagina para comunicar correcciones, problemas de privacidad, dudas de soporte o propuestas relacionadas con Replaid Lab.
+          Usa esta página para comunicar correcciones, problemas de privacidad, dudas de soporte o propuestas relacionadas con Replaid Lab.
         </p>
 
         <section>
           <h2>Correcciones editoriales</h2>
           <p>
-            Si detectas una guia desactualizada, un counter incorrecto, una fuente que falta o una pagina que no aporta suficiente valor, escribe a <a href="mailto:soporte@replaidlab.com">soporte@replaidlab.com</a> con la URL y el cambio recomendado.
+            Si detectas una guía desactualizada, un counter incorrecto, una fuente que falta o una página que no aporta suficiente valor, escribe a <a href="mailto:soporte@replaidlab.com">soporte@replaidlab.com</a> con la URL y el cambio recomendado.
           </p>
         </section>
 
@@ -54,7 +54,7 @@ export default function ContactPage() {
 
         <div className="trust-links">
           <Link href="/about">Sobre Replaid Lab</Link>
-          <Link href="/editorial-methodology">Metodologia editorial</Link>
+          <Link href="/editorial-methodology">Metodología editorial</Link>
           <Link href="/privacy">Privacidad</Link>
           <Link href="/legal">Legal</Link>
         </div>

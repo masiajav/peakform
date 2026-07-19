@@ -47,7 +47,7 @@ const shionAbilities = [
   },
   {
     title: 'Joyride',
-    body: 'Activa la moto y permite relanzarla hacia delante al desmontar. No es solo transporte: crea amenaza, fuerza miradas y convierte una ruta lateral en una entrada real.',
+    body: 'Activa la moto y permite relanzarla hacia delante al desmontar. No es solo transporte: crea amenaza, obliga al rival a girarse y convierte una ruta lateral en una entrada real.',
   },
   {
     title: 'Satsuriku Spree',
@@ -645,7 +645,7 @@ function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
               Shion debería encajar especialmente bien en dive y brawl rápido. Quiere equipos que entren con ella, creen caos o aprovechen la distracción que genera en la backline.
             </p>
             <p style={{ margin: 0 }}>
-              Tanques como Winston, D.Va, Junker Queen o Ramattra pueden abrir espacio para sus entradas. Como DPS, Tracer, Genji, Sombra y Echo ayudan a dividir miradas. En support, Brigitte, Lucio, Lifeweaver y Kiriko parecen buenos puntos de partida por peel, velocidad, limpieza o rescate.
+              Tanques como Winston, D.Va, Junker Queen o Ramattra pueden abrir espacio para sus entradas. Como DPS, Tracer, Genji, Sombra y Echo ayudan a dividir la atención rival. En support, Brigitte, Lucio, Lifeweaver y Kiriko parecen buenos puntos de partida por peel, velocidad, limpieza o rescate.
             </p>
           </div>
           <div style={{ marginTop: 16 }}>

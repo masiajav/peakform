@@ -191,7 +191,7 @@ function reasonFor(counterSlug: string, targetSlug: string) {
     sombra: `Hack corta habilidades clave y convierte a ${target} en objetivo vulnerable.`,
     mei: `Muro, slow y sustain separan a ${target} de su equipo.`,
     symmetra: `Beam y torretas castigan movilidad corta y defensas que no bloquean rayos.`,
-    torbjorn: `Torre y daño estable controlan flancos y entradas de ${target}.`,
+    torbjorn: `La torreta y el daño constante controlan flancos y entradas de ${target}.`,
     bastion: `Burst frontal derrite objetivos grandes o engages lineales de ${target}.`,
     junkrat: `Burst y spam de area castigan rutas cerradas o modelos grandes de ${target}.`,
     pharah: `Presion vertical obliga a ${target} a pelear fuera de su rango comodo.`,

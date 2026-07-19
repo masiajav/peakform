@@ -137,7 +137,7 @@ export default async function RootPage() {
                     OVERWATCH SEASON 3: INTO THE TIGER’S DEN
                   </h2>
                   <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0, maxWidth: 760 }}>
-                    Shion, Neon Junction, Anima Strike, Community Crafted, Stadium, Battle Pass, mythics, Ultra Skins y eventos de temporada resumidos en una página SEO actualizada.
+                    Shion, Neon Junction, Anima Strike, Community Crafted, Stadium, Battle Pass, mythics, Ultra Skins y eventos de temporada en un resumen claro para prepararte antes de jugar.
                   </p>
                 </div>
                 <span className="btn btn-primary btn-sm">VER TODO</span>
@@ -194,7 +194,7 @@ export default async function RootPage() {
           <AdSlot variant="leaderboard" slot="home-top-leaderboard" />
         </section>
 
-        <Section title="Guías populares" kicker="SEO HUB" href="/guides" linkLabel="Ver todas">
+        <Section title="Guías populares" kicker="HEMEROTECA" href="/guides" linkLabel="Ver todas">
           <CardGrid>
             {(featuredGuides ?? []).map((guide: any) => (
               <GuideCard key={guide.id} guide={guide} />

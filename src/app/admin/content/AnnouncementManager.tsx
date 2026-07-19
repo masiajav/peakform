@@ -176,8 +176,8 @@ export default function AnnouncementManager({ initialAnnouncements }: { initialA
         </div>
 
         <Textarea label="EXTRACTO" value={form.excerpt} onChange={v => setField('excerpt', v)} placeholder="Resumen corto para listados y snippets" rows={2} />
-        <Field label="SEO TITLE" value={form.seo_title} onChange={v => setField('seo_title', v)} placeholder="Titulo optimizado para busqueda" />
-        <Field label="SEO DESCRIPTION" value={form.seo_description} onChange={v => setField('seo_description', v)} placeholder="Descripcion de 140-160 caracteres" />
+        <Field label="SEO TITLE" value={form.seo_title} onChange={v => setField('seo_title', v)} placeholder="Título optimizado para búsqueda" />
+        <Field label="SEO DESCRIPTION" value={form.seo_description} onChange={v => setField('seo_description', v)} placeholder="Descripción de 140-160 caracteres" />
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }}>
           <div>
@@ -190,7 +190,7 @@ export default function AnnouncementManager({ initialAnnouncements }: { initialA
               <option value="flex">Flex</option>
             </select>
           </div>
-          <Field label="HEROE" value={form.hero} onChange={v => setField('hero', v)} placeholder="ana" />
+          <Field label="HÉROE" value={form.hero} onChange={v => setField('hero', v)} placeholder="ana" />
           <Field label="MAPA" value={form.map} onChange={v => setField('map', v)} placeholder="kings-row" />
           <Field label="TAGS" value={form.tags} onChange={v => setField('tags', v)} placeholder="temporada, balance" />
         </div>
@@ -279,7 +279,7 @@ export default function AnnouncementManager({ initialAnnouncements }: { initialA
                         <option value="flex">Flex</option>
                       </select>
                     </div>
-                    <Field label="HEROE" value={editForm.hero} onChange={v => setEditForm(prev => ({ ...prev, hero: v }))} />
+                    <Field label="HÉROE" value={editForm.hero} onChange={v => setEditForm(prev => ({ ...prev, hero: v }))} />
                     <Field label="MAPA" value={editForm.map} onChange={v => setEditForm(prev => ({ ...prev, map: v }))} />
                     <Field label="TAGS" value={editForm.tags} onChange={v => setEditForm(prev => ({ ...prev, tags: v }))} />
                   </div>

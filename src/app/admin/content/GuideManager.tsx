@@ -160,7 +160,7 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
   }
 
   async function handleDelete(id: string) {
-    if (!confirm('Eliminar esta guia?')) return
+    if (!confirm('¿Eliminar esta guía?')) return
     const res = await fetch(`/api/admin/guides/${id}`, { method: 'DELETE' })
     if (res.ok) setItems(items.filter(i => i.id !== id))
   }
@@ -173,7 +173,7 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
 
       <form onSubmit={handleCreate} style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '20px 24px', marginBottom: 24, display: 'flex', flexDirection: 'column', gap: 14 }}>
         <div style={{ fontSize: 11, letterSpacing: 1.5, color: 'var(--text2)', fontFamily: 'Bebas Neue, sans-serif' }}>
-          NUEVA GUIA
+          NUEVA GUÍA
         </div>
         {error && (
           <div style={{ fontSize: 13, color: 'var(--danger)', background: 'rgba(255,68,68,0.06)', border: '1px solid rgba(255,68,68,0.2)', padding: '10px 14px' }}>
@@ -192,8 +192,8 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
         </div>
 
         <Textarea label="EXTRACTO" value={form.excerpt} onChange={v => setField('excerpt', v)} placeholder="Resumen corto para listados y snippets" rows={2} />
-        <Field label="SEO TITLE" value={form.seo_title} onChange={v => setField('seo_title', v)} placeholder="Titulo optimizado para busqueda" />
-        <Field label="SEO DESCRIPTION" value={form.seo_description} onChange={v => setField('seo_description', v)} placeholder="Descripcion de 140-160 caracteres" />
+        <Field label="SEO TITLE" value={form.seo_title} onChange={v => setField('seo_title', v)} placeholder="Título optimizado para búsqueda" />
+        <Field label="SEO DESCRIPTION" value={form.seo_description} onChange={v => setField('seo_description', v)} placeholder="Descripción de 140-160 caracteres" />
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }}>
           <div>
@@ -206,17 +206,17 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
               <option value="flex">Flex</option>
             </select>
           </div>
-          <Field label="HEROE" value={form.hero} onChange={v => setField('hero', v)} placeholder="ana" />
+          <Field label="HÉROE" value={form.hero} onChange={v => setField('hero', v)} placeholder="ana" />
           <Field label="MAPA" value={form.map} onChange={v => setField('map', v)} placeholder="kings-row" />
           <Field label="TAGS" value={form.tags} onChange={v => setField('tags', v)} placeholder="macro, aim" />
         </div>
 
-        <Textarea label="CONTENIDO MARKDOWN *" value={form.body} onChange={v => setField('body', v)} placeholder={'# Titulo\n\nEscribe tu guia en Markdown...'} rows={10} required monospace />
+        <Textarea label="CONTENIDO MARKDOWN *" value={form.body} onChange={v => setField('body', v)} placeholder={'# Título\n\nEscribe tu guía en Markdown...'} rows={10} required monospace />
 
         <div style={{ borderTop: '1px solid var(--border)', paddingTop: 14, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
           <Field label="VIDEO URL" value={form.video_url} onChange={v => setField('video_url', v)} placeholder="https://www.youtube.com/watch?v=..." />
           <Field label="VIDEO ID" value={form.video_id} onChange={v => setField('video_id', v)} placeholder="esfNxqdpGuE" />
-          <Field label="VIDEO TITULO" value={form.video_title} onChange={v => setField('video_title', v)} placeholder="Titulo del video original" />
+          <Field label="VIDEO TÍTULO" value={form.video_title} onChange={v => setField('video_title', v)} placeholder="Título del vídeo original" />
           <Field label="CANAL" value={form.video_channel} onChange={v => setField('video_channel', v)} placeholder="Ivajpro" />
           <Field label="IDIOMA" value={form.video_language} onChange={v => setField('video_language', v)} placeholder="es" />
           <Field label="PUBLICADO" value={form.video_published_at} onChange={v => setField('video_published_at', v)} placeholder="2022-10-28" />
@@ -233,7 +233,7 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
 
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
           <button type="submit" disabled={saving} className="btn btn-primary btn-sm">
-            {saving ? 'GUARDANDO...' : 'CREAR GUIA'}
+            {saving ? 'GUARDANDO...' : 'CREAR GUÍA'}
           </button>
         </div>
       </form>
@@ -271,7 +271,7 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
               </div>
               {editingId === item.id && (
                 <form onSubmit={e => handleUpdate(e, item.id)} style={{ marginTop: 18, flexBasis: '100%', background: 'var(--surface2)', border: '1px solid var(--border2)', padding: 18, display: 'grid', gap: 14 }}>
-                  <div style={{ fontSize: 11, letterSpacing: 1.5, color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif' }}>EDITANDO GUIA</div>
+                  <div style={{ fontSize: 11, letterSpacing: 1.5, color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif' }}>EDITANDO GUÍA</div>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
                     <Field label="TITULO *" value={editForm.title} onChange={v => setEditForm(prev => ({ ...prev, title: v }))} required />
                     <Field label="SLUG *" value={editForm.slug} onChange={v => setEditForm(prev => ({ ...prev, slug: v }))} required />
@@ -294,7 +294,7 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
                         <option value="flex">Flex</option>
                       </select>
                     </div>
-                    <Field label="HEROE" value={editForm.hero} onChange={v => setEditForm(prev => ({ ...prev, hero: v }))} />
+                    <Field label="HÉROE" value={editForm.hero} onChange={v => setEditForm(prev => ({ ...prev, hero: v }))} />
                     <Field label="MAPA" value={editForm.map} onChange={v => setEditForm(prev => ({ ...prev, map: v }))} />
                     <Field label="TAGS" value={editForm.tags} onChange={v => setEditForm(prev => ({ ...prev, tags: v }))} />
                   </div>

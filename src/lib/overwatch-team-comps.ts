@@ -45,22 +45,22 @@ const STYLE_TEMPLATES: Record<TeamCompStyle, TeamCompTemplate> = {
   dive: {
     style: 'dive',
     title: 'Dive coordinado',
-    description: 'Movilidad, timing y burst para caer sobre un objetivo vulnerable antes de que el rival pueda estabilizar.',
+    description: 'Movilidad, timing y burst para entrar sobre un objetivo vulnerable antes de que el rival pueda estabilizar.',
     tanks: ['Winston', 'D.Va', 'Wrecking Ball', 'Doomfist', 'Hazard'],
     dps: ['Tracer', 'Genji', 'Sombra', 'Echo', 'Venture'],
     supports: ['Kiriko', 'Lucio', 'Ana', 'Juno'],
-    winCondition: 'Preparar angulos, contar recursos defensivos y entrar todos a la vez sobre backline o DPS aislado.',
-    avoidWhen: 'Mapas muy cerrados contra brawl con mucho peel, o cuando tu equipo entra de uno en uno.',
+    winCondition: 'Preparar ángulos, contar recursos defensivos y entrar juntos sobre backline o DPS aislado.',
+    avoidWhen: 'Mapas muy cerrados contra brawl con mucho peel, o equipos que acaban entrando de uno en uno.',
   },
   poke: {
     style: 'poke',
     title: 'Poke de largo rango',
-    description: 'Presion desde rango, crossfire y gasto de recursos antes de que el rival pueda llegar al contacto.',
+    description: 'Presión desde rango, crossfire y desgaste antes de que el rival pueda cerrar distancia.',
     tanks: ['Sigma', 'Orisa', 'Ramattra'],
     dps: ['Ashe', 'Widowmaker', 'Hanzo', 'Sojourn', 'Emre', 'Soldier-76'],
     supports: ['Baptiste', 'Illari', 'Zenyatta', 'Ana'],
-    winCondition: 'Ganar vida, cooldowns y posicion desde lineas largas; pelear cuando el rival ya gasto recursos de entrada.',
-    avoidWhen: 'Mapas sin lineas largas o contra dive que puede saltarse tus sightlines sin recibir castigo.',
+    winCondition: 'Ganar vida, cooldowns y posición desde líneas largas; pelear cuando el rival ya gastó recursos para entrar.',
+    avoidWhen: 'Mapas sin líneas largas o contra dive que puede saltarse tus sightlines sin recibir castigo.',
   },
   rush: {
     style: 'rush',
@@ -69,7 +69,7 @@ const STYLE_TEMPLATES: Record<TeamCompStyle, TeamCompTemplate> = {
     tanks: ['Junker Queen', 'Reinhardt', 'Ramattra', 'Mauga'],
     dps: ['Reaper', 'Mei', 'Cassidy', 'Anran', 'Vendetta'],
     supports: ['Lucio', 'Juno', 'Kiriko', 'Mizuki', 'Moira'],
-    winCondition: 'Guardar speed y defensivos hasta estar cerca, entrar juntos y convertir el primer objetivo que no pueda kitear.',
+    winCondition: 'Guardar speed y defensivos hasta estar cerca, entrar juntos y rematar al primer objetivo que no pueda kitear.',
     avoidWhen: 'Mapas abiertos, high ground dominante o rivales que pueden kitear sin ceder objetivo.',
   },
   brawl: {
@@ -79,17 +79,17 @@ const STYLE_TEMPLATES: Record<TeamCompStyle, TeamCompTemplate> = {
     tanks: ['Reinhardt', 'Junker Queen', 'Zarya', 'Ramattra', 'Hazard'],
     dps: ['Mei', 'Reaper', 'Cassidy', 'Junkrat', 'Venture'],
     supports: ['Lucio', 'Kiriko', 'Moira', 'Baptiste', 'Brigitte'],
-    winCondition: 'Tomar un corner, partir al rival con muro o presion frontal y jugar peleas cortas con recursos defensivos.',
+    winCondition: 'Tomar un corner, partir al rival con muro o presión frontal y jugar peleas cortas con recursos defensivos.',
     avoidWhen: 'Circuitos largos o composiciones poke que nunca tienen que entrar en tu rango efectivo.',
   },
   flyers: {
     style: 'flyers',
-    title: 'Flyers y presion vertical',
-    description: 'Control del espacio aereo para dividir la atencion rival y castigar equipos sin hitscan fiable.',
+    title: 'Flyers y presión vertical',
+    description: 'Control del espacio aéreo para dividir la atención rival y castigar equipos sin hitscan fiable.',
     tanks: ['D.Va', 'Winston'],
     dps: ['Pharah', 'Echo', 'Anran'],
     supports: ['Mercy', 'Juno', 'Illari', 'Baptiste'],
-    winCondition: 'Abrir angulos verticales, forzar que el rival mire arriba y castigar supports o DPS sin cobertura.',
+    winCondition: 'Abrir ángulos verticales, obligar al rival a mirar hacia arriba y castigar supports o DPS sin cobertura.',
     avoidWhen: 'Contra doble hitscan fuerte, D.Va activa o mapas interiores donde no hay espacio vertical real.',
   },
   'anti-dive': {
@@ -100,7 +100,7 @@ const STYLE_TEMPLATES: Record<TeamCompStyle, TeamCompTemplate> = {
     dps: ['Cassidy', 'Mei', 'Torbjorn', 'Symmetra', 'Reaper'],
     supports: ['Brigitte', 'Kiriko', 'Baptiste', 'Moira', 'Ana'],
     winCondition: 'Ceder un poco de espacio, forzar el engage rival y responder con peel, burst y limpieza de cooldowns.',
-    avoidWhen: 'Si necesitas atacar una posicion poke muy abierta y tu comp no tiene forma de iniciar.',
+    avoidWhen: 'Si necesitas atacar una posición poke muy abierta y tu comp no tiene una forma clara de iniciar.',
   },
 }
 
@@ -135,7 +135,7 @@ export function teamCompPageTitle(hero: CounterHero) {
 }
 
 export function teamCompPageDescription(hero: CounterHero) {
-  return `Composiciones de Overwatch con ${hero.name}: equipos recomendados para 5v5 y 6v6, sinergias, alternativas y cuando evitar cada comp.`
+  return `Composiciones de Overwatch con ${hero.name}: equipos recomendados para 5v5 y 6v6, sinergias, alternativas y cuándo evitar cada comp.`
 }
 
 function buildRecommendation(hero: CounterHero, template: TeamCompTemplate, format: TeamCompFormat): TeamCompRecommendation {

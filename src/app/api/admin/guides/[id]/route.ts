@@ -72,7 +72,7 @@ export async function PATCH(
 
   if (error) {
     if (error.code === '23505') {
-      return NextResponse.json({ error: 'Ya existe una guia con ese slug' }, { status: 409 })
+      return NextResponse.json({ error: 'Ya existe una guía con ese slug' }, { status: 409 })
     }
     return NextResponse.json({ error: error.message }, { status: 500 })
   }

@@ -36,7 +36,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       },
       {
         name: 'Anomaly',
-        attack: 'Anomaly invita a entrar rápido porque el objetivo parece estar a mano, pero la primera puerta suele concentrar demasiado daño. Asoma, fuerza una habilidad defensiva y decide si cruzas por dentro o rodeas por el exterior. La ruta exterior funciona para abrir la mirada rival, no para mandar solo a un compañero junto al precipicio. Una vez dentro, ocupa las esquinas alrededor del punto; cinco jugadores dentro del círculo ofrecen un blanco demasiado sencillo.',
+        attack: 'Anomaly invita a entrar rápido porque el objetivo parece estar a mano, pero la primera puerta suele concentrar demasiado daño. Asoma, fuerza una habilidad defensiva y decide si cruzas por dentro o rodeas por el exterior. La ruta exterior sirve para obligar al rival a mirar a otro lado, no para mandar solo a un compañero junto al precipicio. Una vez dentro, ocupa las esquinas alrededor del punto; cinco jugadores dentro del círculo ofrecen un blanco demasiado sencillo.',
         defense: 'Defiende la puerta que el rival necesita, pero deja libre tu retirada. Los héroes con empuje pueden amenazar el exterior sin exponerse ellos mismos, mientras que los de rango medio funcionan mejor desde la pared interior. Si el ataque gasta varias definitivas para entrar, no respondas con todo por orgullo. Cede, sobrevive y prepara la recuperación: las rutas son cortas y permiten volver con el equipo completo.',
         vodReview: 'Revisa cada caída ambiental y cada muerte en una puerta. Pregúntate si estabas allí por una razón concreta o simplemente seguiste al primer compañero que avanzó.',
       },
@@ -541,13 +541,13 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       {
         name: 'Downtown',
         attack: 'En Downtown, el balcón que domina la zona central puede frenar la entrada sin que parezca estar haciendo gran cosa. Dispútalo con movilidad, bloquéalo mientras cruzas o ataca desde un lado que reduzca su visión. Caminar por abajo y mirar hacia arriba deja al Tank sin presión sobre el objetivo. Una vez dentro, ocupa la esquina del edificio y un ángulo exterior; no hace falta llenar cada balcón para impedir que el rival regrese.',
-        defense: 'Usa la altura para cobrar recursos, pero baja antes de que te corten la salida. La defensa debe saber quién toca si el rival entra por abajo y quién mantiene el ángulo sobre los supports. Si todos saltan al punto, Downtown se convierte en una pelea plana y desaparece la ventaja del escenario. Cambia de balcón después de ser localizado para que el siguiente ataque no llegue con el duelo preparado.',
+        defense: 'Usa la altura para forzar recursos, pero baja antes de que te corten la salida. La defensa debe saber quién toca si el rival entra por abajo y quién mantiene el ángulo sobre los supports. Si todos saltan al punto, Downtown se convierte en una pelea plana y desaparece la ventaja del escenario. Cambia de balcón después de ser localizado para que el siguiente ataque no llegue con el duelo preparado.',
         vodReview: 'Mira dónde estaba la cámara cuando empezaste a recibir daño. Si pasaste la pelea alternando entre el Tank de abajo y un DPS de arriba, faltó decidir qué posición despejar primero.',
       },
       {
         name: 'Volcano',
         attack: 'Volcano castiga las entradas impulsivas. Acércate por una pared, identifica el control y los desplazamientos rivales, y fuerza uno antes de cruzar la zona estrecha. La lava no solo mata: reduce las rutas disponibles y hace más previsible la retirada. Ocupa la cobertura interior y abre un segundo ángulo pequeño. Un flanco profundo cerca del borde es difícil de ayudar y muy fácil de convertir en una eliminación gratuita.',
-        defense: 'Amenaza el acceso, no la jugada del año. Mantener al rival preocupado por un empujón ya facilita todo el daño frontal; exponerte para buscarlo puede regalar el punto. Si el ataque consigue entrar, retrocede alrededor del objetivo y conserva una salida que no pase junto a la lava. En overtime, decide quién toca primero. Cinco saltos desesperados por la misma puerta producen una repetición corta y poco instructiva.',
+        defense: 'Amenaza el acceso, no la jugada del año. Mantener al rival preocupado por un empujón ya facilita todo el daño frontal; exponerte para buscarlo puede regalar el punto. Si el ataque consigue entrar, retrocede alrededor del objetivo y conserva una salida que no pase junto a la lava. En overtime, decide quién toca primero. Entrar de uno en uno por la misma puerta solo regala ult charge y otra pelea perdida.',
         vodReview: 'Revisa las habilidades de movimiento y desplazamiento como si fueran definitivas pequeñas. ¿Se usaron para ganar posición, para confirmar una baja o simplemente porque estaban disponibles?',
       },
     ],

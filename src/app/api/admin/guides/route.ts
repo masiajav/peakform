@@ -64,7 +64,7 @@ export async function POST(request: Request) {
 
   const body = await request.json()
   if (!body.title?.trim() || !body.slug?.trim() || !body.body?.trim()) {
-    return NextResponse.json({ error: 'Titulo, slug y contenido son obligatorios' }, { status: 400 })
+    return NextResponse.json({ error: 'Título, slug y contenido son obligatorios' }, { status: 400 })
   }
 
   const admin = createAdminClient()
@@ -76,7 +76,7 @@ export async function POST(request: Request) {
 
   if (error) {
     if (error.code === '23505') {
-      return NextResponse.json({ error: 'Ya existe una guia con ese slug' }, { status: 409 })
+      return NextResponse.json({ error: 'Ya existe una guía con ese slug' }, { status: 409 })
     }
     return NextResponse.json({ error: error.message }, { status: 500 })
   }

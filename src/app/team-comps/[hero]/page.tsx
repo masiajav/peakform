@@ -74,12 +74,12 @@ export default function TeamCompHeroPage({ params }: { params: { hero: string } 
         </Link>
 
         <header style={{ margin: '22px 0 34px', maxWidth: 840 }}>
-          <div className="eyebrow">COMPOSICIONES POR HEROE</div>
+          <div className="eyebrow">COMPOSICIONES POR HÉROE</div>
           <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(38px, 7vw, 72px)', letterSpacing: 1, lineHeight: 0.96, margin: '0 0 16px' }}>
             COMPOSICIONES CON {hero.name.toUpperCase()} EN OVERWATCH
           </h1>
           <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.65, margin: 0 }}>
-            Equipos recomendados para jugar con {hero.name} en 5v5 y 6v6. La idea es darte una base con sinergias claras, alternativas y señales para saber cuando esa composicion no merece la pena.
+            Equipos recomendados para jugar con {hero.name} en 5v5 y 6v6. La idea es darte una base con sinergias claras, alternativas y señales para saber cuándo esa composición no merece la pena.
           </p>
         </header>
 
@@ -89,20 +89,20 @@ export default function TeamCompHeroPage({ params }: { params: { hero: string } 
             <CompSection title={`Ajustes para 6v6 con ${hero.name}`} comps={comps6} />
 
             <section className="counter-seo-section counter-seo-callout">
-              <h2>Como elegir entre 5v5 y 6v6</h2>
+              <h2>Cómo elegir entre 5v5 y 6v6</h2>
               <p>
-                En 5v5 hay menos mitigacion y el timing individual pesa mas. En 6v6 hay mas peel, mas cuerpos ocupando espacio y mas recursos defensivos, asi que las composiciones con {hero.name} necesitan una condicion de entrada mas clara.
+                En 5v5 hay menos mitigación y el timing individual pesa más. En 6v6 hay más peel, más cuerpos ocupando espacio y más recursos defensivos, así que las composiciones con {hero.name} necesitan un engage más claro.
               </p>
             </section>
           </div>
 
           <aside className="counter-seo-sidebar">
             <div>
-              <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', margin: 0 }}>Enlaces utiles</h2>
+              <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', margin: 0 }}>Enlaces útiles</h2>
               <Link href="/team-comps">Todas las composiciones</Link>
               <Link href={`/counters/${hero.slug}`}>Counters de {hero.name}</Link>
-              <Link href={`/heroes/${hero.slug}`}>Guia de {hero.name}</Link>
-              <Link href={`/guides/${hero.guideSlug}`}>Video guia</Link>
+              <Link href={`/heroes/${hero.slug}`}>Guía de {hero.name}</Link>
+              <Link href={`/guides/${hero.guideSlug}`}>Guía en vídeo</Link>
             </div>
           </aside>
         </div>
@@ -151,7 +151,7 @@ function PublicNav() {
         REPLAID LAB
       </Link>
       <div style={{ flex: 1 }} />
-      <Link href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guias</Link>
+      <Link href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</Link>
       <Link href="/counters" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Counters</Link>
       <Link href="/team-comps" className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Composiciones</Link>
       <Link href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>

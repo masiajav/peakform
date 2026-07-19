@@ -274,14 +274,14 @@ export function topicQualityDecision(kind: 'hero' | 'counter' | 'team_comp' | 'r
 
   if (kind === 'counter') {
     return isPillarCounterSlug(slug)
-      ? indexNoAds('Counter pilar indexable; monetizacion pendiente de contenido propio completo', 0)
-      : blocked('Counter programatico pendiente de analisis especifico', 0)
+      ? indexNoAds('Counter pilar indexable; monetización pendiente de contenido propio completo', 0)
+      : blocked('Counter programático pendiente de análisis específico', 0)
   }
 
   if (kind === 'team_comp') {
     return isPillarTeamCompSlug(slug)
-      ? indexNoAds('Composicion pilar indexable; monetizacion pendiente de contenido propio completo', 0)
-      : blocked('Composicion programatica pendiente de analisis especifico', 0)
+      ? indexNoAds('Composición pilar indexable; monetización pendiente de contenido propio completo', 0)
+      : blocked('Composición programática pendiente de análisis específico', 0)
   }
 
   if (kind === 'role') {

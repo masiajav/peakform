@@ -208,7 +208,7 @@ export const MAP_PILLARS: MapPillar[] = [
       {
         name: 'Dive sobre backline',
         lineup: ['Winston', 'Genji', 'Tracer', 'Ana', 'Kiriko'],
-        plan: 'Ana presiona desde una línea segura; Winston divide la visión y los DPS entran sobre el mismo objetivo después del primer habilidad. Kiriko sostiene la salida o limpia el control.',
+        plan: 'Ana presiona desde una línea segura; Winston divide la visión y los DPS entran sobre el mismo objetivo después de la primera habilidad. Kiriko sostiene la salida o limpia el control.',
         weakness: 'Pierde consistencia en el tramo final si cada jugador entra por una puerta distinta o si Ana queda aislada durante las rotaciones cerradas.',
       },
     ],
@@ -252,7 +252,7 @@ export const MAP_PILLARS: MapPillar[] = [
     updatedAtIso: '2026-07-19',
     updatedAt: '19 de julio de 2026',
     intro: [
-      'Lijiang Tower tiene una pequeña crueldad: los tres escenarios parecen favorecer las peleas rápidas, pero cada uno castiga una prisa distinta. En Night Market se entra antes de haber repartido las puertas, Garden invita a saltar sin comprobar quién puede seguirte y Control Center convierte una rotación dudosa en cinco jugadores atrapados en el mismo pasillo.',
+      'Lijiang Tower engaña fácil: los tres escenarios parecen favorecer las peleas rápidas, pero cada uno castiga una prisa distinta. En Night Market se entra antes de haber repartido las puertas, Garden invita a saltar sin comprobar quién puede seguirte y Control Center convierte una rotación dudosa en cinco jugadores atrapados en el mismo pasillo.',
       'La primera captura importa, aunque no merece llegar al punto con medio equipo. Quien gana puede defender accesos y obligar al rival a jugar contra el porcentaje. Para darle la vuelta hay que resistir la tentación de tocar por turnos: agrupa, decide una puerta y abre un ángulo lateral corto. En Lijiang, una entrada sencilla ejecutada a la vez suele funcionar mejor que el flanco más imaginativo del servidor.',
     ],
     quickRead: [

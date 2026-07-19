@@ -37,7 +37,7 @@ export default function ExpertTierManager({ tiers: initialTiers }: Props) {
 
     const enabledCount = Object.values(tiers).filter(tier => tier.enabled).length
     if (enabledCount === 0) {
-      setError('Deja al menos un tier estandar activo')
+      setError('Deja al menos un tier estándar activo')
       setSaving(false)
       return
     }
@@ -81,7 +81,7 @@ export default function ExpertTierManager({ tiers: initialTiers }: Props) {
             Configura tus reviews
           </h2>
           <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.55, margin: '8px 0 0', maxWidth: 680 }}>
-            Puedes ajustar precio, descripcion y visibilidad de cada tier. El analisis de prueba se mantiene en tu perfil general.
+            Puedes ajustar precio, descripción y visibilidad de cada tier. El análisis de prueba se mantiene en tu perfil general.
           </p>
         </div>
         <button className="btn btn-primary btn-sm" disabled={saving} type="submit">
@@ -127,7 +127,7 @@ export default function ExpertTierManager({ tiers: initialTiers }: Props) {
                     value={tier.description}
                     onChange={event => updateTier(tierKey, { description: event.target.value })}
                     rows={2}
-                    placeholder="Explica que incluye este tier y cuando deberia elegirlo el jugador."
+                    placeholder="Explica qué incluye este tier y cuándo debería elegirlo el jugador."
                   />
                 </label>
               </div>

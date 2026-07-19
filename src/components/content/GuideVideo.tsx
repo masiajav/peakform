@@ -10,7 +10,7 @@ export default function GuideVideo({ videoId, title, channel, language, url }: G
   return (
     <section className="guide-video">
       <div className="guide-video-meta">
-        <span>VIDEO GUIA</span>
+        <span>VÍDEO GUÍA</span>
         {channel && <span>{channel}</span>}
         {language && <span>{language.toUpperCase()}</span>}
       </div>

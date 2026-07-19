@@ -137,7 +137,7 @@ export default async function ApplyPage() {
                   'Tú fijas tus propios precios por tier',
                   'Cobras el 100% del precio que fijas',
                   'Panel propio para gestionar pedidos',
-                  'Los clientes llegan solos — sin prospecting',
+                  'Los clientes llegan desde la plataforma',
                 ].map(r => (
                   <li key={r} style={{ display: 'flex', gap: 8, fontSize: 13, color: 'var(--text2)', lineHeight: 1.4 }}>
                     <span style={{ color: 'var(--green)', flexShrink: 0, marginTop: 1 }}>✓</span> {r}
