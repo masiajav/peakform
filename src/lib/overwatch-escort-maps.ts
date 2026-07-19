@@ -13,24 +13,24 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
     updatedAtIso: '2026-07-04',
     updatedAt: '4 de julio de 2026',
     intro: [
-      'Circuit Royal tiene una forma muy elegante de decirte que estás mal colocado: te elimina desde la otra punta de una recta. El primer tramo favorece líneas largas y una altura defensiva incómoda; la subida obliga al ataque a pelear por cada curva; el final encierra la carga en un espacio donde ya no basta con escoger cinco héroes de poke. La composición necesita adaptarse al recorrido o, como mínimo, cambiar la distancia a la que intenta jugar.',
+      'Circuit Royal tiene una forma muy elegante de decirte que estás mal colocado: te elimina desde la otra punta de una recta. El primer tramo favorece sightlines largas y una altura defensiva incómoda; la subida obliga al ataque a pelear por cada curva; el final encierra la carga en un espacio donde ya no basta con escoger cinco héroes de poke. La composición necesita adaptarse al recorrido o, como mínimo, cambiar la distancia a la que intenta jugar.',
       'Empujar la carga no resuelve el mapa por sí solo. El coche avanza cuando el equipo conquista la siguiente curva y obliga a la defensa a abandonar su balcón. En ataque, deja a una persona empujando cuando sea seguro y adelanta el resto hasta una cobertura útil. En defensa, evita bajar todos sobre la carga: la altura es lo que convierte una recta abierta en un problema para el rival.',
     ],
     quickRead: [
       { title: 'La curva es el objetivo', body: 'Antes de pedir más daño, gana la esquina desde la que la defensa dispara. La carga llegará después y te dará cobertura para continuar.' },
-      { title: 'No asomes dos veces igual', body: 'Circuit Royal favorece a los héroes de largo alcance. Cambia de ángulo, usa la pared y obliga al rival a recolocar la mira antes de cruzar.' },
+      { title: 'No asomes dos veces igual', body: 'Circuit Royal favorece a snipers y hitscans. Cambia de ángulo, usa la pared y obliga al rival a recolocar la mira antes de cruzar.' },
       { title: 'El final cambia la partida', body: 'La última sala acorta las distancias. Si tu composición solo funciona desde lejos, guarda tiempo para cambiar antes del último empuje.' },
     ],
     phases: [
       {
         name: 'Salida y primera recta',
-        attack: 'Salir de zona de reaparición por el centro y caminar detrás del Tank suele producir una fila ordenada de objetivos. Usa las paredes exteriores, identifica el balcón defensivo y manda movilidad o presión de largo alcance para que deje de disparar gratis. No hace falta conseguir una baja arriba: si el rival retrocede o pierde visión durante unos segundos, el equipo puede cruzar hasta la siguiente cobertura. La carga ayuda, pero no debería ser el único lugar seguro de los cinco jugadores.',
+        attack: 'Salir de zona de reaparición por el centro y caminar detrás del Tank suele producir una fila ordenada de objetivos. Usa las paredes exteriores, identifica el balcón defensivo y manda movilidad, sniper o hitscan para que deje de disparar gratis. No hace falta conseguir una baja arriba: si el rival retrocede o pierde visión durante unos segundos, el equipo puede cruzar hasta la siguiente cobertura. La carga ayuda, pero no debería ser el único lugar seguro de los cinco jugadores.',
         defense: 'La defensa empieza con una altura valiosa y una retirada larga. Fuerza recursos mientras el ataque cruza, pero abandona la posición antes de que te cierren la salida. Un Tank en la curva y daño desde arriba obligan al rival a mirar en dos niveles. Si todos bajan para disputar el coche, el ataque deja de tener una razón para respetar la recta.',
         vodReview: 'Pausa cuando la carga todavía está cerca de zona de reaparición. Mira cuántos jugadores atacantes tenían una pared a un paso y cuántos defensores conservaron una ruta limpia hacia la siguiente curva.',
       },
       {
         name: 'Subida al hotel',
-        attack: 'La pendiente y las curvas hacen que la retaguardia pierda visión justo cuando el Tank quiere acelerar. Avanza de esquina en esquina y confirma que el equipo ha rotado antes de perseguir. Una amenaza por altura puede abrir la carretera, pero debe coincidir con el empuje principal. Cuando ganes una pelea, adelanta posiciones antes de que la defensa vuelva a instalarse; dejar a cuatro personas junto al coche regala el siguiente balcón.',
+        attack: 'La pendiente y las curvas hacen que la backline pierda visión justo cuando el Tank quiere acelerar. Avanza de esquina en esquina y confirma que el equipo ha rotado antes de perseguir. Una amenaza por altura puede abrir la carretera, pero debe coincidir con el empuje principal. Cuando ganes una pelea, adelanta posiciones antes de que la defensa vuelva a instalarse; dejar a cuatro personas junto al coche regala el siguiente balcón.',
         defense: 'Escoge una curva concreta para estabilizarte. Defender cada metro desde zona de reaparición solo alimenta definitivas y deja compañeros entrando por turnos. Usa el desnivel para ocultarte, espera a que la carga atraviese la esquina y ataca cuando los supports tengan que moverse. Si la pelea se pierde, sal hacia el punto de control en vez de morir intentando salvar una recta ya cruzada.',
         vodReview: 'Revisa las rotaciones de los supports. Si dejaron de ver al Tank, determina si este dobló la curva demasiado pronto o si ellos permanecieron en una posición que ya no servía.',
       },
@@ -54,11 +54,11 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
       { title: 'Ordena los últimos intentos', body: 'Una persona toca y las demás preparan daño. Entrar todos por la misma puerta facilita demasiado la respuesta del ataque.' },
     ],
     heroPicks: [
-      { name: 'Sigma', slug: 'sigma', role: 'tank', reason: 'Sostiene líneas largas, corta ángulos con barrera y puede jugar las curvas sin abandonar cobertura.' },
+      { name: 'Sigma', slug: 'sigma', role: 'tank', reason: 'Sostiene sightlines largas, corta ángulos con barrera y puede jugar las curvas sin abandonar cobertura.' },
       { name: 'D.Va', slug: 'dva', role: 'tank', reason: 'Disputa balcones y protege cruces puntuales cuando el equipo necesita abandonar una recta abierta.' },
       { name: 'Widowmaker', slug: 'widowmaker', role: 'dps', reason: 'Las primeras rectas ofrecen duelos y ángulos largos que obligan al rival a usar las paredes.' },
       { name: 'Cassidy', slug: 'cassidy', role: 'dps', reason: 'Mantiene daño estable en las curvas y gana comodidad cuando la ruta entra al hotel.' },
-      { name: 'Ana', slug: 'ana', role: 'support', reason: 'Aprovecha las líneas largas si rota pronto y no permite que la carga doble la esquina sin ella.' },
+      { name: 'Ana', slug: 'ana', role: 'support', reason: 'Aprovecha las sightlines largas si rota pronto y no permite que la carga doble la esquina sin ella.' },
       { name: 'Kiriko', slug: 'kiriko', role: 'support', reason: 'Corrige cambios de altura y sobrevive mejor cuando el último tramo rompe la formación.' },
     ],
     compositions: [
@@ -66,7 +66,7 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
         name: 'Poke para las rectas',
         lineup: ['Sigma', 'Widowmaker', 'Cassidy', 'Ana', 'Zenyatta'],
         plan: 'Sigma ocupa la curva y alterna barrera entre los ángulos peligrosos. Widowmaker obliga a respetar la recta, Cassidy protege el espacio medio y los supports mantienen presión sin apilarse en la misma línea.',
-        weakness: 'Sufre si una dive llega a la retaguardia por dos lados o si el equipo no cambia de ritmo en el interior. Tampoco puede avanzar si todos esperan una baja perfecta desde la zona de reaparición.',
+        weakness: 'Sufre si una dive llega a la backline por dos lados o si el equipo no cambia de ritmo en el interior. Tampoco puede avanzar si todos esperan una baja perfecta desde la zona de reaparición.',
       },
       {
         name: 'Dive para romper altura',
@@ -78,9 +78,9 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
     mistakes: [
       'Caminar por el centro de la recta sin usar paredes ni disputar la altura.',
       'Apilar a todo el equipo en la carga después de ganar y permitir que la defensa recupere balcones.',
-      'Doblar una curva antes de que la retaguardia haya terminado su rotación.',
+      'Doblar una curva antes de que la backline haya terminado su rotación.',
       'Defender una posición perdida hasta morir tarde en lugar de preparar la siguiente esquina.',
-      'Mantener cinco héroes de largo alcance dentro del tramo final aunque ya no puedan crear espacio.',
+      'Mantener cinco héroes de poke dentro del tramo final aunque ya no puedan crear espacio.',
     ],
     vodChecklist: [
       '¿Quién disputó la altura defensiva y cuándo?',
@@ -111,24 +111,24 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
     image: '/maps/havana.png',
     imageAlt: 'Calles coloridas y edificios históricos de Havana en Overwatch',
     seoTitle: 'Havana en Overwatch: guía de rutas, ataque y defensa',
-    seoDescription: 'Guía de Havana en Overwatch: cómo jugar sus tres tramos, controlar esquinas y líneas largas, elegir héroes, composiciones y revisar errores.',
-    updatedAtIso: '2026-07-04',
-    updatedAt: '4 de julio de 2026',
+    seoDescription: 'Guía de Havana en Overwatch: cómo jugar sus tres tramos, controlar esquinas y sightlines largas, elegir héroes, composiciones y revisar errores.',
+    updatedAtIso: '2026-07-19',
+    updatedAt: '19 de julio de 2026',
     intro: [
       'Havana empieza entre calles donde es posible pelear cerca y termina con una de las líneas de tiro más severas del juego. Esa transición engaña: una composición que empuja bien la primera curva puede quedarse mirando el castillo desde muy lejos, mientras una defensa preparada para el final puede ceder demasiado terreno al principio. Ganar Havana exige reconocer cuándo cambia la distancia útil de la partida.',
       'La carga recorre muchas esquinas, pero no todas merecen una pelea completa. En defensa conviene elegir las que ofrecen altura, cobertura y una salida; en ataque hay que adelantar posiciones después de cada victoria para impedir que el rival las ocupe gratis. El jugador que empuja no está castigado: está convirtiendo en metros el espacio que sus compañeros ya han ganado.',
     ],
     quickRead: [
-      { title: 'La distancia va creciendo', body: 'El primer tramo permite pelear de cerca, pero el final favorece el alcance y el control de altura. Revisa tus héroes antes de llegar al castillo.' },
+      { title: 'Havana empieza cerca y acaba lejos', body: 'El primer tramo permite pelear de cerca, pero el final favorece snipers, hitscans y control de altura. Revisa tus héroes antes de llegar al castillo.' },
       { title: 'No todas las esquinas valen', body: 'Defiende donde puedas retirarte y recibir ayuda. Morir por unos metros en una calle mala puede regalar una posición mucho mejor.' },
-      { title: 'Adelanta después de ganar', body: 'Deja a una persona con la carga y toma la siguiente curva. Si los cinco empujan, la defensa recupera gratis sus posiciones de largo alcance.' },
+      { title: 'Adelanta después de ganar', body: 'Deja a una persona con la carga y toma la siguiente curva. Si los cinco empujan, la defensa recupera gratis sus posiciones de sniper y poke.' },
     ],
     phases: [
       {
         name: 'Calles y destilería',
-        attack: 'La salida permite varias rutas cortas. Usa una para crear una segunda mirada, pero no mandes a los DPS a desaparecer dentro de los edificios. El Tank avanza hacia una esquina desde la que todavía pueda recibir ayuda y la carga ofrece cobertura al jugador que empuja. Cuando la defensa retroceda, no la persigas hasta zona de reaparición: ocupa la siguiente calle y obliga a que vuelva atravesando tu daño.',
+        attack: 'La salida permite varias rutas cortas. Usa una para crear un ángulo lateral, pero no mandes a los DPS a desaparecer dentro de los edificios. El Tank avanza hacia una esquina desde la que todavía pueda recibir ayuda y la carga ofrece cobertura al jugador que empuja. Cuando la defensa retroceda, no la persigas hasta zona de reaparición: ocupa la siguiente calle y obliga a que vuelva atravesando tu daño.',
         defense: 'Defiende una esquina desde la que puedas ceder hacia la destilería. Los balcones sirven para cobrar recursos, siempre que quien está arriba no quede aislado cuando el ataque rote por debajo. Si pierdes a un compañero, sal pronto. Havana castiga mucho las muertes separadas porque la carga avanza mientras cada zona de reaparición intenta recuperar una calle distinta.',
-        vodReview: 'Observa la distancia entre primera línea y retaguardia al doblar cada esquina. Si una pared cortó la curación, apunta quién rotó tarde y quién avanzó sin comprobarlo.',
+        vodReview: 'Observa la distancia entre primera línea y backline al doblar cada esquina. Si una pared cortó la curación, apunta quién rotó tarde y quién avanzó sin comprobarlo.',
       },
       {
         name: 'Patio central',
@@ -138,9 +138,9 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
       },
       {
         name: 'Acceso al castillo',
-        attack: 'El final abre líneas largas y convierte cada asomo repetido en una invitación. Avanza por las paredes, fuerza al sniper a cambiar de ángulo y usa movilidad para presionar altura durante el cruce. No hace falta eliminar a todos arriba: basta con cortar su visión mientras la carga pasa la zona expuesta. Guarda una definitiva para la última curva, donde la defensa reaparece cerca y puede encadenar contactos.',
+        attack: 'El final abre sightlines largas y convierte cada asomo repetido en una invitación. Avanza por las paredes, fuerza al sniper o hitscan a cambiar de ángulo y usa movilidad para presionar altura durante el cruce. No hace falta eliminar a todos arriba: basta con cortar su visión mientras la carga pasa la zona expuesta. Guarda una definitiva para la última curva, donde la defensa reaparece cerca y puede encadenar contactos.',
         defense: 'Juega la distancia y no bajes sin motivo. Un Tank en la curva y daño desde la altura obligan al ataque a resolver dos problemas. Cuando la carga se acerque a meta, decide quién toca y quién conserva el ángulo sobre los supports. Perseguir al héroe de flanco puede ser exactamente lo que necesita el resto del ataque para caminar por la recta.',
-        vodReview: 'Revisa cada muerte de largo alcance desde cinco segundos antes. ¿Repetiste el mismo asomo, cruzaste sin una habilidad disponible o ignoraste una línea ya marcada?',
+        vodReview: 'Revisa cada muerte contra sniper o hitscan desde cinco segundos antes. ¿Repetiste el mismo asomo, cruzaste sin una habilidad disponible o ignoraste una línea ya marcada?',
       },
     ],
     attackPlan: [
@@ -153,12 +153,12 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
       { title: 'Escoge tus esquinas', body: 'No disputes cada metro. Prioriza posiciones con altura, cobertura y una retirada que mantenga al equipo agrupado.' },
       { title: 'Cobra el cruce', body: 'Usa el poke mientras el ataque atraviesa el patio o la recta. Baja solo cuando la carga amenace una posición que realmente importa.' },
       { title: 'Evita el encadenamiento de muertes', body: 'Una retirada temprana conserva el siguiente tramo. Una muerte heroica tarde suele costar dos peleas completas.' },
-      { title: 'Protege el ángulo final', body: 'Asigna quién vigila el flanco y quién mantiene la línea larga. No permitas que una distracción saque a todos de altura.' },
+      { title: 'Protege la sightline final', body: 'Asigna quién vigila el flanco y quién mantiene la línea del sniper o hitscan. No permitas que una distracción saque a todos de altura.' },
     ],
     heroPicks: [
       { name: 'Sigma', slug: 'sigma', role: 'tank', reason: 'Juega bien las esquinas y sostiene la larga distancia del final sin abandonar la carga.' },
       { name: 'D.Va', slug: 'dva', role: 'tank', reason: 'Presiona balcones y puede cubrir el cruce de una recta con Matriz.' },
-      { name: 'Widowmaker', slug: 'widowmaker', role: 'dps', reason: 'El tramo del castillo ofrece líneas largas y castiga los asomos repetidos.' },
+      { name: 'Widowmaker', slug: 'widowmaker', role: 'dps', reason: 'El tramo del castillo ofrece sightlines largas y castiga los asomos repetidos.' },
       { name: 'Tracer', slug: 'tracer', role: 'dps', reason: 'Usa los edificios de los primeros tramos para abrir ángulos sin alejarse demasiado.' },
       { name: 'Ana', slug: 'ana', role: 'support', reason: 'Tiene alcance para sostener la subida si rota antes de perder visión en una curva.' },
       { name: 'Kiriko', slug: 'kiriko', role: 'support', reason: 'Acompaña presión sobre altura y corrige una rotación cortada por las calles.' },
@@ -168,7 +168,7 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
         name: 'Poke para el castillo',
         lineup: ['Sigma', 'Widowmaker', 'Cassidy', 'Ana', 'Zenyatta'],
         plan: 'Sigma controla la curva, Widowmaker abre la recta y Cassidy protege el rango medio. Ana y Zenyatta juegan ángulos separados que puedan ayudarse y rotan antes de que la carga les cierre la línea.',
-        weakness: 'Una dive coordinada puede llegar a una retaguardia poco móvil. En las calles iniciales también puede ceder espacio si espera demasiado una eliminación desde lejos.',
+        weakness: 'Una dive coordinada puede llegar a una backline poco móvil. En las calles iniciales también puede ceder espacio si espera demasiado una eliminación desde lejos.',
       },
       {
         name: 'Dive para los balcones',
@@ -181,7 +181,7 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
       'Empujar los cinco junto a la carga después de una pelea y regalar la siguiente altura.',
       'Doblar una esquina sin esperar a que los supports cambien de posición.',
       'Defender calles poco útiles hasta morir tarde en lugar de guardar el siguiente tramo.',
-      'Repetir el mismo asomo contra un sniper en la recta final.',
+      'Repetir el mismo asomo contra el sniper o hitscan en la recta final.',
       'Llegar al castillo con una composición incapaz de disputar alcance o altura y no cambiar.',
     ],
     vodChecklist: [
@@ -189,13 +189,13 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
       '¿Quién empujó mientras el resto adelantaba posiciones?',
       '¿Se disputaron los balcones antes de cruzar el patio?',
       '¿La defensa eligió peleas completas o murió por turnos?',
-      '¿Se marcó la línea del sniper antes de volver a asomar?',
+      '¿Se marcó la línea del sniper o hitscan antes de volver a asomar?',
       '¿Hubo cambios de héroe antes del tramo final?',
     ],
     faq: [
       { question: '¿Qué tipo de mapa es Havana?', answer: 'Havana es un mapa de Escolta. El ataque acompaña una carga por calles, patios y una larga aproximación al castillo, mientras la defensa intenta detenerla antes de la meta.' },
       { question: '¿Qué héroes funcionan bien en Havana?', answer: 'Sigma, Widowmaker y Ana aprovechan la distancia del final. D.Va, Tracer, Genji y Kiriko ayudan a disputar balcones y rutas laterales. La composición debe adaptarse al cambio de alcance.' },
-      { question: '¿Cómo atacar el final de Havana?', answer: 'Avanza usando paredes, marca las líneas largas y presiona la altura con movilidad o poke. Corta la visión durante el cruce y guarda recursos para la última curva y sus últimos intentos.' },
+      { question: '¿Cómo atacar el final de Havana?', answer: 'Avanza usando paredes, marca las sightlines largas y presiona la altura con movilidad o poke. Corta la visión durante el cruce y guarda recursos para la última curva y sus últimos intentos.' },
       { question: '¿Qué debería revisar en una VOD de Havana?', answer: 'Comprueba rotaciones en esquinas, control de balcones, conversión de peleas ganadas y asomos repetidos en el final. Revisa también si la composición cambió a tiempo.' },
     ],
     relatedLinks: [
@@ -214,21 +214,21 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
     imageAlt: 'Taller improvisado y chatarra industrial de Junkertown en Overwatch',
     seoTitle: 'Junkertown en Overwatch: guía de ataque y defensa',
     seoDescription: 'Guía de Junkertown en Overwatch: cómo cruzar el desierto, jugar las alturas y atacar el interior, con héroes, composiciones y checklist de VOD.',
-    updatedAtIso: '2026-07-04',
-    updatedAt: '4 de julio de 2026',
+    updatedAtIso: '2026-07-19',
+    updatedAt: '19 de julio de 2026',
     intro: [
-      'Junkertown empieza con tanto espacio abierto que parece una prueba exclusiva para snipers. El alcance importa, pero el mapa no termina allí. Después del primer punto de control aparecen techos, puertas y esquinas que premian movilidad; el final comprime la pelea dentro de una zona industrial donde el control y las rotaciones cortas pesan más que la puntería desde cien metros.',
-      'La carga ofrece una cobertura móvil especialmente útil en la primera recta, aunque esconder a cinco jugadores detrás de ella deja todos los ángulos al rival. El ataque necesita una segunda mirada y la defensa debe conservar una ruta de retirada. Quien entiende cuándo abandonar el campo abierto y cambiar de ritmo suele llegar al último tramo con más tiempo y más definitivas.',
+      'Junkertown empieza con tanto espacio abierto que parece una prueba exclusiva para snipers y hitscans. La puntería importa, pero el mapa no termina allí. Después del primer punto de control aparecen techos, puertas y esquinas que premian movilidad; el final comprime la pelea dentro de una zona industrial donde el control y las rotaciones cortas pesan más que disparar desde cien metros.',
+      'La carga ofrece una cobertura móvil especialmente útil en la primera recta, aunque esconder a cinco jugadores detrás de ella deja todos los ángulos al rival. El ataque necesita un ángulo lateral y la defensa debe conservar una ruta de retirada. Quien entiende cuándo abandonar el campo abierto y cambiar de ritmo suele llegar al último tramo con más tiempo y más definitivas.',
     ],
     quickRead: [
-      { title: 'La carga es una pared, no una casa', body: 'Úsala para cruzar líneas largas, pero abre también un ángulo lateral. Cinco jugadores detrás del coche permiten que la defensa dispare sin girarse.' },
+      { title: 'Usa la carga para cruzar', body: 'La carga ayuda a pasar sightlines largas, pero no puede ser la casa de todo el equipo. Abre también un ángulo lateral para que la defensa tenga que girarse.' },
       { title: 'Los techos cambian el segundo tramo', body: 'La altura domina varias curvas. Dispútala antes de que la carga pase por debajo y obligue a todos a mirar hacia arriba.' },
       { title: 'El final pide control', body: 'Las puertas y pasillos reducen el valor de una composición centrada únicamente en el alcance. Guarda herramientas para entrar, sobrevivir y responder al último intento.' },
     ],
     phases: [
       {
         name: 'Desierto abierto',
-        attack: 'La carga permite cruzar, pero no cubre altura y lateral a la vez. Marca la posición del sniper, avanza pegado al coche cuando su ángulo lo exija y envía una amenaza corta por la roca o edificio cercano. No conviertas ese lateral en un viaje solitario. Cuando la defensa ceda, ocupa la siguiente cobertura y deja a una persona empujando. Cada metro adelantado reduce la recta que tendrás que volver a cruzar.',
+        attack: 'La carga permite cruzar, pero no cubre altura y lateral a la vez. Marca la posición del sniper o hitscan que controla la recta, avanza pegado al coche cuando su ángulo lo exija y envía una amenaza corta por la roca o edificio cercano. No conviertas ese lateral en un viaje solitario. Cuando la defensa ceda, ocupa la siguiente cobertura y deja a una persona empujando. Cada metro adelantado reduce la recta que tendrás que volver a cruzar.',
         defense: 'Usa la distancia mientras exista y abandónala cuando el ataque llegue a tu cobertura. La defensa puede jugar varios ángulos, pero deben tener una retirada común hacia el punto de control. Si un DPS se queda intentando una última eliminación desde atrás, el siguiente tramo empezará cuatro contra cinco. El Tank debe proteger la línea, no perseguir la carga por campo abierto.',
         vodReview: 'Mira qué líneas estaban marcadas antes de cada cruce. Si alguien murió sin saber desde dónde recibía daño, comprueba si faltó información o si ignoró una posición ya comunicada.',
       },
@@ -246,13 +246,13 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
       },
     ],
     attackPlan: [
-      { title: 'Marca el sniper', body: 'Antes de cruzar el desierto, identifica la línea larga. Usa carga, paredes y presión lateral para no ofrecer el mismo asomo repetido.' },
+      { title: 'Marca al sniper', body: 'Antes de cruzar el desierto, identifica desde dónde te van a castigar. Usa carga, paredes y presión lateral para no ofrecer el mismo asomo repetido.' },
       { title: 'Gana el techo primero', body: 'No dejes que la carga llegue debajo de una altura enemiga. Disputa o bloquea ese ángulo mientras todavía tienes espacio para moverte.' },
       { title: 'Adelanta la formación', body: 'Un jugador empuja y cuatro toman la siguiente esquina tras una victoria. La defensa no debería recuperar gratis su mejor cobertura.' },
       { title: 'Simplifica el interior', body: 'Elige una puerta y un lateral cercano. Las rutas profundas parecen creativas, pero suelen separar curación y tiempos.' },
     ],
     defensePlan: [
-      { title: 'Usa la distancia', body: 'Desgasta y recursos en el primer tramo, pero retrocede antes de que el ataque te encierre contra el punto de control.' },
+      { title: 'Usa la distancia', body: 'Desgasta recursos en el primer tramo, pero retrocede antes de que el ataque te encierre contra el punto de control.' },
       { title: 'Defiende arriba y abajo', body: 'Combina un Tank en la curva con daño desde el techo. Si todos juegan el mismo nivel, el ataque resuelve una sola amenaza.' },
       { title: 'Muere menos, defiende más', body: 'Una retirada temprana permite otra pelea completa. Junkertown castiga especialmente a quien reaparece cuando la carga ya pasó.' },
       { title: 'Recontesta con funciones', body: 'Decide quién toca y quién castiga el giro. Cinco personas saltando a la carga no aprovechan el espacio interior.' },
@@ -280,14 +280,14 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
       },
     ],
     mistakes: [
-      'Asomar la misma línea del sniper varias veces esperando un resultado distinto.',
+      'Asomar contra el mismo sniper varias veces esperando un resultado distinto.',
       'Usar la carga como única cobertura y permitir que la defensa mantenga todos sus ángulos.',
       'Empujar bajo un techo enemigo sin disputarlo antes.',
       'Morir tarde en el campo abierto y regalar también la defensa del segundo tramo.',
       'Abrir rutas demasiado profundas dentro de la arena y llegar en tiempos distintos.',
     ],
     vodChecklist: [
-      '¿Se marcó la posición del daño de largo alcance?',
+      '¿Se marcó la posición del sniper o hitscan?',
       '¿La presión lateral coincidió con el cruce de la carga?',
       '¿Quién disputó cada techo antes de pasar por debajo?',
       '¿El equipo tomó terreno después de ganar?',
@@ -295,9 +295,9 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
       '¿Los últimos intentos interiores tenían una función clara?',
     ],
     faq: [
-      { question: '¿Qué tipo de mapa es Junkertown?', answer: 'Junkertown es un mapa de Escolta. El ataque empuja una carga desde el desierto abierto hasta una arena industrial, atravesando alturas, edificios y varios punto de controls.' },
+      { question: '¿Qué tipo de mapa es Junkertown?', answer: 'Junkertown es un mapa de Escolta. El ataque empuja una carga desde el desierto abierto hasta una arena industrial, atravesando alturas, edificios y varios puntos de control.' },
       { question: '¿Qué héroes funcionan bien en Junkertown?', answer: 'Sigma, Widowmaker y Ana aprovechan el primer tramo. D.Va, Genji, Tracer y Kiriko ayudan a disputar techos y jugar el interior. Conviene adaptar el alcance durante el recorrido.' },
-      { question: '¿Cómo cruzar la primera zona de Junkertown?', answer: 'Identifica las líneas largas, usa la carga y las rocas como cobertura y abre un lateral corto al mismo tiempo. Cuando la defensa ceda, adelanta posiciones en vez de empujar los cinco juntos.' },
+      { question: '¿Cómo cruzar la primera zona de Junkertown?', answer: 'Identifica las sightlines largas, usa la carga y las rocas como cobertura y abre un lateral corto al mismo tiempo. Cuando la defensa ceda, adelanta posiciones en vez de empujar los cinco juntos.' },
       { question: '¿Qué revisar en una VOD de Junkertown?', answer: 'Revisa asomos contra snipers, sincronización del lateral, control de techos y muertes tardías. En el final, analiza si las entradas y últimos intentos llegaron agrupados.' },
     ],
     relatedLinks: [
@@ -328,7 +328,7 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
     ],
     phases: [
       { name: 'Puentes iniciales', attack: 'Usa la pared y la carga para acercarte, pero abre también una amenaza al balcón. Cuando el defensor mire o retroceda, cruza el puente de forma decidida y ocupa la esquina de salida. Un héroe de flanco no necesita recorrer media Venecia: debe aparecer durante el cruce y volver a una línea de ayuda.', defense: 'Desgasta desde arriba mientras el ataque cruza y conserva una retirada hacia el patio. El Tank amenaza la salida del puente sin quedarse atrapado sobre él. Si pierdes la altura, cae con el equipo; morir arriba unos segundos después solo rompe la siguiente defensa.', vodReview: 'Pausa al entrar en el puente. Comprueba qué ángulos seguían activos, qué recurso protegía el cruce y si la presión lateral ocurrió al mismo tiempo.' },
-      { name: 'Patios centrales', attack: 'Antes de empujar dentro, gana una de las posiciones elevadas o corta su visión. La carga dobla esquinas que pueden ocultar al Tank de sus supports, así que rota primero y avanza después. Tras una victoria, deja a una persona con el objetivo y toma la puerta siguiente antes de que el rival se reinstale.', defense: 'Defiende desde una esquina con altura y salida. No bajes todos a tocar la carga: una persona puede frenar mientras el resto conserva ángulos sobre la retaguardia. Si el ataque usa varias definitivas, sobrevive y prepara el acceso siguiente en vez de responder cuando la formación ya se rompió.', vodReview: 'Mira las rotaciones alrededor de cada esquina. Si alguien desapareció de la curación, identifica quién se movió antes de que el resto estuviera listo.' },
+      { name: 'Patios centrales', attack: 'Antes de empujar dentro, gana una de las posiciones elevadas o corta su visión. La carga dobla esquinas que pueden ocultar al Tank de sus supports, así que rota primero y avanza después. Tras una victoria, deja a una persona con el objetivo y toma la puerta siguiente antes de que el rival se reinstale.', defense: 'Defiende desde una esquina con altura y salida. No bajes todos a tocar la carga: una persona puede frenar mientras el resto conserva ángulos sobre la backline. Si el ataque usa varias definitivas, sobrevive y prepara el acceso siguiente en vez de responder cuando la formación ya se rompió.', vodReview: 'Mira las rotaciones alrededor de cada esquina. Si alguien desapareció de la curación, identifica quién se movió antes de que el resto estuviera listo.' },
       { name: 'Interior de Talon', attack: 'El final reduce las distancias y añade puertas laterales. Fuerza control antes de cruzar y ocupa dos coberturas interiores en lugar de apilarte sobre el coche. Guarda una definitiva para el último intento; la defensa vuelve cerca y puede encadenar varios contactos.', defense: 'Usa las puertas como embudos sin gastar todo en el primer amago. Decide quién toca y quién castiga al equipo que se gira. Una retirada corta alrededor del objetivo suele ofrecer otra pelea, mientras morir en la entrada exterior regala demasiado tiempo.', vodReview: 'Separa cada contacto final. Anota si compró tiempo, forzó recursos o solo añadió una muerte tardía al marcador.' },
     ],
     attackPlan: [
@@ -344,7 +344,7 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
       { title: 'Ordena el contacto', body: 'Una persona toca y las demás preparan daño. Entrar todos por la misma puerta simplifica el trabajo rival.' },
     ],
     heroPicks: [
-      { name: 'Sigma', slug: 'sigma', role: 'tank', reason: 'Juega bien las esquinas y protege líneas largas sin abandonar el espacio inferior.' },
+      { name: 'Sigma', slug: 'sigma', role: 'tank', reason: 'Juega bien las esquinas y protege sightlines largas sin abandonar el espacio inferior.' },
       { name: 'D.Va', slug: 'dva', role: 'tank', reason: 'Disputa balcones y cubre el cruce de los puentes con Matriz.' },
       { name: 'Widowmaker', slug: 'widowmaker', role: 'dps', reason: 'Castiga asomos en patios y obliga al ataque a respetar alturas.' },
       { name: 'Genji', slug: 'genji', role: 'dps', reason: 'Accede a balcones y gana opciones cuando el recorrido entra en Talon.' },
@@ -359,7 +359,7 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
     vodChecklist: ['¿Quién disputó la altura de cada puente?', '¿La rotación ocurrió antes de mover la carga?', '¿La presión lateral coincidió con el cruce?', '¿La defensa salió viva hacia la siguiente esquina?', '¿Se tomó terreno después de cada victoria?', '¿Los últimos intentos finales tuvieron funciones distintas?'],
     faq: [
       { question: '¿Qué tipo de mapa es Rialto?', answer: 'Rialto es un mapa de Escolta. La carga atraviesa puentes, patios y un interior de Talon mientras la defensa intenta aprovechar alturas y esquinas.' },
-      { question: '¿Qué héroes funcionan bien en Rialto?', answer: 'Sigma, Widowmaker y Ana aprovechan patios y líneas largas. D.Va, Genji, Tracer y Kiriko ayudan a disputar balcones y adaptar la pelea al interior.' },
+      { question: '¿Qué héroes funcionan bien en Rialto?', answer: 'Sigma, Widowmaker y Ana aprovechan patios y sightlines largas. D.Va, Genji, Tracer y Kiriko ayudan a disputar balcones y adaptar la pelea al interior.' },
       { question: '¿Cómo cruzar los puentes de Rialto?', answer: 'Identifica la altura, presiónala o bloquea su visión y cruza junto usando pared y carga. Ocupa la esquina de salida antes de volver a empujar.' },
       { question: '¿Qué revisar en una VOD de Rialto?', answer: 'Revisa control de balcones, rotaciones antes de curvas, conversión de peleas ganadas y orden de los contactos en el tramo final.' },
     ],
@@ -383,7 +383,7 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
     phases: [
       { name: 'Gasolinera y primera curva', attack: 'Usa rocas y carga para acercarte mientras un héroe móvil o de alcance presiona el techo. No tiene que eliminar a nadie: conseguir que el defensor retroceda abre la carretera. El Tank ocupa la curva y evita perseguir arriba si eso deja libre el espacio inferior. Después de ganar, toma la salida de gasolinera antes de empujar los cinco juntos.', defense: 'Fuerza recursos desde el techo y cae hacia la parte trasera antes de quedar rodeado. El Tank juega la curva y obliga al ataque a mostrar su entrada. Si todos bajan sobre la carga, la altura deja de existir y el rival puede caminar con una sola primera línea.', vodReview: 'Mira cuándo se disputó el techo respecto al avance principal. Si una acción terminó antes de que empezara la otra, nunca hubo presión simultánea.' },
       { name: 'Túnel y paso central', attack: 'El túnel comprime la pelea y corta visión en cada giro. Entra hasta una cobertura, espera la rotación de los supports y fuerza control antes de acelerar. Un lateral corto por altura ayuda; una ruta larga que llega tarde deja al núcleo atrapado bajo daño.', defense: 'Presiona la entrada y retrocede por capas. Guardar una habilidad para cuando el ataque cruce es más valioso que llenar el acceso de efectos durante el amago. Si pierdes la curva, sal al tramo final con vida.', vodReview: 'Comprueba qué pared separó al primer jugador eliminado y si su equipo estaba todavía rotando o ya había elegido otro acceso.' },
-      { name: 'Instalación final', attack: 'La meta vuelve a ofrecer altura defensiva y rutas laterales. Desplaza el balcón, ocupa una esquina inferior y reparte al equipo entre dos posiciones conectadas. Guarda una definitiva para el contacto final; la zona de reaparición cercano permite varias defensas si usas todo en la primera entrada.', defense: 'Alterna altura y contacto. Una persona toca mientras las demás mantienen líneas sobre la retaguardia. Si el ataque se gira, ese tiempo debe convertirse en daño. No encadenes entradas individuales por la misma puerta.', vodReview: 'Anota qué consiguió cada último intento y si la defensa mantuvo un ángulo útil mientras alguien frenaba la carga.' },
+      { name: 'Instalación final', attack: 'La meta vuelve a ofrecer altura defensiva y rutas laterales. Desplaza el balcón, ocupa una esquina inferior y reparte al equipo entre dos posiciones conectadas. Guarda una definitiva para el contacto final; la zona de reaparición cercano permite varias defensas si usas todo en la primera entrada.', defense: 'Alterna altura y contacto. Una persona toca mientras las demás mantienen líneas sobre la backline. Si el ataque se gira, ese tiempo debe convertirse en daño. No encadenes entradas individuales por la misma puerta.', vodReview: 'Anota qué consiguió cada último intento y si la defensa mantuvo un ángulo útil mientras alguien frenaba la carga.' },
     ],
     attackPlan: [
       { title: 'Presiona el techo', body: 'Sube, desplaza o bloquea al defensor de gasolinera. Cruza cuando deje de mirar la carretera.' },
@@ -421,18 +421,18 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
   },
   {
     slug: 'shambali-monastery', name: 'Shambali Monastery', mode: 'Escolta', location: 'Nepal', image: '/maps/shambali-monastery.png', imageAlt: 'Monasterio nevado y camino ascendente de Shambali Monastery en Overwatch',
-    seoTitle: 'Shambali Monastery: guía de ataque y defensa', seoDescription: 'Guía de Shambali Monastery: cómo jugar la subida, cuevas y patio final, con héroes, composiciones, errores y VOD.', updatedAtIso: '2026-07-04', updatedAt: '4 de julio de 2026',
+    seoTitle: 'Shambali Monastery: guía de ataque y defensa', seoDescription: 'Guía de Shambali Monastery en Overwatch: cómo jugar la subida, las cuevas y el patio final, héroes recomendados, composiciones, errores y revisión de VOD.', updatedAtIso: '2026-07-19', updatedAt: '19 de julio de 2026',
     intro: ['Shambali Monastery obliga al ataque a subir casi toda la partida. Cada curva puede cortar la línea de los supports mientras la defensa dispara desde una posición preparada. Avanzar exige tomar la esquina siguiente antes de que la carga llegue; defender exige abandonarla a tiempo para no perder también la posterior.', 'El recorrido pasa de calles nevadas a cuevas y termina en un patio vertical. El alcance ayuda, pero la movilidad y la disciplina al rotar pesan igual. Quien corre detrás de una baja suele descubrir que ha doblado dos paredes y ha dejado su ayuda muy lejos.'],
-    quickRead: [{ title: 'Subir corta visión', body: 'El Tank debe comprobar dónde quedan sus supports después de cada curva. Un paso extra puede convertir una línea limpia en una pared.' }, { title: 'Retirarse también defiende', body: 'Cede antes de quedar rodeado y monta otra esquina. Morir tarde en la subida puede regalar una enorme distancia.' }, { title: 'El patio tiene altura', body: 'Controla plataformas y carga a la vez. Apilarse abajo permite que la defensa dispare sin moverse.' }],
+    quickRead: [{ title: 'Cada curva corta visión', body: 'El Tank debe comprobar dónde quedan sus supports después de cada curva. Un paso extra puede convertir una línea limpia en una pared.' }, { title: 'Retirarte a tiempo también defiende', body: 'Cede antes de quedar rodeado y monta otra esquina. Morir tarde en la subida puede regalar una enorme distancia.' }, { title: 'El patio tiene altura', body: 'Controla plataformas y carga a la vez. Apilarse abajo permite que la defensa dispare sin moverse.' }],
     phases: [
       { name: 'Camino nevado', attack: 'Usa rocas y edificios para llegar a la primera curva. Presiona la altura mientras el Tank ocupa la carretera, pero no saltes detrás de una pared imposible de rodear para tus supports. Tras ganar, deja una persona empujando y adelanta el resto hasta una cobertura que impida a la defensa reinstalarse.', defense: 'Dispara desde arriba y retrocede antes de que una dive cierre tu salida. El Tank amenaza la curva sin bajar hasta la carga. Cuando la posición caiga, sal hacia la cueva y evita una muerte tardía en mitad de la pendiente.', vodReview: 'Revisa cada curva desde la cámara del support y del Tank. Determina cuándo dejaron de verse y quién se movió antes.' },
-      { name: 'Cuevas y pasillos', attack: 'La cueva concentra daño y control. Fuerza una habilidad antes de cruzar y ocupa la esquina interior con jugadores capaces de ayudarse. El lateral sirve para dividir la mirada, no para iniciar otro combate al otro lado del túnel.', defense: 'Recibe en la entrada, guarda recursos para el cruce real y retrocede alrededor de las paredes. Si el ataque usa varias definitivas, sobrevive y prepara la siguiente salida en lugar de responder cuando la formación ya está rota.', vodReview: 'Anota qué habilidades se gastaron durante el amago y cuáles quedaban cuando alguien atravesó la puerta. El orden suele explicar el resultado.' },
+      { name: 'Cuevas y pasillos', attack: 'La cueva concentra daño y control. Fuerza una habilidad antes de cruzar y ocupa la esquina interior con jugadores capaces de ayudarse. El lateral sirve para dividir la atención, no para iniciar otro combate al otro lado del túnel.', defense: 'Recibe en la entrada, guarda recursos para el cruce real y retrocede alrededor de las paredes. Si el ataque usa varias definitivas, sobrevive y prepara la siguiente salida en lugar de responder cuando la formación ya está rota.', vodReview: 'Anota qué habilidades se gastaron durante el amago y cuáles quedaban cuando alguien atravesó la puerta. El orden suele explicar el resultado.' },
       { name: 'Patio del monasterio', attack: 'El final vuelve a abrir altura y laterales. Desplaza una plataforma, ocupa una esquina junto a la carga y reparte el equipo entre posiciones conectadas. Guarda una definitiva para el último intento porque la defensa reaparece cerca.', defense: 'Alterna presencia arriba y contacto abajo. Una persona frena la carga mientras el resto mantiene daño sobre quien se gire. Saltar todos al coche elimina la ventaja vertical.', vodReview: 'Separa los contactos y comprueba si la defensa mantuvo altura mientras alguien tocaba o si los cinco repitieron la misma entrada.' },
     ],
     attackPlan: [{ title: 'Ocupa la curva', body: 'La carga avanza después. Primero gana una pared desde la que el equipo pueda sostener la pelea.' }, { title: 'Mira a tus supports', body: 'Confirma la línea antes de subir o saltar. La pendiente oculta más de lo que parece.' }, { title: 'Fuerza en la cueva', body: 'Provoca control antes de entrar. Cruzar con movilidad disponible vale más que desgastarse desde la puerta.' }, { title: 'Divide dos niveles', body: 'En el final, presión arriba y carga abajo deben coincidir.' }],
     defensePlan: [{ title: 'Cobra y retrocede', body: 'Usa la altura para gastar recursos y sal antes de perder la ruta.' }, { title: 'No mueras cuesta abajo', body: 'Ceder metros con cinco vivos permite otra defensa completa.' }, { title: 'Espera el cruce', body: 'Guarda una habilidad para cuando el rival atraviese la cueva.' }, { title: 'Asigna el contacto', body: 'Decide quién toca; los demás conservan plataformas.' }],
     heroPicks: [{ name: 'D.Va', slug: 'dva', role: 'tank', reason: 'Disputa plataformas y cubre cruces.' }, { name: 'Sigma', slug: 'sigma', role: 'tank', reason: 'Juega curvas y poke desde cobertura.' }, { name: 'Genji', slug: 'genji', role: 'dps', reason: 'Accede a altura y aprovecha objetivos aislados.' }, { name: 'Cassidy', slug: 'cassidy', role: 'dps', reason: 'Controla el rango medio en esquinas.' }, { name: 'Ana', slug: 'ana', role: 'support', reason: 'Aprovecha la subida si rota pronto.' }, { name: 'Kiriko', slug: 'kiriko', role: 'support', reason: 'Corrige rotaciones y cambios verticales.' }],
-    compositions: [{ name: 'Poke de montaña', lineup: ['Sigma', 'Ashe', 'Cassidy', 'Ana', 'Zenyatta'], plan: 'Sigma ocupa la curva, Ashe controla altura y Cassidy vigila el lateral. Los supports rotan temprano y mantienen ángulos conectados.', weakness: 'Sufre si una dive alcanza la retaguardia por dos niveles o si espera una baja sin avanzar tras desplazar al rival.' }, { name: 'Dive de plataformas', lineup: ['D.Va', 'Tracer', 'Genji', 'Ana', 'Kiriko'], plan: 'D.Va desplaza la altura, Tracer marca la salida y Genji entra después. Ana juega la curva anterior y Kiriko conserva el segundo movimiento.', weakness: 'Las paredes cortan a Ana. Una entrada demasiado profunda crea tres peleas separadas.' }],
+    compositions: [{ name: 'Poke de montaña', lineup: ['Sigma', 'Ashe', 'Cassidy', 'Ana', 'Zenyatta'], plan: 'Sigma ocupa la curva, Ashe controla altura y Cassidy vigila el lateral. Los supports rotan temprano y mantienen ángulos conectados.', weakness: 'Sufre si una dive alcanza la backline por dos niveles o si espera una baja sin avanzar tras desplazar al rival.' }, { name: 'Dive de plataformas', lineup: ['D.Va', 'Tracer', 'Genji', 'Ana', 'Kiriko'], plan: 'D.Va desplaza la altura, Tracer marca la salida y Genji entra después. Ana juega la curva anterior y Kiriko conserva el segundo movimiento.', weakness: 'Las paredes cortan a Ana. Una entrada demasiado profunda crea tres peleas separadas.' }],
     mistakes: ['Doblar una curva sin visión de los supports.', 'Empujar los cinco y devolver altura a la defensa.', 'Morir tarde en una posición perdida.', 'Gastar control en el amago de la cueva.', 'Tocar el final con todo el equipo desde el suelo.'],
     vodChecklist: ['¿El Tank mantuvo línea con sus supports?', '¿Quién disputó cada altura?', '¿Se tomó la curva antes de empujar?', '¿La defensa salió viva?', '¿Qué recurso abrió la cueva?', '¿Los últimos intentos conservaron dos niveles?'],
     faq: [{ question: '¿Qué tipo de mapa es Shambali Monastery?', answer: 'Es un mapa de Escolta ascendente que atraviesa un camino nevado, cuevas y el patio del monasterio.' }, { question: '¿Qué héroes funcionan bien en Shambali?', answer: 'Sigma y Ana aprovechan líneas y curvas; D.Va, Genji, Tracer y Kiriko ayudan a disputar alturas.' }, { question: '¿Cómo atacar la subida?', answer: 'Avanza de cobertura en cobertura, comprueba líneas de curación y ocupa la curva antes de mover la carga.' }, { question: '¿Qué revisar en una VOD de Shambali?', answer: 'Revisa visión en curvas, control de plataformas, retiradas, habilidades en cuevas y contactos finales.' }],
@@ -445,16 +445,16 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
     quickRead: [{ title: 'No pases debajo sin mirar arriba', body: 'Antes de que la carga llegue a una pasarela, obliga a bajar al defensor o cruza por una zona que no pueda vigilar.' }, { title: 'Reparte carga y altura', body: 'Una persona empuja mientras el resto prepara la siguiente plataforma. Si los cinco hacen la misma tarea, la otra queda libre.' }, { title: 'Avanza el hangar por niveles', body: 'Gana una plataforma, mueve la carga y recoloca a los supports antes del siguiente salto. Acelerar demasiado corta la curación.' }],
     phases: [
       { name: 'Exterior y primera subida', attack: 'Deja que la carga avance mientras el resto ocupa la curva y presiona la pasarela. Los móviles deben aterrizar en una cobertura visible, no detrás del edificio. Si la defensa cae, toma su altura antes de perseguir.', defense: 'Usa la pasarela para cobrar recursos y retrocede hacia el hangar antes de quedar encerrado. El Tank amenaza desde abajo mientras el daño mantiene otra línea. No bajes los cinco por una eliminación.', vodReview: 'Compara avance de carga y control de altura. Si ambos se detuvieron, identifica qué tarea estaba haciendo demasiada gente.' },
-      { name: 'Hangar', attack: 'El hangar se gana por niveles. Desplaza una plataforma, mueve la carga y rota la retaguardia antes de saltar a la siguiente. Una entrada profundo puede desaparecer detrás de estructuras enormes.', defense: 'Empieza arriba y cae por capas. Obliga al ataque a gastar recursos para cada plataforma. Si pierdes una, reúne al equipo en el siguiente nivel.', vodReview: 'Sigue la cámara del support durante los saltos y anota qué estructura cortó la visión.' },
+      { name: 'Hangar', attack: 'El hangar se gana por niveles. Desplaza una plataforma, mueve la carga y rota la backline antes de saltar a la siguiente. Una entrada profundo puede desaparecer detrás de estructuras enormes.', defense: 'Empieza arriba y cae por capas. Obliga al ataque a gastar recursos para cada plataforma. Si pierdes una, reúne al equipo en el siguiente nivel.', vodReview: 'Sigue la cámara del support durante los saltos y anota qué estructura cortó la visión.' },
       { name: 'Lanzadera y meta', attack: 'Presiona altura y avanza por cobertura al mismo tiempo. Guarda una definitiva para el último intento y evita que todos entren por la misma puerta inferior.', defense: 'Mantén un ángulo elevado mientras alguien frena la carga. El contacto debe comprar tiempo o recursos; morir solo acelera la derrota.', vodReview: 'Clasifica cada último intento y comprueba si la altura se abandonó para tocar demasiado pronto.' },
     ],
     attackPlan: [{ title: 'Empuja con uno', body: 'Cuatro jugadores pueden tomar curva o altura mientras la carga avanza.' }, { title: 'Aterriza visible', body: 'Elige una cobertura que tus supports puedan ver.' }, { title: 'Sube por capas', body: 'Gana una plataforma y rota antes de disputar la siguiente.' }, { title: 'Divide el final', body: 'Presión arriba y contacto abajo deben coincidir.' }],
     defensePlan: [{ title: 'Cobra desde pasarela', body: 'Haz que gasten movilidad y cae antes de perder la salida.' }, { title: 'Defiende varios niveles', body: 'Tank abajo y daño arriba dividen la atención.' }, { title: 'No recuperes solo', body: 'Prepara la siguiente plataforma con el equipo.' }, { title: 'Toca con propósito', body: 'Una persona compra tiempo y las demás castigan el giro.' }],
     heroPicks: [{ name: 'Winston', slug: 'winston', role: 'tank', reason: 'Salta entre plataformas.' }, { name: 'D.Va', slug: 'dva', role: 'tank', reason: 'Disputa altura y protege cruces.' }, { name: 'Genji', slug: 'genji', role: 'dps', reason: 'Aprovecha niveles y objetivos desplazados.' }, { name: 'Tracer', slug: 'tracer', role: 'dps', reason: 'Presiona laterales sin perder el ritmo.' }, { name: 'Ana', slug: 'ana', role: 'support', reason: 'Sostiene el dive con buenas rotaciones.' }, { name: 'Kiriko', slug: 'kiriko', role: 'support', reason: 'Acompaña cambios verticales.' }],
-    compositions: [{ name: 'Dive de hangar', lineup: ['Winston', 'Tracer', 'Genji', 'Ana', 'Kiriko'], plan: 'Winston corta una plataforma, Tracer marca la retirada y Genji entra después. Ana juega el nivel anterior y Kiriko sostiene el segundo movimiento.', weakness: 'Falla si el salto desaparece detrás de estructuras o los DPS eligen niveles distintos.' }, { name: 'Control vertical', lineup: ['D.Va', 'Cassidy', 'Ashe', 'Ana', 'Kiriko'], plan: 'D.Va niega la pasarela, Ashe mantiene altura y Cassidy protege el rango medio. Los supports rotan antes de mover la carga.', weakness: 'Puede perder la retaguardia si D.Va persigue demasiado arriba.' }],
+    compositions: [{ name: 'Dive de hangar', lineup: ['Winston', 'Tracer', 'Genji', 'Ana', 'Kiriko'], plan: 'Winston corta una plataforma, Tracer marca la retirada y Genji entra después. Ana juega el nivel anterior y Kiriko sostiene el segundo movimiento.', weakness: 'Falla si el salto desaparece detrás de estructuras o los DPS eligen niveles distintos.' }, { name: 'Control vertical', lineup: ['D.Va', 'Cassidy', 'Ashe', 'Ana', 'Kiriko'], plan: 'D.Va niega la pasarela, Ashe mantiene altura y Cassidy protege el rango medio. Los supports rotan antes de mover la carga.', weakness: 'Puede perder la backline si D.Va persigue demasiado arriba.' }],
     mistakes: ['Empujar cinco personas y no disputar altura.', 'Saltar detrás de estructuras fuera de visión.', 'Pasar bajo una pasarela enemiga.', 'Intentar recuperar solo una plataforma.', 'Abandonar toda la altura para tocar.'],
     vodChecklist: ['¿Quién empujó la carga?', '¿Quién disputó cada pasarela?', '¿Los aterrizajes eran visibles?', '¿Se rotó por capas?', '¿La defensa cayó con vida?', '¿Los últimos intentos compraron tiempo?'],
-    faq: [{ question: '¿Qué tipo de mapa es Watchpoint Gibraltar?', answer: 'Es un mapa de Escolta con exterior, hangar de varios niveles y una zona final junto a la lanzadera.' }, { question: '¿Qué héroes funcionan bien en Gibraltar?', answer: 'Winston, D.Va, Genji, Tracer, Ana y Kiriko aprovechan especialmente la verticalidad.' }, { question: '¿Cómo atacar el hangar?', answer: 'Gana una plataforma, mueve la carga y rota la retaguardia antes de saltar a la siguiente.' }, { question: '¿Qué revisar en una VOD de Gibraltar?', answer: 'Revisa reparto entre carga y altura, visibilidad de saltos, rotaciones y contactos finales.' }],
+    faq: [{ question: '¿Qué tipo de mapa es Watchpoint Gibraltar?', answer: 'Es un mapa de Escolta con exterior, hangar de varios niveles y una zona final junto a la lanzadera.' }, { question: '¿Qué héroes funcionan bien en Gibraltar?', answer: 'Winston, D.Va, Genji, Tracer, Ana y Kiriko aprovechan especialmente la verticalidad.' }, { question: '¿Cómo atacar el hangar?', answer: 'Gana una plataforma, mueve la carga y rota la backline antes de saltar a la siguiente.' }, { question: '¿Qué revisar en una VOD de Gibraltar?', answer: 'Revisa reparto entre carga y altura, visibilidad de saltos, rotaciones y contactos finales.' }],
     relatedLinks: [{ href: '/guides/como-mejorar-en-overwatch-revisando-vod', label: 'Revisar una VOD' }, { href: '/guides/como-elegir-composicion-dive-poke-brawl', label: 'Elegir composición' }, { href: '/heroes/winston', label: 'Guía de Winston' }, { href: '/heroes/ana', label: 'Guía de Ana' }],
   },
 ]

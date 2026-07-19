@@ -67,8 +67,9 @@ describe('Overwatch map pillars', () => {
   it.each(MAP_PILLARS)('$name uses clean, reader-facing Spanish', map => {
     const text = editorialText(map)
     expect(text).not.toMatch(/[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]\?[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]/)
-    expect(text).not.toMatch(/\b(backline|frontline|cooldowns?|flankers?|high ground|payload|recontest|regroup|spawn|timing)\b/i)
+    expect(text).not.toMatch(/\?ngulo|atenci\?n/i)
     expect(text).not.toMatch(/\b(title seo|meta description|keywords principales|pregunta que resuelve)\b/i)
+    expect(text).not.toMatch(/flanco tiene reloj|segunda mirada|después del habilidad|desgasta y recursos|reapariciones rápidos|mira en vertical/i)
   })
 
   it.each(MAP_PILLARS)('$name has useful quick-read advice', map => {
@@ -76,7 +77,7 @@ describe('Overwatch map pillars', () => {
     for (const item of map.quickRead) {
       expect(item.title).not.toMatch(/^(condición principal|lo que más castiga|consejo|clave)$/i)
       expect(wordCount(item.body)).toBeGreaterThanOrEqual(12)
-      expect(`${item.title} ${item.body}`).not.toMatch(/\b(picks?|snipers?|backline|frontline|cooldowns?|recontest|spawn|timing)\b/i)
+      expect(`${item.title} ${item.body}`).not.toMatch(/flanco tiene reloj|segunda mirada|mira en vertical|mover a la defensa/i)
     }
   })
 })

@@ -45,11 +45,11 @@ export const MAP_PILLARS: MapPillar[] = [
     imageAlt: 'Calles iluminadas y edificios de Neon Junction en Overwatch',
     seoTitle: 'Neon Junction en Overwatch: rutas, héroes y composiciones',
     seoDescription: 'Guía de Neon Junction en Overwatch: cómo atacar y defender el mapa híbrido, rutas, héroes recomendados, composiciones, errores y checklist de VOD.',
-    updatedAtIso: '2026-07-04',
-    updatedAt: '4 de julio de 2026',
+    updatedAtIso: '2026-07-19',
+    updatedAt: '19 de julio de 2026',
     intro: [
       'Neon Junction te deja una sensación engañosa: las calles de Tokio parecen ofrecer una ruta para cada jugador, pero la partida se rompe en cuanto cada uno elige la suya. Primero hay que abrir el punto y después acompañar a ANDROMEDA III hasta Zuiko-za. Lo que funcionó en la captura puede quedarse corto cuando la carga entra en calles con más ángulos y salidas laterales.',
-      'No necesitas aprenderte cada esquina de memoria. Necesitas saber qué espacio busca tu equipo. Brawl quiere cruzar junto y pelear alrededor de cobertura; dive necesita que varios jugadores lleguen sobre la misma retaguardia; poke depende de líneas limpias y de rotar antes de quedar encerrado. Cuando esa intención está clara, los callejones dejan de ser ruido y empiezan a ofrecer decisiones útiles.',
+      'No necesitas aprenderte cada esquina de memoria. Necesitas saber qué espacio busca tu equipo. Brawl quiere cruzar junto y pelear alrededor de cobertura; dive necesita que varios jugadores lleguen sobre la misma backline; poke depende de líneas limpias y de rotar antes de quedar encerrado. Cuando esa intención está clara, los callejones dejan de ser ruido y empiezan a ofrecer decisiones útiles.',
     ],
     quickRead: [
       { title: 'Controla un lateral antes de tocar', body: 'Entrar de frente mientras la defensa conserva dos ángulos desgasta al equipo sin ganar espacio. Limpia uno de ellos y avanza por esa cobertura.' },
@@ -84,7 +84,7 @@ export const MAP_PILLARS: MapPillar[] = [
     ],
     defensePlan: [
       { title: 'Defiende con salida', body: 'Toda posición inicial necesita una cobertura de retirada. Morir tarde en el punto puede costar también la primera pelea de escolta.' },
-      { title: 'Protege la retaguardia', body: 'Los accesos laterales hacen valioso la protección. Identifica quién ayuda al support si Shion, Tracer o Genji cruzan la primera línea.' },
+      { title: 'Protege la backline', body: 'Los accesos laterales hacen valioso la protección. Identifica quién ayuda al support si Shion, Tracer o Genji cruzan la primera línea.' },
       { title: 'Corta el ritmo', body: 'No hace falta ganar cada pelea de forma total. Forzar definitivas y reagruparse a tiempo puede dejar al ataque sin recursos para el siguiente tramo.' },
       { title: 'Recontesta con plan', body: 'Decide quién toca y quién prepara daño. Cinco jugadores entrando sobre la carga desde el mismo ángulo facilitan demasiado la respuesta rival.' },
     ],
@@ -94,7 +94,7 @@ export const MAP_PILLARS: MapPillar[] = [
       { name: 'Shion', slug: 'shion', role: 'dps', reason: 'Su movilidad encaja con los callejones y los cambios de ángulo, pero necesita entrar después de que aparezca una oportunidad.' },
       { name: 'Tracer', slug: 'tracer', role: 'dps', reason: 'Mantiene presión lateral y castiga rotaciones lentas sin obligar al equipo a abandonar la carga.' },
       { name: 'Ana', slug: 'ana', role: 'support', reason: 'Aporta amenaza desde media distancia y puede castigar entradas previsibles si juega desde cobertura.' },
-      { name: 'Kiriko', slug: 'kiriko', role: 'support', reason: 'Paso ligero permite acompañar cambios de altura y Suzu estabiliza entradas agresivos cerca de esquinas.' },
+      { name: 'Kiriko', slug: 'kiriko', role: 'support', reason: 'Paso ligero permite acompañar cambios de altura y Suzu estabiliza entradas agresivas cerca de esquinas.' },
     ],
     compositions: [
       {
@@ -120,7 +120,7 @@ export const MAP_PILLARS: MapPillar[] = [
     vodChecklist: [
       '¿Desde qué cobertura empezó cada pelea y dónde estaba la salida?',
       '¿Cuántos jugadores podían verte o curarte cuando usaste movilidad?',
-      '¿Quién controlaba el lateral más cercano a la retaguardia?',
+      '¿Quién controlaba el lateral más cercano a la backline?',
       '¿La primera baja produjo espacio o solo una persecución larga?',
       '¿Qué definitiva abrió cada entrada y cuál se guardó para responder?',
       '¿Cambiaste de héroe cuando cambió la geometría de la partida?',
@@ -147,34 +147,34 @@ export const MAP_PILLARS: MapPillar[] = [
     imageAlt: "Estatua y calles nocturnas de King's Row en Overwatch",
     seoTitle: "King's Row en Overwatch: ataque, defensa y composiciones",
     seoDescription: "Guía de King's Row en Overwatch: cómo atacar y defender cada tramo, mejores héroes y composiciones, errores frecuentes y checklist para revisar tu VOD.",
-    updatedAtIso: '2026-07-04',
-    updatedAt: '4 de julio de 2026',
+    updatedAtIso: '2026-07-19',
+    updatedAt: '19 de julio de 2026',
     intro: [
-      "King's Row tiene fama de ser el mapa de Reinhardt, y se entiende: sobran esquinas y muchas peleas terminan a corta distancia. Pero elegir brawl y caminar hacia delante no resuelve hotel, la estatua ni las alturas de calles. Primero hay que abrir el punto A y después conseguir que la carga avance sin regalar la retaguardia en cada giro.",
+      "King's Row tiene fama de ser el mapa de Reinhardt, y se entiende: sobran esquinas y muchas peleas terminan a corta distancia. Pero elegir brawl y caminar hacia delante no resuelve hotel, la estatua ni las alturas de calles. Primero hay que abrir el punto A y después conseguir que la carga avance sin regalar la backline en cada giro.",
       'Las buenas rondas se notan en lo que ocurre después de ganar una pelea. Una persona empuja y el resto toma la siguiente esquina antes de que vuelva la defensa. Las malas se alargan persiguiendo una baja, terminan con la carga parada y comienzan el siguiente contacto sin posiciones ni habilidades. El mapa premia más esa disciplina que cualquier pick obligatorio.',
     ],
     quickRead: [
-      { title: 'Gana la esquina antes de empujar', body: 'La carga avanzará cuando la defensa pierda la cobertura del siguiente tramo. Deja a una persona con ella y adelanta al resto del equipo.' },
+      { title: 'Gana la esquina antes que la carga', body: 'La carga puede ir detrás. Primero quita a la defensa la esquina desde la que va a parar el siguiente tramo y deja a una persona empujando.' },
       { title: 'Evita las muertes tardías', body: 'Caer de uno en uno puede regalar dos calles seguidas. Cuando una defensa esté perdida, sal con vida y prepara la siguiente esquina.' },
-      { title: 'No estás obligado a pelear de cerca', body: 'Reinhardt encaja bien, pero las composiciones móviles o de largo alcance también funcionan si controlan las alturas y las esquinas.' },
+      { title: 'No todo es Reinhardt', body: 'Reinhardt encaja muy bien, pero también puedes jugar dive o poke si controlas alturas, hotel y esquinas antes de empujar.' },
     ],
     phases: [
       {
         name: 'Punto A: hotel y estatua',
         attack: 'El ataque necesita atravesar la entrada sin permanecer demasiado tiempo disparando desde la puerta. Hotel ofrece una rotación corta y la zona de estatua permite abrir ángulos, pero ambos caminos deben servir al mismo ataque. Si un grupo entra por hotel y el resto sigue esperando en zona de reaparición, la defensa resuelve cada amenaza por separado.',
         defense: 'La defensa debe usar la altura y las coberturas para forzar recursos antes del punto. No hace falta permanecer en la entrada hasta morir: retirarse hacia estatua con vida permite otra pelea. El jugador que vigila hotel debe comunicar y volver, no perseguir hasta perder la formación.',
-        vodReview: 'Comprueba cuánto tiempo pasó el ataque delante dla entrada sin cambiar de posición. En defensa, revisa si la primera retirada ocurrió con habilidades disponibles o después de que ya no existiera una salida segura.',
+        vodReview: 'Comprueba cuánto tiempo pasó el ataque delante de la entrada sin cambiar de posición. En defensa, revisa si la primera retirada ocurrió con habilidades disponibles o después de que ya no existiera una salida segura.',
       },
       {
         name: 'Calles y segundo tramo',
         attack: 'Después de capturar, el ataque debe tomar la primera esquina y disputar las alturas antes de apilarse en la carga. Un jugador empuja mientras el resto prepara el siguiente contacto. Cuando la defensa retrocede, ocupar la esquina correcta suele generar más progreso que perseguir una eliminación hasta su zona de reaparición.',
-        defense: 'La defensa busca estabilizarse y pelear desde una esquina donde el ataque tenga que mostrar sus recursos. Saltar a la carga demasiado pronto elimina tu propia cobertura. Espera a que el rival cruce, amenaza su retaguardia o corta la visión entre primera línea y supports.',
+        defense: 'La defensa busca estabilizarse y pelear desde una esquina donde el ataque tenga que mostrar sus recursos. Saltar a la carga demasiado pronto elimina tu propia cobertura. Espera a que el rival cruce, amenaza su backline o corta la visión entre primera línea y supports.',
         vodReview: 'Cuenta cuántas peleas empezaron con alguien todavía regresando. Observa también si la carga quedó parada porque todos tomaron altura o si avanzó sin protección porque nadie controló el siguiente acceso.',
       },
       {
         name: 'Fundición y tramo final',
         attack: 'El final comprime la pelea y favorece definitivas de área, pero el ataque sigue necesitando una secuencia. Primero fuerza la herramienta defensiva que puede negar tu combo; después entra con dos recursos compatibles. Tocar desesperadamente con cinco jugadores no sustituye un plan de foco.',
-        defense: 'La cercanía dla zona de reaparición permite volver a disputar, aunque solo es útil si cada jugador cumple una función. Un héroe móvil puede tocar mientras el resto prepara daño desde cobertura. Gastar todas las definitivas para salvar diez centímetros deja la siguiente pelea sin respuesta.',
+        defense: 'La cercanía de la zona de reaparición permite volver a disputar, aunque solo es útil si cada jugador cumple una función. Un héroe móvil puede tocar mientras el resto prepara daño desde cobertura. Gastar todas las definitivas para salvar diez centímetros deja la siguiente pelea sin respuesta.',
         vodReview: 'Separa cada último intento y anota si tenía posibilidades reales. Revisa quién tocó, quién podía apoyarlo, qué definitiva se utilizó y cuánto tiempo se ganó. Muchas derrotas finales nacen de entradas valientes pero imposibles de seguir.',
       },
     ],
@@ -192,7 +192,7 @@ export const MAP_PILLARS: MapPillar[] = [
     ],
     heroPicks: [
       { name: 'Reinhardt', slug: 'reinhardt', role: 'tank', reason: 'Convierte las esquinas en presión directa y ayuda al equipo a cruzar tramos cortos sin dispersarse.' },
-      { name: 'D.Va', slug: 'dva', role: 'tank', reason: 'Aporta flexibilidad para negar proyectiles, disputar altura y volver a proteger la retaguardia.' },
+      { name: 'D.Va', slug: 'dva', role: 'tank', reason: 'Aporta flexibilidad para negar proyectiles, disputar altura y volver a proteger la backline.' },
       { name: 'Cassidy', slug: 'cassidy', role: 'dps', reason: 'Su rango medio y control defensivo funcionan bien alrededor de esquinas y contra héroes de flanco que buscan hotel.' },
       { name: 'Mei', slug: 'mei', role: 'dps', reason: 'Muro puede dividir una rotación y su supervivencia permite mantener espacio en peleas cerradas.' },
       { name: 'Ana', slug: 'ana', role: 'support', reason: 'Granada y Sleep amenazan entradas previsibles, aunque necesita rotar pronto para no perder visión en cada esquina.' },
@@ -206,7 +206,7 @@ export const MAP_PILLARS: MapPillar[] = [
         weakness: 'Sufre contra poke bien colocado si Lúcio no encuentra una ventana o si el equipo gasta barrera y Muro antes de cerrar distancia.',
       },
       {
-        name: 'Dive sobre retaguardia',
+        name: 'Dive sobre backline',
         lineup: ['Winston', 'Genji', 'Tracer', 'Ana', 'Kiriko'],
         plan: 'Ana presiona desde una línea segura; Winston divide la visión y los DPS entran sobre el mismo objetivo después del primer habilidad. Kiriko sostiene la salida o limpia el control.',
         weakness: 'Pierde consistencia en el tramo final si cada jugador entra por una puerta distinta o si Ana queda aislada durante las rotaciones cerradas.',
@@ -249,14 +249,14 @@ export const MAP_PILLARS: MapPillar[] = [
     imageAlt: 'Pagoda iluminada y accesos al punto de Lijiang Tower en Overwatch',
     seoTitle: 'Guía de Lijiang Tower: mapas, héroes y composiciones',
     seoDescription: 'Guía de Lijiang Tower en Overwatch: cómo jugar Night Market, Garden y Control Center, mejores héroes, composiciones, errores y revisión de VOD.',
-    updatedAtIso: '2026-07-04',
-    updatedAt: '4 de julio de 2026',
+    updatedAtIso: '2026-07-19',
+    updatedAt: '19 de julio de 2026',
     intro: [
       'Lijiang Tower tiene una pequeña crueldad: los tres escenarios parecen favorecer las peleas rápidas, pero cada uno castiga una prisa distinta. En Night Market se entra antes de haber repartido las puertas, Garden invita a saltar sin comprobar quién puede seguirte y Control Center convierte una rotación dudosa en cinco jugadores atrapados en el mismo pasillo.',
-      'La primera captura importa, aunque no merece llegar al punto con medio equipo. Quien gana puede defender accesos y obligar al rival a jugar contra el porcentaje. Para darle la vuelta hay que resistir la tentación de tocar por turnos: agrupa, decide una puerta y abre una segunda mirada cercana. En Lijiang, una entrada sencilla ejecutada a la vez suele funcionar mejor que el flanco más imaginativo del servidor.',
+      'La primera captura importa, aunque no merece llegar al punto con medio equipo. Quien gana puede defender accesos y obligar al rival a jugar contra el porcentaje. Para darle la vuelta hay que resistir la tentación de tocar por turnos: agrupa, decide una puerta y abre un ángulo lateral corto. En Lijiang, una entrada sencilla ejecutada a la vez suele funcionar mejor que el flanco más imaginativo del servidor.',
     ],
     quickRead: [
-      { title: 'La puerta es la pelea', body: 'En Night Market y Control Center, cruzar con recursos vale más que disparar mucho desde fuera. Provoca una habilidad y entra antes de que vuelva.' },
+      { title: 'La pelea empieza en la puerta', body: 'En Night Market y Control Center, cruzar con recursos vale más que disparar mucho desde fuera. Provoca una habilidad y entra antes de que vuelva.' },
       { title: 'No toques el punto por reflejo', body: 'Entrar solo regala otra baja y retrasa al equipo. Si todavía queda tiempo, espera a los cinco y prepara una entrada que pueda terminar en captura.' },
       { title: 'Cambia entre rondas', body: 'Garden permite movilidad y ángulos abiertos; Control Center comprime todo. Un héroe cómodo no tiene por qué seguir siendo útil cuando cambia el escenario.' },
     ],
@@ -282,8 +282,8 @@ export const MAP_PILLARS: MapPillar[] = [
     ],
     attackPlan: [
       { title: 'Llega como equipo', body: 'La primera pelea importa mucho, pero llegar antes no sirve si dos compañeros siguen rotando. Entra con una formación y una condición de victoria claras.' },
-      { title: 'Abre dos miradas', body: 'Combina una ruta principal con un lateral corto. No necesitas un flanqueo largo: basta con impedir que los cinco rivales disparen a la misma puerta.' },
-      { title: 'Recupera con recursos', body: 'Espera el reagrupación y decide qué habilidad o definitiva abre el cruce. Tocar primero y pensar después suele encadenar varias derrotas.' },
+      { title: 'Abre dos ángulos', body: 'Combina una ruta principal con un lateral corto. No necesitas un flanqueo largo: basta con impedir que los cinco rivales disparen a la misma puerta.' },
+      { title: 'Recupera con recursos', body: 'Espera el reagrupamiento y decide qué habilidad o definitiva abre el cruce. Tocar primero y pensar después suele encadenar varias derrotas.' },
       { title: 'Ocupa después de capturar', body: 'Cuando el punto cambia de dueño, toma coberturas que permitan ver los accesos. Quedarse amontonado en el centro entrega la iniciativa.' },
     ],
     defensePlan: [
@@ -319,15 +319,15 @@ export const MAP_PILLARS: MapPillar[] = [
       'Entrar de uno en uno para arañar porcentaje cuando todavía existe tiempo para reagruparse.',
       'Usar la misma composición en los tres escenarios sin revisar alcance, movilidad y acceso al objetivo.',
       'Defender dentro del punto con los cinco jugadores y regalar todas las puertas al equipo contrario.',
-      'Gastar varias definitivas después de ganar la pelea, dejando el último entrada sin una respuesta clara.',
+      'Gastar varias definitivas después de ganar la pelea, dejando la última entrada sin una respuesta clara.',
     ],
     vodChecklist: [
       '¿Llegó el equipo completo a la primera pelea de cada ronda?',
-      '¿Qué entrada se eligió y quién generaba la segunda mirada?',
+      '¿Qué entrada se eligió y quién generaba el ángulo lateral?',
       '¿Cuántas muertes ocurrieron intentando tocar sin apoyo?',
       '¿La posición defensiva tenía cobertura, curación y una salida?',
       '¿Se adaptaron los picks al cambiar de Night Market, Garden o Control Center?',
-      '¿Qué definitiva estaba reservada para el último entrada?',
+      '¿Qué definitiva estaba reservada para la última entrada?',
     ],
     faq: [
       { question: '¿Qué tipo de mapa es Lijiang Tower?', answer: 'Lijiang Tower es un mapa de Control. Los equipos compiten por capturar y mantener un único objetivo, y la partida se decide al ganar dos de los tres escenarios posibles.' },
@@ -399,7 +399,7 @@ export const MAP_PILLARS: MapPillar[] = [
       { name: 'Winston', slug: 'winston', role: 'tank', reason: 'Amenaza posiciones elevadas y divide líneas de tiro, siempre que no salte fuera del alcance de su equipo.' },
       { name: 'Cassidy', slug: 'cassidy', role: 'dps', reason: 'Su rango medio funciona alrededor de las esquinas y ofrece una respuesta estable contra héroes de flanco.' },
       { name: 'Genji', slug: 'genji', role: 'dps', reason: 'Accede a las alturas y puede rematar objetivos aislados cuando la defensa empieza a retroceder.' },
-      { name: 'Ana', slug: 'ana', role: 'support', reason: 'Aprovecha líneas largas y puede castigar entradas previsibles, aunque debe rotar pronto antes de perder visión.' },
+      { name: 'Ana', slug: 'ana', role: 'support', reason: 'Aprovecha sightlines largas y puede castigar entradas previsibles, aunque debe rotar pronto antes de perder visión.' },
       { name: 'Kiriko', slug: 'kiriko', role: 'support', reason: 'Su movilidad ayuda a seguir los cambios de altura y Suzu estabiliza cruces castigados por control o daño explosivo.' },
     ],
     compositions: [
@@ -413,7 +413,7 @@ export const MAP_PILLARS: MapPillar[] = [
         name: 'Control de rango medio',
         lineup: ['Sigma', 'Cassidy', 'Ashe', 'Ana', 'Kiriko'],
         plan: 'Sigma protege el cruce y ocupa la esquina; Ashe y Cassidy distribuyen ángulos sin alejarse de la ayuda. Ana busca presión desde el fondo y Kiriko cubre la rotación o la entrada agresiva.',
-        weakness: 'Sufre si una composición móvil alcanza la retaguardia, si los DPS renuncian a toda la altura o si el equipo intenta pelear a corta distancia sin haber desgastado recursos.',
+        weakness: 'Sufre si una composición móvil alcanza la backline, si los DPS renuncian a toda la altura o si el equipo intenta pelear a corta distancia sin haber desgastado recursos.',
       },
     ],
     mistakes: [

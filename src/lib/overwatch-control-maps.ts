@@ -10,11 +10,11 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
     imageAlt: 'Instalación científica y formaciones de hielo de Antarctic Peninsula en Overwatch',
     seoTitle: 'Antarctic Peninsula: guía de Drilling Rig, Icebreaker y Anomaly',
     seoDescription: 'Guía actualizada de Antarctic Peninsula en Overwatch: rutas y planes para Drilling Rig, Icebreaker y Anomaly, héroes, composiciones y revisión de VOD.',
-    updatedAtIso: '2026-07-04',
-    updatedAt: '4 de julio de 2026',
+    updatedAtIso: '2026-07-19',
+    updatedAt: '19 de julio de 2026',
     intro: [
       'Antarctic Peninsula dejó de ser aquel mapa en el que uno podía perderse entre pasillos blancos y llegar tarde a una pelea que ya había terminado. Su versión actual conserva el ambiente de expedición helada, pero ordena mejor las rutas de Drilling Rig, Icebreaker y Anomaly. Sigue siendo un mapa con muchos accesos, solo que ahora resulta más fácil entender adónde conduce cada uno y qué espacio estás intentando ganar.',
-      'Aquí las rondas rara vez se deciden por quedarse plantado en el objetivo. Drilling Rig obliga a vigilar la altura que rodea el punto; Icebreaker premia a quien usa el barco como cobertura y cambia de lado a tiempo; Anomaly mezcla un interior estrecho con un borde exterior que puede convertirse en una trampa. Antes de entrar, mira dónde está tu retaguardia y decide por qué puerta va a jugar el equipo. Esa pequeña pausa evita más derrotas que cualquier flanco brillante improvisado.',
+      'Aquí las rondas rara vez se deciden por quedarse plantado en el objetivo. Drilling Rig obliga a vigilar la altura que rodea el punto; Icebreaker premia a quien usa el barco como cobertura y cambia de lado a tiempo; Anomaly mezcla un interior estrecho con un borde exterior que puede convertirse en una trampa. Antes de entrar, mira dónde está tu backline y decide por qué puerta va a jugar el equipo. Esa pequeña pausa evita más derrotas que cualquier flanco brillante improvisado.',
     ],
     quickRead: [
       { title: 'No alargues los flancos', body: 'Si doblas dos esquinas, tus supports dejarán de verte. Usa los pasillos para abrir un ángulo corto y vuelve al equipo en cuanto el rival abandone la posición.' },
@@ -44,12 +44,12 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
     attackPlan: [
       { title: 'Mira antes de elegir puerta', body: 'Localiza al Tank rival y a sus supports. En Antarctic, diez metros de pasillo pueden ocultar a media composición y cambiar qué entrada es segura.' },
       { title: 'Abre un ángulo corto', body: 'Un DPS lateral no necesita desaparecer. Basta con colocarse donde obligue al rival a girarse mientras sigue a distancia de ayuda.' },
-      { title: 'Cruza después del habilidad', body: 'Fuerza primero la habilidad que puede frenar la entrada. Cuando desaparezca, avanza de verdad; no gastes movilidad solo para asomarte.' },
+      { title: 'Cruza después del cooldown', body: 'Fuerza primero el cooldown que puede frenar la entrada. Cuando desaparezca, avanza de verdad; no gastes movilidad solo para asomarte.' },
       { title: 'Quédate con el espacio', body: 'Si ganas una baja, ocupa la altura o la puerta importante. Perseguir por los corredores suele regalar justo el terreno que acababas de conquistar.' },
     ],
     defensePlan: [
       { title: 'Recibe fuera del círculo', body: 'Presiona desde una cobertura adelantada y vuelve al punto cuando sea necesario. Esperar dentro permite que el rival elija todas las distancias.' },
-      { title: 'Reparte las miradas', body: 'Una persona vigila el lateral y el resto sostiene la entrada principal. Comunicar un flanco no significa abandonar la pelea para perseguirlo.' },
+      { title: 'Reparte la atención', body: 'Una persona vigila el lateral y el resto sostiene la entrada principal. Comunicar un flanco no significa abandonar la pelea para perseguirlo.' },
       { title: 'Retrocede con vida', body: 'Los pasillos castigan las retiradas tardías. Si has perdido a dos compañeros, sal antes de que la siguiente ronda empiece con reapariciones separadas.' },
       { title: 'Prepara la recuperación', body: 'Decide qué definitiva abre el regreso y desde qué puerta. Tocar por turnos solo añade porcentaje al rival sin crear una oportunidad real.' },
     ],
@@ -57,7 +57,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       { name: 'Winston', slug: 'winston', role: 'tank', reason: 'Salta entre plataformas y puede romper una formación que se acomoda demasiado en una puerta.' },
       { name: 'D.Va', slug: 'dva', role: 'tank', reason: 'Disputa altura, protege un cruce con Matriz y corrige rápido si aparece un héroe de flanco por otro pasillo.' },
       { name: 'Mei', slug: 'mei', role: 'dps', reason: 'Muro resulta muy incómodo en las entradas estrechas y ayuda a separar a quien cruza antes que su equipo.' },
-      { name: 'Tracer', slug: 'tracer', role: 'dps', reason: 'Recorre los laterales sin quedar atrapada y obliga a la retaguardia a apartar la vista de la puerta principal.' },
+      { name: 'Tracer', slug: 'tracer', role: 'dps', reason: 'Recorre los laterales sin quedar atrapada y obliga a la backline a apartar la vista de la puerta principal.' },
       { name: 'Kiriko', slug: 'kiriko', role: 'support', reason: 'Puede seguir cambios de ruta repentinos y salir de un pasillo que deje de ser seguro.' },
       { name: 'Lúcio', slug: 'lucio', role: 'support', reason: 'Acelera los cruces, ayuda a reagrupar y convierte los bordes del mapa en una amenaza constante.' },
     ],
@@ -87,13 +87,13 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       '¿El Tank podía recibir ayuda al cruzar la primera esquina?',
       '¿Se controló la altura antes de bajar al objetivo?',
       '¿Cuántas muertes ocurrieron persiguiendo por un pasillo?',
-      '¿Se conservaron recursos para salir después dla entrada?',
+      '¿Se conservaron recursos para salir después de la entrada?',
       '¿La recuperación empezó con el equipo agrupado o con alguien tocando por obligación?',
     ],
     faq: [
       { question: '¿Cuáles son los escenarios actuales de Antarctic Peninsula?', answer: 'La versión actual se juega en Drilling Rig, Icebreaker y Anomaly. Anomaly sustituyó al antiguo Sublevel y el conjunto recibió rutas más claras, más cobertura y cambios importantes en el espacio alrededor de los objetivos.' },
       { question: '¿Qué héroes funcionan bien en Antarctic Peninsula?', answer: 'La movilidad de Winston, D.Va, Tracer y Kiriko ayuda a manejar las alturas y los pasillos. Mei y Lúcio también sacan mucho partido de las puertas estrechas y los bordes, aunque la elección debe encajar con el plan del equipo.' },
-      { question: '¿Cómo se ataca Antarctic Peninsula sin separarse?', answer: 'Elige una puerta principal y un lateral corto que sigan conectados. El lateral debe crear otra mirada, no iniciar una pelea distinta. Cruza después de forzar una habilidad rival y ocupa una cobertura antes de tocar.' },
+      { question: '¿Cómo se ataca Antarctic Peninsula sin separarse?', answer: 'Elige una puerta principal y un lateral corto que sigan conectados. El lateral debe crear otro ángulo, no iniciar una pelea distinta. Cruza después de forzar una habilidad rival y ocupa una cobertura antes de tocar.' },
       { question: '¿Qué debería revisar en una VOD de este mapa?', answer: 'Empieza por las rutas y las líneas de curación. Después mira si tu equipo controló altura y puertas antes de bajar al punto, y termina revisando las muertes tardías en pasillos o cerca de los bordes.' },
     ],
     relatedLinks: [
@@ -133,7 +133,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       {
         name: 'Sanctuary',
         attack: 'El patio de Sanctuary parece abierto, pero sus paredes y desniveles ofrecen rutas bastante seguras si no corres por el centro. Acércate usando cobertura, fuerza al rival a enseñar su posición y abre un ángulo corto por uno de los lados. Los puentes y bordes convierten el empuje en una amenaza real, así que evita agruparte junto al vacío. Capturar no exige limpiar todo el santuario: basta con expulsar al rival del área desde la que puede contestar.',
-        defense: 'Defiende con espacio a la espalda. Si te plantas en el borde delantero sin salida, cualquier presión te obliga a gastar supervivencia demasiado pronto. Los supports funcionan mejor desde una esquina que vea el punto y permita ocultarse del ángulo opuesto. Cuando el rival rodee, gira la formación en lugar de dividirla: el objetivo es que la nueva primera línea siga estando entre la amenaza y la retaguardia.',
+        defense: 'Defiende con espacio a la espalda. Si te plantas en el borde delantero sin salida, cualquier presión te obliga a gastar supervivencia demasiado pronto. Los supports funcionan mejor desde una esquina que vea el punto y permita ocultarse del ángulo opuesto. Cuando el rival rodee, gira la formación en lugar de dividirla: el objetivo es que la nueva primera línea siga estando entre la amenaza y la backline.',
         vodReview: 'Comprueba si cruzaste zonas abiertas por costumbre y si las muertes ambientales empezaron por una mala posición previa. El empujón suele ser el final del error, no el principio.',
       },
       {
@@ -146,7 +146,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
     attackPlan: [
       { title: 'Reconoce el escenario', body: 'No salgas de zona de reaparición en piloto automático. Decide si necesitas movilidad, alcance o velocidad para el escenario concreto que ha tocado.' },
       { title: 'Llega a una cobertura', body: 'La primera meta no es el círculo, sino una esquina desde la que el equipo pueda pelear sin gastar todo para sobrevivir.' },
-      { title: 'Mueve una sola pieza', body: 'Un lateral bien elegido basta para romper la mirada rival. Mandar a ambos DPS por rutas distintas suele dejar al Tank sin presión útil.' },
+      { title: 'Abre solo un lateral', body: 'Un flanco bien elegido basta para romper la defensa. Mandar a ambos DPS por rutas distintas suele dejar al Tank sin presión útil.' },
       { title: 'Captura y frena', body: 'Tras ganar, no persigas hasta zona de reaparición. Adelanta una línea razonable, cuenta reapariciones y vuelve antes de que el rival pueda aislarte.' },
     ],
     defensePlan: [
@@ -214,15 +214,15 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
     imageAlt: 'Casas blancas, cúpulas azules y pozo central de Ilios en Overwatch',
     seoTitle: 'Ilios en Overwatch: guía de Lighthouse, Ruins y Well',
     seoDescription: 'Aprende a jugar Ilios en Overwatch: rutas y posiciones en Lighthouse, Ruins y Well, héroes recomendados, composiciones, errores y revisión de VOD.',
-    updatedAtIso: '2026-07-04',
-    updatedAt: '4 de julio de 2026',
+    updatedAtIso: '2026-07-19',
+    updatedAt: '19 de julio de 2026',
     intro: [
       'Ilios tiene fama por el pozo, pero la mayoría de rondas no se pierden por un empujón espectacular. Se pierden unos segundos antes, cuando alguien cruza por el borde sin necesidad, abandona una cobertura para perseguir o deja que el rival ocupe gratis la zona desde la que amenaza ese empujón. Lighthouse, Ruins y Well comparten cielo azul y paredes blancas, pero piden distancias muy distintas.',
-      'Lighthouse concentra la pelea alrededor de una casa pequeña y entradas cortas. Ruins abre el mapa y da mucho valor a la altura, las líneas largas y los cambios de ángulo. Well mezcla ambas cosas: hay espacio para disparar desde lejos, pero el objetivo obliga a acercarse a una zona donde cualquier desplazamiento cuenta. La mejor preparación entre rondas es muy simple: mira el nombre del escenario y pregúntate si tu héroe puede llegar vivo a la distancia que necesita.',
+      'Lighthouse concentra la pelea alrededor de una casa pequeña y entradas cortas. Ruins abre el mapa y da mucho valor a la altura, las sightlines largas y los cambios de ángulo. Well mezcla ambas cosas: hay espacio para disparar desde lejos, pero el objetivo obliga a acercarse a una zona donde cualquier desplazamiento cuenta. La mejor preparación entre rondas es muy simple: mira el nombre del escenario y pregúntate si tu héroe puede llegar vivo a la distancia que necesita.',
     ],
     quickRead: [
       { title: 'El borde no es cobertura', body: 'Acercarte al vacío para ganar un metro de visión rara vez compensa. Juega desde la pared interior y obliga al rival a exponerse si quiere buscar el empujón.' },
-      { title: 'Ruins pide alcance', body: 'Si tu equipo no puede disputar la altura ni cruzar las líneas largas, cambia el plan o los héroes. Avanzar por el centro una y otra vez no cerrará la distancia por sí solo.' },
+      { title: 'Ruins pide poke o movilidad', body: 'Si tu equipo no puede disputar la altura ni cruzar contra snipers, cambia el plan o los héroes. Avanzar por el centro una y otra vez no cerrará la distancia por sí solo.' },
       { title: 'Lighthouse se gana en la puerta', body: 'Quien controla las entradas puede pelear sin apilarse dentro del punto. Fuerza recursos fuera y entra cuando la defensa ya no pueda sostener la primera esquina.' },
     ],
     phases: [
@@ -234,9 +234,9 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       },
       {
         name: 'Ruins',
-        attack: 'Ruins castiga a los equipos que pretenden caminar por la zona abierta sin haber molestado antes a quienes disparan desde arriba. Usa columnas y desniveles para acercarte, manda movilidad a disputar la altura o responde con alcance propio. No es necesario eliminar al sniper para avanzar; obligarlo a abandonar su posición durante unos segundos ya abre la ventana. Cuando llegues al punto, conserva algún jugador fuera del círculo para vigilar la siguiente rotación.',
-        defense: 'La altura sirve mientras tengas una ruta para bajar. Quédate demasiado tiempo y el ataque convertirá tu buena posición en una jaula. Los jugadores de rango deben cambiar de ángulo después de ser vistos, mientras el resto protege el acceso al objetivo. Si el rival cruza con cobertura, evita bajar todos sobre el mismo blanco. Mantén una línea larga activa para que su retaguardia tampoco pueda caminar gratis.',
-        vodReview: 'Observa las muertes en campo abierto y retrocede cinco segundos. ¿Qué cobertura acababas de dejar? ¿Se había marcado la posición del rival de largo alcance? Esa información suele explicar más que el disparo final.',
+        attack: 'Ruins castiga a los equipos que pretenden caminar por la zona abierta sin haber molestado antes a quienes disparan desde arriba. Usa columnas y desniveles para acercarte, manda movilidad a disputar la altura o responde con poke propio. No es necesario eliminar al sniper para avanzar; obligarlo a abandonar su posición durante unos segundos ya abre la ventana. Cuando llegues al punto, conserva algún jugador fuera del círculo para vigilar la siguiente rotación.',
+        defense: 'La altura sirve mientras tengas una ruta para bajar. Quédate demasiado tiempo y el ataque convertirá tu buena posición en una jaula. Los jugadores de poke deben cambiar de ángulo después de ser vistos, mientras el resto protege el acceso al objetivo. Si el rival cruza con cobertura, evita bajar todos sobre el mismo blanco. Mantén una sightline activa para que su backline tampoco pueda caminar gratis.',
+        vodReview: 'Observa las muertes en campo abierto y retrocede cinco segundos. ¿Qué cobertura acababas de dejar? ¿Se había marcado la posición del sniper o hitscan rival? Esa información suele explicar más que el disparo final.',
       },
       {
         name: 'Well',
@@ -260,7 +260,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
     heroPicks: [
       { name: 'Winston', slug: 'winston', role: 'tank', reason: 'Puede disputar la altura de Ruins y atravesar líneas abiertas sin obligar a todo el equipo a seguir la misma ruta.' },
       { name: 'D.Va', slug: 'dva', role: 'tank', reason: 'Llega a posiciones elevadas, protege cruces y puede volver con rapidez si la pelea gira alrededor del punto.' },
-      { name: 'Widowmaker', slug: 'widowmaker', role: 'dps', reason: 'Ruins ofrece líneas largas y ángulos que obligan al rival a moverse con más cuidado.' },
+      { name: 'Widowmaker', slug: 'widowmaker', role: 'dps', reason: 'Ruins ofrece sightlines largas y ángulos que obligan al rival a moverse con más cuidado.' },
       { name: 'Pharah', slug: 'pharah', role: 'dps', reason: 'Aprovecha el espacio vertical y amenaza desplazamientos cerca del pozo y de los bordes.' },
       { name: 'Ana', slug: 'ana', role: 'support', reason: 'Tiene buenas líneas en Ruins y Well si rota antes de que una pared corte la visión de su primera línea.' },
       { name: 'Lúcio', slug: 'lucio', role: 'support', reason: 'Ayuda a cruzar zonas abiertas y su mera presencia obliga a respetar los bordes de Well y Lighthouse.' },
@@ -287,7 +287,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       'Mantener una composición de corto alcance en Ruins solo porque funcionó en la ronda anterior.',
     ],
     vodChecklist: [
-      '¿La ruta elegida respetaba los empujones y las líneas largas?',
+      '¿La ruta elegida respetaba los empujones y las sightlines largas?',
       '¿Quién disputó la altura de Ruins y cuándo lo hizo?',
       '¿Se cruzó Lighthouse con recursos o después de gastarlos?',
       '¿Las paredes cortaron la visión entre primera línea y supports?',
@@ -295,7 +295,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       '¿Se adaptaron los picks al cambiar de escenario?',
     ],
     faq: [
-      { question: '¿Cuáles son los escenarios de Ilios?', answer: 'Ilios se divide en Lighthouse, Ruins y Well. Lighthouse concentra las peleas alrededor de una casa, Ruins ofrece líneas largas y altura, y Well combina espacio abierto con un pozo central que condiciona la posición.' },
+      { question: '¿Cuáles son los escenarios de Ilios?', answer: 'Ilios se divide en Lighthouse, Ruins y Well. Lighthouse concentra las peleas alrededor de una casa, Ruins ofrece sightlines largas y altura, y Well combina espacio abierto con un pozo central que condiciona la posición.' },
       { question: '¿Qué héroes funcionan bien en Ilios?', answer: 'Winston y D.Va ayudan a disputar alturas; Widowmaker y Ana aprovechan Ruins; Lúcio y Pharah amenazan los bordes. No todos encajan igual en los tres escenarios, así que conviene revisar la composición entre rondas.' },
       { question: '¿Cómo evitar caer al pozo de Ilios?', answer: 'Juega desde la pared interior, localiza a los héroes con empuje y guarda movilidad cuando tengas que cruzar cerca del borde. La prevención empieza en la ruta y la cobertura elegidas, no en reaccionar cuando ya estás en el aire.' },
       { question: '¿Cómo se recupera el punto en Ilios?', answer: 'Agrupa, identifica la posición que domina la entrada y fuerza una habilidad antes de cruzar. Abre un ángulo corto, conserva recursos para sobrevivir dentro y evita mandar contactos aislados solo para frenar el porcentaje.' },
@@ -337,7 +337,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       {
         name: 'Shrine',
         attack: 'Shrine ofrece más aire y varias entradas, así que primero hay que descubrir dónde está la fuerza rival. Asoma desde cobertura, abre un lateral que siga conectado y ataca el sector con menos ayuda. Caminar directamente al círculo deja a los supports expuestos en los accesos. En cambio, ocupar una de las plataformas o esquinas cercanas permite sostener la pelea y hace que la captura llegue sin forzarla.',
-        defense: 'No intentes cubrir todas las rutas desde el punto. Coloca la primera línea en el acceso más probable y usa a un jugador móvil para informar del otro lado. Cuando el rival cambie de puerta, rota por dentro y mantén la forma del equipo. Si te quedas defendiendo una entrada vacía por orgullo, la retaguardia acabará recibiendo la entrada antes de que puedas regresar.',
+        defense: 'No intentes cubrir todas las rutas desde el punto. Coloca la primera línea en el acceso más probable y usa a un jugador móvil para informar del otro lado. Cuando el rival cambie de puerta, rota por dentro y mantén la forma del equipo. Si te quedas defendiendo una entrada vacía por orgullo, la backline acabará recibiendo la entrada antes de que puedas regresar.',
         vodReview: 'Mira el minimapa mental de la pelea: dónde estaba cada compañero cuando se vio al rival. Si el equipo tardó demasiado en girar, apunta si faltó información o si alguien decidió seguir presionando una ruta vacía.',
       },
       {
@@ -487,7 +487,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       'Mirar la plataforma de City Center desde abajo durante toda la pelea sin disputarla ni cambiar de ruta.',
       'Mandar a varios jugadores al punto de Gardens y abandonar las pasarelas que permiten defenderlo.',
       'Cruzar la puerta de University de uno en uno después de gastar las habilidades en el amago.',
-      'Perseguir a un héroe móvil por detrás de la estructura y dejar a la retaguardia sin primera línea.',
+      'Perseguir a un héroe móvil por detrás de la estructura y dejar a la backline sin primera línea.',
       'Morir tarde en una posición elevada cuando ya existía una ruta segura para regresar al objetivo.',
     ],
     vodChecklist: [
@@ -520,23 +520,23 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
     imageAlt: 'Costa tropical, palmeras y edificios de Samoa en Overwatch',
     seoTitle: 'Samoa en Overwatch: guía de Beach, Downtown y Volcano',
     seoDescription: 'Guía de Samoa en Overwatch: cómo jugar Beach, Downtown y Volcano, rutas, mejores héroes, composiciones, errores frecuentes y revisión de VOD.',
-    updatedAtIso: '2026-07-04',
-    updatedAt: '4 de julio de 2026',
+    updatedAtIso: '2026-07-19',
+    updatedAt: '19 de julio de 2026',
     intro: [
       'Samoa es luminoso, abierto y bastante menos relajado de lo que su playa sugiere. Beach permite rodear el objetivo por varios niveles; Downtown mezcla edificios y balcones; Volcano encierra la pelea alrededor de lava y pasos estrechos. En los tres escenarios hay rutas atractivas que pueden convertirse en una excursión inútil si el equipo principal entra antes de que el flanco llegue.',
       'La forma más estable de jugar Samoa es pensar en parejas de posiciones. ¿Desde qué cobertura avanza el Tank y qué ángulo cercano lo acompaña? ¿Dónde se coloca el support si el equipo gira al otro lado? Cuando esas dos respuestas encajan, el mapa ofrece muchas opciones. Cuando no, cada ruta adicional solo multiplica las paredes que separan a los cinco jugadores.',
     ],
     quickRead: [
-      { title: 'El flanco tiene reloj', body: 'Una ruta lateral es buena si crea presión durante la entrada principal. Si llegas cuando tus compañeros ya están saliendo de zona de reaparición, solo has dado un paseo largo.' },
+      { title: 'El flanco depende del timing', body: 'Una ruta lateral es buena si crea presión durante la entrada principal. Si llegas cuando tus compañeros ya están saliendo de spawn, solo has dado un paseo largo.' },
       { title: 'Volcano exige calma', body: 'El espacio parece pequeño y anima a gastar todo de golpe. Conserva movilidad o protección para el segundo intercambio y respeta la lava incluso con ventaja.' },
-      { title: 'Downtown mira en vertical', body: 'Los balcones cambian quién puede disparar al punto. Antes de capturar, expulsa o bloquea al jugador que mantiene la altura.' },
+      { title: 'Downtown se juega en vertical', body: 'Los balcones cambian quién puede disparar al punto. Antes de capturar, limpia la altura o bloquea al jugador que la mantiene.' },
     ],
     phases: [
       {
         name: 'Beach',
         attack: 'Beach tiene desniveles, habitaciones y rutas junto al agua. Empieza por una cobertura desde la que el equipo pueda ver tanto el punto como la entrada lateral. Un DPS puede rodear por el nivel superior, pero debe anunciar cuándo está listo; el Tank no gana nada absorbiendo daño durante veinte segundos mientras espera. Cuando la defensa gire hacia el flanco, avanza. Si decide ignorarlo, deja que ese ángulo trabaje antes de saltar al círculo.',
         defense: 'La defensa puede jugar adelantada porque hay varias rutas de retirada, aunque tiene que elegir una. Vigila la entrada larga sin enviar a todo el equipo y mantén el núcleo cerca de una cobertura que permita bajar al punto. Los bordes amenazan, pero salir a buscarlos te coloca en el mismo peligro. Después de una baja, cierra rutas hacia el objetivo y deja que el porcentaje haga presión por ti.',
-        vodReview: 'Compara el momento del flanco con el dla entrada principal. Si hubo más de tres o cuatro segundos entre ambos, seguramente el rival nunca tuvo que responder a dos amenazas a la vez.',
+        vodReview: 'Compara el momento del flanco con el de la entrada principal. Si hubo más de tres o cuatro segundos entre ambos, seguramente el rival nunca tuvo que responder a dos amenazas a la vez.',
       },
       {
         name: 'Downtown',
@@ -552,8 +552,8 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       },
     ],
     attackPlan: [
-      { title: 'Sincroniza el rodeo', body: 'El lateral debe anunciar que está listo y esperar la presión frontal. Samoa recompensa los ángulos, pero solo cuando aparecen dentro de la misma ventana.' },
-      { title: 'Quita el balcón', body: 'En Downtown, decide quién sube, quién bloquea y quién cruza. Ignorar la altura mientras todos la miran es la peor combinación posible.' },
+      { title: 'Sincroniza el flanco', body: 'El lateral debe avisar cuando está listo y esperar la presión frontal. Samoa recompensa los ángulos, pero solo cuando aparecen en la misma ventana.' },
+      { title: 'Limpia el balcón', body: 'En Downtown, decide quién sube, quién bloquea y quién cruza. Ignorar la altura mientras todos la miran es la peor combinación posible.' },
       { title: 'Guarda una salida', body: 'No gastes toda la movilidad para entrar en Volcano. El segundo intercambio suele decidirse por quién todavía puede apartarse de la lava o del control.' },
       { title: 'Convierte sin perseguir', body: 'Tras ganar una baja, ocupa el acceso al punto. Las rutas largas hacen muy costosa una persecución que saque al equipo de su estructura.' },
     ],

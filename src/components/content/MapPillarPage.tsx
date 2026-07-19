@@ -25,6 +25,23 @@ export default function MapPillarPage({ map }: { map: MapPillar }) {
     },
     contentLocation: { '@type': 'Place', name: map.name },
   }
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: map.seoTitle,
+    description: map.seoDescription,
+    image: absoluteUrl(map.image),
+    url: pageUrl,
+    inLanguage: 'es',
+    datePublished: map.updatedAtIso,
+    dateModified: map.updatedAtIso,
+    author: { '@type': 'Organization', name: SITE_NAME },
+    publisher: { '@type': 'Organization', name: SITE_NAME },
+    about: [
+      { '@type': 'VideoGame', name: 'Overwatch' },
+      { '@type': 'Place', name: map.name },
+    ],
+  }
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -37,6 +54,7 @@ export default function MapPillarPage({ map }: { map: MapPillar }) {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <JsonLd data={webPageJsonLd} />
+      <JsonLd data={articleJsonLd} />
       <JsonLd data={breadcrumbJsonLd} />
       <PublicNav />
 

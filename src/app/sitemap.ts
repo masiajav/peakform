@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { announcementPath, ROLE_SLUGS } from '@/lib/content'
 import { COUNTER_HEROES } from '@/lib/overwatch-counters'
+import { MAP_PILLARS } from '@/lib/overwatch-maps'
 import { TEAM_COMP_HEROES } from '@/lib/overwatch-team-comps'
 import {
   PILLAR_COUNTER_SLUGS,
@@ -36,37 +37,11 @@ const STATIC_LAST_MODIFIED: Record<string, string> = {
   '/team-comps/winston': '2026-07-01',
   '/counters/cassidy': '2026-07-01',
   '/team-comps/cassidy': '2026-07-01',
-  '/maps/neon-junction': '2026-07-04',
-  '/maps/kings-row': '2026-07-04',
-  '/maps/lijiang-tower': '2026-07-04',
-  '/maps/dorado': '2026-07-04',
-  '/maps/antarctic-peninsula': '2026-07-04',
-  '/maps/busan': '2026-07-04',
-  '/maps/ilios': '2026-07-04',
-  '/maps/nepal': '2026-07-04',
-  '/maps/oasis': '2026-07-04',
-  '/maps/samoa': '2026-07-04',
-  '/maps/circuit-royal': '2026-07-04',
-  '/maps/havana': '2026-07-04',
-  '/maps/junkertown': '2026-07-04',
-  '/maps/rialto': '2026-07-04',
-  '/maps/route-66': '2026-07-04',
-  '/maps/shambali-monastery': '2026-07-04',
-  '/maps/watchpoint-gibraltar': '2026-07-04',
-  '/maps/aatlis': '2026-07-04',
-  '/maps/new-junk-city': '2026-07-04',
-  '/maps/suravasa': '2026-07-04',
-  '/maps/blizzard-world': '2026-07-04',
-  '/maps/eichenwalde': '2026-07-04',
-  '/maps/hollywood': '2026-07-04',
-  '/maps/midtown': '2026-07-04',
-  '/maps/numbani': '2026-07-04',
-  '/maps/paraiso': '2026-07-04',
-  '/maps/colosseo': '2026-07-04',
-  '/maps/esperanca': '2026-07-04',
-  '/maps/new-queen-street': '2026-07-04',
-  '/maps/runasapi': '2026-07-04',
 }
+
+const MAP_LAST_MODIFIED = Object.fromEntries(
+  MAP_PILLARS.map(map => [`/maps/${map.slug}`, map.updatedAtIso]),
+)
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -88,7 +63,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...TEAM_COMP_HEROES.filter(hero => PILLAR_TEAM_COMP_SLUGS.includes(hero.slug)).map(hero => `/team-comps/${hero.slug}`),
   ].map(path => {
     const normalizedPath = path || '/'
-    const lastModified = STATIC_LAST_MODIFIED[normalizedPath]
+    const lastModified = STATIC_LAST_MODIFIED[normalizedPath] ?? MAP_LAST_MODIFIED[normalizedPath]
     return {
       url: absoluteUrl(normalizedPath),
       ...(lastModified ? { lastModified: new Date(lastModified) } : {}),
