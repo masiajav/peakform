@@ -10,8 +10,8 @@ import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Counters de Overwatch por héroe: mejores picks y consejos',
-  description: 'Busca counters de Overwatch para cada héroe: Zarya, Tracer, Genji, Ana, Shion y más, con picks fuertes, amenazas y consejos de matchup.',
+  title: 'Counters de Overwatch: mejores picks, matchups y consejos ranked',
+  description: 'Busca counters de Overwatch por héroe: Zarya, Tracer, Genji, Ana, Shion y más, con picks fuertes, ventanas de castigo y consejos de matchup.',
   path: '/counters',
 })
 
@@ -61,7 +61,7 @@ export default function CountersPage() {
         <section style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 22, marginBottom: 20 }}>
           <div className="eyebrow">CÓMO LEER UN COUNTER</div>
           <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: '0 0 12px' }}>
-            Un counter funciona cuando niega movilidad, fuerza un cooldown clave, castiga el rango cómodo del rival o protege el objetivo que quiere matar. No se trata solo de cambiar de pick.
+            Un counter funciona cuando niega movilidad, fuerza un cooldown clave, castiga el rango cómodo del rival o protege el objetivo que quiere matar. No se trata solo de cambiar de pick: si mantienes el mismo timing malo, el matchup seguirá siendo incómodo.
           </p>
           <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0 }}>
             Antes de cambiar, revisa si el problema es realmente el matchup o si estás entrando demasiado pronto, jugando sin cobertura o gastando recursos antes de la amenaza real.

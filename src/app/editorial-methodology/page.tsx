@@ -35,6 +35,13 @@ export default function EditorialMethodologyPage() {
         </section>
 
         <section>
+          <h2>Tono de las guías</h2>
+          <p>
+            Escribimos en español natural, con lenguaje de jugador y sin traducir a la fuerza términos que la comunidad usa en inglés. Palabras como ranked, pick, peel, dive, poke, brawl, timing, matchup, cooldown, backline, flanker, reset, off-angle o VOD se mantienen cuando hacen la explicación más clara.
+          </p>
+        </section>
+
+        <section>
           <h2>Cuándo actualizamos</h2>
           <p>
             Actualizamos una guía cuando cambia el parche, el meta, el vídeo recomendado o el criterio experto. No cambiamos fechas sin una mejora real del contenido.

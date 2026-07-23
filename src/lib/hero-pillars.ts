@@ -290,14 +290,14 @@ export const HERO_PILLARS: Record<string, HeroPillar> = {
     role: 'DPS',
     roleSlug: 'dps',
     updatedAt: '26 de junio de 2026',
-    seoTitle: 'Guía de Genji en Overwatch: combos, counters y Dragonblade',
-    seoDescription: 'Guía completa de Genji en Overwatch: combos con Dash, Deflect, Dragonblade, presión lateral, counters, errores comunes y consejos para ranked.',
-    h1: 'Genji en Overwatch: combos, counters y ranked',
+    seoTitle: 'Genji en Overwatch: combos, counters, resets y Dragonblade',
+    seoDescription: 'Guía de Genji en Overwatch: combos con Dash, Deflect, Dragonblade, resets, presión lateral, counters y consejos prácticos para ranked.',
+    h1: 'Genji en Overwatch: combos, resets y ranked',
     kicker: 'DPS flanker de resets, timing y Dragonblade',
     intro: [
       'Genji es uno de los DPS más populares de Overwatch, pero también uno de los más fáciles de jugar mal. Su movilidad invita a entrar constantemente, pero un buen Genji no entra primero sin información: espera cooldowns, busca objetivos tocados y usa Dash para confirmar, resetear o salir.',
       'La diferencia entre un Genji útil y un Genji que feedea está en el timing. Si entras antes de que tu equipo presione, el rival puede girarse y borrarte. Si entras cuando alguien ya gastó movilidad, Suzu, Sleep, Lamp o peel, puedes convertir una pelea en una cadena de resets.',
-      'Esta guía se centra en ranked: cómo pokear antes de entrar, cuándo usar Swift Strike, cómo no malgastar Deflect y cómo preparar Dragonblade para que no sea una apuesta desesperada.',
+      'Esta guía se centra en ranked: cómo pokear antes de entrar, cuándo usar Swift Strike, cómo buscar resets, cómo no malgastar Deflect y cómo preparar Dragonblade para que no sea una apuesta desesperada.',
     ],
     facts: [
       { title: 'Rol', body: 'DPS' },
@@ -325,7 +325,7 @@ export const HERO_PILLARS: Record<string, HeroPillar> = {
       },
       {
         title: 'Combos básicos de Genji',
-        body: 'El patrón más fiable es preparar con shuriken, entrar con Dash solo cuando hay baja posible y usar secundario + melee en corto para confirmar. Si no aparece reset, Deflect compra el segundo necesario para salir.',
+        body: 'El patrón más fiable es preparar con shuriken, entrar con Dash solo cuando hay baja posible y usar secundario + melee en corto para confirmar. Si no aparece reset, Deflect compra el segundo necesario para salir. Genji no necesita hacer highlight cada pelea; necesita elegir bien el commit.',
       },
       {
         title: 'Deflect no es decoración',

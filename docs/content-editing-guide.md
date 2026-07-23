@@ -74,6 +74,12 @@ Checklist visual:
 - Los botones importantes llevan a una URL real.
 - No hay placeholders tipo "pendiente", "lorem ipsum" o bloques vacíos.
 
+## Tono y lenguaje
+
+El contenido debe sonar como lo diría un jugador experto de Overwatch en español, no como una traducción literal. Usa frases naturales, directas y fáciles de leer. Los anglicismos son correctos cuando la comunidad los usa así: `ranked`, `pick`, `peel`, `dive`, `poke`, `brawl`, `timing`, `matchup`, `cooldown`, `backline`, `flanker`, `reset`, `off-angle` o `VOD`.
+
+Evita traducir a la fuerza términos que en español competitivo suenan raros. Es mejor escribir "forzar Recall", "guardar peel", "jugar un off-angle" o "mal timing" que crear una frase artificial. La prioridad es claridad, naturalidad y criterio práctico.
+
 ## Cómo editar textos de la home
 
 Archivo principal:

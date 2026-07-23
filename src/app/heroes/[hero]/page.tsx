@@ -154,8 +154,8 @@ export function generateMetadata({ params }: { params: { hero: string } }): Meta
 
   if (params.hero === SHION_SLUG) {
     return buildMetadata({
-      title: 'Guía de Shion en Overwatch: habilidades, counters y cómo jugarla',
-      description: 'Aprende cómo jugar Shion en Overwatch: habilidades, perks, counters, composiciones, nerf de Execution y consejos prácticos para ranked.',
+      title: 'Shion en Overwatch: habilidades, counters y guía ranked',
+      description: 'Aprende cómo jugar Shion en Overwatch: habilidades, perks, counters, composiciones, ventanas de engage y consejos prácticos para ranked.',
       path: `/heroes/${params.hero}`,
       image: SHION_IMAGE,
       robots: robotsForQuality(quality),
@@ -422,8 +422,8 @@ function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Shion en Overwatch: habilidades, rol, counters y guía rápida',
-    description: 'Guía de Shion en Overwatch con habilidades, nerf de Execution, Joyride, perks, counters, composiciones y consejos para ranked.',
+    headline: 'Shion en Overwatch: habilidades, rol, counters y guía ranked',
+    description: 'Guía de Shion en Overwatch con habilidades, Joyride, Execution, perks, counters, composiciones y consejos para ranked.',
     image: absoluteUrl(SHION_IMAGE),
     url: pageUrl,
     datePublished: '2026-06-15',
@@ -484,7 +484,7 @@ function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
               <span style={{ color: 'var(--accent)' }}>HABILIDADES, PERKS Y COUNTERS</span>
             </h1>
             <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.75, margin: '0 0 18px', maxWidth: 760 }}>
-              Shion llega como una DPS flanker de ritmo alto, movilidad agresiva y mucha capacidad para castigar errores de posicionamiento. Tras el nerf a Execution se siente algo peor al jugarla, pero sigue siendo peligrosa si eliges bien las ventanas de entrada y no regalas tus cooldowns.
+              Shion llega como una DPS flanker de ritmo alto, movilidad agresiva y mucha capacidad para castigar errores de posicionamiento. Tras el ajuste a Execution tiene menos margen para rematar a lo loco, pero sigue siendo peligrosa si eliges bien las ventanas de entrada y no regalas tus cooldowns.
             </p>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
               <MetaPill label="Actualizado" value={SHION_UPDATED_AT} />
@@ -572,7 +572,7 @@ function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
               El primer ajuste serio a Shion ha ido directo a Execution. El tamaño del proyectil baja de 0.17 a 0.07 y la recuperación después de disparar pasa de 0 a 0.4 segundos. Sobre el papel parecen números pequeños; en partida se notan bastante, porque ahora cuesta más cerrar remates rápidos y fallar la habilidad deja una ventana más clara para que te castiguen.
             </p>
             <p style={{ margin: 0 }}>
-              Esto hace que Shion se sienta algo peor, sobre todo si la estabas jugando a base de entradas muy agresivas y remates instantáneos. Sigue teniendo movilidad y amenaza lateral, pero ya no perdona tanto: necesitas preparar mejor el engage, esperar enemigos tocados y evitar tirar Execution solo “por probar”.
+              Esto hace que Shion sea menos permisiva, sobre todo si la estabas jugando a base de entradas muy agresivas y remates instantáneos. Sigue teniendo movilidad y amenaza lateral, pero ya no perdona tanto: necesitas preparar mejor el engage, esperar enemigos tocados y evitar tirar Execution solo “por probar”.
             </p>
           </div>
           <div style={{ ...cardGridStyle, marginTop: 16 }}>
