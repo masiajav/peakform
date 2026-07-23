@@ -291,8 +291,8 @@ export const HERO_PILLARS: Record<string, HeroPillar> = {
     roleSlug: 'dps',
     updatedAt: '26 de junio de 2026',
     seoTitle: 'Guía de Genji en Overwatch: combos, counters y Dragonblade',
-    seoDescription: 'Guía completa de Genji en Overwatch: cómo usar Dash, Deflect, Dragonblade, presión lateral, counters, errores comunes y consejos para ranked.',
-    h1: 'Genji en Overwatch: guía completa para ranked',
+    seoDescription: 'Guía completa de Genji en Overwatch: combos con Dash, Deflect, Dragonblade, presión lateral, counters, errores comunes y consejos para ranked.',
+    h1: 'Genji en Overwatch: combos, counters y ranked',
     kicker: 'DPS flanker de resets, timing y Dragonblade',
     intro: [
       'Genji es uno de los DPS más populares de Overwatch, pero también uno de los más fáciles de jugar mal. Su movilidad invita a entrar constantemente, pero un buen Genji no entra primero sin información: espera cooldowns, busca objetivos tocados y usa Dash para confirmar, resetear o salir.',
@@ -322,6 +322,10 @@ export const HERO_PILLARS: Record<string, HeroPillar> = {
       {
         title: 'Dash con intención',
         body: 'Swift Strike debe confirmar, resetear o reposicionarte. Usarlo solo para acercarte a un objetivo full vida sin saber cómo sales es la receta clásica para morir primero.',
+      },
+      {
+        title: 'Combos básicos de Genji',
+        body: 'El patrón más fiable es preparar con shuriken, entrar con Dash solo cuando hay baja posible y usar secundario + melee en corto para confirmar. Si no aparece reset, Deflect compra el segundo necesario para salir.',
       },
       {
         title: 'Deflect no es decoración',
@@ -396,6 +400,7 @@ export const HERO_PILLARS: Record<string, HeroPillar> = {
     ],
     faqs: [
       { question: '¿Genji es bueno para ranked?', answer: 'Sí, pero depende mucho del timing. Genji castiga errores y confirma bajas, pero sufre si entra solo contra todos los recursos rivales.' },
+      { question: '¿Cuál es el combo básico de Genji?', answer: 'Pokea primero, entra con Dash cuando el objetivo ya está tocado y confirma en corto con shuriken secundario más melee. Deflect queda para sobrevivir al contraataque o salir si no hay reset.' },
       { question: '¿Cuál es el error más común con Genji?', answer: 'Usar Dash para entrar sin objetivo vulnerable ni plan de salida. Si no hay reset o ayuda del equipo, esa entrada suele convertirse en muerte gratis.' },
       { question: '¿Cómo uso mejor Dragonblade?', answer: 'Prepárala contando cooldowns defensivos. Una Blade después de Suzu, Sleep o Lamp tiene mucho más valor que una Blade lanzada contra todo disponible.' },
       { question: '¿Qué héroes counterean a Genji?', answer: 'Brigitte, Moira, Winston, Symmetra, Mei, Cassidy y Zarya son amenazas habituales por peel, beams, control o capacidad para castigar entradas.' },

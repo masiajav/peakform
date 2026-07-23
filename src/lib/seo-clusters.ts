@@ -1633,8 +1633,227 @@ const CASSIDY_TEAM_COMP: TeamCompPillar = {
   ],
 }
 
+const ZARYA_COUNTER: CounterPillar = {
+  slug: 'zarya',
+  name: 'Zarya',
+  role: 'Tank',
+  updatedAt: '12 de julio de 2026',
+  schemaDate: '2026-07-12',
+  reviewedPatch: 'Season 3, Into the Tiger\'s Den',
+  seoTitle: 'Counter Zarya en Overwatch: cómo jugar contra sus burbujas',
+  seoDescription: 'Aprende cómo counterear a Zarya en Overwatch: mejores picks, cómo no cargar energía, cuándo castigar sus burbujas y errores comunes en ranked.',
+  h1: 'Counter Zarya en Overwatch: cómo jugar contra sus burbujas',
+  intro: [
+    'Zarya gana partidas cuando tu equipo dispara burbujas por reflejo, le regala energía y después intenta pelearle de cerca como si siguiera siendo débil. Counterearla no consiste en ignorarla siempre ni en quemarla siempre: consiste en leer cuántas burbujas le quedan, cuánto daño puede devolver y si su equipo puede acompañar su avance.',
+    'La respuesta más estable suele ser abrir el mapa, presionar objetivos que Zarya no puede proteger a la vez y castigarla cuando sus burbujas ya no compran tiempo. Si le das energía gratis antes de que empiece la pelea, cualquier counter pierde valor.',
+  ],
+  summary: [
+    'No dispares burbujas si no puedes convertir una baja.',
+    'Cuenta sus dos ventanas defensivas antes de comprometer daño.',
+    'Abre ángulos para que no proteja a todos con una sola rotación.',
+    'Castiga cuando camina sin burbujas o con energía baja.',
+  ],
+  threats: [
+    { name: 'Widowmaker', href: '/heroes/widowmaker', danger: 'Obliga a Zarya a respetar líneas largas y amenaza objetivos que sus burbujas no cubren a tiempo.', signal: 'Zarya avanza por main mientras sus supports cruzan una línea abierta.', response: 'No juegues quieto contra el ángulo largo. Fuerza rotaciones cubiertas o manda presión sobre Widow antes de caminar.' },
+    { name: 'Hanzo', href: '/heroes/hanzo', danger: 'Puede presionar desde rango, romper ritmo y castigar al equipo de Zarya sin darle siempre una pelea frontal cómoda.', signal: 'Zarya usa burbuja para cruzar pero su equipo queda agrupado detrás.', response: 'Evita chokes previsibles y no camines en línea recta después de gastar burbujas.' },
+    { name: 'Cassidy', href: '/heroes/cassidy', danger: 'Controla rango medio y castiga a Zarya cuando ya no tiene burbujas para sostener el avance.', signal: 'Zarya ha usado burbuja personal y proyectada para tomar una esquina.', response: 'No sigas avanzando por inercia. Espera recursos o fuerza a Cassidy a recolocarse.' },
+    { name: 'Zenyatta', href: '/heroes/zenyatta', danger: 'Discord Orb acelera mucho el castigo cuando Zarya se queda sin burbujas o camina demasiado abierta.', signal: 'Zarya enseña cuerpo sin cobertura mientras Discord está activo.', response: 'Rompe línea, espera limpieza o juega una esquina antes de absorber daño gratuito.' },
+    { name: 'Tracer', href: '/heroes/tracer', danger: 'Puede ignorar el duelo frontal y forzar recursos de supports, obligando a Zarya a elegir a quién proteger.', signal: 'Tracer aparece en backline mientras Zarya intenta caminar por main.', response: 'No gastes burbuja por ansiedad. Decide si proteges backline o aceleras la pelea frontal con una baja real.' },
+  ],
+  cooldownWindows: [
+    { title: 'Después de dos burbujas', body: 'Es la ventana más clara. Si Zarya usa burbuja personal y proyectada para cruzar, no retrocedas gratis: corta línea de curación, aplica Discord o concentra daño antes de que vuelvan.' },
+    { title: 'Energía baja', body: 'Una Zarya con poca energía no amenaza igual. En vez de regalarle carga disparando burbujas, usa ese tiempo para tomar ángulos y obligarla a caminar más de lo que quiere.' },
+    { title: 'Burbujas usadas para salvar errores', body: 'Si Zarya gasta recursos para rescatar a un DPS mal colocado, su siguiente avance frontal será mucho peor. Cambia el foco al Tank o al support expuesto justo después.' },
+    { title: 'Graviton sin follow-up', body: 'Graviton Surge necesita daño o control alrededor. Si ya has forzado ultimates rivales o tu equipo conserva defensivas, puedes sobrevivir y contraatacar cuando Zarya queda sin amenaza.' },
+  ],
+  adaptations: [
+    'Como Tank, no le regales un duelo corto con energía alta. Juega esquinas, fuerza burbujas y cambia el ritmo cuando queden recursos fuera.',
+    'Como DPS, abre un segundo ángulo. Si todos disparan desde main, Zarya usa una burbuja y compra el mismo espacio cada pelea.',
+    'Como Support, no gastes defensivas antes de que realmente camine. Zarya quiere que retrocedas por miedo antes de comprometer recursos.',
+    'Si tu equipo carga a Zarya cada pelea, comunica una regla simple: no disparar burbuja salvo que haya kill posible.',
+  ],
+  mistakes: [
+    'Disparar la burbuja por reflejo y no conseguir nada.',
+    'Pelear de cerca cuando Zarya ya tiene energía alta.',
+    'Agruparse demasiado y regalar valor a Graviton Surge.',
+    'Ignorar a sus supports mientras ella usa burbujas para comprar tiempo.',
+    'Cambiar a un counter de rango pero seguir jugando el mismo choke frontal.',
+  ],
+  examples: [
+    { title: 'No cargar primero', body: 'Zarya usa burbuja para cruzar King\'s Row. Cassidy y Zenyatta no disparan durante el pico de burbuja; esperan un segundo, aplican Discord y castigan cuando ya no puede seguir caminando.' },
+    { title: 'Presión en backline', body: 'Tracer obliga a Kiriko a usar Suzu lejos de Zarya. La siguiente burbuja ya no salva al Tank y el equipo puede avanzar sin regalar energía.' },
+    { title: 'Castigo después de Graviton', body: 'Zarya lanza Graviton sin que su equipo tenga daño preparado. El equipo sobrevive con defensiva, se separa después y castiga a Zarya cuando ya no tiene burbujas ni ultimate.' },
+  ],
+  checklist: [
+    'Sé cuántas burbujas ha usado Zarya.',
+    'No le doy energía si no hay baja posible.',
+    'Tengo un ángulo que no sea main.',
+    'Castigo después de burbujas, no durante la parte gratis.',
+    'Respeto Graviton sin jugar todo el equipo apilado.',
+  ],
+  faqs: [
+    { question: '¿Cuál es el mejor counter de Zarya?', answer: 'No hay uno único. Widowmaker, Hanzo, Cassidy y Zenyatta castigan desde rango; Tracer puede forzar recursos lejos de ella. Lo importante es no cargarla gratis.' },
+    { question: '¿Debo romper las burbujas de Zarya?', answer: 'Solo si vas a conseguir una baja o cortar una ventana importante. Romper burbujas sin objetivo suele darle energía y hacer la siguiente pelea más difícil.' },
+    { question: '¿Cómo juego Tank contra Zarya?', answer: 'Evita duelos cortos cuando tiene energía alta, juega esquinas y fuerza burbujas antes de comprometerte. Si camina sin recursos, ahí sí puedes castigar.' },
+    { question: '¿Por qué perdemos aunque llevemos counters?', answer: 'Porque muchos equipos cambian de héroe pero siguen disparando burbujas, peleando en el mismo choke y dejando que Zarya marque el ritmo.' },
+  ],
+  links: [
+    { href: '/heroes/zarya', label: 'Guía de Zarya' },
+    { href: '/counters/tracer', label: 'Counters de Tracer' },
+    { href: '/guides/cuando-cambiar-de-heroe-overwatch', label: 'Cuándo cambiar de héroe' },
+    { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Revisar cooldowns' },
+    { href: '/experts', label: 'Revisar una VOD contra Zarya' },
+  ],
+}
+
+const TRACER_COUNTER: CounterPillar = {
+  slug: 'tracer',
+  name: 'Tracer',
+  role: 'DPS',
+  updatedAt: '12 de julio de 2026',
+  schemaDate: '2026-07-12',
+  reviewedPatch: 'Season 3, Into the Tiger\'s Den',
+  seoTitle: 'Counter Tracer en Overwatch: cómo frenarla sin perseguirla',
+  seoDescription: 'Aprende cómo counterear a Tracer en Overwatch: mejores picks, cómo forzar Recall, proteger backline y evitar errores comunes contra flankers.',
+  h1: 'Counter Tracer en Overwatch: cómo frenarla sin perseguirla',
+  intro: [
+    'Tracer castiga equipos que miran tarde, gastan cooldowns por ansiedad y dejan supports solos. Su counter no es perseguirla por todo el mapa; es quitarle duelos limpios, forzar Recall antes de que consiga valor y convertir sus rutas en información para tu equipo.',
+    'Si dos jugadores abandonan la pelea principal para correr detrás de Tracer, muchas veces ella ya ganó. La respuesta buena es corta, coordinada y con recursos guardados para el momento en que realmente se compromete.',
+  ],
+  summary: [
+    'Juega a distancia de ayuda con tu backline.',
+    'Fuerza Recall antes de gastar todos tus recursos.',
+    'No persigas si te alejas del objetivo o de tu equipo.',
+    'Prepara sus rutas habituales antes de que aparezca.',
+  ],
+  threats: [
+    { name: 'Brigitte', href: '/heroes/brigitte', danger: 'Reduce mucho el valor del duel contra supports y castiga a Tracer cuando se acerca sin Recall.', signal: 'Tracer busca al mismo support cada pelea.', response: 'No entres en Inspire sin ventaja. Fuerza packs o boop antes de comprometerte.' },
+    { name: 'Torbjörn', href: '/heroes/torbjorn', danger: 'La torreta marca rutas y obliga a Tracer a gastar tiempo limpiando o entrando por zonas peores.', signal: 'Tracer repite flanco por health pack o lateral corto.', response: 'Rompe torreta antes del engage o cambia la ruta; pelear con torreta viva reduce mucho tu margen.' },
+    { name: 'Cassidy', href: '/heroes/cassidy', danger: 'Controla rango medio y castiga entradas rectas si Tracer ya gastó blinks.', signal: 'Tracer usa dos blinks para llegar al objetivo.', response: 'No gastes toda la movilidad para entrar. Conserva salida y no pelees en línea recta.' },
+    { name: 'Mei', href: '/heroes/mei', danger: 'Puede cortar rutas, ralentizar el duelo y convertir un blink agresivo en una salida incómoda.', signal: 'Tracer entra por una puerta o pasillo estrecho.', response: 'Evita espacios cerrados y no pelees cuando Ice Wall puede separar tu retirada.' },
+    { name: 'Moira', href: '/heroes/moira', danger: 'Sobrevive bien al duelo, aplica daño fácil y puede negar una entrada con Fade si no la fuerzas antes.', signal: 'Moira conserva Fade mientras Tracer intenta commit.', response: 'Fuerza Fade primero o cambia de objetivo; perseguirla con todo disponible suele ser pérdida de tiempo.' },
+  ],
+  cooldownWindows: [
+    { title: 'Recall usado', body: 'Es la señal más importante. Si Tracer ya usó Recall, cualquier daño posterior pesa mucho más. No abandones el foco: comunica y niega su siguiente entrada.' },
+    { title: 'Pocos blinks', body: 'Tracer con un blink o menos no puede corregir igual. Cierra la distancia de ayuda, dispara desde dos ángulos y evita que llegue gratis al health pack.' },
+    { title: 'Pulse Bomb fallada', body: 'Después de fallar Pulse, suele buscar valor con presión normal. No regales una muerte por relajarte; conserva el mismo plan de peel.' },
+    { title: 'Ruta leída', body: 'Si ya sabes por dónde entra, no esperes a recibir daño. Mira la puerta, coloca torreta, juega cerca del support o prepara un boop.' },
+  ],
+  adaptations: [
+    'Como Support, juega cerca de cobertura y de una respuesta aliada. No necesitas pegarte a tu equipo, pero sí poder recibir ayuda.',
+    'Como DPS, no abandones el ángulo principal durante diez segundos. Un giro corto para forzar Recall suele valer más que perseguir.',
+    'Como Tank, toma espacio mientras Tracer está lejos, pero vuelve a cortar su salida si está acosando a tus supports cada pelea.',
+    'Si Tracer siempre vive con health packs, cambia tu posición para controlar esa ruta o forzarla a entrar por otro lado.',
+  ],
+  mistakes: [
+    'Perseguir a Tracer hasta perder la pelea principal.',
+    'Gastar todos los cooldowns antes de que use Recall.',
+    'Dejar a Ana, Zenyatta o Baptiste solos en el mismo sitio cada pelea.',
+    'No comunicar por qué ruta entra.',
+    'Cambiar de héroe pero seguir jugando aislado.',
+  ],
+  examples: [
+    { title: 'Recall primero', body: 'Tracer entra sobre Ana. Brigitte no persigue: boopea, Ana mantiene esquina y Cassidy añade dos disparos. Recall sale temprano y Tracer ya no puede pelear la siguiente ventana.' },
+    { title: 'Torreta útil', body: 'Torbjörn no coloca la torreta en medio de main; la pone mirando el lateral que Tracer repite. Aunque no la mate, obliga a revelar la entrada y reduce su sorpresa.' },
+    { title: 'Sin persecución larga', body: 'Moira fuerza Recall y Tracer se va al health pack. En vez de seguirla, Moira vuelve a su equipo y gana la pelea frontal con ventaja de recursos.' },
+  ],
+  checklist: [
+    'Sé por dónde entra Tracer.',
+    'No estoy jugando aislado sin salida.',
+    'Forzamos Recall antes del commit final.',
+    'Nadie persigue hasta perder objetivo.',
+    'El support vulnerable tiene una respuesta cercana.',
+  ],
+  faqs: [
+    { question: '¿Cuál es el mejor counter de Tracer?', answer: 'Brigitte, Torbjörn, Cassidy, Mei y Moira son respuestas muy útiles, pero el mejor counter real es jugar cerca de ayuda y forzar Recall pronto.' },
+    { question: '¿Tengo que perseguir a Tracer?', answer: 'No. Persíguela solo si la baja es segura y no abandonas una posición importante. Normalmente basta con forzar Recall y volver a la pelea.' },
+    { question: '¿Cómo sobrevivo como support contra Tracer?', answer: 'Juega con cobertura, cambia de posición, conserva movilidad o peel y no gastes tu recurso defensivo en el primer disparo si Tracer aún no se comprometió.' },
+    { question: '¿Tracer se counterea con aim?', answer: 'La puntería ayuda, pero no basta. Si la ruta es limpia y tus supports están solos, Tracer puede ganar valor aunque no muera nadie al principio.' },
+  ],
+  links: [
+    { href: '/heroes/tracer', label: 'Guía de Tracer' },
+    { href: '/counters/genji', label: 'Counters de Genji' },
+    { href: '/guides/cuando-cambiar-de-heroe-overwatch', label: 'Cuándo cambiar de héroe' },
+    { href: '/roles/support', label: 'Guías de Support' },
+    { href: '/experts', label: 'Revisar una VOD contra Tracer' },
+  ],
+}
+
+const DOMINA_COUNTER: CounterPillar = {
+  slug: 'domina',
+  name: 'Domina',
+  role: 'Tank',
+  updatedAt: '12 de julio de 2026',
+  schemaDate: '2026-07-12',
+  reviewedPatch: 'Season 3, Into the Tiger\'s Den',
+  seoTitle: 'Counter Domina en Overwatch: cómo jugar contra su presión',
+  seoDescription: 'Aprende cómo counterear a Domina en Overwatch: mejores picks, cómo abrir ángulos, castigar su presión frontal y evitar errores comunes.',
+  h1: 'Counter Domina en Overwatch: cómo jugar contra su presión',
+  intro: [
+    'Domina castiga equipos que aceptan una pelea frontal lenta sin abrir ángulos ni forzar recursos. Si todo el equipo mira el mismo punto, ella puede marcar el ritmo, comprar espacio y obligarte a gastar defensivas antes de que su equipo se comprometa.',
+    'La respuesta pasa por no regalarle una pelea cómoda. Abre el mapa, presiónala desde distancias distintas y castiga cuando su equipo no puede acompañar su avance. Como contra cualquier Tank de presión, el objetivo no es ganar el duelo por orgullo: es romper su timing.',
+  ],
+  summary: [
+    'No pelees siempre por la misma puerta frontal.',
+    'Abre ángulos para que Domina no controle toda la pelea.',
+    'Fuerza recursos antes de comprometer ultimates o engages.',
+    'Castiga cuando avanza más rápido que sus supports.',
+  ],
+  threats: [
+    { name: 'Winston', href: '/heroes/winston', danger: 'Puede saltar por encima de la presión frontal y obligar a la backline de Domina a jugar la pelea en otro sitio.', signal: 'Domina camina por main mientras sus supports juegan atrás.', response: 'No abandones a tu backline. Si Winston salta, decide rápido si lo castigas o si aceleras la pelea frontal.' },
+    { name: 'Ramattra', href: '/heroes/ramattra', danger: 'Puede alternar poke y forma Nemesis para pelear ventanas sin aceptar siempre el mismo rango.', signal: 'Domina intenta fijar una esquina corta sin recursos enemigos gastados.', response: 'Respeta el cambio de forma y evita quedarte sin cobertura durante Nemesis.' },
+    { name: 'Bastion', href: '/heroes/bastion', danger: 'Castiga avances predecibles cuando Domina no tiene cobertura o ya gastó recursos defensivos.', signal: 'Domina cruza una zona abierta o empuja sin haber visto la configuración.', response: 'Espera la transformación o rota antes de caminar. No conviertas su cooldown en tu pelea perdida.' },
+    { name: 'Sojourn', href: '/heroes/sojourn', danger: 'Presiona desde rango medio, cambia ángulo y castiga objetivos que quedan expuestos detrás de Domina.', signal: 'Sojourn carga rail mientras Domina ocupa main.', response: 'No dejes a tu equipo en línea recta. Obliga a Sojourn a moverse antes de comprometerte.' },
+    { name: 'Lúcio', href: '/heroes/lucio', danger: 'Permite acelerar o kitear, lo que evita que Domina controle el ritmo de la pelea a su distancia favorita.', signal: 'El equipo rival guarda velocidad para cruzar o salir de tu engage.', response: 'Fuerza Amp It Up antes de comprometer todo o corta la ruta a la que quieren escapar.' },
+  ],
+  cooldownWindows: [
+    { title: 'Avance sin backline', body: 'Si Domina se adelanta más que sus supports, no hace falta matarla al instante. Corta curación, presiona laterales y fuerza una retirada mala.' },
+    { title: 'Rival abre segundo ángulo', body: 'Cuando un DPS aparece en lateral, Domina ya no puede proteger todo con presencia frontal. Ese es el momento para cambiar foco o forzar recursos.' },
+    { title: 'Cooldown defensivo gastado', body: 'No inviertas ultimates antes de ver su recurso clave. Espera a que lo use para cruzar o salvar a un aliado y castiga la segunda ventana.' },
+    { title: 'Rotación por choke', body: 'Domina quiere que dudes en la puerta. Si tu equipo ya eligió ruta, cruza con velocidad o cobertura; quedarse a mitad es lo que más valor le da.' },
+  ],
+  adaptations: [
+    'Como Tank, no aceptes siempre el duelo frontal. Cambia ruta, amenaza backline o fuerza que Domina se gire antes de gastar tu engage.',
+    'Como DPS, toma un ángulo que obligue a mirar fuera de main. Si disparas desde detrás de tu Tank, le facilitas la lectura.',
+    'Como Support, guarda recursos para la ventana real. Si los gastas por poke, Domina puede acelerar después sin respuesta.',
+    'Si el rival juega muy compacto alrededor de Domina, castiga rotaciones y cooldowns antes de buscar una eliminación directa.',
+  ],
+  mistakes: [
+    'Entrar por el mismo choke cada pelea.',
+    'Invertir ultimates antes de forzar recursos defensivos.',
+    'Disparar solo al Tank mientras sus supports juegan gratis.',
+    'No abrir ángulos y esperar que el duelo frontal se gane solo.',
+    'Retroceder demasiado pronto sin hacerle pagar el espacio.',
+  ],
+  examples: [
+    { title: 'Dive sobre backline', body: 'Winston no pelea a Domina de frente. Salta sobre el support que sostiene la presión y fuerza una respuesta; Domina debe girarse o seguir avanzando sin curación cómoda.' },
+    { title: 'Bastion con paciencia', body: 'Bastion espera a que Domina cruce una esquina y gaste su recurso defensivo. La configuración entra después, no antes, y convierte el avance en retirada.' },
+    { title: 'Velocidad para salir', body: 'Lúcio acelera la salida del equipo cuando Domina intenta fijar el brawl. En vez de tradear en su rango, el equipo resetea la distancia y vuelve con mejores ángulos.' },
+  ],
+  checklist: [
+    'No estamos entrando siempre por main.',
+    'Hay al menos un segundo ángulo activo.',
+    'Sabemos qué recurso defensivo queremos forzar.',
+    'No gastamos ultimate contra todos sus recursos disponibles.',
+    'Castigamos si Domina avanza sin backline.',
+  ],
+  faqs: [
+    { question: '¿Cuál es el mejor counter de Domina?', answer: 'Winston, Ramattra, Bastion, Sojourn y Lúcio son respuestas útiles por movilidad, rango, burst o control del ritmo. El mapa decide cuál encaja mejor.' },
+    { question: '¿Cómo se juega contra Domina como Tank?', answer: 'No aceptes siempre el duelo frontal. Amenaza otra zona, fuerza recursos y castiga cuando se adelanta más que su equipo.' },
+    { question: '¿Por qué Domina parece inmortal?', answer: 'Normalmente porque el equipo dispara al Tank desde un solo ángulo mientras sus supports están libres. Abre el mapa y corta recursos antes de invertir todo.' },
+    { question: '¿Tengo que cambiar de héroe contra Domina?', answer: 'Cambia si tu composición no puede abrir ángulos ni sobrevivir a su presión. Antes de cambiar, prueba una ruta diferente y fuerza cooldowns con más orden.' },
+  ],
+  links: [
+    { href: '/heroes/domina', label: 'Guía de Domina' },
+    { href: '/counters/zarya', label: 'Counters de Zarya' },
+    { href: '/team-comps/winston', label: 'Composiciones de dive' },
+    { href: '/guides/como-elegir-composicion-dive-poke-brawl', label: 'Elegir composición' },
+    { href: '/experts', label: 'Revisar una VOD contra Domina' },
+  ],
+}
+
 export function getCounterPillar(slug: string) {
-  return [SHION_COUNTER, ANA_COUNTER, GENJI_COUNTER, KIRIKO_COUNTER, REINHARDT_COUNTER, DVA_COUNTER, WINSTON_COUNTER, CASSIDY_COUNTER].find(pillar => pillar.slug === slug) ?? null
+  return [SHION_COUNTER, ANA_COUNTER, GENJI_COUNTER, KIRIKO_COUNTER, REINHARDT_COUNTER, DVA_COUNTER, WINSTON_COUNTER, CASSIDY_COUNTER, ZARYA_COUNTER, TRACER_COUNTER, DOMINA_COUNTER].find(pillar => pillar.slug === slug) ?? null
 }
 
 export function getTeamCompPillar(slug: string) {
