@@ -10,6 +10,7 @@ import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 import { robotsForQuality, topicQualityDecision } from '@/lib/indexing-policy'
 import { getHeroPillar, type HeroPillar } from '@/lib/hero-pillars'
 import { getHeroPortrait } from '@/lib/overwatch-hero-portraits'
+import { safeTopicHref } from '@/lib/topic-links'
 
 const SHION_SLUG = 'shion'
 const SHION_IMAGE = '/heroes/shion.png'
@@ -390,7 +391,7 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
           <h2 style={headingStyle}>Más contenido relacionado con {pillar.name}</h2>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
             {pillar.links.map(link => (
-              <Link key={link.href} href={link.href} className={link.href === '/experts' ? 'btn btn-primary btn-sm' : 'btn btn-secondary btn-sm'}>
+              <Link key={link.href} href={safeTopicHref(link.href)} className={link.href === '/experts' ? 'btn btn-primary btn-sm' : 'btn btn-secondary btn-sm'}>
                 {link.label}
               </Link>
             ))}
@@ -586,7 +587,7 @@ function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
           </p>
           <div style={cardGridStyle}>
             {shionCounters.map(counter => (
-              <Link key={counter.name} href={counter.href} style={{ textDecoration: 'none' }}>
+              <Link key={counter.name} href={safeTopicHref(counter.href)} style={{ textDecoration: 'none' }}>
                 <StatusCard title={counter.name} body={counter.body} badge="Counter inicial" />
               </Link>
             ))}

@@ -9,7 +9,7 @@ import { formatPrice } from '@/types'
 import { getCounterHero } from '@/lib/overwatch-counters'
 import { buildHeroSeoProfile, ROLE_SEO } from '@/lib/overwatch-seo'
 import { guideEditorial } from '@/lib/guide-editorial'
-import { heroTopicHref } from '@/lib/topic-links'
+import { heroTopicHref, safeTopicHref } from '@/lib/topic-links'
 
 export default async function TopicArchivePage({
   kind,
@@ -228,7 +228,7 @@ export default async function TopicArchivePage({
               </div>
               <div style={{ display: 'grid', gap: 8 }}>
                 {topicContent.links.map(link => (
-                  <Link key={link.href} href={link.href} style={{ color: 'var(--text2)', fontSize: 13, textDecoration: 'none', borderTop: '1px solid var(--border)', paddingTop: 8 }}>
+                  <Link key={link.href} href={safeTopicHref(link.href)} style={{ color: 'var(--text2)', fontSize: 13, textDecoration: 'none', borderTop: '1px solid var(--border)', paddingTop: 8 }}>
                     {link.label}
                   </Link>
                 ))}

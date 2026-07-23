@@ -14,6 +14,7 @@ import {
   topicQualityDecision,
   type PageQualityDecision,
 } from '@/lib/indexing-policy'
+import { heroTopicHref } from '@/lib/topic-links'
 
 type AuditRow = {
   url: string
@@ -77,13 +78,13 @@ export default async function QualityAuditPage() {
 
   const heroRows: AuditRow[] = [
     ...COUNTER_HEROES.map(hero => ({
-      url: `/heroes/${hero.slug}`,
+      url: heroTopicHref(hero.slug),
       type: 'hero',
       title: hero.name,
       decision: topicQualityDecision('hero', hero.slug),
     })),
     ...UPCOMING_HERO_SLUGS.map(slug => ({
-      url: `/heroes/${slug}`,
+      url: heroTopicHref(slug),
       type: 'hero_pre_release',
       title: slug.toUpperCase(),
       decision: topicQualityDecision('hero', slug),
