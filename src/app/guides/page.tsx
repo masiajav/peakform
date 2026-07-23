@@ -135,6 +135,34 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
       answer: 'No. La página resume qué aprender del vídeo, cómo aplicarlo y qué revisar después en tus propias partidas.',
     },
   ]
+  const guideIntentBlocks = [
+    {
+      title: 'Mejorar con un héroe',
+      body: 'Busca primero tu pick principal y revisa si el problema está en posicionamiento, cooldowns o target focus. Para Genji, Ana, Shion o Tracer conviene mirar también counters y composiciones.',
+      links: [
+        { href: '/heroes/genji', label: 'Genji combos' },
+        { href: '/heroes/shion', label: 'Shion ranked' },
+        { href: '/heroes/ana', label: 'Ana' },
+      ],
+    },
+    {
+      title: 'Jugar mejor un matchup',
+      body: 'Si una partida se repite siempre igual, no empieces cambiando por frustración. Mira qué cooldown debes forzar, qué ruta debes negar y cuándo merece la pena cambiar de pick.',
+      links: [
+        { href: '/counters/zarya', label: 'Counter Zarya' },
+        { href: '/counters/tracer', label: 'Counter Tracer' },
+        { href: '/counters/domina', label: 'Counter Domina' },
+      ],
+    },
+    {
+      title: 'Ordenar tu equipo',
+      body: 'Las composiciones sirven para hablar el mismo idioma: dive, poke, brawl, rush, peel y win condition. No hace falta copiar cinco héroes perfectos; hace falta un plan común.',
+      links: [
+        { href: '/team-comps', label: 'Composiciones' },
+        { href: '/guides/como-elegir-composicion-dive-poke-brawl', label: 'Dive, poke o brawl' },
+      ],
+    },
+  ]
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <JsonLd data={collectionJsonLd} />
@@ -199,6 +227,28 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
             Busca por problema, no solo por héroe: si mueres demasiado revisa posicionamiento; si no conviertes daño en bajas, revisa ángulos y follow-up; si pierdes contra un héroe concreto, entra en counters.
           </p>
         </section>
+
+        {!hasFilters && (
+          <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(245px, 1fr))', gap: 14, marginBottom: 24 }}>
+            {guideIntentBlocks.map(block => (
+              <article key={block.title} className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 18 }}>
+                <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 25, letterSpacing: 0.8, margin: '0 0 8px' }}>
+                  {block.title}
+                </h2>
+                <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.6, margin: '0 0 14px' }}>
+                  {block.body}
+                </p>
+                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                  {block.links.map(link => (
+                    <Link key={link.href} href={link.href} className="btn btn-secondary btn-sm">
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </section>
+        )}
 
         <AdSlot variant="leaderboard" slot="guides-top-leaderboard" allowAds={!hasFilters} />
 

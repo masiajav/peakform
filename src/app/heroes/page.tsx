@@ -11,8 +11,8 @@ import { UPCOMING_HERO_SLUGS } from '@/lib/indexing-policy'
 import { buildMetadata, absoluteUrl, SITE_NAME } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Héroes de Overwatch: guías, roles, counters y composiciones',
-  description: 'Explora todos los héroes de Overwatch por rol: Tank, DPS y Support. Abre guías, counters, composiciones y consejos para mejorar con cada héroe.',
+  title: 'Guía de héroes en Overwatch: roles, counters y picks ranked',
+  description: 'Explora héroes de Overwatch por rol: Tank, DPS y Support. Encuentra guías, counters, composiciones, picks para ranked y consejos por matchup.',
   path: '/heroes',
 })
 
@@ -29,6 +29,41 @@ const heroesFaq = [
   {
     question: '¿Dónde veo counters de cada héroe?',
     answer: 'Desde cada página de héroe puedes abrir sus counters. También puedes usar el hub de counters para comparar matchups concretos.',
+  },
+  {
+    question: '¿Debo elegir héroe por tier list?',
+    answer: 'Úsala como orientación, no como orden obligatorio. En ranked suele importar más dominar tu pick, entender el mapa y reconocer cuándo el matchup ya no te deja aportar.',
+  },
+]
+
+const heroIntentLinks = [
+  {
+    title: 'Quiero aprender un héroe nuevo',
+    body: 'Empieza por su rol, su plan de pelea y dos errores claros que evitar. Para héroes recientes, revisa primero Shion y Sierra.',
+    links: [
+      { href: '/heroes/shion', label: 'Shion' },
+      { href: '/heroes/sierra', label: 'Sierra' },
+      { href: '/guides', label: 'Guías de héroes' },
+    ],
+  },
+  {
+    title: 'Quiero saber si mi pick encaja',
+    body: 'Mira counters y composiciones antes de cambiar por tilt. A veces el problema no es el héroe: es timing, ruta o falta de follow-up.',
+    links: [
+      { href: '/counters', label: 'Counters' },
+      { href: '/team-comps', label: 'Composiciones' },
+      { href: '/guides/cuando-cambiar-de-heroe-overwatch', label: 'Cuándo cambiar' },
+    ],
+  },
+  {
+    title: 'Quiero subir en ranked',
+    body: 'Elige un pool corto, repite mapas y revisa VODs buscando patrones. Mejor tres picks bien entendidos que diez héroes jugados a medias.',
+    links: [
+      { href: '/guides/como-mejorar-en-overwatch', label: 'Método para mejorar' },
+      { href: '/roles/tank', label: 'Tank' },
+      { href: '/roles/dps', label: 'DPS' },
+      { href: '/roles/support', label: 'Support' },
+    ],
   },
 ]
 
@@ -72,8 +107,31 @@ export default function HeroesIndexPage() {
           <div className="eyebrow">CÓMO USAR ESTE HUB</div>
           <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 28, letterSpacing: 1, margin: '0 0 8px' }}>ELIGE HÉROE, PERO PIENSA EN FUNCIÓN</h2>
           <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0 }}>
-            Antes de copiar un pick de tier list, revisa qué trabajo cumple dentro del equipo: el Tank crea espacio y marca el engage; el DPS abre ángulos y convierte ventajas; el Support sostiene recursos clave y niega amenazas.
+            Antes de copiar un pick de tier list, revisa qué trabajo cumple dentro del equipo: el Tank crea espacio y marca el engage; el DPS abre ángulos y convierte ventajas; el Support sostiene recursos clave y niega amenazas. Un buen pick no es solo fuerte en abstracto: tiene que encajar con mapa, composición y matchup.
           </p>
+        </section>
+
+        <section style={{ marginBottom: 34 }}>
+          <div className="eyebrow">RUTAS RÁPIDAS</div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 14, marginTop: 12 }}>
+            {heroIntentLinks.map(item => (
+              <article key={item.title} className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 18 }}>
+                <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 25, letterSpacing: 0.8, margin: '0 0 8px' }}>
+                  {item.title}
+                </h2>
+                <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.6, margin: '0 0 14px' }}>
+                  {item.body}
+                </p>
+                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                  {item.links.map(link => (
+                    <Link key={link.href} href={link.href} className="btn btn-secondary btn-sm">
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
         </section>
         <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 34 }}>
           {roleOrder.map(role => (

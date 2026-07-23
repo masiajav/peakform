@@ -42,6 +42,28 @@ export default function TeamCompsPage() {
       answer: 'Sí, como punto de partida. En ranked importa más entender cómo quiere ganar tu equipo que copiar cinco héroes sin un plan común.',
     },
   ]
+  const compStyles = [
+    {
+      name: 'Dive',
+      body: 'Busca una entrada coordinada sobre backline o high ground. Funciona cuando Winston, D.Va, Genji, Tracer o Kiriko atacan la misma ventana en vez de elegir duelos separados.',
+      href: '/team-comps/winston',
+    },
+    {
+      name: 'Poke',
+      body: 'Gana desde rango y obliga al rival a cruzar zonas incómodas. Sigma, Cassidy, Ashe, Ana o Kiriko suelen encajar si el mapa permite sightlines y off-angles seguros.',
+      href: '/team-comps/cassidy',
+    },
+    {
+      name: 'Brawl / Rush',
+      body: 'Quiere pelear cerca, usar speed o recursos defensivos y romper una esquina rápido. Reinhardt, Junker Queen, Mei, Lúcio y Kiriko funcionan cuando el equipo entra junto.',
+      href: '/team-comps/reinhardt',
+    },
+    {
+      name: 'Peel / anti-dive',
+      body: 'No siempre necesitas más daño. A veces la win condition es que Ana, Zenyatta o el DPS principal puedan jugar vivos mientras niegas el dive rival.',
+      href: '/counters/tracer',
+    },
+  ]
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <JsonLd data={itemListJsonLd} />
@@ -66,6 +88,22 @@ export default function TeamCompsPage() {
           <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0 }}>
             En 5v5 el timing individual pesa más. En 6v6 hay más peel, más mitigación y menos ventanas individuales, así que simplificar el plan suele funcionar mejor que buscar una composición perfecta.
           </p>
+        </section>
+
+        <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(235px, 1fr))', gap: 14, marginBottom: 20 }}>
+          {compStyles.map(style => (
+            <Link key={style.name} href={style.href} style={{ textDecoration: 'none' }}>
+              <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 18, height: '100%' }}>
+                <div className="eyebrow">ESTILO</div>
+                <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 28, letterSpacing: 0.9, margin: '0 0 8px' }}>
+                  {style.name}
+                </h2>
+                <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>
+                  {style.body}
+                </p>
+              </article>
+            </Link>
+          ))}
         </section>
 
         <section style={{ background: 'var(--surface2)', border: '1px solid var(--border)', padding: 18, marginBottom: 20 }}>
