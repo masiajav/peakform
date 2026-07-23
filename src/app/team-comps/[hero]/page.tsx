@@ -14,6 +14,7 @@ import {
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
 import { robotsForQuality, topicQualityDecision } from '@/lib/indexing-policy'
+import { heroTopicHref } from '@/lib/topic-links'
 import TeamCompPillarPage from '@/components/content/TeamCompPillarPage'
 import { getTeamCompPillar } from '@/lib/seo-clusters'
 
@@ -101,7 +102,7 @@ export default function TeamCompHeroPage({ params }: { params: { hero: string } 
               <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', margin: 0 }}>Enlaces útiles</h2>
               <Link href="/team-comps">Todas las composiciones</Link>
               <Link href={`/counters/${hero.slug}`}>Counters de {hero.name}</Link>
-              <Link href={`/heroes/${hero.slug}`}>Guía de {hero.name}</Link>
+              <Link href={heroTopicHref(hero.slug)}>Guía de {hero.name}</Link>
               <Link href={`/guides/${hero.guideSlug}`}>Guía en vídeo</Link>
             </div>
           </aside>

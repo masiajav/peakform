@@ -9,6 +9,7 @@ import { ROLE_LABELS } from '@/lib/content'
 import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 import { buildHeroSeoProfile, counterPageDescription, counterPageTitle } from '@/lib/overwatch-seo'
 import { robotsForQuality, topicQualityDecision } from '@/lib/indexing-policy'
+import { heroTopicHref } from '@/lib/topic-links'
 import CounterPillarPage from '@/components/content/CounterPillarPage'
 import { getCounterPillar } from '@/lib/seo-clusters'
 
@@ -55,7 +56,7 @@ export default function CounterHeroPage({ params }: { params: { hero: string } }
         '@type': 'ListItem',
         position: index + 1,
         name: counter.name,
-        url: absoluteUrl(`/heroes/${counter.slug}`),
+        url: absoluteUrl(heroTopicHref(counter.slug)),
       })),
     },
   }
@@ -98,7 +99,7 @@ export default function CounterHeroPage({ params }: { params: { hero: string } }
               <div className="eyebrow">RESUMEN RÁPIDO</div>
               <p>{profile.intent}</p>
               <div className="counter-seo-facts">
-                <Link href={`/heroes/${hero.slug}`}>Página de {hero.name}</Link>
+                <Link href={heroTopicHref(hero.slug)}>Página de {hero.name}</Link>
                 <Link href={`/roles/${hero.role}`}>Guías de {roleLabel}</Link>
                 <Link href={`/guides/${hero.guideSlug}`}>Guía en vídeo</Link>
               </div>
@@ -143,7 +144,7 @@ export default function CounterHeroPage({ params }: { params: { hero: string } }
               <div className="eyebrow">ENLACES INTERNOS</div>
               <Link href="/counters">Todos los counters</Link>
               <Link href={`/team-comps/${hero.slug}`}>Composiciones de {hero.name}</Link>
-              <Link href={`/heroes/${hero.slug}`}>Guía pilar de {hero.name}</Link>
+              <Link href={heroTopicHref(hero.slug)}>Guía de {hero.name}</Link>
               <Link href={`/roles/${hero.role}`}>Aprender {roleLabel}</Link>
               <Link href="/guides">Todas las guías</Link>
             </div>
@@ -168,7 +169,7 @@ export default function CounterHeroPage({ params }: { params: { hero: string } }
 
 function CounterCard({ item }: { item: CounterPick }) {
   return (
-    <Link href={`/heroes/${item.slug}`} className="counter-matchup">
+    <Link href={heroTopicHref(item.slug)} className="counter-matchup">
       <strong>{item.name}</strong>
       <span>{item.reason}</span>
     </Link>

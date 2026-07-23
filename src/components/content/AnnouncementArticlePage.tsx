@@ -6,6 +6,7 @@ import JsonLd from '@/components/content/JsonLd'
 import SponsoredBlock from '@/components/content/SponsoredBlock'
 import { announcementPath, articleDescription, ROLE_LABELS, topicLabel, type AnnouncementContent } from '@/lib/content'
 import { absoluteUrl, readingTime, SITE_NAME } from '@/lib/seo'
+import { heroTopicHref } from '@/lib/topic-links'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 
@@ -94,7 +95,7 @@ export default async function AnnouncementArticlePage({
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 14 }}>
             {article.content_type === 'patch_note' && <Topic href="/patch-notes" label="Patch notes" accent />}
             {article.role && <Topic href={`/roles/${article.role}`} label={ROLE_LABELS[article.role]} />}
-            {article.hero && <Topic href={`/heroes/${article.hero}`} label={topicLabel(article.hero)} />}
+            {article.hero && <Topic href={heroTopicHref(article.hero)} label={topicLabel(article.hero)} />}
             {article.map && <Topic href={`/maps/${article.map}`} label={topicLabel(article.map)} />}
           </div>
           <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(30px, 5vw, 52px)', letterSpacing: 1, color: 'var(--text)', margin: '0 0 16px', lineHeight: 1.05 }}>

@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import { COUNTER_HEROES, type CounterHero, type CounterRole } from '@/lib/overwatch-counters'
+import { heroTopicHref } from '@/lib/topic-links'
 
 const ROLE_LABELS: Record<CounterRole | 'all', string> = {
   all: 'Todos',
@@ -88,9 +89,9 @@ export default function CounterExplorer() {
         <section className="counter-related">
           <h3>Guías relacionadas</h3>
           <div>
-            <Link href={`/heroes/${selected.slug}`}>Página de {selected.name}</Link>
+            <Link href={heroTopicHref(selected.slug)}>Página de {selected.name}</Link>
             {related.map(hero => (
-              <Link key={hero.slug} href={`/heroes/${hero.slug}`}>
+              <Link key={hero.slug} href={heroTopicHref(hero.slug)}>
                 {hero.name}
               </Link>
             ))}
@@ -107,7 +108,7 @@ function CounterList({ title, items }: { title: string; items: { slug: string; n
       <h3>{title}</h3>
       <div>
         {items.map(item => (
-          <Link key={item.slug} href={`/heroes/${item.slug}`} className="counter-matchup">
+          <Link key={item.slug} href={heroTopicHref(item.slug)} className="counter-matchup">
             <strong>{item.name}</strong>
             <span>{item.reason}</span>
           </Link>

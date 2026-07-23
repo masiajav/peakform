@@ -9,6 +9,7 @@ import { formatPrice } from '@/types'
 import { getCounterHero } from '@/lib/overwatch-counters'
 import { buildHeroSeoProfile, ROLE_SEO } from '@/lib/overwatch-seo'
 import { guideEditorial } from '@/lib/guide-editorial'
+import { heroTopicHref } from '@/lib/topic-links'
 
 export default async function TopicArchivePage({
   kind,
@@ -145,7 +146,7 @@ export default async function TopicArchivePage({
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
               {counterHero.counters.slice(0, 4).map(counter => (
-                <Link key={counter.slug} href={`/heroes/${counter.slug}`} style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', color: 'var(--text2)', padding: 14, textDecoration: 'none' }}>
+                <Link key={counter.slug} href={heroTopicHref(counter.slug)} style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', color: 'var(--text2)', padding: 14, textDecoration: 'none' }}>
                   <strong style={{ color: 'var(--text)', display: 'block', marginBottom: 5 }}>{counter.name}</strong>
                   <span style={{ fontSize: 12, lineHeight: 1.5 }}>{counter.reason}</span>
                 </Link>

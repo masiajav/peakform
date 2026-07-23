@@ -12,6 +12,7 @@ import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { guideEditorial } from '@/lib/guide-editorial'
 import { COUNTER_HEROES, type CounterHero, type CounterRole } from '@/lib/overwatch-counters'
 import { getHeroPortrait } from '@/lib/overwatch-hero-portraits'
+import { heroTopicHref } from '@/lib/topic-links'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
 import { formatPrice } from '@/types'
 
@@ -305,7 +306,7 @@ function HomeHeroCard({ hero, compact = false, priority = false }: { hero: Count
   const portrait = getHeroPortrait(hero.slug)
 
   return (
-    <Link href={`/heroes/${hero.slug}`} className={`home-hero-card${compact ? ' is-compact' : ''}`} aria-label={`Ver información de ${hero.name}`}>
+    <Link href={heroTopicHref(hero.slug)} className={`home-hero-card${compact ? ' is-compact' : ''}`} aria-label={`Ver información de ${hero.name}`}>
       <article>
         <div className="home-hero-card-image">
           <HeroPortraitImage

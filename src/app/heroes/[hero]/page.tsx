@@ -1,13 +1,12 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import TopicArchivePage from '@/components/content/TopicArchivePage'
+import { notFound } from 'next/navigation'
 import JsonLd from '@/components/content/JsonLd'
 import GuideVideo from '@/components/content/GuideVideo'
 import PublicNav from '@/components/layout/PublicNav'
 import { topicLabel } from '@/lib/content'
 import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
-import { buildHeroSeoProfile } from '@/lib/overwatch-seo'
 import { robotsForQuality, topicQualityDecision } from '@/lib/indexing-policy'
 import { getHeroPillar, type HeroPillar } from '@/lib/hero-pillars'
 import { getHeroPortrait } from '@/lib/overwatch-hero-portraits'
@@ -147,8 +146,6 @@ const shionFaq = [
 ]
 
 export function generateMetadata({ params }: { params: { hero: string } }): Metadata {
-  const label = topicLabel(params.hero)
-  const profile = buildHeroSeoProfile(params.hero)
   const quality = topicQualityDecision('hero', params.hero)
   const pillar = getHeroPillar(params.hero)
 
@@ -172,17 +169,11 @@ export function generateMetadata({ params }: { params: { hero: string } }): Meta
     })
   }
 
-  return buildMetadata({
-    title: profile?.searchTitle || `Guía de ${label} en Overwatch: consejos, counters y videos`,
-    description: profile?.searchDescription || `Hemeroteca de ${label}: guías, counters, mapas, errores comunes, noticias y recursos para mejorar en Overwatch.`,
-    path: `/heroes/${params.hero}`,
-    robots: robotsForQuality(quality),
-  })
+  return {}
 }
 
 export default function HeroPage({ params }: { params: { hero: string } }) {
   const label = topicLabel(params.hero)
-  const profile = buildHeroSeoProfile(params.hero)
   const pillar = getHeroPillar(params.hero)
 
   if (params.hero === SHION_SLUG) {
@@ -193,14 +184,7 @@ export default function HeroPage({ params }: { params: { hero: string } }) {
     return <HeroPillarPage pillar={pillar} />
   }
 
-  return (
-    <TopicArchivePage
-      kind="hero"
-      slug={params.hero}
-      title={`Guía de ${label} en Overwatch`}
-      description={profile?.searchDescription || `Guías, counters, mapas, noticias y consejos aplicables para jugar mejor con ${label}.`}
-    />
-  )
+  notFound()
 }
 
 function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {

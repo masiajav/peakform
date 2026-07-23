@@ -16,6 +16,7 @@ import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
 import { guideQualityDecision, robotsForQuality } from '@/lib/indexing-policy'
 import { guideEditorial } from '@/lib/guide-editorial'
+import { heroTopicHref } from '@/lib/topic-links'
 import { formatPrice } from '@/types'
 
 async function fetchGuide(slug: string) {
@@ -198,7 +199,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 14 }}>
             {guide.category && <Topic href="/guides" label={guide.category} accent />}
             {guide.role && <Topic href={`/roles/${guide.role}`} label={ROLE_LABELS[guide.role]} />}
-            {guide.hero && <Topic href={`/heroes/${guide.hero}`} label={topicLabel(guide.hero)} />}
+            {guide.hero && <Topic href={heroTopicHref(guide.hero)} label={topicLabel(guide.hero)} />}
             {guide.map && <Topic href={`/maps/${guide.map}`} label={topicLabel(guide.map)} />}
           </div>
           <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(30px, 5vw, 52px)', letterSpacing: 1, color: 'var(--text)', margin: '0 0 16px', lineHeight: 1.05 }}>

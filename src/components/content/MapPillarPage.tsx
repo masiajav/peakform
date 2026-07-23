@@ -5,6 +5,7 @@ import SeoFaq from './SeoFaq'
 import PublicNav from '@/components/layout/PublicNav'
 import type { MapPillar } from '@/lib/overwatch-maps'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
+import { heroTopicHref, safeTopicHref } from '@/lib/topic-links'
 
 const ROLE_LABELS = { tank: 'Tank', dps: 'DPS', support: 'Support' } as const
 
@@ -137,7 +138,7 @@ export default function MapPillarPage({ map }: { map: MapPillar }) {
           <p className="map-section-lead">No son picks obligatorios. Son héroes con herramientas útiles para la geometría y el ritmo del mapa.</p>
           <div className="map-hero-grid">
             {map.heroPicks.map(hero => (
-              <Link key={hero.slug} href={`/heroes/${hero.slug}`} className="map-hero-pick">
+              <Link key={hero.slug} href={heroTopicHref(hero.slug)} className="map-hero-pick">
                 <div><strong>{hero.name}</strong><span>{ROLE_LABELS[hero.role]}</span></div>
                 <p>{hero.reason}</p>
               </Link>
@@ -177,7 +178,7 @@ export default function MapPillarPage({ map }: { map: MapPillar }) {
 
         <section className="map-related">
           <div><div className="eyebrow">SIGUIENTE PASO</div><h2>Contenido relacionado</h2></div>
-          <div>{map.relatedLinks.map(link => <Link key={link.href} href={link.href}>{link.label}</Link>)}</div>
+          <div>{map.relatedLinks.map(link => <Link key={link.href} href={safeTopicHref(link.href)}>{link.label}</Link>)}</div>
         </section>
       </main>
     </div>

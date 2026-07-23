@@ -8,6 +8,7 @@ import { ROLE_LABELS } from '@/lib/content'
 import { COUNTER_HEROES, type CounterHero, type CounterRole } from '@/lib/overwatch-counters'
 import { getHeroPortrait } from '@/lib/overwatch-hero-portraits'
 import { UPCOMING_HERO_SLUGS } from '@/lib/indexing-policy'
+import { heroTopicHref, isPublicHeroPageSlug } from '@/lib/topic-links'
 import { buildMetadata, absoluteUrl, SITE_NAME } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
@@ -42,7 +43,7 @@ const heroIntentLinks = [
     body: 'Empieza por su rol, su plan de pelea y dos errores claros que evitar. Para héroes recientes, revisa primero Shion y Sierra.',
     links: [
       { href: '/heroes/shion', label: 'Shion' },
-      { href: '/heroes/sierra', label: 'Sierra' },
+      { href: '/guides?hero=sierra', label: 'Sierra' },
       { href: '/guides', label: 'Guías de héroes' },
     ],
   },
@@ -81,7 +82,7 @@ export default function HeroesIndexPage() {
         '@type': 'ListItem',
         position: index + 1,
         name: hero.name,
-        url: absoluteUrl(`/heroes/${hero.slug}`),
+        url: absoluteUrl(heroTopicHref(hero.slug)),
       })),
     },
   }
@@ -222,9 +223,10 @@ function RoleSection({ role, heroes }: { role: CounterRole; heroes: CounterHero[
 
 function HeroCard({ hero }: { hero: CounterHero }) {
   const portrait = getHeroPortrait(hero.slug)
+  const hasPublicPillar = isPublicHeroPageSlug(hero.slug)
 
   return (
-    <Link href={`/heroes/${hero.slug}`} style={{ textDecoration: 'none' }}>
+    <Link href={heroTopicHref(hero.slug)} style={{ textDecoration: 'none' }}>
       <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', minHeight: 238, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
         <div style={{ position: 'relative', height: 168, background: 'var(--surface2)', borderBottom: '1px solid var(--border)' }}>
           <HeroPortraitImage
@@ -241,7 +243,7 @@ function HeroCard({ hero }: { hero: CounterHero }) {
             {hero.name}
           </h3>
           <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)', fontSize: 12, letterSpacing: 1.4 }}>
-            {ROLE_LABELS[hero.role]}
+            {hasPublicPillar ? ROLE_LABELS[hero.role] : `${ROLE_LABELS[hero.role]} · guías`}
           </div>
         </div>
       </article>

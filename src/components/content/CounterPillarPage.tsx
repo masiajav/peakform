@@ -4,6 +4,7 @@ import JsonLd from '@/components/content/JsonLd'
 import PublicNav from '@/components/layout/PublicNav'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
 import type { CounterPillar } from '@/lib/seo-clusters'
+import { safeTopicHref } from '@/lib/topic-links'
 
 type CounterPillarPageProps = {
   pillar: CounterPillar
@@ -85,7 +86,7 @@ export default function CounterPillarPage({ pillar }: CounterPillarPageProps) {
           <div className="seo-threat-grid">
             {pillar.threats.map(threat => (
               <article key={threat.name} className="seo-threat-card">
-                <h3><Link href={threat.href}>{threat.name}</Link></h3>
+                <h3><Link href={safeTopicHref(threat.href)}>{threat.name}</Link></h3>
                 <p>{threat.danger}</p>
                 <dl>
                   <dt>Señal</dt><dd>{threat.signal}</dd>
@@ -143,7 +144,7 @@ export default function CounterPillarPage({ pillar }: CounterPillarPageProps) {
 
         <section className="seo-pillar-related">
           <div><div className="eyebrow">SIGUIENTE PASO</div><h2>Sigue preparando el matchup</h2></div>
-          <div>{pillar.links.map(link => <Link key={link.href} href={link.href}>{link.label}</Link>)}</div>
+          <div>{pillar.links.map(link => <Link key={link.href} href={safeTopicHref(link.href)}>{link.label}</Link>)}</div>
         </section>
       </main>
     </div>

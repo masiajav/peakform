@@ -1,5 +1,6 @@
 import { stripMarkdown } from './seo'
 import { MAP_PILLAR_SLUGS } from './overwatch-maps'
+import { PUBLIC_HERO_PAGE_SLUGS } from './topic-links'
 
 export type IndexingDecision = 'indexable' | 'noindex_follow' | 'not_found'
 export type QualityStatus = 'index_ads' | 'index_no_ads' | 'noindex_no_ads'
@@ -57,16 +58,7 @@ export const QUALITY_MINIMUMS = {
 
 export const UPCOMING_HERO_SLUGS: string[] = []
 
-export const PILLAR_HERO_SLUGS = [
-  'shion',
-  'ana',
-  'kiriko',
-  'genji',
-  'reinhardt',
-  'dva',
-  'winston',
-  'cassidy',
-]
+export const PILLAR_HERO_SLUGS: string[] = [...PUBLIC_HERO_PAGE_SLUGS]
 
 export const PILLAR_COUNTER_SLUGS = ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'zarya', 'tracer', 'domina']
 

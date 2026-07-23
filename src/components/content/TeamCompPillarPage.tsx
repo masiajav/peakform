@@ -4,6 +4,7 @@ import JsonLd from '@/components/content/JsonLd'
 import PublicNav from '@/components/layout/PublicNav'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
 import type { TeamCompPillar } from '@/lib/seo-clusters'
+import { safeTopicHref } from '@/lib/topic-links'
 
 type TeamCompPillarPageProps = {
   pillar: TeamCompPillar
@@ -137,7 +138,7 @@ export default function TeamCompPillarPage({ pillar }: TeamCompPillarPageProps) 
 
         <section className="seo-pillar-related">
           <div><div className="eyebrow">SIGUIENTE PASO</div><h2>Completa el plan de partida</h2></div>
-          <div>{pillar.links.map(link => <Link key={link.href} href={link.href}>{link.label}</Link>)}</div>
+          <div>{pillar.links.map(link => <Link key={link.href} href={safeTopicHref(link.href)}>{link.label}</Link>)}</div>
         </section>
       </main>
     </div>
