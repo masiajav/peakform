@@ -111,6 +111,21 @@ const shionCounters = [
   },
 ]
 
+const shionQuickAnswers = [
+  {
+    title: 'Si la vas a jugar',
+    body: 'No entres el primero ni te quedes dueling por orgullo. Busca un lateral, espera a que el rival gaste peel y entra para cerrar una baja rápida. Joyride te mete en la pelea; Evade debería sacarte de ella.',
+  },
+  {
+    title: 'Si la tienes enfrente',
+    body: 'No corras detrás de ella sin plan. Mira por dónde quiere entrar, protege al support que está más expuesto y guarda control para cuando gaste movilidad hacia delante. Hack, Sleep, bash o burst fiable le rompen el timing.',
+  },
+  {
+    title: 'Qué equipo le ayuda',
+    body: 'Shion brilla cuando el equipo entra con ella: dive, rush rápido o cualquier comp que fuerce al rival a mirar a dos sitios a la vez. Si todos se quedan pokeando desde lejos, sus entradas se vuelven muy forzadas.',
+  },
+]
+
 const shionFaq = [
   {
     question: '¿Shion es una DPS flanker?',
@@ -152,8 +167,8 @@ export function generateMetadata({ params }: { params: { hero: string } }): Meta
 
   if (params.hero === SHION_SLUG) {
     return buildMetadata({
-      title: 'Shion en Overwatch: habilidades, counters y guía ranked',
-      description: 'Aprende cómo jugar Shion en Overwatch: habilidades, perks, counters, composiciones, ventanas de engage y consejos prácticos para ranked.',
+      title: 'Shion Overwatch: guía rápida, counters, perks y nerf de Execution',
+      description: 'Cómo jugar Shion sin regalar entradas: Joyride, Execution tras el nerf, mejores perks, counters y comps para ranked.',
       path: `/heroes/${params.hero}`,
       image: SHION_IMAGE,
       robots: robotsForQuality(quality),
@@ -407,12 +422,12 @@ function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Shion en Overwatch: habilidades, rol, counters y guía ranked',
-    description: 'Guía de Shion en Overwatch con habilidades, Joyride, Execution, perks, counters, composiciones y consejos para ranked.',
+    headline: 'Shion Overwatch: guía rápida, counters, perks y nerf de Execution',
+    description: 'Cómo jugar Shion sin regalar entradas: Joyride, Execution tras el nerf, mejores perks, counters y comps para ranked.',
     image: absoluteUrl(SHION_IMAGE),
     url: pageUrl,
     datePublished: '2026-06-15',
-    dateModified: '2026-06-26',
+    dateModified: '2026-07-24',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -466,11 +481,23 @@ function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
             <div className="eyebrow">NUEVO HÉROE · {SHION_SEASON.toUpperCase()}</div>
             <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(42px, 8vw, 82px)', letterSpacing: 1, lineHeight: 0.94, margin: '0 0 16px' }}>
               SHION EN OVERWATCH: <br />
-              <span style={{ color: 'var(--accent)' }}>HABILIDADES, PERKS Y COUNTERS</span>
+              <span style={{ color: 'var(--accent)' }}>GUÍA RÁPIDA, COUNTERS Y PERKS</span>
             </h1>
             <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.75, margin: '0 0 18px', maxWidth: 760 }}>
-              Shion llega como una DPS flanker de ritmo alto, movilidad agresiva y mucha capacidad para castigar errores de posicionamiento. Tras el ajuste a Execution tiene menos margen para rematar a lo loco, pero sigue siendo peligrosa si eliges bien las ventanas de entrada y no regalas tus cooldowns.
+              Shion es una DPS flanker de ritmo alto: entra por laterales, castiga supports aislados y convierte enemigos tocados en bajas rápidas. Tras el nerf a Execution ya no puedes jugarla a lo loco; necesitas timing, rutas limpias y una salida preparada antes de gastar tus cooldowns.
             </p>
+            <div style={{ display: 'grid', gap: 10, margin: '0 0 18px', maxWidth: 760 }}>
+              {[
+                'Para jugarla: entra cuando la pelea ya empezó, remata rápido y guarda una salida.',
+                'Para pararla: protege supports y castiga cuando gaste Joyride o Evade.',
+                'Mejor contexto: dive o rush rápido; peor si tu equipo se queda pokeando desde lejos.',
+              ].map(item => (
+                <div key={item} style={{ display: 'grid', gridTemplateColumns: '18px minmax(0, 1fr)', gap: 9, alignItems: 'start', color: 'var(--text2)', fontSize: 13, lineHeight: 1.55 }}>
+                  <span style={{ color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 17, lineHeight: 1 }}>-</span>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
               <MetaPill label="Actualizado" value={SHION_UPDATED_AT} />
               <MetaPill label="Lanzamiento" value={SHION_RELEASE_DATE} />
@@ -499,6 +526,25 @@ function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
             </div>
           </aside>
         </header>
+
+        <section style={{ ...sectionStyle, borderColor: 'rgba(255, 92, 42, 0.45)', background: 'linear-gradient(135deg, rgba(255, 92, 42, 0.10), var(--surface) 42%)' }}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>EN CORTO</div>
+          <h2 style={headingStyle}>Shion en 30 segundos: lo importante</h2>
+          <div style={cardGridStyle}>
+            {shionQuickAnswers.map(item => (
+              <article key={item.title} style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', padding: 16 }}>
+                <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 22, letterSpacing: 0.8, margin: '0 0 8px' }}>
+                  {item.title}
+                </h3>
+                <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65, margin: 0 }}>{item.body}</p>
+              </article>
+            ))}
+          </div>
+          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 16 }}>
+            <Link href="/counters/shion" className="btn btn-primary btn-sm">VER COUNTERS</Link>
+            <Link href="/team-comps/shion" className="btn btn-secondary btn-sm">VER COMPS</Link>
+          </div>
+        </section>
 
         <section style={sectionStyle}>
           <div className="eyebrow" style={{ marginBottom: 10 }}>LECTURA DE PARTIDA</div>
