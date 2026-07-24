@@ -33,6 +33,7 @@ Google ha marcado Replaid Lab como sitio con contenido de poco valor para AdSens
 - Se anaden paginas de confianza: `/about`, `/privacy` y `/editorial-methodology`.
 - Se anade la guia pilar `/guides/como-mejorar-en-overwatch`.
 - Se anaden redirects permanentes desde slugs editoriales antiguos hacia sus paginas canonicas para recuperar URLs descubiertas sin convertirlas en soft 404.
+- Se reduce el enlazado publico hacia `/patch-notes` mientras siga en `noindex`, priorizando `/news` como hub editorial indexable.
 
 ## Checklist antes de volver a solicitar AdSense
 

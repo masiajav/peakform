@@ -695,7 +695,7 @@ function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
             <Link href="/counters/shion" className="btn btn-secondary btn-sm">COUNTERS DE SHION</Link>
             <Link href="/team-comps/shion" className="btn btn-secondary btn-sm">COMPOSICIONES</Link>
             <Link href="/roles/dps" className="btn btn-secondary btn-sm">VER DPS</Link>
-            <Link href="/patch-notes" className="btn btn-secondary btn-sm">PATCH NOTES</Link>
+            <Link href="/news" className="btn btn-secondary btn-sm">NOTICIAS</Link>
             <Link href="/heroes" className="btn btn-secondary btn-sm">TODOS LOS HÉROES</Link>
           </div>
         </section>
