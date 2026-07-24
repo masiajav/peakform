@@ -24,8 +24,8 @@ export function generateMetadata({ params }: { params: { hero: string } }): Meta
   const pillar = getCounterPillar(params.hero)
 
   return buildMetadata({
-    title: pillar?.seoTitle || counterPageTitle(hero),
-    description: pillar?.seoDescription || counterPageDescription(hero),
+    title: counterPageTitle(hero),
+    description: counterPageDescription(hero),
     path: `/counters/${hero.slug}`,
     robots: robotsForQuality(quality),
   })
@@ -41,6 +41,7 @@ export default function CounterHeroPage({ params }: { params: { hero: string } }
 
   const roleLabel = ROLE_LABELS[hero.role]
   const pageUrl = absoluteUrl(`/counters/${hero.slug}`)
+  const counterTips = buildCounterHeaderTips(hero)
   const counterJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -88,15 +89,24 @@ export default function CounterHeroPage({ params }: { params: { hero: string } }
           <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(38px, 7vw, 72px)', letterSpacing: 1, lineHeight: 0.96, margin: '0 0 16px' }}>
             COUNTERS DE {hero.name.toUpperCase()}
           </h1>
-          <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.65, margin: 0 }}>
+          <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.65, margin: '0 0 16px' }}>
             {counterPageDescription(hero)}
           </p>
+          <div style={{ display: 'grid', gap: 10, maxWidth: 820 }}>
+            {counterTips.map(item => (
+              <div key={item} style={{ display: 'grid', gridTemplateColumns: '18px minmax(0, 1fr)', gap: 9, alignItems: 'start', color: 'var(--text2)', fontSize: 13, lineHeight: 1.55 }}>
+                <span style={{ color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 17, lineHeight: 1 }}>-</span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
         </header>
 
         <div className="counter-seo-layout">
           <article style={{ minWidth: 0 }}>
             <section className="counter-seo-section">
-              <div className="eyebrow">RESUMEN RÁPIDO</div>
+              <div className="eyebrow">EN CORTO</div>
+              <h2>Contra {hero.name}, qué importa de verdad</h2>
               <p>{profile.intent}</p>
               <div className="counter-seo-facts">
                 <Link href={heroTopicHref(hero.slug)}>Página de {hero.name}</Link>
@@ -165,6 +175,21 @@ export default function CounterHeroPage({ params }: { params: { hero: string } }
       </main>
     </div>
   )
+}
+
+function buildCounterHeaderTips(hero: NonNullable<ReturnType<typeof getCounterHero>>) {
+  const firstCounters = hero.counters.slice(0, 3).map(counter => counter.name).join(', ')
+  const firstWatchOut = hero.watchOutFor[0]?.name
+
+  return [
+    firstCounters
+      ? `Picks a probar: ${firstCounters}. Úsalos para negar su plan, no solo porque salgan en una lista.`
+      : 'Empieza identificando qué parte de su kit te está ganando la pelea.',
+    firstWatchOut
+      ? `Cuidado con ${firstWatchOut}: puede seguir siendo incómodo aunque tú tengas buen matchup.`
+      : 'No cambies por tilt: primero revisa posición, timing y cooldowns.',
+    `Si ${hero.name} sigue sacando valor, mira tu primera muerte y pregunta si el problema fue pick, ruta o timing.`,
+  ]
 }
 
 function CounterCard({ item }: { item: CounterPick }) {

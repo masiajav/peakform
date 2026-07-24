@@ -10,8 +10,8 @@ import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Counters de Overwatch: mejores picks, matchups y consejos ranked',
-  description: 'Busca counters de Overwatch por héroe: Zarya, Tracer, Genji, Ana, Shion y más, con picks fuertes, ventanas de castigo y consejos de matchup.',
+  title: 'Counters de Overwatch por héroe: picks y matchups para ranked',
+  description: 'Busca qué jugar contra cada héroe de Overwatch: counters, picks recomendados, ventanas de castigo y cuándo no cambiar por tilt.',
   path: '/counters',
 })
 
@@ -54,7 +54,7 @@ export default function CountersPage() {
             COUNTERS DE OVERWATCH POR HÉROE
           </h1>
           <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.65, margin: 0 }}>
-            Selecciona un héroe para ver counters fuertes, amenazas que debes respetar y enlaces directos a guías relacionadas. Si buscas counter de Zarya, Tracer, Genji, Ana o Shion, empieza por aquí y baja después al matchup concreto.
+            Selecciona un héroe y mira qué picks le molestan, qué cooldown tienes que esperar y cuándo el problema no es el counter sino tu timing. Si buscas counter de Zarya, Tracer, Genji, Ana o Shion, empieza por aquí y baja después al matchup concreto.
           </p>
         </header>
 

@@ -12,8 +12,8 @@ import { heroTopicHref, isPublicHeroPageSlug } from '@/lib/topic-links'
 import { buildMetadata, absoluteUrl, SITE_NAME } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Guía de héroes en Overwatch: roles, counters y picks ranked',
-  description: 'Explora héroes de Overwatch por rol: Tank, DPS y Support. Encuentra guías, counters, composiciones, picks para ranked y consejos por matchup.',
+  title: 'Héroes de Overwatch: guías ranked, counters y mejores picks',
+  description: 'Todos los héroes de Overwatch por rol, con guías ranked, counters, composiciones y consejos para elegir pick sin jugar en autopilot.',
   path: '/heroes',
 })
 
@@ -100,7 +100,7 @@ export default function HeroesIndexPage() {
             <span style={{ color: 'var(--accent)' }}>POR ROL</span>
           </h1>
           <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.65, margin: 0 }}>
-            Encuentra todos los héroes de Overwatch organizados por rol. Abre la guía que necesitas para entender cómo jugarlo, qué counters respetar, qué composiciones encajan mejor y qué revisar en tus partidas.
+            Encuentra todos los héroes de Overwatch por rol y empieza por lo que importa en ranked: cómo se juega el pick, qué counters debes respetar, qué comps le ayudan y cuándo merece la pena cambiar antes de tirar otra pelea.
           </p>
         </header>
 

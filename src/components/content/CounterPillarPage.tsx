@@ -5,6 +5,8 @@ import PublicNav from '@/components/layout/PublicNav'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
 import type { CounterPillar } from '@/lib/seo-clusters'
 import { safeTopicHref } from '@/lib/topic-links'
+import { getCounterHero } from '@/lib/overwatch-counters'
+import { counterPageDescription, counterPageTitle } from '@/lib/overwatch-seo'
 
 type CounterPillarPageProps = {
   pillar: CounterPillar
@@ -12,12 +14,16 @@ type CounterPillarPageProps = {
 
 export default function CounterPillarPage({ pillar }: CounterPillarPageProps) {
   const pageUrl = absoluteUrl(`/counters/${pillar.slug}`)
+  const counterHero = getCounterHero(pillar.slug)
+  const seoTitle = counterHero ? counterPageTitle(counterHero) : pillar.seoTitle
+  const seoDescription = counterHero ? counterPageDescription(counterHero) : pillar.seoDescription
+  const headerTips = buildCounterPillarHeaderTips(pillar)
   const jsonLd = [
     {
       '@context': 'https://schema.org',
       '@type': 'Article',
-      headline: pillar.h1,
-      description: pillar.seoDescription,
+      headline: seoTitle,
+      description: seoDescription,
       image: absoluteUrl(`/heroes/${pillar.slug}.png`),
       url: pageUrl,
       datePublished: pillar.schemaDate ?? '2026-06-28',
@@ -62,19 +68,32 @@ export default function CounterPillarPage({ pillar }: CounterPillarPageProps) {
             <div className="seo-pillar-intro">
               {pillar.intro.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
             </div>
+            <ul className="seo-pillar-checklist compact" style={{ marginTop: 16 }}>
+              {headerTips.map(item => <li key={item}>{item}</li>)}
+            </ul>
             <div className="seo-pillar-meta">
               <span>Actualizado: {pillar.updatedAt}</span>
               <span>Parche revisado: {pillar.reviewedPatch}</span>
             </div>
           </div>
-          <div className="seo-pillar-portrait">
-            <Image src={`/heroes/${pillar.slug}.png`} alt={`${pillar.name} en Overwatch`} fill priority sizes="(max-width: 760px) 100vw, 360px" />
+          <div
+            className="seo-pillar-portrait"
+            style={{ position: 'relative', minHeight: 340, maxHeight: 380, backgroundColor: 'var(--surface2)' }}
+          >
+            <Image
+              src={`/heroes/${pillar.slug}.png`}
+              alt={`${pillar.name} en Overwatch`}
+              fill
+              priority
+              sizes="(max-width: 760px) 100vw, 360px"
+              style={{ boxSizing: 'border-box', objectFit: 'contain', objectPosition: 'center bottom', padding: 26 }}
+            />
           </div>
         </header>
 
         <section className="seo-pillar-section">
-          <div className="eyebrow">RESUMEN RÁPIDO</div>
-          <h2>Qué debes hacer contra {pillar.name}</h2>
+          <div className="eyebrow">EN CORTO</div>
+          <h2>Contra {pillar.name}, qué importa de verdad</h2>
           <ul className="seo-pillar-checklist compact">
             {pillar.summary.map(item => <li key={item}>{item}</li>)}
           </ul>
@@ -149,4 +168,19 @@ export default function CounterPillarPage({ pillar }: CounterPillarPageProps) {
       </main>
     </div>
   )
+}
+
+function buildCounterPillarHeaderTips(pillar: CounterPillar) {
+  const firstThreat = pillar.threats[0]?.name
+  const firstWindow = pillar.cooldownWindows[0]?.title
+
+  return [
+    firstThreat
+      ? `Primer pick a mirar: ${firstThreat}. Pero úsalo para cortar su plan, no para perseguir sin cabeza.`
+      : 'No cambies por reflejo: primero identifica qué parte del matchup te está ganando.',
+    firstWindow
+      ? `Ventana clave: ${firstWindow}. Si la dejas pasar, el counter pierde mucho valor.`
+      : 'La ventana buena casi siempre aparece después de que gaste movilidad, defensa o control.',
+    `Si ${pillar.name} sigue dominando la partida, revisa tu primera muerte: pick, posición o timing.`,
+  ]
 }

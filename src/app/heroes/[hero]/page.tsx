@@ -177,8 +177,8 @@ export function generateMetadata({ params }: { params: { hero: string } }): Meta
 
   if (pillar) {
     return buildMetadata({
-      title: pillar.seoTitle,
-      description: pillar.seoDescription,
+      title: heroCtrTitle(pillar),
+      description: heroCtrDescription(pillar),
       path: `/heroes/${params.hero}`,
       image: getHeroPortrait(params.hero) || undefined,
       robots: robotsForQuality(quality),
@@ -206,15 +206,17 @@ export default function HeroPage({ params }: { params: { hero: string } }) {
 function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
   const image = getHeroPortrait(pillar.slug)
   const pageUrl = absoluteUrl(`/heroes/${pillar.slug}`)
+  const quickAnswers = buildHeroQuickAnswers(pillar)
+  const headerTips = buildHeroHeaderTips(pillar)
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: pillar.h1,
-    description: pillar.seoDescription,
+    headline: heroCtrTitle(pillar),
+    description: heroCtrDescription(pillar),
     image: image ? absoluteUrl(image) : undefined,
     url: pageUrl,
     datePublished: '2026-06-26',
-    dateModified: '2026-06-28',
+    dateModified: '2026-07-24',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -262,6 +264,14 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
                 <p key={paragraph} style={{ margin: 0 }}>{paragraph}</p>
               ))}
             </div>
+            <div style={{ display: 'grid', gap: 10, margin: '0 0 18px', maxWidth: 800 }}>
+              {headerTips.map(item => (
+                <div key={item} style={{ display: 'grid', gridTemplateColumns: '18px minmax(0, 1fr)', gap: 9, alignItems: 'start', color: 'var(--text2)', fontSize: 13, lineHeight: 1.55 }}>
+                  <span style={{ color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 17, lineHeight: 1 }}>-</span>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
               <MetaPill label="Actualizado" value={pillar.updatedAt} />
               <MetaPill label="Rol" value={pillar.role} />
@@ -296,6 +306,25 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
             </div>
           </aside>
         </header>
+
+        <section style={{ ...sectionStyle, borderColor: 'rgba(255, 92, 42, 0.45)', background: 'linear-gradient(135deg, rgba(255, 92, 42, 0.10), var(--surface) 42%)' }}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>EN CORTO</div>
+          <h2 style={headingStyle}>{pillar.name} en 30 segundos: lo importante</h2>
+          <div style={cardGridStyle}>
+            {quickAnswers.map(item => (
+              <article key={item.title} style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', padding: 16 }}>
+                <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 22, letterSpacing: 0.8, margin: '0 0 8px' }}>
+                  {item.title}
+                </h3>
+                <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65, margin: 0 }}>{item.body}</p>
+              </article>
+            ))}
+          </div>
+          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 16 }}>
+            <Link href={`/counters/${pillar.slug}`} className="btn btn-primary btn-sm">VER COUNTERS</Link>
+            <Link href={`/team-comps/${pillar.slug}`} className="btn btn-secondary btn-sm">VER COMPS</Link>
+          </div>
+        </section>
 
         <section style={sectionStyle}>
           <div className="eyebrow" style={{ marginBottom: 10 }}>RESUMEN</div>
@@ -801,6 +830,56 @@ function MetaPill({ label, value }: { label: string; value: string }) {
       <div style={{ color: 'var(--text)', fontSize: 12 }}>{value}</div>
     </div>
   )
+}
+
+function heroCtrTitle(pillar: HeroPillar) {
+  return `${pillar.name} Overwatch: guía ranked, counters y errores comunes`
+}
+
+function heroCtrDescription(pillar: HeroPillar) {
+  const firstCounter = pillar.counters[0]?.title
+  const counterPart = firstCounter ? `, cómo jugar contra ${firstCounter}` : ''
+  return `Cómo jugar ${pillar.name} en ranked sin autopilot: plan de pelea, cooldowns clave${counterPart}, mejores comps y qué mirar en tu VOD.`
+}
+
+function buildHeroHeaderTips(pillar: HeroPillar) {
+  const firstCounter = pillar.counters[0]?.title
+  const firstComp = pillar.compositions[0]?.title
+
+  return [
+    `Para jugar ${pillar.name}: busca valor con timing, no por inercia ni por ego.`,
+    firstCounter
+      ? `Para jugar contra ${pillar.name}: respeta a ${firstCounter} y cambia ritmo antes de cambiar de pick.`
+      : `Para jugar contra ${pillar.name}: revisa qué cooldown rival te corta el plan antes de entrar.`,
+    firstComp
+      ? `Mejor contexto: ${firstComp}; peor si tu equipo no puede seguir tu ventana.`
+      : 'Mejor contexto: una comp que pueda seguir tu ventana y no te deje solo.',
+  ]
+}
+
+function buildHeroQuickAnswers(pillar: HeroPillar) {
+  const firstCounter = pillar.counters[0]?.title
+  const firstComp = pillar.compositions[0]?.title
+  const firstMistake = pillar.mistakes[0]
+
+  return [
+    {
+      title: `Si vas a jugar ${pillar.name}`,
+      body: `No juegues en autopilot. Decide antes de la pelea qué recurso quieres forzar y cómo sales si no aparece una baja. ${firstMistake ? `Si tu error habitual es "${firstMistake.toLowerCase()}", empieza corrigiendo eso.` : ''}`,
+    },
+    {
+      title: `Si juegas contra ${pillar.name}`,
+      body: firstCounter
+        ? `${firstCounter} suele ser una de las respuestas más molestas, pero el counter no gana solo. Lo importante es negarle su ventana buena y castigarlo cuando gaste recursos.`
+        : 'No hace falta cambiar por reflejo. Primero mira si puedes ajustar distancia, cobertura, timing o cooldowns antes de abandonar tu pick.',
+    },
+    {
+      title: 'Qué equipo le ayuda',
+      body: firstComp
+        ? `${firstComp} es un buen punto de partida porque le da una forma clara de entrar o sostener la pelea. Si la comp no acompaña, el héroe se siente mucho más forzado.`
+        : 'Funciona mejor cuando el equipo entiende su ventana y puede jugar alrededor de ella. Si cada uno entra a un ritmo distinto, el pick pierde mucho valor.',
+    },
+  ]
 }
 
 const sectionStyle = {

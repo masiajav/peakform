@@ -108,30 +108,30 @@ export function buildHeroSeoProfile(slug: string): HeroSeoProfile | null {
     slug: hero.slug,
     name: hero.name,
     role: hero.role,
-    searchTitle: `Guía de ${hero.name} en Overwatch: counters, consejos y cómo jugar`,
-    searchDescription: `Guía de ${hero.name} en Overwatch con counters, errores comunes, consejos de posicionamiento, notas de 6v6 y enlaces a vídeos útiles.`,
-    intent: `${hero.name} es un ${roleLabel} que se entiende mejor desde tres preguntas: qué recurso fuerza, qué amenaza debe respetar y qué mapa o composición le permite jugar con ventaja.`,
+    searchTitle: `${hero.name} Overwatch: guía ranked, counters y errores comunes`,
+    searchDescription: `Cómo jugar ${hero.name} en Overwatch sin autopilot: counters, errores comunes, posicionamiento, 6v6 y consejos para ranked.`,
+    intent: `${hero.name} se entiende mejor desde tres preguntas: qué recurso quiere forzar, qué amenaza le corta el plan y en qué mapa o comp puede jugar con ventaja real.`,
     quickWins: [
-      { title: 'Juega por ventanas', body: `Con ${hero.name}, busca actuar cuando el rival ya ha gastado su herramienta principal para frenarte.` },
-      { title: 'Respeta counters directos', body: counterNames ? `${counterNames} pueden limitar mucho tu valor si entras sin plan o sin cobertura.` : 'Identifica qué héroes rivales te obligan a cambiar ángulo, ritmo o distancia.' },
-      { title: 'Revisa la primera muerte', body: 'Si mueres antes de que tu equipo pueda seguirte, el problema suele ser timing, no mecánica.' },
+      { title: 'Juega por ventanas', body: `Con ${hero.name}, no busques valor por inercia. Espera el cooldown que te molesta y actúa cuando el rival ya no pueda frenarte gratis.` },
+      { title: 'Respeta counters directos', body: counterNames ? `${counterNames} pueden bajarte mucho el valor si entras sin plan, sin cobertura o sin saber quién te puede castigar.` : 'Identifica qué héroes rivales te obligan a cambiar ángulo, ritmo o distancia.' },
+      { title: 'Revisa la primera muerte', body: 'Si mueres antes de que tu equipo pueda seguir la jugada, normalmente no es solo aim: suele ser timing, ruta o una pelea mal elegida.' },
     ],
     commonMistakes: [
-      { title: 'Forzar valor sin información', body: `Entrar con ${hero.name} sin saber dónde están supports, cooldowns o amenazas convierte una buena idea en una pelea perdida.` },
-      { title: 'No adaptar distancia', body: `${threatNames || 'Los counters rivales'} pueden obligarte a jugar más lento, cambiar ruta o esperar recursos aliados.` },
-      { title: 'Cambiar tarde', body: 'Si el mapa, la composición y los counters niegan tu plan durante varias peleas, revisa el pick antes de gastar otra ultimate.' },
+      { title: 'Forzar valor sin info', body: `Entrar con ${hero.name} sin saber dónde están supports, cooldowns o amenazas convierte una buena idea en feed.` },
+      { title: 'No adaptar distancia', body: `${threatNames || 'Los counters rivales'} pueden obligarte a jugar más lento, cambiar ruta o esperar recursos aliados. No todos los matchups se ganan igual.` },
+      { title: 'Cambiar tarde', body: 'Si mapa, comp y counters niegan tu plan durante varias peleas, revisa el pick antes de gastar otra ultimate por orgullo.' },
     ],
-    sixVsSix: `En 6v6 hay más cuerpos, más peel y más recursos defensivos. Con ${hero.name}, revisa si tu ventana sigue existiendo cuando el rival tiene un segundo tank o una capa extra de protección.`,
+    sixVsSix: `En 6v6 hay más cuerpos, más peel y más recursos defensivos. Con ${hero.name}, revisa si tu ventana sigue existiendo cuando el rival tiene un segundo Tank o una capa extra de protección.`,
   }
 }
 
 export function counterPageTitle(hero: CounterHero) {
-  return `Counters de ${hero.name} en Overwatch: cómo jugar contra este héroe`
+  return `Counters de ${hero.name} en Overwatch: picks, matchup y cómo ganarle`
 }
 
 export function counterPageDescription(hero: CounterHero) {
   const counterNames = hero.counters.slice(0, 3).map(counter => counter.name).join(', ')
-  return `Counters de ${hero.name} en Overwatch: héroes recomendados como ${counterNames}, amenazas que debes respetar y consejos prácticos para ganar el matchup.`
+  return `Qué jugar contra ${hero.name}: mejores counters como ${counterNames}, cuándo castigar su ventana, cuándo no cambiar de pick y cómo jugar el matchup en ranked.`
 }
 
 export function roleFromHeroSlug(slug: string) {
