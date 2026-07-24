@@ -77,7 +77,7 @@ export default function CounterExplorer() {
             <Link href={`/team-comps/${selected.slug}`} className="btn btn-secondary btn-sm">
               COMPOS
             </Link>
-            <Link href={`/guides/${selected.guideSlug}`} className="btn btn-primary btn-sm">
+            <Link href={heroTopicHref(selected.slug)} className="btn btn-primary btn-sm">
               GUÍA
             </Link>
           </div>

@@ -96,7 +96,7 @@ export const PUSH_MAP_PILLARS: MapPillar[] = [
       { question: '¿Qué héroes funcionan bien?', answer: 'Winston, D.Va, Tracer, Genji, Ana y Kiriko aprovechan balcones, interiores y rotaciones.' },
       { question: '¿Qué revisar en una VOD?', answer: 'Revisa tiempos de llegada, sincronización de atajos, líneas de curación, progreso del robot y uso de definitivas en punto de control.' },
     ],
-    relatedLinks: [{ href: '/guides/como-mejorar-en-overwatch-revisando-vod', label: 'Revisar una VOD' }, { href: '/guides/como-revisar-habilidades-overwatch', label: 'Revisar habilidades' }, { href: '/heroes/winston', label: 'Guía de Winston' }, { href: '/heroes/kiriko', label: 'Guía de Kiriko' }],
+    relatedLinks: [{ href: '/guides/como-mejorar-en-overwatch-revisando-vod', label: 'Revisar una VOD' }, { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Revisar habilidades' }, { href: '/heroes/winston', label: 'Guía de Winston' }, { href: '/heroes/kiriko', label: 'Guía de Kiriko' }],
   },
   {
     slug: 'new-queen-street', name: 'New Queen Street', mode: 'Avance', location: 'Toronto, Canadá', image: '/maps/new-queen-street.png', imageAlt: 'Calles nevadas, tranvía y edificios de New Queen Street en Overwatch',
@@ -168,6 +168,6 @@ export const PUSH_MAP_PILLARS: MapPillar[] = [
       { question: '¿Qué héroes funcionan bien?', answer: 'D.Va, Winston, Genji, Sojourn, Ana y Kiriko aprovechan su verticalidad y sus cambios de nivel.' },
       { question: '¿Qué revisar en una VOD?', answer: 'Revisa control de altura, líneas al subir, coordinación de laterales, muertes tardías y apoyo de los últimos intentos.' },
     ],
-    relatedLinks: [{ href: '/guides/como-mejorar-en-overwatch-revisando-vod', label: 'Revisar una VOD' }, { href: '/guides/como-revisar-habilidades-overwatch', label: 'Revisar habilidades' }, { href: '/heroes/dva', label: 'Guía de D.Va' }, { href: '/heroes/genji', label: 'Guía de Genji' }],
+    relatedLinks: [{ href: '/guides/como-mejorar-en-overwatch-revisando-vod', label: 'Revisar una VOD' }, { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Revisar habilidades' }, { href: '/heroes/dva', label: 'Guía de D.Va' }, { href: '/heroes/genji', label: 'Guía de Genji' }],
   },
 ]

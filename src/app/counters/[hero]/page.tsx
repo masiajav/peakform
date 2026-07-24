@@ -101,7 +101,7 @@ export default function CounterHeroPage({ params }: { params: { hero: string } }
               <div className="counter-seo-facts">
                 <Link href={heroTopicHref(hero.slug)}>Página de {hero.name}</Link>
                 <Link href={`/roles/${hero.role}`}>Guías de {roleLabel}</Link>
-                <Link href={`/guides/${hero.guideSlug}`}>Guía en vídeo</Link>
+                <Link href={heroTopicHref(hero.slug)}>Guía de {hero.name}</Link>
               </div>
             </section>
 

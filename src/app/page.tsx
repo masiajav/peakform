@@ -10,6 +10,7 @@ import HeroPortraitImage from '@/components/heroes/HeroPortraitImage'
 import { announcementPath, ROLE_LABELS, topicLabel } from '@/lib/content'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { guideEditorial } from '@/lib/guide-editorial'
+import { isAnnouncementSitemapEligible, isGuideSitemapEligible } from '@/lib/indexing-policy'
 import { COUNTER_HEROES, type CounterHero, type CounterRole } from '@/lib/overwatch-counters'
 import { getHeroPortrait } from '@/lib/overwatch-hero-portraits'
 import { heroTopicHref } from '@/lib/topic-links'
@@ -54,7 +55,7 @@ export default async function RootPage() {
       .select('id, title, slug, excerpt, body, category, hero, role, video_id, video_channel, created_at, seo_description')
       .eq('published', true)
       .order('created_at', { ascending: false })
-      .limit(6),
+      .limit(18),
     admin
       .from('experts')
       .select('id, slug, display_name, peak_rank, main_role, specialties, avg_rating, total_reviews, price_starter')
@@ -67,14 +68,21 @@ export default async function RootPage() {
       .select('id, title, slug, body, excerpt, content_type, created_at')
       .eq('published', true)
       .order('created_at', { ascending: false })
-      .limit(3),
+      .limit(12),
   ])
+
+  const qualityFeaturedGuides = (featuredGuides ?? [])
+    .filter((guide: any) => isGuideSitemapEligible(guide))
+    .slice(0, 6)
+  const qualityLatestNews = (latestNews ?? [])
+    .filter((item: any) => item.content_type !== 'patch_note' && isAnnouncementSitemapEligible(item))
+    .slice(0, 3)
 
   const itemListJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'Guías destacadas de Overwatch',
-    itemListElement: (featuredGuides ?? []).map((guide: any, index: number) => ({
+    itemListElement: qualityFeaturedGuides.map((guide: any, index: number) => ({
       '@type': 'ListItem',
       position: index + 1,
       name: guideEditorial(guide).seoTitle,
@@ -197,7 +205,7 @@ export default async function RootPage() {
 
         <Section title="Guías populares" kicker="HEMEROTECA" href="/guides" linkLabel="Ver todas">
           <CardGrid>
-            {(featuredGuides ?? []).map((guide: any) => (
+            {qualityFeaturedGuides.map((guide: any) => (
               <GuideCard key={guide.id} guide={guide} />
             ))}
           </CardGrid>
@@ -236,10 +244,10 @@ export default async function RootPage() {
           </Section>
         )}
 
-        {latestNews && latestNews.length > 0 && (
+        {qualityLatestNews.length > 0 && (
           <Section title="Actualidad" kicker="NOTICIAS" href="/news" linkLabel="Ver noticias">
             <div style={{ display: 'grid', gap: 12 }}>
-              {latestNews.map((item: any) => (
+              {qualityLatestNews.map((item: any) => (
                 <Link key={item.id} href={announcementPath(item)} style={{ textDecoration: 'none' }}>
                   <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '18px 20px' }}>
                     <div style={{ color: 'var(--text3)', fontFamily: 'Bebas Neue, sans-serif', letterSpacing: 1.2, fontSize: 11, marginBottom: 6 }}>

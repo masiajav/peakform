@@ -200,7 +200,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
     ],
     relatedLinks: [
       { href: '/guides/como-elegir-composicion-dive-poke-brawl', label: 'Dive, poke o brawl' },
-      { href: '/guides/como-revisar-habilidades-overwatch', label: 'Cómo revisar habilidades' },
+      { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Cómo revisar habilidades' },
       { href: '/heroes/dva', label: 'Guía de D.Va' },
       { href: '/heroes/kiriko', label: 'Guía de Kiriko' },
     ],
@@ -301,7 +301,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       { question: '¿Cómo se recupera el punto en Ilios?', answer: 'Agrupa, identifica la posición que domina la entrada y fuerza una habilidad antes de cruzar. Abre un ángulo corto, conserva recursos para sobrevivir dentro y evita mandar contactos aislados solo para frenar el porcentaje.' },
     ],
     relatedLinks: [
-      { href: '/guides/como-mejorar-posicionamiento-overwatch', label: 'Mejorar el posicionamiento' },
+      { href: '/guides/como-mejorar-en-overwatch', label: 'Mejorar el posicionamiento' },
       { href: '/guides/como-elegir-composicion-dive-poke-brawl', label: 'Elegir una composición' },
       { href: '/heroes/winston', label: 'Guía de Winston' },
       { href: '/heroes/ana', label: 'Guía de Ana' },
@@ -404,7 +404,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
     ],
     relatedLinks: [
       { href: '/guides/como-mejorar-en-overwatch-revisando-vod', label: 'Revisar una partida' },
-      { href: '/guides/como-revisar-habilidades-overwatch', label: 'Revisar el uso de habilidades' },
+      { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Revisar el uso de habilidades' },
       { href: '/heroes/reinhardt', label: 'Guía de Reinhardt' },
       { href: '/heroes/genji', label: 'Guía de Genji' },
     ],
@@ -505,7 +505,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       { question: '¿Cómo defender Gardens?', answer: 'Controla las pasarelas y coberturas laterales. Una persona puede tocar el objetivo cuando sea necesario mientras las demás mantienen líneas cruzadas. Si todo el equipo baja al círculo, el rival recuperará las posiciones desde las que puede disparar con seguridad.' },
     ],
     relatedLinks: [
-      { href: '/guides/como-mejorar-posicionamiento-overwatch', label: 'Guía de posicionamiento' },
+      { href: '/guides/como-mejorar-en-overwatch', label: 'Guía de posicionamiento' },
       { href: '/guides/como-elegir-composicion-dive-poke-brawl', label: 'Elegir dive, poke o brawl' },
       { href: '/heroes/dva', label: 'Guía de D.Va' },
       { href: '/heroes/ana', label: 'Guía de Ana' },

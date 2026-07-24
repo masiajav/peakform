@@ -9,6 +9,7 @@ import { formatPrice } from '@/types'
 import { getCounterHero } from '@/lib/overwatch-counters'
 import { buildHeroSeoProfile, ROLE_SEO } from '@/lib/overwatch-seo'
 import { guideEditorial } from '@/lib/guide-editorial'
+import { isGuideSitemapEligible } from '@/lib/indexing-policy'
 import { heroTopicHref, safeTopicHref } from '@/lib/topic-links'
 
 export default async function TopicArchivePage({
@@ -62,6 +63,7 @@ export default async function TopicArchivePage({
   const counterHero = kind === 'hero' ? getCounterHero(slug) : null
   const heroSeo = kind === 'hero' ? buildHeroSeoProfile(slug) : null
   const roleSeo = kind === 'role' ? ROLE_SEO[slug as keyof typeof ROLE_SEO] : null
+  const indexableGuides = (guides ?? []).filter((guide: any) => isGuideSitemapEligible(guide))
 
   const collectionJsonLd = {
     '@context': 'https://schema.org',
@@ -155,7 +157,7 @@ export default async function TopicArchivePage({
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 16 }}>
               <Link href={`/counters/${counterHero.slug}`} className="btn btn-secondary btn-sm">VER COUNTERS DE {counterHero.name.toUpperCase()}</Link>
               <Link href={`/team-comps/${counterHero.slug}`} className="btn btn-secondary btn-sm">VER COMPOSICIONES</Link>
-              <Link href={`/guides/${counterHero.guideSlug}`} className="btn btn-primary btn-sm">VER GUÍA EN VÍDEO</Link>
+              <Link href={heroTopicHref(counterHero.slug)} className="btn btn-primary btn-sm">VER GUÍA DE {counterHero.name.toUpperCase()}</Link>
             </div>
           </section>
         )}
@@ -182,11 +184,11 @@ export default async function TopicArchivePage({
         <div className="topic-layout" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 300px', gap: 28, alignItems: 'start' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 44 }}>
             <Section title="Guías y consejos">
-              {!guides || guides.length === 0 ? (
-                <EmptyCopy text="Todavía no hay guías publicadas para este tema." />
+              {indexableGuides.length === 0 ? (
+                <EmptyCopy text="Todavía no hay guías pilar publicadas para este tema." />
               ) : (
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 14 }}>
-                  {guides.map((guide: any) => (
+                  {indexableGuides.map((guide: any) => (
                     <ArticleCard key={guide.id} href={guidePath(guide.slug)} title={guideEditorial(guide).title} body={guideEditorial(guide).description} meta={guide.category || labelForTopic(guide)} />
                   ))}
                 </div>

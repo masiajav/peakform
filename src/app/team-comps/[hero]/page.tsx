@@ -103,7 +103,6 @@ export default function TeamCompHeroPage({ params }: { params: { hero: string } 
               <Link href="/team-comps">Todas las composiciones</Link>
               <Link href={`/counters/${hero.slug}`}>Counters de {hero.name}</Link>
               <Link href={heroTopicHref(hero.slug)}>Guía de {hero.name}</Link>
-              <Link href={`/guides/${hero.guideSlug}`}>Guía en vídeo</Link>
             </div>
           </aside>
         </div>

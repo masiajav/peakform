@@ -14,7 +14,7 @@ import GuideVideo from '@/components/content/GuideVideo'
 import { guidePath, ROLE_LABELS, topicLabel, type GuideContent } from '@/lib/content'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
-import { guideQualityDecision, robotsForQuality } from '@/lib/indexing-policy'
+import { guideQualityDecision, isGuideSitemapEligible, robotsForQuality } from '@/lib/indexing-policy'
 import { guideEditorial } from '@/lib/guide-editorial'
 import { heroTopicHref } from '@/lib/topic-links'
 import { formatPrice } from '@/types'
@@ -66,7 +66,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
     .select('id, title, slug, excerpt, body, category, hero, role, map, created_at')
     .eq('published', true)
     .neq('slug', guide.slug)
-    .limit(3)
+    .limit(12)
 
   if (guide.hero) relatedQuery = relatedQuery.eq('hero', guide.hero)
   else if (guide.role) relatedQuery = relatedQuery.eq('role', guide.role)
@@ -101,6 +101,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
   const publishedDate = guide.created_at
   const updatedDate = guide.updated_at || guide.created_at
   const quality = guideQualityDecision(guide)
+  const relatedGuides = (related ?? []).filter((item: any) => isGuideSitemapEligible(item)).slice(0, 3)
   const allowAds = quality.adsAllowed
   const faqEntries = extractFaqEntries(guide.body)
 
@@ -264,11 +265,11 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
           </section>
         )}
 
-        {related && related.length > 0 && (
+        {relatedGuides.length > 0 && (
           <section style={{ marginTop: 48 }}>
             <SectionTitle>LECTURAS RELACIONADAS</SectionTitle>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
-              {related.map((item: any) => (
+              {relatedGuides.map((item: any) => (
                 <Link key={item.id} href={`/guides/${item.slug}`} style={{ textDecoration: 'none' }}>
                   <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '16px', height: '100%' }}>
                     <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 17, letterSpacing: 0.5, lineHeight: 1.2, marginBottom: 8 }}>

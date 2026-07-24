@@ -10,6 +10,7 @@ import PublicNav from '@/components/layout/PublicNav'
 import { DEFAULT_HEROES, ROLE_LABELS, topicLabel } from '@/lib/content'
 import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
 import { guideEditorial } from '@/lib/guide-editorial'
+import { isGuideSitemapEligible } from '@/lib/indexing-policy'
 import GuideFilters from '@/components/content/GuideFilters'
 
 type GuidesSearchParams = {
@@ -90,9 +91,12 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
 
   const [{ data: guides }, { data: filterOptions }] = await Promise.all([query, filterOptionsQuery])
   const searchedGuides = filterBySearch(guides ?? [], freeTextQuery)
+  const visibleGuides = hasFilters
+    ? searchedGuides
+    : searchedGuides.filter((guide: any) => isGuideSitemapEligible(guide))
   const sortedGuides = filters.sort === 'read'
-    ? [...searchedGuides].sort((a: any, b: any) => readingTime(a.body) - readingTime(b.body))
-    : searchedGuides
+    ? [...visibleGuides].sort((a: any, b: any) => readingTime(a.body) - readingTime(b.body))
+    : visibleGuides
 
   const categories = Array.from(new Set(sortedGuides.map((g: any) => g.category).filter(Boolean))) as string[]
   const filterCategories = Array.from(new Set((filterOptions ?? []).map((g: any) => g.category).filter(Boolean)))

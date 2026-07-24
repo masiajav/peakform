@@ -5,7 +5,17 @@ import AppNav from '@/components/layout/AppNav'
 import PublicNav from '@/components/layout/PublicNav'
 import Link from 'next/link'
 import { announcementPath, articleDescription } from '@/lib/content'
+import { isAnnouncementSitemapEligible } from '@/lib/indexing-policy'
 import { buildMetadata } from '@/lib/seo'
+
+const featuredFallbackNews = [
+  {
+    href: '/overwatch-temporada-3-into-the-tigers-den',
+    title: "Temporada 3 de Overwatch: Into the Tiger's Den",
+    date: '16 de junio de 2026',
+    description: 'Resumen editorial de la temporada con Shion, Neon Junction, evento Anima Strike y cambios relevantes para ranked.',
+  },
+]
 
 export const metadata: Metadata = buildMetadata({
   title: 'Noticias de Overwatch',
@@ -30,6 +40,7 @@ export default async function NewsPage() {
     .eq('published', true)
     .neq('content_type', 'patch_note')
     .order('created_at', { ascending: false })
+  const indexableAnnouncements = (announcements ?? []).filter((item: any) => isAnnouncementSitemapEligible(item))
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
@@ -68,11 +79,30 @@ export default async function NewsPage() {
           </p>
         </div>
 
-        {!announcements || announcements.length === 0 ? (
-          <p style={{ fontSize: 14, color: 'var(--text3)' }}>No hay anuncios publicados todavía.</p>
+        {indexableAnnouncements.length === 0 ? (
+          <div style={{ display: 'grid', gap: 16 }}>
+            {featuredFallbackNews.map(item => (
+              <Link key={item.href} href={item.href} style={{ textDecoration: 'none' }}>
+                <article style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '22px 24px' }}>
+                  <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 10 }}>
+                    <span style={{ fontSize: 10, letterSpacing: 1.5, color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif' }}>
+                      ACTUALIDAD
+                    </span>
+                    <span style={{ fontSize: 11, color: 'var(--text3)' }}>{item.date}</span>
+                  </div>
+                  <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 24, letterSpacing: 1, color: 'var(--text)', margin: '0 0 10px' }}>
+                    {item.title}
+                  </h2>
+                  <p style={{ fontSize: 14, color: 'var(--text2)', lineHeight: 1.7, margin: 0 }}>
+                    {item.description}
+                  </p>
+                </article>
+              </Link>
+            ))}
+          </div>
         ) : (
           <div style={{ display: 'grid', gap: 16 }}>
-            {announcements.map((a: any) => (
+            {indexableAnnouncements.map((a: any) => (
               <Link key={a.id} href={announcementPath(a)} style={{ textDecoration: 'none' }}>
                 <article style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '22px 24px' }}>
                   <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 10 }}>

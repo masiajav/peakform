@@ -97,7 +97,7 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
       { question: '¿Qué revisar en una VOD de Circuit Royal?', answer: 'Mira el uso de cobertura en las rectas, la sincronización al doblar curvas, el control de balcones y las muertes tardías defensivas. En el final, revisa el orden de los últimos intentos y de las definitivas.' },
     ],
     relatedLinks: [
-      { href: '/guides/como-mejorar-posicionamiento-overwatch', label: 'Mejorar el posicionamiento' },
+      { href: '/guides/como-mejorar-en-overwatch', label: 'Mejorar el posicionamiento' },
       { href: '/guides/como-elegir-composicion-dive-poke-brawl', label: 'Elegir composición' },
       { href: '/heroes/dva', label: 'Guía de D.Va' },
       { href: '/heroes/ana', label: 'Guía de Ana' },
@@ -199,8 +199,8 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
       { question: '¿Qué debería revisar en una VOD de Havana?', answer: 'Comprueba rotaciones en esquinas, control de balcones, conversión de peleas ganadas y asomos repetidos en el final. Revisa también si la composición cambió a tiempo.' },
     ],
     relatedLinks: [
-      { href: '/guides/como-mejorar-posicionamiento-overwatch', label: 'Posicionamiento en Overwatch' },
-      { href: '/guides/como-revisar-habilidades-overwatch', label: 'Revisar habilidades' },
+      { href: '/guides/como-mejorar-en-overwatch', label: 'Posicionamiento en Overwatch' },
+      { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Revisar habilidades' },
       { href: '/heroes/dva', label: 'Guía de D.Va' },
       { href: '/heroes/ana', label: 'Guía de Ana' },
     ],
@@ -301,7 +301,7 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
       { question: '¿Qué revisar en una VOD de Junkertown?', answer: 'Revisa asomos contra snipers, sincronización del lateral, control de techos y muertes tardías. En el final, analiza si las entradas y últimos intentos llegaron agrupados.' },
     ],
     relatedLinks: [
-      { href: '/guides/como-mejorar-posicionamiento-overwatch', label: 'Guía de posicionamiento' },
+      { href: '/guides/como-mejorar-en-overwatch', label: 'Guía de posicionamiento' },
       { href: '/guides/como-elegir-composicion-dive-poke-brawl', label: 'Poke, dive o brawl' },
       { href: '/heroes/dva', label: 'Guía de D.Va' },
       { href: '/heroes/genji', label: 'Guía de Genji' },
@@ -363,7 +363,7 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
       { question: '¿Cómo cruzar los puentes de Rialto?', answer: 'Identifica la altura, presiónala o bloquea su visión y cruza junto usando pared y carga. Ocupa la esquina de salida antes de volver a empujar.' },
       { question: '¿Qué revisar en una VOD de Rialto?', answer: 'Revisa control de balcones, rotaciones antes de curvas, conversión de peleas ganadas y orden de los contactos en el tramo final.' },
     ],
-    relatedLinks: [{ href: '/guides/como-mejorar-posicionamiento-overwatch', label: 'Mejorar posicionamiento' }, { href: '/guides/como-revisar-habilidades-overwatch', label: 'Revisar habilidades' }, { href: '/heroes/dva', label: 'Guía de D.Va' }, { href: '/heroes/ana', label: 'Guía de Ana' }],
+    relatedLinks: [{ href: '/guides/como-mejorar-en-overwatch', label: 'Mejorar posicionamiento' }, { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Revisar habilidades' }, { href: '/heroes/dva', label: 'Guía de D.Va' }, { href: '/heroes/ana', label: 'Guía de Ana' }],
   },
   {
     slug: 'route-66', name: 'Route 66', mode: 'Escolta', location: 'Estados Unidos', image: '/maps/route-66.png',
@@ -436,7 +436,7 @@ export const ESCORT_MAP_PILLARS: MapPillar[] = [
     mistakes: ['Doblar una curva sin visión de los supports.', 'Empujar los cinco y devolver altura a la defensa.', 'Morir tarde en una posición perdida.', 'Gastar control en el amago de la cueva.', 'Tocar el final con todo el equipo desde el suelo.'],
     vodChecklist: ['¿El Tank mantuvo línea con sus supports?', '¿Quién disputó cada altura?', '¿Se tomó la curva antes de empujar?', '¿La defensa salió viva?', '¿Qué recurso abrió la cueva?', '¿Los últimos intentos conservaron dos niveles?'],
     faq: [{ question: '¿Qué tipo de mapa es Shambali Monastery?', answer: 'Es un mapa de Escolta ascendente que atraviesa un camino nevado, cuevas y el patio del monasterio.' }, { question: '¿Qué héroes funcionan bien en Shambali?', answer: 'Sigma y Ana aprovechan líneas y curvas; D.Va, Genji, Tracer y Kiriko ayudan a disputar alturas.' }, { question: '¿Cómo atacar la subida?', answer: 'Avanza de cobertura en cobertura, comprueba líneas de curación y ocupa la curva antes de mover la carga.' }, { question: '¿Qué revisar en una VOD de Shambali?', answer: 'Revisa visión en curvas, control de plataformas, retiradas, habilidades en cuevas y contactos finales.' }],
-    relatedLinks: [{ href: '/guides/como-mejorar-posicionamiento-overwatch', label: 'Mejorar posicionamiento' }, { href: '/guides/como-revisar-habilidades-overwatch', label: 'Revisar habilidades' }, { href: '/heroes/dva', label: 'Guía de D.Va' }, { href: '/heroes/genji', label: 'Guía de Genji' }],
+    relatedLinks: [{ href: '/guides/como-mejorar-en-overwatch', label: 'Mejorar posicionamiento' }, { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Revisar habilidades' }, { href: '/heroes/dva', label: 'Guía de D.Va' }, { href: '/heroes/genji', label: 'Guía de Genji' }],
   },
   {
     slug: 'watchpoint-gibraltar', name: 'Watchpoint: Gibraltar', mode: 'Escolta', location: 'Gibraltar', image: '/maps/watchpoint-gibraltar.png', imageAlt: 'Base de lanzamiento y hangares de Watchpoint Gibraltar en Overwatch',
