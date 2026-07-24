@@ -13,6 +13,16 @@ const nextConfig = {
         destination: '/guides/ana-primeros-habitos-impactar-mas',
         permanent: true,
       },
+      {
+        source: '/guides/como-revisar-habilidades-overwatch',
+        destination: '/guides/como-revisar-cooldowns-overwatch',
+        permanent: true,
+      },
+      {
+        source: '/guides/como-mejorar-posicionamiento-overwatch',
+        destination: '/guides/como-mejorar-en-overwatch',
+        permanent: true,
+      },
     ]
   },
 }
