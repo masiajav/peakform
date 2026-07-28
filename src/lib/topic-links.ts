@@ -7,6 +7,8 @@ export const PUBLIC_HERO_PAGE_SLUGS = [
   'dva',
   'winston',
   'cassidy',
+  'tracer',
+  'zarya',
 ] as const
 
 export function isPublicHeroPageSlug(slug: string) {

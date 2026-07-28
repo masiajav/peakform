@@ -280,7 +280,14 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
           </div>
 
           <aside style={{ background: 'var(--surface)', border: '1px solid var(--border)', overflow: 'hidden' }}>
-            <div style={{ position: 'relative', height: 330, background: 'var(--surface2)' }}>
+            <div
+              style={{
+                position: 'relative',
+                height: 330,
+                background:
+                  'radial-gradient(circle at 50% 20%, rgba(255, 92, 37, 0.16), transparent 42%), linear-gradient(180deg, var(--surface2), var(--bg))',
+              }}
+            >
               {image ? (
                 <Image
                   src={image}
@@ -288,7 +295,7 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
                   fill
                   priority
                   sizes="(max-width: 768px) 100vw, 420px"
-                  style={{ objectFit: 'cover', objectPosition: 'center' }}
+                  style={{ boxSizing: 'border-box', objectFit: 'contain', objectPosition: 'center bottom', padding: 24 }}
                 />
               ) : (
                 <div style={{ height: '100%', display: 'grid', placeItems: 'center', color: 'var(--text3)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 84 }}>
@@ -535,14 +542,21 @@ function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
           </div>
 
           <aside style={{ background: 'var(--surface)', border: '1px solid var(--border)', overflow: 'hidden' }}>
-            <div style={{ position: 'relative', height: 330, background: 'var(--surface2)' }}>
+            <div
+              style={{
+                position: 'relative',
+                height: 330,
+                background:
+                  'radial-gradient(circle at 50% 20%, rgba(255, 92, 37, 0.16), transparent 42%), linear-gradient(180deg, var(--surface2), var(--bg))',
+              }}
+            >
               <Image
                 src={SHION_IMAGE}
                 alt="Shion, nueva heroína DPS de Overwatch"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 420px"
-                style={{ objectFit: 'cover', objectPosition: 'center' }}
+                style={{ boxSizing: 'border-box', objectFit: 'contain', objectPosition: 'center bottom', padding: 24 }}
               />
             </div>
             <div style={{ padding: 18, display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 10 }}>
@@ -833,18 +847,32 @@ function MetaPill({ label, value }: { label: string; value: string }) {
 }
 
 function heroCtrTitle(pillar: HeroPillar) {
-  return `${pillar.name} Overwatch: guía ranked, counters y errores comunes`
+  return pillar.seoTitle
 }
 
 function heroCtrDescription(pillar: HeroPillar) {
-  const firstCounter = pillar.counters[0]?.title
-  const counterPart = firstCounter ? `, cómo jugar contra ${firstCounter}` : ''
-  return `Cómo jugar ${pillar.name} en ranked sin autopilot: plan de pelea, cooldowns clave${counterPart}, mejores comps y qué mirar en tu VOD.`
+  return pillar.seoDescription
 }
 
 function buildHeroHeaderTips(pillar: HeroPillar) {
   const firstCounter = pillar.counters[0]?.title
   const firstComp = pillar.compositions[0]?.title
+
+  if (pillar.slug === 'tracer') {
+    return [
+      'Para jugar Tracer: entra cuando tu equipo ya esté presionando, no cuando el rival todavía puede girarse gratis.',
+      'Para frenarla: no la persigas por tilt; protege la backline, limpia rutas y castiga cuando gaste Recall.',
+      'Mejor contexto: dive o presión lateral doble. Si cada uno entra a un timing distinto, Tracer se queda haciendo ruido sin convertir nada.',
+    ]
+  }
+
+  if (pillar.slug === 'zarya') {
+    return [
+      'Para jugar Zarya: usa burbujas para negar una amenaza concreta, no para ver si alguien te dispara.',
+      'Para jugar contra ella: no le cargues gratis. Espera burbujas, kitea y fuerza peleas donde no pueda tocarte cómoda.',
+      'Mejor contexto: brawl y rush. Si la pelea ocurre en campo abierto o contra mucha verticalidad, Zarya sufre bastante más.',
+    ]
+  }
 
   return [
     `Para jugar ${pillar.name}: busca valor con timing, no por inercia ni por ego.`,
@@ -861,6 +889,40 @@ function buildHeroQuickAnswers(pillar: HeroPillar) {
   const firstCounter = pillar.counters[0]?.title
   const firstComp = pillar.compositions[0]?.title
   const firstMistake = pillar.mistakes[0]
+
+  if (pillar.slug === 'tracer') {
+    return [
+      {
+        title: 'Si vas a jugar Tracer',
+        body: 'Piensa en presión, no en persecución. Entra por una ruta con salida, fuerza un cooldown y vuelve a desaparecer antes de quedarte sin blinks.',
+      },
+      {
+        title: 'Si la tienes enfrente',
+        body: 'No hace falta correr detrás de ella. Juega cerca de tu support vulnerable, guarda una respuesta para cuando gaste Recall y no le des duelos largos gratis.',
+      },
+      {
+        title: 'Cuándo se siente fuerte',
+        body: 'Cuando tu equipo ya está tocando la frontline y Tracer puede entrar por el lateral. Si entra sola antes que todos, normalmente solo fuerza Recall y se va.',
+      },
+    ]
+  }
+
+  if (pillar.slug === 'zarya') {
+    return [
+      {
+        title: 'Si vas a jugar Zarya',
+        body: 'No busques energía por ego. Guarda burbujas para el momento en que el rival se compromete y pelea cerca de esquinas para no gastar todo solo por cruzar.',
+      },
+      {
+        title: 'Si la tienes enfrente',
+        body: 'Deja de disparar burbujas por reflejo. Kitea, juega a rango o desde verticalidad y castígala cuando ya no tenga recursos para sostener el avance.',
+      },
+      {
+        title: 'Cuándo se siente fuerte',
+        body: 'Cuando la pelea ocurre en corto, su equipo entra junto y las burbujas convierten el focus rival en energía. En abierto o contra flyers, pierde mucha comodidad.',
+      },
+    ]
+  }
 
   return [
     {
