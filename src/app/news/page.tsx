@@ -8,7 +8,13 @@ import { announcementPath, articleDescription } from '@/lib/content'
 import { isAnnouncementSitemapEligible } from '@/lib/indexing-policy'
 import { buildMetadata } from '@/lib/seo'
 
-const featuredFallbackNews = [
+const featuredNews = [
+  {
+    href: '/busan-eichenwalde-paraiso-reworks-overwatch',
+    title: 'Busan, Eichenwalde y Paraíso tendrán rework en Overwatch',
+    date: '02 de agosto de 2026',
+    description: 'Blizzard confirma reworks para Busan, Eichenwalde y Paraíso. Resumen de cambios y primeras claves para ranked.',
+  },
   {
     href: '/overwatch-temporada-3-into-the-tigers-den',
     title: "Temporada 3 de Overwatch: Into the Tiger's Den",
@@ -79,51 +85,46 @@ export default async function NewsPage() {
           </p>
         </div>
 
-        {indexableAnnouncements.length === 0 ? (
-          <div style={{ display: 'grid', gap: 16 }}>
-            {featuredFallbackNews.map(item => (
-              <Link key={item.href} href={item.href} style={{ textDecoration: 'none' }}>
-                <article style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '22px 24px' }}>
-                  <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 10 }}>
-                    <span style={{ fontSize: 10, letterSpacing: 1.5, color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif' }}>
-                      ACTUALIDAD
-                    </span>
-                    <span style={{ fontSize: 11, color: 'var(--text3)' }}>{item.date}</span>
-                  </div>
-                  <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 24, letterSpacing: 1, color: 'var(--text)', margin: '0 0 10px' }}>
-                    {item.title}
-                  </h2>
-                  <p style={{ fontSize: 14, color: 'var(--text2)', lineHeight: 1.7, margin: 0 }}>
-                    {item.description}
-                  </p>
-                </article>
-              </Link>
-            ))}
-          </div>
-        ) : (
-          <div style={{ display: 'grid', gap: 16 }}>
-            {indexableAnnouncements.map((a: any) => (
-              <Link key={a.id} href={announcementPath(a)} style={{ textDecoration: 'none' }}>
-                <article style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '22px 24px' }}>
-                  <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 10 }}>
-                    <span style={{ fontSize: 10, letterSpacing: 1.5, color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif' }}>
-                      NOTICIA
-                    </span>
-                    <span style={{ fontSize: 11, color: 'var(--text3)' }}>
-                      {new Date(a.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}
-                    </span>
-                  </div>
-                  <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 24, letterSpacing: 1, color: 'var(--text)', margin: '0 0 10px' }}>
-                    {a.title}
-                  </h2>
-                  <p style={{ fontSize: 14, color: 'var(--text2)', lineHeight: 1.7, margin: 0 }}>
-                    {articleDescription(a)}
-                  </p>
-                </article>
-              </Link>
-            ))}
-          </div>
-        )}
+        <div style={{ display: 'grid', gap: 16 }}>
+          {featuredNews.map(item => (
+            <Link key={item.href} href={item.href} style={{ textDecoration: 'none' }}>
+              <article style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '22px 24px' }}>
+                <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 10 }}>
+                  <span style={{ fontSize: 10, letterSpacing: 1.5, color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif' }}>
+                    ACTUALIDAD
+                  </span>
+                  <span style={{ fontSize: 11, color: 'var(--text3)' }}>{item.date}</span>
+                </div>
+                <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 24, letterSpacing: 1, color: 'var(--text)', margin: '0 0 10px' }}>
+                  {item.title}
+                </h2>
+                <p style={{ fontSize: 14, color: 'var(--text2)', lineHeight: 1.7, margin: 0 }}>
+                  {item.description}
+                </p>
+              </article>
+            </Link>
+          ))}
+          {indexableAnnouncements.map((a: any) => (
+            <Link key={a.id} href={announcementPath(a)} style={{ textDecoration: 'none' }}>
+              <article style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '22px 24px' }}>
+                <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 10 }}>
+                  <span style={{ fontSize: 10, letterSpacing: 1.5, color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif' }}>
+                    NOTICIA
+                  </span>
+                  <span style={{ fontSize: 11, color: 'var(--text3)' }}>
+                    {new Date(a.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}
+                  </span>
+                </div>
+                <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 24, letterSpacing: 1, color: 'var(--text)', margin: '0 0 10px' }}>
+                  {a.title}
+                </h2>
+                <p style={{ fontSize: 14, color: 'var(--text2)', lineHeight: 1.7, margin: 0 }}>
+                  {articleDescription(a)}
+                </p>
+              </article>
+            </Link>
+          ))}
+        </div>
       </section>
     </div>
   )

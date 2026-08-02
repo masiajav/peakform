@@ -20,6 +20,7 @@ import { absoluteUrl } from '@/lib/seo'
 export const dynamic = 'force-dynamic'
 
 const STATIC_LAST_MODIFIED: Record<string, string> = {
+  '/busan-eichenwalde-paraiso-reworks-overwatch': '2026-08-02',
   '/overwatch-temporada-3-into-the-tigers-den': '2026-06-16',
   '/counters/shion': '2026-06-28',
   '/team-comps/shion': '2026-06-28',
@@ -86,6 +87,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/team-comps',
     '/maps',
     '/news',
+    '/busan-eichenwalde-paraiso-reworks-overwatch',
     '/overwatch-temporada-3-into-the-tigers-den',
     ...PILLAR_GUIDE_SLUGS.map(slug => `/guides/${slug}`),
     ...TRUST_ROUTES,

@@ -28,10 +28,10 @@ const roleOrder: CounterRole[] = ['tank', 'dps', 'support']
 const heroBySlug = new Map(COUNTER_HEROES.map(hero => [hero.slug, hero]))
 const spotlightHeroes = pickHeroes(spotlightHeroSlugs)
 const seasonNews = [
-  { title: 'Shion', label: 'Nuevo DPS', body: 'Ómnica del Clan Hashimoto, pistolas duales, dashes y moto ofensiva.' },
-  { title: 'Neon Junction', label: 'Mapa híbrido', body: 'Nuevo mapa en Tokio con arcades, callejones y payload hacia Zuiko-za.' },
-  { title: 'Anima Strike', label: 'Evento', body: 'Tres semanas de desafíos, rutas ramificadas y más de 50 recompensas.' },
-  { title: 'Stadium', label: 'Gran update', body: 'Reworks para varios héroes, Oasis University y ranked sin restricciones de grupo.' },
+  { title: 'Busan', label: 'Rework', body: 'Más rutas, más lectura de high ground y cambios ligados al tema MEKA.' },
+  { title: 'Eichenwalde', label: 'Rework', body: 'Más opciones para cruzar y pelear sin atascarse en la choke principal.' },
+  { title: 'Paraíso', label: 'Rework', body: 'Rutas, coberturas y alturas nuevas que pueden cambiar bastante el mapa.' },
+  { title: 'D.Mon', label: 'Próximo reveal', body: 'El 6 de agosto tendremos más detalles del nuevo Tank y de la temporada.' },
 ]
 
 export default async function RootPage() {
@@ -117,7 +117,7 @@ export default async function RootPage() {
               </form>
               <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 12 }}>
                 <Link href="/heroes" className="btn btn-secondary btn-sm">VER HÉROES</Link>
-                <Link href="/overwatch-temporada-3-into-the-tigers-den" className="btn btn-secondary btn-sm">NUEVA TEMPORADA</Link>
+                <Link href="/busan-eichenwalde-paraiso-reworks-overwatch" className="btn btn-secondary btn-sm">REWORKS DE MAPAS</Link>
                 <Link href="/guides/como-mejorar-en-overwatch" className="btn btn-secondary btn-sm">EMPEZAR A MEJORAR</Link>
               </div>
             </div>
@@ -137,16 +137,16 @@ export default async function RootPage() {
         </section>
 
         <section style={{ maxWidth: 1120, margin: '0 auto', padding: '20px 24px 44px' }}>
-          <Link href="/overwatch-temporada-3-into-the-tigers-den" style={{ textDecoration: 'none' }}>
+          <Link href="/busan-eichenwalde-paraiso-reworks-overwatch" style={{ textDecoration: 'none' }}>
             <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 24 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16, alignItems: 'start', marginBottom: 18, flexWrap: 'wrap' }}>
                 <div>
                   <div className="eyebrow">ÚLTIMAS NOVEDADES</div>
                   <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(32px, 5vw, 48px)', letterSpacing: 1, lineHeight: 1, margin: '0 0 8px' }}>
-                    OVERWATCH SEASON 3: INTO THE TIGER’S DEN
+                    BUSAN, EICHENWALDE Y PARAÍSO TENDRÁN REWORK
                   </h2>
                   <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0, maxWidth: 760 }}>
-                    Shion, Neon Junction, Anima Strike, Community Crafted, Stadium, Battle Pass, mythics, Ultra Skins y eventos de temporada en un resumen claro para prepararte antes de jugar.
+                    Blizzard ha confirmado tres mapas reworkeados. Resumen rápido y primeras claves para no entrar perdido cuando lleguen a ranked.
                   </p>
                 </div>
                 <span className="btn btn-primary btn-sm">VER TODO</span>

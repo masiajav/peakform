@@ -199,6 +199,7 @@ export const CONTROL_MAP_PILLARS: MapPillar[] = [
       { question: '¿Qué revisar en una VOD de Busan?', answer: 'Mira las decisiones entre rondas, el control de alturas en Downtown, la posición respecto a los bordes en Sanctuary y los recursos gastados antes de cruzar en MEKA Base. También cuenta cuántas peleas empezaron con alguien todavía rotando.' },
     ],
     relatedLinks: [
+      { href: '/busan-eichenwalde-paraiso-reworks-overwatch', label: 'Rework de mapas' },
       { href: '/guides/como-elegir-composicion-dive-poke-brawl', label: 'Dive, poke o brawl' },
       { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Cómo revisar habilidades' },
       { href: '/heroes/dva', label: 'Guía de D.Va' },
