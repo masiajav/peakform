@@ -10,8 +10,8 @@ const PAGE_IMAGE = '/heroes/dmon.png'
 const UPDATED_AT = '6 de agosto de 2026'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'D.Mon llega a Overwatch: nuevo Tank de MEKA y compañera de D.Va',
-  description: 'D.Mon será nueva Tank de Overwatch: quién es, qué relación tiene con D.Va y MEKA, qué sabemos de Beast y qué puede significar para ranked.',
+  title: 'D.Mon en Overwatch: nuevo Tank de MEKA, fecha y primeras claves',
+  description: 'D.Mon, también conocida como Yuna Lee, llega a Overwatch como nuevo Tank de MEKA el 11 de agosto: relación con D.Va, Beast, lore y primeras claves para ranked.',
   path: PAGE_PATH,
   image: PAGE_IMAGE,
   type: 'article',
@@ -23,8 +23,12 @@ const quickSummary = [
     body: 'La nueva heroína llega como Tank, así que su valor competitivo se medirá por espacio, recursos, frontline y cuánto puede aguantar el focus rival.',
   },
   {
+    title: 'Sale el 11 de agosto',
+    body: 'D.Mon está marcada para llegar con la nueva temporada de Overwatch el 11 de agosto de 2026. La noticia se irá actualizando cuando haya gameplay y patch notes.',
+  },
+  {
     title: 'Forma parte de MEKA',
-    body: 'D.Mon pertenece al escuadrón MEKA, el grupo de pilotos de Busan conectado directamente con D.Va y la defensa frente a los Gwishin.',
+    body: 'D.Mon, o Yuna Lee, pertenece al escuadrón MEKA, el grupo de pilotos de Busan conectado directamente con D.Va y la defensa frente a los Gwishin.',
   },
   {
     title: 'Beast es el centro del hype',
@@ -44,6 +48,10 @@ const storyBeats = [
   {
     title: 'D.Va ya no es la única cara del escuadrón',
     body: 'Hasta ahora, hablar de MEKA en Overwatch era casi hablar solo de D.Va. Con D.Mon, el juego empieza a enseñar más pilotos, más roles dentro del equipo y una lectura menos individual de la defensa de Busan.',
+  },
+  {
+    title: 'Yuna Lee pasa de lore a roster',
+    body: 'Para quien la busque como DMon o Yuna Lee: hablamos de la misma piloto. La diferencia ahora es que deja de ser una referencia de MEKA y pasa a tener una ficha propia dentro del roster jugable.',
   },
 ]
 
@@ -69,6 +77,14 @@ const faqs = [
     answer: 'D.Mon llega a Overwatch como Tank. Esa es la base para entender su impacto inicial: espacio, aguante, frontline y control del ritmo de la pelea.',
   },
   {
+    question: '¿Cuándo sale D.Mon en Overwatch?',
+    answer: 'D.Mon llega el 11 de agosto de 2026 con la nueva temporada de Overwatch. Hasta entonces, lo útil es separar lo confirmado de las predicciones sobre su kit.',
+  },
+  {
+    question: '¿Quién es D.Mon?',
+    answer: 'D.Mon es Yuna Lee, una piloto del escuadrón MEKA de Busan. Comparte equipo con D.Va, pero no conviene asumir que vaya a jugar como ella.',
+  },
+  {
     question: '¿D.Mon está relacionada con D.Va?',
     answer: 'Sí. D.Mon forma parte de MEKA, el escuadrón de mechs de Busan donde también está D.Va. La gracia es que no tiene por qué jugar igual que ella.',
   },
@@ -87,8 +103,8 @@ export default function DmonNewsPage() {
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
-    headline: 'D.Mon llega a Overwatch: nuevo Tank de MEKA y compañera de D.Va',
-    description: 'D.Mon será nueva Tank de Overwatch: relación con D.Va y MEKA, primeras claves de Beast y lectura inicial para ranked.',
+    headline: 'D.Mon en Overwatch: nuevo Tank de MEKA, fecha y primeras claves',
+    description: 'D.Mon, también conocida como Yuna Lee, llega a Overwatch como nuevo Tank de MEKA el 11 de agosto: relación con D.Va, Beast y lectura inicial para ranked.',
     image: [absoluteUrl(PAGE_IMAGE)],
     url: pageUrl,
     datePublished: '2026-08-06',
@@ -138,13 +154,13 @@ export default function DmonNewsPage() {
               D.MON LLEGA A OVERWATCH COMO <span style={{ color: 'var(--accent)' }}>NUEVO TANK</span> DE MEKA
             </h1>
             <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.75, margin: '0 0 18px', maxWidth: 780 }}>
-              D.Mon deja de ser solo un nombre dentro del lore de MEKA y pasa a ocupar sitio propio en Overwatch. Blizzard la presenta como nueva Tank, conectada con D.Va, Busan y el escuadrón de pilotos que protege Corea frente a las amenazas Gwishin.
+              D.Mon deja de ser solo un nombre dentro del lore de MEKA y pasa a ocupar sitio propio en Overwatch. Blizzard la presenta como nueva Tank, conectada con D.Va, Busan y el escuadrón de pilotos que protege Corea frente a las amenazas Gwishin. También la verás buscada como DMon o Yuna Lee.
             </p>
             <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.75, margin: '0 0 18px', maxWidth: 780 }}>
-              La parte importante para ranked es esta: el rol está claro, pero el kit todavía necesita gameplay real. Beast, su mech, apunta a presencia frontal y amenaza agresiva, pero no vamos a vender como definitivo lo que aún depende de números, cooldowns y prueba en partida.
+              La parte importante para ranked es esta: sale el 11 de agosto de 2026 y su rol está claro, pero el kit todavía necesita gameplay real. Beast, su mech, apunta a presencia frontal y amenaza agresiva, pero no vamos a vender como definitivo lo que aún depende de números, cooldowns y prueba en partida.
             </p>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-              <Link href="/heroes/dmon" className="btn btn-primary btn-sm">VER FICHA DE D.MON</Link>
+              <Link href="/heroes/dmon" className="btn btn-primary btn-sm">GUÍA DE D.MON</Link>
               <Link href="/roles/tank" className="btn btn-secondary btn-sm">GUÍAS DE TANK</Link>
               <Link href="/heroes/dva" className="btn btn-secondary btn-sm">D.VA Y MEKA</Link>
             </div>
@@ -172,7 +188,7 @@ export default function DmonNewsPage() {
 
         <section style={sectionStyle}>
           <div className="eyebrow" style={{ marginBottom: 10 }}>RESUMEN RÁPIDO</div>
-          <h2 style={headingStyle}>Lo importante si solo quieres quedarte con la idea</h2>
+          <h2 style={headingStyle}>D.Mon en 30 segundos: rol, fecha y por qué importa</h2>
           <div style={cardGridStyle}>
             {quickSummary.map(point => (
               <InfoCard key={point.title} title={point.title} body={point.body} />
@@ -184,7 +200,7 @@ export default function DmonNewsPage() {
           <div className="eyebrow" style={{ marginBottom: 10 }}>LORE</div>
           <h2 style={headingStyle}>Por qué D.Mon importa más allá del hype</h2>
           <p style={paragraphStyle}>
-            Lo interesante de D.Mon es que llega con una función clara dentro del universo de Overwatch. MEKA llevaba mucho tiempo siendo casi sinónimo de D.Va para la mayoría de jugadores, pero el escuadrón siempre tuvo más pilotos, más mechs y más historia alrededor de Busan.
+            Lo interesante de D.Mon es que llega con una función clara dentro del universo de Overwatch. MEKA llevaba mucho tiempo siendo casi sinónimo de D.Va para la mayoría de jugadores, pero el escuadrón siempre tuvo más pilotos, más mechs y más historia alrededor de Busan. D.Mon es Yuna Lee, una de esas piezas de lore que por fin salta al roster.
           </p>
           <p style={{ ...paragraphStyle, marginTop: 12 }}>
             Con D.Mon, Blizzard puede abrir una parte del lore que estaba ahí pero no se había convertido en gameplay. Eso encaja además con los reworks de Busan, Eichenwalde y Paraíso: la temporada no parece ir solo de meter un héroe nuevo, sino de mover piezas grandes en la historia y en los mapas.
@@ -256,7 +272,7 @@ export default function DmonNewsPage() {
             Vamos a actualizar la ficha cuando haya gameplay completo, números y primeras partidas reales. De momento, lo útil es preparar el rol de Tank, revisar cómo juega D.Va dentro de MEKA y tener a mano los reworks de mapas porque Busan también vuelve a estar en el centro.
           </p>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 16 }}>
-            <Link href="/heroes/dmon" className="btn btn-primary btn-sm">FICHA DE D.MON</Link>
+            <Link href="/heroes/dmon" className="btn btn-primary btn-sm">GUÍA DE D.MON EN OVERWATCH</Link>
             <Link href="/roles/tank" className="btn btn-secondary btn-sm">CÓMO JUGAR TANK</Link>
             <Link href="/busan-eichenwalde-paraiso-reworks-overwatch" className="btn btn-secondary btn-sm">REWORKS DE MAPAS</Link>
             <Link href="/news" className="btn btn-secondary btn-sm">MÁS NOTICIAS</Link>

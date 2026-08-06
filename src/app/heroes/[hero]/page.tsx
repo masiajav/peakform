@@ -945,8 +945,8 @@ function buildHeroQuickAnswers(pillar: HeroPillar) {
         body: 'No cambies por reflejo, pero prueba respuestas anti-tank sólidas: beams, anti-heal, Discord, control y héroes que castiguen entradas lineales.',
       },
       {
-        title: 'Lo que falta por confirmar',
-        body: 'El rol de Tank está claro. Lo que falta es el kit jugable: nombres de habilidades, cooldowns, números, movilidad real y si Beast funciona mejor en brawl, rush o anti-dive.',
+        title: 'Fecha y rol',
+        body: 'D.Mon llega el 11 de agosto de 2026 como Tank. Lo que falta es el kit jugable completo: nombres de habilidades, cooldowns, números, movilidad real y si Beast funciona mejor en brawl, rush o anti-dive.',
       },
     ]
   }
