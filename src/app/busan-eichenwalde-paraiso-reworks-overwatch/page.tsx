@@ -96,7 +96,7 @@ const faqs = [
   },
   {
     question: '¿Cuándo sabremos más de la temporada?',
-    answer: 'El 6 de agosto se esperan más detalles de la temporada y de D.Mon. Para los mapas, actualizaremos las guías cuando estén disponibles las patch notes y podamos revisar las rutas en partida.',
+    answer: 'Blizzard ya ha presentado a D.Mon como nuevo Tank de MEKA. Para los mapas, actualizaremos las guías cuando estén disponibles las patch notes y podamos revisar las rutas en partida.',
   },
   {
     question: '¿Qué hago si juego ranked?',

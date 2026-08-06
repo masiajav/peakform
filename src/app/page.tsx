@@ -23,15 +23,15 @@ export const metadata: Metadata = buildMetadata({
   path: '/',
 })
 
-const spotlightHeroSlugs = ['shion', 'sierra', 'jetpack-cat', 'mizuki']
+const spotlightHeroSlugs = ['dmon', 'shion', 'sierra', 'mizuki']
 const roleOrder: CounterRole[] = ['tank', 'dps', 'support']
 const heroBySlug = new Map(COUNTER_HEROES.map(hero => [hero.slug, hero]))
 const spotlightHeroes = pickHeroes(spotlightHeroSlugs)
 const seasonNews = [
+  { title: 'D.Mon', label: 'Nuevo Tank', body: 'La piloto de MEKA llega a Overwatch con Beast, vínculo directo con D.Va y muchas preguntas para ranked.' },
   { title: 'Busan', label: 'Rework', body: 'Más rutas, más lectura de high ground y cambios ligados al tema MEKA.' },
   { title: 'Eichenwalde', label: 'Rework', body: 'Más opciones para cruzar y pelear sin atascarse en la choke principal.' },
   { title: 'Paraíso', label: 'Rework', body: 'Rutas, coberturas y alturas nuevas que pueden cambiar bastante el mapa.' },
-  { title: 'D.Mon', label: 'Próximo reveal', body: 'El 6 de agosto tendremos más detalles del nuevo Tank y de la temporada.' },
 ]
 
 export default async function RootPage() {
@@ -117,7 +117,7 @@ export default async function RootPage() {
               </form>
               <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 12 }}>
                 <Link href="/heroes" className="btn btn-secondary btn-sm">VER HÉROES</Link>
-                <Link href="/busan-eichenwalde-paraiso-reworks-overwatch" className="btn btn-secondary btn-sm">REWORKS DE MAPAS</Link>
+                <Link href="/dmon-nuevo-heroe-tank-overwatch" className="btn btn-secondary btn-sm">NUEVO TANK D.MON</Link>
                 <Link href="/guides/como-mejorar-en-overwatch" className="btn btn-secondary btn-sm">EMPEZAR A MEJORAR</Link>
               </div>
             </div>
@@ -137,16 +137,16 @@ export default async function RootPage() {
         </section>
 
         <section style={{ maxWidth: 1120, margin: '0 auto', padding: '20px 24px 44px' }}>
-          <Link href="/busan-eichenwalde-paraiso-reworks-overwatch" style={{ textDecoration: 'none' }}>
+          <Link href="/dmon-nuevo-heroe-tank-overwatch" style={{ textDecoration: 'none' }}>
             <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 24 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16, alignItems: 'start', marginBottom: 18, flexWrap: 'wrap' }}>
                 <div>
                   <div className="eyebrow">ÚLTIMAS NOVEDADES</div>
                   <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(32px, 5vw, 48px)', letterSpacing: 1, lineHeight: 1, margin: '0 0 8px' }}>
-                    BUSAN, EICHENWALDE Y PARAÍSO TENDRÁN REWORK
+                    D.MON LLEGA A OVERWATCH COMO NUEVO TANK DE MEKA
                   </h2>
                   <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0, maxWidth: 760 }}>
-                    Blizzard ha confirmado tres mapas reworkeados. Resumen rápido y primeras claves para no entrar perdido cuando lleguen a ranked.
+                    D.Mon entra en el roster como Tank de MEKA. Resumen claro de lo confirmado, primeras claves para ranked y qué esperar de Beast sin inventar el kit.
                   </p>
                 </div>
                 <span className="btn btn-primary btn-sm">VER TODO</span>
@@ -325,7 +325,7 @@ function HomeHeroCard({ hero, compact = false, priority = false }: { hero: Count
             sizes={compact ? '(max-width: 768px) 42vw, 150px' : '(max-width: 768px) 42vw, 180px'}
             imageStyle={{ objectFit: 'contain', objectPosition: 'center bottom' }}
           />
-          {hero.slug === 'shion' && <span className="home-hero-card-badge">NUEVO</span>}
+          {(hero.slug === 'dmon' || hero.slug === 'shion') && <span className="home-hero-card-badge">NUEVO</span>}
         </div>
         <div className="home-hero-card-body">
           <span className="home-hero-card-name">{hero.name}</span>

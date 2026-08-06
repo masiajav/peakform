@@ -4,6 +4,7 @@ export const PUBLIC_HERO_PAGE_SLUGS = [
   'kiriko',
   'genji',
   'reinhardt',
+  'dmon',
   'dva',
   'winston',
   'cassidy',

@@ -191,6 +191,8 @@ export function announcementPath(item: { slug: string; content_type?: string | n
 }
 
 export function topicLabel(slug: string) {
+  if (slug === 'dmon') return 'D.Mon'
+
   return slug
     .split('-')
     .filter(Boolean)

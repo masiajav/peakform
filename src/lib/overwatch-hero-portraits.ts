@@ -6,6 +6,7 @@
   bastion: '/heroes/bastion.png',
   brigitte: '/heroes/brigitte.png',
   cassidy: '/heroes/cassidy.png',
+  dmon: '/heroes/dmon.png',
   domina: '/heroes/domina.png',
   doomfist: '/heroes/doomfist.png',
   dva: '/heroes/dva.png',

@@ -10,6 +10,12 @@ import { buildMetadata } from '@/lib/seo'
 
 const featuredNews = [
   {
+    href: '/dmon-nuevo-heroe-tank-overwatch',
+    title: 'D.Mon llega a Overwatch como nuevo Tank de MEKA',
+    date: '06 de agosto de 2026',
+    description: 'D.Mon entra en Overwatch como Tank: contexto de MEKA, relación con D.Va, primeras claves de Beast y lectura inicial para ranked.',
+  },
+  {
     href: '/busan-eichenwalde-paraiso-reworks-overwatch',
     title: 'Busan, Eichenwalde y Paraíso tendrán rework en Overwatch',
     date: '02 de agosto de 2026',

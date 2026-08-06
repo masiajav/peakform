@@ -9,7 +9,7 @@ export type HeroPillarLink = {
 }
 
 export type HeroPillar = {
-  slug: 'ana' | 'kiriko' | 'genji' | 'reinhardt' | 'dva' | 'winston' | 'cassidy' | 'tracer' | 'zarya'
+  slug: 'ana' | 'kiriko' | 'genji' | 'reinhardt' | 'dmon' | 'dva' | 'winston' | 'cassidy' | 'tracer' | 'zarya'
   name: string
   role: 'Tank' | 'Support' | 'DPS'
   roleSlug: 'tank' | 'support' | 'dps'
@@ -1046,6 +1046,134 @@ export const HERO_PILLARS: Record<string, HeroPillar> = {
       { href: '/guides/como-mejorar-como-dps-overwatch', label: 'Cómo mejorar como DPS' },
       { href: '/guides/cuando-cambiar-de-heroe-overwatch', label: 'Cuándo cambiar de héroe' },
       { href: '/experts', label: 'Revisar mi Tracer con un experto' },
+    ],
+  },
+  dmon: {
+    slug: 'dmon',
+    name: 'D.Mon',
+    role: 'Tank',
+    roleSlug: 'tank',
+    updatedAt: '06 de agosto de 2026',
+    seoTitle: 'D.Mon en Overwatch: nuevo Tank de MEKA, lore y primeras claves',
+    seoDescription: 'D.Mon llega a Overwatch como nuevo Tank de MEKA: relación con D.Va, mech Beast, lectura inicial para ranked y dudas hasta ver su kit completo.',
+    h1: 'D.Mon en Overwatch: nuevo Tank de MEKA',
+    kicker: 'Tank de MEKA, Beast y primera lectura para ranked',
+    intro: [
+      'D.Mon entra en Overwatch como nueva Tank del escuadrón MEKA, el mismo grupo del que forma parte D.Va. Es uno de esos personajes que llegan con mucho ruido de lore, porque no aparece como una heroína aislada: llega ligada a Busan, a la base MEKA y al avance de Talon.',
+      'La lectura competitiva todavía tiene que hacerse con calma. El rol de Tank sí está claro, pero el kit completo necesita gameplay, números y prueba real antes de cerrar conclusiones. De momento, lo sensato es entender qué tipo de presencia promete y qué preguntas hay que resolver cuando sea jugable.',
+      'Esta página funciona como primer hub de D.Mon: qué se sabe, cómo encaja con MEKA, qué puede significar para ranked, qué counters podrían molestarle de salida y qué mirar en tus primeras VODs si decides probarla.',
+    ],
+    facts: [
+      { title: 'Rol', body: 'Tank' },
+      { title: 'Escuadrón', body: 'MEKA, la unidad de mechs ligada a Busan y D.Va.' },
+      { title: 'Mech', body: 'Beast, un mech pesado con identidad más agresiva.' },
+      { title: 'Punto fuerte esperado', body: 'Presencia frontal, amenaza en corto y capacidad de marcar tempo.' },
+      { title: 'Duda principal', body: 'Cómo se traducen escudo, espada y movilidad a gameplay real.' },
+      { title: 'Estado', body: 'Primer vistazo editorial, pendiente de kit jugable.' },
+    ],
+    rankedPlan: [
+      'No la juzgues solo por el hype. Cuando salga, entra primero a partidas rápidas o custom y mira su ciclo básico: cómo inicia, cómo aguanta focus y cómo sale si la pelea se tuerce.',
+      'Piensa como Tank antes que como duelista. Aunque Beast tenga pinta agresiva, tu trabajo seguirá siendo crear espacio útil, no perseguir kills lejos de tu equipo.',
+      'Cuenta tus recursos defensivos desde el primer día. Si su escudo o herramientas de aguante tienen ventanas claras, gastar todo para entrar puede dejarte sin salida.',
+      'Prueba mapas cerrados y peleas de esquina antes de forzarla en cualquier composición. Un Tank con espada o presión corta suele necesitar rutas donde pueda tocar al rival sin comerse todo el poke gratis.',
+      'Revisa muy pronto qué supports la habilitan mejor. Kiriko, Lucio, Baptiste, Ana o Juno pueden cambiar mucho la sensación de un Tank nuevo según limpieza, velocidad, sustain o burst healing.',
+    ],
+    sections: [
+      {
+        title: 'D.Mon no es solo otra D.Va',
+        body: 'Comparten MEKA y el lenguaje visual de mech, pero no conviene asumir que jugará como D.Va. D.Va vive mucho de movilidad, Matrix y peel; D.Mon apunta más a presencia directa con Beast, aunque habrá que confirmarlo con gameplay.',
+      },
+      {
+        title: 'La clave será el tempo',
+        body: 'Si su kit mezcla defensa y amenaza cuerpo a cuerpo, la pregunta importante será cuándo puede entrar sin regalarse. Los Tanks nuevos suelen parecer rotísimos o flojos al principio porque la gente aún no entiende sus ventanas.',
+      },
+      {
+        title: 'El contexto MEKA importa',
+        body: 'D.Mon llega en un momento donde Busan, MEKA y Talon vuelven al centro del lore. Eso la convierte en una página fuerte para seguir temporada, mapas y composición, no solo una ficha de habilidades.',
+      },
+    ],
+    abilities: [
+      {
+        title: 'Beast',
+        body: 'Su mech es el centro de la identidad del personaje. Visualmente comunica Tank pesado y agresivo, con más presencia de frontline que de piloto frágil escondida detrás.',
+      },
+      {
+        title: 'Escudo',
+        body: 'El material mostrado enseña una herramienta defensiva tipo escudo. Hasta ver gameplay, lo correcto es leerlo como señal de aguante o protección, no como confirmación de cómo bloqueará daño.',
+      },
+      {
+        title: 'Espada',
+        body: 'La espada sugiere amenaza en corto y posible presión de brawl. Eso no significa que vaya a jugar igual que Reinhardt: falta saber rango, cooldowns, movilidad y riesgos.',
+      },
+      {
+        title: 'Movilidad MEKA',
+        body: 'Por pertenecer a MEKA, es razonable esperar algún tipo de desplazamiento o herramienta para reposicionarse, pero aún no hay que construir una guía definitiva alrededor de eso.',
+      },
+      {
+        title: 'Kit pendiente',
+        body: 'Los nombres, números, cooldowns y combos deben cerrarse cuando Blizzard enseñe gameplay completo y patch notes. Hasta entonces, la lectura competitiva tiene que ser prudente.',
+      },
+    ],
+    mistakes: [
+      'Entrar a ranked el primer día pensando que el rol de Tank se juega solo por ser nueva.',
+      'Asumir que funciona como D.Va solo porque ambas pertenecen a MEKA.',
+      'Forzar peleas largas en campo abierto si su valor real está en corto.',
+      'Gastar todos los recursos para iniciar sin tener una salida clara.',
+      'Ignorar counters de beam, anti-heal, Discord o control solo porque el personaje está en hype.',
+      'Copiar builds o rutas antes de entender qué problema resuelve en cada mapa.',
+      'Hablar de habilidades definitivas sin esperar gameplay real.',
+    ],
+    counters: [
+      { title: 'Zarya', body: 'Si D.Mon depende de entrar y pegar en corto, Zarya puede castigar daño predecible, cargar energía y convertir el brawl en una pelea incómoda.' },
+      { title: 'Symmetra', body: 'El beam y las torretas suelen molestar a Tanks que quieren avanzar por espacios cerrados o defenderse con herramientas que no bloquean rayos.' },
+      { title: 'Reaper', body: 'Es una respuesta clásica contra Tanks grandes si puede jugar cerca, sostener el trade y obligar al equipo rival a gastar recursos defensivos.' },
+      { title: 'Ana', body: 'Sleep y anti-heal pueden cortar una entrada agresiva. Contra cualquier Tank nuevo, Ana suele ser una prueba muy clara de gestión de cooldowns.' },
+      { title: 'Zenyatta', body: 'Discord reduce el margen de error. Si D.Mon tiene que exponerse para crear espacio, Zen puede hacer que cada cruce cueste demasiado.' },
+      { title: 'Sombra', body: 'Hack y presión lateral pueden romper el timing de entrada si D.Mon depende de una ventana concreta para iniciar o salir.' },
+    ],
+    counterplay: [
+      'No camines por main comiéndote poke solo para probar el personaje.',
+      'Contra Zarya o Symmetra, respeta beams y juega más alrededor de esquinas.',
+      'Contra Ana o Zenyatta, identifica anti-heal y Discord antes de comprometer toda la entrada.',
+      'Si el rival guarda control para ti, fuerza primero recursos con presencia y entra después.',
+      'Si la partida pide movilidad o peel constante, compara si D.Va sigue resolviendo mejor ese problema.',
+    ],
+    compositions: [
+      { title: 'Brawl MEKA', body: 'D.Mon con DPS de corto-medio rango y supports que puedan sostener avance. La idea sería caminar espacio con recursos, no jugar a poke eterno.' },
+      { title: 'Rush con velocidad', body: 'Lucio puede ser clave si D.Mon necesita cerrar distancia. Kiriko aporta limpieza si anti-heal o control frenan demasiado la entrada.' },
+      { title: 'Anti-dive con presencia frontal', body: 'Si Beast aguanta bien el engage rival, puede encajar en equipos que quieren proteger backline y castigar a quien entra demasiado profundo.' },
+    ],
+    vodReview: [
+      'Marca cada muerte: ¿moriste creando espacio real o persiguiendo una kill sin valor?',
+      'Revisa cuándo usaste tus recursos defensivos. Si desaparecen antes de que empiece la pelea importante, estás jugando demasiado ansioso.',
+      'Mira si tu equipo pudo seguir tus entradas. Un Tank nuevo no sirve de nada si nadie puede convertir el espacio que crea.',
+      'Anota qué héroes rivales te obligan a cambiar el plan: anti-heal, Discord, beams, control o poke largo.',
+      'Compara mapas cerrados contra mapas abiertos para entender dónde Beast se siente natural y dónde necesita demasiada ayuda.',
+    ],
+    checklist: [
+      'Sé qué recurso rival me puede cortar la entrada.',
+      'Tengo cobertura o salida antes de avanzar.',
+      'No juego como D.Va por costumbre.',
+      'No fuerzo brawl si el mapa me deja vendido.',
+      'Mi equipo puede seguir el espacio que creo.',
+      'Reviso el kit cuando haya gameplay, no antes.',
+    ],
+    faqs: [
+      { question: '¿D.Mon es Tank, DPS o Support?', answer: 'D.Mon llega a Overwatch como Tank. Por ahora esa es la parte importante para preparar guías, roles y expectativas competitivas.' },
+      { question: '¿D.Mon está relacionada con D.Va?', answer: 'Sí. D.Mon forma parte de MEKA, el escuadrón de mechs asociado a Busan y D.Va. Eso no significa que vaya a jugar igual que D.Va.' },
+      { question: '¿Se conocen sus habilidades?', answer: 'Se han visto señales visuales como Beast, escudo y espada, pero no conviene cerrar una guía de habilidades hasta tener gameplay completo y patch notes.' },
+      { question: '¿Qué tipo de Tank parece?', answer: 'Por estética y señales iniciales, parece orientada a presencia frontal y amenaza en corto. Aun así, su subrol real dependerá de movilidad, cooldowns y números.' },
+      { question: '¿Qué counters debería probar contra D.Mon?', answer: 'Como punto de partida: Zarya, Symmetra, Reaper, Ana, Zenyatta y Sombra. Son respuestas lógicas contra Tanks agresivos mientras se entiende el kit.' },
+    ],
+    links: [
+      { href: '/dmon-nuevo-heroe-tank-overwatch', label: 'Noticia de D.Mon' },
+      { href: '/heroes/dva', label: 'D.Va' },
+      { href: '/roles/tank', label: 'Guías de Tank' },
+      { href: '/counters/dmon', label: 'Counters iniciales de D.Mon' },
+      { href: '/team-comps', label: 'Composiciones de Overwatch' },
+      { href: '/busan-eichenwalde-paraiso-reworks-overwatch', label: 'Reworks de Busan y Eichenwalde' },
+      { href: '/guides/como-mejorar-como-tank-overwatch', label: 'Cómo mejorar como Tank' },
+      { href: '/experts', label: 'Revisar mi Tank con un experto' },
     ],
   },
   zarya: {

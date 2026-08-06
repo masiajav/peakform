@@ -26,6 +26,7 @@ const heroSeeds = [
   ['Bastion', 'dps'],
   ['Brigitte', 'support'],
   ['Cassidy', 'dps'],
+  ['D.Mon', 'tank'],
   ['D.Va', 'tank'],
   ['Domina', 'tank'],
   ['Doomfist', 'tank'],
@@ -81,6 +82,7 @@ const counterMatrix: Record<string, string[]> = {
   bastion: ['zarya', 'orisa', 'junkrat', 'pharah', 'genji', 'tracer', 'ana'],
   brigitte: ['reinhardt', 'roadhog', 'pharah', 'echo', 'junkrat'],
   cassidy: ['reinhardt', 'winston', 'genji', 'ana'],
+  dmon: ['zarya', 'symmetra', 'reaper', 'ana', 'zenyatta', 'sombra', 'mei', 'orisa'],
   dva: ['zarya', 'winston', 'symmetra', 'sojourn', 'bastion', 'moira'],
   domina: ['winston', 'ramattra', 'mauga', 'bastion', 'sojourn', 'reaper', 'moira', 'lucio'],
   doomfist: ['orisa', 'sombra', 'tracer', 'bastion', 'genji', 'ana', 'brigitte'],
@@ -229,5 +231,6 @@ function relatedForRole(role: CounterRole, slug: string) {
 
 function heroSlug(name: string) {
   if (name === 'D.Va') return 'dva'
+  if (name === 'D.Mon') return 'dmon'
   return toSlug(name)
 }

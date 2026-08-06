@@ -874,6 +874,14 @@ function buildHeroHeaderTips(pillar: HeroPillar) {
     ]
   }
 
+  if (pillar.slug === 'dmon') {
+    return [
+      'Para jugar D.Mon: pruébala como Tank primero y como personaje nuevo después. Lo importante será crear espacio sin regalar todos los recursos de Beast.',
+      'Para jugar contra ella: empieza por respuestas anti-tank claras como Zarya, Symmetra, Reaper, Ana o Zenyatta mientras se entiende el kit real.',
+      'Mejor contexto inicial: brawl, rush o peleas de esquina. Si el mapa exige mucho poke largo, habrá que ver si su movilidad compensa.',
+    ]
+  }
+
   return [
     `Para jugar ${pillar.name}: busca valor con timing, no por inercia ni por ego.`,
     firstCounter
@@ -920,6 +928,23 @@ function buildHeroQuickAnswers(pillar: HeroPillar) {
       {
         title: 'Cuándo se siente fuerte',
         body: 'Cuando la pelea ocurre en corto, su equipo entra junto y las burbujas convierten el focus rival en energía. En abierto o contra flyers, pierde mucha comodidad.',
+      },
+    ]
+  }
+
+  if (pillar.slug === 'dmon') {
+    return [
+      {
+        title: 'Si vas a jugar D.Mon',
+        body: 'No entres a ranked solo por hype. Primero entiende cómo Beast crea espacio, qué recurso te salva cuando te focusean y cuándo tu equipo puede seguir tu engage.',
+      },
+      {
+        title: 'Si la tienes enfrente',
+        body: 'No cambies por reflejo, pero prueba respuestas anti-tank sólidas: beams, anti-heal, Discord, control y héroes que castiguen entradas lineales.',
+      },
+      {
+        title: 'Lo que falta por confirmar',
+        body: 'El rol de Tank está claro. Lo que falta es el kit jugable: nombres de habilidades, cooldowns, números, movilidad real y si Beast funciona mejor en brawl, rush o anti-dive.',
       },
     ]
   }
