@@ -3,7 +3,8 @@
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import { COUNTER_HEROES, type CounterHero, type CounterRole } from '@/lib/overwatch-counters'
-import { heroTopicHref } from '@/lib/topic-links'
+import { PILLAR_COUNTER_SLUGS, PILLAR_TEAM_COMP_SLUGS } from '@/lib/public-topic-policy'
+import { heroTopicHref, isPublicHeroPageSlug } from '@/lib/topic-links'
 
 const ROLE_LABELS: Record<CounterRole | 'all', string> = {
   all: 'Todos',
@@ -27,6 +28,8 @@ export default function CounterExplorer() {
   }, [query, role])
 
   const selected = COUNTER_HEROES.find(hero => hero.slug === selectedSlug) ?? filteredHeroes[0] ?? COUNTER_HEROES[0]
+  const hasCounterPillar = PILLAR_COUNTER_SLUGS.includes(selected.slug)
+  const hasTeamCompPillar = PILLAR_TEAM_COMP_SLUGS.includes(selected.slug)
   const related = selected.related
     .map(slug => COUNTER_HEROES.find(hero => hero.slug === slug))
     .filter(Boolean) as CounterHero[]
@@ -71,13 +74,17 @@ export default function CounterExplorer() {
             <p>{ROLE_LABELS[selected.role]} · counters, amenazas y guías relacionadas.</p>
           </div>
           <div className="counter-panel-actions">
-            <Link href={`/counters/${selected.slug}`} className="btn btn-secondary btn-sm">
-              VER COUNTERS
-            </Link>
-            <Link href={`/team-comps/${selected.slug}`} className="btn btn-secondary btn-sm">
-              COMPOS
-            </Link>
-            <Link href={heroTopicHref(selected.slug)} className="btn btn-primary btn-sm">
+            {hasCounterPillar && (
+              <Link href={`/counters/${selected.slug}`} className="btn btn-secondary btn-sm">
+                VER COUNTERS
+              </Link>
+            )}
+            {hasTeamCompPillar && (
+              <Link href={`/team-comps/${selected.slug}`} className="btn btn-secondary btn-sm">
+                COMPOS
+              </Link>
+            )}
+            <Link href={heroTopicHref(selected.slug)} rel={isPublicHeroPageSlug(selected.slug) ? undefined : 'nofollow'} className="btn btn-primary btn-sm">
               GUÍA
             </Link>
           </div>
@@ -89,9 +96,9 @@ export default function CounterExplorer() {
         <section className="counter-related">
           <h3>Guías relacionadas</h3>
           <div>
-            <Link href={heroTopicHref(selected.slug)}>Página de {selected.name}</Link>
+            <Link href={heroTopicHref(selected.slug)} rel={isPublicHeroPageSlug(selected.slug) ? undefined : 'nofollow'}>Página de {selected.name}</Link>
             {related.map(hero => (
-              <Link key={hero.slug} href={heroTopicHref(hero.slug)}>
+              <Link key={hero.slug} href={heroTopicHref(hero.slug)} rel={isPublicHeroPageSlug(hero.slug) ? undefined : 'nofollow'}>
                 {hero.name}
               </Link>
             ))}
@@ -108,7 +115,7 @@ function CounterList({ title, items }: { title: string; items: { slug: string; n
       <h3>{title}</h3>
       <div>
         {items.map(item => (
-          <Link key={item.slug} href={heroTopicHref(item.slug)} className="counter-matchup">
+          <Link key={item.slug} href={heroTopicHref(item.slug)} rel={isPublicHeroPageSlug(item.slug) ? undefined : 'nofollow'} className="counter-matchup">
             <strong>{item.name}</strong>
             <span>{item.reason}</span>
           </Link>

@@ -12,6 +12,7 @@ import {
   type TeamCompStyle,
 } from '@/lib/overwatch-team-comps'
 import type { CounterRole } from '@/lib/overwatch-counters'
+import { PILLAR_COUNTER_SLUGS, PILLAR_TEAM_COMP_SLUGS } from '@/lib/public-topic-policy'
 
 const ROLE_LABELS: Record<CounterRole | 'all', string> = {
   all: 'Todos',
@@ -37,6 +38,8 @@ export default function TeamCompExplorer({ initialHero = 'ana' }: { initialHero?
   }, [query, role])
 
   const selected = TEAM_COMP_HEROES.find(hero => hero.slug === selectedSlug) ?? filteredHeroes[0] ?? TEAM_COMP_HEROES[0]
+  const hasTeamCompPillar = PILLAR_TEAM_COMP_SLUGS.includes(selected.slug)
+  const hasCounterPillar = PILLAR_COUNTER_SLUGS.includes(selected.slug)
   const activeStyle = style === 'all' ? bestDefaultStyle(selected) : style
   const comps = getTeamCompsForHero(selected.slug, format, activeStyle)
 
@@ -98,12 +101,16 @@ export default function TeamCompExplorer({ initialHero = 'ana' }: { initialHero?
             <p>{ROLE_LABELS[selected.role]} · {TEAM_COMP_STYLE_LABELS[activeStyle]} recomendado para este heroe.</p>
           </div>
           <div className="counter-panel-actions">
-            <Link href={`/team-comps/${selected.slug}`} className="btn btn-secondary btn-sm">
-              VER PAGINA
-            </Link>
-            <Link href={`/counters/${selected.slug}`} className="btn btn-primary btn-sm">
-              COUNTERS
-            </Link>
+            {hasTeamCompPillar && (
+              <Link href={`/team-comps/${selected.slug}`} className="btn btn-secondary btn-sm">
+                VER PAGINA
+              </Link>
+            )}
+            {hasCounterPillar && (
+              <Link href={`/counters/${selected.slug}`} className="btn btn-primary btn-sm">
+                COUNTERS
+              </Link>
+            )}
           </div>
         </div>
 

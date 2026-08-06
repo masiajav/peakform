@@ -78,7 +78,7 @@ export default function HeroesIndexPage() {
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntity: {
       '@type': 'ItemList',
-      itemListElement: COUNTER_HEROES.map((hero, index) => ({
+      itemListElement: COUNTER_HEROES.filter(hero => isPublicHeroPageSlug(hero.slug)).map((hero, index) => ({
         '@type': 'ListItem',
         position: index + 1,
         name: hero.name,
@@ -224,9 +224,10 @@ function RoleSection({ role, heroes }: { role: CounterRole; heroes: CounterHero[
 function HeroCard({ hero }: { hero: CounterHero }) {
   const portrait = getHeroPortrait(hero.slug)
   const hasPublicPillar = isPublicHeroPageSlug(hero.slug)
+  const href = heroTopicHref(hero.slug)
 
   return (
-    <Link href={heroTopicHref(hero.slug)} style={{ textDecoration: 'none' }}>
+    <Link href={href} rel={hasPublicPillar ? undefined : 'nofollow'} style={{ textDecoration: 'none' }}>
       <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', minHeight: 238, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
         <div style={{ position: 'relative', height: 168, background: 'var(--surface2)', borderBottom: '1px solid var(--border)' }}>
           <HeroPortraitImage

@@ -1169,7 +1169,7 @@ export const HERO_PILLARS: Record<string, HeroPillar> = {
       { href: '/dmon-nuevo-heroe-tank-overwatch', label: 'Noticia de D.Mon' },
       { href: '/heroes/dva', label: 'D.Va' },
       { href: '/roles/tank', label: 'Guías de Tank' },
-      { href: '/counters/dmon', label: 'Counters iniciales de D.Mon' },
+      { href: '/counters', label: 'Hub de counters' },
       { href: '/team-comps', label: 'Composiciones de Overwatch' },
       { href: '/busan-eichenwalde-paraiso-reworks-overwatch', label: 'Reworks de Busan y Eichenwalde' },
       { href: '/guides/como-mejorar-como-tank-overwatch', label: 'Cómo mejorar como Tank' },

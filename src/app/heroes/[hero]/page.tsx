@@ -7,7 +7,7 @@ import GuideVideo from '@/components/content/GuideVideo'
 import PublicNav from '@/components/layout/PublicNav'
 import { topicLabel } from '@/lib/content'
 import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
-import { robotsForQuality, topicQualityDecision } from '@/lib/indexing-policy'
+import { isPillarCounterSlug, isPillarTeamCompSlug, robotsForQuality, topicQualityDecision } from '@/lib/indexing-policy'
 import { getHeroPillar, type HeroPillar } from '@/lib/hero-pillars'
 import { getHeroPortrait } from '@/lib/overwatch-hero-portraits'
 import { safeTopicHref } from '@/lib/topic-links'
@@ -208,6 +208,8 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
   const pageUrl = absoluteUrl(`/heroes/${pillar.slug}`)
   const quickAnswers = buildHeroQuickAnswers(pillar)
   const headerTips = buildHeroHeaderTips(pillar)
+  const counterHref = isPillarCounterSlug(pillar.slug) ? `/counters/${pillar.slug}` : '/counters'
+  const teamCompHref = isPillarTeamCompSlug(pillar.slug) ? `/team-comps/${pillar.slug}` : '/team-comps'
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -328,8 +330,8 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
             ))}
           </div>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 16 }}>
-            <Link href={`/counters/${pillar.slug}`} className="btn btn-primary btn-sm">VER COUNTERS</Link>
-            <Link href={`/team-comps/${pillar.slug}`} className="btn btn-secondary btn-sm">VER COMPS</Link>
+            <Link href={counterHref} className="btn btn-primary btn-sm">VER COUNTERS</Link>
+            <Link href={teamCompHref} className="btn btn-secondary btn-sm">VER COMPS</Link>
           </div>
         </section>
 
@@ -384,7 +386,7 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
             ))}
           </div>
           <div style={{ marginTop: 16 }}>
-            <Link href={`/counters/${pillar.slug}`} className="btn btn-primary btn-sm">VER COUNTERS DE {pillar.name.toUpperCase()}</Link>
+            <Link href={counterHref} className="btn btn-primary btn-sm">VER COUNTERS DE {pillar.name.toUpperCase()}</Link>
           </div>
         </section>
 
@@ -402,7 +404,7 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
             ))}
           </div>
           <div style={{ marginTop: 16 }}>
-            <Link href={`/team-comps/${pillar.slug}`} className="btn btn-secondary btn-sm">VER COMPOSICIONES</Link>
+            <Link href={teamCompHref} className="btn btn-secondary btn-sm">VER COMPOSICIONES</Link>
           </div>
         </section>
 
