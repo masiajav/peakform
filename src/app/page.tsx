@@ -325,7 +325,7 @@ function HomeHeroCard({ hero, compact = false, priority = false }: { hero: Count
             sizes={compact ? '(max-width: 768px) 42vw, 150px' : '(max-width: 768px) 42vw, 180px'}
             imageStyle={{ objectFit: 'contain', objectPosition: 'center bottom' }}
           />
-          {(hero.slug === 'dmon' || hero.slug === 'shion') && <span className="home-hero-card-badge">NUEVO</span>}
+          {hero.slug === 'dmon' && <span className="home-hero-card-badge">NUEVO</span>}
         </div>
         <div className="home-hero-card-body">
           <span className="home-hero-card-name">{hero.name}</span>

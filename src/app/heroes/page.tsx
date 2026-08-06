@@ -236,7 +236,7 @@ function HeroCard({ hero }: { hero: CounterHero }) {
             imageStyle={{ objectFit: 'contain', objectPosition: 'center bottom' }}
             fallbackClassName="hero-portrait-fallback"
           />
-          {(hero.slug === 'dmon' || hero.slug === 'shion') && <span className="home-hero-card-badge">NUEVO</span>}
+          {hero.slug === 'dmon' && <span className="home-hero-card-badge">NUEVO</span>}
         </div>
 
         <div style={{ padding: 14 }}>
