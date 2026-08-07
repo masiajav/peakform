@@ -210,6 +210,7 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
   const headerTips = buildHeroHeaderTips(pillar)
   const counterHref = isPillarCounterSlug(pillar.slug) ? `/counters/${pillar.slug}` : '/counters'
   const teamCompHref = isPillarTeamCompSlug(pillar.slug) ? `/team-comps/${pillar.slug}` : '/team-comps'
+  const abilityKitImage = pillar.slug === 'dmon' ? '/heroes/dmon-ability-kit.png' : null
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -217,8 +218,8 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
     description: heroCtrDescription(pillar),
     image: image ? absoluteUrl(image) : undefined,
     url: pageUrl,
-    datePublished: '2026-06-26',
-    dateModified: '2026-07-24',
+    datePublished: pillar.slug === 'dmon' ? '2026-08-06' : '2026-06-26',
+    dateModified: pillar.slug === 'dmon' ? '2026-08-07' : '2026-07-24',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -364,12 +365,35 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
         <section style={sectionStyle}>
           <div className="eyebrow" style={{ marginBottom: 10 }}>KIT</div>
           <h2 style={headingStyle}>Habilidades de {pillar.name}</h2>
+          {abilityKitImage && (
+            <div style={{ position: 'relative', aspectRatio: '16 / 9', background: 'var(--surface2)', border: '1px solid var(--border2)', marginBottom: 16, overflow: 'hidden' }}>
+              <Image
+                src={abilityKitImage}
+                alt="Kit de habilidades y perks de D.Mon en Overwatch"
+                fill
+                sizes="(max-width: 768px) 100vw, 1120px"
+                style={{ objectFit: 'cover' }}
+              />
+            </div>
+          )}
           <div style={cardGridStyle}>
             {pillar.abilities.map(ability => (
               <StatusCard key={ability.title} title={ability.title} body={ability.body} />
             ))}
           </div>
         </section>
+
+        {pillar.perks && (
+          <section style={sectionStyle}>
+            <div className="eyebrow" style={{ marginBottom: 10 }}>PERKS</div>
+            <h2 style={headingStyle}>Perks de {pillar.name}</h2>
+            <div style={cardGridStyle}>
+              {pillar.perks.map(perk => (
+                <StatusCard key={perk.title} title={perk.title} body={perk.body} />
+              ))}
+            </div>
+          </section>
+        )}
 
         <section style={sectionStyle}>
           <div className="eyebrow" style={{ marginBottom: 10 }}>ERRORES COMUNES</div>
@@ -946,7 +970,7 @@ function buildHeroQuickAnswers(pillar: HeroPillar) {
       },
       {
         title: 'Fecha y rol',
-        body: 'D.Mon llega el 11 de agosto de 2026 como Tank. Lo que falta es el kit jugable completo: nombres de habilidades, cooldowns, números, movilidad real y si Beast funciona mejor en brawl, rush o anti-dive.',
+        body: 'D.Mon llega el 11 de agosto de 2026 como Tank. Ya conocemos su kit base: Plasma Saber, Power Barrier, Propulsors, Surging Strike, Fusion Repeater, Limit Break y el ciclo de piloto con Eject y Call Mech.',
       },
     ]
   }

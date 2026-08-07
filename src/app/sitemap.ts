@@ -20,8 +20,8 @@ import { absoluteUrl } from '@/lib/seo'
 export const dynamic = 'force-dynamic'
 
 const STATIC_LAST_MODIFIED: Record<string, string> = {
-  '/dmon-nuevo-heroe-tank-overwatch': '2026-08-06',
-  '/heroes/dmon': '2026-08-06',
+  '/dmon-nuevo-heroe-tank-overwatch': '2026-08-07',
+  '/heroes/dmon': '2026-08-07',
   '/busan-eichenwalde-paraiso-reworks-overwatch': '2026-08-02',
   '/overwatch-temporada-3-into-the-tigers-den': '2026-06-16',
   '/counters/shion': '2026-06-28',

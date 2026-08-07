@@ -7,11 +7,11 @@ import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 
 const PAGE_PATH = '/dmon-nuevo-heroe-tank-overwatch'
 const PAGE_IMAGE = '/heroes/dmon.png'
-const UPDATED_AT = '6 de agosto de 2026'
+const UPDATED_AT = '7 de agosto de 2026'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'D.Mon en Overwatch: nuevo Tank de MEKA, fecha y primeras claves',
-  description: 'D.Mon, también conocida como Yuna Lee, llega a Overwatch como nuevo Tank de MEKA el 11 de agosto: relación con D.Va, Beast, lore y primeras claves para ranked.',
+  title: 'D.Mon en Overwatch: habilidades, perks, fecha y rol de Tank',
+  description: 'D.Mon llega a Overwatch como Tank de MEKA el 11 de agosto: Plasma Saber, Power Barrier, Propulsors, Surging Strike, Limit Break, perks y lectura para ranked.',
   path: PAGE_PATH,
   image: PAGE_IMAGE,
   type: 'article',
@@ -20,7 +20,7 @@ export const metadata: Metadata = buildMetadata({
 const quickSummary = [
   {
     title: 'D.Mon es Tank',
-    body: 'La nueva heroína llega como Tank, así que su valor competitivo se medirá por espacio, recursos, frontline y cuánto puede aguantar el focus rival.',
+    body: 'La nueva heroína llega como Tank y su kit confirma una identidad de frontline móvil: barrera frontal, espada, propulsores y herramientas para empujar al rival.',
   },
   {
     title: 'Sale el 11 de agosto',
@@ -31,8 +31,46 @@ const quickSummary = [
     body: 'D.Mon, o Yuna Lee, pertenece al escuadrón MEKA, el grupo de pilotos de Busan conectado directamente con D.Va y la defensa frente a los Gwishin.',
   },
   {
-    title: 'Beast es el centro del hype',
-    body: 'Su mech, Beast, se presenta con una imagen más pesada y agresiva. Se han visto señales de escudo y espada, pero falta gameplay completo.',
+    title: 'Ya conocemos el kit base',
+    body: 'D.Mon trae Plasma Saber, Portable Fusion Repeater, Power Barrier, Propulsors, Fusion Repeater, Surging Strike, Limit Break, Eject y Call Mech.',
+  },
+]
+
+const kitHighlights = [
+  {
+    title: 'Plasma Saber + Power Barrier',
+    body: 'La espada rápida y la barrera frontal apuntan a una Tank que quiere ganar espacio de cara, pero sin caminar gratis por main. Si entra bien, obliga al rival a retroceder o gastar recursos.',
+  },
+  {
+    title: 'Propulsors + Surging Strike',
+    body: 'Los propulsores le dan movimiento horizontal y Surging Strike convierte la barrera desplegada en una entrada que daña y empuja. Esto suena muy fuerte para romper esquinas y sacar gente de cobertura.',
+  },
+  {
+    title: 'Fusion Repeater',
+    body: 'Tiene una ametralladora pesada y una activación de disparo rápido. Eso debería darle algo que hacer cuando no puede seguir pegada con Plasma Saber o cuando necesita rematar a media distancia.',
+  },
+  {
+    title: 'Limit Break',
+    body: 'La ultimate lanza un corte amplio, da sobrevida a D.Mon y amplifica el daño recibido por los enemigos golpeados. Más que una ultimate de highlight, parece una herramienta para abrir pelea con follow-up.',
+  },
+]
+
+const perkHighlights = [
+  {
+    title: 'Minor: Beast Within',
+    body: 'Los golpes de Plasma Saber curan Power Barrier por 40. Refuerza el loop de pegar cerca para mantener la barrera viva.',
+  },
+  {
+    title: 'Minor: MEKA Mobility',
+    body: 'Mientras mantiene Power Shield, Propulsors consume un 30% menos de combustible. Esto puede hacer que sus rotaciones sean menos castigables.',
+  },
+  {
+    title: 'Major: Overstrike',
+    body: 'Surging Strike gana 150% de lifesteal. Si el engage conecta, puede convertir una entrada agresiva en sustain real.',
+  },
+  {
+    title: 'Major: Focused Fusion',
+    body: 'Fusion Repeater dispara más fuerte, sin dispersión y más lento. Es la opción que apunta a precisión y presión de media distancia.',
   },
 ]
 
@@ -56,10 +94,10 @@ const storyBeats = [
 ]
 
 const rankedReads = [
-  'Si D.Mon tiene escudo y amenaza de espada, lo primero será probarla en mapas con esquinas, rutas cortas y peleas de brawl. Ahí es donde un Tank de presencia frontal suele sentirse más natural.',
+  'Con Plasma Saber, Power Barrier y Surging Strike, lo primero será probarla en mapas con esquinas, rutas cortas y peleas de brawl. Ahí es donde una Tank de presencia frontal suele sentirse más natural.',
   'No conviene asumir que será una segunda D.Va. Compartir MEKA no significa compartir función: D.Va vive mucho de movilidad, Matrix y peel; D.Mon parece apuntar a otro tipo de presión.',
   'Los primeros counters a probar deberían ser respuestas anti-tank bastante claras: Zarya, Symmetra, Reaper, Ana, Zenyatta y Sombra. No porque sean sentencia, sino porque castigan recursos, beams, anti-heal, Discord y entradas lineales.',
-  'El punto más importante será su salida. Muchos Tanks nuevos parecen fuertes cuando entran, pero el verdadero test es qué pasa cuando el rival guarda recursos para castigarlos.',
+  'El punto más importante será su salida. Propulsors le da movimiento horizontal, pero el verdadero test será qué pasa cuando el rival guarda anti-heal, Discord, hack o control para cuando se queda sin combustible.',
   'En 6v6 puede cambiar mucho. Con un segundo Tank, D.Mon podría permitirse jugar más agresiva o más de frontline compartida, pero eso dependerá de su movilidad y de cuánto necesite supports detrás.',
 ]
 
@@ -74,7 +112,7 @@ const firstVodChecklist = [
 const faqs = [
   {
     question: '¿D.Mon es Tank, DPS o Support?',
-    answer: 'D.Mon llega a Overwatch como Tank. Esa es la base para entender su impacto inicial: espacio, aguante, frontline y control del ritmo de la pelea.',
+    answer: 'D.Mon llega a Overwatch como Tank. Su kit gira alrededor de Power Barrier, Plasma Saber, Propulsors y Surging Strike, así que su valor estará en crear espacio y marcar el ritmo de la pelea.',
   },
   {
     question: '¿Cuándo sale D.Mon en Overwatch?',
@@ -90,7 +128,15 @@ const faqs = [
   },
   {
     question: '¿Se conocen sus habilidades?',
-    answer: 'Se han visto señales visuales claras alrededor de Beast, escudo y espada, pero aún no conviene cerrar una guía de habilidades hasta ver gameplay completo y patch notes.',
+    answer: 'Sí. Su kit mostrado incluye Plasma Saber, Portable Fusion Repeater, Power Barrier, Propulsors, Fusion Repeater, Surging Strike, Limit Break, Call Mech y Eject!',
+  },
+  {
+    question: '¿Qué hace la ultimate de D.Mon?',
+    answer: 'Limit Break lanza un corte amplio que da sobrevida a D.Mon y aumenta el daño recibido por los enemigos alcanzados. De salida parece una ultimate para iniciar peleas y marcar objetivos.',
+  },
+  {
+    question: '¿Qué perks tiene D.Mon?',
+    answer: 'Los perks mostrados son Beast Within, MEKA Mobility, Overstrike y Focused Fusion. Mejoran barrera, movilidad, lifesteal y precisión del Fusion Repeater.',
   },
   {
     question: '¿Será buena en ranked?',
@@ -103,12 +149,12 @@ export default function DmonNewsPage() {
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
-    headline: 'D.Mon en Overwatch: nuevo Tank de MEKA, fecha y primeras claves',
-    description: 'D.Mon, también conocida como Yuna Lee, llega a Overwatch como nuevo Tank de MEKA el 11 de agosto: relación con D.Va, Beast y lectura inicial para ranked.',
+    headline: 'D.Mon en Overwatch: habilidades, perks, fecha y rol de Tank',
+    description: 'D.Mon llega a Overwatch como Tank de MEKA el 11 de agosto: Plasma Saber, Power Barrier, Propulsors, Surging Strike, Limit Break, perks y lectura inicial para ranked.',
     image: [absoluteUrl(PAGE_IMAGE)],
     url: pageUrl,
     datePublished: '2026-08-06',
-    dateModified: '2026-08-06',
+    dateModified: '2026-08-07',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -157,7 +203,7 @@ export default function DmonNewsPage() {
               D.Mon deja de ser solo un nombre dentro del lore de MEKA y pasa a ocupar sitio propio en Overwatch. Blizzard la presenta como nueva Tank, conectada con D.Va, Busan y el escuadrón de pilotos que protege Corea frente a las amenazas Gwishin. También la verás buscada como DMon o Yuna Lee.
             </p>
             <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.75, margin: '0 0 18px', maxWidth: 780 }}>
-              La parte importante para ranked es esta: sale el 11 de agosto de 2026 y su rol está claro, pero el kit todavía necesita gameplay real. Beast, su mech, apunta a presencia frontal y amenaza agresiva, pero no vamos a vender como definitivo lo que aún depende de números, cooldowns y prueba en partida.
+              La parte importante para ranked es esta: sale el 11 de agosto de 2026, es Tank y ya conocemos el kit base. Plasma Saber, Power Barrier, Propulsors y Surging Strike apuntan a una frontline móvil que quiere entrar con barrera, pegar cerca y desplazar enemigos sin quedarse vendida.
             </p>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
               <Link href="/heroes/dmon" className="btn btn-primary btn-sm">GUÍA DE D.MON</Link>
@@ -191,6 +237,35 @@ export default function DmonNewsPage() {
           <h2 style={headingStyle}>D.Mon en 30 segundos: rol, fecha y por qué importa</h2>
           <div style={cardGridStyle}>
             {quickSummary.map(point => (
+              <InfoCard key={point.title} title={point.title} body={point.body} />
+            ))}
+          </div>
+        </section>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>KIT CONFIRMADO</div>
+          <h2 style={headingStyle}>Habilidades de D.Mon en Overwatch</h2>
+          <div style={{ position: 'relative', aspectRatio: '16 / 9', background: 'var(--surface2)', border: '1px solid var(--border2)', marginBottom: 16, overflow: 'hidden' }}>
+            <Image
+              src="/heroes/dmon-ability-kit.png"
+              alt="Habilidades, armas, ultimate y perks de D.Mon en Overwatch"
+              fill
+              sizes="(max-width: 768px) 100vw, 1120px"
+              style={{ objectFit: 'cover' }}
+            />
+          </div>
+          <div style={cardGridStyle}>
+            {kitHighlights.map(point => (
+              <InfoCard key={point.title} title={point.title} body={point.body} />
+            ))}
+          </div>
+        </section>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>PERKS</div>
+          <h2 style={headingStyle}>Perks de D.Mon: qué cambia en partida</h2>
+          <div style={cardGridStyle}>
+            {perkHighlights.map(point => (
               <InfoCard key={point.title} title={point.title} body={point.body} />
             ))}
           </div>

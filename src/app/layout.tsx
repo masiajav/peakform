@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 import JsonLd from '@/components/content/JsonLd'
 import AdSenseScript from '@/components/content/AdSenseScript'
+import VercelAnalytics from '@/components/content/VercelAnalytics'
 import PublicFooter from '@/components/layout/PublicFooter'
 import { absoluteUrl, SITE_NAME, SITE_URL } from '@/lib/seo'
 
@@ -94,14 +94,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   }
 
   return (
-    <html lang="es">
-      <body>
+    <html lang="es" style={{ background: '#0a0a0a' }}>
+      <body style={{ margin: 0, background: '#0a0a0a', color: '#f5f5f5' }}>
         <JsonLd data={organizationJsonLd} />
         <JsonLd data={websiteJsonLd} />
         <AdSenseScript />
         {children}
         <PublicFooter />
-        <Analytics />
+        <VercelAnalytics />
       </body>
     </html>
   )

@@ -23,6 +23,7 @@ export type HeroPillar = {
   rankedPlan: string[]
   sections: HeroPillarCard[]
   abilities: HeroPillarCard[]
+  perks?: HeroPillarCard[]
   mistakes: string[]
   counters: HeroPillarCard[]
   counterplay: string[]
@@ -1053,15 +1054,15 @@ export const HERO_PILLARS: Record<string, HeroPillar> = {
     name: 'D.Mon',
     role: 'Tank',
     roleSlug: 'tank',
-    updatedAt: '06 de agosto de 2026',
-    seoTitle: 'D.Mon en Overwatch: nuevo Tank de MEKA, fecha, rol y claves',
-    seoDescription: 'D.Mon, también conocida como Yuna Lee, llega a Overwatch como nuevo Tank de MEKA el 11 de agosto: relación con D.Va, Beast, counters y primeras claves para ranked.',
+    updatedAt: '07 de agosto de 2026',
+    seoTitle: 'D.Mon en Overwatch: habilidades, rol, fecha, perks y counters',
+    seoDescription: 'D.Mon, también conocida como Yuna Lee, llega a Overwatch como Tank de MEKA el 11 de agosto: Plasma Saber, Power Barrier, Propulsors, Limit Break, perks y counters.',
     h1: 'D.Mon en Overwatch: nuevo Tank de MEKA',
     kicker: 'Tank de MEKA, Beast y primera lectura para ranked',
     intro: [
       'D.Mon entra en Overwatch como nueva Tank del escuadrón MEKA, el mismo grupo del que forma parte D.Va. Su nombre real es Yuna Lee y llega ligada a Busan, a Beast, a la base MEKA y a una parte del lore que muchos jugadores llevaban años esperando ver en partida.',
-      'La búsqueda importante es sencilla: D.Mon es Tank y su llegada está marcada para el 11 de agosto de 2026, con el arranque de la nueva temporada. Lo que todavía necesita prueba real es el kit completo: habilidades, cooldowns, rangos, daño y cómo se siente Beast cuando el rival te focusea.',
-      'Esta página funciona como hub de D.Mon y DMon en Overwatch: qué se sabe, cómo encaja con MEKA, qué puede significar para ranked, qué counters podrían molestarle de salida y qué mirar en tus primeras VODs si decides probarla.',
+      'La búsqueda importante es sencilla: D.Mon es Tank y su llegada está marcada para el 11 de agosto de 2026, con el arranque de la nueva temporada. Su kit ya deja ver una identidad bastante clara: espada rápida, barrera frontal, movilidad horizontal y una ultimate pensada para entrar fuerte y castigar al rival.',
+      'Esta página funciona como hub de D.Mon y DMon en Overwatch: habilidades, armas, perks, cómo encaja con MEKA, qué puede significar para ranked, qué counters podrían molestarle de salida y qué mirar en tus primeras VODs si decides probarla.',
     ],
     facts: [
       { title: 'Rol', body: 'Tank' },
@@ -1069,9 +1070,9 @@ export const HERO_PILLARS: Record<string, HeroPillar> = {
       { title: 'Nombre', body: 'Yuna Lee, conocida como D.Mon dentro de MEKA.' },
       { title: 'Escuadrón', body: 'MEKA, la unidad de mechs ligada a Busan y D.Va.' },
       { title: 'Mech', body: 'Beast, un mech pesado con identidad más agresiva.' },
-      { title: 'Punto fuerte esperado', body: 'Presencia frontal, amenaza en corto y capacidad de marcar tempo.' },
-      { title: 'Duda principal', body: 'Cómo se traducen escudo, espada y movilidad a gameplay real.' },
-      { title: 'Estado', body: 'Primer vistazo editorial, pendiente de kit jugable.' },
+      { title: 'Punto fuerte esperado', body: 'Presencia frontal, amenaza en corto y movilidad horizontal para elegir cuándo entrar.' },
+      { title: 'Duda principal', body: 'Cuánto aguanta realmente cuando pierde Power Barrier o entra sin combustible.' },
+      { title: 'Estado', body: 'Kit presentado; faltan números finales, cooldowns y prueba en ranked.' },
     ],
     rankedPlan: [
       'No la juzgues solo por el hype. Cuando salga, entra primero a partidas rápidas o custom y mira su ciclo básico: cómo inicia, cómo aguanta focus y cómo sale si la pelea se tuerce.',
@@ -1087,7 +1088,7 @@ export const HERO_PILLARS: Record<string, HeroPillar> = {
       },
       {
         title: 'La clave será el tempo',
-        body: 'Si su kit mezcla defensa y amenaza cuerpo a cuerpo, la pregunta importante será cuándo puede entrar sin regalarse. Los Tanks nuevos suelen parecer rotísimos o flojos al principio porque la gente aún no entiende sus ventanas.',
+        body: 'Su kit mezcla defensa, melee y movilidad, así que la pregunta importante será cuándo puede entrar sin regalarse. Power Barrier te compra espacio, Propulsors te coloca en la pelea y Surging Strike parece la herramienta para convertir esa entrada en desplazamiento real.',
       },
       {
         title: 'El contexto MEKA importa',
@@ -1095,29 +1096,59 @@ export const HERO_PILLARS: Record<string, HeroPillar> = {
       },
       {
         title: 'D.Mon y DMon son la misma búsqueda',
-        body: 'Muchos jugadores la buscarán como D.Mon, DMon o Yuna Lee. En la práctica hablamos de la misma heroína: una piloto de MEKA que llega a Overwatch como Tank y que debería cambiar la conversación alrededor de Busan y D.Va.',
+        body: 'Muchos jugadores la buscarán como D.Mon, DMon o Yuna Lee. En la práctica hablamos de la misma heroína: una piloto de MEKA que llega a Overwatch como Tank y que debería cambiar la conversación alrededor de Busan, D.Va y los brawls con movilidad.',
       },
     ],
     abilities: [
       {
-        title: 'Beast',
-        body: 'Su mech es el centro de la identidad del personaje. Visualmente comunica Tank pesado y agresivo, con más presencia de frontline que de piloto frágil escondida detrás.',
+        title: 'Plasma Saber',
+        body: 'Arma melee de energía rápida. Es la señal más clara de que D.Mon quiere pelear cerca, tocar objetivos con presión constante y convertir esquinas en zonas peligrosas.',
       },
       {
-        title: 'Escudo',
-        body: 'El material mostrado enseña una herramienta defensiva tipo escudo. Hasta ver gameplay, lo correcto es leerlo como señal de aguante o protección, no como confirmación de cómo bloqueará daño.',
+        title: 'Portable Fusion Repeater',
+        body: 'Ametralladora pesada portátil. Le da una opción de daño a distancia media para no depender siempre de entrar con la espada, aunque su valor real dependerá de precisión, caída de daño y ritmo de fuego.',
       },
       {
-        title: 'Espada',
-        body: 'La espada sugiere amenaza en corto y posible presión de brawl. Eso no significa que vaya a jugar igual que Reinhardt: falta saber rango, cooldowns, movilidad y riesgos.',
+        title: 'Power Barrier',
+        body: 'Barrera frontal de energía que se mantiene activa. En ranked será clave para cruzar espacios, aguantar focus y decidir si D.Mon puede liderar el engage sin gastar todo de golpe.',
       },
       {
-        title: 'Movilidad MEKA',
-        body: 'Por pertenecer a MEKA, es razonable esperar algún tipo de desplazamiento o herramienta para reposicionarse, pero aún no hay que construir una guía definitiva alrededor de eso.',
+        title: 'Propulsors',
+        body: 'Consume combustible para impulsarse en cualquier dirección horizontal. Esto puede convertirla en una Tank de brawl con movilidad real: entrar, corregir ángulo o salir antes de que el rival te cierre.',
       },
       {
-        title: 'Kit pendiente',
-        body: 'Los nombres, números, cooldowns y combos deben cerrarse cuando Blizzard enseñe gameplay completo y patch notes. Hasta entonces, la lectura competitiva tiene que ser prudente.',
+        title: 'Fusion Repeater',
+        body: 'Activa una ametralladora de disparo rápido. Puede servir para rematar cuando no puedes seguir pegado con Plasma Saber o para mantener presión mientras la barrera te da una ventana segura.',
+      },
+      {
+        title: 'Surging Strike',
+        body: 'Mientras Power Barrier está desplegada, D.Mon avanza para hacer daño y empujar enemigos. Si el desplazamiento es consistente, será una herramienta muy fuerte para romper posiciones, sacar gente de cobertura o castigar chokes.',
+      },
+      {
+        title: 'Limit Break',
+        body: 'Ultimate de corte amplio que otorga sobrevida a D.Mon y aumenta el daño recibido por los enemigos golpeados. Suena a ultimate de engage: entrar, marcar targets y convertir el follow-up del equipo en pelea ganada.',
+      },
+      {
+        title: 'Call Mech y Eject!',
+        body: 'Como piloto de MEKA, puede reensamblar el mech y salir expulsada cuando Beast es destruido. La gran pregunta práctica será cuánto valor puede sacar fuera del mech y cómo de castigable es esa fase.',
+      },
+    ],
+    perks: [
+      {
+        title: 'Beast Within',
+        body: 'Minor perk: los golpes de Plasma Saber curan Power Barrier por 40 de vida. Refuerza un estilo muy directo: pegar cerca para sostener la barrera y seguir ocupando espacio.',
+      },
+      {
+        title: 'MEKA Mobility',
+        body: 'Minor perk: mientras mantienes Power Shield, el coste de combustible de Propulsors baja un 30%. En la práctica puede permitir rotaciones más largas o engages menos caros.',
+      },
+      {
+        title: 'Overstrike',
+        body: 'Major perk: Surging Strike gana 150% de lifesteal. Si el daño conecta bien, puede convertir una entrada agresiva en sustain real, especialmente en peleas de brawl.',
+      },
+      {
+        title: 'Focused Fusion',
+        body: 'Major perk: Fusion Repeater dispara proyectiles más fuertes, sin dispersión y a menor cadencia. Parece la opción para jugar más preciso, castigar a media distancia y no depender tanto del all-in.',
       },
     ],
     mistakes: [
@@ -1127,7 +1158,7 @@ export const HERO_PILLARS: Record<string, HeroPillar> = {
       'Gastar todos los recursos para iniciar sin tener una salida clara.',
       'Ignorar counters de beam, anti-heal, Discord o control solo porque el personaje está en hype.',
       'Copiar builds o rutas antes de entender qué problema resuelve en cada mapa.',
-      'Hablar de habilidades definitivas sin esperar gameplay real.',
+        'Dar por cerrados números, cooldowns o tier sin esperar gameplay real.',
     ],
     counters: [
       { title: 'Zarya', body: 'Si D.Mon depende de entrar y pegar en corto, Zarya puede castigar daño predecible, cargar energía y convertir el brawl en una pelea incómoda.' },
@@ -1162,16 +1193,17 @@ export const HERO_PILLARS: Record<string, HeroPillar> = {
       'No juego como D.Va por costumbre.',
       'No fuerzo brawl si el mapa me deja vendido.',
       'Mi equipo puede seguir el espacio que creo.',
-      'Reviso el kit cuando haya gameplay, no antes.',
+        'Reviso números y cooldowns cuando haya gameplay completo.',
     ],
     faqs: [
-      { question: '¿D.Mon es Tank, DPS o Support?', answer: 'D.Mon llega a Overwatch como Tank. Por ahora esa es la parte importante para preparar guías, roles y expectativas competitivas.' },
+      { question: '¿D.Mon es Tank, DPS o Support?', answer: 'D.Mon llega a Overwatch como Tank. Su kit confirma una identidad de frontline con barrera, movilidad horizontal, espada y herramientas para iniciar peleas.' },
       { question: '¿Cuándo sale D.Mon en Overwatch?', answer: 'D.Mon está prevista para el 11 de agosto de 2026, coincidiendo con el inicio de la nueva temporada de Overwatch.' },
       { question: '¿Quién es D.Mon?', answer: 'D.Mon es Yuna Lee, una piloto del escuadrón MEKA de Busan. Forma parte del mismo grupo que D.Va, aunque su estilo apunta a una identidad de Tank distinta.' },
       { question: '¿D.Mon está relacionada con D.Va?', answer: 'Sí. D.Mon forma parte de MEKA, el escuadrón de mechs asociado a Busan y D.Va. Eso no significa que vaya a jugar igual que D.Va.' },
-      { question: '¿Se conocen sus habilidades?', answer: 'Se han visto señales visuales como Beast, escudo y espada, pero no conviene cerrar una guía de habilidades hasta tener gameplay completo y patch notes.' },
-      { question: '¿Qué tipo de Tank parece?', answer: 'Por estética y señales iniciales, parece orientada a presencia frontal y amenaza en corto. Aun así, su subrol real dependerá de movilidad, cooldowns y números.' },
-      { question: '¿Qué counters debería probar contra D.Mon?', answer: 'Como punto de partida: Zarya, Symmetra, Reaper, Ana, Zenyatta y Sombra. Son respuestas lógicas contra Tanks agresivos mientras se entiende el kit.' },
+      { question: '¿Cuáles son las habilidades de D.Mon?', answer: 'Su kit incluye Plasma Saber, Portable Fusion Repeater, Power Barrier, Propulsors, Fusion Repeater, Surging Strike, Limit Break, Call Mech y Eject!' },
+      { question: '¿Qué hace la ultimate de D.Mon?', answer: 'Limit Break lanza un corte amplio, da sobrevida a D.Mon y amplifica el daño recibido por los enemigos golpeados. Parece una ultimate para abrir peleas y marcar objetivos.' },
+      { question: '¿Qué perks tiene D.Mon?', answer: 'Sus perks mostrados son Beast Within, MEKA Mobility, Overstrike y Focused Fusion. Refuerzan barrera, movilidad, lifesteal y precisión del Fusion Repeater.' },
+      { question: '¿Qué counters debería probar contra D.Mon?', answer: 'Como punto de partida: Zarya, Symmetra, Reaper, Ana, Zenyatta y Sombra. Son respuestas lógicas contra una Tank que quiere entrar cerca y sostenerse con recursos.' },
     ],
     links: [
       { href: '/dmon-nuevo-heroe-tank-overwatch', label: 'Noticia de D.Mon en Overwatch' },
