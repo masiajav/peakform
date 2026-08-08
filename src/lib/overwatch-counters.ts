@@ -82,7 +82,7 @@ const counterMatrix: Record<string, string[]> = {
   bastion: ['zarya', 'orisa', 'junkrat', 'pharah', 'genji', 'tracer', 'ana'],
   brigitte: ['reinhardt', 'roadhog', 'pharah', 'echo', 'junkrat'],
   cassidy: ['reinhardt', 'winston', 'genji', 'ana'],
-  dmon: ['zarya', 'symmetra', 'reaper', 'ana', 'zenyatta', 'sombra', 'mei', 'orisa'],
+  dmon: ['zarya', 'symmetra', 'pharah', 'echo', 'ana', 'zenyatta', 'sombra', 'mei'],
   dva: ['zarya', 'winston', 'symmetra', 'sojourn', 'bastion', 'moira'],
   domina: ['winston', 'ramattra', 'mauga', 'bastion', 'sojourn', 'reaper', 'moira', 'lucio'],
   doomfist: ['orisa', 'sombra', 'tracer', 'bastion', 'genji', 'ana', 'brigitte'],

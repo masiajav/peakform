@@ -11,9 +11,9 @@ import { buildMetadata } from '@/lib/seo'
 const featuredNews = [
   {
     href: '/dmon-nuevo-heroe-tank-overwatch',
-    title: 'D.Mon llega a Overwatch como nuevo Tank de MEKA',
-    date: '06 de agosto de 2026',
-    description: 'D.Mon entra en Overwatch como Tank: contexto de MEKA, relación con D.Va, primeras claves de Beast y lectura inicial para ranked.',
+    title: 'D.Mon en Overwatch: gameplay, habilidades y counters',
+    date: '08 de agosto de 2026',
+    description: 'D.Mon entra como Tank melee de MEKA: Plasma Saber, Power Barrier, Propulsors, Stalwart, perks y por qué no juega como una D.Va 2.0.',
   },
   {
     href: '/busan-eichenwalde-paraiso-reworks-overwatch',

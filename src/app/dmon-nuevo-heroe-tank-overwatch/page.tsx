@@ -7,11 +7,11 @@ import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 
 const PAGE_PATH = '/dmon-nuevo-heroe-tank-overwatch'
 const PAGE_IMAGE = '/heroes/dmon.png'
-const UPDATED_AT = '7 de agosto de 2026'
+const UPDATED_AT = '8 de agosto de 2026'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'D.Mon en Overwatch: habilidades, perks, fecha y rol de Tank',
-  description: 'D.Mon llega a Overwatch como Tank de MEKA el 11 de agosto: Plasma Saber, Power Barrier, Propulsors, Surging Strike, Limit Break, perks y lectura para ranked.',
+  title: 'D.Mon en Overwatch: gameplay, habilidades, perks y counters',
+  description: 'D.Mon llega a Overwatch como Tank melee de MEKA el 11 de agosto: gameplay, Stalwart, Plasma Saber, Power Barrier, Propulsors, Limit Break y counters.',
   path: PAGE_PATH,
   image: PAGE_IMAGE,
   type: 'article',
@@ -20,11 +20,11 @@ export const metadata: Metadata = buildMetadata({
 const quickSummary = [
   {
     title: 'D.Mon es Tank',
-    body: 'La nueva heroína llega como Tank y su kit confirma una identidad de frontline móvil: barrera frontal, espada, propulsores y herramientas para empujar al rival.',
+    body: 'La nueva heroína llega como Tank melee. No es una D.Va 2.0: su identidad va más por sword + shield, frontline, barrera y presión cercana.',
   },
   {
     title: 'Sale el 11 de agosto',
-    body: 'D.Mon está marcada para llegar con la nueva temporada de Overwatch el 11 de agosto de 2026. La noticia se irá actualizando cuando haya gameplay y patch notes.',
+    body: 'D.Mon está marcada para llegar con la nueva temporada de Overwatch el 11 de agosto de 2026. La noticia se actualizará con números finales y patch notes.',
   },
   {
     title: 'Forma parte de MEKA',
@@ -33,6 +33,29 @@ const quickSummary = [
   {
     title: 'Ya conocemos el kit base',
     body: 'D.Mon trae Plasma Saber, Portable Fusion Repeater, Power Barrier, Propulsors, Fusion Repeater, Surging Strike, Limit Break, Eject y Call Mech.',
+  },
+  {
+    title: 'Verticalidad como respuesta',
+    body: 'Su movilidad fuerte es horizontal y por recurso. Si el rival juega high ground, flyers o rangos largos, D.Mon tendrá que apoyarse más en rutas y equipo.',
+  },
+]
+
+const designReads = [
+  {
+    title: 'No juega como D.Va',
+    body: 'D.Va es Matrix, peel, high ground y dive. D.Mon comparte MEKA y el ciclo de mech, pero su plan está más cerca de ocupar espacio con espada, barrera y presión frontal.',
+  },
+  {
+    title: 'Melee Tank con movilidad medida',
+    body: 'Propulsors no pinta como vuelo libre. Es una movilidad horizontal para entrar, corregir ángulo o salir si todavía queda combustible. La gestión de ese recurso será clave.',
+  },
+  {
+    title: 'Verticalidad como castigo',
+    body: 'Si Echo, Pharah, Widowmaker o un DPS en altura juegan gratis, D.Mon puede acabar mirando hacia arriba en vez de mandar en la pelea. Esa será una prueba real desde el día uno.',
+  },
+  {
+    title: 'Stalwart y frontline',
+    body: 'El subrol Stalwart encaja con una Tank que quiere aguantar desplazamientos y ralentizaciones mejor que otros héroes. Eso no la hace inmortal: solo reduce parte del castigo al entrar.',
   },
 ]
 
@@ -43,7 +66,7 @@ const kitHighlights = [
   },
   {
     title: 'Propulsors + Surging Strike',
-    body: 'Los propulsores le dan movimiento horizontal y Surging Strike convierte la barrera desplegada en una entrada que daña y empuja. Esto suena muy fuerte para romper esquinas y sacar gente de cobertura.',
+    body: 'Los propulsores le dan movimiento horizontal y Surging Strike convierte la barrera desplegada en una entrada que daña y empuja. No parece una herramienta para vivir en el aire, sino para romper esquinas y sacar gente de cobertura.',
   },
   {
     title: 'Fusion Repeater',
@@ -95,8 +118,8 @@ const storyBeats = [
 
 const rankedReads = [
   'Con Plasma Saber, Power Barrier y Surging Strike, lo primero será probarla en mapas con esquinas, rutas cortas y peleas de brawl. Ahí es donde una Tank de presencia frontal suele sentirse más natural.',
-  'No conviene asumir que será una segunda D.Va. Compartir MEKA no significa compartir función: D.Va vive mucho de movilidad, Matrix y peel; D.Mon parece apuntar a otro tipo de presión.',
-  'Los primeros counters a probar deberían ser respuestas anti-tank bastante claras: Zarya, Symmetra, Reaper, Ana, Zenyatta y Sombra. No porque sean sentencia, sino porque castigan recursos, beams, anti-heal, Discord y entradas lineales.',
+  'No conviene asumir que será una segunda D.Va. Compartir MEKA no significa compartir función: D.Va vive mucho de movilidad vertical, Matrix y peel; D.Mon parece apuntar a otra presión, más de sword + shield.',
+  'Los primeros counters a probar deberían ser respuestas anti-tank bastante claras: Zarya, Symmetra, Reaper, Ana, Zenyatta, Sombra, Pharah y Echo. No porque sean sentencia, sino porque castigan recursos, beams, anti-heal, Discord, entradas lineales y verticalidad.',
   'El punto más importante será su salida. Propulsors le da movimiento horizontal, pero el verdadero test será qué pasa cuando el rival guarda anti-heal, Discord, hack o control para cuando se queda sin combustible.',
   'En 6v6 puede cambiar mucho. Con un segundo Tank, D.Mon podría permitirse jugar más agresiva o más de frontline compartida, pero eso dependerá de su movilidad y de cuánto necesite supports detrás.',
 ]
@@ -105,6 +128,7 @@ const firstVodChecklist = [
   '¿Has creado espacio real o solo has perseguido una kill lejos de tu equipo?',
   '¿Tu equipo podía seguir tu engage o entraste antes de que la pelea estuviera lista?',
   '¿Qué cooldown rival te frenó más: anti-heal, Discord, hack, beam, stun o burst?',
+  '¿Te castigaron desde high ground o desde el aire sin que tu equipo pudiera responder?',
   '¿Has usado Beast para aguantar una ventana importante o para cruzar main sin plan?',
   '¿En qué mapas te sentiste cómodo y en cuáles necesitabas demasiada ayuda para llegar?',
 ]
@@ -116,7 +140,7 @@ const faqs = [
   },
   {
     question: '¿Cuándo sale D.Mon en Overwatch?',
-    answer: 'D.Mon llega el 11 de agosto de 2026 con la nueva temporada de Overwatch. Hasta entonces, lo útil es separar lo confirmado de las predicciones sobre su kit.',
+    answer: 'D.Mon llega el 11 de agosto de 2026 con la nueva temporada de Overwatch. Hasta entonces, lo útil es separar kit confirmado de números finales, cooldowns y primeras conclusiones de ranked.',
   },
   {
     question: '¿Quién es D.Mon?',
@@ -125,6 +149,10 @@ const faqs = [
   {
     question: '¿D.Mon está relacionada con D.Va?',
     answer: 'Sí. D.Mon forma parte de MEKA, el escuadrón de mechs de Busan donde también está D.Va. La gracia es que no tiene por qué jugar igual que ella.',
+  },
+  {
+    question: '¿D.Mon es una D.Va 2.0?',
+    answer: 'No. Comparten MEKA y el ciclo de mech, pero D.Va juega más a Matrix, dive, high ground y peel. D.Mon va más hacia melee, barrera, movimiento horizontal y frontline.',
   },
   {
     question: '¿Se conocen sus habilidades?',
@@ -139,6 +167,10 @@ const faqs = [
     answer: 'Los perks mostrados son Beast Within, MEKA Mobility, Overstrike y Focused Fusion. Mejoran barrera, movilidad, lifesteal y precisión del Fusion Repeater.',
   },
   {
+    question: '¿Qué héroes pueden molestar a D.Mon?',
+    answer: 'Verticalidad y rango largo parecen muy importantes: Echo, Pharah, Widowmaker o DPS en high ground pueden forzarla a jugar fuera de su zona cómoda. Además, Zarya, Symmetra, Ana, Zenyatta y Sombra castigan recursos y engages.',
+  },
+  {
     question: '¿Será buena en ranked?',
     answer: 'Demasiado pronto para asegurarlo. Como Tank nuevo tendrá mucho pickrate de salida, pero su valor real dependerá de si puede entrar, aguantar focus y salir sin depender de que todo el equipo la salve.',
   },
@@ -149,12 +181,12 @@ export default function DmonNewsPage() {
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
-    headline: 'D.Mon en Overwatch: habilidades, perks, fecha y rol de Tank',
-    description: 'D.Mon llega a Overwatch como Tank de MEKA el 11 de agosto: Plasma Saber, Power Barrier, Propulsors, Surging Strike, Limit Break, perks y lectura inicial para ranked.',
+    headline: 'D.Mon en Overwatch: gameplay, habilidades, perks y counters',
+    description: 'D.Mon llega a Overwatch como Tank melee de MEKA el 11 de agosto: gameplay, Stalwart, Plasma Saber, Power Barrier, Propulsors, Limit Break y counters.',
     image: [absoluteUrl(PAGE_IMAGE)],
     url: pageUrl,
     datePublished: '2026-08-06',
-    dateModified: '2026-08-07',
+    dateModified: '2026-08-08',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -203,7 +235,7 @@ export default function DmonNewsPage() {
               D.Mon deja de ser solo un nombre dentro del lore de MEKA y pasa a ocupar sitio propio en Overwatch. Blizzard la presenta como nueva Tank, conectada con D.Va, Busan y el escuadrón de pilotos que protege Corea frente a las amenazas Gwishin. También la verás buscada como DMon o Yuna Lee.
             </p>
             <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.75, margin: '0 0 18px', maxWidth: 780 }}>
-              La parte importante para ranked es esta: sale el 11 de agosto de 2026, es Tank y ya conocemos el kit base. Plasma Saber, Power Barrier, Propulsors y Surging Strike apuntan a una frontline móvil que quiere entrar con barrera, pegar cerca y desplazar enemigos sin quedarse vendida.
+              La parte importante para ranked es esta: sale el 11 de agosto de 2026, es Tank y ya conocemos mejor su identidad de gameplay. D.Mon no está pensada como una D.Va 2.0: Plasma Saber, Power Barrier, Propulsors y Surging Strike apuntan a una frontline melee con movilidad horizontal, barrera y presión de corto rango.
             </p>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
               <Link href="/heroes/dmon" className="btn btn-primary btn-sm">GUÍA DE D.MON</Link>
@@ -227,7 +259,7 @@ export default function DmonNewsPage() {
               <MetaPill label="Rol" value="Tank" />
               <MetaPill label="Equipo" value="MEKA" />
               <MetaPill label="Mech" value="Beast" />
-              <MetaPill label="Estado" value="Primer vistazo" />
+              <MetaPill label="Subrol" value="Stalwart" />
             </div>
           </aside>
         </header>
@@ -237,6 +269,16 @@ export default function DmonNewsPage() {
           <h2 style={headingStyle}>D.Mon en 30 segundos: rol, fecha y por qué importa</h2>
           <div style={cardGridStyle}>
             {quickSummary.map(point => (
+              <InfoCard key={point.title} title={point.title} body={point.body} />
+            ))}
+          </div>
+        </section>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>LECTURA DE DISEÑO</div>
+          <h2 style={headingStyle}>D.Mon no es una D.Va 2.0: así deberías entenderla</h2>
+          <div style={cardGridStyle}>
+            {designReads.map(point => (
               <InfoCard key={point.title} title={point.title} body={point.body} />
             ))}
           </div>
@@ -300,7 +342,7 @@ export default function DmonNewsPage() {
             Hasta tener el kit cerrado, los counters son una hipótesis útil, no una sentencia. Aun así, contra un Tank nuevo con pinta de frontline agresiva hay respuestas que merece la pena probar desde el primer día.
           </p>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 16 }}>
-            {['Zarya', 'Symmetra', 'Reaper', 'Ana', 'Zenyatta', 'Sombra'].map(hero => (
+            {['Zarya', 'Symmetra', 'Pharah', 'Echo', 'Ana', 'Zenyatta', 'Sombra', 'Mei'].map(hero => (
               <span
                 key={hero}
                 style={{
@@ -344,7 +386,7 @@ export default function DmonNewsPage() {
           <div className="eyebrow" style={{ marginBottom: 10 }}>SIGUIENTE PASO</div>
           <h2 style={headingStyle}>Dónde seguir preparando D.Mon</h2>
           <p style={paragraphStyle}>
-            Vamos a actualizar la ficha cuando haya gameplay completo, números y primeras partidas reales. De momento, lo útil es preparar el rol de Tank, revisar cómo juega D.Va dentro de MEKA y tener a mano los reworks de mapas porque Busan también vuelve a estar en el centro.
+            Vamos a actualizar la ficha cuando tengamos números finales, cooldowns y primeras partidas reales. De momento, lo útil es preparar el rol de Tank, entender que D.Mon no juega como D.Va y tener a mano los reworks de mapas porque Busan también vuelve a estar en el centro.
           </p>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 16 }}>
             <Link href="/heroes/dmon" className="btn btn-primary btn-sm">GUÍA DE D.MON EN OVERWATCH</Link>

@@ -28,7 +28,7 @@ const roleOrder: CounterRole[] = ['tank', 'dps', 'support']
 const heroBySlug = new Map(COUNTER_HEROES.map(hero => [hero.slug, hero]))
 const spotlightHeroes = pickHeroes(spotlightHeroSlugs)
 const seasonNews = [
-  { title: 'D.Mon', label: 'Nuevo Tank', body: 'La piloto de MEKA llega a Overwatch con Beast, vínculo directo con D.Va y muchas preguntas para ranked.' },
+  { title: 'D.Mon', label: 'Nuevo Tank', body: 'Tank melee de MEKA: espada, barrera, Stalwart, movilidad horizontal y una lectura distinta a D.Va.' },
   { title: 'Busan', label: 'Rework', body: 'Más rutas, más lectura de high ground y cambios ligados al tema MEKA.' },
   { title: 'Eichenwalde', label: 'Rework', body: 'Más opciones para cruzar y pelear sin atascarse en la choke principal.' },
   { title: 'Paraíso', label: 'Rework', body: 'Rutas, coberturas y alturas nuevas que pueden cambiar bastante el mapa.' },
@@ -146,7 +146,7 @@ export default async function RootPage() {
                     D.MON LLEGA A OVERWATCH COMO NUEVO TANK DE MEKA
                   </h2>
                   <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0, maxWidth: 760 }}>
-                    D.Mon entra en el roster como Tank de MEKA. Resumen claro de lo confirmado, primeras claves para ranked y qué esperar de Beast sin inventar el kit.
+                    D.Mon entra en el roster como Tank melee de MEKA. Gameplay, habilidades, perks, subrol Stalwart, primeras claves para ranked y por qué no juega como una D.Va 2.0.
                   </p>
                 </div>
                 <span className="btn btn-primary btn-sm">VER TODO</span>
