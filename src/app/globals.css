@@ -1825,6 +1825,7 @@ textarea {
   align-items: center;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
+  box-sizing: border-box;
   display: flex;
   gap: 20px;
   height: 52px;
@@ -2452,10 +2453,12 @@ textarea {
   }
 
   .public-nav-spacer {
-    flex-basis: 8px;
+    display: none;
   }
 
   .public-nav-links {
+    flex: 1 1 0;
     gap: 16px;
+    max-width: 100%;
   }
 }

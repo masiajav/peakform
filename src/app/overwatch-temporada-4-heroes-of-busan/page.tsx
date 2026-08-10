@@ -10,9 +10,17 @@ const PAGE_IMAGE = '/news/overwatch-season-4-heroes-of-busan.png'
 const RELEASE_DATE = '11 de agosto de 2026'
 const UPDATED_AT = '10 de agosto de 2026'
 
+type VisualItem = {
+  title: string
+  label: string
+  body: string
+  src: string
+  alt: string
+}
+
 export const metadata: Metadata = buildMetadata({
-  title: 'Overwatch Season 4 Heroes of Busan: D.Mon, rank reset, Emerald y reworks',
-  description: 'Todo sobre Overwatch Season 4: Heroes of Busan. D.Mon, evento MEKA, Battle Pass revamp, rank reset, nuevo rango Emerald, reworks de mapas, Team Drives y skins.',
+  title: 'Overwatch Season 4 Heroes of Busan: D.Mon, Emerald, skins y reworks',
+  description: 'Resumen completo de Overwatch Season 4: Heroes of Busan con D.Mon, nuevo rango Emerald, Battle Pass revamp, mythic de Genji, arma mítica de Sojourn, LE SSERAFIM, player card frames y reworks.',
   path: PAGE_PATH,
   image: PAGE_IMAGE,
   type: 'article',
@@ -67,7 +75,7 @@ const timeline = [
 
 const battlePassReads = [
   'El Battle Pass mantiene la idea base, pero ahora se presenta de una forma menos lineal. La gracia es poder elegir mejor qué track quieres avanzar.',
-  'Los Hack Tiers sirven para cambiar una recompensa por otra skin disponible dentro de las opciones del pase. No es un “todo gratis”: la función va ligada al Battle Pass premium.',
+  'Los Hack Tiers sirven para cambiar una recompensa por otra skin disponible dentro de las opciones del pase. No es un "todo gratis": la función va ligada al Battle Pass premium.',
   'Los Unvaulted Passes llegan en mid-season para recuperar recompensas antiguas seleccionadas. Ojo: no todo vuelve igual; conviene separar skins, moneda, prismas, títulos, mythics y armas míticas.',
   'Para jugadores casuales es una mejora de control. Para jugadores que optimizan el gasto, la clave será esperar a ver qué recompensas son realmente intercambiables antes de comprar por impulso.',
 ]
@@ -98,7 +106,7 @@ const systems = [
   },
   {
     title: 'Respawn timers',
-    body: 'Ver tiempos de respawn de aliados reduce bastante el “entro porque sí”. Para ranked puede ser una mejora enorme si la gente aprende a esperar reagrupes.',
+    body: 'Ver tiempos de respawn de aliados reduce bastante el "entro porque sí". Para ranked puede ser una mejora enorme si la gente aprende a esperar reagrupes.',
   },
   {
     title: 'Multikill y healing feedback',
@@ -113,19 +121,92 @@ const systems = [
 const cosmetics = [
   {
     title: 'Mythic de Genji',
-    body: 'La temporada enseña una skin mítica de Genji con estética dual. Es de las piezas cosméticas con más tirón para búsquedas y coleccionistas.',
+    body: 'La temporada enseña una skin mítica de Genji con estética dual y acabado muy reconocible. Es una de las piezas que más búsquedas va a mover.',
   },
   {
     title: 'Arma mítica de Sojourn',
-    body: 'Sojourn recibe una weapon skin mítica muy llamativa, con animaciones y acabado premium.',
+    body: 'Sojourn recibe una weapon skin mítica con acabado de cristal, animaciones y pinta de objeto premium para quienes juegan hitscan.',
   },
   {
     title: 'LE SSERAFIM vuelve',
     body: 'La colaboración vuelve a aparecer como bloque propio de temporada. Si trae skins nuevas o bundles, será contenido fuerte para seguimiento.',
   },
   {
-    title: 'Ultimate Battle Pass y Starter Pack',
-    body: 'Habrá packs extra de temporada. Lo importante es revisar qué trae cada uno antes de mezclarlo con recompensas normales del Battle Pass.',
+    title: 'New player card frames',
+    body: 'Los nuevos marcos de tarjeta de jugador hacen que el perfil tenga más presencia visual, especialmente en rangos altos y con héroes destacados.',
+  },
+  {
+    title: 'Bundles de tienda',
+    body: 'Young Gods, Fleece and Fangs y otros packs van por tienda. La recomendación es revisar precio, héroes incluidos y si realmente juegas esos personajes antes de comprar.',
+  },
+]
+
+const primaryVisuals: VisualItem[] = [
+  {
+    title: 'D.Mon y el resumen de temporada',
+    label: 'Season 4',
+    body: 'La temporada se vende alrededor de Busan, MEKA y la llegada de D.Mon como Tank. Es el punto de entrada para entender todo el parche.',
+    src: PAGE_IMAGE,
+    alt: 'Resumen visual de Overwatch Season 4 Heroes of Busan con D.Mon, reworks, Emerald y Battle Pass',
+  },
+  {
+    title: 'Battle Pass skins',
+    label: 'Battle Pass',
+    body: 'El pase trae una tanda grande de skins, con D.Mon como pieza central visual y varios héroes recibiendo cosméticos de temporada.',
+    src: '/news/overwatch-season-4-battle-pass-skins.png',
+    alt: 'Skins del Battle Pass de Overwatch Season 4 Heroes of Busan',
+  },
+  {
+    title: 'Nuevo rango Emerald',
+    label: 'Ranked',
+    body: 'Emerald entra como nuevo escalón competitivo. Más allá del icono, lo importante será cómo recoloca a la gente tras el reset.',
+    src: '/news/overwatch-season-4-emerald-rank.png',
+    alt: 'Nuevo rango Emerald de Overwatch Season 4',
+  },
+]
+
+const cosmeticVisuals: VisualItem[] = [
+  {
+    title: 'Mythic de Genji',
+    label: 'Mythic skin',
+    body: 'Genji recibe una mythic con estética marcada, buen contraste de color y mucha presencia para clips, thumbnails y búsquedas.',
+    src: '/news/overwatch-season-4-genji-mythic.png',
+    alt: 'Skin mítica de Genji en Overwatch Season 4',
+  },
+  {
+    title: 'Arma mítica de Sojourn',
+    label: 'Mythic weapon',
+    body: 'La weapon skin mítica de Sojourn apunta a ser uno de los cosméticos premium de la temporada por animación y acabado.',
+    src: '/news/overwatch-season-4-sojourn-mythic-weapon.png',
+    alt: 'Arma mítica de Sojourn en Overwatch Season 4',
+  },
+  {
+    title: 'LE SSERAFIM',
+    label: 'Colaboración',
+    body: 'La colaboración vuelve a entrar en el calendario y puede traer mucho ruido fuera del público competitivo puro.',
+    src: '/news/overwatch-season-4-le-sserafim.png',
+    alt: 'Colaboración LE SSERAFIM en Overwatch Season 4',
+  },
+  {
+    title: 'New player card frames',
+    label: 'Perfil',
+    body: 'Los nuevos marcos de player card hacen que el perfil luzca más, sobre todo si quieres enseñar rango, héroes favoritos y progreso.',
+    src: '/news/overwatch-season-4-player-card-frames.png',
+    alt: 'Nuevos player card frames de Overwatch Season 4',
+  },
+  {
+    title: 'Young Gods',
+    label: 'Shop bundle',
+    body: 'Bundle de tienda con estética más mitológica. Interesa si juegas varios de los héroes incluidos, no solo por una skin suelta.',
+    src: '/news/overwatch-season-4-young-gods.png',
+    alt: 'Bundle Young Gods de Overwatch Season 4',
+  },
+  {
+    title: 'Fleece and Fangs',
+    label: 'Shop bundle',
+    body: 'Otro bundle de tienda con estilo muy distinto al pase. Buen contenido visual, pero conviene separar hype de valor real.',
+    src: '/news/overwatch-season-4-fleece-and-fangs.png',
+    alt: 'Bundle Fleece and Fangs de Overwatch Season 4',
   },
 ]
 
@@ -170,9 +251,15 @@ export default function SeasonFourPage() {
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
-    headline: 'Overwatch Season 4 Heroes of Busan: D.Mon, rank reset, Emerald y reworks',
-    description: 'Resumen completo de Overwatch Season 4: Heroes of Busan con D.Mon, evento MEKA, Battle Pass revamp, rank reset, nuevo rango Emerald, reworks de mapas, Team Drives y skins.',
-    image: [absoluteUrl(PAGE_IMAGE)],
+    headline: 'Overwatch Season 4 Heroes of Busan: D.Mon, Emerald, skins y reworks',
+    description: 'Resumen completo de Overwatch Season 4: Heroes of Busan con D.Mon, nuevo rango Emerald, Battle Pass revamp, mythic de Genji, arma mítica de Sojourn, LE SSERAFIM, player card frames y reworks.',
+    image: [
+      absoluteUrl(PAGE_IMAGE),
+      absoluteUrl('/news/overwatch-season-4-genji-mythic.png'),
+      absoluteUrl('/news/overwatch-season-4-battle-pass-skins.png'),
+      absoluteUrl('/news/overwatch-season-4-player-card-frames.png'),
+      absoluteUrl('/news/overwatch-season-4-emerald-rank.png'),
+    ],
     url: pageUrl,
     datePublished: '2026-08-10',
     dateModified: '2026-08-10',
@@ -222,7 +309,7 @@ export default function SeasonFourPage() {
               <span style={{ color: 'var(--accent)' }}>HEROES OF BUSAN</span>
             </h1>
             <p style={leadStyle}>
-              Season 4 viene cargada de verdad: D.Mon como nuevo Tank de MEKA, evento Shooting Star: My MEKA Mania, reworks de Busan, Paraíso y Eichenwalde, rank reset, nuevo rango Emerald, Battle Pass revamp, Team Drives, World Cup Cheer Rally, skins míticas y colaboración con LE SSERAFIM.
+              Season 4 viene cargada de verdad: D.Mon como nuevo Tank de MEKA, evento Shooting Star: My MEKA Mania, reworks de Busan, Paraíso y Eichenwalde, rank reset, nuevo rango Emerald, Battle Pass revamp, Team Drives, World Cup Cheer Rally, skins míticas, player card frames y colaboración con LE SSERAFIM.
             </p>
             <p style={leadStyle}>
               La lectura importante para ranked es sencilla: no es una temporada solo de cosméticos. D.Mon puede mover el rol de Tank, los reworks obligan a reaprender mapas y el reset competitivo va a hacer que la primera semana sea bastante caótica.
@@ -263,6 +350,15 @@ export default function SeasonFourPage() {
         </section>
 
         <section style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>VISTAZO VISUAL</div>
+          <h2 style={headingStyle}>Lo que más vas a ver esta temporada</h2>
+          <p style={{ ...paragraphStyle, marginBottom: 16 }}>
+            Si solo quieres quedarte con la foto grande: D.Mon marca el tema de temporada, el Battle Pass mete bastante cosmético nuevo y Emerald va a concentrar muchas búsquedas durante el reset.
+          </p>
+          <VisualGrid items={primaryVisuals} featured />
+        </section>
+
+        <section style={sectionStyle}>
           <div className="eyebrow" style={{ marginBottom: 10 }}>CALENDARIO</div>
           <h2 style={headingStyle}>Fechas clave de Heroes of Busan</h2>
           <div style={{ display: 'grid', gap: 12 }}>
@@ -285,7 +381,7 @@ export default function SeasonFourPage() {
             D.Mon llega como Tank y no como una versión duplicada de D.Va. Comparte escuadrón MEKA, pero su identidad va por otro sitio: sword + shield, frontline, movilidad horizontal y una ultimate pensada para abrir pelea con follow-up.
           </p>
           <p style={{ ...paragraphStyle, marginTop: 12 }}>
-            Si juegas Tank, la pregunta no es solo “¿está fuerte?”. La pregunta útil es dónde puede crear espacio sin regalarse. Si juegas contra ella, empieza probando anti-heal, Discord, beams, control y verticalidad.
+            Si juegas Tank, la pregunta no es solo &quot;¿está fuerte?&quot;. La pregunta útil es dónde puede crear espacio sin regalarse. Si juegas contra ella, empieza probando anti-heal, Discord, beams, control y verticalidad.
           </p>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 16 }}>
             <Link href="/dmon-nuevo-heroe-tank-overwatch" className="btn btn-primary btn-sm">TODO SOBRE D.MON</Link>
@@ -332,10 +428,13 @@ export default function SeasonFourPage() {
 
         <section style={sectionStyle}>
           <div className="eyebrow" style={{ marginBottom: 10 }}>SKINS Y EVENTOS</div>
-          <h2 style={headingStyle}>Mythics, World Cup, LE SSERAFIM y packs</h2>
-          <div style={cardGridStyle}>
-            {cosmetics.map(item => <InfoCard key={item.title} title={item.title} body={item.body} />)}
+          <h2 style={headingStyle}>Mythics, player card frames, LE SSERAFIM y bundles</h2>
+          <div style={{ marginBottom: 16 }}>
+            <div style={cardGridStyle}>
+              {cosmetics.map(item => <InfoCard key={item.title} title={item.title} body={item.body} />)}
+            </div>
           </div>
+          <VisualGrid items={cosmeticVisuals} />
         </section>
 
         <section style={sectionStyle}>
@@ -357,6 +456,35 @@ export default function SeasonFourPage() {
           </div>
         </section>
       </main>
+    </div>
+  )
+}
+
+function VisualGrid({ items, featured = false }: { items: VisualItem[]; featured?: boolean }) {
+  return (
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: featured ? 'repeat(auto-fit, minmax(260px, 1fr))' : 'repeat(auto-fit, minmax(240px, 1fr))',
+      gap: 14,
+    }}>
+      {items.map(item => (
+        <article key={item.title} style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', aspectRatio: featured ? '16 / 10' : '4 / 3', background: 'var(--surface)' }}>
+            <Image
+              src={item.src}
+              alt={item.alt}
+              fill
+              sizes={featured ? '(max-width: 768px) 100vw, 360px' : '(max-width: 768px) 100vw, 320px'}
+              style={{ objectFit: 'cover' }}
+            />
+          </div>
+          <div style={{ padding: 16 }}>
+            <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)', fontSize: 12, letterSpacing: 1.2, marginBottom: 8 }}>{item.label}</div>
+            <h3 style={smallHeadingStyle}>{item.title}</h3>
+            <p style={smallCopyStyle}>{item.body}</p>
+          </div>
+        </article>
+      ))}
     </div>
   )
 }
