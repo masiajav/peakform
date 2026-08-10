@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/supabase/admin'
 import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
 
@@ -44,21 +45,52 @@ export async function POST(_req: Request, { params }: { params: { id: string } }
     return NextResponse.json({ error: 'No se encontró la referencia de pago' }, { status: 400 })
   }
 
+  const now = new Date().toISOString()
+  const admin = createAdminClient()
+  const { data: claimedOrder, error: claimError } = await admin
+    .from('orders')
+    .update({ refund_requested_at: now })
+    .eq('id', order.id)
+    .eq('user_id', user.id)
+    .eq('status', 'delivered')
+    .is('refund_requested_at', null)
+    .select('id')
+    .maybeSingle()
+
+  if (claimError) {
+    console.error('[refund] claim failed:', claimError.message)
+    return NextResponse.json({ error: 'No se pudo iniciar el reembolso' }, { status: 500 })
+  }
+
+  if (!claimedOrder) {
+    return NextResponse.json({ error: 'Ya solicitaste un reembolso para este pedido' }, { status: 400 })
+  }
+
+  let refund
   try {
-    await stripe.refunds.create({ payment_intent: order.stripe_payment_intent })
+    refund = await stripe.refunds.create(
+      { payment_intent: order.stripe_payment_intent },
+      { idempotencyKey: `refund-order-${order.id}` },
+    )
   } catch (err: any) {
     console.error('[refund] stripe error:', err.message)
+    await admin
+      .from('orders')
+      .update({ refund_requested_at: null })
+      .eq('id', order.id)
+      .eq('refund_requested_at', now)
+      .is('refunded_at', null)
     return NextResponse.json({ error: 'Error al procesar el reembolso en Stripe' }, { status: 500 })
   }
 
-  const now = new Date().toISOString()
-  const { error: updateError } = await supabase
+  const { error: updateError } = await admin
     .from('orders')
-    .update({ refund_requested_at: now, refunded_at: now })
-    .eq('id', params.id)
+    .update({ refunded_at: new Date().toISOString() })
+    .eq('id', order.id)
+    .eq('refund_requested_at', now)
 
   if (updateError) {
-    console.error('[refund] db update failed:', updateError.message)
+    console.error('[refund] db update failed:', { error: updateError.message, stripeRefundId: refund.id })
     return NextResponse.json({ error: 'Reembolso procesado pero no se pudo actualizar el estado' }, { status: 500 })
   }
 

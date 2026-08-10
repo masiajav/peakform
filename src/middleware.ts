@@ -2,6 +2,16 @@ import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
 export async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl
+
+  // Keep public crawling fast: only protected app areas need Supabase auth.
+  const protectedPaths = ['/dashboard', '/expert', '/admin', '/profile', '/orders']
+  const isProtected = protectedPaths.some(p => pathname === p || pathname.startsWith(`${p}/`))
+
+  if (!isProtected) {
+    return NextResponse.next({ request })
+  }
+
   let supabaseResponse = NextResponse.next({ request })
 
   const supabase = createServerClient(
@@ -24,12 +34,6 @@ export async function middleware(request: NextRequest) {
   )
 
   const { data: { user } } = await supabase.auth.getUser()
-
-  const { pathname } = request.nextUrl
-
-  // Rutas protegidas
-  const protectedPaths = ['/dashboard', '/expert', '/admin']
-  const isProtected = protectedPaths.some(p => pathname === p || pathname.startsWith(`${p}/`))
 
   if (isProtected && !user) {
     const url = request.nextUrl.clone()

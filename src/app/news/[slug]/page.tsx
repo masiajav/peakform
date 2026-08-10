@@ -5,19 +5,51 @@ import { announcementPath, articleDescription, type AnnouncementContent } from '
 import { buildMetadata } from '@/lib/seo'
 import { announcementQualityDecision, robotsForQuality } from '@/lib/indexing-policy'
 import { notFound } from 'next/navigation'
+import { cache } from 'react'
 
-async function fetchNews(slug: string) {
+const NEWS_DETAIL_COLUMNS = `
+  id,
+  title,
+  slug,
+  body,
+  excerpt,
+  seo_title,
+  seo_description,
+  author,
+  hero,
+  role,
+  map,
+  tags,
+  cover_image,
+  content_type,
+  sponsor_label,
+  sponsor_title,
+  sponsor_body,
+  sponsor_url,
+  sponsor_cta,
+  source_name,
+  source_url,
+  source_id,
+  source_published_at,
+  auto_imported,
+  source_sections,
+  published,
+  created_at,
+  updated_at
+`
+
+const fetchNews = cache(async (slug: string) => {
   const admin = createAdminClient()
   const { data } = await admin
     .from('announcements')
-    .select('*')
+    .select(NEWS_DETAIL_COLUMNS)
     .eq('slug', slug)
     .eq('published', true)
     .neq('content_type', 'patch_note')
     .single()
 
   return data as AnnouncementContent | null
-}
+})
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const article = await fetchNews(params.slug)

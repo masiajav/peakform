@@ -29,6 +29,24 @@ const featuredNews = [
   },
 ]
 
+const ANNOUNCEMENT_LIST_COLUMNS = `
+  id,
+  title,
+  slug,
+  body,
+  excerpt,
+  seo_title,
+  seo_description,
+  hero,
+  role,
+  map,
+  cover_image,
+  content_type,
+  published,
+  created_at,
+  updated_at
+`
+
 export const metadata: Metadata = buildMetadata({
   title: 'Noticias de Overwatch',
   description: 'Noticias, actualizaciones y anuncios de Overwatch seleccionados por Replaid Lab.',
@@ -48,7 +66,7 @@ export default async function NewsPage() {
   const admin = createAdminClient()
   const { data: announcements } = await admin
     .from('announcements')
-    .select('*')
+    .select(ANNOUNCEMENT_LIST_COLUMNS)
     .eq('published', true)
     .neq('content_type', 'patch_note')
     .order('created_at', { ascending: false })

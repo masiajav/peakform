@@ -4,6 +4,7 @@ import JsonLd from '@/components/content/JsonLd'
 import AdSenseScript from '@/components/content/AdSenseScript'
 import VercelAnalytics from '@/components/content/VercelAnalytics'
 import PublicFooter from '@/components/layout/PublicFooter'
+import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, SITE_NAME, SITE_URL } from '@/lib/seo'
 
 export const metadata: Metadata = {
@@ -68,7 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     name: SITE_NAME,
     url: SITE_URL,
     logo: absoluteUrl('/icon.svg'),
-    sameAs: [],
+    sameAs: [REPLAID_DISCORD_URL],
   }
 
   const websiteJsonLd = {

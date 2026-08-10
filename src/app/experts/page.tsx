@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
+import Image from 'next/image'
 import Link from 'next/link'
 import PublicNav from '@/components/layout/PublicNav'
 import { Expert, formatPrice } from '@/types'
@@ -41,6 +42,44 @@ const RANK_OPTIONS = [
   { value: 'Diamond',      label: 'Diamond' },
 ]
 
+const EXPERT_LIST_COLUMNS = `
+  id,
+  user_id,
+  slug,
+  display_name,
+  battletag,
+  avatar_url,
+  bio,
+  peak_rank,
+  peak_sr,
+  main_role,
+  specialties,
+  avg_rating,
+  total_reviews,
+  avg_delivery_hours,
+  price_starter,
+  price_pro,
+  price_deep_dive,
+  description_starter,
+  description_pro,
+  description_deep_dive,
+  tier_starter_enabled,
+  tier_pro_enabled,
+  tier_deep_dive_enabled,
+  trial_enabled,
+  trial_price,
+  trial_refundable,
+  trial_deadline_hours,
+  stripe_account_id,
+  discord_handle,
+  service_paused,
+  service_paused_at,
+  service_pause_reason,
+  status,
+  created_at,
+  updated_at
+`
+
 const EXPERT_FAQS = [
   {
     question: '¿Qué es una VOD review de Overwatch?',
@@ -80,7 +119,7 @@ export default async function ExpertsPage({
   if (user) {
     const { data } = await supabase
       .from('profiles')
-      .select('*')
+      .select('role, display_name, avatar_url')
       .eq('id', user.id)
       .single()
     profile = data
@@ -91,7 +130,7 @@ export default async function ExpertsPage({
 
   let query = supabase
     .from('experts')
-    .select('*')
+    .select(EXPERT_LIST_COLUMNS)
     .eq('status', 'active')
     .order('service_paused', { ascending: true })
     .order('avg_rating', { ascending: false })
@@ -235,9 +274,10 @@ export default async function ExpertsPage({
                       width: 48, height: 48, background: 'var(--surface3)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       fontSize: 20, flexShrink: 0, overflow: 'hidden',
+                      position: 'relative',
                     }}>
                       {expert.avatar_url
-                        ? <img src={expert.avatar_url} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        ? <Image src={expert.avatar_url} alt="" fill sizes="48px" style={{ objectFit: 'cover' }} />
                         : <span style={{ color: 'var(--text2)' }}>{expert.display_name[0]}</span>
                       }
                     </div>

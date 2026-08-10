@@ -22,6 +22,26 @@ type GuidesSearchParams = {
   sort?: string
 }
 
+const GUIDE_LIST_COLUMNS = `
+  id,
+  title,
+  slug,
+  body,
+  category,
+  excerpt,
+  seo_title,
+  seo_description,
+  hero,
+  role,
+  map,
+  video_id,
+  video_title,
+  video_channel,
+  published,
+  created_at,
+  updated_at
+`
+
 export function generateMetadata({ searchParams }: { searchParams: GuidesSearchParams }): Metadata {
   const hasFilters = Boolean(
     cleanParam(searchParams.role) ||
@@ -77,7 +97,7 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
 
   let query = admin
     .from('guides')
-    .select('*')
+    .select(GUIDE_LIST_COLUMNS)
     .eq('published', true)
 
   if (effectiveRole) query = query.eq('role', effectiveRole)

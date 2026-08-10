@@ -39,6 +39,21 @@ export async function POST(request: Request) {
       process.env.SUPABASE_SERVICE_ROLE_KEY!
     )
 
+    const { data: existingOrder, error: existingOrderError } = await supabase
+      .from('orders')
+      .select('id')
+      .eq('stripe_session_id', session.id)
+      .maybeSingle()
+
+    if (existingOrderError) {
+      console.error('[webhook/stripe] existing order lookup failed:', existingOrderError)
+      return NextResponse.json({ error: existingOrderError.message }, { status: 500 })
+    }
+
+    if (existingOrder) {
+      return NextResponse.json({ received: true, duplicate: true })
+    }
+
     const { error } = await supabase.from('orders').insert({
       user_id:           meta.user_id,
       expert_id:         meta.expert_id,
@@ -54,6 +69,21 @@ export async function POST(request: Request) {
     })
 
     if (error) {
+      const isUniqueViolation = error.code === '23505'
+      const isDuplicateTrial = tier === 'trial' && isUniqueViolation && session.payment_intent
+      if (isDuplicateTrial) {
+        try {
+          await stripe.refunds.create(
+            { payment_intent: session.payment_intent as string },
+            { idempotencyKey: `refund-duplicate-trial-${session.id}` },
+          )
+          console.warn('[webhook/stripe] duplicate trial refunded', { sessionId: session.id })
+          return NextResponse.json({ received: true, refundedDuplicateTrial: true })
+        } catch (refundError) {
+          console.error('[webhook/stripe] duplicate trial refund failed:', refundError)
+        }
+      }
+
       console.error('[webhook/stripe] insert order failed:', error)
       return NextResponse.json({ error: error.message }, { status: 500 })
     }

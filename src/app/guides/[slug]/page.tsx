@@ -2,6 +2,7 @@
 import { createAdminClient } from '@/lib/supabase/admin'
 import { createClient } from '@/lib/supabase/server'
 import { notFound } from 'next/navigation'
+import { cache } from 'react'
 import AppNav from '@/components/layout/AppNav'
 import PublicNav from '@/components/layout/PublicNav'
 import Link from 'next/link'
@@ -19,17 +20,51 @@ import { guideEditorial } from '@/lib/guide-editorial'
 import { heroTopicHref } from '@/lib/topic-links'
 import { formatPrice } from '@/types'
 
-async function fetchGuide(slug: string) {
+const GUIDE_DETAIL_COLUMNS = `
+  id,
+  title,
+  slug,
+  body,
+  category,
+  excerpt,
+  seo_title,
+  seo_description,
+  author,
+  hero,
+  role,
+  map,
+  tags,
+  cover_image,
+  content_type,
+  video_url,
+  video_platform,
+  video_id,
+  video_title,
+  video_channel,
+  video_language,
+  video_published_at,
+  video_summary,
+  sponsor_label,
+  sponsor_title,
+  sponsor_body,
+  sponsor_url,
+  sponsor_cta,
+  published,
+  created_at,
+  updated_at
+`
+
+const fetchGuide = cache(async (slug: string) => {
   const admin = createAdminClient()
   const { data } = await admin
     .from('guides')
-    .select('*')
+    .select(GUIDE_DETAIL_COLUMNS)
     .eq('slug', slug)
     .eq('published', true)
     .single()
 
   return data as GuideContent | null
-}
+})
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const guide = await fetchGuide(params.slug)

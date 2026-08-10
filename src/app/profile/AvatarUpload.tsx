@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import Image from 'next/image'
+import { useState, useRef, useMemo } from 'react'
 import { createClient } from '@/lib/supabase/client'
 
 interface AvatarUploadProps {
@@ -16,7 +17,7 @@ export default function AvatarUpload({ userId, currentUrl, displayName, subtitle
   const [uploading, setUploading] = useState(false)
   const [error, setError]       = useState<string | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
-  const supabase = createClient()
+  const supabase = useMemo(() => createClient(), [])
 
   async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0]
@@ -89,7 +90,7 @@ export default function AvatarUpload({ userId, currentUrl, displayName, subtitle
         }}
       >
         {url ? (
-          <img src={url} alt="avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <Image src={url} alt="avatar" fill sizes="72px" style={{ objectFit: 'cover' }} />
         ) : (
           <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 32, color: 'var(--text2)' }}>
             {initial}

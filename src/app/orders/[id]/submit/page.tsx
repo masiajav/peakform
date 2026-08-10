@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import AppNav from '@/components/layout/AppNav'
@@ -23,7 +23,7 @@ const ROLE_OPTIONS = [
 
 export default function SubmitReplayPage({ params }: { params: { id: string } }) {
   const router = useRouter()
-  const supabase = createClient()
+  const supabase = useMemo(() => createClient(), [])
 
   const [profile, setProfile] = useState<any>(null)
   const [order, setOrder]     = useState<any>(null)
@@ -40,12 +40,12 @@ export default function SubmitReplayPage({ params }: { params: { id: string } })
       const { data: { user } } = await supabase.auth.getUser()
       if (!user) { router.push('/login'); return }
 
-      const { data: p } = await supabase.from('profiles').select('*').eq('id', user.id).single()
+      const { data: p } = await supabase.from('profiles').select('display_name, avatar_url').eq('id', user.id).single()
       setProfile(p)
 
       const { data: o } = await supabase
         .from('orders')
-        .select('*, expert:experts(display_name)')
+        .select('id, tier, status, expert:experts(display_name)')
         .eq('id', params.id)
         .eq('user_id', user.id)
         .single()
@@ -54,7 +54,7 @@ export default function SubmitReplayPage({ params }: { params: { id: string } })
       setOrder(o)
     }
     load()
-  }, [])
+  }, [params.id, router, supabase])
 
   function toggleFocus(area: string) {
     setFocusAreas(prev =>

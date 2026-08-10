@@ -1,8 +1,9 @@
 'use client'
 
 import { createClient } from '@/lib/supabase/client'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useMemo } from 'react'
 import type { CSSProperties } from 'react'
 import type { UserRole } from '@/types'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
@@ -27,7 +28,7 @@ const ROLE_COLORS: Record<UserRole, string> = {
 
 export default function AppNav({ role = 'user', displayName, avatarUrl }: AppNavProps) {
   const router = useRouter()
-  const supabase = createClient()
+  const supabase = useMemo(() => createClient(), [])
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
   const panelHref = role === 'admin' ? '/admin' : role === 'expert' ? '/expert/dashboard' : '/dashboard'
@@ -107,9 +108,10 @@ export default function AppNav({ role = 'user', displayName, avatarUrl }: AppNav
             fontWeight: 500,
             overflow: 'hidden',
             flexShrink: 0,
+            position: 'relative',
           }}>
             {avatarUrl ? (
-              <img src={avatarUrl} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <Image src={avatarUrl} alt="" fill sizes="36px" style={{ objectFit: 'cover' }} />
             ) : (
               displayName ? displayName[0].toUpperCase() : '?'
             )}

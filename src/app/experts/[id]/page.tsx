@@ -1,11 +1,13 @@
 import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { notFound } from 'next/navigation'
+import Image from 'next/image'
 import Link from 'next/link'
 import AppNav from '@/components/layout/AppNav'
 import PublicNav from '@/components/layout/PublicNav'
 import TierSelector from './TierSelector'
 import JsonLd from '@/components/content/JsonLd'
+import { cache } from 'react'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 import type { Metadata } from 'next'
@@ -15,6 +17,44 @@ import { getStripeConnectStatus, isStripeAccountReadyForCheckout } from '@/lib/s
 const ROLE_LABELS: Record<string, string> = {
   tank: 'Tank', dps: 'DPS', support: 'Support', flex: 'Flex',
 }
+
+const EXPERT_DETAIL_COLUMNS = `
+  id,
+  user_id,
+  slug,
+  display_name,
+  avatar_url,
+  battletag,
+  bio,
+  peak_rank,
+  peak_sr,
+  main_role,
+  specialties,
+  avg_rating,
+  total_reviews,
+  avg_delivery_hours,
+  price_starter,
+  price_pro,
+  price_deep_dive,
+  description_starter,
+  description_pro,
+  description_deep_dive,
+  tier_starter_enabled,
+  tier_pro_enabled,
+  tier_deep_dive_enabled,
+  trial_enabled,
+  trial_price,
+  trial_refundable,
+  trial_deadline_hours,
+  stripe_account_id,
+  service_paused,
+  service_paused_at,
+  service_pause_reason,
+  discord_handle,
+  status,
+  created_at,
+  updated_at
+`
 
 function Stars({ rating }: { rating: number }) {
   return (
@@ -28,18 +68,18 @@ function isUuid(value: string) {
   return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value)
 }
 
-async function fetchExpert(identifier: string) {
+const fetchExpert = cache(async (identifier: string) => {
   const admin = createAdminClient()
   let query = admin
     .from('experts')
-    .select('*')
+    .select(EXPERT_DETAIL_COLUMNS)
     .eq('status', 'active')
 
   query = isUuid(identifier) ? query.or(`id.eq.${identifier},slug.eq.${identifier}`) : query.eq('slug', identifier)
 
   const { data } = await query.single()
   return data
-}
+})
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const expert = await fetchExpert(params.id)
@@ -63,7 +103,7 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
   if (user) {
     const { data } = await supabase
       .from('profiles')
-      .select('*')
+      .select('role, display_name, avatar_url')
       .eq('id', user.id)
       .single()
     profile = data
@@ -173,9 +213,10 @@ export default async function ExpertDetailPage({ params }: { params: { id: strin
               width: 72, height: 72, background: 'var(--surface3)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               fontSize: 28, flexShrink: 0, overflow: 'hidden',
+              position: 'relative',
             }}>
               {expert.avatar_url
-                ? <img src={expert.avatar_url} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                ? <Image src={expert.avatar_url} alt="" fill sizes="72px" style={{ objectFit: 'cover' }} />
                 : <span style={{ color: 'var(--text2)' }}>{expert.display_name[0]}</span>
               }
             </div>

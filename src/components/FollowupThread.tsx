@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useMemo, useRef } from 'react'
 import { createClient } from '@/lib/supabase/client'
 
 type Message = {
@@ -18,7 +18,7 @@ type Props = {
 }
 
 export default function FollowupThread({ orderId, currentUserId, otherPartyLabel, initialMessages }: Props) {
-  const supabase = createClient()
+  const supabase = useMemo(() => createClient(), [])
   const [messages, setMessages] = useState<Message[]>(initialMessages)
   const [text, setText] = useState('')
   const [sending, setSending] = useState(false)
@@ -43,7 +43,7 @@ export default function FollowupThread({ orderId, currentUserId, otherPartyLabel
       .subscribe()
 
     return () => { supabase.removeChannel(channel) }
-  }, [orderId])
+  }, [orderId, supabase])
 
   async function handleSend(e: React.FormEvent) {
     e.preventDefault()

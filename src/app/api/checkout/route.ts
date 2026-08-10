@@ -115,39 +115,42 @@ export async function POST(request: Request) {
   let session
   try {
     const stripe = getStripe()
-    session = await stripe.checkout.sessions.create({
-      mode: 'payment',
-      line_items: [{
-        price_data: {
-          currency: 'eur',
-          product_data: {
-            name: `${TIER_CONFIG[tier].label} — ${expert.display_name}`,
-            description: TIER_CONFIG[tier].description,
+    session = await stripe.checkout.sessions.create(
+      {
+        mode: 'payment',
+        line_items: [{
+          price_data: {
+            currency: 'eur',
+            product_data: {
+              name: `${TIER_CONFIG[tier].label} — ${expert.display_name}`,
+              description: TIER_CONFIG[tier].description,
+            },
+            unit_amount: total,
           },
-          unit_amount: total,
+          quantity: 1,
+        }],
+        payment_intent_data: buildDestinationPaymentData(
+          expert.stripe_account_id,
+          commission,
+          connectStatus.country,
+        ),
+        metadata: {
+          user_id:           user.id,
+          expert_id:         expertId,
+          tier,
+          amount_base:       String(basePrice),
+          amount_commission: String(commission),
+          amount_total:      String(total),
+          stripe_country:    connectStatus.country ?? '',
+          on_behalf_of:      String(requiresOnBehalfOf(connectStatus.country)),
+          ...(trialDeadlineHours != null && { trial_deadline_hours: String(trialDeadlineHours) }),
         },
-        quantity: 1,
-      }],
-      payment_intent_data: buildDestinationPaymentData(
-        expert.stripe_account_id,
-        commission,
-        connectStatus.country,
-      ),
-      metadata: {
-        user_id:           user.id,
-        expert_id:         expertId,
-        tier,
-        amount_base:       String(basePrice),
-        amount_commission: String(commission),
-        amount_total:      String(total),
-        stripe_country:    connectStatus.country ?? '',
-        on_behalf_of:      String(requiresOnBehalfOf(connectStatus.country)),
-        ...(trialDeadlineHours != null && { trial_deadline_hours: String(trialDeadlineHours) }),
+        customer_email: user.email,
+        success_url: `${origin}/dashboard?order=paid`,
+        cancel_url:  `${origin}/experts/${expertId}`,
       },
-      customer_email: user.email,
-      success_url: `${origin}/dashboard?order=paid`,
-      cancel_url:  `${origin}/experts/${expertId}`,
-    })
+      tier === 'trial' ? { idempotencyKey: `checkout-trial-${user.id}-${expertId}` } : undefined,
+    )
   } catch (error) {
     const code = getStripeErrorCode(error)
     console.error('[checkout] Stripe session creation failed', { code, expertId })
