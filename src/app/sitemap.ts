@@ -20,8 +20,9 @@ import { absoluteUrl } from '@/lib/seo'
 export const dynamic = 'force-dynamic'
 
 const STATIC_LAST_MODIFIED: Record<string, string> = {
-  '/dmon-nuevo-heroe-tank-overwatch': '2026-08-08',
-  '/heroes/dmon': '2026-08-08',
+  '/overwatch-temporada-4-heroes-of-busan': '2026-08-10',
+  '/dmon-nuevo-heroe-tank-overwatch': '2026-08-10',
+  '/heroes/dmon': '2026-08-10',
   '/busan-eichenwalde-paraiso-reworks-overwatch': '2026-08-02',
   '/overwatch-temporada-3-into-the-tigers-den': '2026-06-16',
   '/counters/shion': '2026-06-28',
@@ -89,6 +90,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/team-comps',
     '/maps',
     '/news',
+    '/overwatch-temporada-4-heroes-of-busan',
     '/dmon-nuevo-heroe-tank-overwatch',
     '/busan-eichenwalde-paraiso-reworks-overwatch',
     '/overwatch-temporada-3-into-the-tigers-den',

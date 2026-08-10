@@ -6,7 +6,7 @@ import PublicNav from '@/components/layout/PublicNav'
 import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 
 const PAGE_PATH = '/busan-eichenwalde-paraiso-reworks-overwatch'
-const UPDATED_AT = '2 de agosto de 2026'
+const UPDATED_AT = '10 de agosto de 2026'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Busan, Eichenwalde y Paraíso tendrán rework en Overwatch',
@@ -114,7 +114,7 @@ export default function MapReworksNewsPage() {
     image: [absoluteUrl('/maps/busan.png'), absoluteUrl('/maps/eichenwalde.png'), absoluteUrl('/maps/paraiso.png')],
     url: pageUrl,
     datePublished: '2026-08-02',
-    dateModified: '2026-08-02',
+    dateModified: '2026-08-10',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -259,9 +259,10 @@ export default function MapReworksNewsPage() {
             La noticia recoge los reworks oficiales. Cuando estén jugables, actualizaremos las guías de Busan, Eichenwalde y Paraíso con rutas exactas, health packs, mejores composiciones y errores típicos de ranked.
           </p>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 16 }}>
+            <Link href="/overwatch-temporada-4-heroes-of-busan" className="btn btn-primary btn-sm">TODO SOBRE SEASON 4</Link>
             <a href="https://x.com/OWCavalry/status/2083915982733562192?s=20" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">BUSAN EN X</a>
             <a href="https://x.com/OWCavalry/status/2083914501896736928?s=20" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">EICHENWALDE EN X</a>
-            <Link href="/news" className="btn btn-primary btn-sm">MAS NOTICIAS</Link>
+            <Link href="/news" className="btn btn-secondary btn-sm">MAS NOTICIAS</Link>
           </div>
         </section>
       </main>

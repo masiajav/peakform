@@ -294,6 +294,7 @@ export function isStaticPathAdEligible(path: string) {
     '/counters',
     '/team-comps',
     '/news',
+    '/overwatch-temporada-4-heroes-of-busan',
     '/guides/como-mejorar-en-overwatch',
   ].includes(path)
 }

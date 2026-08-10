@@ -10,6 +10,12 @@ import { buildMetadata } from '@/lib/seo'
 
 const featuredNews = [
   {
+    href: '/overwatch-temporada-4-heroes-of-busan',
+    title: 'Overwatch Season 4 Heroes of Busan: D.Mon, Emerald y reworks',
+    date: '10 de agosto de 2026',
+    description: 'Resumen completo de Season 4: nuevo Tank D.Mon, evento MEKA, Battle Pass revamp, rank reset, Emerald, reworks de mapas, Team Drives, World Cup y LE SSERAFIM.',
+  },
+  {
     href: '/dmon-nuevo-heroe-tank-overwatch',
     title: 'D.Mon en Overwatch: gameplay, habilidades y counters',
     date: '08 de agosto de 2026',

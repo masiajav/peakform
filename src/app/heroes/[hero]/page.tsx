@@ -219,7 +219,7 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
     image: image ? absoluteUrl(image) : undefined,
     url: pageUrl,
     datePublished: pillar.slug === 'dmon' ? '2026-08-06' : '2026-06-26',
-    dateModified: pillar.slug === 'dmon' ? '2026-08-07' : '2026-07-24',
+    dateModified: pillar.slug === 'dmon' ? '2026-08-10' : '2026-07-24',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,

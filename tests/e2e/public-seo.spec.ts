@@ -3,6 +3,10 @@ import { expect, test, type Page } from '@playwright/test'
 const PUBLIC_ROUTES = [
   '/',
   '/heroes',
+  '/heroes/dmon',
+  '/overwatch-temporada-4-heroes-of-busan',
+  '/dmon-nuevo-heroe-tank-overwatch',
+  '/busan-eichenwalde-paraiso-reworks-overwatch',
   '/heroes/shion',
   '/counters/shion',
   '/team-comps/shion',
@@ -104,6 +108,9 @@ test('sitemap contains only the completed editorial batches', async ({ request }
   expect(xml).toContain('/counters/tracer')
   expect(xml).toContain('/counters/domina')
   expect(xml).toContain('/guides/cuando-cambiar-de-heroe-overwatch')
+  expect(xml).toContain('/overwatch-temporada-4-heroes-of-busan')
+  expect(xml).toContain('/heroes/dmon')
+  expect(xml).toContain('/dmon-nuevo-heroe-tank-overwatch')
   expect(xml).not.toContain('tier-list-season-2-overwatch-mejores-heroes-rol')
   expect(xml).not.toContain('/counters/mercy')
 })

@@ -7,11 +7,11 @@ import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 
 const PAGE_PATH = '/dmon-nuevo-heroe-tank-overwatch'
 const PAGE_IMAGE = '/heroes/dmon.png'
-const UPDATED_AT = '8 de agosto de 2026'
+const UPDATED_AT = '10 de agosto de 2026'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'D.Mon en Overwatch: gameplay, habilidades, perks y counters',
-  description: 'D.Mon llega a Overwatch como Tank melee de MEKA el 11 de agosto: gameplay, Stalwart, Plasma Saber, Power Barrier, Propulsors, Limit Break y counters.',
+  title: 'D.Mon en Overwatch Season 4: gameplay, habilidades, perks y counters',
+  description: 'D.Mon llega a Overwatch Season 4 como Tank melee de MEKA el 11 de agosto: gameplay, Stalwart, Plasma Saber, Power Barrier, Propulsors, Limit Break y counters.',
   path: PAGE_PATH,
   image: PAGE_IMAGE,
   type: 'article',
@@ -24,7 +24,7 @@ const quickSummary = [
   },
   {
     title: 'Sale el 11 de agosto',
-    body: 'D.Mon está marcada para llegar con la nueva temporada de Overwatch el 11 de agosto de 2026. La noticia se actualizará con números finales y patch notes.',
+    body: 'D.Mon está marcada para llegar con Season 4: Heroes of Busan el 11 de agosto de 2026. La noticia se actualizará con números finales y patch notes.',
   },
   {
     title: 'Forma parte de MEKA',
@@ -140,7 +140,7 @@ const faqs = [
   },
   {
     question: '¿Cuándo sale D.Mon en Overwatch?',
-    answer: 'D.Mon llega el 11 de agosto de 2026 con la nueva temporada de Overwatch. Hasta entonces, lo útil es separar kit confirmado de números finales, cooldowns y primeras conclusiones de ranked.',
+    answer: 'D.Mon llega el 11 de agosto de 2026 con Season 4: Heroes of Busan. Hasta entonces, lo útil es separar kit confirmado de números finales, cooldowns y primeras conclusiones de ranked.',
   },
   {
     question: '¿Quién es D.Mon?',
@@ -181,12 +181,12 @@ export default function DmonNewsPage() {
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
-    headline: 'D.Mon en Overwatch: gameplay, habilidades, perks y counters',
-    description: 'D.Mon llega a Overwatch como Tank melee de MEKA el 11 de agosto: gameplay, Stalwart, Plasma Saber, Power Barrier, Propulsors, Limit Break y counters.',
+    headline: 'D.Mon en Overwatch Season 4: gameplay, habilidades, perks y counters',
+    description: 'D.Mon llega a Overwatch Season 4 como Tank melee de MEKA el 11 de agosto: gameplay, Stalwart, Plasma Saber, Power Barrier, Propulsors, Limit Break y counters.',
     image: [absoluteUrl(PAGE_IMAGE)],
     url: pageUrl,
     datePublished: '2026-08-06',
-    dateModified: '2026-08-08',
+    dateModified: '2026-08-10',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -389,7 +389,8 @@ export default function DmonNewsPage() {
             Vamos a actualizar la ficha cuando tengamos números finales, cooldowns y primeras partidas reales. De momento, lo útil es preparar el rol de Tank, entender que D.Mon no juega como D.Va y tener a mano los reworks de mapas porque Busan también vuelve a estar en el centro.
           </p>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 16 }}>
-            <Link href="/heroes/dmon" className="btn btn-primary btn-sm">GUÍA DE D.MON EN OVERWATCH</Link>
+            <Link href="/overwatch-temporada-4-heroes-of-busan" className="btn btn-primary btn-sm">TODO SOBRE SEASON 4</Link>
+            <Link href="/heroes/dmon" className="btn btn-secondary btn-sm">GUÍA DE D.MON EN OVERWATCH</Link>
             <Link href="/roles/tank" className="btn btn-secondary btn-sm">CÓMO JUGAR TANK</Link>
             <Link href="/busan-eichenwalde-paraiso-reworks-overwatch" className="btn btn-secondary btn-sm">REWORKS DE MAPAS</Link>
             <Link href="/news" className="btn btn-secondary btn-sm">MÁS NOTICIAS</Link>

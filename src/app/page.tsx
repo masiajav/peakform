@@ -29,9 +29,9 @@ const heroBySlug = new Map(COUNTER_HEROES.map(hero => [hero.slug, hero]))
 const spotlightHeroes = pickHeroes(spotlightHeroSlugs)
 const seasonNews = [
   { title: 'D.Mon', label: 'Nuevo Tank', body: 'Tank melee de MEKA: espada, barrera, Stalwart, movilidad horizontal y una lectura distinta a D.Va.' },
-  { title: 'Busan', label: 'Rework', body: 'Más rutas, más lectura de high ground y cambios ligados al tema MEKA.' },
-  { title: 'Eichenwalde', label: 'Rework', body: 'Más opciones para cruzar y pelear sin atascarse en la choke principal.' },
-  { title: 'Paraíso', label: 'Rework', body: 'Rutas, coberturas y alturas nuevas que pueden cambiar bastante el mapa.' },
+  { title: 'Emerald', label: 'Nuevo rango', body: 'Rank reset y nuevo escalón competitivo: primera semana movida y muchas partidas raras.' },
+  { title: 'Battle Pass', label: 'Revamp', body: 'Tracks más claros, Hack Tiers y más control sobre qué recompensas quieres perseguir.' },
+  { title: 'Mapas', label: 'Reworks', body: 'Busan, Paraíso y Eichenwalde cambian rutas, coberturas y lectura de high ground.' },
 ]
 
 export default async function RootPage() {
@@ -117,7 +117,7 @@ export default async function RootPage() {
               </form>
               <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 12 }}>
                 <Link href="/heroes" className="btn btn-secondary btn-sm">VER HÉROES</Link>
-                <Link href="/dmon-nuevo-heroe-tank-overwatch" className="btn btn-secondary btn-sm">NUEVO TANK D.MON</Link>
+                <Link href="/overwatch-temporada-4-heroes-of-busan" className="btn btn-secondary btn-sm">SEASON 4</Link>
                 <Link href="/guides/como-mejorar-en-overwatch" className="btn btn-secondary btn-sm">EMPEZAR A MEJORAR</Link>
               </div>
             </div>
@@ -137,16 +137,16 @@ export default async function RootPage() {
         </section>
 
         <section style={{ maxWidth: 1120, margin: '0 auto', padding: '20px 24px 44px' }}>
-          <Link href="/dmon-nuevo-heroe-tank-overwatch" style={{ textDecoration: 'none' }}>
+          <Link href="/overwatch-temporada-4-heroes-of-busan" style={{ textDecoration: 'none' }}>
             <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 24 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16, alignItems: 'start', marginBottom: 18, flexWrap: 'wrap' }}>
                 <div>
                   <div className="eyebrow">ÚLTIMAS NOVEDADES</div>
                   <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(32px, 5vw, 48px)', letterSpacing: 1, lineHeight: 1, margin: '0 0 8px' }}>
-                    D.MON LLEGA A OVERWATCH COMO NUEVO TANK DE MEKA
+                    OVERWATCH SEASON 4: HEROES OF BUSAN
                   </h2>
                   <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0, maxWidth: 760 }}>
-                    D.Mon entra en el roster como Tank melee de MEKA. Gameplay, habilidades, perks, subrol Stalwart, primeras claves para ranked y por qué no juega como una D.Va 2.0.
+                    D.Mon, evento MEKA, Battle Pass revamp, rank reset, nuevo rango Emerald, reworks de Busan, Paraíso y Eichenwalde, Team Drives y nuevas skins.
                   </p>
                 </div>
                 <span className="btn btn-primary btn-sm">VER TODO</span>

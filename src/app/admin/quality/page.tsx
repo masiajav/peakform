@@ -45,6 +45,7 @@ export default async function QualityAuditPage() {
     '/team-comps',
     '/news',
     '/patch-notes',
+    '/overwatch-temporada-4-heroes-of-busan',
     '/overwatch-temporada-3-into-the-tigers-den',
     ...TRUST_ROUTES,
   ].map(path => {

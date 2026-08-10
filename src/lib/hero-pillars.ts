@@ -1054,14 +1054,14 @@ export const HERO_PILLARS: Record<string, HeroPillar> = {
     name: 'D.Mon',
     role: 'Tank',
     roleSlug: 'tank',
-    updatedAt: '08 de agosto de 2026',
-    seoTitle: 'D.Mon en Overwatch: gameplay, habilidades, perks y counters',
-    seoDescription: 'D.Mon, también conocida como Yuna Lee, llega a Overwatch como Tank melee de MEKA: gameplay, Stalwart, Plasma Saber, Power Barrier, Propulsors, perks y counters.',
+    updatedAt: '10 de agosto de 2026',
+    seoTitle: 'D.Mon en Overwatch Season 4: habilidades, gameplay, counters y comps',
+    seoDescription: 'D.Mon, también conocida como Yuna Lee, llega a Overwatch Season 4 como Tank melee de MEKA: gameplay, Stalwart, Plasma Saber, Power Barrier, Propulsors, perks y counters.',
     h1: 'D.Mon en Overwatch: nuevo Tank de MEKA',
     kicker: 'Tank de MEKA, Beast y primera lectura para ranked',
     intro: [
       'D.Mon entra en Overwatch como nueva Tank del escuadrón MEKA, el mismo grupo del que forma parte D.Va. Su nombre real es Yuna Lee y llega ligada a Busan, a Beast, a la base MEKA y a una parte del lore que muchos jugadores llevaban años esperando ver en partida.',
-      'La búsqueda importante es sencilla: D.Mon es Tank y su llegada está marcada para el 11 de agosto de 2026, con el arranque de la nueva temporada. El gameplay ya deja ver una identidad bastante clara: espada como presión principal, barrera frontal, movilidad horizontal por recurso y una ultimate pensada para abrir pelea con follow-up.',
+      'La búsqueda importante es sencilla: D.Mon es Tank y su llegada está marcada para el 11 de agosto de 2026, con el arranque de Season 4: Heroes of Busan. El gameplay ya deja ver una identidad bastante clara: espada como presión principal, barrera frontal, movilidad horizontal por recurso y una ultimate pensada para abrir pelea con follow-up.',
       'Esta página funciona como hub de D.Mon y DMon en Overwatch: habilidades, armas, perks, subrol Stalwart, cómo se diferencia de D.Va, qué counters pueden molestarle de salida y qué mirar en tus primeras VODs si decides probarla.',
     ],
     facts: [
@@ -1224,6 +1224,7 @@ export const HERO_PILLARS: Record<string, HeroPillar> = {
       { question: '¿Qué counters debería probar contra D.Mon?', answer: 'Como punto de partida: Zarya, Symmetra, Pharah, Echo, Ana, Zenyatta, Sombra y Mei. Son respuestas lógicas contra una Tank que quiere entrar cerca, sostenerse con recursos y mandar en la frontline.' },
     ],
     links: [
+      { href: '/overwatch-temporada-4-heroes-of-busan', label: 'Todo sobre Season 4: Heroes of Busan' },
       { href: '/dmon-nuevo-heroe-tank-overwatch', label: 'Noticia de D.Mon en Overwatch' },
       { href: '/heroes/dva', label: 'D.Va' },
       { href: '/roles/tank', label: 'Guías de Tank' },
