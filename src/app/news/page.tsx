@@ -11,21 +11,21 @@ import { buildMetadata } from '@/lib/seo'
 const featuredNews = [
   {
     href: '/overwatch-temporada-4-heroes-of-busan',
-    title: 'Overwatch Season 4 Heroes of Busan: D.Mon, Emerald y reworks',
-    date: '10 de agosto de 2026',
-    description: 'Resumen completo de Season 4: nuevo Tank D.Mon, evento MEKA, Battle Pass revamp, rank reset, Emerald, reworks de mapas, Team Drives, World Cup y LE SSERAFIM.',
+    title: 'Overwatch Season 4 ya disponible: D.Mon, Emerald y reworks',
+    date: '11 de agosto de 2026',
+    description: 'Season 4 ya está disponible: D.Mon como nuevo Tank, nueva UI, balance de lanzamiento, Emerald, Battle Pass, reworks de mapas, Team Drives y LE SSERAFIM.',
   },
   {
     href: '/dmon-nuevo-heroe-tank-overwatch',
     title: 'D.Mon en Overwatch: gameplay, habilidades y counters',
-    date: '08 de agosto de 2026',
-    description: 'D.Mon entra como Tank melee de MEKA: Plasma Saber, Power Barrier, Propulsors, Stalwart, perks y por qué no juega como una D.Va 2.0.',
+    date: '11 de agosto de 2026',
+    description: 'D.Mon ya está disponible como Tank melee de MEKA: Plasma Saber, Power Barrier, Propulsors, Stalwart, perks y por qué no juega como una D.Va 2.0.',
   },
   {
     href: '/busan-eichenwalde-paraiso-reworks-overwatch',
-    title: 'Busan, Eichenwalde y Paraíso tendrán rework en Overwatch',
-    date: '02 de agosto de 2026',
-    description: 'Blizzard confirma reworks para Busan, Eichenwalde y Paraíso. Resumen de cambios y primeras claves para ranked.',
+    title: 'Busan, Eichenwalde y Paraíso ya tienen rework en Overwatch',
+    date: '11 de agosto de 2026',
+    description: 'Season 4 ya está lanzada y toca reaprender Busan, Eichenwalde y Paraíso: rutas, coberturas, high grounds y primeras claves para ranked.',
   },
   {
     href: '/overwatch-temporada-3-into-the-tigers-den',

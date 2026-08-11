@@ -6,11 +6,11 @@ import PublicNav from '@/components/layout/PublicNav'
 import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 
 const PAGE_PATH = '/busan-eichenwalde-paraiso-reworks-overwatch'
-const UPDATED_AT = '10 de agosto de 2026'
+const UPDATED_AT = '11 de agosto de 2026'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Busan, Eichenwalde y Paraíso tendrán rework en Overwatch',
-  description: 'Resumen editorial de los reworks de Busan, Eichenwalde y Paraíso en Overwatch: qué cambia, qué mirar en ranked y cómo prepararte antes del parche.',
+  title: 'Busan, Eichenwalde y Paraíso ya tienen rework en Overwatch',
+  description: 'Resumen editorial de los reworks de Busan, Eichenwalde y Paraíso en Overwatch Season 4: qué cambia, qué mirar en ranked y cómo adaptarte.',
   path: PAGE_PATH,
   image: '/maps/busan.png',
   type: 'article',
@@ -95,8 +95,8 @@ const faqs = [
     answer: 'Sí. Son cambios mostrados por Blizzard para Overwatch. Lo que falta por ver en partida no es si existen, sino cómo afectan al ritmo real del mapa, a las rutas buenas y a los picks más cómodos.',
   },
   {
-    question: '¿Cuándo sabremos más de la temporada?',
-    answer: 'Blizzard ya ha presentado a D.Mon como nuevo Tank de MEKA. Para los mapas, actualizaremos las guías cuando estén disponibles las patch notes y podamos revisar las rutas en partida.',
+    question: '¿Qué cambia ahora que Season 4 ya está lanzada?',
+    answer: 'Ya toca pasar de mirar capturas a probar rutas en partida. La prioridad es revisar salidas, health packs, coberturas y high grounds antes de entrar en ranked con hábitos viejos.',
   },
   {
     question: '¿Qué hago si juego ranked?',
@@ -109,12 +109,12 @@ export default function MapReworksNewsPage() {
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
-    headline: 'Busan, Eichenwalde y Paraíso tendrán rework en Overwatch',
-    description: 'Resumen editorial de los reworks de Busan, Eichenwalde y Paraíso en Overwatch, con claves para ranked y lectura inicial de mapas.',
+    headline: 'Busan, Eichenwalde y Paraíso ya tienen rework en Overwatch',
+    description: 'Resumen editorial de los reworks de Busan, Eichenwalde y Paraíso en Overwatch Season 4, con claves para ranked y lectura inicial de mapas.',
     image: [absoluteUrl('/maps/busan.png'), absoluteUrl('/maps/eichenwalde.png'), absoluteUrl('/maps/paraiso.png')],
     url: pageUrl,
     datePublished: '2026-08-02',
-    dateModified: '2026-08-10',
+    dateModified: '2026-08-11',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -157,10 +157,10 @@ export default function MapReworksNewsPage() {
           <div>
             <div className="eyebrow">URGENTE · MAPAS · {UPDATED_AT.toUpperCase()}</div>
             <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(42px, 8vw, 82px)', letterSpacing: 1, lineHeight: 0.95, margin: '0 0 16px' }}>
-              BUSAN, EICHENWALDE Y PARAÍSO TENDRÁN <span style={{ color: 'var(--accent)' }}>REWORK</span> EN OVERWATCH
+              BUSAN, EICHENWALDE Y PARAÍSO YA TIENEN <span style={{ color: 'var(--accent)' }}>REWORK</span> EN OVERWATCH
             </h1>
             <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.75, margin: '0 0 18px', maxWidth: 780 }}>
-              Blizzard ha enseñado los reworks de mapas para la próxima temporada y el cambio no parece menor. Busan, Eichenwalde y Paraíso reciben ajustes de rutas, coberturas, high grounds y zonas de salida que pueden cambiar bastante cómo se juegan en ranked.
+              Season 4 ya está lanzada y los reworks de Busan, Eichenwalde y Paraíso pasan de preview a mapa real. Ahora toca reaprender rutas, coberturas, high grounds y zonas de salida, porque jugar estos mapas en autopilot puede costar muchas peleas.
             </p>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
               <Link href="#mapas" className="btn btn-primary btn-sm">CAMBIOS POR MAPA</Link>

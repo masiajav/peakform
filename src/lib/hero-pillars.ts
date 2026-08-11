@@ -1054,14 +1054,14 @@ export const HERO_PILLARS: Record<string, HeroPillar> = {
     name: 'D.Mon',
     role: 'Tank',
     roleSlug: 'tank',
-    updatedAt: '10 de agosto de 2026',
+    updatedAt: '11 de agosto de 2026',
     seoTitle: 'D.Mon en Overwatch Season 4: habilidades, gameplay, counters y comps',
-    seoDescription: 'D.Mon, también conocida como Yuna Lee, llega a Overwatch Season 4 como Tank melee de MEKA: gameplay, Stalwart, Plasma Saber, Power Barrier, Propulsors, perks y counters.',
+    seoDescription: 'D.Mon, también conocida como Yuna Lee, ya está disponible en Overwatch Season 4 como Tank melee de MEKA: gameplay, Stalwart, Plasma Saber, Power Barrier, Propulsors, perks y counters.',
     h1: 'D.Mon en Overwatch: nuevo Tank de MEKA',
     kicker: 'Tank de MEKA, Beast y primera lectura para ranked',
     intro: [
       'D.Mon entra en Overwatch como nueva Tank del escuadrón MEKA, el mismo grupo del que forma parte D.Va. Su nombre real es Yuna Lee y llega ligada a Busan, a Beast, a la base MEKA y a una parte del lore que muchos jugadores llevaban años esperando ver en partida.',
-      'La búsqueda importante es sencilla: D.Mon es Tank y su llegada está marcada para el 11 de agosto de 2026, con el arranque de Season 4: Heroes of Busan. El gameplay ya deja ver una identidad bastante clara: espada como presión principal, barrera frontal, movilidad horizontal por recurso y una ultimate pensada para abrir pelea con follow-up.',
+      'La búsqueda importante es sencilla: D.Mon ya está disponible como Tank desde el 11 de agosto de 2026, con el arranque de Season 4: Heroes of Busan. El gameplay deja una identidad bastante clara: espada como presión principal, barrera frontal, movilidad horizontal por recurso y una ultimate pensada para abrir pelea con follow-up.',
       'Esta página funciona como hub de D.Mon y DMon en Overwatch: habilidades, armas, perks, subrol Stalwart, cómo se diferencia de D.Va, qué counters pueden molestarle de salida y qué mirar en tus primeras VODs si decides probarla.',
     ],
     facts: [
@@ -1213,7 +1213,7 @@ export const HERO_PILLARS: Record<string, HeroPillar> = {
     ],
     faqs: [
       { question: '¿D.Mon es Tank, DPS o Support?', answer: 'D.Mon llega a Overwatch como Tank. Su kit confirma una identidad de frontline con barrera, movilidad horizontal, espada y herramientas para iniciar peleas.' },
-      { question: '¿Cuándo sale D.Mon en Overwatch?', answer: 'D.Mon está prevista para el 11 de agosto de 2026, coincidiendo con el inicio de la nueva temporada de Overwatch.' },
+      { question: '¿Cuándo sale D.Mon en Overwatch?', answer: 'D.Mon ya está disponible desde el 11 de agosto de 2026, coincidiendo con el inicio de la nueva temporada de Overwatch.' },
       { question: '¿Quién es D.Mon?', answer: 'D.Mon es Yuna Lee, una piloto del escuadrón MEKA de Busan. Forma parte del mismo grupo que D.Va, aunque su estilo apunta a una identidad de Tank distinta.' },
       { question: '¿D.Mon está relacionada con D.Va?', answer: 'Sí. D.Mon forma parte de MEKA, el escuadrón de mechs asociado a Busan y D.Va. Eso no significa que vaya a jugar igual que D.Va.' },
       { question: '¿D.Mon es una D.Va 2.0?', answer: 'No. D.Va juega mucho alrededor de Matrix, verticalidad, peel y dive. D.Mon apunta a una Tank melee de sword + shield, con movimiento horizontal y presencia de frontline.' },

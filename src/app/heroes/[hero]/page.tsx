@@ -219,7 +219,7 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
     image: image ? absoluteUrl(image) : undefined,
     url: pageUrl,
     datePublished: pillar.slug === 'dmon' ? '2026-08-06' : '2026-06-26',
-    dateModified: pillar.slug === 'dmon' ? '2026-08-10' : '2026-07-24',
+    dateModified: pillar.slug === 'dmon' ? '2026-08-11' : '2026-07-24',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -970,7 +970,7 @@ function buildHeroQuickAnswers(pillar: HeroPillar) {
       },
       {
         title: 'Fecha y rol',
-        body: 'D.Mon llega el 11 de agosto de 2026 como Tank. Ya conocemos su kit base: Plasma Saber, Power Barrier, Propulsors, Surging Strike, Fusion Repeater, Limit Break y el ciclo de piloto con Eject y Call Mech.',
+        body: 'D.Mon ya está disponible desde el 11 de agosto de 2026 como Tank. Su kit base mezcla Plasma Saber, Power Barrier, Propulsors, Surging Strike, Fusion Repeater, Limit Break y el ciclo de piloto con Eject y Call Mech.',
       },
     ]
   }

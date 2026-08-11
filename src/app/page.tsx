@@ -28,10 +28,11 @@ const roleOrder: CounterRole[] = ['tank', 'dps', 'support']
 const heroBySlug = new Map(COUNTER_HEROES.map(hero => [hero.slug, hero]))
 const spotlightHeroes = pickHeroes(spotlightHeroSlugs)
 const seasonNews = [
-  { title: 'D.Mon', label: 'Nuevo Tank', body: 'Tank melee de MEKA: espada, barrera, Stalwart, movilidad horizontal y una lectura distinta a D.Va.' },
+  { title: 'D.Mon', label: 'Nuevo Tank', body: 'Ya disponible como Tank melee de MEKA: espada, barrera, Stalwart, movilidad horizontal y una lectura distinta a D.Va.' },
   { title: 'Emerald', label: 'Nuevo rango', body: 'Rank reset y nuevo escalón competitivo: primera semana movida y muchas partidas raras.' },
   { title: 'Battle Pass', label: 'Revamp', body: 'Tracks más claros, Hack Tiers y más control sobre qué recompensas quieres perseguir.' },
   { title: 'Mapas', label: 'Reworks', body: 'Busan, Paraíso y Eichenwalde cambian rutas, coberturas y lectura de high ground.' },
+  { title: 'UI y balance', label: 'Lanzamiento', body: 'Nueva interfaz, balance de salida y mythic Koi of Duality Genji ya disponible por 50 prismas.' },
 ]
 
 export default async function RootPage() {
@@ -146,7 +147,7 @@ export default async function RootPage() {
                     OVERWATCH SEASON 4: HEROES OF BUSAN
                   </h2>
                   <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0, maxWidth: 760 }}>
-                    D.Mon, evento MEKA, Battle Pass revamp, rank reset, nuevo rango Emerald, reworks de Busan, Paraíso y Eichenwalde, Team Drives y nuevas skins.
+                    Season 4 ya está disponible: D.Mon, evento MEKA, nueva UI, balance de lanzamiento, Battle Pass, rank reset, Emerald, reworks de Busan, Paraíso y Eichenwalde, Team Drives y nuevas skins.
                   </p>
                 </div>
                 <span className="btn btn-primary btn-sm">VER TODO</span>
