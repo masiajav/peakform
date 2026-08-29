@@ -40,9 +40,9 @@ const heroesFaq = [
 const heroIntentLinks = [
   {
     title: 'Quiero aprender un héroe nuevo',
-    body: 'Empieza por su rol, su plan de pelea y dos errores claros que evitar. Para héroes recientes, revisa primero Shion y Sierra.',
+    body: 'Empieza por su rol, su plan de pelea y dos errores claros que evitar. Para novedades actuales, revisa primero D.Mon y después baja a counters o composiciones.',
     links: [
-      { href: '/heroes/shion', label: 'Shion' },
+      { href: '/heroes/dmon', label: 'D.Mon' },
       { href: '/guides?hero=sierra', label: 'Sierra' },
       { href: '/guides', label: 'Guías de héroes' },
     ],

@@ -9,6 +9,7 @@ import PublicNav from '@/components/layout/PublicNav'
 import HeroPortraitImage from '@/components/heroes/HeroPortraitImage'
 import { announcementPath, ROLE_LABELS, topicLabel } from '@/lib/content'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
+import { evergreenGuideList } from '@/lib/evergreen-guides'
 import { guideEditorial } from '@/lib/guide-editorial'
 import { isAnnouncementSitemapEligible, isGuideSitemapEligible } from '@/lib/indexing-policy'
 import { COUNTER_HEROES, type CounterHero, type CounterRole } from '@/lib/overwatch-counters'
@@ -79,15 +80,26 @@ export default async function RootPage() {
     .filter((item: any) => item.content_type !== 'patch_note' && isAnnouncementSitemapEligible(item))
     .slice(0, 3)
 
+  const homeGuideItems = [
+    ...evergreenGuideList.slice(0, 3).map(guide => ({
+      name: guide.seoTitle,
+      url: absoluteUrl(`/guides/${guide.slug}`),
+    })),
+    ...qualityFeaturedGuides.map((guide: any) => ({
+      name: guideEditorial(guide).seoTitle,
+      url: absoluteUrl(`/guides/${guide.slug}`),
+    })),
+  ]
+
   const itemListJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'Guías destacadas de Overwatch',
-    itemListElement: qualityFeaturedGuides.map((guide: any, index: number) => ({
+    itemListElement: homeGuideItems.map((item, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      name: guideEditorial(guide).seoTitle,
-      url: absoluteUrl(`/guides/${guide.slug}`),
+      name: item.name,
+      url: item.url,
     })),
   }
 
@@ -208,6 +220,26 @@ export default async function RootPage() {
           <CardGrid>
             {qualityFeaturedGuides.map((guide: any) => (
               <GuideCard key={guide.id} guide={guide} />
+            ))}
+          </CardGrid>
+        </Section>
+
+        <Section title="Mejorar todo el año" kicker="EVERGREEN" href="/guides" linkLabel="Ver guías">
+          <CardGrid>
+            {evergreenGuideList.slice(0, 3).map(guide => (
+              <Link key={guide.slug} href={`/guides/${guide.slug}`} style={{ textDecoration: 'none' }}>
+                <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 20, height: '100%' }}>
+                  <div style={{ color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 11, letterSpacing: 1.2, marginBottom: 8 }}>
+                    GUÍA EVERGREEN
+                  </div>
+                  <h3 style={{ color: 'var(--text)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 25, lineHeight: 1.05, letterSpacing: 0.8, margin: '0 0 10px' }}>
+                    {guide.title}
+                  </h3>
+                  <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.55, margin: 0 }}>
+                    {guide.quickAnswer}
+                  </p>
+                </article>
+              </Link>
             ))}
           </CardGrid>
         </Section>

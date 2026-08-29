@@ -124,6 +124,14 @@ export default function ImproveOverwatchGuidePage() {
             <li>Si no mejora, simplifica la tarea: menos héroes, menos mapas o una regla más concreta.</li>
           </ul>
 
+          <h2>Ruta recomendada para seguir mejorando</h2>
+          <p>
+            Si quieres convertir esta guía en un plan de verdad, sigue una ruta sencilla: primero aprende <Link href="/guides/como-subir-de-rango-overwatch">cómo subir de rango</Link> sin jugar en piloto automático; después revisa <Link href="/guides/review-vod-overwatch-espanol">una VOD corta</Link>; y cuando el problema sea de draft o matchup, baja a <Link href="/guides/counters-overwatch-guia-completa">counters</Link> o <Link href="/guides/composiciones-overwatch-5v5-6v6">composiciones</Link>.
+          </p>
+          <p>
+            Para elegir pick sin perseguir cada tier list, usa <Link href="/guides/mejores-heroes-overwatch">mejores héroes de Overwatch</Link> como criterio base. La idea no es copiar el meta a ciegas, sino entender qué héroe te deja ejecutar mejor el plan de la partida.
+          </p>
+
           <h2>Lecturas relacionadas</h2>
           <p>
             Si quieres bajar esto a un rol concreto, empieza por <Link href="/roles/tank">Tank</Link>, <Link href="/roles/dps">DPS</Link> o <Link href="/roles/support">Support</Link>. Para decisiones de matchup, usa <Link href="/counters">counters</Link>; para equipo y estilo de composición, revisa <Link href="/team-comps">composiciones</Link>.

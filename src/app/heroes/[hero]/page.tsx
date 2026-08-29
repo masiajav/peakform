@@ -540,7 +540,7 @@ function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
 
         <header style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.05fr) minmax(280px, 0.75fr)', gap: 24, alignItems: 'center', marginBottom: 28 }} className="home-hero-grid">
           <div>
-            <div className="eyebrow">NUEVO HÉROE · {SHION_SEASON.toUpperCase()}</div>
+            <div className="eyebrow">DPS FLANKER · {SHION_SEASON.toUpperCase()}</div>
             <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(42px, 8vw, 82px)', letterSpacing: 1, lineHeight: 0.94, margin: '0 0 16px' }}>
               SHION EN OVERWATCH: <br />
               <span style={{ color: 'var(--accent)' }}>GUÍA RÁPIDA, COUNTERS Y PERKS</span>
@@ -578,7 +578,7 @@ function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
             >
               <Image
                 src={SHION_IMAGE}
-                alt="Shion, nueva heroína DPS de Overwatch"
+                alt="Shion, heroína DPS de Overwatch"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 420px"

@@ -8,6 +8,7 @@ import JsonLd from '@/components/content/JsonLd'
 import SeoFaq from '@/components/content/SeoFaq'
 import PublicNav from '@/components/layout/PublicNav'
 import { DEFAULT_HEROES, ROLE_LABELS, topicLabel } from '@/lib/content'
+import { evergreenGuideList } from '@/lib/evergreen-guides'
 import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
 import { guideEditorial } from '@/lib/guide-editorial'
 import { isGuideSitemapEligible } from '@/lib/indexing-policy'
@@ -126,6 +127,17 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
     .sort()
     .map(value => ({ value, label: topicLabel(value) }))
 
+  const collectionItems = [
+    ...evergreenGuideList.map(guide => ({
+      name: guide.seoTitle,
+      url: absoluteUrl(`/guides/${guide.slug}`),
+    })),
+    ...sortedGuides.slice(0, 20).map((guide: any) => ({
+      name: guideEditorial(guide).seoTitle,
+      url: absoluteUrl(`/guides/${guide.slug}`),
+    })),
+  ]
+
   const collectionJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -136,11 +148,11 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntity: {
       '@type': 'ItemList',
-      itemListElement: sortedGuides.slice(0, 20).map((guide: any, index: number) => ({
+      itemListElement: collectionItems.map((item, index) => ({
         '@type': 'ListItem',
         position: index + 1,
-        name: guideEditorial(guide).seoTitle,
-        url: absoluteUrl(`/guides/${guide.slug}`),
+        name: item.name,
+        url: item.url,
       })),
     },
   }
@@ -217,6 +229,9 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
                 <Link href="/heroes">Todos los héroes</Link>
                 <Link href="/counters">Counters</Link>
                 <Link href="/team-comps">Composiciones</Link>
+                <Link href="/guides/como-subir-de-rango-overwatch">Subir de rango</Link>
+                <Link href="/guides/mejores-heroes-overwatch">Mejores héroes</Link>
+                <Link href="/guides/review-vod-overwatch-espanol">Review de VOD</Link>
                 <Link href="/roles/tank">Tank</Link>
                 <Link href="/roles/dps">DPS</Link>
                 <Link href="/roles/support">Support</Link>
@@ -271,6 +286,29 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
                 </div>
               </article>
             ))}
+          </section>
+        )}
+
+        {!hasFilters && (
+          <section style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 22, marginBottom: 24 }}>
+            <div className="eyebrow">GUÍAS EVERGREEN</div>
+            <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 34, letterSpacing: 1, lineHeight: 1, margin: '0 0 10px' }}>
+              Mejora aunque no haya parche nuevo
+            </h2>
+            <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: '0 0 16px', maxWidth: 760 }}>
+              Estas guías atacan búsquedas que no dependen de una temporada concreta: subir de rango, elegir héroe, revisar VODs, entender counters y ordenar composiciones.
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 10 }}>
+              {evergreenGuideList.map(item => (
+                <Link key={item.slug} href={`/guides/${item.slug}`} className="expert-card" style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', padding: 16, color: 'inherit', textDecoration: 'none' }}>
+                  <span style={{ display: 'block', color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 11, letterSpacing: 1.2, marginBottom: 7 }}>EVERGREEN</span>
+                  <strong style={{ display: 'block', color: 'var(--text)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 22, lineHeight: 1.05, letterSpacing: 0.7, marginBottom: 8 }}>
+                    {item.title}
+                  </strong>
+                  <span style={{ color: 'var(--text2)', fontSize: 12, lineHeight: 1.5 }}>{item.quickAnswer}</span>
+                </Link>
+              ))}
+            </div>
           </section>
         )}
 

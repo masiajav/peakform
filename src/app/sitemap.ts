@@ -20,6 +20,11 @@ import { absoluteUrl } from '@/lib/seo'
 export const dynamic = 'force-dynamic'
 
 const STATIC_LAST_MODIFIED: Record<string, string> = {
+  '/guides/como-subir-de-rango-overwatch': '2026-08-29',
+  '/guides/mejores-heroes-overwatch': '2026-08-29',
+  '/guides/counters-overwatch-guia-completa': '2026-08-29',
+  '/guides/composiciones-overwatch-5v5-6v6': '2026-08-29',
+  '/guides/review-vod-overwatch-espanol': '2026-08-29',
   '/overwatch-temporada-4-heroes-of-busan': '2026-08-11',
   '/dmon-nuevo-heroe-tank-overwatch': '2026-08-11',
   '/heroes/dmon': '2026-08-11',

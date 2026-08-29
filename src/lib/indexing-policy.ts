@@ -72,6 +72,11 @@ export const PATCH_NOTE_EDITORIAL_TAG = 'editorial-review-complete'
 
 export const PILLAR_GUIDE_SLUGS = [
   'como-mejorar-en-overwatch',
+  'como-subir-de-rango-overwatch',
+  'mejores-heroes-overwatch',
+  'counters-overwatch-guia-completa',
+  'composiciones-overwatch-5v5-6v6',
+  'review-vod-overwatch-espanol',
   'como-mejorar-en-overwatch-revisando-vod',
   'como-jugar-ana-ranked-overwatch',
   'como-jugar-cassidy-ranked-overwatch',
