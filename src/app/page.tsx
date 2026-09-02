@@ -29,6 +29,7 @@ const roleOrder: CounterRole[] = ['tank', 'dps', 'support']
 const heroBySlug = new Map(COUNTER_HEROES.map(hero => [hero.slug, hero]))
 const spotlightHeroes = pickHeroes(spotlightHeroSlugs)
 const seasonNews = [
+  { title: 'BlizzCon', label: 'Agenda', body: 'Horarios de Overwatch convertidos a España: ceremonia, dev livestream, Hero Deep Dive, World Cup y colaboraciones.' },
   { title: 'D.Mon', label: 'Nuevo Tank', body: 'Ya disponible como Tank melee de MEKA: espada, barrera, Stalwart, movilidad horizontal y una lectura distinta a D.Va.' },
   { title: 'Emerald', label: 'Nuevo rango', body: 'Rank reset y nuevo escalón competitivo: primera semana movida y muchas partidas raras.' },
   { title: 'Battle Pass', label: 'Revamp', body: 'Tracks más claros, Hack Tiers y más control sobre qué recompensas quieres perseguir.' },
@@ -130,6 +131,7 @@ export default async function RootPage() {
               </form>
               <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 12 }}>
                 <Link href="/heroes" className="btn btn-secondary btn-sm">VER HÉROES</Link>
+                <Link href="/blizzcon-2026-overwatch-horarios-espana" className="btn btn-secondary btn-sm">BLIZZCON</Link>
                 <Link href="/overwatch-temporada-4-heroes-of-busan" className="btn btn-secondary btn-sm">SEASON 4</Link>
                 <Link href="/guides/como-mejorar-en-overwatch" className="btn btn-secondary btn-sm">EMPEZAR A MEJORAR</Link>
               </div>
@@ -150,16 +152,16 @@ export default async function RootPage() {
         </section>
 
         <section style={{ maxWidth: 1120, margin: '0 auto', padding: '20px 24px 44px' }}>
-          <Link href="/overwatch-temporada-4-heroes-of-busan" style={{ textDecoration: 'none' }}>
+          <Link href="/blizzcon-2026-overwatch-horarios-espana" style={{ textDecoration: 'none' }}>
             <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 24 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16, alignItems: 'start', marginBottom: 18, flexWrap: 'wrap' }}>
                 <div>
                   <div className="eyebrow">ÚLTIMAS NOVEDADES</div>
                   <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(32px, 5vw, 48px)', letterSpacing: 1, lineHeight: 1, margin: '0 0 8px' }}>
-                    OVERWATCH SEASON 4: HEROES OF BUSAN
+                    BLIZZCON 2026: HORARIOS DE OVERWATCH EN ESPAÑA
                   </h2>
                   <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0, maxWidth: 760 }}>
-                    Season 4 ya está disponible: D.Mon, evento MEKA, nueva UI, balance de lanzamiento, Battle Pass, rank reset, Emerald, reworks de Busan, Paraíso y Eichenwalde, Team Drives y nuevas skins.
+                    Agenda convertida a horario peninsular español: ceremonia de apertura, directo de desarrolladores, Hero Deep Dive, World Cup y bloque de arte y colaboraciones.
                   </p>
                 </div>
                 <span className="btn btn-primary btn-sm">VER TODO</span>

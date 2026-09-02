@@ -45,6 +45,7 @@ export default async function QualityAuditPage() {
     '/team-comps',
     '/news',
     '/patch-notes',
+    '/blizzcon-2026-overwatch-horarios-espana',
     '/overwatch-temporada-4-heroes-of-busan',
     '/overwatch-temporada-3-into-the-tigers-den',
     ...TRUST_ROUTES,

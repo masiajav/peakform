@@ -10,6 +10,12 @@ import { buildMetadata } from '@/lib/seo'
 
 const featuredNews = [
   {
+    href: '/blizzcon-2026-overwatch-horarios-espana',
+    title: 'BlizzCon 2026: horarios de Overwatch en España',
+    date: '2 de septiembre de 2026',
+    description: 'Horarios de Overwatch en BlizzCon 2026 convertidos a España: ceremonia, directo de desarrolladores, Hero Deep Dive y World Cup.',
+  },
+  {
     href: '/overwatch-temporada-4-heroes-of-busan',
     title: 'Overwatch Season 4 ya disponible: D.Mon, Emerald y reworks',
     date: '11 de agosto de 2026',
