@@ -25,7 +25,7 @@ const STATIC_LAST_MODIFIED: Record<string, string> = {
   '/guides/counters-overwatch-guia-completa': '2026-08-29',
   '/guides/composiciones-overwatch-5v5-6v6': '2026-08-29',
   '/guides/review-vod-overwatch-espanol': '2026-08-29',
-  '/blizzcon-2026-overwatch-horarios-espana': '2026-09-02',
+  '/blizzcon-2026-overwatch-horarios-espana': '2026-09-05',
   '/overwatch-temporada-4-heroes-of-busan': '2026-08-11',
   '/dmon-nuevo-heroe-tank-overwatch': '2026-08-11',
   '/heroes/dmon': '2026-08-11',

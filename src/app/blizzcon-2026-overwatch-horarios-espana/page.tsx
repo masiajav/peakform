@@ -7,7 +7,7 @@ import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 
 const PAGE_PATH = '/blizzcon-2026-overwatch-horarios-espana'
 const PAGE_IMAGE = '/news/blizzcon-2026-overwatch-schedule.png'
-const PUBLISHED_AT = '2 de septiembre de 2026'
+const UPDATED_AT = '5 de septiembre de 2026'
 
 type ScheduleItem = {
   day: string
@@ -21,7 +21,7 @@ type ScheduleItem = {
 
 export const metadata: Metadata = buildMetadata({
   title: 'BlizzCon 2026: horarios de Overwatch en España',
-  description: 'Horarios de Overwatch en BlizzCon 2026 convertidos a España: ceremonia, directo de desarrolladores, Hero Deep Dive, World Cup y colaboraciones.',
+  description: 'Horarios de Overwatch en BlizzCon 2026 para España: dónde verlo gratis, Hero Deep Dive, World Cup, anuncios y drops confirmados.',
   path: PAGE_PATH,
   image: PAGE_IMAGE,
   type: 'article',
@@ -32,7 +32,7 @@ const keySlots: ScheduleItem[] = [
     day: 'Sábado 12 de septiembre',
     title: 'Ceremonia de apertura',
     spainTime: '19:30 - 20:45',
-    originalTime: '10:30 - 11:45 PDT / 13:30 - 14:45 Puerto Rico',
+    originalTime: '10:30 - 11:45 PDT',
     stage: 'Main Stage',
     priority: 'Alta',
     whyItMatters: 'Es el bloque donde suelen caer los anuncios grandes. Si hay teaser fuerte de Overwatch, lo normal es que aparezca aquí primero.',
@@ -41,7 +41,7 @@ const keySlots: ScheduleItem[] = [
     day: 'Sábado 12 de septiembre',
     title: 'Overwatch Dev Livestream: Live from BlizzCon',
     spainTime: '21:00 - 21:45',
-    originalTime: '12:00 - 12:45 PDT / 15:00 - 15:45 Puerto Rico',
+    originalTime: '12:00 - 12:45 PDT',
     stage: 'Legends Stage',
     priority: 'Alta',
     whyItMatters: 'El directo de desarrolladores es el slot más importante para contexto: dirección del juego, próximos cambios y lectura de temporada.',
@@ -50,7 +50,7 @@ const keySlots: ScheduleItem[] = [
     day: 'Domingo 13 de septiembre',
     title: 'Overwatch: Hero Deep Dive',
     spainTime: '00:45 - 01:30',
-    originalTime: '15:45 - 16:30 PDT / 18:45 - 19:30 Puerto Rico',
+    originalTime: '15:45 - 16:30 PDT',
     stage: 'Main Stage',
     priority: 'Alta',
     whyItMatters: 'Este bloque apunta directamente al héroe. Si toca gameplay, kit, rol o filosofía de diseño, aquí saldrá lo más útil para guías y counters.',
@@ -59,7 +59,7 @@ const keySlots: ScheduleItem[] = [
     day: 'Domingo 13 de septiembre',
     title: 'Overwatch: Art & Collaboration Deep Dive',
     spainTime: '03:15 - 04:00',
-    originalTime: '18:15 - 19:00 PDT / 21:15 - 22:00 Puerto Rico',
+    originalTime: '18:15 - 19:00 PDT',
     stage: 'Overwatch World Cup Arena',
     priority: 'Media',
     whyItMatters: 'Interesa si buscas skins, colaboraciones, identidad visual y pistas de eventos. Menos gameplay, pero mucho material para actualidad.',
@@ -68,7 +68,7 @@ const keySlots: ScheduleItem[] = [
     day: 'Sábado 12 / madrugada del 13',
     title: 'Overwatch World Cup Quarterfinals',
     spainTime: '21:00 - 03:00',
-    originalTime: '12:00 - 18:00 PDT / 15:00 - 21:00 Puerto Rico',
+    originalTime: '12:00 - 18:00 PDT',
     stage: 'Overwatch World Cup Arena',
     priority: 'Media',
     whyItMatters: 'No es un anuncio de contenido, pero sí puede mover mucho interés competitivo, picks meta y conversación sobre héroes fuertes.',
@@ -77,7 +77,7 @@ const keySlots: ScheduleItem[] = [
     day: 'Domingo 13 de septiembre',
     title: 'Questwatch en vivo',
     spainTime: '21:00',
-    originalTime: '15:00 Puerto Rico',
+    originalTime: '12:00 PDT',
     stage: 'Día 2 de BlizzCon',
     priority: 'Media',
     whyItMatters: 'Puede ser un bloque más ligero o de comunidad, pero merece seguimiento si conecta con narrativa, eventos o recompensas.',
@@ -86,7 +86,7 @@ const keySlots: ScheduleItem[] = [
     day: 'Lunes 14 de septiembre',
     title: 'Transmisión en vivo de los desarrolladores',
     spainTime: '00:00',
-    originalTime: '18:00 Puerto Rico',
+    originalTime: '15:00 PDT',
     stage: 'Día 2 de BlizzCon',
     priority: 'Alta',
     whyItMatters: 'Si el segundo día trae otra ronda de detalles, este directo puede aclarar cambios que no entren en la ceremonia ni en el Hero Deep Dive.',
@@ -95,16 +95,16 @@ const keySlots: ScheduleItem[] = [
 
 const quickReads = [
   {
-    title: 'Hora española sin hacer cuentas',
-    body: 'El calendario principal de Blizzard usa horario de Anaheim. Para España peninsular suma 9 horas. Si partes de Puerto Rico, suma 6. En Canarias, resta una hora a la tabla de abajo.',
+    title: 'Empieza el sábado a las 19:30',
+    body: 'La ceremonia de apertura comienza el 12 de septiembre a las 19:30 en España peninsular. En Canarias será a las 18:30. El resto de horarios de esta página ya están convertidos.',
   },
   {
-    title: 'Los slots clave de Overwatch',
-    body: 'Ceremonia, directo de desarrolladores y Hero Deep Dive son los bloques gordos. Ahí es donde esperamos anuncios, gameplay o contexto útil para guías.',
+    title: 'Los bloques que no conviene perderse',
+    body: 'El directo de desarrolladores empieza a las 21:00 y el Hero Deep Dive a las 00:45. La World Cup comparte horario con parte de la programación del sábado.',
   },
   {
-    title: 'Qué haremos en Replaid Lab',
-    body: 'Cuando salgan novedades, actualizaremos noticias rápidas y después conectaremos cada cambio con páginas evergreen: héroes, counters, composiciones y ranked.',
+    title: 'Dónde verlo gratis',
+    body: 'La ceremonia, los paneles principales y la World Cup se podrán seguir sin pagar en los canales oficiales de Overwatch y Overwatch Esports en YouTube y Twitch.',
   },
 ]
 
@@ -130,6 +130,18 @@ const faqs = [
     answer: 'El Hero Deep Dive cae en España ya de madrugada: domingo 13 de septiembre, de 00:45 a 01:30 en horario peninsular.',
   },
   {
+    question: '¿Dónde se puede ver Overwatch en la BlizzCon 2026?',
+    answer: 'Los anuncios y paneles se podrán seguir en los canales oficiales de Overwatch en YouTube y Twitch. La World Cup tendrá además cobertura en los canales de Overwatch Esports.',
+  },
+  {
+    question: '¿Es gratis ver la BlizzCon 2026?',
+    answer: 'Sí. Blizzard emitirá gratis la ceremonia de apertura, los paneles principales y las competiciones seleccionadas en YouTube, Twitch y Battle.net.',
+  },
+  {
+    question: '¿Cómo se consiguen los drops de Overwatch de la BlizzCon?',
+    answer: 'Antes de ver la emisión, comprueba que tu cuenta de Battle.net esté conectada con Twitch o YouTube. Blizzard ha confirmado que habrá recompensas, pero todavía no ha publicado la lista completa de drops de Overwatch.',
+  },
+  {
     question: '¿Qué horario uso si vivo en Canarias?',
     answer: 'Resta una hora a todos los horarios de esta noticia. Por ejemplo, 19:30 peninsular equivale a 18:30 en Canarias.',
   },
@@ -141,11 +153,11 @@ export default function BlizzConOverwatchSchedulePage() {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
     headline: 'BlizzCon 2026: horarios de Overwatch en España',
-    description: 'Horarios de Overwatch en BlizzCon 2026 convertidos a España, con los bloques clave para seguir anuncios, héroes y World Cup.',
+    description: 'Horarios de Overwatch en BlizzCon 2026 para España, con los canales donde verlo gratis, Hero Deep Dive, World Cup, anuncios y drops.',
     image: [absoluteUrl(PAGE_IMAGE)],
     url: pageUrl,
     datePublished: '2026-09-02',
-    dateModified: '2026-09-02',
+    dateModified: '2026-09-05',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -199,20 +211,20 @@ export default function BlizzConOverwatchSchedulePage() {
 
         <header className="home-hero-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.05fr) minmax(280px, 0.75fr)', gap: 24, alignItems: 'center', marginBottom: 28 }}>
           <div>
-            <div className="eyebrow">BLIZZCON · OVERWATCH · {PUBLISHED_AT.toUpperCase()}</div>
+            <div className="eyebrow">BLIZZCON · OVERWATCH · ACTUALIZADO EL {UPDATED_AT.toUpperCase()}</div>
             <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(42px, 8vw, 82px)', letterSpacing: 1, lineHeight: 0.95, margin: '0 0 16px' }}>
               BLIZZCON 2026: HORARIOS DE <span style={{ color: 'var(--accent)' }}>OVERWATCH</span> EN ESPAÑA
             </h1>
             <p style={leadStyle}>
-              BlizzCon está al caer y Overwatch ya tiene varios huecos marcados en la agenda: ceremonia de apertura, directo de desarrolladores, Hero Deep Dive, World Cup y un bloque de arte y colaboraciones. Aquí tienes los horarios pasados a España peninsular para no andar haciendo cuentas.
+              BlizzCon 2026 se celebra el 12 y 13 de septiembre. La ceremonia de apertura empieza el sábado a las 19:30 en España peninsular y la emisión será gratuita. Aquí tienes la agenda de Overwatch ya convertida, con los canales donde verla y lo que se sabe de los drops.
             </p>
             <p style={{ ...paragraphStyle, marginBottom: 18 }}>
               Todos los horarios de esta noticia están en CEST, hora peninsular española. En Canarias es una hora menos.
             </p>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
               <Link href="#horarios" className="btn btn-primary btn-sm">VER HORARIOS</Link>
-              <Link href="/heroes/dmon" className="btn btn-secondary btn-sm">D.MON</Link>
-              <Link href="/overwatch-temporada-4-heroes-of-busan" className="btn btn-secondary btn-sm">SEASON 4</Link>
+              <Link href="#donde-verlo" className="btn btn-secondary btn-sm">DÓNDE VERLO</Link>
+              <Link href="#drops" className="btn btn-secondary btn-sm">DROPS</Link>
             </div>
           </div>
 
@@ -268,11 +280,53 @@ export default function BlizzConOverwatchSchedulePage() {
                       {slot.title}
                     </h3>
                     <p style={{ ...paragraphStyle, marginBottom: 8 }}>{slot.whyItMatters}</p>
-                    <p style={{ color: 'var(--text3)', fontSize: 12, lineHeight: 1.5, margin: 0 }}>Referencia original: {slot.originalTime}</p>
+                    <p style={{ color: 'var(--text3)', fontSize: 12, lineHeight: 1.5, margin: 0 }}>En Anaheim: {slot.originalTime}</p>
                   </div>
                 </div>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section id="donde-verlo" style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>EMISIÓN GRATUITA</div>
+          <h2 style={headingStyle}>Dónde ver Overwatch en la BlizzCon 2026</h2>
+          <p style={{ ...paragraphStyle, marginBottom: 18 }}>
+            Blizzard emitirá gratis la ceremonia de apertura, los paneles principales y las competiciones seleccionadas. Para los anuncios y las charlas de desarrollo, entra en los canales de Overwatch. Para seguir los partidos, utiliza los de Overwatch Esports.
+          </p>
+          <div style={cardGridStyle}>
+            <article style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', padding: 16 }}>
+              <h3 style={cardHeadingStyle}>Overwatch</h3>
+              <p style={{ ...paragraphStyle, fontSize: 13, marginBottom: 14 }}>Ceremonia, directo de desarrolladores, Hero Deep Dive y paneles del juego.</p>
+              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                <a href="https://www.youtube.com/@playoverwatch" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">YOUTUBE</a>
+                <a href="https://www.twitch.tv/playoverwatch" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">TWITCH</a>
+              </div>
+            </article>
+            <article style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', padding: 16 }}>
+              <h3 style={cardHeadingStyle}>Overwatch Esports</h3>
+              <p style={{ ...paragraphStyle, fontSize: 13, marginBottom: 14 }}>Cuartos de final, eliminatorias y desenlace de la Overwatch World Cup.</p>
+              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                <a href="https://www.youtube.com/@ow_esports" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">YOUTUBE</a>
+                <a href="https://www.twitch.tv/ow_esports" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">TWITCH</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="drops" style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>RECOMPENSAS</div>
+          <h2 style={headingStyle}>Habrá drops por ver la BlizzCon</h2>
+          <div style={{ display: 'grid', gap: 14 }}>
+            <p style={paragraphStyle}>
+              Blizzard ha confirmado recompensas de audiencia durante el fin de semana. Si vas a seguir la emisión desde casa, comprueba antes que tu cuenta de Battle.net esté conectada con Twitch o YouTube para que el tiempo de visualización pueda contar.
+            </p>
+            <p style={paragraphStyle}>
+              La lista completa de drops de Overwatch todavía no se ha publicado. Conviene revisar los requisitos cuando Blizzard enseñe las recompensas, porque pueden cambiar según el canal y el tipo de emisión.
+            </p>
+          </div>
+          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 18 }}>
+            <a href="https://account.battle.net/connections" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">REVISAR CONEXIONES</a>
           </div>
         </section>
 
@@ -290,21 +344,38 @@ export default function BlizzConOverwatchSchedulePage() {
         </section>
 
         <section style={sectionStyle}>
-          <div className="eyebrow" style={{ marginBottom: 10 }}>CONTEXTO</div>
-          <h2 style={headingStyle}>Por qué esta BlizzCon importa para Overwatch</h2>
-          <div style={{ display: 'grid', gap: 14, color: 'var(--text2)', fontSize: 15, lineHeight: 1.75 }}>
-            <p style={{ margin: 0 }}>
-              Overwatch llega a BlizzCon con bastantes temas calientes: D.Mon ya está en el juego, Season 4 ha tocado ranked con Emerald y los reworks de mapas siguen dando conversación. Si Blizzard quiere enseñar lo siguiente, tiene una ventana perfecta para conectar lo que estamos jugando ahora con lo que viene después.
+          <div className="eyebrow" style={{ marginBottom: 10 }}>ANUNCIOS</div>
+          <h2 style={headingStyle}>Qué está confirmado y qué falta por anunciar</h2>
+          <div style={cardGridStyle}>
+            <InfoCard
+              title="Ya está confirmado"
+              body="Overwatch tendrá directo de desarrolladores, Hero Deep Dive, panel de arte y colaboraciones, partidas de la World Cup, recompensas por ver la emisión y experiencias jugables en el recinto."
+            />
+            <InfoCard
+              title="Todavía no se sabe"
+              body="Blizzard no ha explicado qué héroe protagonizará el Hero Deep Dive, qué enseñará de Season 5 ni cuáles serán exactamente los drops de Overwatch. Cualquier detalle más concreto sigue siendo especulación."
+            />
+          </div>
+          <div style={{ display: 'grid', gap: 14, marginTop: 18 }}>
+            <p style={paragraphStyle}>
+              Overwatch llega a la cita con <Link href="/heroes/dmon" style={inlineLinkStyle}>D.Mon</Link> ya disponible y una <Link href="/overwatch-temporada-4-heroes-of-busan" style={inlineLinkStyle}>Season 4</Link> que ha estrenado rango Emerald y varios reworks de mapas. El directo de desarrolladores debería aclarar cómo encaja lo que venga después con el estado actual del juego.
             </p>
-            <p style={{ margin: 0 }}>
-              En Replaid Lab vamos a usar las noticias como punto de entrada, no como piezas sueltas. Si aparece un héroe, lo llevaremos a guía, counters y composiciones. Si hay balance, bajaremos el impacto a ranked. Y si se anuncian mapas o eventos, actualizaremos las páginas permanentes para que el tráfico no dependa solo del hype de los primeros días.
+            <p style={paragraphStyle}>
+              Si vuelves al competitivo por la BlizzCon, la guía para <Link href="/guides/como-subir-de-rango-overwatch" style={inlineLinkStyle}>subir de rango en Overwatch</Link> reúne una rutina sencilla para retomar ranked sin jugar en piloto automático.
             </p>
           </div>
-          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 18 }}>
-            <Link href="/heroes" className="btn btn-secondary btn-sm">HÉROES</Link>
-            <Link href="/counters" className="btn btn-secondary btn-sm">COUNTERS</Link>
-            <Link href="/team-comps" className="btn btn-secondary btn-sm">COMPOSICIONES</Link>
-            <Link href="/guides/como-subir-de-rango-overwatch" className="btn btn-primary btn-sm">SUBIR EN RANKED</Link>
+        </section>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>ÚLTIMA HORA</div>
+          <h2 style={headingStyle}>Los Unvaulted Passes se retrasan a Season 5</h2>
+          <div style={{ display: 'grid', gap: 14 }}>
+            <p style={paragraphStyle}>
+              Aaron Keller ha confirmado que los Unvaulted Passes no llegarán durante la mitad de Season 4, como estaba previsto. Blizzard los ha movido al comienzo de Season 5 para dar más tiempo a las pruebas.
+            </p>
+            <p style={paragraphStyle}>
+              La compañía dará más detalles antes de la próxima temporada. Por ahora no hay información suficiente sobre su funcionamiento final, así que cualquier precio, catálogo o fecha más precisa sería especular.
+            </p>
           </div>
         </section>
 
@@ -322,15 +393,12 @@ export default function BlizzConOverwatchSchedulePage() {
         </section>
 
         <section style={sectionStyle}>
-          <div className="eyebrow" style={{ marginBottom: 10 }}>FUENTES</div>
-          <h2 style={headingStyle}>Dónde seguirlo</h2>
-          <p style={{ ...paragraphStyle, marginBottom: 16 }}>
-            Usamos el calendario oficial de BlizzCon como referencia principal y convertimos los horarios para España. También dejamos enlaces internos para seguir el impacto en héroes, ranked y composiciones.
-          </p>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>ENLACES OFICIALES</div>
+          <h2 style={headingStyle}>Calendario y canales de Blizzard</h2>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-            <a href="https://blizzcon.blizzard.com/en-us/schedule" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">CALENDARIO OFICIAL</a>
+            <a href="https://blizzcon.com/en-us/schedule/" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">CALENDARIO OFICIAL</a>
+            <a href="https://www.youtube.com/@playoverwatch" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">OVERWATCH EN YOUTUBE</a>
             <Link href="/news" className="btn btn-secondary btn-sm">MÁS NOTICIAS</Link>
-            <Link href="/dmon-nuevo-heroe-tank-overwatch" className="btn btn-primary btn-sm">D.MON EN OVERWATCH</Link>
           </div>
         </section>
       </main>
@@ -383,4 +451,18 @@ const cardGridStyle = {
   display: 'grid',
   gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
   gap: 12,
+} as const
+
+const cardHeadingStyle = {
+  fontFamily: 'Bebas Neue, sans-serif',
+  color: 'var(--text)',
+  fontSize: 24,
+  letterSpacing: 0.8,
+  margin: '0 0 8px',
+} as const
+
+const inlineLinkStyle = {
+  color: 'var(--accent)',
+  textDecoration: 'underline',
+  textUnderlineOffset: 3,
 } as const
