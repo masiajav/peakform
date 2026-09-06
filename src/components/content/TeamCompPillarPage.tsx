@@ -61,8 +61,10 @@ export default function TeamCompPillarPage({ pillar }: TeamCompPillarPageProps) 
             <h1>{pillar.h1}</h1>
             <div className="seo-pillar-intro">{pillar.intro.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>
             <div className="seo-pillar-meta">
+              <span>Por Replaid Lab</span>
               <span>Actualizado: {pillar.updatedAt}</span>
               <span>Parche revisado: {pillar.reviewedPatch}</span>
+              <Link href="/contact" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Comunicar una corrección</Link>
             </div>
           </div>
           <div className="seo-pillar-portrait">

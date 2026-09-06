@@ -19,6 +19,8 @@ import { guideQualityDecision, isGuideSitemapEligible, robotsForQuality } from '
 import { guideEditorial } from '@/lib/guide-editorial'
 import { heroTopicHref } from '@/lib/topic-links'
 import { formatPrice } from '@/types'
+import RankedHeroGuideArticle from '@/components/content/RankedHeroGuideArticle'
+import { getRankedHeroGuide } from '@/lib/ranked-hero-guides'
 
 const GUIDE_DETAIL_COLUMNS = `
   id,
@@ -67,6 +69,17 @@ const fetchGuide = cache(async (slug: string) => {
 })
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const rankedGuide = getRankedHeroGuide(params.slug)
+  if (rankedGuide) {
+    return buildMetadata({
+      title: rankedGuide.seoTitle,
+      description: rankedGuide.seoDescription,
+      path: `/guides/${rankedGuide.slug}`,
+      image: `/heroes/${rankedGuide.heroSlug}.png`,
+      type: 'article',
+    })
+  }
+
   const guide = await fetchGuide(params.slug)
   if (!guide) return {}
   const editorial = guideEditorial(guide)
@@ -83,6 +96,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default async function GuideDetailPage({ params }: { params: { slug: string } }) {
+  const rankedGuide = getRankedHeroGuide(params.slug)
+  if (rankedGuide) return <RankedHeroGuideArticle guide={rankedGuide} />
+
   const supabase = createClient()
   const { data: { user } } = await supabase.auth.getUser()
 

@@ -3,6 +3,8 @@
 
 # Next.js
 /.next/
+/.next-e2e/
+/.next-verify/
 /out/
 
 # Production
@@ -32,6 +34,7 @@ next-env.d.ts
 .claude/
 playwright-report/
 test-results/
+/reports/
 next-*.log
 next-*.pid
 tmp-*.png

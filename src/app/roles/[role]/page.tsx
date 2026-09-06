@@ -4,6 +4,7 @@ import { ROLE_LABELS, ROLE_SLUGS, type ContentRole } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 import { ROLE_SEO } from '@/lib/overwatch-seo'
 import { notFound } from 'next/navigation'
+import { robotsForQuality, topicQualityDecision } from '@/lib/indexing-policy'
 
 function assertRole(role: string): ContentRole {
   if (![...ROLE_SLUGS, 'flex'].includes(role as ContentRole)) notFound()
@@ -14,11 +15,15 @@ export function generateMetadata({ params }: { params: { role: string } }): Meta
   const role = assertRole(params.role)
   const label = ROLE_LABELS[role]
   const roleSeo = ROLE_SEO[role as keyof typeof ROLE_SEO]
+  const quality = role === 'flex'
+    ? { status: 'noindex_no_ads' as const, indexable: false, adsAllowed: false, reason: 'Rol sin guía editorial completa' }
+    : topicQualityDecision('role', role)
 
   return buildMetadata({
     title: roleSeo?.searchTitle || `Guías de ${label} en Overwatch`,
     description: roleSeo?.searchDescription || `Hemeroteca de ${label}: guías, noticias, fundamentos, posicionamiento, macro y expertos recomendados para mejorar en Overwatch.`,
     path: `/roles/${role}`,
+    robots: robotsForQuality(quality),
   })
 }
 

@@ -34,7 +34,7 @@ export default function ContactPage() {
         <section>
           <h2>Correcciones editoriales</h2>
           <p>
-            Si detectas una guía desactualizada, un counter incorrecto, una fuente que falta o una página que no aporta suficiente valor, escribe a <a href="mailto:soporte@replaidlab.com">soporte@replaidlab.com</a> con la URL y el cambio recomendado.
+            Si detectas una guía desactualizada, un counter que ya no funciona igual o un horario incorrecto, escribe a <a href="mailto:soporte@replaidlab.com">soporte@replaidlab.com</a>. Incluye la URL, la frase que debería revisarse y, si se trata de un cambio reciente, el parche en el que lo has visto.
           </p>
         </section>
 
@@ -48,7 +48,7 @@ export default function ContactPage() {
         <section>
           <h2>Colaboraciones</h2>
           <p>
-            Replaid Lab puede colaborar con expertos, creadores o marcas relacionadas con Overwatch siempre que el contenido patrocinado quede identificado y no condicione el criterio editorial.
+            Podemos colaborar con expertos, creadores o marcas relacionadas con Overwatch. Cualquier colaboración comercial se identificará con claridad y no cambiará las conclusiones de una guía.
           </p>
         </section>
 

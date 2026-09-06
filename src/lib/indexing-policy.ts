@@ -48,6 +48,18 @@ type ExpertLike = {
   tier_deep_dive_enabled?: boolean | null
 }
 
+type EditorialTopicLike = {
+  seoTitle?: string | null
+  seoDescription?: string | null
+  h1?: string | null
+  updatedAt?: string | null
+  intro?: string[] | null
+  summary?: string[] | null
+  faqs?: { question?: string | null; answer?: string | null }[] | null
+  links?: { href?: string | null; label?: string | null }[] | null
+  [key: string]: unknown
+}
+
 export const QUALITY_MINIMUMS = {
   guideIndexWords: 650,
   guideAdsWords: 900,
@@ -93,6 +105,27 @@ export const PILLAR_GUIDE_SLUGS = [
   'como-usar-ultimates-overwatch',
   'cuando-cambiar-de-heroe-overwatch',
 ]
+
+// These routes have a hand-reviewed, repository-owned article. Database guides
+// must still pass the content checks below even when their slug is strategic.
+export const STATIC_EDITORIAL_GUIDE_SLUGS = [
+  'como-mejorar-en-overwatch',
+  'como-subir-de-rango-overwatch',
+  'mejores-heroes-overwatch',
+  'counters-overwatch-guia-completa',
+  'composiciones-overwatch-5v5-6v6',
+  'review-vod-overwatch-espanol',
+] as const
+
+export const RANKED_EDITORIAL_GUIDE_SLUGS = [
+  'como-jugar-ana-ranked-overwatch',
+  'como-jugar-kiriko-ranked-overwatch',
+  'como-jugar-genji-ranked-overwatch',
+  'como-jugar-cassidy-ranked-overwatch',
+  'como-jugar-reinhardt-ranked-overwatch',
+  'como-jugar-dva-ranked-overwatch',
+  'como-jugar-winston-ranked-overwatch',
+] as const
 
 export const TRUST_ROUTES = [
   '/about',
@@ -158,7 +191,6 @@ export function isVideoOnlyGuide(guide: GuideLike) {
 export function isGuideSitemapEligible(guide: GuideLike) {
   if (!guide.slug) return false
   if (EXCLUDED_GUIDE_SLUGS.includes(guide.slug)) return false
-  if (isPillarGuideSlug(guide.slug)) return true
   const bodyWords = wordCount(guide.body)
   const summaryWords = wordCount([guide.excerpt, guide.seo_description].filter(Boolean).join(' '))
 
@@ -288,18 +320,53 @@ export function topicQualityDecision(kind: 'hero' | 'counter' | 'team_comp' | 'r
     : blocked('Mapa pendiente de contenido publicado suficiente', 0)
 }
 
+export function editorialTopicQualityDecision(
+  kind: 'hero' | 'counter' | 'team_comp' | 'map',
+  slug: string,
+  content: EditorialTopicLike | null | undefined,
+): PageQualityDecision {
+  const policy = topicQualityDecision(kind, slug)
+  if (!policy.indexable || !content) return blocked(policy.reason, 0)
+
+  const serialized = JSON.stringify(content)
+  const words = wordCount(serialized.replace(/[{}\[\]":,]/g, ' '))
+  const hasCoreMetadata = Boolean(content.seoTitle && content.seoDescription && content.h1 && content.updatedAt)
+  const hasEditorialStructure = Boolean(
+    content.intro?.length &&
+    content.summary?.length &&
+    content.faqs && content.faqs.length >= 3 &&
+    content.links && content.links.length >= 3
+  )
+  const hasDraftLanguage = /\b(?:lorem ipsum|pendiente de completar|texto de ejemplo|title seo|meta description|keywords principales)\b/i.test(serialized)
+  const uniqueParagraphs = new Set(
+    serialized
+      .split(/(?<=[.!?])\s+/)
+      .map(value => normalize(value))
+      .filter(value => value.split(/\s+/).length >= 12),
+  )
+  const paragraphCount = serialized.split(/(?<=[.!?])\s+/).filter(value => value.split(/\s+/).length >= 12).length
+  const hasObviousDuplication = paragraphCount > 0 && uniqueParagraphs.size / paragraphCount < 0.78
+
+  if (!hasCoreMetadata) return blocked('Faltan metadatos editoriales obligatorios', words)
+  if (!hasEditorialStructure) return blocked('La página no tiene todavía una estructura editorial completa', words)
+  if (words < QUALITY_MINIMUMS.guideIndexWords) return blocked('El análisis específico todavía es insuficiente', words)
+  if (hasDraftLanguage) return blocked('La página contiene notas internas o texto provisional', words)
+  if (hasObviousDuplication) return blocked('La página repite demasiado contenido dentro del propio artículo', words)
+
+  return indexNoAds('Contenido editorial completo; anuncios bloqueados durante la revisión de AdSense', words)
+}
+
 export function robotsForQuality(decision: PageQualityDecision) {
   return decision.indexable ? undefined : { index: false, follow: true }
 }
 
 export function isStaticPathAdEligible(path: string) {
   return [
-    '/',
-    '/guides',
-    '/counters',
-    '/team-comps',
-    '/news',
     '/overwatch-temporada-4-heroes-of-busan',
+    '/overwatch-temporada-3-into-the-tigers-den',
+    '/blizzcon-2026-overwatch-horarios-espana',
+    '/dmon-nuevo-heroe-tank-overwatch',
+    '/busan-eichenwalde-paraiso-reworks-overwatch',
     '/guides/como-mejorar-en-overwatch',
   ].includes(path)
 }
@@ -310,7 +377,8 @@ export function isPathAdEligible(path: string) {
 
   const guidePrefix = '/guides/'
   if (cleanPath.startsWith(guidePrefix)) {
-    return isPillarGuideSlug(cleanPath.slice(guidePrefix.length))
+    const slug = cleanPath.slice(guidePrefix.length)
+    return [...STATIC_EDITORIAL_GUIDE_SLUGS, ...RANKED_EDITORIAL_GUIDE_SLUGS].some(item => item === slug)
   }
 
   return false

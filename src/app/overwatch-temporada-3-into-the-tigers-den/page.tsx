@@ -202,7 +202,7 @@ export default function SeasonThreePage() {
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
               <MetaPill label="Actualizado" value={UPDATED_AT} />
               <MetaPill label="Lanzamiento" value={RELEASE_DATE} />
-              <MetaPill label="Estado" value="Resumen SEO en seguimiento" />
+              <MetaPill label="Estado" value="Temporada finalizada" />
             </div>
           </div>
 

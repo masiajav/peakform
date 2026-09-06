@@ -72,8 +72,10 @@ export default function CounterPillarPage({ pillar }: CounterPillarPageProps) {
               {headerTips.map(item => <li key={item}>{item}</li>)}
             </ul>
             <div className="seo-pillar-meta">
+              <span>Por Replaid Lab</span>
               <span>Actualizado: {pillar.updatedAt}</span>
               <span>Parche revisado: {pillar.reviewedPatch}</span>
+              <Link href="/contact" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Comunicar una corrección</Link>
             </div>
           </div>
           <div

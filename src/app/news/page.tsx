@@ -6,7 +6,8 @@ import PublicNav from '@/components/layout/PublicNav'
 import Link from 'next/link'
 import { announcementPath, articleDescription } from '@/lib/content'
 import { isAnnouncementSitemapEligible } from '@/lib/indexing-policy'
-import { buildMetadata } from '@/lib/seo'
+import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
+import JsonLd from '@/components/content/JsonLd'
 
 const featuredNews = [
   {
@@ -60,8 +61,8 @@ const ANNOUNCEMENT_LIST_COLUMNS = `
 `
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Noticias de Overwatch',
-  description: 'Noticias, actualizaciones y anuncios de Overwatch seleccionados por Replaid Lab.',
+  title: 'Noticias de Overwatch: temporadas, héroes, mapas y BlizzCon',
+  description: 'Noticias de Overwatch en español con fechas, horarios y contexto para ranked: temporadas, nuevos héroes, mapas, balance, eventos y BlizzCon.',
   path: '/news',
 })
 
@@ -83,9 +84,19 @@ export default async function NewsPage() {
     .neq('content_type', 'patch_note')
     .order('created_at', { ascending: false })
   const indexableAnnouncements = (announcements ?? []).filter((item: any) => isAnnouncementSitemapEligible(item))
+  const collectionJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Noticias de Overwatch',
+    description: 'Actualidad de Overwatch explicada en español con fechas, contenido confirmado y contexto para jugadores.',
+    url: absoluteUrl('/news'),
+    inLanguage: 'es',
+    publisher: { '@type': 'Organization', name: SITE_NAME },
+  }
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
+      <JsonLd data={collectionJsonLd} />
       <PublicNav
         ctaHref={user ? profile?.role === 'admin' ? '/admin' : profile?.role === 'expert' ? '/expert/dashboard' : '/dashboard' : '/login'}
         ctaLabel={user ? 'MI PANEL' : 'ENTRAR'}
@@ -117,9 +128,28 @@ export default async function NewsPage() {
             NOTICIAS
           </h1>
           <p style={{ fontSize: 14, color: 'var(--text2)', margin: 0, lineHeight: 1.6 }}>
-            Actualizaciones, contexto competitivo y anuncios relevantes para jugadores de Overwatch.
+            Fechas, horarios y cambios de Overwatch explicados sin rodeos. Aquí reunimos temporadas, héroes, mapas, eventos y anuncios que cambian lo que vas a encontrar al abrir el juego.
           </p>
         </div>
+
+        <section style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 24, marginBottom: 28 }}>
+          <div className="eyebrow">QUÉ ENCONTRARÁS AQUÍ</div>
+          <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 28, letterSpacing: 1, margin: '8px 0 14px' }}>La actualidad que afecta a tus partidas</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 18 }}>
+            <div>
+              <strong style={{ color: 'var(--text)', fontSize: 14 }}>Temporadas y héroes</strong>
+              <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65, margin: '7px 0 0' }}>Resumimos qué llega, cuándo se puede jugar y qué cambia de verdad. Si aparece un héroe nuevo, separamos el kit confirmado de las primeras impresiones y actualizamos su guía cuando hay partidas suficientes.</p>
+            </div>
+            <div>
+              <strong style={{ color: 'var(--text)', fontSize: 14 }}>Mapas y balance</strong>
+              <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65, margin: '7px 0 0' }}>Un rework de mapa puede cambiar rutas, high grounds y composiciones aunque las notas parezcan cortas. Cuando un ajuste altera un matchup, enlazamos la explicación práctica para ranked.</p>
+            </div>
+            <div>
+              <strong style={{ color: 'var(--text)', fontSize: 14 }}>Eventos y directos</strong>
+              <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65, margin: '7px 0 0' }}>Convertimos horarios a España, comprobamos dónde se emite el evento y distinguimos los anuncios confirmados de lo que todavía no tiene detalle oficial.</p>
+            </div>
+          </div>
+        </section>
 
         <div style={{ display: 'grid', gap: 16 }}>
           {featuredNews.map(item => (
@@ -161,6 +191,21 @@ export default async function NewsPage() {
             </Link>
           ))}
         </div>
+
+        <section style={{ borderTop: '1px solid var(--border)', marginTop: 38, paddingTop: 28 }}>
+          <div className="eyebrow">PARA SEGUIR JUGANDO</div>
+          <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 28, letterSpacing: 1, margin: '8px 0 12px' }}>Del anuncio a la partida</h2>
+          <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.7, margin: '0 0 16px', maxWidth: 780 }}>
+            Si buscas el estado actual del juego, empieza por la <Link href="/overwatch-temporada-4-heroes-of-busan" style={{ color: 'var(--accent)' }}>Season 4</Link>. Para preparar tus partidas puedes consultar las <Link href="/guides" style={{ color: 'var(--accent)' }}>guías</Link>, los <Link href="/counters" style={{ color: 'var(--accent)' }}>matchups</Link> o las <Link href="/maps" style={{ color: 'var(--accent)' }}>guías de mapas</Link>. Las fechas visibles solo cambian cuando el contenido se ha revisado de verdad.
+          </p>
+          <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.7, margin: '0 0 16px', maxWidth: 780 }}>
+            En noticias en desarrollo indicamos qué está confirmado y qué falta por conocer. Cuando Blizzard publica horarios, requisitos de drops o notas de balance nuevas, corregimos la misma noticia para que no tengas que comparar versiones contradictorias. Si una novedad merece una explicación más larga, la encontrarás enlazada desde el resumen.
+          </p>
+          <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.7, margin: '0 0 16px', maxWidth: 780 }}>
+            También mantenemos visibles las noticias anteriores cuando siguen ayudando a entender un héroe, un mapa o el origen de un cambio que todavía afecta al juego actual.
+          </p>
+          <div style={{ color: 'var(--text3)', fontSize: 12 }}>Última revisión del hub: 5 de septiembre de 2026 · Replaid Lab</div>
+        </section>
       </section>
     </div>
   )

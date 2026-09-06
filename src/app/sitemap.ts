@@ -8,14 +8,17 @@ import {
   PILLAR_COUNTER_SLUGS,
   PILLAR_HERO_SLUGS,
   PILLAR_MAP_SLUGS,
-  PILLAR_GUIDE_SLUGS,
+  RANKED_EDITORIAL_GUIDE_SLUGS,
+  STATIC_EDITORIAL_GUIDE_SLUGS,
   PILLAR_TEAM_COMP_SLUGS,
   TRUST_ROUTES,
   expertQualityDecision,
+  editorialTopicQualityDecision,
   isAnnouncementSitemapEligible,
   isGuideSitemapEligible,
 } from '@/lib/indexing-policy'
 import { absoluteUrl } from '@/lib/seo'
+import { getCounterPillar, getTeamCompPillar } from '@/lib/seo-clusters'
 
 export const dynamic = 'force-dynamic'
 
@@ -47,6 +50,18 @@ const STATIC_LAST_MODIFIED: Record<string, string> = {
   '/team-comps/winston': '2026-07-01',
   '/counters/cassidy': '2026-07-01',
   '/team-comps/cassidy': '2026-07-01',
+  '/team-comps/tracer': '2026-09-05',
+  '/team-comps/zarya': '2026-09-05',
+  '/guides/como-jugar-ana-ranked-overwatch': '2026-09-05',
+  '/guides/como-jugar-kiriko-ranked-overwatch': '2026-09-05',
+  '/guides/como-jugar-genji-ranked-overwatch': '2026-09-05',
+  '/guides/como-jugar-cassidy-ranked-overwatch': '2026-09-05',
+  '/guides/como-jugar-reinhardt-ranked-overwatch': '2026-09-05',
+  '/guides/como-jugar-dva-ranked-overwatch': '2026-09-05',
+  '/guides/como-jugar-winston-ranked-overwatch': '2026-09-05',
+  '/roles/tank': '2026-09-05',
+  '/roles/dps': '2026-09-05',
+  '/roles/support': '2026-09-05',
   '/counters/zarya': '2026-07-12',
   '/counters/tracer': '2026-07-12',
   '/counters/domina': '2026-07-12',
@@ -101,13 +116,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/dmon-nuevo-heroe-tank-overwatch',
     '/busan-eichenwalde-paraiso-reworks-overwatch',
     '/overwatch-temporada-3-into-the-tigers-den',
-    ...PILLAR_GUIDE_SLUGS.map(slug => `/guides/${slug}`),
+    ...[...STATIC_EDITORIAL_GUIDE_SLUGS, ...RANKED_EDITORIAL_GUIDE_SLUGS].map(slug => `/guides/${slug}`),
     ...TRUST_ROUTES,
     ...ROLE_SLUGS.map(role => `/roles/${role}`),
     ...PILLAR_HERO_SLUGS.map(hero => `/heroes/${hero}`),
     ...PILLAR_MAP_SLUGS.map(map => `/maps/${map}`),
-    ...COUNTER_HEROES.filter(hero => PILLAR_COUNTER_SLUGS.includes(hero.slug)).map(hero => `/counters/${hero.slug}`),
-    ...TEAM_COMP_HEROES.filter(hero => PILLAR_TEAM_COMP_SLUGS.includes(hero.slug)).map(hero => `/team-comps/${hero.slug}`),
+    ...COUNTER_HEROES.filter(hero => PILLAR_COUNTER_SLUGS.includes(hero.slug) && editorialTopicQualityDecision('counter', hero.slug, getCounterPillar(hero.slug)).indexable).map(hero => `/counters/${hero.slug}`),
+    ...TEAM_COMP_HEROES.filter(hero => PILLAR_TEAM_COMP_SLUGS.includes(hero.slug) && editorialTopicQualityDecision('team_comp', hero.slug, getTeamCompPillar(hero.slug)).indexable).map(hero => `/team-comps/${hero.slug}`),
   ].map(path => {
     const normalizedPath = path || '/'
     const lastModified = STATIC_LAST_MODIFIED[normalizedPath] ?? MAP_LAST_MODIFIED[normalizedPath]

@@ -86,7 +86,25 @@ export default function CountersPage() {
           </div>
         </section>
 
+        <section style={{ margin: '34px 0' }}>
+          <div className="eyebrow">ANTES DE CAMBIAR DE HÉROE</div>
+          <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 32, letterSpacing: 1, margin: '8px 0 18px' }}>Tres formas de ganar un matchup difícil</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 14 }}>
+            {[
+              { title: 'Cambia la distancia', body: 'Si Reaper domina el corto alcance o Widowmaker controla la calle, no repitas el duelo a su distancia favorita. Una ruta cubierta o un ángulo distinto puede resolver más que un cambio inmediato de pick.' },
+              { title: 'Espera el cooldown', body: 'Suzu, Sleep, burbujas, Recall o movilidad suelen definir la entrada. Fuerza primero ese recurso y compromete tu daño después; entrar contra todo disponible hace que cualquier héroe parezca un counter imposible.' },
+              { title: 'Protege la condición de victoria', body: 'Contra un flanker no hace falta perseguir hasta matarlo. Forzar su salida y volver con tu backline puede dejar a tu equipo con ventaja en la pelea principal.' },
+            ].map(item => (
+              <article key={item.title} style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 20 }}>
+                <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 21, letterSpacing: .5, margin: '0 0 9px' }}>{item.title}</h3>
+                <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.7, margin: 0 }}>{item.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <CounterExplorer />
+        <p style={{ color: 'var(--text3)', fontSize: 12, margin: '28px 0 0' }}>Matchups revisados por Replaid Lab · 5 de septiembre de 2026 · <Link href="/contact" style={{ color: 'var(--text3)' }}>Comunicar una corrección</Link></p>
         <SeoFaq items={faq} title="Preguntas sobre counters de Overwatch" />
       </main>
     </div>

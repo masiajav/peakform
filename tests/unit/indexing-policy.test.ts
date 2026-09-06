@@ -4,6 +4,7 @@ import {
   expertQualityDecision,
   isAnnouncementSitemapEligible,
   isGuideSitemapEligible,
+  isPathAdEligible,
   topicQualityDecision,
 } from '@/lib/indexing-policy'
 
@@ -16,14 +17,15 @@ describe('indexing quality gates', () => {
     })).toBe(false)
   })
 
-  it('allows the current editorial guide pillars', () => {
+  it('requires real editorial depth even for strategic guide slugs', () => {
     expect(isGuideSitemapEligible({
       slug: 'como-usar-ultimates-overwatch',
       body: 'contenido editorial',
-    })).toBe(true)
+    })).toBe(false)
     expect(isGuideSitemapEligible({
       slug: 'cuando-cambiar-de-heroe-overwatch',
-      body: 'contenido editorial',
+      body: 'contenido editorial '.repeat(700),
+      excerpt: 'Resumen útil y específico para jugadores de Overwatch que quieren tomar mejores decisiones durante una partida competitiva, entender sus errores, revisar cooldowns y aplicar cambios concretos en la siguiente sesión de ranked.',
     })).toBe(true)
   })
 
@@ -78,8 +80,20 @@ describe('indexing quality gates', () => {
     expect(topicQualityDecision('counter', 'cassidy').indexable).toBe(true)
     expect(topicQualityDecision('team_comp', 'cassidy').indexable).toBe(true)
     expect(topicQualityDecision('counter', 'zarya').indexable).toBe(true)
+    expect(topicQualityDecision('team_comp', 'zarya').indexable).toBe(true)
     expect(topicQualityDecision('counter', 'tracer').indexable).toBe(true)
+    expect(topicQualityDecision('team_comp', 'tracer').indexable).toBe(true)
     expect(topicQualityDecision('counter', 'domina').indexable).toBe(true)
     expect(topicQualityDecision('counter', 'mercy').indexable).toBe(false)
+  })
+
+  it('keeps ads off hubs, profiles and unfinished routes', () => {
+    expect(isPathAdEligible('/')).toBe(false)
+    expect(isPathAdEligible('/guides')).toBe(false)
+    expect(isPathAdEligible('/counters')).toBe(false)
+    expect(isPathAdEligible('/news')).toBe(false)
+    expect(isPathAdEligible('/experts/coach-overwatch')).toBe(false)
+    expect(isPathAdEligible('/guides/como-jugar-ana-ranked-overwatch')).toBe(true)
+    expect(isPathAdEligible('/guides/guia-programatica-pendiente')).toBe(false)
   })
 })

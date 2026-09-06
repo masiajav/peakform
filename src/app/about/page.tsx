@@ -28,20 +28,30 @@ export default function AboutPage() {
         <div className="eyebrow">REPLAID LAB</div>
         <h1>Sobre Replaid Lab</h1>
         <p className="trust-lead">
-          Replaid Lab es una hemeroteca editorial y una plataforma de review de VOD para jugadores de Overwatch. El objetivo no es acumular páginas por volumen, sino publicar recursos que ayuden a tomar mejores decisiones dentro de partida.
+          Replaid Lab es una web en español dedicada a entender mejor Overwatch. Reúne guías de héroes, mapas, counters y composiciones con un servicio de revisión de partidas para quienes quieren saber por qué una pelea salió mal y qué pueden cambiar en la siguiente.
         </p>
 
         <section>
-          <h2>Qué publicamos</h2>
+          <h2>Qué encontrarás aquí</h2>
           <p>
-            Publicamos guías por héroe, fundamentos por rol, counters, composiciones 5v5 y 6v6, noticias relevantes y recursos para revisar partidas. Cuando usamos un vídeo externo, lo tratamos como apoyo: la página debe aportar contexto propio, errores frecuentes y una forma práctica de aplicar lo aprendido.
+            Las guías parten de problemas que aparecen de verdad en ranked: entrar antes que el equipo, gastar una habilidad defensiva demasiado pronto, pelear desde un ángulo sin salida o cambiar de héroe sin entender qué está fallando. La intención es que cada página termine en una decisión que puedas probar, no en una lista de consejos aislados.
           </p>
         </section>
 
         <section>
-          <h2>Quién revisa el criterio</h2>
+          <h2>Cómo tratamos Overwatch</h2>
           <p>
-            Las páginas prioritarias se preparan con estructura editorial y se revisan con criterio experto antes de tratarlas como contenido pilar. Cuando una guía depende de un parche o de cambios de balance, se actualiza por cambios reales, no solo para parecer reciente.
+            Usamos el vocabulario habitual de la comunidad cuando resulta más claro: ranked, peel, dive, poke, timing o cooldown. También distinguimos entre una regla general y algo que depende del parche. Si un cambio de balance altera un matchup o una composición, revisamos la explicación y dejamos visible la fecha de actualización.
+          </p>
+          <p>
+            Replaid Lab no está afiliada a Blizzard Entertainment. Overwatch, sus héroes y sus materiales pertenecen a sus respectivos propietarios. El contenido de esta web es análisis independiente para jugadores.
+          </p>
+        </section>
+
+        <section>
+          <h2>Correcciones y responsabilidad</h2>
+          <p>
+            Una guía puede quedarse atrás después de un parche o no cubrir una situación concreta. Si detectas un dato incorrecto, indícanos la URL y el punto exacto. Revisamos las correcciones antes de actualizar el texto y no cambiamos fechas si el contenido no ha cambiado de verdad.
           </p>
         </section>
 

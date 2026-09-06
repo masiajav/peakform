@@ -27,6 +27,20 @@ const PUBLIC_ROUTES = [
   '/counters/zarya',
   '/counters/tracer',
   '/counters/domina',
+  '/team-comps/tracer',
+  '/team-comps/zarya',
+  '/guides/como-jugar-ana-ranked-overwatch',
+  '/guides/como-jugar-kiriko-ranked-overwatch',
+  '/guides/como-jugar-genji-ranked-overwatch',
+  '/guides/como-jugar-cassidy-ranked-overwatch',
+  '/guides/como-jugar-reinhardt-ranked-overwatch',
+  '/guides/como-jugar-dva-ranked-overwatch',
+  '/guides/como-jugar-winston-ranked-overwatch',
+  '/roles/tank',
+  '/roles/dps',
+  '/roles/support',
+  '/counters',
+  '/news',
   '/guides/como-usar-ultimates-overwatch',
   '/guides/cuando-cambiar-de-heroe-overwatch',
   '/experts',
@@ -107,6 +121,15 @@ test('sitemap contains only the completed editorial batches', async ({ request }
   expect(xml).toContain('/counters/zarya')
   expect(xml).toContain('/counters/tracer')
   expect(xml).toContain('/counters/domina')
+  expect(xml).toContain('/team-comps/tracer')
+  expect(xml).toContain('/team-comps/zarya')
+  expect(xml).toContain('/guides/como-jugar-ana-ranked-overwatch')
+  expect(xml).toContain('/guides/como-jugar-kiriko-ranked-overwatch')
+  expect(xml).toContain('/guides/como-jugar-genji-ranked-overwatch')
+  expect(xml).toContain('/guides/como-jugar-cassidy-ranked-overwatch')
+  expect(xml).toContain('/guides/como-jugar-reinhardt-ranked-overwatch')
+  expect(xml).toContain('/guides/como-jugar-dva-ranked-overwatch')
+  expect(xml).toContain('/guides/como-jugar-winston-ranked-overwatch')
   expect(xml).toContain('/guides/cuando-cambiar-de-heroe-overwatch')
   expect(xml).toContain('/overwatch-temporada-4-heroes-of-busan')
   expect(xml).toContain('/heroes/dmon')
@@ -136,6 +159,15 @@ for (const route of [
   '/counters/zarya',
   '/counters/tracer',
   '/counters/domina',
+  '/team-comps/tracer',
+  '/team-comps/zarya',
+  '/guides/como-jugar-ana-ranked-overwatch',
+  '/guides/como-jugar-kiriko-ranked-overwatch',
+  '/guides/como-jugar-genji-ranked-overwatch',
+  '/guides/como-jugar-cassidy-ranked-overwatch',
+  '/guides/como-jugar-reinhardt-ranked-overwatch',
+  '/guides/como-jugar-dva-ranked-overwatch',
+  '/guides/como-jugar-winston-ranked-overwatch',
   '/guides/cuando-cambiar-de-heroe-overwatch',
 ]) {
   test(`${route} has no broken internal links`, async ({ page, request }) => {

@@ -258,7 +258,7 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
 
         <header style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.05fr) minmax(280px, 0.75fr)', gap: 24, alignItems: 'center', marginBottom: 28 }} className="home-hero-grid">
           <div>
-            <div className="eyebrow">{pillar.role.toUpperCase()} · GUÍA PILAR DE RANKED</div>
+            <div className="eyebrow">{pillar.role.toUpperCase()} · GUÍA DE RANKED</div>
             <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(42px, 8vw, 78px)', letterSpacing: 1, lineHeight: 0.95, margin: '0 0 16px' }}>
               {pillar.h1}
             </h1>
@@ -278,7 +278,8 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
               <MetaPill label="Actualizado" value={pillar.updatedAt} />
               <MetaPill label="Rol" value={pillar.role} />
-              <MetaPill label="Estado" value="Guía pilar indexable" />
+              <MetaPill label="Autor" value="Replaid Lab" />
+              <Link href="/contact" style={{ color: 'var(--text3)', fontSize: 12, alignSelf: 'center' }}>Comunicar una corrección</Link>
             </div>
           </div>
 

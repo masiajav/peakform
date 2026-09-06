@@ -8,7 +8,7 @@ import { COUNTER_HEROES, getCounterHero, type CounterPick } from '@/lib/overwatc
 import { ROLE_LABELS } from '@/lib/content'
 import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 import { buildHeroSeoProfile, counterPageDescription, counterPageTitle } from '@/lib/overwatch-seo'
-import { robotsForQuality, topicQualityDecision } from '@/lib/indexing-policy'
+import { editorialTopicQualityDecision, robotsForQuality, topicQualityDecision } from '@/lib/indexing-policy'
 import { heroTopicHref } from '@/lib/topic-links'
 import CounterPillarPage from '@/components/content/CounterPillarPage'
 import { getCounterPillar } from '@/lib/seo-clusters'
@@ -20,8 +20,10 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { hero: string } }): Metadata {
   const hero = getCounterHero(params.hero)
   if (!hero) return {}
-  const quality = topicQualityDecision('counter', params.hero)
   const pillar = getCounterPillar(params.hero)
+  const quality = pillar
+    ? editorialTopicQualityDecision('counter', params.hero, pillar)
+    : topicQualityDecision('counter', params.hero)
 
   return buildMetadata({
     title: counterPageTitle(hero),
@@ -151,7 +153,7 @@ export default function CounterHeroPage({ params }: { params: { hero: string } }
 
           <aside className="counter-seo-sidebar">
             <div>
-              <div className="eyebrow">ENLACES INTERNOS</div>
+              <div className="eyebrow">SIGUE POR AQUÍ</div>
               <Link href="/counters">Todos los counters</Link>
               <Link href={`/team-comps/${hero.slug}`}>Composiciones de {hero.name}</Link>
               <Link href={heroTopicHref(hero.slug)}>Guía de {hero.name}</Link>

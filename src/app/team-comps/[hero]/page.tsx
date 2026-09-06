@@ -13,7 +13,7 @@ import {
 } from '@/lib/overwatch-team-comps'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
-import { robotsForQuality, topicQualityDecision } from '@/lib/indexing-policy'
+import { editorialTopicQualityDecision, robotsForQuality, topicQualityDecision } from '@/lib/indexing-policy'
 import { heroTopicHref } from '@/lib/topic-links'
 import TeamCompPillarPage from '@/components/content/TeamCompPillarPage'
 import { getTeamCompPillar } from '@/lib/seo-clusters'
@@ -25,8 +25,10 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { hero: string } }): Promise<Metadata> {
   const hero = getTeamCompHero(params.hero)
   if (!hero) return {}
-  const quality = topicQualityDecision('team_comp', params.hero)
   const pillar = getTeamCompPillar(params.hero)
+  const quality = pillar
+    ? editorialTopicQualityDecision('team_comp', params.hero, pillar)
+    : topicQualityDecision('team_comp', params.hero)
   return buildMetadata({
     title: pillar?.seoTitle || teamCompPageTitle(hero),
     description: pillar?.seoDescription || teamCompPageDescription(hero),
@@ -130,8 +132,8 @@ function CompSection({ title, comps }: { title: string; comps: ReturnType<typeof
             <div className="team-comp-line"><span>DPS</span><div>{comp.dps.map(name => <strong key={name}>{name}</strong>)}</div></div>
             <div className="team-comp-line"><span>Supports</span><div>{comp.supports.map(name => <strong key={name}>{name}</strong>)}</div></div>
             <div className="team-comp-notes">
-              <p><strong>Condicion:</strong> {comp.winCondition}</p>
-              <p><strong>Evitala si:</strong> {comp.avoidWhen}</p>
+              <p><strong>Condición:</strong> {comp.winCondition}</p>
+              <p><strong>Evítala si:</strong> {comp.avoidWhen}</p>
             </div>
           </article>
         ))}

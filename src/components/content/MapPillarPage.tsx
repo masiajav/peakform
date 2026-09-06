@@ -85,6 +85,7 @@ export default function MapPillarPage({ map }: { map: MapPillar }) {
           <Meta label="Modo" value={map.mode} />
           <Meta label="Localización" value={map.location} />
           <Meta label="Última revisión" value={map.updatedAt} />
+          <Meta label="Revisión" value="Replaid Lab" />
         </div>
 
         <section className="map-copy-intro">

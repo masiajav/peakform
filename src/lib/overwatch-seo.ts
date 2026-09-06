@@ -36,11 +36,14 @@ export const ROLE_SEO: Record<CounterRole, {
   overview: string
   quickWins: SeoTopicBlock[]
   commonMistakes: SeoTopicBlock[]
+  matchPlan: SeoTopicBlock[]
+  vodReview: string[]
+  mapAdvice: string
 }> = {
   tank: {
     title: 'Tank',
-    searchTitle: 'Cómo jugar Tank en Overwatch: espacio, recursos y errores comunes',
-    searchDescription: 'Guía de Tank en Overwatch con fundamentos para crear espacio, aguantar recursos, elegir peleas y revisar errores frecuentes en tus partidas.',
+    searchTitle: 'Cómo jugar Tank en Overwatch: espacio, recursos y engages',
+    searchDescription: 'Guía de Tank en Overwatch para crear espacio, gestionar recursos, elegir engages y revisar los errores que te hacen morir antes que tu equipo.',
     overview: 'Tank decide dónde empieza la pelea y cuánto espacio puede usar su equipo. La prioridad no es recibir daño infinito, sino forzar recursos rivales, cortar ángulos y entrar cuando tu equipo puede convertir esa presión en eliminaciones.',
     quickWins: [
       { title: 'Entra con una condición', body: 'Antes de avanzar, identifica qué cooldown rival quieres forzar y qué compañero puede seguir tu presión.' },
@@ -52,6 +55,19 @@ export const ROLE_SEO: Record<CounterRole, {
       { title: 'Usar todo para entrar', body: 'Si llegas sin recursos al centro de la pelea, no puedes sostener ni salir.' },
       { title: 'Ignorar ángulos', body: 'El espacio frontal no vale si tus supports o DPS no pueden jugar sus líneas.' },
     ],
+    matchPlan: [
+      { title: 'Antes de entrar', body: 'Mira dónde están tus supports, qué esquina quieres ganar y qué cooldown rival puede detenerte. Un ping a la ruta evita que el equipo descubra tu plan cuando ya estás dentro.' },
+      { title: 'Durante el engage', body: 'Alterna vida, recurso defensivo y cobertura. Tu objetivo es mantener una zona que permita disparar a tus DPS, no perseguir al primer enemigo que retrocede.' },
+      { title: 'Cuando algo sale mal', body: 'Corta pérdidas. Si el equipo no puede seguir o ya ha muerto un support, vuelve a una esquina defendible. Morir tarde regala más mapa y retrasa la siguiente pelea.' },
+    ],
+    vodReview: [
+      '¿Mi equipo tenía línea de visión cuando inicié?',
+      '¿Qué espacio concreto gané al gastar mi recurso defensivo?',
+      '¿Podía jugar una esquina en vez de recibir daño en abierto?',
+      '¿Perseguí una baja y dejé libre una zona más importante?',
+      '¿Mi ultimate inició una pelea ganable o intentó rescatar una perdida?',
+    ],
+    mapAdvice: 'En mapas abiertos, el Tank debe cortar líneas y avanzar por coberturas; en zonas cerradas puede amenazar de frente, pero sigue necesitando vigilar puertas laterales. En mapas verticales, si tu héroe no llega al high ground, crea una ruta para que tus DPS lo disputen o considera un Tank con movilidad.',
   },
   dps: {
     title: 'DPS',
@@ -64,10 +80,23 @@ export const ROLE_SEO: Record<CounterRole, {
       { title: 'Cambia según el mapa', body: 'Hitscan, flanker y proyectil dependen mucho de líneas de visión, high ground y rutas laterales.' },
     ],
     commonMistakes: [
-      { title: 'Buscar duelos imposibles', body: 'Si necesitas ganar tres duelos seguidos para aportar, la posicion inicial probablemente es mala.' },
+      { title: 'Buscar duelos imposibles', body: 'Si necesitas ganar tres duelos seguidos para aportar, la posición inicial probablemente es mala.' },
       { title: 'No mirar cooldowns', body: 'Entrar antes de Suzu, Sleep, Lamp o burbujas suele convertir una buena idea en feed.' },
       { title: 'Medir solo eliminaciones', body: 'Forzar dos recursos defensivos puede ganar la pelea aunque no aparezca como kill inmediata.' },
     ],
+    matchPlan: [
+      { title: 'Prepara el ángulo', body: 'Llega con vida y una salida. Un lateral útil cruza fuego con el equipo y obliga al rival a girarse; un flanco de veinte segundos deja a tus compañeros peleando cuatro contra cinco.' },
+      { title: 'Dispara con la presión aliada', body: 'Observa el engage del Tank y los cooldowns que fuerza. Tu ventana empieza cuando el enemigo ya tiene otra amenaza en pantalla, no cuando tú terminas de rotar.' },
+      { title: 'Cierra o resetea', body: 'Si aparece una vida baja, compromete recursos para terminarla. Si el rival estabiliza, vuelve a cobertura y conserva la siguiente entrada en lugar de alimentar daño inútil.' },
+    ],
+    vodReview: [
+      '¿Mi primer disparo llegó al mismo tiempo que la presión del Tank?',
+      '¿El ángulo tenía cobertura y una ruta corta de vuelta?',
+      '¿Qué cooldown defensivo forcé antes de usar mi ultimate?',
+      '¿Seguí disparando al Tank cuando había un objetivo expuesto?',
+      '¿Cambiar de héroe resolvía el problema o necesitaba cambiar de posición?',
+    ],
+    mapAdvice: 'Las líneas largas favorecen hitscan y poke; los pasillos cortos dan más valor a brawl, burst y control; las rutas verticales permiten que flankers y héroes móviles eviten el frente. No elijas solo por la tabla de counters: comprueba primero si el mapa te deja ejecutar el matchup.',
   },
   support: {
     title: 'Support',
@@ -76,14 +105,27 @@ export const ROLE_SEO: Record<CounterRole, {
     overview: 'Support no significa curar sin parar. Tu impacto viene de sobrevivir, estabilizar ventanas críticas, aportar daño cuando no hay peligro real y usar cooldowns para negar la condición de victoria rival.',
     quickWins: [
       { title: 'Prioriza líneas seguras', body: 'Una buena posición te permite curar, hacer daño y cubrirte sin gastar cooldown defensivo.' },
-      { title: 'Guarda recursos clave', body: 'Sleep, Suzu, Lamp o boop valen mas cuando niegan una engage rival, no cuando se gastan por ansiedad.' },
+      { title: 'Guarda recursos clave', body: 'Sleep, Suzu, Lamp o boop valen más cuando niegan un engage rival, no cuando se gastan por ansiedad.' },
       { title: 'Daño cuando puedas', body: 'Si nadie va a morir en el siguiente segundo, aportar presión puede abrir la pelea.' },
     ],
     commonMistakes: [
       { title: 'Curar tarde desde mala posición', body: 'Si para salvar a alguien tienes que cruzar campo abierto, el error ocurrió antes.' },
       { title: 'No jugar alrededor de dive', body: 'Contra Winston, Tracer o Sombra, tu plan empieza antes de que aparezcan encima.' },
-      { title: 'Ults reactivas sin ventaja', body: 'Usar ultimate cuando la pelea ya esta perdida solo retrasa el siguiente intento.' },
+      { title: 'Ults reactivas sin ventaja', body: 'Usar ultimate cuando la pelea ya está perdida solo retrasa el siguiente intento.' },
     ],
+    matchPlan: [
+      { title: 'Colócate para la siguiente pelea', body: 'Busca una esquina desde la que veas a quien va a recibir presión y puedas romper línea de visión del rival. Si el dive llega, tu salida debe existir antes de necesitarla.' },
+      { title: 'Ordena tus recursos', body: 'Decide qué cooldown responde al engage y cuál puedes usar para ganar tempo. Gastar ambos por daño menor deja a la backline sin respuesta para la amenaza real.' },
+      { title: 'Aporta presión sin abandonar tu trabajo', body: 'Cuando nadie corre peligro inmediato, un disparo o un ángulo ofensivo ayuda a forzar cobertura. Vuelve a curar antes de que el daño aliado sea crítico, no después.' },
+    ],
+    vodReview: [
+      '¿Tenía cobertura en mi primera muerte?',
+      '¿Sabía qué héroe rival podía llegar hasta mí?',
+      '¿Gasté un cooldown defensivo antes del engage importante?',
+      '¿Curé a quien estaba en peligro o a quien era más fácil ver?',
+      '¿Mi ultimate mantenía una pelea viva o llegaba cuando ya estaba perdida?',
+    ],
+    mapAdvice: 'Una buena posición de Support cambia con el objetivo. En ataque debes avanzar antes de perder visión del Tank; en defensa conviene preparar la siguiente cobertura antes de que el rival llegue. En mapas con dive fácil, juega a distancia de ayuda de tu segundo Support y evita repetir la misma esquina cada pelea.',
   },
 }
 

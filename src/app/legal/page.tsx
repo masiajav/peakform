@@ -6,7 +6,7 @@ import { buildMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Términos y condiciones',
-  description: 'Condiciones de uso, política de reembolsos y privacidad de Replaid Lab.',
+  description: 'Términos y condiciones de Replaid Lab: uso de la plataforma, pedidos de revisión, pagos con Stripe, cancelaciones, reembolsos y responsabilidades.',
   path: '/legal',
 })
 

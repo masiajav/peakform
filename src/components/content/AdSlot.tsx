@@ -2,6 +2,8 @@
 
 import type { CSSProperties } from 'react'
 import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
+import { isPathAdEligible } from '@/lib/indexing-policy'
 
 type AdSlotVariant = 'leaderboard' | 'inline' | 'sidebar' | 'mobile'
 
@@ -39,11 +41,13 @@ export default function AdSlot({
   style,
 }: AdSlotProps) {
   const clientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID
+  const pathname = usePathname()
   const config = CONFIG[variant]
   // Ads remain disabled until AdSense approves the site. Set the public flag to true only after approval and redeploy.
   const adsApproved = process.env.NEXT_PUBLIC_ADSENSE_APPROVED === 'true'
+  const cmpReady = process.env.NEXT_PUBLIC_ADSENSE_CMP_READY === 'true'
   const resolvedSlot = resolveSlot(slot)
-  const canServeAd = adsApproved && Boolean(clientId && resolvedSlot)
+  const canServeAd = adsApproved && cmpReady && isPathAdEligible(pathname) && Boolean(clientId && resolvedSlot)
 
   useEffect(() => {
     if (!allowAds || !canServeAd) return

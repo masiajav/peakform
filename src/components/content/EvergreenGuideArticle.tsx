@@ -56,9 +56,9 @@ export default function EvergreenGuideArticle({ guide }: EvergreenGuideArticlePr
             ))}
           </div>
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', color: 'var(--text3)', fontSize: 12, marginTop: 18 }}>
-            <span>Replaid Lab</span>
-            <span>Actualizada: {guide.updatedAt}</span>
-            <span>Guía evergreen</span>
+            <span>Por Replaid Lab</span>
+            <span>Última revisión: {guide.updatedAt}</span>
+            <Link href="/contact" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Comunicar una corrección</Link>
           </div>
         </header>
 
@@ -93,9 +93,9 @@ export default function EvergreenGuideArticle({ guide }: EvergreenGuideArticlePr
             ))}
           </ul>
 
-          <h2>Rutas relacionadas</h2>
+          <h2>Sigue por aquí</h2>
           <p>
-            Usa esta guía como punto de partida y baja después al problema concreto: héroes, counters, composiciones, VOD o revisión con experto.
+            Elige la siguiente lectura según el problema que quieras trabajar: héroes, matchups, composiciones o revisión de VOD.
           </p>
           <div className="guide-cluster-links" style={{ marginBottom: 28 }}>
             {guide.links.map(link => (

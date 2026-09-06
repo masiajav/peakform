@@ -11,11 +11,15 @@ import { UPCOMING_HERO_SLUGS } from '@/lib/indexing-policy'
 import { heroTopicHref, isPublicHeroPageSlug } from '@/lib/topic-links'
 import { buildMetadata, absoluteUrl, SITE_NAME } from '@/lib/seo'
 
-export const metadata: Metadata = buildMetadata({
-  title: 'Héroes de Overwatch: guías ranked, counters y mejores picks',
-  description: 'Todos los héroes de Overwatch por rol, con guías ranked, counters, composiciones y consejos para elegir pick sin jugar en autopilot.',
-  path: '/heroes',
-})
+export function generateMetadata({ searchParams }: { searchParams: { role?: string } }): Metadata {
+  const metadata = buildMetadata({
+    title: 'Héroes de Overwatch: guías ranked, counters y mejores picks',
+    description: 'Todos los héroes de Overwatch por rol, con guías ranked, counters, composiciones y consejos para elegir pick sin jugar en autopilot.',
+    path: '/heroes',
+  })
+  if (searchParams.role) metadata.robots = { index: false, follow: true }
+  return metadata
+}
 
 const roleOrder: CounterRole[] = ['tank', 'dps', 'support']
 const heroesFaq = [

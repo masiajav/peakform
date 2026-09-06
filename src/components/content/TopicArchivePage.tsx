@@ -107,7 +107,7 @@ export default async function TopicArchivePage({
       <main style={{ maxWidth: 1120, margin: '0 auto', padding: '56px 24px 88px' }}>
         <header style={{ marginBottom: 40, maxWidth: 760 }}>
           <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)', fontSize: 11, letterSpacing: 2, marginBottom: 10 }}>
-            HEMEROTECA OVERWATCH
+            GUÍAS DE OVERWATCH
           </div>
           <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(38px, 7vw, 68px)', letterSpacing: 1, lineHeight: 0.98, margin: '0 0 16px' }}>
             {title}
@@ -163,20 +163,33 @@ export default async function TopicArchivePage({
         )}
 
         {roleSeo && (
-          <section style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '24px', marginBottom: 34 }}>
+          <section style={{ marginBottom: 42 }}>
             <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)', fontSize: 11, letterSpacing: 1.8, marginBottom: 10 }}>
-              FUNDAMENTOS DEL ROL
+              PLAN DE PARTIDA
             </div>
-            <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.7, margin: '0 0 18px', maxWidth: 820 }}>
-              {roleSeo.overview}
-            </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
-              {roleSeo.commonMistakes.map(item => (
-                <div key={item.title} style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', padding: 14 }}>
+              {roleSeo.matchPlan.map(item => (
+                <div key={item.title} style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 18 }}>
                   <strong style={{ color: 'var(--text)', display: 'block', marginBottom: 5 }}>{item.title}</strong>
-                  <span style={{ color: 'var(--text2)', fontSize: 12, lineHeight: 1.5 }}>{item.body}</span>
+                  <span style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65 }}>{item.body}</span>
                 </div>
               ))}
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.15fr) minmax(260px, .85fr)', gap: 24, marginTop: 24 }} className="topic-layout">
+              <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 22 }}>
+                <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)', fontSize: 11, letterSpacing: 1.8, marginBottom: 10 }}>LECTURA DEL MAPA</div>
+                <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.7, margin: 0 }}>{roleSeo.mapAdvice}</p>
+              </div>
+              <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 22 }}>
+                <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)', fontSize: 11, letterSpacing: 1.8, marginBottom: 10 }}>REVISIÓN DE VOD</div>
+                <ul style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65, margin: 0, paddingLeft: 18 }}>
+                  {roleSeo.vodReview.map(item => <li key={item} style={{ marginBottom: 7 }}>{item}</li>)}
+                </ul>
+              </div>
+            </div>
+            <div style={{ marginTop: 18, color: 'var(--text3)', fontSize: 12, display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+              <span>Revisado por Replaid Lab · 5 de septiembre de 2026</span>
+              <Link href="/contact" style={{ color: 'var(--text3)' }}>Comunicar una corrección</Link>
             </div>
           </section>
         )}
@@ -185,7 +198,7 @@ export default async function TopicArchivePage({
           <div style={{ display: 'flex', flexDirection: 'column', gap: 44 }}>
             <Section title="Guías y consejos">
               {indexableGuides.length === 0 ? (
-                <EmptyCopy text="Todavía no hay guías pilar publicadas para este tema." />
+                <EmptyCopy text="Todavía no hemos publicado una guía completa para este tema." />
               ) : (
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 14 }}>
                   {indexableGuides.map((guide: any) => (
@@ -242,7 +255,7 @@ export default async function TopicArchivePage({
                 REVISA TU PARTIDA
               </div>
               <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.6, margin: '0 0 14px' }}>
-                Usa esta hemeroteca como base y recibe feedback aplicado a tus propias decisiones en partida.
+                Si repites el mismo error y no consigues localizarlo, una revisión externa puede ayudarte a verlo con más claridad.
               </p>
               <Link href={kind === 'role' ? `/experts?role=${slug}` : '/experts'} className="btn btn-primary btn-sm">VER EXPERTOS</Link>
             </div>
@@ -267,14 +280,6 @@ export default async function TopicArchivePage({
               </div>
             )}
 
-            <div style={{ background: 'var(--surface)', border: '1px solid rgba(255,107,43,0.25)', padding: '18px' }}>
-              <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)', fontSize: 10, letterSpacing: 1.5, marginBottom: 8 }}>
-                PATROCINIO DISPONIBLE
-              </div>
-              <p style={{ color: 'var(--text2)', fontSize: 12, lineHeight: 1.55, margin: 0 }}>
-                Espacio nativo para herramientas, hardware o recursos útiles para jugadores de Overwatch. Siempre etiquetado.
-              </p>
-            </div>
           </aside>
         </div>
       </main>
@@ -350,12 +355,45 @@ function buildTopicContent(kind: 'hero' | 'role' | 'map', slug: string, title: s
   const label = kind === 'role' ? ROLE_LABELS[slug as ContentRole] || title.replace(' en Overwatch', '') : topicLabel(slug)
 
   if (kind === 'role') {
+    const roleProfile = ROLE_SEO[slug as keyof typeof ROLE_SEO]
+    if (roleProfile) {
+      const roleFaqs = {
+        tank: [
+          { question: '¿Cómo sé si estoy creando espacio como Tank?', answer: 'Tu equipo puede avanzar, mantener ángulos o cruzar una zona que antes era peligrosa. Recibir daño sin que nadie gane una posición no es crear espacio.' },
+          { question: '¿Cuándo debo iniciar una pelea?', answer: 'Cuando tus compañeros pueden seguirte, tienes una cobertura que alcanzar y el rival ha gastado o enseñado parte de sus recursos. Marca la ruta antes de entrar.' },
+          { question: '¿Debo cambiar de Tank si me counterean?', answer: 'Cambia si el mapa y varios picks rivales niegan tu trabajo incluso después de adaptar ruta y timing. Un counter aislado no obliga siempre a abandonar el héroe.' },
+        ],
+        dps: [
+          { question: '¿Cómo sé si mi ángulo de DPS es bueno?', answer: 'Amenaza a un objetivo distinto del que mira a tu Tank, tiene cobertura y permite volver sin desaparecer de la pelea durante demasiado tiempo.' },
+          { question: '¿Daño o eliminaciones: qué importa más?', answer: 'Importa que el daño fuerce recursos, posiciones o bajas. Disparar mucho al Tank puede inflar la estadística sin acercar al equipo a ganar la pelea.' },
+          { question: '¿Cuándo cambio de DPS?', answer: 'Cuando tu rango, movilidad o tipo de daño no puede cumplir la función que necesita el mapa. Antes revisa si el problema era el pick o un ángulo mal elegido.' },
+        ],
+        support: [
+          { question: '¿Un Support debe hacer daño?', answer: 'Sí, cuando ningún aliado corre peligro inmediato. La presión ayuda a cerrar bajas y reduce el daño futuro, pero no debe llegar a costa de curar siempre tarde.' },
+          { question: '¿Cómo sobrevivo a un dive?', answer: 'Prepara cobertura, juega a distancia de ayuda del otro Support y guarda una respuesta para la entrada real. Cambiar de posición después de cada pelea evita rutas previsibles.' },
+          { question: '¿A quién debo curar primero?', answer: 'Al aliado que está en peligro y todavía puede mantenerse en la pelea. La vida más baja no siempre es la prioridad si ese jugador ya está a salvo o fuera de alcance.' },
+        ],
+      }
+
+      return {
+        overview: roleProfile.overview,
+        quickWins: roleProfile.quickWins,
+        links: [
+          { label: `Guía completa de ${roleProfile.title}`, href: `/guides/como-mejorar-como-${slug}-overwatch` },
+          { label: `Héroes de ${roleProfile.title}`, href: `/heroes?role=${slug}` },
+          { label: `Expertos de ${roleProfile.title}`, href: `/experts?role=${slug}` },
+          { label: 'Cómo revisar una VOD', href: '/guides/como-mejorar-en-overwatch-revisando-vod' },
+        ],
+        faqs: roleFaqs[slug as keyof typeof roleFaqs] ?? [],
+      }
+    }
+
     return {
-      overview: `${label} es una de las formas más útiles de ordenar una review de Overwatch: te ayuda a separar errores de mecánicas, decisiones de macro, uso de cooldowns y timing de ultimates. Usa esta página como punto de entrada para encontrar guías, noticias y expertos relacionados con el rol.`,
+      overview: `La selección flexible depende de lo que necesite el equipo en cada mapa y pelea. Revisa primero qué función falta antes de cambiar de héroe.`,
       quickWins: [
-        { title: 'Revisa tu primera muerte', body: 'Pregúntate si moriste por falta de cobertura, mal timing o por gastar tarde un recurso defensivo.' },
-        { title: 'Mide tu impacto', body: 'No mires solo daño, curación o eliminaciones: busca qué recurso rival forzaste y qué espacio ganó tu equipo.' },
-        { title: 'Conecta con el equipo', body: 'Una buena jugada aislada puede ser inútil si tu equipo no podía seguirla o castigarla.' },
+        { title: 'Detecta el problema', body: 'Distingue entre falta de espacio, presión o supervivencia antes de elegir otro héroe.' },
+        { title: 'Conserva una función', body: 'El cambio debe resolver algo concreto sin dejar otra tarea importante completamente descubierta.' },
+        { title: 'Espera una pelea limpia', body: 'Evita encadenar cambios después de cada muerte sin probar el nuevo plan con el equipo completo.' },
       ],
       links: [
         { label: 'Todas las guías de Overwatch', href: '/guides' },
