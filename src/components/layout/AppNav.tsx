@@ -69,7 +69,7 @@ export default function AppNav({ role = 'user', displayName, avatarUrl }: AppNav
       <div style={{ flex: 1 }} />
 
       <a href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</a>
-      <a href="/counters" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Counters</a>
+      <a href="/pick-lab" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Pick Lab</a>
       <a href="/team-comps" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Composiciones</a>
       <a href="/news" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Noticias</a>
       <a href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</a>
@@ -137,7 +137,7 @@ export default function AppNav({ role = 'user', displayName, avatarUrl }: AppNav
             </div>
             <a href={panelHref} style={menuLinkStyle('var(--accent)')} onClick={() => setOpen(false)}>Mi panel</a>
             <a href="/profile" style={menuLinkStyle('var(--text2)')} onClick={() => setOpen(false)}>Mi perfil</a>
-            <a href="/counters" style={menuLinkStyle('var(--text2)')} onClick={() => setOpen(false)}>Counters</a>
+            <a href="/pick-lab" style={menuLinkStyle('var(--text2)')} onClick={() => setOpen(false)}>Pick Lab</a>
             <a href="/team-comps" style={menuLinkStyle('var(--text2)')} onClick={() => setOpen(false)}>Composiciones</a>
             <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" style={menuLinkStyle('var(--accent)')} onClick={() => setOpen(false)}>Discord Replaid Lab</a>
             <button
