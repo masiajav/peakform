@@ -13,6 +13,8 @@ Marketplace y hemeroteca SEO de Overwatch para el publico hispanohablante. La ap
 - SEO tecnico con canonicales, sitemap, robots, JSON-LD global, iconos, manifest y OG image.
 - Paneles protegidos para usuario, experto y admin.
 - Gestion admin de expertos, pedidos, guias y anuncios.
+- Pick Lab web para recomendar heroes por mapa, sinergias y counters.
+- Companion de Overwolf en `apps/replaid-coach-overlay` para llevar esas recomendaciones a la seleccion de heroe sin separar repos.
 
 ## Requisitos
 
@@ -69,9 +71,20 @@ Notas:
 ```bash
 npm run dev      # servidor local
 npm run build    # build de produccion
+npm run overlay:build # empaquetar companion de Overwolf en apps/replaid-coach-overlay/dist
 npm run start    # servir el build
 npm run lint     # lint de Next.js
 ```
+
+## Estrategia De Repositorio
+
+Replaid se mantiene como monorepo ligero. La web principal y Pick Lab viven en la raiz; apps auxiliares con runtime propio viven en `apps/*`.
+
+No se usan npm workspaces por ahora. El overlay de Overwolf no tiene dependencias propias complejas y se construye desde la raiz con `npm run overlay:build`.
+
+La apuesta que se esta validando primero es Pick Lab: recomendaciones de heroes explicadas por mapa, composicion aliada y rivales visibles. Overwolf queda como companion ligero para mostrar el mismo motor durante la seleccion de heroe. El analisis post-game permanece como posible ampliacion posterior, junto al flujo existente de reviews de expertos.
+
+La decision completa y los criterios para separar repos mas adelante estan documentados en `docs/repository-strategy.md`.
 
 ## Vercel
 
@@ -155,6 +168,8 @@ Reembolsos:
 Publicas:
 
 - `/`: landing y entrada al marketplace.
+- `/pick-lab`: recomendaciones de picks y consulta rapida de counters.
+- `/counters`: indice editorial de matchups con acceso al modo de counters de Pick Lab.
 - `/experts`: listado de expertos activos.
 - `/experts/[id]`: perfil de experto y selector de tiers.
 - `/guides`, `/guides/[slug]`: guias SEO.
@@ -239,6 +254,8 @@ src/
 supabase/
   migrations/           Migraciones SQL incrementales y seed editorial
 supabase-schema.sql     Esquema base ejecutable desde SQL Editor
+apps/
+  replaid-coach-overlay/ Companion Overwolf con fuente en src/ y build cargable en dist/
 ```
 
 ## Convenciones De Producto
@@ -249,6 +266,8 @@ supabase-schema.sql     Esquema base ejecutable desde SQL Editor
 - Comision de plataforma: 20% sobre el precio base del experto.
 - Tiers: `starter`, `pro`, `deep_dive` y `trial`.
 - El experto fija precios base; el jugador paga precio base + comision.
+- Producto en validacion: recomendaciones pre-partida en Pick Lab; Overwolf lleva el mismo motor a la seleccion de heroe.
+- El analisis post-game queda como ampliacion futura y no forma parte de este MVP.
 - Estilo visual: fondo oscuro, acento `#ff6b2b`, titulares con Bebas Neue y cuerpo con DM Sans.
 - La interfaz mantiene `border-radius: 0` globalmente.
 
@@ -258,6 +277,7 @@ supabase-schema.sql     Esquema base ejecutable desde SQL Editor
 git status --short
 npm run lint
 npm run build
+npm run overlay:build
 ```
 
 Tambien conviene probar manualmente:

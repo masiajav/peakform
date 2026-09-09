@@ -2,11 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import JsonLd from '@/components/content/JsonLd'
 import SeoFaq from '@/components/content/SeoFaq'
-import CounterExplorer from './CounterExplorer'
 import { COUNTER_HEROES } from '@/lib/overwatch-counters'
 import { PILLAR_COUNTER_SLUGS } from '@/lib/indexing-policy'
 import SiteNav from '@/components/layout/PublicNav'
-import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
@@ -54,9 +52,20 @@ export default function CountersPage() {
             COUNTERS DE OVERWATCH POR HÉROE
           </h1>
           <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.65, margin: 0 }}>
-            Selecciona un héroe y mira qué picks le molestan, qué cooldown tienes que esperar y cuándo el problema no es el counter sino tu timing. Si buscas counter de Zarya, Tracer, Genji, Ana o Shion, empieza por aquí y baja después al matchup concreto.
+            Consulta matchups concretos por héroe o abre Pick Lab para encontrar respuestas por rol. Si buscas counter de Zarya, Tracer, Genji, Ana o Shion, empieza por las guías revisadas de esta página.
           </p>
         </header>
+
+        <section style={{ alignItems: 'center', background: 'var(--surface2)', border: '1px solid var(--border2)', display: 'grid', gap: 22, gridTemplateColumns: 'minmax(0, 1fr) auto', marginBottom: 20, padding: 22 }}>
+          <div>
+            <div className="eyebrow">HERRAMIENTA DE MATCHUPS</div>
+            <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 32, letterSpacing: 0, margin: '0 0 8px' }}>Busca el counter dentro de Pick Lab</h2>
+            <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.6, margin: 0 }}>
+              El selector rápido y las recomendaciones por composición ahora viven juntos en una sola herramienta.
+            </p>
+          </div>
+          <Link href="/pick-lab?mode=counters" className="btn btn-primary">ABRIR COUNTER RÁPIDO</Link>
+        </section>
 
         <section style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 22, marginBottom: 20 }}>
           <div className="eyebrow">CÓMO LEER UN COUNTER</div>
@@ -103,30 +112,9 @@ export default function CountersPage() {
           </div>
         </section>
 
-        <CounterExplorer />
         <p style={{ color: 'var(--text3)', fontSize: 12, margin: '28px 0 0' }}>Matchups revisados por Replaid Lab · 5 de septiembre de 2026 · <Link href="/contact" style={{ color: 'var(--text3)' }}>Comunicar una corrección</Link></p>
         <SeoFaq items={faq} title="Preguntas sobre counters de Overwatch" />
       </main>
     </div>
-  )
-}
-
-function PublicNav() {
-  return (
-    <nav style={{
-      height: 52, background: 'var(--bg)', borderBottom: '1px solid var(--border)',
-      display: 'flex', alignItems: 'center', padding: '0 24px', gap: 20,
-      position: 'sticky', top: 0, zIndex: 100,
-    }}>
-      <Link href="/" style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3, textDecoration: 'none' }}>
-        REPLAID LAB
-      </Link>
-      <div style={{ flex: 1 }} />
-      <Link href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</Link>
-      <Link href="/counters" className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Counters</Link>
-      <Link href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
-      <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>
-      <Link href="/login" className="btn btn-primary btn-sm">ENTRAR</Link>
-    </nav>
   )
 }

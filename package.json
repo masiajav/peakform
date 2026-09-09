@@ -7,6 +7,8 @@
     "build": "next build",
     "build:e2e": "cross-env NEXT_DIST_DIR=.next-e2e next build",
     "build:verify": "cross-env NEXT_DIST_DIR=.next-verify next build",
+    "overlay:build": "npm --prefix apps/replaid-coach-overlay run build",
+    "overlay:test": "npm --prefix apps/replaid-coach-overlay test",
     "start": "next start",
     "start:e2e": "cross-env NEXT_DIST_DIR=.next-e2e next start",
     "audit:content": "node scripts/audit-public-content.mjs",
