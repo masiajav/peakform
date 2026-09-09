@@ -259,7 +259,7 @@ export default function PickLab() {
     <main className={styles.page}>
       <header className={styles.pageHeader}>
         <div>
-          <h1>Pick Lab</h1>
+          <h1>Pick Lab de Overwatch</h1>
           <p>{mode === 'recommend' ? 'Tres picks razonados para la composición que tienes delante.' : 'Respuestas directas para el matchup que quieres resolver.'}</p>
         </div>
         <div className={styles.headerActions}>
@@ -511,6 +511,52 @@ export default function PickLab() {
           </div>
         </section>
       )}
+
+      <section className={styles.seoContent} aria-labelledby="pick-lab-guide-title">
+        <div className={styles.seoIntro}>
+          <div>
+            <span className={styles.eyebrow}>ELIGE CON CONTEXTO</span>
+            <h2 id="pick-lab-guide-title">Cómo elegir héroe en Overwatch según mapa, sinergias y counters</h2>
+          </div>
+          <p>
+            El mejor pick no sale de una tier list aislada. Depende del espacio que ofrece el mapa, de cómo quiere pelear tu equipo y de las amenazas que ya ha mostrado el rival. Pick Lab cruza esas tres señales para proponerte opciones de tu rol y explicar por qué encajan.
+          </p>
+        </div>
+
+        <div className={styles.seoSteps}>
+          <article>
+            <span>01</span>
+            <h3>Empieza por tu equipo</h3>
+            <p>Añade los aliados confirmados para buscar héroes que compartan ritmo, alcance y condición de victoria. Una buena sinergia hace que el pick necesite menos recursos para funcionar.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Añade los rivales visibles</h3>
+            <p>Introduce solo la información que tengas. El recomendador valora respuestas directas sin asumir que un counter gana por sí solo: posición, cooldowns y coordinación siguen decidiendo el matchup.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Comprueba el mapa</h3>
+            <p>Alturas, calles largas y espacios cerrados cambian el valor de cada héroe. Usa el resultado como una lista corta y elige dentro de ella el pick que puedas ejecutar con más consistencia.</p>
+          </article>
+        </div>
+
+        <div className={styles.popularMatchups}>
+          <div>
+            <span className={styles.eyebrow}>MATCHUPS POPULARES</span>
+            <h2>Guías completas de counters</h2>
+            <p>Consulta ventanas de castigo, errores frecuentes y adaptaciones que no siempre requieren cambiar de héroe.</p>
+          </div>
+          <nav aria-label="Counters populares de Overwatch">
+            <Link href="/counters/zarya">Counters de Zarya</Link>
+            <Link href="/counters/tracer">Counters de Tracer</Link>
+            <Link href="/counters/genji">Counters de Genji</Link>
+            <Link href="/counters/ana">Counters de Ana</Link>
+            <Link href="/counters/kiriko">Counters de Kiriko</Link>
+            <Link href="/counters/dva">Counters de D.Va</Link>
+          </nav>
+        </div>
+      </section>
     </main>
   )
 
