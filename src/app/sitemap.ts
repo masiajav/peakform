@@ -59,7 +59,7 @@ const STATIC_LAST_MODIFIED: Record<string, string> = {
   '/guides/como-jugar-reinhardt-ranked-overwatch': '2026-09-05',
   '/guides/como-jugar-dva-ranked-overwatch': '2026-09-05',
   '/guides/como-jugar-winston-ranked-overwatch': '2026-09-05',
-  '/pick-lab': '2026-09-06',
+  '/pick-lab': '2026-09-09',
   '/roles/tank': '2026-09-05',
   '/roles/dps': '2026-09-05',
   '/roles/support': '2026-09-05',
