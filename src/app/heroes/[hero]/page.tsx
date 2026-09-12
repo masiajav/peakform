@@ -220,7 +220,7 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
     image: image ? absoluteUrl(image) : undefined,
     url: pageUrl,
     datePublished: isDoctrine ? '2026-09-12' : pillar.slug === 'dmon' ? '2026-08-06' : '2026-06-26',
-    dateModified: isDoctrine ? '2026-09-12' : pillar.slug === 'dmon' ? '2026-08-11' : '2026-07-24',
+    dateModified: isDoctrine ? '2026-09-13' : pillar.slug === 'dmon' ? '2026-08-11' : '2026-07-24',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -912,9 +912,9 @@ function buildHeroHeaderTips(pillar: HeroPillar) {
 
   if (pillar.slug === 'doctrine') {
     return [
-      'Para jugar Doctrine: alterna curación y daño con intención. Ser agresivo no significa dejar de mirar la vida de tu equipo.',
-      'Para jugar contra él: divide la presión y oblígalo a cambiar de objetivo mientras busca cobertura o ayuda.',
-      'Mejor contexto inicial: ángulos donde pueda ver a aliados y enemigos sin exponerse. El hero trial dirá cuánto aguanta en dive y brawl.',
+      'Para jugar Doctrine: decide antes de usar Imbuir si necesitas mejorar el disparo, volar con Impulso velado o recibir el efecto de los drones.',
+      'Para jugar contra él: divide la presión y fuerza Impulso velado antes de comprometer el dive. Sin movilidad tiene menos margen para alternar entre curar y defenderse.',
+      'Mejor contexto inicial: ángulos de media distancia desde los que pueda ver a aliados y enemigos, con un compañero capaz de aprovechar la velocidad de ataque de los drones.',
     ]
   }
 
@@ -997,7 +997,7 @@ function buildHeroQuickAnswers(pillar: HeroPillar) {
       },
       {
         title: 'Estado del héroe',
-        body: 'El hero trial empezó el 12 de septiembre y el lanzamiento completo llegará con Season 5. Blizzard confirma curación y daño mediante ataques, con un skill floor mecánico alto.',
+        body: 'El hero trial empezó el 12 de septiembre y el lanzamiento completo llegará con Season 5. Su kit gira alrededor de Cetro eterno, Imbuir, Impulso velado, Drones vigorizantes y Liberación.',
       },
     ]
   }

@@ -6,13 +6,13 @@ import PublicNav from '@/components/layout/PublicNav'
 import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 
 const PAGE_PATH = '/doctrine-support-sombra-roadhog-rework-overwatch'
-const PAGE_IMAGE = '/news/blizzcon-2026-overwatch-roster.png'
+const PAGE_IMAGE = '/news/doctrine-overwatch-blizzcon-2026-roster.webp'
 const DOCTRINE_IMAGE = '/heroes/doctrine.png'
 const MYTHIC_IMAGE = '/news/blizzcon-2026-mythic-voucher.png'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Doctrine llega a Overwatch: Sombra Support y rework de Roadhog',
-  description: 'BlizzCon confirma a Doctrine como nuevo Support, el cambio de Sombra a Support, el rework de Roadhog, una mítica gratis y el teaser de otro héroe.',
+  title: 'Doctrine Overwatch: habilidades, perks y BlizzCon',
+  description: 'Doctrine ya tiene kit: Cetro eterno, Imbuir, Drones vigorizantes y Liberación. Repasamos sus perks y los reworks de Sombra y Roadhog.',
   path: PAGE_PATH,
   image: PAGE_IMAGE,
   type: 'article',
@@ -21,7 +21,7 @@ export const metadata: Metadata = buildMetadata({
 const quickFacts = [
   {
     title: 'Doctrine es Support',
-    body: 'Es el héroe 54 de Overwatch. Su hero trial ya está activo y su lanzamiento completo está previsto para Season 5.',
+    body: 'Es el héroe 54 de Overwatch. Cura y hace daño con Cetro eterno, potencia habilidades con Imbuir y llegará de forma completa en Season 5.',
   },
   {
     title: 'Sombra cambia de rol',
@@ -29,7 +29,7 @@ const quickFacts = [
   },
   {
     title: 'Roadhog recibe rework',
-    body: 'Blizzard también ha confirmado una revisión importante de Roadhog. Actualizaremos su guía cuando esté publicado el kit completo.',
+    body: 'Blizzard también ha confirmado una revisión importante de Roadhog, aunque todavía no ha enseñado el kit completo.',
   },
   {
     title: 'Hay una mítica gratis',
@@ -41,22 +41,80 @@ const quickFacts = [
   },
 ]
 
+const doctrineAbilities = [
+  {
+    title: 'Cetro eterno',
+    body: 'Arma de alcance medio que cura aliados y daña enemigos. Con Imbuir dispara un proyectil perforador más grande.',
+  },
+  {
+    title: 'Imbuir',
+    body: 'Potencia la siguiente habilidad. La decisión está en reservarlo para el disparo, la movilidad o los drones según lo que pida la pelea.',
+  },
+  {
+    title: 'Impulso velado',
+    body: 'Desplaza a Doctrine horizontalmente y reduce el daño que recibe. La versión imbuida permite volar libremente.',
+  },
+  {
+    title: 'Drones vigorizantes',
+    body: 'Envía drones a un aliado para curarlo y aumentar su velocidad de ataque. Con Imbuir, Doctrine también recibe el efecto.',
+  },
+  {
+    title: 'Liberación',
+    body: 'Su definitiva reduce la salud máxima de los enemigos alcanzados y concede exceso de salud a los aliados.',
+  },
+  {
+    title: 'Superviviente',
+    body: 'La pasiva de subrol activa la regeneración de salud cuando Doctrine utiliza una habilidad de movimiento.',
+  },
+]
+
+const doctrinePerks = [
+  {
+    title: 'Minor · Salvación',
+    body: 'Al aplicar Drones vigorizantes, el objetivo recupera 40 de salud antes de que continúe el efecto habitual.',
+  },
+  {
+    title: 'Minor · Succión sanguinaria',
+    body: 'Doctrine recupera un 50% del daño infligido con el disparo imbuido de Cetro eterno.',
+  },
+  {
+    title: 'Major · Transfusión',
+    body: 'El daño y la curación reducen el cooldown de Imbuir, premiando una aportación constante durante la pelea.',
+  },
+  {
+    title: 'Major · El precio de la vida',
+    body: 'Reduce en 25 la salud máxima de Doctrine y aumenta un 20% la curación de Cetro eterno.',
+  },
+]
+
 const faqs = [
   {
     question: '¿Doctrine es Tank, DPS o Support?',
-    answer: 'Doctrine es Support. Es el héroe 54 de Overwatch y su kit permite curar aliados y dañar enemigos mediante sus ataques.',
+    answer: 'Doctrine es Support. Es el héroe 54 de Overwatch y utiliza Cetro eterno para curar aliados o hacer daño a enemigos a media distancia.',
   },
   {
     question: '¿Cuándo se puede jugar Doctrine?',
     answer: 'Su hero trial comenzó el 12 de septiembre de 2026. El lanzamiento completo está previsto para Season 5.',
   },
   {
+    question: '¿Cuáles son las habilidades de Doctrine?',
+    answer: 'Doctrine cuenta con Cetro eterno, Imbuir, Impulso velado y Drones vigorizantes. Su definitiva se llama Liberación y su pasiva de subrol es Superviviente.',
+  },
+  {
+    question: '¿Qué hace la ultimate de Doctrine?',
+    answer: 'Liberación lanza un enjambre de drones que reduce la salud máxima de los enemigos y concede exceso de salud a los aliados afectados.',
+  },
+  {
+    question: '¿Qué perks tiene Doctrine?',
+    answer: 'Doctrine puede elegir Salvación o Succión sanguinaria como perk menor, y Transfusión o El precio de la vida como perk mayor.',
+  },
+  {
     question: '¿Sombra pasa a ser Support?',
-    answer: 'Sí. Blizzard ha anunciado un rework que mueve a Sombra al rol de Support. Hasta que la actualización llegue al juego, seguirá apareciendo como DPS en las herramientas que reflejan el parche live.',
+    answer: 'Sí. Blizzard ha anunciado un rework que mueve a Sombra al rol de Support. Hasta que la actualización llegue al juego, seguirá apareciendo como DPS porque ese es su rol en el parche actual.',
   },
   {
     question: '¿Roadhog va a recibir un rework?',
-    answer: 'Sí. El rework de Roadhog está confirmado. Su guía se actualizará cuando estén disponibles todos los cambios y podamos separar el diseño anunciado de su rendimiento real.',
+    answer: 'Sí. El rework de Roadhog está confirmado. Hasta que se publiquen todos los cambios, todavía no se puede valorar cómo afectará a su rendimiento ni a sus matchups.',
   },
   {
     question: '¿Cómo consigo la skin mítica gratis de BlizzCon?',
@@ -74,11 +132,11 @@ export default function DoctrineBlizzConNewsPage() {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
     headline: 'Doctrine llega a Overwatch: Sombra será Support y Roadhog tendrá rework',
-    description: 'Resumen de los anuncios de Overwatch en BlizzCon 2026: Doctrine, reworks de Sombra y Roadhog, vale mítico y teaser de otro héroe.',
+    description: 'Habilidades y perks de Doctrine junto a los anuncios de Overwatch en BlizzCon 2026: reworks de Sombra y Roadhog, vale mítico y nuevo teaser.',
     image: [absoluteUrl(PAGE_IMAGE), absoluteUrl(DOCTRINE_IMAGE), absoluteUrl(MYTHIC_IMAGE)],
     url: pageUrl,
     datePublished: '2026-09-12',
-    dateModified: '2026-09-12',
+    dateModified: '2026-09-13',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -123,7 +181,7 @@ export default function DoctrineBlizzConNewsPage() {
               DOCTRINE LLEGA A OVERWATCH: <span style={{ color: 'var(--accent)' }}>SOMBRA SERÁ SUPPORT</span> Y ROADHOG TENDRÁ REWORK
             </h1>
             <p style={{ color: 'var(--text2)', fontSize: 17, lineHeight: 1.72, margin: '0 0 14px' }}>
-              Overwatch ya tiene nuevo héroe confirmado. Doctrine será Support, se puede probar desde hoy y llegará de forma completa con Season 5. El anuncio viene acompañado por dos cambios grandes: Sombra abandona el rol de DPS para pasar a Support y Roadhog recibe un nuevo rework.
+              Overwatch ya tiene nuevo héroe confirmado. Doctrine será Support, ya se puede probar y llegará de forma completa con Season 5. El anuncio viene acompañado por dos cambios grandes: Sombra abandona el rol de DPS para pasar a Support y Roadhog recibe un nuevo rework.
             </p>
             <p style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.72, margin: '0 0 18px' }}>
               Además, la celebración deja un regalo fácil de conseguir y una pista sobre el futuro: basta con jugar una partida después de la ceremonia para recibir un vale canjeable por una skin mítica, y Blizzard ha enseñado la silueta de otro héroe todavía sin nombre.
@@ -134,10 +192,10 @@ export default function DoctrineBlizzConNewsPage() {
             </div>
           </div>
 
-          <div style={{ position: 'relative', aspectRatio: '16 / 9', background: 'var(--surface)', border: '1px solid var(--border)', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', aspectRatio: '1741 / 916', background: 'var(--surface)', border: '1px solid var(--border)', overflow: 'hidden' }}>
             <Image
               src={PAGE_IMAGE}
-              alt="Héroes de Overwatch presentados en BlizzCon 2026"
+              alt="Doctrine junto a los héroes presentados para Overwatch en BlizzCon 2026"
               fill
               priority
               sizes="(max-width: 768px) 100vw, 520px"
@@ -172,13 +230,24 @@ export default function DoctrineBlizzConNewsPage() {
                 Doctrine es el héroe 54 y la nueva incorporación de Talon. Su presentación lo coloca cerca de Doomfist y Sombra, y abre otro capítulo para una facción que vuelve a ganar peso tanto en la historia como en el roster jugable.
               </p>
               <p style={{ margin: 0 }}>
-                En gameplay, lo confirmado es muy concreto: sus ataques pueden curar aliados o dañar enemigos. Eso lo convierte en un Support de puntería y cambios rápidos de objetivo. Los desarrolladores hablan de un skill floor mecánico alto, así que no parece diseñado para dejar una cura pasiva funcionando mientras miras otra parte de la pelea.
+                Cetro eterno es un arma de alcance medio que cura aliados y daña enemigos. La pieza que une el kit es Imbuir: potencia la siguiente habilidad y puede convertir el disparo en un proyectil perforador mayor, dar vuelo libre a Impulso velado o hacer que los Drones vigorizantes también beneficien a Doctrine.
               </p>
               <p style={{ margin: 0 }}>
-                El hero trial ya está activo. Es el mejor momento para probar sensaciones, alcance y ritmo, pero no para cerrar una tier definitiva. Los valores, cooldowns y perks todavía pueden moverse antes de su lanzamiento con Season 5.
+                Sus drones curan y aumentan la velocidad de ataque de un aliado. Liberación, su definitiva, juega a una escala mayor: reduce la salud máxima del equipo rival y concede exceso de salud a los aliados. Es una ultimate pensada para inclinar la pelea, no para lanzarla cuando nadie puede aprovechar la ventaja.
+              </p>
+              <p style={{ margin: 0 }}>
+                El hero trial ya está activo. El kit está confirmado, aunque sus números todavía podrían cambiar antes del lanzamiento con Season 5. Las primeras partidas servirán para medir cuánto puede arriesgar Doctrine y qué uso de Imbuir resulta más consistente.
               </p>
               <Link href="/heroes/doctrine" style={{ color: 'var(--accent)', fontWeight: 700 }}>Ver la guía y el kit confirmado de Doctrine →</Link>
             </div>
+          </div>
+          <h3 style={{ ...headingStyle, fontSize: 28, marginTop: 24 }}>Kit de Doctrine</h3>
+          <div style={cardGridStyle}>
+            {doctrineAbilities.map(item => <InfoCard key={item.title} title={item.title} body={item.body} />)}
+          </div>
+          <h3 style={{ ...headingStyle, fontSize: 28, marginTop: 24 }}>Perks menores y mayores</h3>
+          <div style={cardGridStyle}>
+            {doctrinePerks.map(item => <InfoCard key={item.title} title={item.title} body={item.body} />)}
           </div>
         </section>
 
@@ -189,7 +258,7 @@ export default function DoctrineBlizzConNewsPage() {
             El cambio de Sombra no es un ajuste menor. Moverla a Support obliga a replantear su función dentro de la composición: cuánto de su valor seguirá viniendo de Hack, cómo ayudará a mantener vivo al equipo y qué parte de su presión de flanco conservará después del rework.
           </p>
           <p style={paragraphStyle}>
-            Hasta que el parche esté disponible, nuestras herramientas seguirán mostrando a Sombra como DPS porque reflejan el estado live del juego. En cuanto llegue el rework actualizaremos su rol, counters, comps y guía a la vez. Así evitamos recomendar una versión futura en partidas donde todavía se juega el kit anterior.
+            Hasta que el parche esté disponible, Sombra seguirá siendo DPS en el juego. Conviene separar bien las dos versiones: las decisiones, counters y composiciones del rework no sirven todavía para las partidas que se están jugando hoy.
           </p>
           <div style={{ background: 'var(--surface2)', borderLeft: '3px solid var(--accent)', padding: 18, color: 'var(--text2)', lineHeight: 1.65 }}>
             <strong style={{ color: 'var(--text)' }}>La pregunta clave:</strong> no es si Sombra seguirá haciendo daño, sino qué utilidad defensiva u ofensiva tendrá para justificar uno de los dos slots de Support.
@@ -203,7 +272,7 @@ export default function DoctrineBlizzConNewsPage() {
             Roadhog vuelve a pasar por una revisión importante. El anuncio confirma el rework, pero la lectura útil llegará cuando podamos ver el kit completo y probar qué ocurre con su capacidad de pick, su sustain y la forma en la que ocupa espacio como Tank.
           </p>
           <p style={paragraphStyle}>
-            No vamos a rellenar esa espera con números inventados. Cuando Blizzard publique el desglose, actualizaremos la guía de Roadhog y todos los matchups afectados. Un cambio en Hook, Take a Breather o su control de espacio puede mover muchas páginas a la vez, especialmente las de supports sin movilidad y composiciones anti-dive.
+            Hasta que conozcamos el desglose, cualquier conclusión sobre sus counters sería prematura. Un cambio en Hook, Take a Breather o su control de espacio puede alterar por completo cómo se juega contra él, especialmente para supports sin movilidad y composiciones anti-dive.
           </p>
         </section>
 
@@ -248,7 +317,7 @@ export default function DoctrineBlizzConNewsPage() {
           <div className="eyebrow">QUÉ HACER AHORA</div>
           <h2 style={headingStyle}>Un plan sencillo para este fin de semana</h2>
           <div style={cardGridStyle}>
-            <InfoCard title="Prueba Doctrine" body="Juega unas partidas centrado en su ciclo de curación y daño. Apunta cuándo pierdes valor por mala posición y cuándo por aim." />
+            <InfoCard title="Prueba Doctrine" body="Juega unas partidas centrado en el uso de Imbuir. Comprueba cuándo te compensa potenciar el disparo, los drones o la movilidad." />
             <InfoCard title="Consigue el vale" body="Completa una partida después de la ceremonia y comprueba el apartado de recompensas antes de elegir la mítica." />
             <InfoCard title="No borres a Sombra de tus planes" body="Su versión live sigue siendo DPS hasta que llegue el rework. Guarda las conclusiones nuevas para el parche correcto." />
             <InfoCard title="Espera al kit de Roadhog" body="El rework está confirmado, pero los counters solo deben cambiar cuando conozcamos las herramientas reales." />
@@ -269,10 +338,7 @@ export default function DoctrineBlizzConNewsPage() {
         </section>
 
         <section style={{ borderTop: '1px solid var(--border)', paddingTop: 24 }}>
-          <div className="eyebrow">FUENTES Y SIGUIENTE PASO</div>
-          <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65, maxWidth: 850 }}>
-            La identidad jugable de Doctrine y su llegada en Season 5 han sido recogidas a partir del anuncio de BlizzCon y la información publicada durante el hero trial. El segundo héroe solo se describe a partir de su teaser visual: no le atribuimos nombre, rol ni habilidades que todavía no se hayan anunciado.
-          </p>
+          <div className="eyebrow">ENLACES RELACIONADOS</div>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
             <a href="https://x.com/OWCavalry/status/2098836204599054663" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">VER GAMEPLAY</a>
             <a href="https://www.polygon.com/overwatch-new-hero-54-doctrine-blizzcon-2026/" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">LEER EL ANUNCIO</a>
