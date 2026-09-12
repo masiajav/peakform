@@ -11,6 +11,12 @@ import JsonLd from '@/components/content/JsonLd'
 
 const featuredNews = [
   {
+    href: '/doctrine-support-sombra-roadhog-rework-overwatch',
+    title: 'Doctrine llega a Overwatch: Sombra será Support y Roadhog tendrá rework',
+    date: '12 de septiembre de 2026',
+    description: 'Doctrine ya se puede probar, Sombra cambia de rol, Roadhog recibe rework, hay una mítica gratis y Blizzard ha enseñado la silueta de otro héroe.',
+  },
+  {
     href: '/blizzcon-2026-overwatch-horarios-espana',
     title: 'BlizzCon 2026: horarios de Overwatch en España',
     date: '2 de septiembre de 2026',
@@ -204,7 +210,7 @@ export default async function NewsPage() {
           <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.7, margin: '0 0 16px', maxWidth: 780 }}>
             También mantenemos visibles las noticias anteriores cuando siguen ayudando a entender un héroe, un mapa o el origen de un cambio que todavía afecta al juego actual.
           </p>
-          <div style={{ color: 'var(--text3)', fontSize: 12 }}>Última revisión del hub: 5 de septiembre de 2026 · Replaid Lab</div>
+          <div style={{ color: 'var(--text3)', fontSize: 12 }}>Última revisión del hub: 12 de septiembre de 2026 · Replaid Lab</div>
         </section>
       </section>
     </div>

@@ -86,6 +86,7 @@ export const DEFAULT_HEROES = [
   'bastion',
   'brigitte',
   'cassidy',
+  'doctrine',
   'dva',
   'domina',
   'doomfist',

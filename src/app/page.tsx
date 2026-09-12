@@ -24,17 +24,17 @@ export const metadata: Metadata = buildMetadata({
   path: '/',
 })
 
-const spotlightHeroSlugs = ['dmon', 'shion', 'sierra', 'mizuki']
+const spotlightHeroSlugs = ['doctrine', 'dmon', 'shion', 'sierra']
 const roleOrder: CounterRole[] = ['tank', 'dps', 'support']
 const heroBySlug = new Map(COUNTER_HEROES.map(hero => [hero.slug, hero]))
 const spotlightHeroes = pickHeroes(spotlightHeroSlugs)
 const seasonNews = [
-  { title: 'BlizzCon', label: 'Agenda', body: 'Horarios de Overwatch convertidos a España: ceremonia, dev livestream, Hero Deep Dive, World Cup y colaboraciones.' },
-  { title: 'D.Mon', label: 'Nuevo Tank', body: 'Ya disponible como Tank melee de MEKA: espada, barrera, Stalwart, movilidad horizontal y una lectura distinta a D.Va.' },
-  { title: 'Emerald', label: 'Nuevo rango', body: 'Rank reset y nuevo escalón competitivo: primera semana movida y muchas partidas raras.' },
-  { title: 'Battle Pass', label: 'Revamp', body: 'Tracks más claros, Hack Tiers y más control sobre qué recompensas quieres perseguir.' },
-  { title: 'Mapas', label: 'Reworks', body: 'Busan, Paraíso y Eichenwalde cambian rutas, coberturas y lectura de high ground.' },
-  { title: 'UI y balance', label: 'Lanzamiento', body: 'Nueva interfaz, balance de salida y mythic Koi of Duality Genji ya disponible por 50 prismas.' },
+  { title: 'Doctrine', label: 'Nuevo Support', body: 'El héroe 54 ya tiene hero trial: sus ataques curan aliados y dañan enemigos, con una exigencia mecánica alta.' },
+  { title: 'Sombra', label: 'Cambio de rol', body: 'El rework anunciado la mueve de DPS a Support y obliga a releer su utilidad, sus counters y sus comps.' },
+  { title: 'Roadhog', label: 'Rework', body: 'Blizzard confirma otra revisión importante del Tank. Actualizaremos matchups cuando esté el kit completo.' },
+  { title: 'Mítica gratis', label: 'Regalo', body: 'Juega una partida después de la ceremonia y consigue un vale para elegir una skin mítica de una selección.' },
+  { title: 'Season 5', label: 'Próxima temporada', body: 'Doctrine tendrá su lanzamiento completo con la nueva temporada y llegará también Watchpoint: Grímsvötn.' },
+  { title: 'Próximo héroe', label: 'Primer teaser', body: 'La silueta parece ómnica y lleva algo parecido a un paraguas. Todavía no hay nombre, rol ni kit confirmados.' },
 ]
 
 export default async function RootPage() {
@@ -152,16 +152,16 @@ export default async function RootPage() {
         </section>
 
         <section style={{ maxWidth: 1120, margin: '0 auto', padding: '20px 24px 44px' }}>
-          <Link href="/blizzcon-2026-overwatch-horarios-espana" style={{ textDecoration: 'none' }}>
+          <Link href="/doctrine-support-sombra-roadhog-rework-overwatch" style={{ textDecoration: 'none' }}>
             <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 24 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16, alignItems: 'start', marginBottom: 18, flexWrap: 'wrap' }}>
                 <div>
                   <div className="eyebrow">ÚLTIMAS NOVEDADES</div>
                   <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(32px, 5vw, 48px)', letterSpacing: 1, lineHeight: 1, margin: '0 0 8px' }}>
-                    BLIZZCON 2026: HORARIOS DE OVERWATCH EN ESPAÑA
+                    DOCTRINE, SOMBRA SUPPORT Y REWORK DE ROADHOG
                   </h2>
                   <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0, maxWidth: 760 }}>
-                    Agenda convertida a horario peninsular español: ceremonia de apertura, directo de desarrolladores, Hero Deep Dive, World Cup y bloque de arte y colaboraciones.
+                    El nuevo Support ya se puede probar. Además, Sombra cambia de rol, Roadhog recibe un rework, hay una mítica gratis y se ha enseñado la silueta de otro héroe.
                   </p>
                 </div>
                 <span className="btn btn-primary btn-sm">VER TODO</span>
@@ -360,7 +360,7 @@ function HomeHeroCard({ hero, compact = false, priority = false }: { hero: Count
             sizes={compact ? '(max-width: 768px) 42vw, 150px' : '(max-width: 768px) 42vw, 180px'}
             imageStyle={{ objectFit: 'contain', objectPosition: 'center bottom' }}
           />
-          {hero.slug === 'dmon' && <span className="home-hero-card-badge">NUEVO</span>}
+          {hero.slug === 'doctrine' && <span className="home-hero-card-badge">NUEVO</span>}
         </div>
         <div className="home-hero-card-body">
           <span className="home-hero-card-name">{hero.name}</span>

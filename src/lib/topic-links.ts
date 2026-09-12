@@ -5,6 +5,7 @@ export const PUBLIC_HERO_PAGE_SLUGS = [
   'genji',
   'reinhardt',
   'dmon',
+  'doctrine',
   'dva',
   'winston',
   'cassidy',

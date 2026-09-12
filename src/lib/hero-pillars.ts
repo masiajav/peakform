@@ -9,7 +9,7 @@ export type HeroPillarLink = {
 }
 
 export type HeroPillar = {
-  slug: 'ana' | 'kiriko' | 'genji' | 'reinhardt' | 'dmon' | 'dva' | 'winston' | 'cassidy' | 'tracer' | 'zarya'
+  slug: 'ana' | 'kiriko' | 'genji' | 'reinhardt' | 'dmon' | 'doctrine' | 'dva' | 'winston' | 'cassidy' | 'tracer' | 'zarya'
   name: string
   role: 'Tank' | 'Support' | 'DPS'
   roleSlug: 'tank' | 'support' | 'dps'
@@ -1047,6 +1047,130 @@ export const HERO_PILLARS: Record<string, HeroPillar> = {
       { href: '/guides/como-mejorar-como-dps-overwatch', label: 'Cómo mejorar como DPS' },
       { href: '/guides/cuando-cambiar-de-heroe-overwatch', label: 'Cuándo cambiar de héroe' },
       { href: '/experts', label: 'Revisar mi Tracer con un experto' },
+    ],
+  },
+  doctrine: {
+    slug: 'doctrine',
+    name: 'Doctrine',
+    role: 'Support',
+    roleSlug: 'support',
+    updatedAt: '12 de septiembre de 2026',
+    seoTitle: 'Doctrine en Overwatch: habilidades, rol Support y hero trial',
+    seoDescription: 'Doctrine es el nuevo Support de Overwatch. Repasamos su hero trial, cómo cura y hace daño, su dificultad mecánica y lo que sabemos antes de Season 5.',
+    h1: 'Doctrine en Overwatch: guía del nuevo Support',
+    kicker: 'Support ofensivo de Talon con curación y daño en el mismo aim',
+    intro: [
+      'Doctrine es el héroe 54 de Overwatch y llega como Support. Blizzard lo ha presentado en BlizzCon 2026 como un personaje de Talon con una propuesta bastante agresiva: sus ataques sirven tanto para curar aliados como para hacer daño a enemigos.',
+      'El hero trial ya está disponible desde el 12 de septiembre. Su estreno completo está previsto para Season 5, así que esta primera guía se centra en lo que sí está confirmado y en cómo probarlo con cabeza. Los nombres, números y cooldowns concretos pueden ajustarse después del test.',
+      'La idea importante es que Doctrine no parece un Support de curación automática. Blizzard habla de un skill floor mecánico alto: tendrás que acertar, cambiar de objetivo con rapidez y decidir cuándo sostener al equipo y cuándo presionar al rival.',
+    ],
+    facts: [
+      { title: 'Rol', body: 'Support.' },
+      { title: 'Estado', body: 'Hero trial disponible desde el 12 de septiembre de 2026; lanzamiento completo con Season 5.' },
+      { title: 'Facción', body: 'Talon. Su presentación lo conecta directamente con Doomfist y Sombra.' },
+      { title: 'Identidad', body: 'Support ofensivo: sus ataques curan aliados y dañan enemigos.' },
+      { title: 'Dificultad', body: 'Alta. El equipo de desarrollo destaca un skill floor mecánico exigente.' },
+      { title: 'Qué falta', body: 'La ficha oficial completa con nombres, valores, cooldowns y perks definitivos.' },
+    ],
+    rankedPlan: [
+      'Empieza el hero trial en partidas rápidas o custom. Antes de pensar en kills, comprueba cuánto puedes curar de forma estable y a qué distancia sigues siendo preciso.',
+      'Colócate donde puedas alternar entre aliados y enemigos sin cruzar media pantalla. Si cada cambio de objetivo exige un flick imposible, tu ángulo no está ayudando al kit.',
+      'No conviertas “Support ofensivo” en una excusa para dejar morir a tu frontline. El daño tiene valor cuando mantiene la presión o remata una baja, no cuando sustituye una cura urgente.',
+      'Fíjate en los momentos en los que pierdes línea de visión de tu equipo por perseguir daño. Doctrine parece premiar el aim, pero la lectura de pelea seguirá mandando.',
+      'Prueba composiciones distintas. En poke puede alternar objetivos desde un ángulo estable; en dive tendrá que demostrar si puede seguir entradas rápidas sin quedarse expuesto.',
+      'Guarda conclusiones sobre counters y tier hasta que termine el trial. Un héroe nuevo suele recibir ajustes, y una partida espectacular no define su lugar en ranked.',
+    ],
+    sections: [
+      {
+        title: 'Un Support para quien quiere apuntar',
+        body: 'Doctrine está pensado para jugadores cómodos cambiando el crosshair entre aliados y rivales. Su valor no parece venir de dejar una curación pasiva funcionando, sino de acertar la decisión y el disparo correcto en cada segundo.',
+      },
+      {
+        title: 'Curar y hacer daño comparten la misma pelea',
+        body: 'El reto no será elegir una identidad para toda la partida. Tendrás que curar cuando tu equipo necesita estabilizarse y castigar cuando el rival ofrece una ventana. El buen Doctrine debería pasar de una tarea a otra sin perder el tempo.',
+      },
+      {
+        title: 'Talon suma otra pieza jugable',
+        body: 'Doctrine no aparece aislado. Su historia lo sitúa junto a Doomfist y Sombra, reforzando el bloque de Talon justo cuando Overwatch prepara Season 5 y cambia el rol de Sombra a Support.',
+      },
+      {
+        title: 'El trial sirve para aprender, no para sentenciar',
+        body: 'Este fin de semana permite entender sensaciones, alcance y ritmo, pero Blizzard puede tocar números antes del lanzamiento. Lo responsable es separar cómo funciona el kit de cuánto de fuerte está en su primera versión.',
+      },
+    ],
+    abilities: [
+      {
+        title: 'Ataques híbridos',
+        body: 'Blizzard confirma que los ataques de Doctrine curan a los aliados y dañan a los enemigos. Esa doble función convierte la selección de objetivo en la base del personaje: el mismo aim debe sostener a tu equipo y encontrar presión cuando aparece una ventana.',
+      },
+      {
+        title: 'Curación que exige precisión',
+        body: 'No parece un héroe pensado para jugar en autopilot. Si la curación depende de acertar ataques, la posición, la visibilidad y la calma bajo presión van a importar tanto como la puntería pura.',
+      },
+      {
+        title: 'Presión ofensiva',
+        body: 'Doctrine puede convertir un momento estable en daño sobre un enemigo expuesto. La clave será no tunnelvisionear: hacer daño mientras un aliado está a punto de caer no es agresividad, es una mala lectura de prioridades.',
+      },
+      {
+        title: 'Kit completo en revisión',
+        body: 'El hero trial ya permite probarlo, pero la ficha pública detallada todavía no ofrece todos los nombres, valores y cooldowns de forma estable. Actualizaremos esta sección cuando Blizzard publique el desglose definitivo, sin rellenar huecos con suposiciones.',
+      },
+    ],
+    mistakes: [
+      'Jugarlo como un DPS con una cura secundaria y olvidarte de quién necesita sustain.',
+      'Mirar siempre al Tank y perder oportunidades claras de ayudar a un aliado tocado o castigar a un enemigo expuesto.',
+      'Elegir ángulos desde los que ves al rival pero no puedes volver a curar a tu equipo sin cruzarte.',
+      'Confundir skill floor alto con tener que buscar jugadas difíciles todo el rato.',
+      'Sacar una tier definitiva durante las primeras horas del hero trial.',
+      'Copiar sensibilidades o builds sin entender qué problema intentan resolver.',
+    ],
+    counters: [
+      { title: 'Dive coordinado', body: 'Un Support que necesita precisión puede sufrir si Winston, Tracer o Genji le fuerzan a apuntar mientras también busca una salida. La prueba será cuánto peel necesita para mantener su ritmo.' },
+      { title: 'Sombra', body: 'El rework anunciado la lleva también a Support. Cuando conozcamos su nuevo Hack y su utilidad definitiva, habrá que revisar este matchup desde cero.' },
+      { title: 'Widowmaker y Ashe', body: 'Los rangos largos castigan a cualquier Support que asome demasiado para aportar daño. Doctrine tendrá que encontrar presión sin regalar una sightline limpia.' },
+      { title: 'Burst sobre la backline', body: 'Si su curación exige conectar ataques, un burst rápido puede reducir mucho el tiempo disponible para reaccionar y cambiar de objetivo.' },
+    ],
+    counterplay: [
+      'Fuerza a Doctrine a elegir entre curar y defenderse. La presión dividida suele ser más incómoda que disparar todos al mismo Tank.',
+      'Corta sus líneas de visión: si no puede ver bien a aliados y enemigos desde el mismo ángulo, su juego híbrido pierde fluidez.',
+      'No regales duelos largos hasta conocer su daño real. Haz peek desde cobertura y castiga cuando esté pendiente de otra parte de la pelea.',
+      'Durante el trial, apunta qué situaciones le obligan a gastar recursos. Esa información vale más que cambiar de pick por reflejo.',
+    ],
+    compositions: [
+      { title: 'Poke con doble ángulo', body: 'Doctrine puede encajar en equipos que desgastan desde media-larga distancia si mantiene acceso visual a sus aliados mientras suma daño sobre el rival.' },
+      { title: 'Presión de Talon', body: 'Doomfist y DPS móviles pueden abrir ventanas para que Doctrine alterne curación y daño. La comp solo funcionará si el Support puede seguir el engage sin quedarse solo.' },
+      { title: 'Brawl con cobertura', body: 'En peleas de esquina debería tener objetivos cercanos y cambios de aim más cortos. Queda por ver si su sustain aguanta intercambios largos frente a Supports más directos.' },
+    ],
+    vodReview: [
+      'Cuenta cuántas veces estabas haciendo daño mientras un aliado moría dentro de tu línea de visión.',
+      'Revisa cada muerte propia: ¿tu posición te permitía ver a tu equipo y romper línea de visión del rival?',
+      'Mira cuánto tardas en cambiar del objetivo enemigo al aliado que necesita curación.',
+      'Separa fallos de aim de fallos de decisión. Acertar el objetivo equivocado sigue siendo una mala jugada.',
+      'Compara tu impacto en peleas de poke, brawl y dive antes de decidir dónde te funciona mejor.',
+    ],
+    checklist: [
+      'Veo a los aliados que pueden recibir burst.',
+      'Tengo cobertura antes de buscar daño.',
+      'Sé si esta ventana pide curar, presionar o reposicionarme.',
+      'No persigo una baja si pierdo a toda mi frontline de vista.',
+      'Estoy probando el kit, no intentando demostrar una tier el primer día.',
+    ],
+    faqs: [
+      { question: '¿Doctrine es Tank, DPS o Support?', answer: 'Doctrine es Support. Blizzard lo ha presentado como el héroe 54 de Overwatch y su kit combina curación a aliados con daño a enemigos.' },
+      { question: '¿Cuándo sale Doctrine en Overwatch?', answer: 'Su hero trial empezó el 12 de septiembre de 2026. El lanzamiento completo está previsto para Season 5.' },
+      { question: '¿Ya se puede jugar Doctrine?', answer: 'Sí, el hero trial está activo desde el anuncio de BlizzCon. La prueba es temporal y sirve para conocer el personaje antes de su estreno completo.' },
+      { question: '¿Qué habilidades tiene Doctrine?', answer: 'Lo confirmado es que sus ataques curan aliados y dañan enemigos, con una exigencia mecánica alta. Los nombres, números, cooldowns y perks definitivos se añadirán cuando Blizzard publique la ficha completa.' },
+      { question: '¿Doctrine pertenece a Talon?', answer: 'Sí. Su presentación lo conecta con Talon, Doomfist y Sombra, y lo sitúa dentro del siguiente capítulo de la historia del grupo.' },
+      { question: '¿Doctrine será difícil de jugar?', answer: 'Blizzard destaca un skill floor mecánico alto. Eso apunta a un Support que exige precisión, cambios rápidos de objetivo y buenas prioridades entre curar y hacer daño.' },
+    ],
+    links: [
+      { href: '/roles/support', label: 'Cómo jugar Support' },
+      { href: '/news', label: 'Noticias de Overwatch' },
+      { href: '/counters', label: 'Counters de Overwatch' },
+      { href: '/team-comps', label: 'Composiciones de Overwatch' },
+      { href: '/guides/como-mejorar-como-support-overwatch', label: 'Mejorar como Support' },
+      { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Revisar cooldowns' },
+      { href: '/experts', label: 'Revisar mi Support con un experto' },
     ],
   },
   dmon: {

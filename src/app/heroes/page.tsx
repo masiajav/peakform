@@ -44,8 +44,9 @@ const heroesFaq = [
 const heroIntentLinks = [
   {
     title: 'Quiero aprender un héroe nuevo',
-    body: 'Empieza por su rol, su plan de pelea y dos errores claros que evitar. Para novedades actuales, revisa primero D.Mon y después baja a counters o composiciones.',
+    body: 'Empieza por su rol, su plan de pelea y dos errores claros que evitar. Doctrine es la novedad de BlizzCon y ya tiene hero trial; después puedes bajar a counters o composiciones.',
     links: [
+      { href: '/heroes/doctrine', label: 'Doctrine' },
       { href: '/heroes/dmon', label: 'D.Mon' },
       { href: '/guides?hero=sierra', label: 'Sierra' },
       { href: '/guides', label: 'Guías de héroes' },
@@ -241,7 +242,7 @@ function HeroCard({ hero }: { hero: CounterHero }) {
             imageStyle={{ objectFit: 'contain', objectPosition: 'center bottom' }}
             fallbackClassName="hero-portrait-fallback"
           />
-          {hero.slug === 'dmon' && <span className="home-hero-card-badge">NUEVO</span>}
+          {hero.slug === 'doctrine' && <span className="home-hero-card-badge">NUEVO</span>}
         </div>
 
         <div style={{ padding: 14 }}>

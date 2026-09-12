@@ -211,6 +211,7 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
   const counterHref = isPillarCounterSlug(pillar.slug) ? `/counters/${pillar.slug}` : '/counters'
   const teamCompHref = isPillarTeamCompSlug(pillar.slug) ? `/team-comps/${pillar.slug}` : '/team-comps'
   const abilityKitImage = pillar.slug === 'dmon' ? '/heroes/dmon-ability-kit.png' : null
+  const isDoctrine = pillar.slug === 'doctrine'
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -218,8 +219,8 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
     description: heroCtrDescription(pillar),
     image: image ? absoluteUrl(image) : undefined,
     url: pageUrl,
-    datePublished: pillar.slug === 'dmon' ? '2026-08-06' : '2026-06-26',
-    dateModified: pillar.slug === 'dmon' ? '2026-08-11' : '2026-07-24',
+    datePublished: isDoctrine ? '2026-09-12' : pillar.slug === 'dmon' ? '2026-08-06' : '2026-06-26',
+    dateModified: isDoctrine ? '2026-09-12' : pillar.slug === 'dmon' ? '2026-08-11' : '2026-07-24',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -909,6 +910,14 @@ function buildHeroHeaderTips(pillar: HeroPillar) {
     ]
   }
 
+  if (pillar.slug === 'doctrine') {
+    return [
+      'Para jugar Doctrine: alterna curación y daño con intención. Ser agresivo no significa dejar de mirar la vida de tu equipo.',
+      'Para jugar contra él: divide la presión y oblígalo a cambiar de objetivo mientras busca cobertura o ayuda.',
+      'Mejor contexto inicial: ángulos donde pueda ver a aliados y enemigos sin exponerse. El hero trial dirá cuánto aguanta en dive y brawl.',
+    ]
+  }
+
   return [
     `Para jugar ${pillar.name}: busca valor con timing, no por inercia ni por ego.`,
     firstCounter
@@ -972,6 +981,23 @@ function buildHeroQuickAnswers(pillar: HeroPillar) {
       {
         title: 'Fecha y rol',
         body: 'D.Mon ya está disponible desde el 11 de agosto de 2026 como Tank. Su kit base mezcla Plasma Saber, Power Barrier, Propulsors, Surging Strike, Fusion Repeater, Limit Break y el ciclo de piloto con Eject y Call Mech.',
+      },
+    ]
+  }
+
+  if (pillar.slug === 'doctrine') {
+    return [
+      {
+        title: 'Si vas a jugar Doctrine',
+        body: 'Piensa como Support antes que como duelista. Colócate donde puedas curar y presionar sin cruzarte, y cambia de objetivo en cuanto la pelea pida otra prioridad.',
+      },
+      {
+        title: 'Si lo tienes enfrente',
+        body: 'No le regales un ángulo cómodo. Divide la presión, fuerza cambios de aim y castiga cuando asome demasiado para hacer daño.',
+      },
+      {
+        title: 'Estado del héroe',
+        body: 'El hero trial empezó el 12 de septiembre y el lanzamiento completo llegará con Season 5. Blizzard confirma curación y daño mediante ataques, con un skill floor mecánico alto.',
       },
     ]
   }

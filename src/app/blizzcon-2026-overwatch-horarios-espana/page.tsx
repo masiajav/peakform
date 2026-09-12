@@ -7,7 +7,7 @@ import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 
 const PAGE_PATH = '/blizzcon-2026-overwatch-horarios-espana'
 const PAGE_IMAGE = '/news/blizzcon-2026-overwatch-schedule.png'
-const UPDATED_AT = '5 de septiembre de 2026'
+const UPDATED_AT = '12 de septiembre de 2026'
 
 type ScheduleItem = {
   day: string
@@ -139,7 +139,7 @@ const faqs = [
   },
   {
     question: '¿Cómo se consiguen los drops de Overwatch de la BlizzCon?',
-    answer: 'Antes de ver la emisión, comprueba que tu cuenta de Battle.net esté conectada con Twitch o YouTube. Blizzard ha confirmado que habrá recompensas, pero todavía no ha publicado la lista completa de drops de Overwatch.',
+    answer: 'Además de los drops de la emisión, Blizzard regala un vale mítico por jugar una partida después de la ceremonia de apertura. Se puede canjear por una skin mítica de héroe dentro de una selección.',
   },
   {
     question: '¿Qué horario uso si vivo en Canarias?',
@@ -157,7 +157,7 @@ export default function BlizzConOverwatchSchedulePage() {
     image: [absoluteUrl(PAGE_IMAGE)],
     url: pageUrl,
     datePublished: '2026-09-02',
-    dateModified: '2026-09-05',
+    dateModified: '2026-09-12',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -245,6 +245,21 @@ export default function BlizzConOverwatchSchedulePage() {
           </aside>
         </header>
 
+        <section style={{ ...sectionStyle, borderColor: 'rgba(255, 92, 42, 0.55)' }}>
+          <div className="eyebrow" style={{ marginBottom: 10 }}>ANUNCIOS CONFIRMADOS</div>
+          <h2 style={headingStyle}>Doctrine ya se puede probar y Sombra será Support</h2>
+          <p style={paragraphStyle}>
+            La ceremonia ya ha dejado las primeras noticias: <Link href="/heroes/doctrine" style={inlineLinkStyle}>Doctrine</Link> es el nuevo Support y su hero trial está activo. Blizzard también ha anunciado que Sombra pasará de DPS a Support y que Roadhog recibirá un rework.
+          </p>
+          <p style={paragraphStyle}>
+            También hemos visto la silueta de otro héroe en desarrollo. Parece un ómnico y lleva un objeto similar a un paraguas o bastón, aunque su nombre, rol y habilidades siguen sin anunciarse.
+          </p>
+          <p style={{ ...paragraphStyle, marginBottom: 18 }}>
+            Hemos reunido el kit confirmado, el cambio de roles y el regalo mítico en una noticia separada para no mezclar la agenda con el análisis de gameplay.
+          </p>
+          <Link href="/doctrine-support-sombra-roadhog-rework-overwatch" className="btn btn-primary btn-sm">VER TODOS LOS ANUNCIOS</Link>
+        </section>
+
         <section style={sectionStyle}>
           <div className="eyebrow" style={{ marginBottom: 10 }}>RESUMEN RÁPIDO</div>
           <h2 style={headingStyle}>Lo importante antes de guardar la agenda</h2>
@@ -316,13 +331,13 @@ export default function BlizzConOverwatchSchedulePage() {
 
         <section id="drops" style={sectionStyle}>
           <div className="eyebrow" style={{ marginBottom: 10 }}>RECOMPENSAS</div>
-          <h2 style={headingStyle}>Habrá drops por ver la BlizzCon</h2>
+          <h2 style={headingStyle}>Vale mítico gratis y drops de BlizzCon</h2>
           <div style={{ display: 'grid', gap: 14 }}>
             <p style={paragraphStyle}>
               Blizzard ha confirmado recompensas de audiencia durante el fin de semana. Si vas a seguir la emisión desde casa, comprueba antes que tu cuenta de Battle.net esté conectada con Twitch o YouTube para que el tiempo de visualización pueda contar.
             </p>
             <p style={paragraphStyle}>
-              La lista completa de drops de Overwatch todavía no se ha publicado. Conviene revisar los requisitos cuando Blizzard enseñe las recompensas, porque pueden cambiar según el canal y el tipo de emisión.
+              Hay además un regalo que no depende de acumular horas de directo: juega una partida después de la ceremonia de apertura y recibirás un vale canjeable por una skin mítica de héroe dentro de la selección disponible.
             </p>
           </div>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 18 }}>
@@ -345,20 +360,20 @@ export default function BlizzConOverwatchSchedulePage() {
 
         <section style={sectionStyle}>
           <div className="eyebrow" style={{ marginBottom: 10 }}>ANUNCIOS</div>
-          <h2 style={headingStyle}>Qué está confirmado y qué falta por anunciar</h2>
+          <h2 style={headingStyle}>Qué ha confirmado Overwatch en BlizzCon</h2>
           <div style={cardGridStyle}>
             <InfoCard
               title="Ya está confirmado"
-              body="Overwatch tendrá directo de desarrolladores, Hero Deep Dive, panel de arte y colaboraciones, partidas de la World Cup, recompensas por ver la emisión y experiencias jugables en el recinto."
+              body="Doctrine es el nuevo Support y ya tiene hero trial. Sombra pasará a Support, Roadhog recibirá un rework y jugar una partida después de la ceremonia entrega un vale para una skin mítica."
             />
             <InfoCard
-              title="Todavía no se sabe"
-              body="Blizzard no ha explicado qué héroe protagonizará el Hero Deep Dive, qué enseñará de Season 5 ni cuáles serán exactamente los drops de Overwatch. Cualquier detalle más concreto sigue siendo especulación."
+              title="Lo siguiente"
+              body="Quedan por conocer los detalles de los reworks y la identidad del héroe mostrado en silueta, que parece un ómnico con un paraguas o bastón. No tiene nombre, rol ni kit confirmados."
             />
           </div>
           <div style={{ display: 'grid', gap: 14, marginTop: 18 }}>
             <p style={paragraphStyle}>
-              Overwatch llega a la cita con <Link href="/heroes/dmon" style={inlineLinkStyle}>D.Mon</Link> ya disponible y una <Link href="/overwatch-temporada-4-heroes-of-busan" style={inlineLinkStyle}>Season 4</Link> que ha estrenado rango Emerald y varios reworks de mapas. El directo de desarrolladores debería aclarar cómo encaja lo que venga después con el estado actual del juego.
+              Overwatch llega a la siguiente etapa con <Link href="/heroes/doctrine" style={inlineLinkStyle}>Doctrine</Link> como nueva cara de Season 5 y <Link href="/heroes/dmon" style={inlineLinkStyle}>D.Mon</Link> asentándose tras su estreno en Season 4. El cambio de Sombra y el rework de Roadhog harán que varias guías y matchups necesiten una revisión completa.
             </p>
             <p style={paragraphStyle}>
               Si vuelves al competitivo por la BlizzCon, la guía para <Link href="/guides/como-subir-de-rango-overwatch" style={inlineLinkStyle}>subir de rango en Overwatch</Link> reúne una rutina sencilla para retomar ranked sin jugar en piloto automático.

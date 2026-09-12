@@ -27,6 +27,7 @@ const heroSeeds = [
   ['Brigitte', 'support'],
   ['Cassidy', 'dps'],
   ['D.Mon', 'tank'],
+  ['Doctrine', 'support'],
   ['D.Va', 'tank'],
   ['Domina', 'tank'],
   ['Doomfist', 'tank'],
