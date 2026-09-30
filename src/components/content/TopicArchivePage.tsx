@@ -9,7 +9,7 @@ import { formatPrice } from '@/types'
 import { getCounterHero } from '@/lib/overwatch-counters'
 import { buildHeroSeoProfile, ROLE_SEO } from '@/lib/overwatch-seo'
 import { guideEditorial } from '@/lib/guide-editorial'
-import { isGuideSitemapEligible } from '@/lib/indexing-policy'
+import { discoverableGuides } from '@/lib/guide-discovery'
 import { heroTopicHref, safeTopicHref } from '@/lib/topic-links'
 
 export default async function TopicArchivePage({
@@ -31,7 +31,7 @@ export default async function TopicArchivePage({
     .eq('published', true)
     .eq(kind, slug)
     .order('created_at', { ascending: false })
-    .limit(12)
+    .limit(60)
 
   const newsQuery = admin
     .from('announcements')
@@ -63,7 +63,7 @@ export default async function TopicArchivePage({
   const counterHero = kind === 'hero' ? getCounterHero(slug) : null
   const heroSeo = kind === 'hero' ? buildHeroSeoProfile(slug) : null
   const roleSeo = kind === 'role' ? ROLE_SEO[slug as keyof typeof ROLE_SEO] : null
-  const indexableGuides = (guides ?? []).filter((guide: any) => isGuideSitemapEligible(guide))
+  const indexableGuides = discoverableGuides(guides ?? []).slice(0, 12)
 
   const collectionJsonLd = {
     '@context': 'https://schema.org',

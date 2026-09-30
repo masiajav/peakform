@@ -14,11 +14,12 @@ export const metadata: Metadata = buildMetadata({
 })
 
 export default function CountersPage() {
+  const reviewedHeroes = COUNTER_HEROES.filter(hero => PILLAR_COUNTER_SLUGS.includes(hero.slug))
   const itemListJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'Counters de héroes de Overwatch',
-    itemListElement: COUNTER_HEROES.filter(hero => PILLAR_COUNTER_SLUGS.includes(hero.slug)).map((hero, index) => ({
+    itemListElement: reviewedHeroes.map((hero, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       name: `Counters de ${hero.name}`,
@@ -78,18 +79,11 @@ export default function CountersPage() {
         </section>
 
         <section style={{ background: 'var(--surface2)', border: '1px solid var(--border)', padding: 18, marginBottom: 20 }}>
-          <div className="eyebrow">BÚSQUEDAS POPULARES</div>
+          <div className="eyebrow">GUÍAS POR HÉROE</div>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 10 }}>
-            {[
-              { href: '/counters/zarya', label: 'Counter Zarya' },
-              { href: '/counters/tracer', label: 'Counter Tracer' },
-              { href: '/counters/genji', label: 'Counter Genji' },
-              { href: '/counters/ana', label: 'Counter Ana' },
-              { href: '/counters/domina', label: 'Counter Domina' },
-              { href: '/counters/shion', label: 'Counter Shion' },
-            ].map(link => (
-              <Link key={link.href} href={link.href} className="btn btn-secondary btn-sm">
-                {link.label}
+            {reviewedHeroes.map(hero => (
+              <Link key={hero.slug} href={`/counters/${hero.slug}`} className="btn btn-secondary btn-sm">
+                {hero.name}
               </Link>
             ))}
           </div>

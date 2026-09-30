@@ -265,6 +265,31 @@ const HERO_FOCUS: Record<string, { title: string; seoTitle: string; description:
 }
 
 const PILLAR_GUIDE_FOCUS: Record<string, { title: string; seoTitle: string; description: string }> = {
+  'como-mejorar-en-overwatch-revisando-vod': {
+    title: 'Cómo mejorar en Overwatch revisando tus VODs',
+    seoTitle: 'Cómo revisar una VOD de Overwatch y corregir errores',
+    description: 'Detecta por qué mueres primero, qué cooldown gastas demasiado pronto y cuándo pierdes posición. Revisa una partida y elige un error para corregir.',
+  },
+  'como-mejorar-como-tank-overwatch': {
+    title: 'Cómo mejorar como Tank en Overwatch',
+    seoTitle: 'Cómo mejorar como Tank: espacio, engages y protección del equipo',
+    description: 'Decide cuándo avanzar, ceder una esquina o volver a proteger a tus supports. Aprende a reconocer un engage sin seguimiento y revisarlo en tu VOD.',
+  },
+  'como-revisar-cooldowns-overwatch': {
+    title: 'Cómo revisar tus cooldowns en Overwatch',
+    seoTitle: 'Cómo revisar cooldowns en Overwatch: errores y prioridades',
+    description: 'Descubre qué habilidad necesitabas antes de morir. Compara el momento en que gastaste un cooldown con la amenaza que llegó después, por rol y situación.',
+  },
+  'como-mejorar-como-dps-overwatch': {
+    title: 'Cómo mejorar como DPS en Overwatch',
+    seoTitle: 'Cómo mejorar como DPS: ángulos, objetivos y daño útil',
+    description: 'Aprende a elegir objetivos y ángulos que tu equipo pueda aprovechar. Distingue daño útil de spam y revisa por qué tus duelos no se convierten en bajas.',
+  },
+  'como-mejorar-como-support-overwatch': {
+    title: 'Cómo mejorar como Support en Overwatch',
+    seoTitle: 'Cómo mejorar como Support: posición, curación y cooldowns',
+    description: 'Prioriza a quién ayudar, encuentra ventanas para hacer daño y conserva una respuesta al dive. Revisa tus muertes antes de juzgar la cifra de curación.',
+  },
   'como-elegir-composicion-dive-poke-brawl': {
     title: 'Dive, poke y brawl en Overwatch: cómo elegir composición',
     seoTitle: 'Composiciones de Overwatch: cómo elegir dive, poke o brawl',

@@ -24,7 +24,7 @@ Una página editorial puede indexarse cuando cumple todos estos puntos:
 4. Tiene title, description, canonical, un H1 y datos estructurados que coinciden con el contenido visible.
 5. Identifica a Replaid Lab y muestra una fecha de revisión real.
 6. Sus imágenes, enlaces y navegación funcionan en móvil y escritorio.
-7. No supera el umbral de similitud con otra URL del sitio.
+7. No repite desarrollo sustancial de otra URL sin aportar una respuesta distinta. Los avisos automáticos de similitud se comprueban leyendo ambas páginas.
 
 Las páginas que todavía no lo cumplen siguen disponibles con `noindex, follow` y sin anuncios.
 
@@ -51,3 +51,13 @@ $env:AUDIT_OUTPUT='reports/content-audit.json'; npm.cmd run audit:content
 ```
 
 La auditoría recorre el sitemap y los enlaces públicos que encuentra. Registra robots, metadatos, H1, palabras visibles, imágenes, enlaces, JSON-LD, texto interno y similitud entre páginas.
+
+## Limitaciones y revisión del 30 de septiembre de 2026
+
+Un resultado sin incidencias automáticas no significa que una página esté terminada ni que AdSense vaya a aprobarla. La extensión y la similitud son indicadores para una revisión individual, no requisitos numéricos de Google.
+
+Se corrigió un fallo del comparador: las secuencias de palabras se convertían en arrays, aunque la comparación esperaba conjuntos. Esto producía resultados no numéricos y dejaba siempre vacía la lista de similitudes. Los informes anteriores deben regenerarse.
+
+Cuando una guía no tiene `main`, el análisis utiliza `article` si contiene el H1. En hubs sin esos contenedores se excluyen navegación y footer, sin perder la cabecera ni las tarjetas. El descubrimiento de enlaces recorre todo el documento. Las variantes con el mismo canonical no se presentan como artículos editoriales duplicados.
+
+El diagnóstico de producción y las siguientes prioridades están en [la revisión de AdSense del 30 de septiembre](adsense-review-2026-09-30.md).

@@ -25,7 +25,11 @@ while (queue.length && pages.length < maximumPages) {
 
   const response = await fetch(`${baseUrl}${path}`, { redirect: 'follow' })
   const html = await response.text()
-  const mainHtml = firstMatch(html, /<main\b[^>]*>([\s\S]*?)<\/main>/i) || html
+  const articleHtml = firstMatch(html, /<article\b[^>]*>([\s\S]*?)<\/article>/i)
+  const mainHtml = firstMatch(html, /<main\b[^>]*>([\s\S]*?)<\/main>/i)
+    || (/<h1\b/i.test(articleHtml) ? articleHtml : html
+      .replace(/<nav\b[\s\S]*?<\/nav>/gi, ' ')
+      .replace(/<footer\b[\s\S]*?<\/footer>/gi, ' '))
   const text = visibleText(mainHtml)
   const words = text.split(/\s+/).filter(Boolean)
   const title = decode(firstMatch(html, /<title>([\s\S]*?)<\/title>/i))
@@ -44,7 +48,10 @@ while (queue.length && pages.length < maximumPages) {
   })
   const internalLinks = links.filter(link => link.startsWith('/')).map(link => link.split('#')[0]).filter(Boolean)
 
-  for (const link of internalLinks) {
+  const discoveryLinks = [...html.matchAll(/<a\b[^>]*href=["']([^"']+)["']/gi)]
+    .map(match => decode(match[1]).split('#')[0])
+    .filter(link => link.startsWith('/'))
+  for (const link of discoveryLinks) {
     if (!seen.has(link) && !queue.includes(link) && !isPrivatePath(link)) queue.push(link)
   }
 
@@ -77,13 +84,14 @@ while (queue.length && pages.length < maximumPages) {
     jsonLdCount: jsonLd.length,
     issues,
     classification: classify({ path, response, robots, words, issues }),
-    shingles: [...shingles(text)],
+    shingles: shingles(text),
   })
 }
 
 const similarities = []
 for (let left = 0; left < pages.length; left += 1) {
   for (let right = left + 1; right < pages.length; right += 1) {
+    if (pages[left].canonical && pages[left].canonical === pages[right].canonical) continue
     const score = jaccard(pages[left].shingles, pages[right].shingles)
     if (score >= 0.36) similarities.push({ left: pages[left].path, right: pages[right].path, score: Number(score.toFixed(3)) })
   }
@@ -94,7 +102,7 @@ for (const pair of similarities) {
     const page = pages.find(item => item.path === path)
     if (page && !page.issues.includes('Similitud editorial alta')) {
       page.issues.push('Similitud editorial alta')
-      if (page.classification === 'terminada') page.classification = 'demasiado similar'
+      if (page.classification === 'requiere revisión editorial') page.classification = 'demasiado similar'
     }
   }
 }
@@ -102,6 +110,7 @@ for (const pair of similarities) {
 const report = {
   generatedAt: new Date().toISOString(),
   baseUrl,
+  scope: 'Comprobaciones automáticas. No certifican calidad editorial ni aprobación de AdSense.',
   totals: {
     discovered: pages.length,
     sitemap: pages.filter(page => page.inSitemap).length,
@@ -130,7 +139,7 @@ function classify({ path, response, robots, words, issues }) {
   if (issues.includes('Texto interno visible') || issues.includes('Posible mojibake')) return 'necesita revisión de lenguaje'
   if (robots.includes('noindex')) return words.length >= 650 ? 'pendiente de revisión' : 'demasiado genérica'
   if (words.length < minimumUsefulWords(path)) return 'incompleta'
-  return issues.length ? 'necesita revisión' : 'terminada'
+  return issues.length ? 'necesita revisión' : 'requiere revisión editorial'
 }
 
 function shingles(text) {

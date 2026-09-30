@@ -11,7 +11,7 @@ import { DEFAULT_HEROES, ROLE_LABELS, topicLabel } from '@/lib/content'
 import { evergreenGuideList } from '@/lib/evergreen-guides'
 import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
 import { guideEditorial } from '@/lib/guide-editorial'
-import { isGuideSitemapEligible } from '@/lib/indexing-policy'
+import { discoverableGuides } from '@/lib/guide-discovery'
 import GuideFilters from '@/components/content/GuideFilters'
 
 type GuidesSearchParams = {
@@ -111,10 +111,7 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
   else query = query.order('created_at', { ascending: false })
 
   const [{ data: guides }, { data: filterOptions }] = await Promise.all([query, filterOptionsQuery])
-  const searchedGuides = filterBySearch(guides ?? [], freeTextQuery)
-  const visibleGuides = hasFilters
-    ? searchedGuides
-    : searchedGuides.filter((guide: any) => isGuideSitemapEligible(guide))
+  const visibleGuides = filterBySearch(discoverableGuides(guides ?? []), freeTextQuery)
   const sortedGuides = filters.sort === 'read'
     ? [...visibleGuides].sort((a: any, b: any) => readingTime(a.body) - readingTime(b.body))
     : visibleGuides
@@ -128,7 +125,7 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
     .map(value => ({ value, label: topicLabel(value) }))
 
   const collectionItems = [
-    ...evergreenGuideList.map(guide => ({
+    ...(!hasFilters ? evergreenGuideList : []).map(guide => ({
       name: guide.seoTitle,
       url: absoluteUrl(`/guides/${guide.slug}`),
     })),
@@ -291,17 +288,17 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
 
         {!hasFilters && (
           <section style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 22, marginBottom: 24 }}>
-            <div className="eyebrow">GUÍAS EVERGREEN</div>
+            <div className="eyebrow">FUNDAMENTOS</div>
             <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 34, letterSpacing: 1, lineHeight: 1, margin: '0 0 10px' }}>
               Mejora aunque no haya parche nuevo
             </h2>
             <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: '0 0 16px', maxWidth: 760 }}>
-              Estas guías atacan búsquedas que no dependen de una temporada concreta: subir de rango, elegir héroe, revisar VODs, entender counters y ordenar composiciones.
+              Aprende a elegir héroe, entender un matchup o revisar una VOD. Empieza por el problema que se repite en tus partidas y trabaja una decisión antes de pasar a la siguiente.
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 10 }}>
               {evergreenGuideList.map(item => (
                 <Link key={item.slug} href={`/guides/${item.slug}`} className="expert-card" style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', padding: 16, color: 'inherit', textDecoration: 'none' }}>
-                  <span style={{ display: 'block', color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 11, letterSpacing: 1.2, marginBottom: 7 }}>EVERGREEN</span>
+                  <span style={{ display: 'block', color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 11, letterSpacing: 1.2, marginBottom: 7 }}>RANKED Y VOD</span>
                   <strong style={{ display: 'block', color: 'var(--text)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 22, lineHeight: 1.05, letterSpacing: 0.7, marginBottom: 8 }}>
                     {item.title}
                   </strong>
@@ -431,8 +428,8 @@ function normalizeSearchText(value?: string) {
   return (value || '')
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, ' ')
     .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
     .trim()
     .replace(/\s+/g, ' ')
 }
@@ -448,7 +445,7 @@ function EmptyGuides({ hasFilters }: { hasFilters: boolean }) {
   const title = hasFilters ? 'NO HEMOS ENCONTRADO GUÍAS PARA ESTA BÚSQUEDA' : 'AÚN NO HAY GUÍAS PUBLICADAS'
   const description = hasFilters
     ? 'Prueba con otro héroe, rol o palabra clave. También puedes borrar los filtros para volver a toda la hemeroteca.'
-    : 'Mientras llenas la hemeroteca, estos accesos ya dejan clara la estructura que tendrá el contenido.'
+    : 'Empieza por los fundamentos de tu rol o por una guía de mapas para preparar la próxima partida.'
   const faq = [
     {
       question: '¿Cuál es la mejor guía para empezar?',

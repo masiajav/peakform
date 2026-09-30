@@ -1,6 +1,7 @@
 import { stripMarkdown } from './seo'
 import { MAP_PILLAR_SLUGS } from './overwatch-maps'
 import { PUBLIC_HERO_PAGE_SLUGS } from './topic-links'
+import { hasReviewedGuideRevision, reviewedGuideTarget } from './reviewed-guide-policy'
 export { PILLAR_COUNTER_SLUGS, PILLAR_TEAM_COMP_SLUGS } from './public-topic-policy'
 import { PILLAR_COUNTER_SLUGS, PILLAR_TEAM_COMP_SLUGS } from './public-topic-policy'
 
@@ -190,6 +191,7 @@ export function isVideoOnlyGuide(guide: GuideLike) {
 
 export function isGuideSitemapEligible(guide: GuideLike) {
   if (!guide.slug) return false
+  if (hasReviewedGuideRevision(guide.slug) || reviewedGuideTarget(guide.slug)) return false
   if (EXCLUDED_GUIDE_SLUGS.includes(guide.slug)) return false
   const bodyWords = wordCount(guide.body)
   const summaryWords = wordCount([guide.excerpt, guide.seo_description].filter(Boolean).join(' '))
@@ -209,6 +211,10 @@ export function guideQualityDecision(guide: GuideLike): PageQualityDecision {
 
   if (!guide.slug) {
     return blocked('Guía sin slug canónico', words)
+  }
+
+  if (hasReviewedGuideRevision(guide.slug) || reviewedGuideTarget(guide.slug)) {
+    return blocked('Lote revisado accesible para lectores; indexación y anuncios aún desactivados', words)
   }
 
   if (isGuideAdEligible(guide)) {

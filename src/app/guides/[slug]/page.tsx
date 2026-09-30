@@ -1,7 +1,7 @@
 ﻿import type { Metadata } from 'next'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { createClient } from '@/lib/supabase/server'
-import { notFound } from 'next/navigation'
+import { notFound, permanentRedirect } from 'next/navigation'
 import { cache } from 'react'
 import AppNav from '@/components/layout/AppNav'
 import PublicNav from '@/components/layout/PublicNav'
@@ -15,7 +15,9 @@ import GuideVideo from '@/components/content/GuideVideo'
 import { guidePath, ROLE_LABELS, topicLabel, type GuideContent } from '@/lib/content'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
-import { guideQualityDecision, isGuideSitemapEligible, robotsForQuality } from '@/lib/indexing-policy'
+import { guideQualityDecision, robotsForQuality } from '@/lib/indexing-policy'
+import { discoverableGuides } from '@/lib/guide-discovery'
+import { applyReviewedGuideRevision, hasReviewedGuideRevision, mergeReviewedGuideVideo, reviewedGuideRevisions, reviewedGuideTarget } from '@/lib/reviewed-guide-revisions'
 import { guideEditorial } from '@/lib/guide-editorial'
 import { heroTopicHref } from '@/lib/topic-links'
 import { formatPrice } from '@/types'
@@ -56,7 +58,7 @@ const GUIDE_DETAIL_COLUMNS = `
   updated_at
 `
 
-const fetchGuide = cache(async (slug: string) => {
+const fetchGuide = cache(async (slug: string): Promise<GuideContent | null> => {
   const admin = createAdminClient()
   const { data } = await admin
     .from('guides')
@@ -65,7 +67,11 @@ const fetchGuide = cache(async (slug: string) => {
     .eq('published', true)
     .single()
 
-  return data as GuideContent | null
+  if (!data) return null
+  const guide = data as GuideContent
+  if (!hasReviewedGuideRevision(slug)) return guide
+  const video = guide.video_id ? null : await fetchGuide(reviewedGuideRevisions[slug].videoSlug)
+  return applyReviewedGuideRevision(mergeReviewedGuideVideo(guide, video))
 })
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
@@ -80,7 +86,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     })
   }
 
-  const guide = await fetchGuide(params.slug)
+  const guide = await fetchGuide(reviewedGuideTarget(params.slug) || params.slug)
   if (!guide) return {}
   const editorial = guideEditorial(guide)
   const quality = guideQualityDecision(guide)
@@ -96,6 +102,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default async function GuideDetailPage({ params }: { params: { slug: string } }) {
+  const reviewedTarget = reviewedGuideTarget(params.slug)
+  if (reviewedTarget) permanentRedirect(guidePath(reviewedTarget))
   const rankedGuide = getRankedHeroGuide(params.slug)
   if (rankedGuide) return <RankedHeroGuideArticle guide={rankedGuide} />
 
@@ -152,7 +160,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
   const publishedDate = guide.created_at
   const updatedDate = guide.updated_at || guide.created_at
   const quality = guideQualityDecision(guide)
-  const relatedGuides = (related ?? []).filter((item: any) => isGuideSitemapEligible(item)).slice(0, 3)
+  const relatedGuides = discoverableGuides(related ?? []).slice(0, 3)
   const allowAds = quality.adsAllowed
   const faqEntries = extractFaqEntries(guide.body)
 
@@ -269,10 +277,10 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
         </header>
 
 
-        {guide.video_id && guide.video_summary && (
+        {(guide.video_summary || hasReviewedGuideRevision(guide.slug)) && (
           <section className="guide-video-summary">
             <div>RESUMEN RÁPIDO</div>
-            <p>{guide.video_summary}</p>
+            <p>{guide.video_summary || guide.excerpt}</p>
           </section>
         )}
 
