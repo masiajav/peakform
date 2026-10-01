@@ -1,10 +1,17 @@
-import { writeFile } from 'node:fs/promises'
+import { readFile, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { mkdir } from 'node:fs/promises'
 
 const baseUrl = (process.env.AUDIT_BASE_URL || 'http://127.0.0.1:3001').replace(/\/$/, '')
 const outputPath = process.env.AUDIT_OUTPUT || ''
 const maximumPages = Number(process.env.AUDIT_MAX_PAGES || 400)
+const seedFile = process.env.AUDIT_SEED_FILE
+const seedReport = seedFile ? JSON.parse(await readFile(resolve(seedFile), 'utf8')) : []
+const seedEntries = Array.isArray(seedReport) ? seedReport : seedReport.pages
+if (!Array.isArray(seedEntries)) throw new Error('El inventario inicial debe ser una lista de rutas o un informe con pages')
+const seedPaths = seedEntries.map(entry => typeof entry === 'string' ? entry : entry?.path)
+  .filter(path => typeof path === 'string' && path.startsWith('/') && !path.startsWith('//'))
+  .map(path => path.split('#')[0])
 
 const sitemapResponse = await fetch(`${baseUrl}/sitemap.xml`)
 if (!sitemapResponse.ok) throw new Error(`No se pudo leer el sitemap: ${sitemapResponse.status}`)
@@ -14,7 +21,8 @@ const sitemapPaths = [...sitemapXml.matchAll(/<loc>(.*?)<\/loc>/g)]
   .map(match => toPath(match[1]))
   .filter(Boolean)
 
-const queue = [...new Set(sitemapPaths)]
+// Keep auditing previously public URLs even if navigation no longer links them.
+const queue = [...new Set([...sitemapPaths, ...seedPaths])]
 const seen = new Set()
 const pages = []
 
@@ -70,6 +78,8 @@ while (queue.length && pages.length < maximumPages) {
 
   pages.push({
     path,
+    resolvedPath: toPath(response.url),
+    redirected: response.redirected,
     inSitemap: sitemapPaths.includes(path),
     status: response.status,
     title,
@@ -173,5 +183,5 @@ function firstMatch(value, regex) { return value.match(regex)?.[1] || '' }
 function attr(tag, name) { return decode(firstMatch(tag, new RegExp(`${name}=["']([^"']*)`, 'i'))) }
 function decode(value = '') { return value.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#x27;|&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>') }
 function toPath(value) { try { const url = new URL(decode(value)); return `${url.pathname}${url.search}` } catch { return '' } }
-function isPrivatePath(path) { return /^\/(?:admin|apply|auth|dashboard|expert|login|orders|profile|stripe)(?:\/|$)/.test(path) }
+function isPrivatePath(path) { return /^\/(?:api|admin|apply|auth|dashboard|expert|login|orders|profile|stripe)(?:\/|$)/.test(path) }
 function minimumUsefulWords(path) { return ['/about', '/contact', '/privacy', '/legal', '/editorial-methodology'].includes(path) ? 100 : 500 }

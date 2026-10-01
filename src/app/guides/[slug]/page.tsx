@@ -271,7 +271,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
           <div style={{ fontSize: 12, color: 'var(--text3)', display: 'flex', gap: 16, flexWrap: 'wrap' }}>
             <span>Publicado: {new Date(guide.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
             <span>Última revisión: {new Date(updatedDate).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
-            <span>{guide.video_id ? 'guía en vídeo' : `${readMinutes} min de lectura`}</span>
+            <span>{readMinutes} min de lectura{guide.video_id ? ' · Con vídeo' : ''}</span>
             <span>{author}</span>
           </div>
         </header>

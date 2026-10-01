@@ -5,6 +5,7 @@
 /.next/
 /.next-e2e/
 /.next-verify/
+/.next-editorial-preview/
 /out/
 
 # Production

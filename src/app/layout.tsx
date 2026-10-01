@@ -6,6 +6,9 @@ import VercelAnalytics from '@/components/content/VercelAnalytics'
 import PublicFooter from '@/components/layout/PublicFooter'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, SITE_NAME, SITE_URL } from '@/lib/seo'
+import { adsenseVerificationAccount } from '@/lib/adsense-policy'
+
+const adsenseAccount = adsenseVerificationAccount(process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID)
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -19,6 +22,7 @@ export const metadata: Metadata = {
   creator: SITE_NAME,
   publisher: SITE_NAME,
   category: 'gaming',
+  other: adsenseAccount ? { 'google-adsense-account': adsenseAccount } : undefined,
   robots: {
     index: true,
     follow: true,

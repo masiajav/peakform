@@ -1,20 +1,22 @@
 import type { GuideContent } from './content'
 import { hasReviewedGuideRevision } from './reviewed-guide-policy'
+import { secondGuideReviewBatch } from './reviewed-guide-batch-2'
 export { hasReviewedGuideRevision, reviewedGuideTarget } from './reviewed-guide-policy'
 
-type GuideRevision = {
+export type GuideRevision = {
   hero: string
   title: string
   description: string
   quickAnswer: string
   videoSlug: string
   body: string
+  revisedAt?: string
 }
 
 export const GUIDE_REVISION_DATE = '2026-09-30'
 
 // Explicit revisions, not a template that fills in a hero name.
-export const reviewedGuideRevisions: Record<string, GuideRevision> = {
+const firstGuideReviewBatch: Record<string, GuideRevision> = {
   'orisa-guia-overwatch-fortify-javelin': {
     hero: 'orisa',
     title: 'Cómo jugar Orisa: Fortify, jabalina y presión sin sobreextenderte',
@@ -558,6 +560,11 @@ Para revisar el orden de tus recursos, consulta [cómo analizar cooldowns](/guid
   },
 }
 
+export const reviewedGuideRevisions: Record<string, GuideRevision> = {
+  ...firstGuideReviewBatch,
+  ...secondGuideReviewBatch,
+}
+
 export function applyReviewedGuideRevision<T extends Pick<GuideContent, 'slug'>>(guide: T): T {
   if (!hasReviewedGuideRevision(guide.slug)) return guide
   const revision = reviewedGuideRevisions[guide.slug]
@@ -569,7 +576,7 @@ export function applyReviewedGuideRevision<T extends Pick<GuideContent, 'slug'>>
     excerpt: revision.quickAnswer,
     body: revision.body,
     author: 'Replaid Lab',
-    updated_at: GUIDE_REVISION_DATE,
+    updated_at: revision.revisedAt || GUIDE_REVISION_DATE,
     video_summary: revision.quickAnswer,
   }
 }

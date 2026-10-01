@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { reviewedGuideRevisions } from '../../src/lib/reviewed-guide-revisions'
+import { GUIDE_REVISION_DATE, reviewedGuideRevisions } from '../../src/lib/reviewed-guide-revisions'
 
 for (const [slug, revision] of Object.entries(reviewedGuideRevisions)) {
   test(`${revision.hero} has one complete article and preserves its video URL`, async ({ page, request }) => {
@@ -25,7 +25,7 @@ for (const [slug, revision] of Object.entries(reviewedGuideRevisions)) {
     expect(articleText).not.toMatch(/Ã|Â|â€|ï¿½|Title SEO|Meta description|Mira primero el vídeo/)
     const jsonLd = await page.locator('script[type="application/ld+json"]').allTextContents()
     const schemas = jsonLd.map(block => JSON.parse(block))
-    expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'BlogPosting', dateModified: '2026-09-30', author: { '@type': 'Organization', name: 'Replaid Lab' } }))
+    expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'BlogPosting', dateModified: revision.revisedAt || GUIDE_REVISION_DATE, author: { '@type': 'Organization', name: 'Replaid Lab' } }))
     expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'FAQPage' }))
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth)
     expect(overflow).toBe(false)

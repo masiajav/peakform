@@ -1822,6 +1822,7 @@ textarea {
 }
 
 .public-nav {
+  --text2: #b3b3b3;
   align-items: center;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
@@ -1830,7 +1831,7 @@ textarea {
   gap: 20px;
   height: 52px;
   max-width: 100%;
-  overflow: hidden;
+  overflow: visible;
   padding: 0 24px;
   position: sticky;
   scrollbar-width: none;
@@ -1872,6 +1873,56 @@ textarea {
 
 .public-nav-cta {
   flex: 0 0 auto;
+}
+
+.public-nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.public-nav-toggle:focus-visible,
+.public-nav-links a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.guide-detail-main {
+  --text2: #b3b3b3;
+  --text3: #999999;
+}
+
+@media (max-width: 1023px) {
+  .public-nav-toggle { display: flex; }
+  .public-nav-spacer { display: block; flex: 1 1 auto; }
+  .public-nav-links {
+    display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 14px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+    max-height: calc(100dvh - 52px);
+    overflow-y: auto;
+  }
+  .public-nav-links.is-open { display: grid; }
+  .public-nav-links a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 8px 12px;
+  }
 }
 
 .public-footer {
@@ -2453,12 +2504,10 @@ textarea {
   }
 
   .public-nav-spacer {
-    display: none;
+    display: block;
   }
 
   .public-nav-links {
-    flex: 1 1 0;
-    gap: 16px;
     max-width: 100%;
   }
 }

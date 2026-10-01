@@ -30,7 +30,8 @@ Las páginas que todavía no lo cumplen siguen disponibles con `noindex, follow`
 
 ## Publicidad
 
-- `NEXT_PUBLIC_ADSENSE_REVIEW_MODE=true` carga únicamente el script necesario para la revisión del sitio.
+- Un ID válido en `NEXT_PUBLIC_ADSENSE_CLIENT_ID` añade la meta de verificación `google-adsense-account` al HTML del servidor. No ejecuta anuncios. `ads.txt` se conserva.
+- `NEXT_PUBLIC_ADSENSE_REVIEW_MODE=true` bloquea script e inventario aunque los flags de aprobación y CMP estén activados. El script de AdSense no es un modo de verificación inocuo: puede ejecutar Auto Ads configurados en la cuenta.
 - `NEXT_PUBLIC_ADSENSE_APPROVED=true` no basta para mostrar anuncios.
 - El servicio exige además `NEXT_PUBLIC_ADSENSE_CMP_READY=true`, una ruta editorial autorizada y un identificador de slot válido.
 - Home, hubs, páginas legales, expertos y áreas privadas no son inventario publicitario.
@@ -51,6 +52,8 @@ $env:AUDIT_OUTPUT='reports/content-audit.json'; npm.cmd run audit:content
 ```
 
 La auditoría recorre el sitemap y los enlaces públicos que encuentra. Registra robots, metadatos, H1, palabras visibles, imágenes, enlaces, JSON-LD, texto interno y similitud entre páginas.
+
+Para volver a comprobar todas las URLs del inventario anterior, incluidas las que ya no aparecen en menús, usa `AUDIT_SEED_FILE` con el informe JSON previo. El auditor conserva la ruta solicitada y registra el destino de las redirecciones. No recorre áreas privadas ni endpoints de API. Una página retirada de la navegación no se considera mejorada por desaparecer del siguiente rastreo.
 
 ## Limitaciones y revisión del 30 de septiembre de 2026
 

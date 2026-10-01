@@ -54,8 +54,8 @@ describe('reviewed guide batch', () => {
     expect(reviewedGuideTarget('toString')).toBeUndefined()
   })
 
-  it('keeps all eight revisions and their old URLs out of the sitemap and ad inventory', () => {
-    expect(Object.keys(reviewedGuideRevisions)).toHaveLength(8)
+  it('keeps every revision and its old URL out of the sitemap and ad inventory', () => {
+    expect(Object.keys(reviewedGuideRevisions)).toHaveLength(17)
     for (const [slug, revision] of Object.entries(reviewedGuideRevisions)) {
       const guide = applyReviewedGuideRevision({ ...original, slug })
       expect(reviewedGuideTarget(revision.videoSlug)).toBe(slug)
@@ -64,6 +64,7 @@ describe('reviewed guide batch', () => {
       expect(guideQualityDecision({ ...guide, slug: revision.videoSlug })).toMatchObject({ indexable: false, adsAllowed: false })
       expect(revision.body).not.toMatch(/Title SEO|Meta description|keywords principales|plan de juego: qué pelea busca/i)
       expect(revision.body).toContain('## FAQ')
+      expect(guide.updated_at).toBe(revision.revisedAt || GUIDE_REVISION_DATE)
     }
   })
 

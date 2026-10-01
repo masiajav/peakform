@@ -1,6 +1,9 @@
 import { execFile } from 'node:child_process'
 import { createServer } from 'node:http'
 import { promisify } from 'node:util'
+import { mkdtemp, rm, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import { expect, test } from 'vitest'
 
 const execFileAsync = promisify(execFile)
@@ -47,6 +50,7 @@ test('the public audit detects repeated content and never certifies editorial qu
         AUDIT_BASE_URL: `http://127.0.0.1:${address.port}`,
         AUDIT_OUTPUT: '',
         AUDIT_MAX_PAGES: '6',
+        AUDIT_SEED_FILE: '',
       },
     })
     const report = JSON.parse(stdout)
@@ -62,5 +66,43 @@ test('the public audit detects repeated content and never certifies editorial qu
     expect(report.classifications).not.toHaveProperty('terminada')
   } finally {
     await new Promise<void>((resolve, reject) => server.close(error => error ? reject(error) : resolve()))
+  }
+})
+
+test('the audit rechecks old public routes even after removal from navigation', async () => {
+  const temp = await mkdtemp(join(tmpdir(), 'replaid-audit-'))
+  const requests: string[] = []
+  const server = createServer((request, response) => {
+    requests.push(request.url || '')
+    const origin = `http://${request.headers.host}`
+    if (request.url === '/sitemap.xml') {
+      response.end(`<urlset><url><loc>${origin}/</loc></url></urlset>`)
+      return
+    }
+    if (request.url === '/old-video') {
+      response.writeHead(308, { Location: '/reviewed-guide' }).end()
+      return
+    }
+    response.end(`<html><head><title>Guía disponible</title><meta name="description" content="Una guía con información propia para aprender a jugar Overwatch y revisar las decisiones que tomas en cada pelea."><link rel="canonical" href="${origin}/reviewed-guide"></head><body><main><h1>Guía revisada</h1><p>Contenido útil.</p></main></body></html>`)
+  })
+  await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve))
+  try {
+    const seed = join(temp, 'previous.json')
+    const output = join(temp, 'audit.json')
+    await writeFile(seed, JSON.stringify({ pages: [{ path: '/old-video' }, { path: '/api/checkout' }, { path: '//external.example' }] }))
+    const address = server.address()
+    if (!address || typeof address === 'string') throw new Error('No audit fixture port')
+    await execFileAsync(process.execPath, ['scripts/audit-public-content.mjs'], {
+      env: { ...process.env, AUDIT_BASE_URL: `http://127.0.0.1:${address.port}`, AUDIT_SEED_FILE: seed, AUDIT_OUTPUT: output, AUDIT_MAX_PAGES: '10' },
+    })
+    const { readFile } = await import('node:fs/promises')
+    const report = JSON.parse(await readFile(output, 'utf8'))
+    expect(report.pages).toHaveLength(2)
+    expect(report.pages.find((page: { path: string }) => page.path === '/old-video')).toMatchObject({ status: 200, redirected: true, resolvedPath: '/reviewed-guide', inSitemap: false })
+    expect(requests).not.toContain('/api/checkout')
+    expect(requests).not.toContain('//external.example')
+  } finally {
+    await new Promise<void>((resolve, reject) => server.close(error => error ? reject(error) : resolve()))
+    await rm(temp, { recursive: true, force: true })
   }
 })

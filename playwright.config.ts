@@ -16,6 +16,14 @@ export default defineConfig({
     { name: 'mobile-chromium', use: { ...devices['Pixel 7'] } },
   ],
   webServer: {
+    // Exercise verification with every serving prerequisite true: review mode
+    // must still suppress execution. This ID is test-only, not a real publisher.
+    env: {
+      NEXT_PUBLIC_ADSENSE_CLIENT_ID: 'ca-pub-1234567890123456',
+      NEXT_PUBLIC_ADSENSE_REVIEW_MODE: 'true',
+      NEXT_PUBLIC_ADSENSE_APPROVED: 'true',
+      NEXT_PUBLIC_ADSENSE_CMP_READY: 'true',
+    },
     command: 'npm run build:e2e && npm run start:e2e -- -p 3011',
     url: 'http://127.0.0.1:3011',
     reuseExistingServer: false,
