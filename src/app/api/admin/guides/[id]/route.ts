@@ -2,9 +2,10 @@ import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { normalizeRole, normalizeTopic, parseTags, toSlug } from '@/lib/content'
 import { NextResponse } from 'next/server'
+import { editorialInputIssues, prepareEditorialPublication } from '@/lib/editorial-publication'
 
 async function assertAdmin() {
-  const supabase = createClient()
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return null
   const { data: profile } = await supabase.from('profiles').select('role').eq('id', user.id).single()
@@ -54,18 +55,24 @@ function updatePayload(body: any) {
   return allowed
 }
 
-export async function PATCH(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
+export async function PATCH(request: Request, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const user = await assertAdmin()
   if (!user) return NextResponse.json({ error: 'No autorizado' }, { status: 403 })
 
   const body = await request.json()
+  const inputIssues = editorialInputIssues(body)
+  if (inputIssues.length) return NextResponse.json({ error: inputIssues.join('. ') }, { status: 400 })
   const admin = createAdminClient()
+  const { data: current, error: currentError } = await admin.from('guides').select('*').eq('id', params.id).single()
+  if (currentError || !current) return NextResponse.json({ error: 'No se ha podido revisar la guía antes de guardarla' }, { status: currentError && currentError.code !== 'PGRST116' ? 500 : 404 })
+  const payload = updatePayload(body)
+  const review = prepareEditorialPublication('guide', current, { ...current, ...payload }, body.editorial_review, user.id, body.published === true)
+  payload.tags = review.tags
+  if (review.issues.length) return NextResponse.json({ error: 'La guía necesita revisión', issues: review.issues }, { status: 422 })
   const { data, error } = await admin
     .from('guides')
-    .update(updatePayload(body))
+    .update(payload)
     .eq('id', params.id)
     .select()
     .single()
@@ -79,10 +86,8 @@ export async function PATCH(
   return NextResponse.json(data)
 }
 
-export async function DELETE(
-  _request: Request,
-  { params }: { params: { id: string } }
-) {
+export async function DELETE(_request: Request, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const user = await assertAdmin()
   if (!user) return NextResponse.json({ error: 'No autorizado' }, { status: 403 })
 

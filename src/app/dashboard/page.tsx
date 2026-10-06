@@ -1,10 +1,12 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
+import Link from 'next/link'
 import AppNav from '@/components/layout/AppNav'
 import RefundButton from './RefundButton'
 
-export default async function DashboardPage({ searchParams }: { searchParams: { order?: string } }) {
-  const supabase = createClient()
+export default async function DashboardPage(props: { searchParams: Promise<{ order?: string }> }) {
+  const searchParams = await props.searchParams;
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
   if (!user) redirect('/login')
@@ -37,9 +39,9 @@ export default async function DashboardPage({ searchParams }: { searchParams: { 
               Sigue el progreso de tus análisis
             </p>
           </div>
-          <a href="/experts" className="btn btn-primary btn-sm">
+          <Link href="/experts" className="btn btn-primary btn-sm">
             PEDIR ANÁLISIS →
-          </a>
+          </Link>
         </div>
 
         {/* Banner de confirmación post-pago */}
@@ -72,9 +74,9 @@ export default async function DashboardPage({ searchParams }: { searchParams: { 
             <p style={{ color: 'var(--text3)', fontSize: 14, marginBottom: 24 }}>
               Elige un experto y envía tu primer replay para empezar a mejorar.
             </p>
-            <a href="/experts" className="btn btn-primary">
+            <Link href="/experts" className="btn btn-primary">
               VER EXPERTOS →
-            </a>
+            </Link>
           </div>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>

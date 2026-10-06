@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import { hasCurrentEditorialReview, publicEditorialTags } from '@/lib/editorial-review'
+import EditorialReviewChecklist, { useEditorialReviewState } from './EditorialReviewChecklist'
 
 interface Announcement {
   id: string
@@ -49,6 +51,8 @@ const emptyForm = {
   sponsor_body: '',
   sponsor_url: '',
   sponsor_cta: '',
+  source_url: '',
+  source_published_at: '',
 }
 
 function formFromAnnouncement(item: Announcement) {
@@ -64,11 +68,13 @@ function formFromAnnouncement(item: Announcement) {
     role: item.role || '',
     hero: item.hero || '',
     map: item.map || '',
-    tags: Array.isArray(item.tags) ? item.tags.join(', ') : '',
+    tags: publicEditorialTags(item.tags).join(', '),
     sponsor_title: item.sponsor_title || '',
     sponsor_body: item.sponsor_body || '',
     sponsor_url: item.sponsor_url || '',
     sponsor_cta: item.sponsor_cta || '',
+    source_url: item.source_url || '',
+    source_published_at: item.source_published_at?.slice(0, 10) || '',
   }
 }
 
@@ -77,6 +83,7 @@ export default function AnnouncementManager({ initialAnnouncements }: { initialA
   const [form, setForm] = useState(emptyForm)
   const [editingId, setEditingId] = useState<string | null>(null)
   const [editForm, setEditForm] = useState(emptyForm)
+  const review = useEditorialReviewState(editForm, editingId)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -94,19 +101,21 @@ export default function AnnouncementManager({ initialAnnouncements }: { initialA
       body: JSON.stringify({ ...form, published: false }),
     })
     const data = await res.json()
-    if (!res.ok) { setError(data.error); setSaving(false); return }
+    if (!res.ok) { setError(publicationError(data)); setSaving(false); return }
     setItems([data, ...items])
     setForm(emptyForm)
     setSaving(false)
   }
 
   function startEdit(item: Announcement) {
+    review.resetReview()
     setError(null)
     setEditingId(item.id)
     setEditForm(formFromAnnouncement(item))
   }
 
   function cancelEdit() {
+    review.resetReview()
     setEditingId(null)
     setEditForm(emptyForm)
   }
@@ -118,10 +127,10 @@ export default function AnnouncementManager({ initialAnnouncements }: { initialA
     const res = await fetch(`/api/admin/announcements/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(editForm),
+      body: JSON.stringify({ ...editForm, editorial_review: review.approval }),
     })
     const data = await res.json()
-    if (!res.ok) { setError(data.error); setSaving(false); return }
+    if (!res.ok) { setError(publicationError(data)); setSaving(false); return }
     setItems(items.map(i => i.id === id ? data : i))
     cancelEdit()
     setSaving(false)
@@ -141,8 +150,7 @@ export default function AnnouncementManager({ initialAnnouncements }: { initialA
     }
 
     const data = await res.json()
-    const details = Array.isArray(data.issues) ? `: ${data.issues.join('. ')}` : ''
-    setError(`${data.error || 'No se ha podido cambiar el estado'}${details}`)
+    setError(publicationError(data))
   }
 
   async function handleDelete(id: string) {
@@ -178,6 +186,13 @@ export default function AnnouncementManager({ initialAnnouncements }: { initialA
         <Textarea label="EXTRACTO" value={form.excerpt} onChange={v => setField('excerpt', v)} placeholder="Resumen corto para listados y snippets" rows={2} />
         <Field label="SEO TITLE" value={form.seo_title} onChange={v => setField('seo_title', v)} placeholder="Título optimizado para búsqueda" />
         <Field label="SEO DESCRIPTION" value={form.seo_description} onChange={v => setField('seo_description', v)} placeholder="Descripción de 140-160 caracteres" />
+        <Field label="AUTORÍA" value={form.author} onChange={v => setField('author', v)} placeholder="Replaid Lab" />
+        {form.content_type === 'patch_note' && (
+          <>
+            <Field label="ENLACE OFICIAL DEL PARCHE" value={form.source_url} onChange={v => setField('source_url', v)} type="url" />
+            <Field label="FECHA OFICIAL DEL PARCHE" value={form.source_published_at} onChange={v => setField('source_published_at', v)} type="date" />
+          </>
+        )}
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }}>
           <div>
@@ -223,6 +238,7 @@ export default function AnnouncementManager({ initialAnnouncements }: { initialA
                   <span style={{ fontSize: 10, letterSpacing: 1, fontFamily: 'Bebas Neue, sans-serif', color: item.published ? 'var(--green)' : 'var(--text3)', border: `1px solid ${item.published ? 'var(--green)' : 'var(--border)'}`, padding: '1px 6px' }}>
                     {item.published ? 'PUBLICADO' : 'BORRADOR'}
                   </span>
+                  <span style={{ fontSize: 12, color: 'var(--text2)' }}>{hasCurrentEditorialReview(item) ? 'Revisión aprobada' : 'Revisión pendiente'}</span>
                   <span style={{ fontSize: 10, letterSpacing: 1, fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)' }}>
                     {item.content_type === 'patch_note' ? 'PATCH' : 'NEWS'}
                   </span>
@@ -268,6 +284,13 @@ export default function AnnouncementManager({ initialAnnouncements }: { initialA
                   <Textarea label="EXTRACTO" value={editForm.excerpt} onChange={v => setEditForm(prev => ({ ...prev, excerpt: v }))} rows={2} />
                   <Field label="SEO TITLE" value={editForm.seo_title} onChange={v => setEditForm(prev => ({ ...prev, seo_title: v }))} />
                   <Field label="SEO DESCRIPTION" value={editForm.seo_description} onChange={v => setEditForm(prev => ({ ...prev, seo_description: v }))} />
+                  <Field label="AUTORÍA" value={editForm.author} onChange={v => setEditForm(prev => ({ ...prev, author: v }))} placeholder="Replaid Lab" />
+                  {editForm.content_type === 'patch_note' && (
+                    <>
+                      <Field label="ENLACE OFICIAL DEL PARCHE" value={editForm.source_url} onChange={v => setEditForm(prev => ({ ...prev, source_url: v }))} type="url" />
+                      <Field label="FECHA OFICIAL DEL PARCHE" value={editForm.source_published_at} onChange={v => setEditForm(prev => ({ ...prev, source_published_at: v }))} type="date" />
+                    </>
+                  )}
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }}>
                     <div>
                       <div style={{ fontSize: 11, color: 'var(--text3)', marginBottom: 6 }}>ROL</div>
@@ -290,6 +313,7 @@ export default function AnnouncementManager({ initialAnnouncements }: { initialA
                     <Field label="PATROCINIO URL" value={editForm.sponsor_url} onChange={v => setEditForm(prev => ({ ...prev, sponsor_url: v }))} />
                     <Field label="PATROCINIO TEXTO" value={editForm.sponsor_body} onChange={v => setEditForm(prev => ({ ...prev, sponsor_body: v }))} />
                   </div>
+                  <EditorialReviewChecklist checks={review.checks} onChange={review.setCheck} />
                   <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 8 }}>
                     <button type="button" onClick={cancelEdit} className="btn btn-secondary btn-sm">Cancelar</button>
                     <button type="submit" disabled={saving} className="btn btn-primary btn-sm">{saving ? 'GUARDANDO...' : 'Guardar cambios'}</button>
@@ -304,12 +328,17 @@ export default function AnnouncementManager({ initialAnnouncements }: { initialA
   )
 }
 
-function Field({ label, value, onChange, placeholder, required = false }: { label: string; value: string; onChange: (value: string) => void; placeholder?: string; required?: boolean }) {
+function publicationError(data: { error?: string; issues?: unknown }) {
+  const details = Array.isArray(data.issues) ? `: ${data.issues.join('. ')}` : ''
+  return `${data.error || 'No se ha podido guardar la entrada'}${details}`
+}
+
+function Field({ label, value, onChange, placeholder, required = false, type = 'text' }: { label: string; value: string; onChange: (value: string) => void; placeholder?: string; required?: boolean; type?: 'text' | 'url' | 'date' }) {
   return (
-    <div>
+    <label>
       <div style={{ fontSize: 11, color: 'var(--text3)', marginBottom: 6 }}>{label}</div>
-      <input value={value} onChange={e => onChange(e.target.value)} placeholder={placeholder} required={required} />
-    </div>
+      <input type={type} value={value} onChange={e => onChange(e.target.value)} placeholder={placeholder} required={required} />
+    </label>
   )
 }
 

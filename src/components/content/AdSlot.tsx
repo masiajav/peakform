@@ -4,6 +4,7 @@ import type { CSSProperties } from 'react'
 import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { canLoadAdSense } from '@/lib/adsense-policy'
+import AdSenseScript from './AdSenseScript'
 
 type AdSlotVariant = 'leaderboard' | 'inline' | 'sidebar' | 'mobile'
 
@@ -36,7 +37,7 @@ export default function AdSlot({
   variant = 'inline',
   slot,
   label = 'Publicidad',
-  allowAds = true,
+  allowAds = false,
   className,
   style,
 }: AdSlotProps) {
@@ -49,7 +50,7 @@ export default function AdSlot({
     approved: process.env.NEXT_PUBLIC_ADSENSE_APPROVED,
     cmpReady: process.env.NEXT_PUBLIC_ADSENSE_CMP_READY,
     reviewMode: process.env.NEXT_PUBLIC_ADSENSE_REVIEW_MODE,
-  }, pathname)
+  }, pathname, allowAds)
 
   useEffect(() => {
     if (!allowAds || !canServeAd) return
@@ -62,23 +63,26 @@ export default function AdSlot({
   if (!allowAds || !canServeAd) return null
 
   return (
-    <aside
-      className={`ad-slot ad-slot-${variant}${className ? ` ${className}` : ''}`}
-      data-ad-slot={slot || variant}
-      data-ad-format={config.format}
-      style={{ minHeight: config.minHeight, ...style }}
-      aria-label={label}
-    >
-      <div className="ad-slot-label">{label}</div>
-      <ins
-        className="adsbygoogle"
-        style={{ display: 'block' }}
-        data-ad-client={clientId}
-        data-ad-slot={resolvedSlot}
+    <>
+      <AdSenseScript allowAds={allowAds} />
+      <aside
+        className={`ad-slot ad-slot-${variant}${className ? ` ${className}` : ''}`}
+        data-ad-slot={slot || variant}
         data-ad-format={config.format}
-        data-full-width-responsive="true"
-      />
-    </aside>
+        style={{ minHeight: config.minHeight, ...style }}
+        aria-label={label}
+      >
+        <div className="ad-slot-label">{label}</div>
+        <ins
+          className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client={clientId}
+          data-ad-slot={resolvedSlot}
+          data-ad-format={config.format}
+          data-full-width-responsive="true"
+        />
+      </aside>
+    </>
   )
 }
 

@@ -3,6 +3,8 @@ import { defineConfig, devices } from '@playwright/test'
 export default defineConfig({
   testDir: './tests/e2e',
   fullyParallel: false,
+  // Keep full-page captures and the local Next server within desktop resources.
+  workers: 2,
   forbidOnly: true,
   retries: 0,
   reporter: [['list'], ['html', { open: 'never' }]],
@@ -24,7 +26,7 @@ export default defineConfig({
       NEXT_PUBLIC_ADSENSE_APPROVED: 'true',
       NEXT_PUBLIC_ADSENSE_CMP_READY: 'true',
     },
-    command: 'npm run build:e2e && npm run start:e2e -- -p 3011',
+    command: 'npm run build:e2e && npm run start:e2e -- -p 3011 -H 127.0.0.1',
     url: 'http://127.0.0.1:3011',
     reuseExistingServer: false,
     timeout: 240_000,

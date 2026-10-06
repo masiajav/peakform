@@ -3,177 +3,19 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import JsonLd from '@/components/content/JsonLd'
-import GuideVideo from '@/components/content/GuideVideo'
+import ReviewedHeroPillarPage from '@/components/content/ReviewedHeroPillarPage'
 import PublicNav from '@/components/layout/PublicNav'
-import { topicLabel } from '@/lib/content'
 import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 import { isPillarCounterSlug, isPillarTeamCompSlug, robotsForQuality, topicQualityDecision } from '@/lib/indexing-policy'
 import { getHeroPillar, type HeroPillar } from '@/lib/hero-pillars'
 import { getHeroPortrait } from '@/lib/overwatch-hero-portraits'
 import { safeTopicHref } from '@/lib/topic-links'
 
-const SHION_SLUG = 'shion'
-const SHION_IMAGE = '/heroes/shion.png'
-const SHION_UPDATED_AT = '28 de junio de 2026'
-const SHION_RELEASE_DATE = '16 de junio de 2026'
-const SHION_SEASON = "Season 3: Into the Tiger's Den"
-const SHION_VIDEO_ID = '9abTdz8uD3g'
-const SHION_VIDEO_URL = `https://youtu.be/${SHION_VIDEO_ID}`
-const SHION_VIDEO_TITLE = "Don't Play SHION Without Knowing This First | Overwatch Shion Guide"
 
-const shionFacts = [
-  { label: 'Rol', value: 'Daño' },
-  { label: 'Subrol', value: 'Flanker' },
-  { label: 'Estilo', value: 'Movilidad, presión lateral y remate' },
-  { label: 'Dificultad', value: 'Media-alta' },
-  { label: 'Punto fuerte', value: 'Castigar enemigos aislados o tocados' },
-  { label: 'Punto débil', value: 'Depende mucho del timing y sus rutas' },
-  { label: 'Último ajuste', value: 'Execution nerfeada' },
-  { label: 'Lanzamiento', value: SHION_RELEASE_DATE },
-]
-
-const shionAbilities = [
-  {
-    title: 'Kira Pistols',
-    body: 'Pistolas duales de anima y disparo rápido. Son la base de su presión constante: preparan objetivos antes de Execution y castigan a quien rota mal.',
-  },
-  {
-    title: 'Execution',
-    body: 'Descarga en forma de X. Si mantienes pulsado, la dispersión se reduce, así que gana valor como herramienta precisa para cerrar bajas sobre enemigos ya tocados.',
-  },
-  {
-    title: 'Evade',
-    body: 'Dash con una ventana breve de supervivencia. Decide si Shion puede entrar, reposicionarse o salir viva después de presionar. Malgastarlo hacia delante la deja vendida.',
-  },
-  {
-    title: 'Joyride',
-    body: 'Activa la moto y permite relanzarla hacia delante al desmontar. No es solo transporte: crea amenaza, obliga al rival a girarse y convierte una ruta lateral en una entrada real.',
-  },
-  {
-    title: 'Satsuriku Spree',
-    body: 'Definitiva de avance con tres impulsos y disparos durante la ejecución. Brilla más para limpiar peleas abiertas que para iniciar cuando el rival aún tiene todos sus recursos.',
-  },
-]
-
-const shionPerks = [
-  {
-    tier: 'Minor',
-    title: 'Rapid Reload',
-    body: 'Evade recarga 9 de munición. Es muy útil para mantener presión después de reposicionarte sin quedarte seco en mitad del duelo.',
-  },
-  {
-    tier: 'Minor',
-    title: 'X Machina',
-    body: 'Execution hace más daño a enemigos por debajo de media vida. Encaja perfecto con su identidad de flanker que aparece para rematar, no para tradear eternamente.',
-  },
-  {
-    tier: 'Major',
-    title: 'Refuel',
-    body: 'Joyride restaura vida al activarse y regenera mientras está activa. Puede permitir entradas más largas si el rival no corta la moto rápido.',
-  },
-  {
-    tier: 'Major',
-    title: 'Faces of Death',
-    body: 'Da acceso temporal a pasivas de otros subroles de DPS. Parece una opción potente para snowball, tracking y ventanas concretas, aunque dependerá mucho del mapa y matchup.',
-  },
-]
-
-const shionCounters = [
-  {
-    name: 'Sombra',
-    href: '/heroes/sombra',
-    body: 'Puede romper el timing de Shion con hack si lee Joyride o la entrada real. No necesita matarla sola: basta con negar el momento bueno.',
-  },
-  {
-    name: 'Ana',
-    href: '/heroes/ana',
-    body: 'Sleep Dart castiga muchísimo una entrada previsible. Si Shion gasta Evade antes de entrar, Ana tiene una ventana clara para pararla.',
-  },
-  {
-    name: 'Junkrat',
-    href: '/heroes/junkrat',
-    body: 'Controla pasillos, rutas estrechas y zonas de health pack. Si Shion repite laterales, Junkrat puede convertir su movilidad en una trampa.',
-  },
-  {
-    name: 'Brigitte',
-    href: '/heroes/brigitte',
-    body: 'No tiene que perseguirla. Su valor está en proteger al support que Shion quiere rematar y convertir una entrada limpia en un trade malo.',
-  },
-  {
-    name: 'D.Va',
-    href: '/heroes/dva',
-    body: 'Puede negar daño, cubrir supports y contestar rutas laterales sin abandonar del todo la frontline.',
-  },
-  {
-    name: 'Cassidy',
-    href: '/heroes/cassidy',
-    body: 'Castiga entradas sin cobertura y rutas repetidas. Es especialmente incómodo cuando Shion ya gastó Evade o Joyride.',
-  },
-]
-
-const shionQuickAnswers = [
-  {
-    title: 'Si la vas a jugar',
-    body: 'No entres el primero ni te quedes dueling por orgullo. Busca un lateral, espera a que el rival gaste peel y entra para cerrar una baja rápida. Joyride te mete en la pelea; Evade debería sacarte de ella.',
-  },
-  {
-    title: 'Si la tienes enfrente',
-    body: 'No corras detrás de ella sin plan. Mira por dónde quiere entrar, protege al support que está más expuesto y guarda control para cuando gaste movilidad hacia delante. Hack, Sleep, bash o burst fiable le rompen el timing.',
-  },
-  {
-    title: 'Qué equipo le ayuda',
-    body: 'Shion brilla cuando el equipo entra con ella: dive, rush rápido o cualquier comp que fuerce al rival a mirar a dos sitios a la vez. Si todos se quedan pokeando desde lejos, sus entradas se vuelven muy forzadas.',
-  },
-]
-
-const shionFaq = [
-  {
-    question: '¿Shion es una DPS flanker?',
-    answer: 'Sí. Shion es una heroína de daño con subrol de flanker. Su estilo gira alrededor de movilidad, presión lateral, rutas raras y remates sobre enemigos tocados.',
-  },
-  {
-    question: '¿Shion se juega como Tracer?',
-    answer: 'No exactamente. Comparte la idea de presión lateral, pero Joyride, Execution y sus perks le dan una identidad propia. Si la juegas como una copia de Tracer, vas a perder mucho valor.',
-  },
-  {
-    question: '¿Cuál es el error más común al jugar Shion?',
-    answer: 'Entrar demasiado pronto y gastar movilidad sin plan de salida. Shion necesita timing: si entra cuando el rival aún tiene todos los recursos, puede morir muy rápido.',
-  },
-  {
-    question: '¿Qué perk parece más fuerte para Shion?',
-    answer: 'Faces of Death parece una de las opciones más potentes por el acceso a otras pasivas de daño. X Machina también destaca si quieres reforzar su capacidad de remate con Execution.',
-  },
-  {
-    question: '¿Quién counterea a Shion?',
-    answer: 'Sombra, Ana, Junkrat, Brigitte, D.Va y Cassidy son buenas respuestas iniciales. En general, Shion sufre contra control, peel y equipos que no dejan supports aislados.',
-  },
-  {
-    question: '¿Cómo se counterea Joyride?',
-    answer: 'Lo mejor es anticipar la ruta, guardar control y castigar cuando Shion desmonta o lanza la moto. Si gastas todo antes de su entrada real, le facilitas la jugada.',
-  },
-  {
-    question: '¿Shion es buena para ranked?',
-    answer: 'Puede serlo, pero requiere práctica. Tras el nerf a Execution se siente menos cómoda para rematar, así que conviene jugar con más paciencia y no forzar entradas sin ventaja.',
-  },
-  {
-    question: '¿Qué ha cambiado en Shion con el último nerf?',
-    answer: 'Execution tiene un proyectil bastante más pequeño y ahora deja más recuperación después de disparar. En la práctica, Shion castiga menos fácil, falla más remates ajustados y queda más expuesta si usa la habilidad sin preparar la pelea.',
-  },
-]
-
-export function generateMetadata({ params }: { params: { hero: string } }): Metadata {
+export async function generateMetadata(props: { params: Promise<{ hero: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const quality = topicQualityDecision('hero', params.hero)
   const pillar = getHeroPillar(params.hero)
-
-  if (params.hero === SHION_SLUG) {
-    return buildMetadata({
-      title: 'Shion Overwatch: guía rápida, counters, perks y nerf de Execution',
-      description: 'Cómo jugar Shion sin regalar entradas: Joyride, Execution tras el nerf, mejores perks, counters y comps para ranked.',
-      path: `/heroes/${params.hero}`,
-      image: SHION_IMAGE,
-      robots: robotsForQuality(quality),
-    })
-  }
 
   if (pillar) {
     return buildMetadata({
@@ -181,23 +23,21 @@ export function generateMetadata({ params }: { params: { hero: string } }): Meta
       description: heroCtrDescription(pillar),
       path: `/heroes/${params.hero}`,
       image: getHeroPortrait(params.hero) || undefined,
-      robots: robotsForQuality(quality),
+      robots: robotsForQuality(quality) ?? { index: true, follow: true },
     })
   }
 
   return {}
 }
 
-export default function HeroPage({ params }: { params: { hero: string } }) {
-  const label = topicLabel(params.hero)
+export default async function HeroPage(props: { params: Promise<{ hero: string }> }) {
+  const params = await props.params;
   const pillar = getHeroPillar(params.hero)
 
-  if (params.hero === SHION_SLUG) {
-    return <ShionHeroPage slug={params.hero} name={label} />
-  }
-
   if (pillar) {
-    return <HeroPillarPage pillar={pillar} />
+    return pillar.schemaDate && pillar.headerTips && pillar.quickAnswers
+      ? <ReviewedHeroPillarPage pillar={pillar} />
+      : <HeroPillarPage pillar={pillar} />
   }
 
   notFound()
@@ -220,7 +60,7 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
     image: image ? absoluteUrl(image) : undefined,
     url: pageUrl,
     datePublished: isDoctrine ? '2026-09-12' : pillar.slug === 'dmon' ? '2026-08-06' : '2026-06-26',
-    dateModified: isDoctrine ? '2026-09-13' : pillar.slug === 'dmon' ? '2026-08-11' : '2026-07-24',
+    dateModified: isDoctrine || pillar.slug === 'dmon' ? '2026-10-01' : '2026-07-24',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -481,345 +321,6 @@ function HeroPillarPage({ pillar }: { pillar: HeroPillar }) {
   )
 }
 
-function ShionHeroPage({ slug, name }: { slug: string; name: string }) {
-  const pageUrl = absoluteUrl(`/heroes/${slug}`)
-  const articleJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: 'Shion Overwatch: guía rápida, counters, perks y nerf de Execution',
-    description: 'Cómo jugar Shion sin regalar entradas: Joyride, Execution tras el nerf, mejores perks, counters y comps para ranked.',
-    image: absoluteUrl(SHION_IMAGE),
-    url: pageUrl,
-    datePublished: '2026-06-15',
-    dateModified: '2026-07-24',
-    author: { '@type': 'Organization', name: SITE_NAME },
-    publisher: { '@type': 'Organization', name: SITE_NAME },
-    mainEntityOfPage: pageUrl,
-  }
-  const breadcrumbJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Héroes', item: absoluteUrl('/heroes') },
-      { '@type': 'ListItem', position: 2, name, item: pageUrl },
-    ],
-  }
-  const faqJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: shionFaq.map(item => ({
-      '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: { '@type': 'Answer', text: item.answer },
-    })),
-  }
-  const videoJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'VideoObject',
-    name: SHION_VIDEO_TITLE,
-    description: 'Guía en vídeo para entender cómo jugar Shion, qué errores evitar y qué perks vigilar antes de entrar a ranked.',
-    thumbnailUrl: [`https://i.ytimg.com/vi/${SHION_VIDEO_ID}/hqdefault.jpg`],
-    uploadDate: '2026-06-18',
-    embedUrl: `https://www.youtube-nocookie.com/embed/${SHION_VIDEO_ID}`,
-    contentUrl: SHION_VIDEO_URL,
-    inLanguage: 'en',
-  }
-
-  return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
-      <JsonLd data={articleJsonLd} />
-      <JsonLd data={breadcrumbJsonLd} />
-      <JsonLd data={faqJsonLd} />
-      <JsonLd data={videoJsonLd} />
-      <PublicNav />
-
-      <main style={{ maxWidth: 1120, margin: '0 auto', padding: '56px 24px 88px' }}>
-        <div style={{ marginBottom: 28, fontSize: 12, color: 'var(--text3)', display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          <Link href="/heroes" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Héroes</Link>
-          <span>/</span>
-          <span>{name}</span>
-        </div>
-
-        <header style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.05fr) minmax(280px, 0.75fr)', gap: 24, alignItems: 'center', marginBottom: 28 }} className="home-hero-grid">
-          <div>
-            <div className="eyebrow">DPS FLANKER · {SHION_SEASON.toUpperCase()}</div>
-            <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(42px, 8vw, 82px)', letterSpacing: 1, lineHeight: 0.94, margin: '0 0 16px' }}>
-              SHION EN OVERWATCH: <br />
-              <span style={{ color: 'var(--accent)' }}>GUÍA RÁPIDA, COUNTERS Y PERKS</span>
-            </h1>
-            <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.75, margin: '0 0 18px', maxWidth: 760 }}>
-              Shion es una DPS flanker de ritmo alto: entra por laterales, castiga supports aislados y convierte enemigos tocados en bajas rápidas. Tras el nerf a Execution ya no puedes jugarla a lo loco; necesitas timing, rutas limpias y una salida preparada antes de gastar tus cooldowns.
-            </p>
-            <div style={{ display: 'grid', gap: 10, margin: '0 0 18px', maxWidth: 760 }}>
-              {[
-                'Para jugarla: entra cuando la pelea ya empezó, remata rápido y guarda una salida.',
-                'Para pararla: protege supports y castiga cuando gaste Joyride o Evade.',
-                'Mejor contexto: dive o rush rápido; peor si tu equipo se queda pokeando desde lejos.',
-              ].map(item => (
-                <div key={item} style={{ display: 'grid', gridTemplateColumns: '18px minmax(0, 1fr)', gap: 9, alignItems: 'start', color: 'var(--text2)', fontSize: 13, lineHeight: 1.55 }}>
-                  <span style={{ color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 17, lineHeight: 1 }}>-</span>
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-              <MetaPill label="Actualizado" value={SHION_UPDATED_AT} />
-              <MetaPill label="Lanzamiento" value={SHION_RELEASE_DATE} />
-              <MetaPill label="Parche revisado" value="Season 3 · ajuste de Execution" />
-            </div>
-          </div>
-
-          <aside style={{ background: 'var(--surface)', border: '1px solid var(--border)', overflow: 'hidden' }}>
-            <div
-              style={{
-                position: 'relative',
-                height: 330,
-                background:
-                  'radial-gradient(circle at 50% 20%, rgba(255, 92, 37, 0.16), transparent 42%), linear-gradient(180deg, var(--surface2), var(--bg))',
-              }}
-            >
-              <Image
-                src={SHION_IMAGE}
-                alt="Shion, heroína DPS de Overwatch"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 420px"
-                style={{ boxSizing: 'border-box', objectFit: 'contain', objectPosition: 'center bottom', padding: 24 }}
-              />
-            </div>
-            <div style={{ padding: 18, display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 10 }}>
-              {shionFacts.map(fact => (
-                <div key={fact.label}>
-                  <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)', fontSize: 11, letterSpacing: 1.3 }}>{fact.label}</div>
-                  <div style={{ color: 'var(--text)', fontSize: 13 }}>{fact.value}</div>
-                </div>
-              ))}
-            </div>
-          </aside>
-        </header>
-
-        <section style={{ ...sectionStyle, borderColor: 'rgba(255, 92, 42, 0.45)', background: 'linear-gradient(135deg, rgba(255, 92, 42, 0.10), var(--surface) 42%)' }}>
-          <div className="eyebrow" style={{ marginBottom: 10 }}>EN CORTO</div>
-          <h2 style={headingStyle}>Shion en 30 segundos: lo importante</h2>
-          <div style={cardGridStyle}>
-            {shionQuickAnswers.map(item => (
-              <article key={item.title} style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', padding: 16 }}>
-                <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 22, letterSpacing: 0.8, margin: '0 0 8px' }}>
-                  {item.title}
-                </h3>
-                <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65, margin: 0 }}>{item.body}</p>
-              </article>
-            ))}
-          </div>
-          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 16 }}>
-            <Link href="/counters/shion" className="btn btn-primary btn-sm">VER COUNTERS</Link>
-            <Link href="/team-comps/shion" className="btn btn-secondary btn-sm">VER COMPS</Link>
-          </div>
-        </section>
-
-        <section style={sectionStyle}>
-          <div className="eyebrow" style={{ marginBottom: 10 }}>LECTURA DE PARTIDA</div>
-          <h2 style={headingStyle}>Quién es Shion en Overwatch</h2>
-          <div style={copyGridStyle}>
-            <p style={{ margin: 0 }}>
-              Shion es una ómnica vinculada al Clan Hashimoto y una de las figuras más peligrosas de Into the Tiger&apos;s Den. Su fantasía jugable encaja con esa identidad: no está pensada para quedarse quieta disparando desde la frontal, sino para buscar ángulos incómodos, entrar con decisión y convertir una mala rotación enemiga en una baja rápida.
-            </p>
-            <p style={{ margin: 0 }}>
-              En partida funciona mejor cuando juega alrededor del caos. Si el equipo rival pierde de vista los laterales, gasta cooldowns defensivos demasiado pronto o deja a un support aislado, Shion puede entrar, presionar y salir antes de que la pelea se estabilice.
-            </p>
-          </div>
-        </section>
-
-        <section style={sectionStyle}>
-          <div className="eyebrow" style={{ marginBottom: 10 }}>ANTES DE JUGARLA</div>
-          <h2 style={headingStyle}>Lo que debes saber antes de pickear Shion</h2>
-          <div style={copyGridStyle}>
-            <p style={{ margin: 0 }}>
-              Shion no es simplemente una Tracer con moto. Puede parecer muy agresiva, pero la diferencia entre una Shion útil y una Shion que muere sola está en el timing. No entras para hacer daño porque sí: entras para obligar al rival a girarse, separar la backline o cerrar una baja que tu equipo ya ha preparado.
-            </p>
-            <p style={{ margin: 0 }}>
-              Si gastas Joyride o Evade solo para iniciar sin información, el rival puede castigarte en cuanto pierdas movilidad. Su daño gana mucho valor cuando el enemigo ya está tocado o ha gastado recursos defensivos, así que piensa en ventanas cortas y salidas claras.
-            </p>
-          </div>
-        </section>
-
-        <section style={sectionStyle}>
-          <div className="eyebrow" style={{ marginBottom: 10 }}>PLAN DE JUEGO</div>
-          <h2 style={headingStyle}>Cómo jugar Shion correctamente</h2>
-          <div style={copyGridStyle}>
-            <p style={{ margin: 0 }}>
-              Su ciclo básico es sencillo de explicar y difícil de ejecutar: busca un lateral seguro, espera a que el rival gaste movilidad o peel, entra con Joyride o Evade, remata con Kira Pistols y Execution, y sal antes de que todo el equipo enemigo pueda girarse.
-            </p>
-            <p style={{ margin: 0 }}>
-              Si la juegas como si fueras inmortal, vas a morir mucho. Si la juegas como una amenaza que aparece cuando el enemigo ya está ocupado, puedes convertirte en una pesadilla para supports y DPS sin movilidad.
-            </p>
-          </div>
-        </section>
-
-        <section style={sectionStyle}>
-          <div className="eyebrow" style={{ marginBottom: 10 }}>KIT</div>
-          <h2 style={headingStyle}>Habilidades de Shion</h2>
-          <div style={cardGridStyle}>
-            {shionAbilities.map(ability => (
-              <StatusCard key={ability.title} title={ability.title} body={ability.body} />
-            ))}
-          </div>
-        </section>
-
-        <section style={sectionStyle}>
-          <div className="eyebrow" style={{ marginBottom: 10 }}>CAMBIO DE BALANCE</div>
-          <h2 style={headingStyle}>Nerf a Execution: Shion ahora castiga menos fácil</h2>
-          <div style={copyGridStyle}>
-            <p style={{ margin: 0 }}>
-              El primer ajuste serio a Shion ha ido directo a Execution. El tamaño del proyectil baja de 0.17 a 0.07 y la recuperación después de disparar pasa de 0 a 0.4 segundos. Sobre el papel parecen números pequeños; en partida se notan bastante, porque ahora cuesta más cerrar remates rápidos y fallar la habilidad deja una ventana más clara para que te castiguen.
-            </p>
-            <p style={{ margin: 0 }}>
-              Esto hace que Shion sea menos permisiva, sobre todo si la estabas jugando a base de entradas muy agresivas y remates instantáneos. Sigue teniendo movilidad y amenaza lateral, pero ya no perdona tanto: necesitas preparar mejor el engage, esperar enemigos tocados y evitar tirar Execution solo “por probar”.
-            </p>
-          </div>
-          <div style={{ ...cardGridStyle, marginTop: 16 }}>
-            <StatusCard
-              title="Qué cambia al jugarla"
-              body="Hay que ser más paciente. Si entras sin información y fallas Execution, el rival tiene más tiempo para girarse, curar al objetivo o castigarte antes de que puedas salir."
-              badge="Shion nerf"
-            />
-            <StatusCard
-              title="Qué cambia al jugar contra ella"
-              body="Ahora merece más la pena aguantar la calma y castigar después del disparo. Si Shion gasta Execution mal, su amenaza baja mucho durante unos segundos."
-              badge="Counterplay"
-            />
-            <StatusCard
-              title="Nuestra lectura"
-              body="El nerf parece duro para una heroína recién estrenada. Ojalá Blizzard rectifique parte del ajuste si Shion cae demasiado, porque el personaje pierde fluidez cuando Execution deja de sentirse fiable."
-              badge="Opinión"
-            />
-          </div>
-        </section>
-
-        <section style={sectionStyle}>
-          <div className="eyebrow" style={{ marginBottom: 10 }}>COUNTERS</div>
-          <h2 style={headingStyle}>Primeros counters de Shion</h2>
-          <p style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.7, margin: '0 0 16px', maxWidth: 780 }}>
-            No necesitas perseguirla por todo el mapa: necesitas hacer que su entrada sea mala. Control, peel y rutas vigiladas son mucho más fiables que correr detrás de ella sin plan.
-          </p>
-          <div style={cardGridStyle}>
-            {shionCounters.map(counter => (
-              <Link key={counter.name} href={safeTopicHref(counter.href)} style={{ textDecoration: 'none' }}>
-                <StatusCard title={counter.name} body={counter.body} badge="Counter inicial" />
-              </Link>
-            ))}
-          </div>
-          <div style={{ marginTop: 16 }}>
-            <Link href="/counters/shion" className="btn btn-primary btn-sm">VER COUNTERS DE SHION</Link>
-          </div>
-        </section>
-
-        <section style={sectionStyle}>
-          <h2 style={headingStyle}>Cómo jugar contra Shion</h2>
-          <div style={copyGridStyle}>
-            <p style={{ margin: 0 }}>
-              El error más común es perseguirla sin pensar. Si Shion entra, fuerza atención y consigue que dos jugadores la sigan, ya está generando valor aunque no mate a nadie.
-            </p>
-            <p style={{ margin: 0 }}>
-              Mira los laterales antes de que empiece la pelea, no dejes supports solos, guarda control para su entrada real y castiga cuando gaste Evade o Joyride hacia delante. Shion castiga equipos desordenados; si mantienes calma y recursos, su impacto baja mucho.
-            </p>
-          </div>
-        </section>
-
-        <section style={sectionStyle}>
-          <div className="eyebrow" style={{ marginBottom: 10 }}>PERKS</div>
-          <h2 style={headingStyle}>Perks minor y major a vigilar</h2>
-          <p style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.7, margin: '0 0 16px', maxWidth: 780 }}>
-            Los minor perks refuerzan su ciclo normal de entrada y remate. Los major perks son más delicados: pueden cambiar cuánto aguanta montada y qué ventanas agresivas puede convertir en baja.
-          </p>
-          <div style={cardGridStyle}>
-            {shionPerks.map(perk => (
-              <StatusCard key={perk.title} title={perk.title} body={perk.body} badge={`${perk.tier} perk`} />
-            ))}
-          </div>
-        </section>
-
-        <section style={sectionStyle}>
-          <div className="eyebrow" style={{ marginBottom: 10 }}>COMPOSICIONES</div>
-          <h2 style={headingStyle}>Mejores composiciones con Shion</h2>
-          <div style={copyGridStyle}>
-            <p style={{ margin: 0 }}>
-              Shion debería encajar especialmente bien en dive y brawl rápido. Quiere equipos que entren con ella, creen caos o aprovechen la distracción que genera en la backline.
-            </p>
-            <p style={{ margin: 0 }}>
-              Tanques como Winston, D.Va, Junker Queen o Ramattra pueden abrir espacio para sus entradas. Como DPS, Tracer, Genji, Sombra y Echo ayudan a dividir la atención rival. En support, Brigitte, Lucio, Lifeweaver y Kiriko parecen buenos puntos de partida por peel, velocidad, limpieza o rescate.
-            </p>
-          </div>
-          <div style={{ marginTop: 16 }}>
-            <Link href="/team-comps/shion" className="btn btn-secondary btn-sm">VER COMPOSICIONES DE SHION</Link>
-          </div>
-        </section>
-
-        <section style={sectionStyle}>
-          <div className="eyebrow" style={{ marginBottom: 10 }}>VIDEO</div>
-          <h2 style={headingStyle}>Guía en vídeo antes de jugar Shion</h2>
-          <p style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.75, margin: '0 0 16px', maxWidth: 820 }}>
-            Si quieres verlo con ejemplos y ritmo de gameplay, este vídeo resume las claves que conviene entender antes de llevar a Shion a ranked: movilidad, errores comunes, perks importantes y cómo evitar morir en cada entrada.
-          </p>
-          <GuideVideo
-            videoId={SHION_VIDEO_ID}
-            title={SHION_VIDEO_TITLE}
-            language="en"
-            url={SHION_VIDEO_URL}
-          />
-        </section>
-
-        <section style={sectionStyle}>
-          <div className="eyebrow" style={{ marginBottom: 10 }}>ERRORES COMUNES</div>
-          <h2 style={headingStyle}>Errores que debes evitar con Shion</h2>
-          <div style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.8, display: 'grid', gap: 10 }}>
-            {[
-              'Usar Joyride solo para entrar y no tener plan de salida.',
-              'Tirar Execution al inicio de la pelea en vez de guardarla para rematar.',
-              'Repetir siempre la misma ruta lateral.',
-              'Intentar matar supports aunque estén protegidos por Brigitte, Kiriko o D.Va.',
-              'Gastar Evade hacia delante cuando el rival todavía tiene control disponible.',
-              'Usar Satsuriku Spree en una pelea ya perdida.',
-            ].map(item => (
-              <div key={item} style={{ display: 'grid', gridTemplateColumns: '22px minmax(0, 1fr)', gap: 10 }}>
-                <span style={{ color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 18 }}>-</span>
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section style={sectionStyle}>
-          <div className="eyebrow" style={{ marginBottom: 10 }}>PREGUNTAS RÁPIDAS</div>
-          <h2 style={headingStyle}>FAQ de Shion</h2>
-          <div style={{ display: 'grid', gap: 12 }}>
-            {shionFaq.map(item => (
-              <article key={item.question} style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', padding: 16 }}>
-                <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 22, letterSpacing: 0.8, margin: '0 0 8px' }}>
-                  {item.question}
-                </h3>
-                <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>{item.answer}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section style={sectionStyle}>
-          <div className="eyebrow" style={{ marginBottom: 10 }}>SIGUIENTE PASO</div>
-          <h2 style={headingStyle}>Más contenido relacionado con Shion</h2>
-          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-            <Link href="/overwatch-temporada-3-into-the-tigers-den" className="btn btn-primary btn-sm">TEMPORADA 3</Link>
-            <Link href="/counters/shion" className="btn btn-secondary btn-sm">COUNTERS DE SHION</Link>
-            <Link href="/team-comps/shion" className="btn btn-secondary btn-sm">COMPOSICIONES</Link>
-            <Link href="/roles/dps" className="btn btn-secondary btn-sm">VER DPS</Link>
-            <Link href="/news" className="btn btn-secondary btn-sm">NOTICIAS</Link>
-            <Link href="/heroes" className="btn btn-secondary btn-sm">TODOS LOS HÉROES</Link>
-          </div>
-        </section>
-      </main>
-    </div>
-  )
-}
 
 function StatusCard({ title, body, badge }: { title: string; body: string; badge?: string }) {
   return (

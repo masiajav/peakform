@@ -1,6 +1,13 @@
 import type { GuideContent } from './content'
 import { hasReviewedGuideRevision } from './reviewed-guide-policy'
 import { secondGuideReviewBatch } from './reviewed-guide-batch-2'
+import { thirdGuideReviewBatch } from './reviewed-guide-batch-3'
+import { fourthGuideReviewBatch } from './reviewed-guide-batch-4'
+import { fifthGuideReviewBatch } from './reviewed-guide-batch-5'
+import { sixthGuideReviewBatch } from './reviewed-guide-batch-6'
+import { seventhGuideReviewBatch } from './reviewed-guide-batch-7'
+import { eighthGuideReviewBatch } from './reviewed-guide-batch-8'
+import { reviewedRoleGuides } from './reviewed-role-guides'
 export { hasReviewedGuideRevision, reviewedGuideTarget } from './reviewed-guide-policy'
 
 export type GuideRevision = {
@@ -11,6 +18,7 @@ export type GuideRevision = {
   videoSlug: string
   body: string
   revisedAt?: string
+  category?: string
 }
 
 export const GUIDE_REVISION_DATE = '2026-09-30'
@@ -78,6 +86,8 @@ Cuando haya una amenaza concreta que puedas cortar y todavía no haya actuado. N
 ### ¿Orisa funciona igual en 5v5 y 6v6?
 
 No. Con otro Tank hay más recursos que pueden interceptar tu presión y más opciones para repartir el frente. Coordina qué espacio disputa cada uno en vez de seguir ambos al mismo objetivo.
+
+## Guías relacionadas
 
 Si el problema está en cuándo avanzar, continúa con [los fundamentos de Tank](/roles/tank) y [la revisión de cooldowns](/guides/como-revisar-cooldowns-overwatch). Para analizar un avance concreto, [King's Row](/maps/kings-row) ofrece ejemplos de cómo jugar sus esquinas.`,
   },
@@ -147,6 +157,8 @@ No. Depende de la altura, la distancia y la salida que necesitas conservar. Si y
 
 Un segundo Tank puede cubrir tu salida o aumentar el peel rival. Acuerda quién presiona primero; dos entradas a objetivos distintos pueden dejar ambos frentes sin seguimiento.
 
+## Guías relacionadas
+
 Compara tus entradas con [el dive de Winston](/guides/como-jugar-winston-ranked-overwatch) y revisa [cómo elegir dive, poke o brawl](/guides/como-elegir-composicion-dive-poke-brawl) si tu equipo no puede acompañarlas.`,
   },
   'sigma-guia-overwatch-poke-escudo': {
@@ -211,6 +223,8 @@ No. La distancia favorece su poke, pero una composición que llega hasta ti o di
 ### ¿Qué cambia con un segundo Tank?
 
 Puedes repartir el control de líneas, pero también habrá más presión y protección enfrente. Acordad qué cruce cubre cada uno para no gastar ambos recursos defensivos contra el mismo spam.
+
+## Guías relacionadas
 
 Para trabajar el recorrido entre coberturas, consulta [Circuit Royal](/maps/circuit-royal). Si lo que falla es el ritmo del equipo, revisa [poke y brawl](/guides/como-elegir-composicion-dive-poke-brawl).`,
   },
@@ -277,6 +291,8 @@ No. Un pocket puede mejorar tu presión, pero la posición y la selección de ob
 ### ¿Uso B.O.B. al principio o al final de la pelea?
 
 Cuando su posición pueda cambiar la pelea. Al principio puede crear otro ángulo; más tarde puede disputar un objetivo. Lanzarlo cuando nadie puede aprovecharlo suele dejar al rival libre para neutralizarlo.
+
+## Guías relacionadas
 
 Si te cuesta sostener un ángulo, continúa con [los fundamentos de DPS](/roles/dps) y [Dorado](/maps/dorado). Para reconocer una buena oportunidad de ultimate, consulta [cuándo gastar ultimates](/guides/como-usar-ultimates-overwatch).`,
   },
@@ -346,6 +362,8 @@ Depende del riesgo y del destino. Úsalo ofensivamente cuando exista una oportun
 
 No. Decide si necesitas altura o si el salto te expondrá a una línea que no puedes disputar. La ruta segura cambia según la posición del enemigo.
 
+## Guías relacionadas
+
 Para practicar estos ángulos, consulta [Midtown](/maps/midtown). Si te cuesta decidir cuándo dejar un duelo, revisa [cuándo cambiar de héroe o de plan](/guides/cuando-cambiar-de-heroe-overwatch).`,
   },
   'baptiste-guia-overwatch-lamp-window': {
@@ -413,6 +431,8 @@ No. Un engage normal también puede causar una muerte decisiva. Úsala cuando el
 ### ¿Una Window solo para mí es un desperdicio?
 
 No si tienes una línea clara y puedes aprovecharla para daño o curación. Una matriz para cinco aliados que nadie puede usar es peor que una colocada para una oportunidad concreta.
+
+## Guías relacionadas
 
 Continúa con [los fundamentos de Support](/roles/support) y [cómo revisar cooldowns](/guides/como-revisar-cooldowns-overwatch). Si tus rotaciones fallan en el primer punto, consulta [Numbani](/maps/numbani).`,
   },
@@ -483,6 +503,8 @@ No. La seguridad del intento, la posibilidad de recuperar la pelea y el estado d
 ### ¿Cuándo debería cambiar de Mercy?
 
 Si no puedes potenciar a nadie desde una posición razonable o el equipo necesita una respuesta que tu kit no está aportando. Revisa antes si puedes cambiar el pocket o la ruta: no todo problema se resuelve cambiando de héroe.
+
+## Guías relacionadas
 
 Para comparar tus prioridades con las de tu compañero, consulta [Ana en ranked](/guides/como-jugar-ana-ranked-overwatch) y [los fundamentos de Support](/roles/support). Si dudas entre insistir y cambiar, revisa [las señales para cambiar de héroe](/guides/cuando-cambiar-de-heroe-overwatch).`,
   },
@@ -556,6 +578,8 @@ Solo si habrá alguien que pueda aprovecharlo. Un orbe que abandona el equipo r�
 
 Sí, cuando el destino sea seguro y puedas sostenerlo sin esperar una salida imposible. Evita usarlo para perseguir objetivos que aún tienen ayuda, movilidad o cobertura disponible.
 
+## Guías relacionadas
+
 Para revisar el orden de tus recursos, consulta [cómo analizar cooldowns](/guides/como-revisar-cooldowns-overwatch). Si quieres trabajar una sala concreta, empieza por [Lijiang Tower](/maps/lijiang-tower) y compara las rutas de los orbes con el avance del equipo.`,
   },
 }
@@ -563,6 +587,19 @@ Para revisar el orden de tus recursos, consulta [cómo analizar cooldowns](/guid
 export const reviewedGuideRevisions: Record<string, GuideRevision> = {
   ...firstGuideReviewBatch,
   ...secondGuideReviewBatch,
+  ...thirdGuideReviewBatch,
+  ...fourthGuideReviewBatch,
+  ...fifthGuideReviewBatch,
+  ...sixthGuideReviewBatch,
+  ...seventhGuideReviewBatch,
+  ...eighthGuideReviewBatch,
+  ...reviewedRoleGuides,
+}
+
+export function reviewedGuideVideoSource(slug: string) {
+  if (!hasReviewedGuideRevision(slug)) return undefined
+  const source = reviewedGuideRevisions[slug].videoSlug
+  return source !== slug ? source : undefined
 }
 
 export function applyReviewedGuideRevision<T extends Pick<GuideContent, 'slug'>>(guide: T): T {
@@ -578,6 +615,8 @@ export function applyReviewedGuideRevision<T extends Pick<GuideContent, 'slug'>>
     author: 'Replaid Lab',
     updated_at: revision.revisedAt || GUIDE_REVISION_DATE,
     video_summary: revision.quickAnswer,
+    category: revision.category || 'Héroes',
+    content_type: 'guide',
   }
 }
 

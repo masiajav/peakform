@@ -1235,6 +1235,8 @@ textarea {
 }
 
 .guide-detail-layout {
+  --text2: #b3b3b3;
+  --text3: #999999;
   display: grid;
   gap: 28px;
   grid-template-columns: minmax(0, 760px) 300px;
@@ -1246,6 +1248,11 @@ textarea {
 
 .guide-detail-main {
   min-width: 0;
+}
+
+.guide-detail-layout-no-ads {
+  grid-template-columns: minmax(0, 760px);
+  max-width: 808px;
 }
 
 .guide-detail-sidebar {
@@ -1420,6 +1427,13 @@ textarea {
   .home-all-hero-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+.counter-hub-tool {
+  align-items: center;
+  display: grid;
+  gap: 22px;
+  grid-template-columns: minmax(0, 1fr) auto;
 }
 
 .counter-layout {
@@ -1809,6 +1823,10 @@ textarea {
 }
 
 @media (max-width: 639px) {
+  .counter-hub-tool {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .counter-toolbar,
   .team-comp-toolbar,
   .expert-tier-row {
@@ -1926,6 +1944,8 @@ textarea {
 }
 
 .public-footer {
+  --text2: #b3b3b3;
+  --text3: #b3b3b3;
   border-top: 1px solid var(--border);
   background: var(--surface);
   color: var(--text2);
@@ -1944,7 +1964,7 @@ textarea {
   color: var(--accent);
   font-family: 'Bebas Neue', sans-serif;
   font-size: 24px;
-  letter-spacing: 2px;
+  letter-spacing: 0;
   text-decoration: none;
 }
 
@@ -1972,6 +1992,9 @@ textarea {
 }
 
 .public-footer-column a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
   color: var(--text3);
   font-size: 12px;
   text-decoration: none;
@@ -2043,6 +2066,8 @@ textarea {
 }
 
 .seo-pillar-page {
+  --text2: #b3b3b3;
+  --text3: #999999;
   width: min(1120px, calc(100% - 48px));
   margin: 0 auto;
   padding: 42px 0 88px;
@@ -2121,6 +2146,16 @@ textarea {
   object-fit: contain;
   object-position: center bottom;
   padding: 26px;
+}
+
+.seo-pillar-portrait.seo-composition-portrait {
+  align-self: start;
+  aspect-ratio: 1;
+  min-height: 0;
+}
+
+.seo-composition-portrait img {
+  object-position: center;
 }
 
 .seo-pillar-section {
@@ -2392,6 +2427,10 @@ textarea {
 
   .public-footer-brand {
     grid-column: 1 / -1;
+  }
+
+  .public-footer-column a {
+    min-height: 44px;
   }
 
   .experts-editorial-grid,

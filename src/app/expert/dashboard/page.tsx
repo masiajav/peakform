@@ -10,12 +10,13 @@ import { getStripeConnectStatus, isStripeAccountReadyForCheckout } from '@/lib/s
 import { STRIPE_PLATFORM_COUNTRY } from '@/lib/stripe-countries'
 import ExpertFeesNotice from '@/components/payments/ExpertFeesNotice'
 
-export default async function ExpertDashboardPage({
-  searchParams,
-}: {
-  searchParams: { delivered?: string }
-}) {
-  const supabase = createClient()
+export default async function ExpertDashboardPage(
+  props: {
+    searchParams: Promise<{ delivered?: string }>
+  }
+) {
+  const searchParams = await props.searchParams;
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) redirect('/login')
 

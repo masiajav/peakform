@@ -9,7 +9,8 @@ export function generateStaticParams() {
   return MAP_PILLAR_SLUGS.map(map => ({ map }))
 }
 
-export function generateMetadata({ params }: { params: { map: string } }): Metadata {
+export async function generateMetadata(props: { params: Promise<{ map: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const map = getMapPillar(params.map)
   if (!map) return {}
 
@@ -23,7 +24,8 @@ export function generateMetadata({ params }: { params: { map: string } }): Metad
   })
 }
 
-export default function MapPage({ params }: { params: { map: string } }) {
+export default async function MapPage(props: { params: Promise<{ map: string }> }) {
+  const params = await props.params;
   const map = getMapPillar(params.map)
   if (!map) notFound()
 

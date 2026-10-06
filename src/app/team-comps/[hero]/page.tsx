@@ -22,7 +22,8 @@ export function generateStaticParams() {
   return TEAM_COMP_HEROES.map(hero => ({ hero: hero.slug }))
 }
 
-export async function generateMetadata({ params }: { params: { hero: string } }): Promise<Metadata> {
+export async function generateMetadata(props: { params: Promise<{ hero: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const hero = getTeamCompHero(params.hero)
   if (!hero) return {}
   const pillar = getTeamCompPillar(params.hero)
@@ -33,11 +34,12 @@ export async function generateMetadata({ params }: { params: { hero: string } })
     title: pillar?.seoTitle || teamCompPageTitle(hero),
     description: pillar?.seoDescription || teamCompPageDescription(hero),
     path: `/team-comps/${hero.slug}`,
-    robots: robotsForQuality(quality),
+    robots: robotsForQuality(quality) ?? { index: true, follow: true },
   })
 }
 
-export default function TeamCompHeroPage({ params }: { params: { hero: string } }) {
+export default async function TeamCompHeroPage(props: { params: Promise<{ hero: string }> }) {
+  const params = await props.params;
   const hero = getTeamCompHero(params.hero)
   const pillar = getTeamCompPillar(params.hero)
   if (pillar) return <TeamCompPillarPage pillar={pillar} />
@@ -82,14 +84,16 @@ export default function TeamCompHeroPage({ params }: { params: { hero: string } 
             COMPOSICIONES CON {hero.name.toUpperCase()} EN OVERWATCH
           </h1>
           <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.65, margin: 0 }}>
-            Equipos recomendados para jugar con {hero.name} en 5v5 y 6v6. La idea es darte una base con sinergias claras, alternativas y señales para saber cuándo esa composición no merece la pena.
+            {comps5.length > 0
+              ? `Equipos de ejemplo con ${hero.name} para 5v5 y 6v6. Comprueba las rutas del mapa y cómo vais a iniciar antes de elegir: una lista de héroes no sustituye a un plan de pelea.`
+              : `Para preparar una partida con ${hero.name}, empieza por su guía y comprueba qué ayuda necesita del equipo. Aquí todavía no hay equipos de ejemplo para este héroe.`}
           </p>
         </header>
 
         <div className="counter-seo-layout">
           <div>
-            <CompSection title={`Mejores composiciones 5v5 con ${hero.name}`} comps={comps5} />
-            <CompSection title={`Ajustes para 6v6 con ${hero.name}`} comps={comps6} />
+            {comps5.length > 0 && <CompSection title={`Ejemplos 5v5 con ${hero.name}`} comps={comps5} />}
+            {comps6.length > 0 && <CompSection title={`Ajustes para 6v6 con ${hero.name}`} comps={comps6} />}
 
             <section className="counter-seo-section counter-seo-callout">
               <h2>Cómo elegir entre 5v5 y 6v6</h2>

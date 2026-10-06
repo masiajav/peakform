@@ -1,4 +1,4 @@
-import { isPathAdEligible } from './indexing-policy'
+import { isPathAdEligible } from './ad-inventory-policy'
 
 type AdSenseConfig = {
   clientId?: string
@@ -11,12 +11,12 @@ export function adsenseVerificationAccount(clientId?: string) {
   return clientId && /^ca-pub-\d{16}$/.test(clientId) ? clientId : undefined
 }
 
-export function canLoadAdSense(config: AdSenseConfig, pathname: string) {
+export function canLoadAdSense(config: AdSenseConfig, pathname: string, editorialApproval = false) {
   return Boolean(
     adsenseVerificationAccount(config.clientId)
     && config.approved === 'true'
     && config.cmpReady === 'true'
     && config.reviewMode !== 'true'
-    && isPathAdEligible(pathname),
+    && isPathAdEligible(pathname, editorialApproval),
   )
 }

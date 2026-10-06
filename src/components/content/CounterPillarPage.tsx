@@ -5,8 +5,6 @@ import PublicNav from '@/components/layout/PublicNav'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
 import type { CounterPillar } from '@/lib/seo-clusters'
 import { safeTopicHref } from '@/lib/topic-links'
-import { getCounterHero } from '@/lib/overwatch-counters'
-import { counterPageDescription, counterPageTitle } from '@/lib/overwatch-seo'
 
 type CounterPillarPageProps = {
   pillar: CounterPillar
@@ -14,10 +12,10 @@ type CounterPillarPageProps = {
 
 export default function CounterPillarPage({ pillar }: CounterPillarPageProps) {
   const pageUrl = absoluteUrl(`/counters/${pillar.slug}`)
-  const counterHero = getCounterHero(pillar.slug)
-  const seoTitle = counterHero ? counterPageTitle(counterHero) : pillar.seoTitle
-  const seoDescription = counterHero ? counterPageDescription(counterHero) : pillar.seoDescription
-  const headerTips = buildCounterPillarHeaderTips(pillar)
+  const seoTitle = pillar.seoTitle
+  const seoDescription = pillar.seoDescription
+  const reviewLabel = /^(?:Ranked|Kit)\b/i.test(pillar.reviewedPatch) ? 'Habilidades revisadas' : 'Parche revisado'
+  const isTrial = pillar.analysisStatus === 'trial'
   const jsonLd = [
     {
       '@context': 'https://schema.org',
@@ -26,8 +24,8 @@ export default function CounterPillarPage({ pillar }: CounterPillarPageProps) {
       description: seoDescription,
       image: absoluteUrl(`/heroes/${pillar.slug}.png`),
       url: pageUrl,
-      datePublished: pillar.schemaDate ?? '2026-06-28',
-      dateModified: pillar.schemaDate ?? '2026-06-28',
+      datePublished: pillar.publishedDate,
+      dateModified: pillar.schemaDate,
       author: { '@type': 'Organization', name: SITE_NAME },
       publisher: { '@type': 'Organization', name: SITE_NAME },
       mainEntityOfPage: pageUrl,
@@ -68,13 +66,10 @@ export default function CounterPillarPage({ pillar }: CounterPillarPageProps) {
             <div className="seo-pillar-intro">
               {pillar.intro.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
             </div>
-            <ul className="seo-pillar-checklist compact" style={{ marginTop: 16 }}>
-              {headerTips.map(item => <li key={item}>{item}</li>)}
-            </ul>
             <div className="seo-pillar-meta">
               <span>Por Replaid Lab</span>
-              <span>Actualizado: {pillar.updatedAt}</span>
-              <span>Parche revisado: {pillar.reviewedPatch}</span>
+              <span>Actualizado: <time dateTime={pillar.schemaDate}>{pillar.updatedAt}</time></span>
+              <span>{reviewLabel}: {pillar.reviewedPatch}</span>
               <Link href="/contact" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Comunicar una corrección</Link>
             </div>
           </div>
@@ -102,8 +97,8 @@ export default function CounterPillarPage({ pillar }: CounterPillarPageProps) {
         </section>
 
         <section className="seo-pillar-section">
-          <div className="eyebrow">HÉROES RECOMENDADOS</div>
-          <h2>Los counters más útiles contra {pillar.name}</h2>
+          <div className="eyebrow">{isTrial ? 'OPCIONES SEGÚN EL KIT DE PRUEBA' : 'HÉROES RECOMENDADOS'}</div>
+          <h2>{isTrial ? `Qué puedes probar frente a ${pillar.name}` : `Los counters más útiles contra ${pillar.name}`}</h2>
           <div className="seo-threat-grid">
             {pillar.threats.map(threat => (
               <article key={threat.name} className="seo-threat-card">
@@ -142,7 +137,7 @@ export default function CounterPillarPage({ pillar }: CounterPillarPageProps) {
         </section>
 
         <section className="seo-pillar-section">
-          <div className="eyebrow">EJEMPLOS DE RANKED</div>
+          <div className="eyebrow">{isTrial ? 'SITUACIONES PARA REVISAR' : 'EJEMPLOS DE RANKED'}</div>
           <h2>Cómo se ve una buena respuesta en partida</h2>
           <div className="seo-pillar-card-grid three">
             {pillar.examples.map(item => <article key={item.title}><h3>{item.title}</h3><p>{item.body}</p></article>)}
@@ -170,19 +165,4 @@ export default function CounterPillarPage({ pillar }: CounterPillarPageProps) {
       </main>
     </div>
   )
-}
-
-function buildCounterPillarHeaderTips(pillar: CounterPillar) {
-  const firstThreat = pillar.threats[0]?.name
-  const firstWindow = pillar.cooldownWindows[0]?.title
-
-  return [
-    firstThreat
-      ? `Primer pick a mirar: ${firstThreat}. Pero úsalo para cortar su plan, no para perseguir sin cabeza.`
-      : 'No cambies por reflejo: primero identifica qué parte del matchup te está ganando.',
-    firstWindow
-      ? `Ventana clave: ${firstWindow}. Si la dejas pasar, el counter pierde mucho valor.`
-      : 'La ventana buena casi siempre aparece después de que gaste movilidad, defensa o control.',
-    `Si ${pillar.name} sigue dominando la partida, revisa tu primera muerte: pick, posición o timing.`,
-  ]
 }

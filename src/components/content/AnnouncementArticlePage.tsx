@@ -21,7 +21,7 @@ export default async function AnnouncementArticlePage({
   sectionHref: string
   schemaType: 'NewsArticle' | 'Article'
 }) {
-  const supabase = createClient()
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   let profile = null
   if (user) {

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState, use } from 'react';
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import AppNav from '@/components/layout/AppNav'
@@ -21,7 +21,8 @@ const ROLE_OPTIONS = [
   { value: 'flex',    label: 'Flex' },
 ]
 
-export default function SubmitReplayPage({ params }: { params: { id: string } }) {
+export default function SubmitReplayPage(props: { params: Promise<{ id: string }> }) {
+  const params = use(props.params);
   const router = useRouter()
   const supabase = useMemo(() => createClient(), [])
 

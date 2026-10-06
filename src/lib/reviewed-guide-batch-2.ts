@@ -64,6 +64,8 @@ No necesariamente. Puede proteger una entrada o una retirada. Si esperas hasta e
 
 No es inútil, pero necesitas contar con su respuesta. Fuerza primero otro recurso, coordina presión sobre varios objetivos o acepta que quizá debas usar la ultimate para ganar posición en vez de asegurar bajas.
 
+## Guías relacionadas
+
 Para preparar las entradas del equipo, consulta [dive, poke y brawl](/guides/como-elegir-composicion-dive-poke-brawl). Si tus muertes llegan al cruzar el choke, revisa [cómo mejorar como Tank](/guides/como-mejorar-como-tank-overwatch) y [King's Row](/maps/kings-row).`,
   },
   'echo-guia-overwatch-burst-vertical': {
@@ -130,6 +132,8 @@ No. Puede aprovechar su apoyo, pero debes ofrecer posiciones que tus supports pu
 ### ¿Cuál es la mejor copia de Duplicate?
 
 La que aporte algo útil en esa pelea y puedas manejar. Valora distancia, objetivos, recursos y posición de salida, no solo la ultimate que podrías conseguir.
+
+## Guías relacionadas
 
 Revisa el timing de tus laterales en [cómo mejorar como DPS](/guides/como-mejorar-como-dps-overwatch). Para preparar rutas de altura, consulta [Gibraltar](/maps/watchpoint-gibraltar); si dudas entre insistir o cambiar, lee [cuándo cambiar de héroe](/guides/cuando-cambiar-de-heroe-overwatch).`,
   },
@@ -202,6 +206,8 @@ No automáticamente. Comprueba si tus rutas permiten presionar sin recibir daño
 
 No. Una baja importante con seguimiento puede ganar la pelea. El problema es gastar la ultimate lejos del equipo o morir sin que nadie pueda aprovechar el intercambio.
 
+## Guías relacionadas
+
 Consulta las rutas de [Dorado](/maps/dorado) y el primer tramo de [Gibraltar](/maps/watchpoint-gibraltar). Para decidir cuándo preparar una ultimate o reservarla, tienes [la guía de ultimates](/guides/como-usar-ultimates-overwatch).`,
   },
   'soldier-76-guia-overwatch-off-angles': {
@@ -272,6 +278,8 @@ No. Necesitas valorar burst, recursos y posición. El campo sostiene daño que p
 ### ¿Cuándo uso Visor si D.Va tiene Matrix?
 
 Cuando puedas forzarla a elegir entre amenazas, aprovechar que gaste el recurso o atacar desde un ángulo que no pueda cubrir cómodamente. Evita activarlo frontalmente esperando que ignore la ultimate.
+
+## Guías relacionadas
 
 Para mejorar tus rotaciones, consulta [Midtown](/maps/midtown) y [cómo jugar DPS](/guides/como-mejorar-como-dps-overwatch). Si tus ultimates no encuentran objetivos, revisa [economía de ultimates](/guides/como-usar-ultimates-overwatch).`,
   },
@@ -346,6 +354,8 @@ No. Puedes usarlo para ganar una altura o un ángulo. Hazlo cuando tengas una al
 
 No. Elige cuándo asomarte según cobertura, información y presión del equipo. Evitar un duelo preparado por el rival puede ser la decisión correcta, no una falta de confianza.
 
+## Guías relacionadas
+
 Compara tus líneas con [Circuit Royal](/maps/circuit-royal) y [Gibraltar](/maps/watchpoint-gibraltar). Para decidir si el problema es el pick o la posición, consulta [cuándo cambiar de héroe](/guides/cuando-cambiar-de-heroe-overwatch).`,
   },
   'brigitte-guia-overwatch-peel-anti-dive': {
@@ -419,6 +429,8 @@ Solo si la baja es alcanzable sin abandonar una responsabilidad importante. Hace
 
 Es una información útil, no una prueba completa. Revisa también a quién protegiste, cuándo repartiste packs y si sobreviviste en posiciones que permitían ayudar.
 
+## Guías relacionadas
+
 Para leer los engages rivales, consulta [la guía de Support](/guides/como-mejorar-como-support-overwatch) y [cómo revisar cooldowns](/guides/como-revisar-cooldowns-overwatch). Puedes comparar tus posiciones de peel con [la guía de Ana](/heroes/ana).`,
   },
   'illari-guia-overwatch-pilon-dano': {
@@ -489,6 +501,8 @@ Sí, si sigue siendo útil para el equipo y tienes una salida. Evita separarte t
 ### ¿Captive Sun necesita varios enemigos juntos?
 
 Una agrupación puede ayudar, pero importa más el seguimiento. Un objetivo accesible con apoyo puede aportar más que varios impactos que nadie puede aprovechar.
+
+## Guías relacionadas
 
 Puedes revisar el avance entre esquinas en [King's Row](/maps/kings-row). Para equilibrar daño y ayuda, consulta [cómo mejorar como Support](/guides/como-mejorar-como-support-overwatch) y [la revisión de VOD](/guides/como-mejorar-en-overwatch-revisando-vod).`,
   },
@@ -563,6 +577,8 @@ No. Frenar un engage o dar espacio a un aliado puede ser más valioso que intent
 
 No. Puede apoyar una entrada coordinada o responder a presión sin ultimate. Necesitas una razón concreta, jugadores que la reciban y una ventana que puedan aprovechar.
 
+## Guías relacionadas
+
 Para coordinar speed, empieza por [dive, poke y brawl](/guides/como-elegir-composicion-dive-poke-brawl). Puedes practicar las decisiones de cruce en [Lijiang Tower](/maps/lijiang-tower) y revisar su efecto junto a [Reinhardt](/heroes/reinhardt).`,
   },
   'zenyatta-guia-overwatch-discord-transcendence': {
@@ -635,6 +651,8 @@ Puede aportar presión, pero necesita posición y ayuda. Si el enemigo te alcanz
 ### ¿Transcendence salva cualquier ultimate?
 
 No. Ten en cuenta antiheal, golpes letales, posición de los aliados y línea de tiro. Debe responder a una amenaza que su curación pueda gestionar, no a una etiqueta de ultimate en general.
+
+## Guías relacionadas
 
 Para preparar tus defensas, consulta [cooldowns y VOD](/guides/como-revisar-cooldowns-overwatch). Si tu equipo necesita adaptar la backline, revisa [cuándo cambiar de héroe](/guides/cuando-cambiar-de-heroe-overwatch) y [la guía de Support](/guides/como-mejorar-como-support-overwatch).`,
   },

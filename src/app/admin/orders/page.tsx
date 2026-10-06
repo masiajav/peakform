@@ -19,11 +19,12 @@ const TIER_LABELS: Record<string, string> = {
   starter: 'Starter', pro: 'Pro', deep_dive: 'Deep Dive',
 }
 
-export default async function AdminOrdersPage({
-  searchParams,
-}: {
-  searchParams: { status?: string }
-}) {
+export default async function AdminOrdersPage(
+  props: {
+    searchParams: Promise<{ status?: string }>
+  }
+) {
+  const searchParams = await props.searchParams;
   const supabase = createAdminClient()
   const filter = searchParams.status ?? ''
 

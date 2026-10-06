@@ -15,14 +15,16 @@ import GuideVideo from '@/components/content/GuideVideo'
 import { guidePath, ROLE_LABELS, topicLabel, type GuideContent } from '@/lib/content'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
-import { guideQualityDecision, robotsForQuality } from '@/lib/indexing-policy'
+import { guideQualityDecision, rankedGuideQualityDecision, robotsForQuality } from '@/lib/indexing-policy'
 import { discoverableGuides } from '@/lib/guide-discovery'
-import { applyReviewedGuideRevision, hasReviewedGuideRevision, mergeReviewedGuideVideo, reviewedGuideRevisions, reviewedGuideTarget } from '@/lib/reviewed-guide-revisions'
+import { applyReviewedGuideRevision, hasReviewedGuideRevision, mergeReviewedGuideVideo, reviewedGuideVideoSource, reviewedGuideTarget } from '@/lib/reviewed-guide-revisions'
 import { guideEditorial } from '@/lib/guide-editorial'
 import { heroTopicHref } from '@/lib/topic-links'
 import { formatPrice } from '@/types'
 import RankedHeroGuideArticle from '@/components/content/RankedHeroGuideArticle'
 import { getRankedHeroGuide } from '@/lib/ranked-hero-guides'
+import { canLoadAdSense } from '@/lib/adsense-policy'
+import { GUIDE_REVIEW_COLUMNS } from '@/lib/editorial-review'
 
 const GUIDE_DETAIL_COLUMNS = `
   id,
@@ -70,11 +72,13 @@ const fetchGuide = cache(async (slug: string): Promise<GuideContent | null> => {
   if (!data) return null
   const guide = data as GuideContent
   if (!hasReviewedGuideRevision(slug)) return guide
-  const video = guide.video_id ? null : await fetchGuide(reviewedGuideRevisions[slug].videoSlug)
+  const videoSource = reviewedGuideVideoSource(slug)
+  const video = guide.video_id || !videoSource ? null : await fetchGuide(videoSource)
   return applyReviewedGuideRevision(mergeReviewedGuideVideo(guide, video))
 })
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const rankedGuide = getRankedHeroGuide(params.slug)
   if (rankedGuide) {
     return buildMetadata({
@@ -83,6 +87,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       path: `/guides/${rankedGuide.slug}`,
       image: `/heroes/${rankedGuide.heroSlug}.png`,
       type: 'article',
+      robots: { index: rankedGuideQualityDecision(rankedGuide).indexable, follow: true },
     })
   }
 
@@ -101,13 +106,14 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   })
 }
 
-export default async function GuideDetailPage({ params }: { params: { slug: string } }) {
+export default async function GuideDetailPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const reviewedTarget = reviewedGuideTarget(params.slug)
   if (reviewedTarget) permanentRedirect(guidePath(reviewedTarget))
   const rankedGuide = getRankedHeroGuide(params.slug)
   if (rankedGuide) return <RankedHeroGuideArticle guide={rankedGuide} />
 
-  const supabase = createClient()
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
   let profile = null
@@ -122,7 +128,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
   const admin = createAdminClient()
   let relatedQuery = admin
     .from('guides')
-    .select('id, title, slug, excerpt, body, category, hero, role, map, created_at')
+    .select(GUIDE_REVIEW_COLUMNS)
     .eq('published', true)
     .neq('slug', guide.slug)
     .limit(12)
@@ -133,7 +139,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
   else if (guide.category) relatedQuery = relatedQuery.eq('category', guide.category)
 
   const [{ data: related }, { data: experts }] = await Promise.all([
-    relatedQuery,
+    relatedQuery.returns<GuideContent[]>(),
     guide.role
       ? admin
           .from('experts')
@@ -162,6 +168,12 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
   const quality = guideQualityDecision(guide)
   const relatedGuides = discoverableGuides(related ?? []).slice(0, 3)
   const allowAds = quality.adsAllowed
+  const showSidebarAd = allowAds && /^\d+$/.test(process.env.NEXT_PUBLIC_ADSENSE_SLOT_GUIDE_SIDEBAR || '') && canLoadAdSense({
+    clientId: process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID,
+    approved: process.env.NEXT_PUBLIC_ADSENSE_APPROVED,
+    cmpReady: process.env.NEXT_PUBLIC_ADSENSE_CMP_READY,
+    reviewMode: process.env.NEXT_PUBLIC_ADSENSE_REVIEW_MODE,
+  }, guidePath(guide.slug), allowAds)
   const faqEntries = extractFaqEntries(guide.body)
 
   const articleJsonLd = {
@@ -247,7 +259,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
         </nav>
       ))}
 
-      <div className="guide-detail-layout">
+      <main className={`guide-detail-layout${showSidebarAd ? '' : ' guide-detail-layout-no-ads'}`}>
       <article className="guide-detail-main">
         <div style={{ fontSize: 12, color: 'var(--text3)', marginBottom: 32, display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
           <Link href="/guides" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Guías</Link>
@@ -344,10 +356,12 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
           </section>
         )}
       </article>
-      <aside className="guide-detail-sidebar">
-        <AdSlot variant="sidebar" slot="guide-sidebar-rectangle" allowAds={allowAds} />
-      </aside>
-      </div>
+      {showSidebarAd && (
+        <aside className="guide-detail-sidebar">
+          <AdSlot variant="sidebar" slot="guide-sidebar-rectangle" allowAds={allowAds} />
+        </aside>
+      )}
+      </main>
     </div>
   )
 }
@@ -392,7 +406,8 @@ function extractFaqEntries(markdown: string) {
 function cleanMarkdownText(value: string) {
   return value
     .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-    .replace(/[*_`>#-]/g, '')
+    .replace(/^\s*[-+*]\s+/gm, '')
+    .replace(/[*_`>#]/g, '')
     .replace(/\s+/g, ' ')
-    .trim()
+    .trim();
 }

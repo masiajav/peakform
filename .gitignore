@@ -6,6 +6,8 @@
 /.next-e2e/
 /.next-verify/
 /.next-editorial-preview/
+/.next-editorial-built-preview/
+/.next-hub-corrected-2026-10-04/
 /out/
 
 # Production

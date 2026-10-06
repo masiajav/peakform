@@ -24,7 +24,8 @@ async function fetchPatchNote(slug: string) {
   return data as AnnouncementContent | null
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const article = await fetchPatchNote(params.slug)
   if (!article) return {}
   const quality = announcementQualityDecision(article)
@@ -39,7 +40,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   })
 }
 
-export default async function PatchNoteDetailPage({ params }: { params: { slug: string } }) {
+export default async function PatchNoteDetailPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const article = await fetchPatchNote(params.slug)
   if (!article) notFound()
 

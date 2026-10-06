@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import { hasCurrentEditorialReview, publicEditorialTags } from '@/lib/editorial-review'
+import EditorialReviewChecklist, { useEditorialReviewState } from './EditorialReviewChecklist'
 
 interface Guide {
   id: string
@@ -76,7 +78,7 @@ function formFromGuide(item: Guide) {
     role: item.role || '',
     hero: item.hero || '',
     map: item.map || '',
-    tags: Array.isArray(item.tags) ? item.tags.join(', ') : '',
+    tags: publicEditorialTags(item.tags).join(', '),
     sponsor_title: item.sponsor_title || '',
     sponsor_body: item.sponsor_body || '',
     sponsor_url: item.sponsor_url || '',
@@ -97,6 +99,7 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
   const [form, setForm] = useState(emptyForm)
   const [editingId, setEditingId] = useState<string | null>(null)
   const [editForm, setEditForm] = useState(emptyForm)
+  const review = useEditorialReviewState(editForm, editingId)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -121,12 +124,14 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
   }
 
   function startEdit(item: Guide) {
+    review.resetReview()
     setError(null)
     setEditingId(item.id)
     setEditForm(formFromGuide(item))
   }
 
   function cancelEdit() {
+    review.resetReview()
     setEditingId(null)
     setEditForm(emptyForm)
   }
@@ -138,16 +143,17 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
     const res = await fetch(`/api/admin/guides/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(editForm),
+      body: JSON.stringify({ ...editForm, editorial_review: review.approval }),
     })
     const data = await res.json()
-    if (!res.ok) { setError(data.error); setSaving(false); return }
+    if (!res.ok) { setError([data.error, ...(data.issues || [])].join('. ')); setSaving(false); return }
     setItems(items.map(i => i.id === id ? data : i))
     cancelEdit()
     setSaving(false)
   }
 
   async function togglePublished(item: Guide) {
+    setError(null)
     const res = await fetch(`/api/admin/guides/${item.id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
@@ -156,6 +162,9 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
     if (res.ok) {
       const updated = await res.json()
       setItems(items.map(i => i.id === item.id ? updated : i))
+    } else {
+      const data = await res.json()
+      setError([data.error, ...(data.issues || [])].join('. '))
     }
   }
 
@@ -250,6 +259,7 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
                   <span style={{ fontSize: 10, letterSpacing: 1, fontFamily: 'Bebas Neue, sans-serif', color: item.published ? 'var(--green)' : 'var(--text3)', border: `1px solid ${item.published ? 'var(--green)' : 'var(--border)'}`, padding: '1px 6px' }}>
                     {item.published ? 'PUBLICADO' : 'BORRADOR'}
                   </span>
+                  <span style={{ fontSize: 12, color: 'var(--text2)' }}>{hasCurrentEditorialReview(item) ? 'Revisión aprobada' : 'Revisión pendiente'}</span>
                   {item.category && <span style={{ fontSize: 11, color: 'var(--text3)', background: 'var(--surface2)', border: '1px solid var(--border2)', padding: '1px 8px' }}>{item.category}</span>}
                 </div>
                 <div style={{ fontSize: 12, color: 'var(--text3)', marginBottom: 4 }}>/guides/{item.slug}</div>
@@ -315,6 +325,7 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
                     <Field label="PATROCINIO URL" value={editForm.sponsor_url} onChange={v => setEditForm(prev => ({ ...prev, sponsor_url: v }))} />
                     <Field label="PATROCINIO TEXTO" value={editForm.sponsor_body} onChange={v => setEditForm(prev => ({ ...prev, sponsor_body: v }))} />
                   </div>
+                  <EditorialReviewChecklist checks={review.checks} onChange={review.setCheck} />
                   <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 8 }}>
                     <button type="button" onClick={cancelEdit} className="btn btn-secondary btn-sm">Cancelar</button>
                     <button type="submit" disabled={saving} className="btn btn-primary btn-sm">{saving ? 'GUARDANDO...' : 'Guardar cambios'}</button>

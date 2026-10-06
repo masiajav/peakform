@@ -2,6 +2,7 @@
 
 import { createClient } from '@/lib/supabase/client'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState, useRef, useEffect, useMemo } from 'react'
 import type { CSSProperties } from 'react'
@@ -60,19 +61,19 @@ export default function AppNav({ role = 'user', displayName, avatarUrl }: AppNav
       top: 0,
       zIndex: 100,
     }}>
-      <a href="/" style={{ textDecoration: 'none' }} aria-label="Ir a la landing de Replaid Lab">
+      <Link href="/" prefetch={false} style={{ textDecoration: 'none' }} aria-label="Ir a la landing de Replaid Lab">
         <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3 }}>
           REPLAID LAB
         </span>
-      </a>
+      </Link>
 
       <div style={{ flex: 1 }} />
 
-      <a href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</a>
+      <Link href="/guides" prefetch={false} className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</Link>
       <a href="/pick-lab" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Pick Lab</a>
-      <a href="/team-comps" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Composiciones</a>
-      <a href="/news" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Noticias</a>
-      <a href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</a>
+      <Link href="/team-comps" prefetch={false} className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Composiciones</Link>
+      <Link href="/news" prefetch={false} className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Noticias</Link>
+      <Link href="/experts" prefetch={false} className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
       <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>
       <a href={panelHref} className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Panel</a>
 
@@ -138,7 +139,7 @@ export default function AppNav({ role = 'user', displayName, avatarUrl }: AppNav
             <a href={panelHref} style={menuLinkStyle('var(--accent)')} onClick={() => setOpen(false)}>Mi panel</a>
             <a href="/profile" style={menuLinkStyle('var(--text2)')} onClick={() => setOpen(false)}>Mi perfil</a>
             <a href="/pick-lab" style={menuLinkStyle('var(--text2)')} onClick={() => setOpen(false)}>Pick Lab</a>
-            <a href="/team-comps" style={menuLinkStyle('var(--text2)')} onClick={() => setOpen(false)}>Composiciones</a>
+            <Link href="/team-comps" prefetch={false} style={menuLinkStyle('var(--text2)')} onClick={() => setOpen(false)}>Composiciones</Link>
             <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" style={menuLinkStyle('var(--accent)')} onClick={() => setOpen(false)}>Discord Replaid Lab</a>
             <button
               onClick={handleSignOut}

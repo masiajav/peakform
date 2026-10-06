@@ -5,7 +5,7 @@ import ProfileForm from './ProfileForm'
 import AvatarUpload from './AvatarUpload'
 
 export default async function ProfilePage() {
-  const supabase = createClient()
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) redirect('/login')
 

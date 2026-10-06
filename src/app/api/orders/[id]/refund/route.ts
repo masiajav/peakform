@@ -7,8 +7,9 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 
 const REFUND_WINDOW_MS = 7 * 24 * 60 * 60 * 1000 // 7 días
 
-export async function POST(_req: Request, { params }: { params: { id: string } }) {
-  const supabase = createClient()
+export async function POST(_req: Request, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'No autenticado' }, { status: 401 })
 

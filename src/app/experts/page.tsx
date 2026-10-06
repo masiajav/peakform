@@ -8,7 +8,8 @@ import type { Metadata } from 'next'
 import JsonLd from '@/components/content/JsonLd'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
 
-export function generateMetadata({ searchParams }: { searchParams: { role?: string; rank?: string } }): Metadata {
+export async function generateMetadata(props: { searchParams: Promise<{ role?: string; rank?: string }> }): Promise<Metadata> {
+  const searchParams = await props.searchParams;
   const metadata = buildMetadata({
     title: 'Expertos de Overwatch',
     description: 'Encuentra expertos verificados de Overwatch por rol, rango, precio y valoraciones para revisar tu replay.',
@@ -107,12 +108,13 @@ function buildUrl(role: string, rank: string) {
   return `/experts${str ? '?' + str : ''}`
 }
 
-export default async function ExpertsPage({
-  searchParams,
-}: {
-  searchParams: { role?: string; rank?: string }
-}) {
-  const supabase = createClient()
+export default async function ExpertsPage(
+  props: {
+    searchParams: Promise<{ role?: string; rank?: string }>
+  }
+) {
+  const searchParams = await props.searchParams;
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
   let profile = null

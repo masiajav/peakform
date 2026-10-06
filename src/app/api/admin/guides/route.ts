@@ -2,9 +2,10 @@ import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { normalizeRole, normalizeTopic, parseTags, toSlug } from '@/lib/content'
 import { NextResponse } from 'next/server'
+import { editorialInputIssues, prepareEditorialPublication } from '@/lib/editorial-publication'
 
 async function assertAdmin() {
-  const supabase = createClient()
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return null
   const { data: profile } = await supabase.from('profiles').select('role').eq('id', user.id).single()
@@ -63,14 +64,21 @@ export async function POST(request: Request) {
   if (!user) return NextResponse.json({ error: 'No autorizado' }, { status: 403 })
 
   const body = await request.json()
+  const inputIssues = editorialInputIssues(body)
+  if (inputIssues.length) return NextResponse.json({ error: inputIssues.join('. ') }, { status: 400 })
   if (!body.title?.trim() || !body.slug?.trim() || !body.body?.trim()) {
     return NextResponse.json({ error: 'Título, slug y contenido son obligatorios' }, { status: 400 })
   }
 
+  const payload = contentPayload(body)
+  const now = new Date().toISOString()
+  const review = prepareEditorialPublication('guide', null, { ...payload, created_at: now, updated_at: now }, body.editorial_review, user.id, payload.published)
+  payload.tags = review.tags
+  if (review.issues.length) return NextResponse.json({ error: 'La guía necesita revisión', issues: review.issues }, { status: 422 })
   const admin = createAdminClient()
   const { data, error } = await admin
     .from('guides')
-    .insert(contentPayload(body))
+    .insert(payload)
     .select()
     .single()
 

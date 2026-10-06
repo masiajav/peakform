@@ -14,12 +14,12 @@ export const metadata: Metadata = buildMetadata({
 })
 
 export default function CountersPage() {
-  const reviewedHeroes = COUNTER_HEROES.filter(hero => PILLAR_COUNTER_SLUGS.includes(hero.slug))
+  const featuredHeroes = COUNTER_HEROES.filter(hero => PILLAR_COUNTER_SLUGS.includes(hero.slug))
   const itemListJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'Counters de héroes de Overwatch',
-    itemListElement: reviewedHeroes.map((hero, index) => ({
+    itemListElement: featuredHeroes.map((hero, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       name: `Counters de ${hero.name}`,
@@ -53,16 +53,16 @@ export default function CountersPage() {
             COUNTERS DE OVERWATCH POR HÉROE
           </h1>
           <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.65, margin: 0 }}>
-            Consulta matchups concretos por héroe o abre Pick Lab para encontrar respuestas por rol. Si buscas counter de Zarya, Tracer, Genji, Ana o Shion, empieza por las guías revisadas de esta página.
+            Busca al héroe que os está complicando la partida. Encontrarás qué picks pueden ayudar, qué habilidad conviene esperar y cómo responder sin cambiar de personaje. Si necesitas comparar opciones según vuestro equipo, abre Pick Lab.
           </p>
         </header>
 
-        <section style={{ alignItems: 'center', background: 'var(--surface2)', border: '1px solid var(--border2)', display: 'grid', gap: 22, gridTemplateColumns: 'minmax(0, 1fr) auto', marginBottom: 20, padding: 22 }}>
+        <section className="counter-hub-tool" style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', marginBottom: 20, padding: 22 }}>
           <div>
             <div className="eyebrow">HERRAMIENTA DE MATCHUPS</div>
             <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 32, letterSpacing: 0, margin: '0 0 8px' }}>Busca el counter dentro de Pick Lab</h2>
             <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.6, margin: 0 }}>
-              El selector rápido y las recomendaciones por composición ahora viven juntos en una sola herramienta.
+              Elige el héroe rival y tu rol para comparar opciones que encajen en vuestro equipo.
             </p>
           </div>
           <Link href="/pick-lab?mode=counters" className="btn btn-primary">ABRIR COUNTER RÁPIDO</Link>
@@ -81,7 +81,7 @@ export default function CountersPage() {
         <section style={{ background: 'var(--surface2)', border: '1px solid var(--border)', padding: 18, marginBottom: 20 }}>
           <div className="eyebrow">GUÍAS POR HÉROE</div>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 10 }}>
-            {reviewedHeroes.map(hero => (
+            {featuredHeroes.map(hero => (
               <Link key={hero.slug} href={`/counters/${hero.slug}`} className="btn btn-secondary btn-sm">
                 {hero.name}
               </Link>
@@ -96,7 +96,7 @@ export default function CountersPage() {
             {[
               { title: 'Cambia la distancia', body: 'Si Reaper domina el corto alcance o Widowmaker controla la calle, no repitas el duelo a su distancia favorita. Una ruta cubierta o un ángulo distinto puede resolver más que un cambio inmediato de pick.' },
               { title: 'Espera el cooldown', body: 'Suzu, Sleep, burbujas, Recall o movilidad suelen definir la entrada. Fuerza primero ese recurso y compromete tu daño después; entrar contra todo disponible hace que cualquier héroe parezca un counter imposible.' },
-              { title: 'Protege la condición de victoria', body: 'Contra un flanker no hace falta perseguir hasta matarlo. Forzar su salida y volver con tu backline puede dejar a tu equipo con ventaja en la pelea principal.' },
+              { title: 'Ayuda al compañero que recibe la entrada', body: 'Contra un flanker no hace falta perseguir hasta matarlo. Forzar su salida y volver con tu backline puede dejar a tu equipo con ventaja en la pelea principal.' },
             ].map(item => (
               <article key={item.title} style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 20 }}>
                 <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 21, letterSpacing: .5, margin: '0 0 9px' }}>{item.title}</h3>
@@ -106,7 +106,7 @@ export default function CountersPage() {
           </div>
         </section>
 
-        <p style={{ color: 'var(--text3)', fontSize: 12, margin: '28px 0 0' }}>Matchups revisados por Replaid Lab · 5 de septiembre de 2026 · <Link href="/contact" style={{ color: 'var(--text3)' }}>Comunicar una corrección</Link></p>
+        <p style={{ color: 'var(--text3)', fontSize: 12, margin: '28px 0 0' }}>¿Has visto un consejo desactualizado? <Link href="/contact" style={{ color: 'var(--text3)' }}>Comunicar una corrección</Link></p>
         <SeoFaq items={faq} title="Preguntas sobre counters de Overwatch" />
       </main>
     </div>

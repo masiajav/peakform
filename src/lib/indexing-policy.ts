@@ -4,6 +4,13 @@ import { PUBLIC_HERO_PAGE_SLUGS } from './topic-links'
 import { hasReviewedGuideRevision, reviewedGuideTarget } from './reviewed-guide-policy'
 export { PILLAR_COUNTER_SLUGS, PILLAR_TEAM_COMP_SLUGS } from './public-topic-policy'
 import { PILLAR_COUNTER_SLUGS, PILLAR_TEAM_COMP_SLUGS } from './public-topic-policy'
+import { hasCurrentEditorialReview, type EditorialReviewContent } from './editorial-review'
+import { hasCurrentStaticEditorialReview } from './static-editorial-review'
+import { getCounterPillar, getTeamCompPillar, type TeamComposition } from './seo-clusters'
+import { COUNTER_HEROES } from './overwatch-counters'
+import { getHeroPillar, type HeroPillarCard } from './hero-pillars'
+import { getRankedHeroGuide, type RankedHeroGuide } from './ranked-hero-guides'
+export { isPathAdEligible } from './ad-inventory-policy'
 
 export type IndexingDecision = 'indexable' | 'noindex_follow' | 'not_found'
 export type QualityStatus = 'index_ads' | 'index_no_ads' | 'noindex_no_ads'
@@ -16,7 +23,7 @@ export type PageQualityDecision = {
   wordCount?: number
 }
 
-type GuideLike = {
+type GuideLike = EditorialReviewContent & {
   slug?: string | null
   title?: string | null
   body?: string | null
@@ -25,6 +32,10 @@ type GuideLike = {
   seo_description?: string | null
   category?: string | null
   content_type?: string | null
+  author?: string | null
+  created_at?: string | null
+  updated_at?: string | null
+  published?: boolean | null
 }
 
 type AnnouncementLike = GuideLike & {
@@ -50,12 +61,26 @@ type ExpertLike = {
 }
 
 type EditorialTopicLike = {
+  analysisStatus?: 'trial'
   seoTitle?: string | null
   seoDescription?: string | null
   h1?: string | null
   updatedAt?: string | null
+  publishedAt?: string | null
+  schemaDate?: string | null
+  headerTips?: string[] | null
+  quickAnswers?: { title: string; body: string }[] | null
+  abilities?: { title: string; body: string }[] | null
+  rankedPlan?: string[] | null
+  checklist?: string[] | null
   intro?: string[] | null
   summary?: string[] | null
+  publishedDate?: string | null
+  compositions?: TeamComposition[] | HeroPillarCard[] | null
+  responsibilities?: { title: string; body: string }[] | null
+  rotationPlan?: string[] | null
+  weaknesses?: string[] | null
+  examples?: { title: string; body: string }[] | null
   faqs?: { question?: string | null; answer?: string | null }[] | null
   links?: { href?: string | null; label?: string | null }[] | null
   [key: string]: unknown
@@ -148,17 +173,33 @@ export function patchNotePublicationIssues(item: AnnouncementLike) {
   const body = item.body || ''
   const hasInternalLink = /\]\(\/(?:heroes|guides|counters|team-comps|roles)\//i.test(body)
   const hasDraftMarkers = /\[(?:Completar|Explicar|Añadir)\b/i.test(body)
-  const hasVisibleSourceLink = Boolean(item.source_url && body.includes(item.source_url))
+  const markdownLinks = Array.from(body.matchAll(/\]\(([^\s)]+)\)/g), match => match[1])
+  const hasVisibleSourceLink = Boolean(item.source_url && markdownLinks.includes(item.source_url))
+  const headings = Array.from(body.matchAll(/^##\s+(.+)$/gm), match => normalize(match[1]))
+  const paragraphs = body.split(/\n\s*\n/)
+    .map(value => normalize(stripMarkdown(value)).replace(/\s+/g, ' ').trim())
+    .filter(value => value.split(' ').length >= 30)
+  const words = normalize(stripMarkdown(body)).split(/\s+/).filter(Boolean)
+  const hasPadding = words.length > 100 && new Set(words).size / words.length < 0.06
+  let hasOfficialSource = false
+  try {
+    const source = new URL(item.source_url || '')
+    hasOfficialSource = source.protocol === 'https:' && !source.username && !source.password
+      && source.hostname === 'overwatch.blizzard.com' && /\/news\/patch-notes\//.test(source.pathname)
+  } catch { /* Invalid URLs are reported below. */ }
 
-  if (!item.source_url) issues.push('Falta el enlace oficial de Blizzard')
-  if (!item.source_published_at) issues.push('Falta la fecha oficial del parche')
-  if (!item.tags?.includes(PATCH_NOTE_EDITORIAL_TAG)) issues.push(`Añade la etiqueta ${PATCH_NOTE_EDITORIAL_TAG}`)
+  if (!hasOfficialSource) issues.push('Falta un enlace válido a las patch notes oficiales de Blizzard')
+  if (!item.source_published_at || !Number.isFinite(Date.parse(item.source_published_at))) issues.push('Falta una fecha oficial válida del parche')
+  if (!item.title?.trim() || !item.author?.trim()) issues.push('Completa el título y la autoría de la entrada')
   if (wordCount(body) < QUALITY_MINIMUMS.patchNoteAdsWords) issues.push(`El análisis propio debe alcanzar ${QUALITY_MINIMUMS.patchNoteAdsWords} palabras`)
   if (wordCount(item.excerpt) < 8) issues.push('Completa un extracto editorial útil')
   if (!item.seo_title || wordCount(item.seo_description) < 8) issues.push('Completa el título y la descripción SEO')
   if (!hasInternalLink) issues.push('Añade al menos un enlace interno a una guía, héroe, counter o composición')
   if (!hasVisibleSourceLink) issues.push('Mantén visible el enlace a la nota oficial de Blizzard')
   if (hasDraftMarkers) issues.push('Elimina todos los marcadores pendientes del borrador')
+  if (headings.length < 3 || new Set(headings).size !== headings.length) issues.push('Organiza el análisis en secciones propias y distintas')
+  if (hasPadding || new Set(paragraphs).size !== paragraphs.length) issues.push('El análisis contiene relleno o párrafos repetidos')
+  if (/^#{1,6}\s*(?:url|title seo|meta description|h1|keywords principales|instrucciones para codex)\s*$/im.test(body)) issues.push('Elimina las instrucciones internas del contenido visible')
 
   return issues
 }
@@ -190,19 +231,44 @@ export function isVideoOnlyGuide(guide: GuideLike) {
 }
 
 export function isGuideSitemapEligible(guide: GuideLike) {
-  if (!guide.slug) return false
+  if (!guide.slug || guide.published === false) return false
+  const ranked = getRankedHeroGuide(guide.slug)
+  if (ranked) return rankedGuideQualityDecision(ranked).indexable
   if (hasReviewedGuideRevision(guide.slug) || reviewedGuideTarget(guide.slug)) return false
   if (EXCLUDED_GUIDE_SLUGS.includes(guide.slug)) return false
-  const bodyWords = wordCount(guide.body)
-  const summaryWords = wordCount([guide.excerpt, guide.seo_description].filter(Boolean).join(' '))
+  return hasCurrentEditorialReview(guide) && !isVideoOnlyGuide(guide) && guidePublicationIssues(guide).length === 0
+}
 
-  return bodyWords >= QUALITY_MINIMUMS.guideIndexWords &&
-    summaryWords >= QUALITY_MINIMUMS.guideSummaryWords &&
-    !isVideoOnlyGuide(guide)
+// These are necessary technical checks, not a substitute for editorial review.
+// The length floor is our own policy, not a Google or AdSense requirement.
+export function guidePublicationIssues(guide: GuideLike) {
+  const issues: string[] = []
+  const body = guide.body || ''
+  const paragraphs = body.split(/\n\s*\n/)
+    .map(value => normalize(stripMarkdown(value)).replace(/\s+/g, ' ').trim())
+    .filter(value => value.split(' ').length >= 30 && !value.startsWith('##'))
+  const hasRepeatedParagraph = new Set(paragraphs).size !== paragraphs.length
+  const headings = Array.from(body.matchAll(/^##\s+(.+)$/gm), match => normalize(match[1]))
+  const links = new Set(Array.from(body.matchAll(/\]\((\/(?:guides|heroes|maps|roles|counters|team-comps)\/[^)\s]+)\)/g), match => match[1]))
+  const words = normalize(stripMarkdown(body)).split(/\s+/).filter(Boolean)
+  const hasWordPadding = words.length > 100 && new Set(words).size / words.length < 0.06
+  const hasInternalText = /^#{1,6}\s*(?:url|title seo|meta description|h1|keywords principales|pregunta que resuelve|instrucciones para codex)\s*$/im.test(body)
+    || /\b(?:lorem ipsum|pendiente de completar|texto de ejemplo)\b/i.test(body)
+
+  if (!guide.title?.trim() || !guide.seo_title?.trim() || !guide.seo_description?.trim()) issues.push('Faltan título o descripción editoriales')
+  if (!guide.author?.trim() || !guide.created_at || !guide.updated_at || !Number.isFinite(Date.parse(guide.created_at)) || !Number.isFinite(Date.parse(guide.updated_at))) issues.push('Faltan autor o fechas válidas')
+  if (wordCount(body) < QUALITY_MINIMUMS.guideIndexWords) issues.push('El análisis todavía es demasiado breve para nuestra revisión')
+  if (wordCount([guide.excerpt, guide.seo_description].filter(Boolean).join(' ')) < QUALITY_MINIMUMS.guideSummaryWords) issues.push('Falta una respuesta inicial útil')
+  if (headings.length < 3 || new Set(headings).size !== headings.length) issues.push('Faltan secciones distintas y organizadas')
+  if (links.size < 2) issues.push('Faltan enlaces relacionados dentro del artículo')
+  if (hasRepeatedParagraph || hasWordPadding) issues.push('Hay párrafos repetidos o relleno artificial')
+  if (hasInternalText) issues.push('Hay instrucciones internas o texto provisional visible')
+  return issues
 }
 
 export function isGuideAdEligible(guide: GuideLike) {
   if (!guide.slug) return false
+  if (getRankedHeroGuide(guide.slug)) return false
   return isGuideSitemapEligible(guide) && wordCount(guide.body) >= QUALITY_MINIMUMS.guideAdsWords
 }
 
@@ -212,6 +278,11 @@ export function guideQualityDecision(guide: GuideLike): PageQualityDecision {
   if (!guide.slug) {
     return blocked('Guía sin slug canónico', words)
   }
+
+  const ranked = getRankedHeroGuide(guide.slug)
+  if (ranked) return guide.published === false
+    ? blocked('Registro no publicado; la ruta editorial se evalúa por separado', words)
+    : rankedGuideQualityDecision(ranked)
 
   if (hasReviewedGuideRevision(guide.slug) || reviewedGuideTarget(guide.slug)) {
     return blocked('Lote revisado accesible para lectores; indexación y anuncios aún desactivados', words)
@@ -229,31 +300,40 @@ export function guideQualityDecision(guide: GuideLike): PageQualityDecision {
     return blocked('Guía basada principalmente en vídeo externo o plantilla', words)
   }
 
-  return blocked('Contenido insuficiente para sitemap o anuncios', words)
+  if (!hasCurrentEditorialReview(guide)) return blocked('Esta versión de la guía todavía no tiene una revisión editorial aprobada', words)
+  return blocked(guidePublicationIssues(guide).join('; ') || 'Contenido pendiente de revisión', words)
 }
 
 export function isAnnouncementSitemapEligible(item: AnnouncementLike) {
-  if (!item.slug) return false
+  if (!item.slug || item.published === false || !hasCurrentEditorialReview(item)) return false
   const words = wordCount(item.body)
   const summaryWords = wordCount([item.excerpt, item.seo_description].filter(Boolean).join(' '))
 
   if (item.content_type === 'patch_note') {
-    return Boolean(
-      item.source_url &&
-      item.tags?.includes(PATCH_NOTE_EDITORIAL_TAG) &&
-      words >= QUALITY_MINIMUMS.patchNoteAdsWords &&
-      summaryWords >= 12
-    )
+    return patchNotePublicationIssues(item).length === 0
   }
 
-  return words >= QUALITY_MINIMUMS.newsIndexWords && summaryWords >= 12
+  return words >= QUALITY_MINIMUMS.newsIndexWords && summaryWords >= 12 && announcementPublicationIssues(item).length === 0
+}
+
+export function announcementPublicationIssues(item: AnnouncementLike) {
+  if (item.content_type === 'patch_note') return patchNotePublicationIssues(item)
+  const issues: string[] = []
+  const body = item.body || ''
+  const paragraphs = body.split(/\n\s*\n/).map(value => normalize(stripMarkdown(value)).replace(/\s+/g, ' ').trim()).filter(value => wordCount(value) >= 30)
+  if (!item.title?.trim() || !item.author?.trim() || !item.seo_title?.trim() || !item.seo_description?.trim()) issues.push('Completa título, descripción y autoría')
+  if (!item.created_at || !item.updated_at || !Number.isFinite(Date.parse(item.created_at)) || !Number.isFinite(Date.parse(item.updated_at))) issues.push('Faltan fechas válidas de publicación y revisión')
+  if (wordCount(body) < QUALITY_MINIMUMS.newsIndexWords || wordCount([item.excerpt, item.seo_description].filter(Boolean).join(' ')) < 12) issues.push('Falta una noticia desarrollada y una respuesta inicial útil')
+  if (new Set(paragraphs).size !== paragraphs.length) issues.push('El artículo repite párrafos')
+  if (/^#{1,6}\s*(?:url|title seo|meta description|h1|keywords principales|pregunta que resuelve|instrucciones para codex)\s*$/im.test(body) || /\b(?:lorem ipsum|pendiente de completar|texto de ejemplo)\b/i.test(body)) issues.push('Elimina las instrucciones internas y el texto provisional')
+  return issues
 }
 
 export function announcementQualityDecision(item: AnnouncementLike): PageQualityDecision {
   const words = wordCount(item.body)
 
   if (!isAnnouncementSitemapEligible(item)) {
-    return blocked(item.content_type === 'patch_note'
+    return blocked(!hasCurrentEditorialReview(item) ? 'Esta versión de la entrada todavía no tiene una revisión editorial aprobada' : item.content_type === 'patch_note'
       ? 'Patch note sin resumen editorial suficiente o fuente visible'
       : 'Noticia demasiado fina para indexar',
       words)
@@ -300,24 +380,19 @@ export function topicQualityDecision(kind: 'hero' | 'counter' | 'team_comp' | 'r
   }
 
   if (kind === 'hero') {
-    return isPillarHeroSlug(slug)
-      ? indexNoAds('Héroe pilar indexable; monetización pendiente de contenido propio completo', 0)
-      : blocked('Página de héroe programática pendiente de contenido editorial único', 0)
+    return editorialTopicQualityDecision(kind, slug, getHeroPillar(slug))
   }
 
   if (kind === 'counter') {
-    return isPillarCounterSlug(slug)
-      ? indexNoAds('Counter pilar indexable; monetización pendiente de contenido propio completo', 0)
-      : blocked('Counter programático pendiente de análisis específico', 0)
+    return editorialTopicQualityDecision(kind, slug, getCounterPillar(slug))
   }
 
   if (kind === 'team_comp') {
-    return isPillarTeamCompSlug(slug)
-      ? indexNoAds('Composición pilar indexable; monetización pendiente de contenido propio completo', 0)
-      : blocked('Composición programática pendiente de análisis específico', 0)
+    return editorialTopicQualityDecision(kind, slug, getTeamCompPillar(slug))
   }
 
   if (kind === 'role') {
+    if (slug === 'flex') return blocked('Guía de selección flexible; publicación individual pendiente', 0)
     return indexNoAds('Hub de rol indexable; sin anuncios hasta ampliar contenido propio', 0)
   }
 
@@ -331,15 +406,61 @@ export function editorialTopicQualityDecision(
   slug: string,
   content: EditorialTopicLike | null | undefined,
 ): PageQualityDecision {
-  const policy = topicQualityDecision(kind, slug)
-  if (!policy.indexable || !content) return blocked(policy.reason, 0)
+  if (!content) return blocked('Falta el artículo editorial que debe revisarse', 0)
+  if ((kind === 'hero' || kind === 'counter') && content.analysisStatus === 'trial') {
+    return blocked('Análisis del kit de prueba; lanzamiento y matchups pendientes de comprobar', 0)
+  }
+  if (kind === 'hero' || kind === 'counter' || kind === 'team_comp') {
+    const path = `/${kind === 'hero' ? 'heroes' : kind === 'counter' ? 'counters' : 'team-comps'}/${slug}`
+    if (!hasCurrentStaticEditorialReview(path, content)) {
+      return blocked('Esta versión del artículo todavía no tiene una revisión editorial registrada', 0)
+    }
+    const published = kind === 'hero' ? isPillarHeroSlug(slug) : kind === 'counter' ? isPillarCounterSlug(slug) : isPillarTeamCompSlug(slug)
+    if (!published) return blocked('Artículo revisado; indexación y anuncios pendientes de publicación individual', 0)
+  } else {
+    const policy = topicQualityDecision(kind, slug)
+    if (!policy.indexable) return blocked(policy.reason, 0)
+  }
 
   const serialized = JSON.stringify(content)
   const words = wordCount(serialized.replace(/[{}\[\]":,]/g, ' '))
+  if (kind === 'team_comp') {
+    const candidates = content.compositions ?? []
+    const compositions = candidates.filter((comp): comp is TeamComposition => 'lineup' in comp)
+    const complete = compositions.length > 0 && compositions.length === candidates.length && compositions.every(comp => {
+      const roles = comp.lineup.map(name => COUNTER_HEROES.find(hero => normalize(hero.name) === normalize(name))?.role)
+      return ['5v5', '6v6'].includes(comp.format)
+        && comp.lineup.length === (comp.format === '5v5' ? 5 : 6)
+        && new Set(comp.lineup.map(normalize)).size === comp.lineup.length
+        && roles.filter(role => role === 'tank').length === (comp.format === '5v5' ? 1 : 2)
+        && roles.filter(role => role === 'dps').length === 2 && roles.filter(role => role === 'support').length === 2
+        && [comp.name, comp.style, comp.winCondition, comp.engagePlan, comp.goodMaps, comp.weakAgainst, comp.substitutions].every(value => value?.trim())
+    })
+    const paragraphs = [
+      ...(content.intro ?? []),
+      ...compositions.flatMap(comp => [comp.winCondition, comp.engagePlan, comp.goodMaps, comp.weakAgainst, comp.substitutions]),
+      ...(content.responsibilities?.map(item => item.body) ?? []),
+      ...(content.examples?.map(item => item.body) ?? []),
+    ].map(value => normalize(value).replace(/\s+/g, ' ').trim())
+    const dated = validEditorialDate(content.schemaDate) && (!content.publishedDate || (validEditorialDate(content.publishedDate) && content.schemaDate! >= content.publishedDate))
+    const metadata = [content.seoTitle, content.seoDescription, content.h1, content.updatedAt].every(value => value?.trim())
+    const lists = [content.intro, content.summary, content.rotationPlan, content.weaknesses, content.checklist]
+    const sections = lists.every(list => list?.length && list.every(value => value.trim()))
+      && [content.responsibilities, content.examples].every(list => list?.length && list.every(item => item.title.trim() && item.body.trim()))
+      && content.faqs && content.faqs.length >= 3 && content.faqs.every(item => item.question?.trim() && item.answer?.trim())
+      && content.links && content.links.length >= 3 && content.links.every(link => link.label?.trim() && /^\/(?!\/)/.test(link.href ?? ''))
+    if (!metadata || !dated || !complete || !sections || paragraphs.some(value => !value)) return blocked('Faltan equipos válidos, decisiones, fechas o enlaces en la composición', words)
+    if (new Set(paragraphs).size !== paragraphs.length) return blocked('La composición repite párrafos', words)
+    if (/\b(?:lorem ipsum|pendiente de completar|texto de ejemplo|title seo|meta description|keywords principales)\b/i.test(serialized)) return blocked('La composición contiene texto interno o provisional', words)
+    return indexNoAds('Composición revisada individualmente; sin anuncios durante la revisión de AdSense', words)
+  }
   const hasCoreMetadata = Boolean(content.seoTitle && content.seoDescription && content.h1 && content.updatedAt)
   const hasEditorialStructure = Boolean(
     content.intro?.length &&
-    content.summary?.length &&
+    (kind === 'hero'
+      ? content.headerTips?.length && content.quickAnswers?.length && content.rankedPlan?.length && content.abilities?.length && content.checklist?.length
+        && validEditorialDate(content.publishedAt) && validEditorialDate(content.schemaDate) && content.schemaDate! >= content.publishedAt!
+      : content.summary?.length) &&
     content.faqs && content.faqs.length >= 3 &&
     content.links && content.links.length >= 3
   )
@@ -366,28 +487,35 @@ export function robotsForQuality(decision: PageQualityDecision) {
   return decision.indexable ? undefined : { index: false, follow: true }
 }
 
-export function isStaticPathAdEligible(path: string) {
-  return [
-    '/overwatch-temporada-4-heroes-of-busan',
-    '/overwatch-temporada-3-into-the-tigers-den',
-    '/blizzcon-2026-overwatch-horarios-espana',
-    '/dmon-nuevo-heroe-tank-overwatch',
-    '/busan-eichenwalde-paraiso-reworks-overwatch',
-    '/guides/como-mejorar-en-overwatch',
-  ].includes(path)
+// The repository article is rendered before the database guide. Review that
+// exact version; a published database row cannot approve a different body.
+export function rankedGuideQualityDecision(content: RankedHeroGuide | null): PageQualityDecision {
+  if (!content || !getRankedHeroGuide(content.slug)) return blocked('Falta la guía ranked editorial', 0)
+  if (!hasCurrentStaticEditorialReview(`/guides/${content.slug}`, content)) {
+    return blocked('Esta versión de la guía ranked sigue pendiente de revisión individual', 0)
+  }
+  const paragraphs = [...content.intro, ...content.sections.flatMap(section => section.paragraphs)]
+  const normalizedParagraphs = paragraphs.map(value => normalize(value).replace(/\s+/g, ' ').trim())
+  const serialized = JSON.stringify(content)
+  const hasMetadata = Boolean(content.title.trim() && content.seoTitle.trim() && content.seoDescription.trim() && content.quickAnswer.trim())
+  const hasStructure = content.intro.length > 0 && content.sections.length >= 3
+    && content.sections.every(section => section.title.trim() && section.paragraphs.length && section.paragraphs.every(value => value.trim()))
+    && content.vodQuestions.length > 0 && content.checklist.length > 0
+    && content.faqs.length >= 3 && content.faqs.every(item => item.question.trim() && item.answer.trim())
+    && content.links.length >= 3 && content.links.every(link => link.label.trim() && /^\/(?!\/)/.test(link.href))
+  if (!hasMetadata || !hasStructure) return blocked('Falta contenido o estructura editorial en la guía ranked', 0)
+  if (!validEditorialDate(content.publishedAt) || !validEditorialDate(content.modifiedAt) || content.modifiedAt < content.publishedAt) {
+    return blocked('Fechas de publicación y revisión no válidas', 0)
+  }
+  if (new Set(normalizedParagraphs).size !== normalizedParagraphs.length) return blocked('La guía ranked repite párrafos', 0)
+  if (/\b(?:lorem ipsum|pendiente de completar|texto de ejemplo|title seo|meta description|keywords principales)\b/i.test(serialized)) {
+    return blocked('La guía ranked contiene texto interno o provisional', 0)
+  }
+  return indexNoAds('Guía ranked revisada individualmente; sin anuncios durante la revisión de AdSense', wordCount(paragraphs.join(' ')))
 }
 
-export function isPathAdEligible(path: string) {
-  const cleanPath = path.split('?')[0].replace(/\/$/, '') || '/'
-  if (isStaticPathAdEligible(cleanPath)) return true
-
-  const guidePrefix = '/guides/'
-  if (cleanPath.startsWith(guidePrefix)) {
-    const slug = cleanPath.slice(guidePrefix.length)
-    return [...STATIC_EDITORIAL_GUIDE_SLUGS, ...RANKED_EDITORIAL_GUIDE_SLUGS].some(item => item === slug)
-  }
-
-  return false
+function validEditorialDate(value?: string | null) {
+  return Boolean(value && /^\d{4}-\d{2}-\d{2}$/.test(value) && Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value)
 }
 
 function normalize(value?: string | null) {

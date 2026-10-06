@@ -51,7 +51,8 @@ const fetchNews = cache(async (slug: string) => {
   return data as AnnouncementContent | null
 })
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const article = await fetchNews(params.slug)
   if (!article) return {}
   const quality = announcementQualityDecision(article)
@@ -66,7 +67,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   })
 }
 
-export default async function NewsDetailPage({ params }: { params: { slug: string } }) {
+export default async function NewsDetailPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const article = await fetchNews(params.slug)
   if (!article) notFound()
 

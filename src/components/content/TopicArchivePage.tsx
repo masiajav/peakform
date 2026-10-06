@@ -1,5 +1,5 @@
 import { createAdminClient } from '@/lib/supabase/admin'
-import { announcementPath, articleDescription, guidePath, ROLE_LABELS, topicLabel, type ContentRole } from '@/lib/content'
+import { announcementPath, articleDescription, guidePath, ROLE_LABELS, topicLabel, type ContentRole, type GuideContent } from '@/lib/content'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import JsonLd from './JsonLd'
 import SiteNav from '@/components/layout/PublicNav'
@@ -11,6 +11,8 @@ import { buildHeroSeoProfile, ROLE_SEO } from '@/lib/overwatch-seo'
 import { guideEditorial } from '@/lib/guide-editorial'
 import { discoverableGuides } from '@/lib/guide-discovery'
 import { heroTopicHref, safeTopicHref } from '@/lib/topic-links'
+import { ANNOUNCEMENT_REVIEW_COLUMNS, GUIDE_REVIEW_COLUMNS } from '@/lib/editorial-review'
+import { isAnnouncementSitemapEligible } from '@/lib/indexing-policy'
 
 export default async function TopicArchivePage({
   kind,
@@ -27,15 +29,16 @@ export default async function TopicArchivePage({
 
   const guideQuery = admin
     .from('guides')
-    .select('id, title, slug, excerpt, body, category, hero, role, map, created_at')
+    .select(GUIDE_REVIEW_COLUMNS)
     .eq('published', true)
     .eq(kind, slug)
     .order('created_at', { ascending: false })
     .limit(60)
+    .returns<GuideContent[]>()
 
   const newsQuery = admin
     .from('announcements')
-    .select('id, title, slug, excerpt, body, content_type, hero, role, map, created_at')
+    .select(ANNOUNCEMENT_REVIEW_COLUMNS)
     .eq('published', true)
     .eq(kind, slug)
     .order('created_at', { ascending: false })
@@ -58,7 +61,8 @@ export default async function TopicArchivePage({
         .order('avg_rating', { ascending: false })
         .limit(3)
 
-  const [{ data: guides }, { data: news }, { data: experts }] = await Promise.all([guideQuery, newsQuery, expertsQuery])
+  const [{ data: guides }, { data: rawNews }, { data: experts }] = await Promise.all([guideQuery, newsQuery, expertsQuery])
+  const news = (rawNews ?? []).filter((item: any) => isAnnouncementSitemapEligible(item))
   const topicContent = buildTopicContent(kind, slug, title)
   const counterHero = kind === 'hero' ? getCounterHero(slug) : null
   const heroSeo = kind === 'hero' ? buildHeroSeoProfile(slug) : null

@@ -10,11 +10,12 @@ import {
   UPCOMING_HERO_SLUGS,
   announcementQualityDecision,
   guideQualityDecision,
-  isPathAdEligible,
   topicQualityDecision,
   type PageQualityDecision,
 } from '@/lib/indexing-policy'
 import { heroTopicHref } from '@/lib/topic-links'
+import { ANNOUNCEMENT_REVIEW_COLUMNS, GUIDE_REVIEW_COLUMNS } from '@/lib/editorial-review'
+import { canLoadAdSense } from '@/lib/adsense-policy'
 
 type AuditRow = {
   url: string
@@ -25,15 +26,20 @@ type AuditRow = {
 
 export default async function QualityAuditPage() {
   const supabase = createAdminClient()
-  const adsApproved = process.env.NEXT_PUBLIC_ADSENSE_APPROVED === 'true'
+  const adsConfig = {
+    clientId: process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID,
+    approved: process.env.NEXT_PUBLIC_ADSENSE_APPROVED,
+    cmpReady: process.env.NEXT_PUBLIC_ADSENSE_CMP_READY,
+    reviewMode: process.env.NEXT_PUBLIC_ADSENSE_REVIEW_MODE,
+  }
   const [{ data: guides }, { data: announcements }] = await Promise.all([
     supabase
       .from('guides')
-      .select('title, slug, body, excerpt, seo_description, category, content_type, published, updated_at, created_at')
+      .select(GUIDE_REVIEW_COLUMNS)
       .eq('published', true),
     supabase
       .from('announcements')
-      .select('title, slug, body, excerpt, seo_description, content_type, published, updated_at, created_at')
+      .select(ANNOUNCEMENT_REVIEW_COLUMNS)
       .eq('published', true),
   ])
 
@@ -50,16 +56,17 @@ export default async function QualityAuditPage() {
     '/overwatch-temporada-3-into-the-tigers-den',
     ...TRUST_ROUTES,
   ].map(path => {
-    const adsAllowed = adsApproved && isPathAdEligible(path)
+    const indexable = path !== '/patch-notes'
+    const adsAllowed = indexable && canLoadAdSense(adsConfig, path)
     return {
       url: path,
       type: 'static',
       title: path === '/' ? 'Home' : path,
       decision: {
-        status: adsAllowed ? 'index_ads' : 'index_no_ads',
-        indexable: true,
+        status: !indexable ? 'noindex_no_ads' : adsAllowed ? 'index_ads' : 'index_no_ads',
+        indexable,
         adsAllowed,
-        reason: adsAllowed ? 'Ruta estática apta para anuncios' : 'Ruta estática indexable sin anuncios durante la recuperación de AdSense',
+        reason: !indexable ? 'Hub de patch notes pendiente de revisión editorial' : adsAllowed ? 'Ruta estática apta para anuncios' : 'Ruta estática indexable sin anuncios durante la recuperación de AdSense',
       },
     }
   })
@@ -107,7 +114,10 @@ export default async function QualityAuditPage() {
     decision: topicQualityDecision('team_comp', hero.slug),
   }))
 
-  const rows = [...staticRows, ...guideRows, ...announcementRows, ...heroRows, ...counterRows, ...teamCompRows]
+  const rows = [...staticRows, ...guideRows, ...announcementRows, ...heroRows, ...counterRows, ...teamCompRows].map(row => {
+    if (!row.decision.adsAllowed || canLoadAdSense(adsConfig, row.url, row.decision.adsAllowed)) return row
+    return { ...row, decision: { ...row.decision, status: 'index_no_ads' as const, adsAllowed: false, reason: `${row.decision.reason}; publicidad desactivada por la configuración del sitio` } }
+  })
   const totals = {
     indexAds: rows.filter(row => row.decision.status === 'index_ads').length,
     indexNoAds: rows.filter(row => row.decision.status === 'index_no_ads').length,

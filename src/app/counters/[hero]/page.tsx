@@ -17,7 +17,8 @@ export function generateStaticParams() {
   return COUNTER_HEROES.map(hero => ({ hero: hero.slug }))
 }
 
-export function generateMetadata({ params }: { params: { hero: string } }): Metadata {
+export async function generateMetadata(props: { params: Promise<{ hero: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const hero = getCounterHero(params.hero)
   if (!hero) return {}
   const pillar = getCounterPillar(params.hero)
@@ -26,14 +27,15 @@ export function generateMetadata({ params }: { params: { hero: string } }): Meta
     : topicQualityDecision('counter', params.hero)
 
   return buildMetadata({
-    title: counterPageTitle(hero),
-    description: counterPageDescription(hero),
+    title: pillar?.seoTitle ?? counterPageTitle(hero),
+    description: pillar?.seoDescription ?? counterPageDescription(hero),
     path: `/counters/${hero.slug}`,
-    robots: robotsForQuality(quality),
+    robots: robotsForQuality(quality) ?? { index: true, follow: true },
   })
 }
 
-export default function CounterHeroPage({ params }: { params: { hero: string } }) {
+export default async function CounterHeroPage(props: { params: Promise<{ hero: string }> }) {
+  const params = await props.params;
   const hero = getCounterHero(params.hero)
   const pillar = getCounterPillar(params.hero)
   const profile = buildHeroSeoProfile(params.hero)

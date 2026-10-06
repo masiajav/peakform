@@ -7,8 +7,9 @@ import FollowupThread from '@/components/FollowupThread'
 import { TIER_CONFIG } from '@/types'
 import ReviewForm from './ReviewForm'
 
-export default async function ExpertOrderPage({ params }: { params: { id: string } }) {
-  const supabase = createClient()
+export default async function ExpertOrderPage(props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) redirect('/login')
 

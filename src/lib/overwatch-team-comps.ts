@@ -66,7 +66,7 @@ const STYLE_TEMPLATES: Record<TeamCompStyle, TeamCompTemplate> = {
     style: 'rush',
     title: 'Rush de velocidad',
     description: 'Engage directo con speed, sustain y burst para cerrar distancia y atropellar objetivos sin movilidad.',
-    tanks: ['Junker Queen', 'Reinhardt', 'Ramattra', 'Mauga'],
+    tanks: ['Junker Queen', 'Reinhardt', 'Ramattra', 'Mauga', 'D.Mon'],
     dps: ['Reaper', 'Mei', 'Cassidy', 'Anran', 'Vendetta'],
     supports: ['Lucio', 'Juno', 'Kiriko', 'Mizuki', 'Moira'],
     winCondition: 'Guardar speed y defensivos hasta estar cerca, entrar juntos y rematar al primer objetivo que no pueda kitear.',
@@ -76,7 +76,7 @@ const STYLE_TEMPLATES: Record<TeamCompStyle, TeamCompTemplate> = {
     style: 'brawl',
     title: 'Brawl de objetivo',
     description: 'Presencia frontal, control de corto rango y sustain para ganar peleas alrededor de corners y objetivo.',
-    tanks: ['Reinhardt', 'Junker Queen', 'Zarya', 'Ramattra', 'Hazard'],
+    tanks: ['Reinhardt', 'Junker Queen', 'Zarya', 'Ramattra', 'Hazard', 'D.Mon'],
     dps: ['Mei', 'Reaper', 'Cassidy', 'Junkrat', 'Venture'],
     supports: ['Lucio', 'Kiriko', 'Moira', 'Baptiste', 'Brigitte'],
     winCondition: 'Tomar un corner, partir al rival con muro o presión frontal y jugar peleas cortas con recursos defensivos.',
@@ -87,7 +87,7 @@ const STYLE_TEMPLATES: Record<TeamCompStyle, TeamCompTemplate> = {
     title: 'Flyers y presión vertical',
     description: 'Control del espacio aéreo para dividir la atención rival y castigar equipos sin hitscan fiable.',
     tanks: ['D.Va', 'Winston'],
-    dps: ['Pharah', 'Echo', 'Anran'],
+    dps: ['Pharah', 'Echo'],
     supports: ['Mercy', 'Juno', 'Illari', 'Baptiste'],
     winCondition: 'Abrir ángulos verticales, obligar al rival a mirar hacia arriba y castigar supports o DPS sin cobertura.',
     avoidWhen: 'Contra doble hitscan fuerte, D.Va activa o mapas interiores donde no hay espacio vertical real.',
@@ -115,6 +115,7 @@ export function getTeamCompsForHero(slug: string, format?: TeamCompFormat, style
   if (!hero) return []
 
   return STYLE_ORDER
+    .filter(styleName => supportsHero(hero, STYLE_TEMPLATES[styleName]))
     .filter(styleName => !style || style === 'all' || styleName === style)
     .flatMap(styleName => {
       const formats: TeamCompFormat[] = format ? [format] : ['5v5', '6v6']
@@ -122,12 +123,17 @@ export function getTeamCompsForHero(slug: string, format?: TeamCompFormat, style
     })
 }
 
-export function bestDefaultStyle(hero: CounterHero): TeamCompStyle {
-  if (['winston', 'dva', 'doomfist', 'wrecking-ball', 'tracer', 'genji', 'sombra', 'echo', 'kiriko', 'lucio', 'juno'].includes(hero.slug)) return 'dive'
-  if (['sigma', 'orisa', 'ashe', 'widowmaker', 'hanzo', 'sojourn', 'baptiste', 'illari', 'zenyatta', 'emre'].includes(hero.slug)) return 'poke'
-  if (['pharah', 'echo', 'mercy', 'anran'].includes(hero.slug)) return 'flyers'
-  if (['brigitte', 'torbjorn', 'symmetra', 'cassidy', 'mei'].includes(hero.slug)) return 'anti-dive'
-  return hero.role === 'tank' ? 'brawl' : 'rush'
+export function bestDefaultStyle(hero: CounterHero): TeamCompStyle | 'all' {
+  const available = STYLE_ORDER.filter(styleName => supportsHero(hero, STYLE_TEMPLATES[styleName]))
+  const preferences: TeamCompStyle[] = hero.role === 'tank'
+    ? ['dive', 'brawl', 'poke', 'rush', 'anti-dive', 'flyers']
+    : ['dive', 'poke', 'flyers', 'anti-dive', 'rush', 'brawl']
+  return preferences.find(styleName => available.includes(styleName)) || 'all'
+}
+
+function supportsHero(hero: CounterHero, template: TeamCompTemplate) {
+  const pool = hero.role === 'tank' ? template.tanks : hero.role === 'dps' ? template.dps : template.supports
+  return pool.includes(hero.name)
 }
 
 export function teamCompPageTitle(hero: CounterHero) {

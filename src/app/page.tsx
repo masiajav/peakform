@@ -7,16 +7,19 @@ import JsonLd from '@/components/content/JsonLd'
 import AdSlot from '@/components/content/AdSlot'
 import PublicNav from '@/components/layout/PublicNav'
 import HeroPortraitImage from '@/components/heroes/HeroPortraitImage'
-import { announcementPath, ROLE_LABELS, topicLabel } from '@/lib/content'
+import { announcementPath, ROLE_LABELS, topicLabel, type GuideContent } from '@/lib/content'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { evergreenGuideList } from '@/lib/evergreen-guides'
 import { guideEditorial } from '@/lib/guide-editorial'
 import { isAnnouncementSitemapEligible, isGuideSitemapEligible } from '@/lib/indexing-policy'
+import { ANNOUNCEMENT_REVIEW_COLUMNS, GUIDE_REVIEW_COLUMNS } from '@/lib/editorial-review'
 import { COUNTER_HEROES, type CounterHero, type CounterRole } from '@/lib/overwatch-counters'
 import { getHeroPortrait } from '@/lib/overwatch-hero-portraits'
 import { heroTopicHref } from '@/lib/topic-links'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
 import { formatPrice } from '@/types'
+import { discoverableGuides } from '@/lib/guide-discovery'
+import { getRankedHeroGuide } from '@/lib/ranked-hero-guides'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Guías de Overwatch, héroes y consejos para mejorar',
@@ -29,16 +32,16 @@ const roleOrder: CounterRole[] = ['tank', 'dps', 'support']
 const heroBySlug = new Map(COUNTER_HEROES.map(hero => [hero.slug, hero]))
 const spotlightHeroes = pickHeroes(spotlightHeroSlugs)
 const seasonNews = [
-  { title: 'Doctrine', label: 'Nuevo Support', body: 'El héroe 54 ya tiene hero trial: sus ataques curan aliados y dañan enemigos, con una exigencia mecánica alta.' },
+  { title: 'Doctrine', label: 'Nuevo Support', body: 'El trial terminó el 14 de septiembre. Su estreno con Season 5 está anunciado para el 6 de octubre.' },
   { title: 'Sombra', label: 'Cambio de rol', body: 'El rework anunciado la mueve de DPS a Support y obliga a releer su utilidad, sus counters y sus comps.' },
-  { title: 'Roadhog', label: 'Rework', body: 'Blizzard confirma otra revisión importante del Tank. Actualizaremos matchups cuando esté el kit completo.' },
-  { title: 'Mítica gratis', label: 'Regalo', body: 'Juega una partida después de la ceremonia y consigue un vale para elegir una skin mítica de una selección.' },
-  { title: 'Season 5', label: 'Próxima temporada', body: 'Doctrine tendrá su lanzamiento completo con la nueva temporada y llegará también Watchpoint: Grímsvötn.' },
+  { title: 'Roadhog', label: 'Rework', body: 'Recibirá un rework con Season 5, el 6 de octubre, junto al cambio de rol de Sombra.' },
+  { title: 'Vale mítico', label: 'Plazo: 5 de octubre', body: 'La promoción de BlizzCon tiene fecha límite para obtener y canjear el vale. Revisa la selección en la tienda del juego.' },
+  { title: 'Season 5', label: '6 de octubre', body: 'El lanzamiento anunciado incluye Doctrine, Watchpoint: Grímsvötn y los reworks de Sombra y Roadhog.' },
   { title: 'Próximo héroe', label: 'Primer teaser', body: 'La silueta parece ómnica y lleva algo parecido a un paraguas. Todavía no hay nombre, rol ni kit confirmados.' },
 ]
 
 export default async function RootPage() {
-  const supabase = createClient()
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
   let profileRole: string | null = null
@@ -55,10 +58,11 @@ export default async function RootPage() {
   const [{ data: featuredGuides }, { data: experts }, { data: latestNews }] = await Promise.all([
     admin
       .from('guides')
-      .select('id, title, slug, excerpt, body, category, hero, role, video_id, video_channel, created_at, seo_description')
+      .select(GUIDE_REVIEW_COLUMNS)
       .eq('published', true)
       .order('created_at', { ascending: false })
-      .limit(18),
+      .limit(18)
+      .returns<GuideContent[]>(),
     admin
       .from('experts')
       .select('id, slug, display_name, peak_rank, main_role, specialties, avg_rating, total_reviews, price_starter')
@@ -68,14 +72,14 @@ export default async function RootPage() {
       .limit(3),
     admin
       .from('announcements')
-      .select('id, title, slug, body, excerpt, content_type, created_at')
+      .select(ANNOUNCEMENT_REVIEW_COLUMNS)
       .eq('published', true)
       .order('created_at', { ascending: false })
       .limit(12),
   ])
 
-  const qualityFeaturedGuides = (featuredGuides ?? [])
-    .filter((guide: any) => isGuideSitemapEligible(guide))
+  const qualityFeaturedGuides = discoverableGuides(featuredGuides ?? [])
+    .filter((guide: any) => Boolean(getRankedHeroGuide(guide.slug)) || isGuideSitemapEligible(guide))
     .slice(0, 6)
   const qualityLatestNews = (latestNews ?? [])
     .filter((item: any) => item.content_type !== 'patch_note' && isAnnouncementSitemapEligible(item))
@@ -161,7 +165,7 @@ export default async function RootPage() {
                     DOCTRINE, SOMBRA SUPPORT Y REWORK DE ROADHOG
                   </h2>
                   <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0, maxWidth: 760 }}>
-                    El nuevo Support ya se puede probar. Además, Sombra cambia de rol, Roadhog recibe un rework, hay una mítica gratis y se ha enseñado la silueta de otro héroe.
+                    Doctrine llegará con Season 5, el 6 de octubre. Repasa su kit, los reworks anunciados y el plazo del vale mítico; el trial de septiembre ya terminó.
                   </p>
                 </div>
                 <span className="btn btn-primary btn-sm">VER TODO</span>

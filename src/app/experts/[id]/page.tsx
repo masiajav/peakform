@@ -65,7 +65,7 @@ function Stars({ rating }: { rating: number }) {
 }
 
 function isUuid(value: string) {
-  return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value)
+  return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value);
 }
 
 const fetchExpert = cache(async (identifier: string) => {
@@ -81,7 +81,8 @@ const fetchExpert = cache(async (identifier: string) => {
   return data
 })
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+export async function generateMetadata(props: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const expert = await fetchExpert(params.id)
   if (!expert) return {}
   const quality = expertQualityDecision(expert)
@@ -95,8 +96,9 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   })
 }
 
-export default async function ExpertDetailPage({ params }: { params: { id: string } }) {
-  const supabase = createClient()
+export default async function ExpertDetailPage(props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
   let profile = null

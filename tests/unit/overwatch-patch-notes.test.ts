@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { extractBlizzardPatchArchiveUrls, parseBlizzardPatchNotes } from '@/lib/overwatch-patch-notes'
 import { patchNotePublicationIssues } from '@/lib/indexing-policy'
+import { reviewedPatchFixture } from '../fixtures/reviewed-patch'
 
 const PATCH_HTML = `
   <div class="PatchNotes-patch PatchNotes-live">
@@ -64,25 +65,24 @@ describe('Blizzard patch notes parser', () => {
       tags: ['auto-import', 'editorial-draft'],
     })
 
-    expect(issues).toContain('Añade la etiqueta editorial-review-complete')
     expect(issues).toContain('Elimina todos los marcadores pendientes del borrador')
   })
 
   it('accepts a fully reviewed patch note', () => {
-    const sourceUrl = 'https://overwatch.blizzard.com/es-es/news/patch-notes/'
-    const body = `${Array.from({ length: 430 }, () => 'análisis').join(' ')}\n\n[Guía de Ana](/heroes/ana)\n\n[Nota oficial](${sourceUrl})`
-    const issues = patchNotePublicationIssues({
-      slug: 'notas-parche-overwatch-2026-06-24',
-      body,
-      excerpt: 'Resumen editorial del parche con los cambios principales y su impacto directo dentro de las partidas competitivas.',
-      seo_title: 'Notas del parche de Overwatch del 24 de junio: cambios y análisis',
-      seo_description: 'Cambios del parche explicados para ranked, con héroes afectados, matchups importantes y guías relacionadas para jugar mejor.',
-      content_type: 'patch_note',
-      source_url: sourceUrl,
-      source_published_at: '2026-06-24T12:00:00.000Z',
-      tags: ['editorial-review-complete'],
-    })
+    expect(patchNotePublicationIssues(reviewedPatchFixture)).toEqual([])
+  })
 
-    expect(issues).toEqual([])
+  it('rejects invalid sources, dates, padding and hidden source URLs', () => {
+    for (const patch of [
+      { ...reviewedPatchFixture, source_url: 'https://overwatch.blizzard.com.evil.test/news/patch-notes/' },
+      { ...reviewedPatchFixture, source_url: 'http://overwatch.blizzard.com/es-es/news/patch-notes/' },
+      { ...reviewedPatchFixture, source_published_at: 'fecha desconocida' },
+      { ...reviewedPatchFixture, author: null },
+      { ...reviewedPatchFixture, body: `## Resumen\n\n${'análisis '.repeat(450)}\n\n## Ranked\n\n[Ana](/heroes/ana)\n\n## Cambios\n\n[Nota oficial](${reviewedPatchFixture.source_url})` },
+      { ...reviewedPatchFixture, body: reviewedPatchFixture.body.replace(`[Nota oficial de Blizzard](${reviewedPatchFixture.source_url})`, `<!-- ${reviewedPatchFixture.source_url} -->`) },
+      { ...reviewedPatchFixture, body: `${reviewedPatchFixture.body}\n\n## TITLE SEO\n\nTexto interno` },
+    ]) {
+      expect(patchNotePublicationIssues(patch).length).toBeGreaterThan(0)
+    }
   })
 })

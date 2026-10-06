@@ -98,7 +98,7 @@ export default function TeamCompExplorer({ initialHero = 'ana' }: { initialHero?
           <div>
             <div className="eyebrow">COMPOSICION {format}</div>
             <h2>{selected.name}</h2>
-            <p>{ROLE_LABELS[selected.role]} · {TEAM_COMP_STYLE_LABELS[activeStyle]} recomendado para este heroe.</p>
+            <p>{ROLE_LABELS[selected.role]}{comps.length > 0 ? ` · Ejemplo de ${TEAM_COMP_STYLE_LABELS[activeStyle]}` : ''}</p>
           </div>
           <div className="counter-panel-actions">
             {hasTeamCompPillar && (
@@ -115,6 +115,11 @@ export default function TeamCompExplorer({ initialHero = 'ana' }: { initialHero?
         </div>
 
         <div className="team-comp-list">
+          {comps.length === 0 && (
+            <p className="team-comp-empty">
+              No hay un equipo de ejemplo para {selected.name} con estos filtros. Prueba otro estilo o consulta su <Link href={`/heroes/${selected.slug}`}>guía de héroe</Link>.
+            </p>
+          )}
           {comps.map(comp => (
             <TeamCompCard key={comp.id} comp={comp} />
           ))}

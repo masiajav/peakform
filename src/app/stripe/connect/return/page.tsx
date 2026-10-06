@@ -3,7 +3,7 @@ import { createClient } from '@/lib/supabase/server'
 import { getStripeConnectStatus, isStripeAccountReadyForCheckout } from '@/lib/stripe-connect'
 
 export default async function StripeConnectReturnPage() {
-  const supabase = createClient()
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   const { data: expert } = user
     ? await supabase.from('experts').select('stripe_account_id').eq('user_id', user.id).maybeSingle()

@@ -7,12 +7,13 @@ import AdSlot from '@/components/content/AdSlot'
 import JsonLd from '@/components/content/JsonLd'
 import SeoFaq from '@/components/content/SeoFaq'
 import PublicNav from '@/components/layout/PublicNav'
-import { DEFAULT_HEROES, ROLE_LABELS, topicLabel } from '@/lib/content'
+import { DEFAULT_HEROES, ROLE_LABELS, topicLabel, type GuideContent } from '@/lib/content'
 import { evergreenGuideList } from '@/lib/evergreen-guides'
 import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
 import { guideEditorial } from '@/lib/guide-editorial'
 import { discoverableGuides } from '@/lib/guide-discovery'
 import GuideFilters from '@/components/content/GuideFilters'
+import { GUIDE_REVIEW_COLUMNS } from '@/lib/editorial-review'
 
 type GuidesSearchParams = {
   role?: string
@@ -23,27 +24,9 @@ type GuidesSearchParams = {
   sort?: string
 }
 
-const GUIDE_LIST_COLUMNS = `
-  id,
-  title,
-  slug,
-  body,
-  category,
-  excerpt,
-  seo_title,
-  seo_description,
-  hero,
-  role,
-  map,
-  video_id,
-  video_title,
-  video_channel,
-  published,
-  created_at,
-  updated_at
-`
 
-export function generateMetadata({ searchParams }: { searchParams: GuidesSearchParams }): Metadata {
+export async function generateMetadata(props: { searchParams: Promise<GuidesSearchParams> }): Promise<Metadata> {
+  const searchParams = await props.searchParams;
   const hasFilters = Boolean(
     cleanParam(searchParams.role) ||
       cleanParam(searchParams.hero) ||
@@ -66,7 +49,8 @@ export function generateMetadata({ searchParams }: { searchParams: GuidesSearchP
   return metadata
 }
 
-export default async function GuidesPage({ searchParams }: { searchParams: GuidesSearchParams }) {
+export default async function GuidesPage(props: { searchParams: Promise<GuidesSearchParams> }) {
+  const searchParams = await props.searchParams;
   const filters = {
     role: cleanParam(searchParams.role),
     hero: cleanParam(searchParams.hero),
@@ -77,7 +61,7 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
   }
   const hasFilters = Boolean(filters.role || filters.hero || filters.map || filters.category || filters.q || filters.sort)
 
-  const supabase = createClient()
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
   let profile = null
@@ -98,7 +82,7 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
 
   let query = admin
     .from('guides')
-    .select(GUIDE_LIST_COLUMNS)
+    .select(GUIDE_REVIEW_COLUMNS)
     .eq('published', true)
 
   if (effectiveRole) query = query.eq('role', effectiveRole)
@@ -110,7 +94,7 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
   else if (filters.sort === 'title') query = query.order('title', { ascending: true })
   else query = query.order('created_at', { ascending: false })
 
-  const [{ data: guides }, { data: filterOptions }] = await Promise.all([query, filterOptionsQuery])
+  const [{ data: guides }, { data: filterOptions }] = await Promise.all([query.returns<GuideContent[]>(), filterOptionsQuery])
   const visibleGuides = filterBySearch(discoverableGuides(guides ?? []), freeTextQuery)
   const sortedGuides = filters.sort === 'read'
     ? [...visibleGuides].sort((a: any, b: any) => readingTime(a.body) - readingTime(b.body))
@@ -204,7 +188,7 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
         ctaLabel={user ? 'MI PANEL' : 'ENTRAR'}
       />
 
-      <section style={{ maxWidth: 1120, margin: '0 auto', padding: '56px 24px 80px' }}>
+      <main style={{ maxWidth: 1120, margin: '0 auto', padding: '56px 24px 80px' }}>
         <div style={{
           background: 'var(--surface)',
           border: '1px solid var(--border)',
@@ -363,7 +347,7 @@ export default async function GuidesPage({ searchParams }: { searchParams: Guide
             ))}
           </div>
         )}
-      </section>
+      </main>
     </div>
   )
 }
@@ -431,7 +415,7 @@ function normalizeSearchText(value?: string) {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ')
     .trim()
-    .replace(/\s+/g, ' ')
+    .replace(/\s+/g, ' ');
 }
 
 function containsSearchToken(term: string, token: string) {

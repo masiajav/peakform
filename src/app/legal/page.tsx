@@ -3,6 +3,8 @@ import type { ReactNode } from 'react'
 import Link from 'next/link'
 import PublicNav from '@/components/layout/PublicNav'
 import { buildMetadata } from '@/lib/seo'
+import { SITE_OPERATOR, TRUST_REVIEW_DATE } from '@/lib/site-operator'
+import styles from '@/components/content/TrustDocument.module.css'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Términos y condiciones',
@@ -32,7 +34,7 @@ export default function LegalPage() {
 
       <PublicNav />
 
-      <main style={{ maxWidth: 760, margin: '0 auto', padding: '64px 24px 96px' }}>
+      <main className={styles.page} style={{ maxWidth: 760, margin: '0 auto', padding: '64px 24px 96px' }}>
 
         {/* Header */}
         <div style={{ marginBottom: 56 }}>
@@ -42,14 +44,17 @@ export default function LegalPage() {
           <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 40, letterSpacing: 1, color: 'var(--text)', margin: '0 0 16px' }}>
             TÉRMINOS Y CONDICIONES
           </h1>
-          <p style={{ fontSize: 13, color: 'var(--text3)', margin: 0 }}>
-            Última actualización: mayo de 2026
+          <p style={{ fontSize: 13, color: 'var(--text2)', margin: 0 }}>
+            Última revisión: <time dateTime={TRUST_REVIEW_DATE}>5 de octubre de 2026</time>
           </p>
         </div>
 
         <Section title="1. Objeto y partes">
           <p>
-            Replaid Lab es un marketplace que conecta jugadores de Overwatch («Usuarios») con analistas especializados («Expertos») para la revisión de replays de juego. El servicio es operado por Replaid Lab («nosotros», «la plataforma»).
+            El titular de Replaid Lab es <strong style={{ color: 'var(--text)' }}>{SITE_OPERATOR.name}</strong>, conocido públicamente como {SITE_OPERATOR.publicName}. Domicilio de contacto: {SITE_OPERATOR.address}. Puedes escribir a <a href={`mailto:${SITE_OPERATOR.email}`} style={{ color: 'var(--accent)' }}>{SITE_OPERATOR.email}</a> o utilizar la <Link href="/contact" style={{ color: 'var(--accent)' }}>página de contacto</Link>.
+          </p>
+          <p>
+            Replaid Lab publica guías de Overwatch y ofrece un marketplace que conecta jugadores («Usuarios») con analistas especializados («Expertos») para la revisión de replays de juego. En estas condiciones, «nosotros» y «la plataforma» se refieren al servicio operado por su titular.
           </p>
           <p>
             El acceso y uso de la plataforma implica la aceptación íntegra de los presentes Términos y Condiciones. Si no estás de acuerdo con alguno de ellos, debes abstenerte de utilizar el servicio.
@@ -61,7 +66,7 @@ export default function LegalPage() {
             Para realizar compras o solicitar acceso como Experto es necesario crear una cuenta mediante GitHub OAuth o enlace mágico de email. Eres responsable de mantener la confidencialidad de tu cuenta y de todas las actividades realizadas desde ella.
           </p>
           <p>
-            Replaid Lab se reserva el derecho de suspender o eliminar cuentas que incumplan estos Términos, sin previo aviso y sin derecho a reembolso de saldos pendientes, salvo en los casos expresamente indicados en la política de reembolsos.
+            Replaid Lab puede restringir cuentas que incumplan estos términos para proteger a los usuarios y el servicio. Las incidencias con pedidos o importes pendientes deben revisarse por separado: una suspensión no supone una renuncia automática a los derechos que correspondan al usuario.
           </p>
         </Section>
 
@@ -102,7 +107,7 @@ export default function LegalPage() {
             <strong style={{ color: 'var(--text)' }}>Antes de enviar el replay:</strong> puedes cancelar tu pedido y solicitar el reembolso completo mientras el estado sea «Pendiente de replay». Contacta con nosotros en soporte@replaidlab.com.
           </p>
           <p>
-            <strong style={{ color: 'var(--text)' }}>Una vez enviado el replay:</strong> el pedido pasa a estado «En revisión» y no es posible cancelarlo, ya que el Experto ha comenzado a trabajar en él.
+            <strong style={{ color: 'var(--text)' }}>Una vez enviado el replay:</strong> el pedido pasa a estado «En revisión». Si necesitas cancelar o comunicar una incidencia, escribe a soporte@replaidlab.com e indica el pedido. El estado del panel describe el trabajo realizado; no elimina por sí solo los derechos legales de desistimiento o reclamación que puedan corresponderte.
           </p>
           <p>
             <strong style={{ color: 'var(--text)' }}>Análisis de Prueba con reembolso garantizado:</strong> si el Experto ha activado esta opción, el Usuario puede solicitar el reembolso completo dentro de los 7 días naturales siguientes a la fecha de entrega de la review, sin necesidad de justificación. El reembolso se tramita en un plazo de 5-10 días hábiles.
@@ -153,7 +158,7 @@ export default function LegalPage() {
             Replaid Lab actúa como intermediario entre Usuarios y Expertos. No somos parte en el contrato de prestación del servicio de análisis y no asumimos responsabilidad por la calidad del contenido entregado más allá de los mecanismos de disputa previstos en estos Términos.
           </p>
           <p>
-            En ningún caso Replaid Lab será responsable de daños indirectos, lucro cesante o pérdida de datos derivados del uso o imposibilidad de uso del servicio.
+            Estas condiciones no excluyen las responsabilidades ni los derechos del consumidor que no puedan limitarse legalmente. Una review ofrece recomendaciones para practicar; no garantiza una subida de rango ni un resultado determinado en tus partidas.
           </p>
         </Section>
 
@@ -162,10 +167,10 @@ export default function LegalPage() {
             Replaid Lab recopila y trata los datos personales necesarios para la prestación del servicio (email, nombre de usuario, battletag) de conformidad con el Reglamento General de Protección de Datos (RGPD) y la Ley Orgánica de Protección de Datos (LOPDGDD).
           </p>
           <p>
-            Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición contactando en <a href="mailto:soporte@replaidlab.com" style={{ color: 'var(--accent)' }}>soporte@replaidlab.com</a>.
+            Puedes consultar el tratamiento de cuentas, pedidos, vídeos, proveedores y tus derechos en la <Link href="/privacy" style={{ color: 'var(--accent)' }}>política de privacidad</Link>. Para solicitudes relacionadas con tus datos, escribe a <a href="mailto:soporte@replaidlab.com" style={{ color: 'var(--accent)' }}>soporte@replaidlab.com</a>.
           </p>
           <p>
-            Los datos de pago son gestionados íntegramente por Stripe y no se almacenan en los servidores de Replaid Lab.
+            Stripe procesa los datos de tarjeta y de cobro bancario. Replaid Lab sí conserva identificadores de transacciones, importes y estados para gestionar los pedidos; no almacena el número completo de tarjeta ni su código de seguridad.
           </p>
         </Section>
 
@@ -177,7 +182,7 @@ export default function LegalPage() {
 
         <Section title="12. Ley aplicable y jurisdicción">
           <p>
-            Estos Términos se rigen por la legislación española. Para cualquier controversia derivada del uso de la plataforma, las partes se someten a los Juzgados y Tribunales de España, con renuncia expresa a cualquier otro fuero que pudiera corresponderles.
+            Estos términos se rigen por la legislación española, sin perjuicio de las normas imperativas aplicables al usuario. Las controversias se atenderán ante los órganos competentes conforme a la ley, respetando los derechos de los consumidores. No se exige renunciar al fuero que legalmente corresponda.
           </p>
           <p>
             Para consultas o reclamaciones: <a href="mailto:soporte@replaidlab.com" style={{ color: 'var(--accent)' }}>soporte@replaidlab.com</a>

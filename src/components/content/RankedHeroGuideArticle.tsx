@@ -4,6 +4,7 @@ import JsonLd from './JsonLd'
 import PublicNav from '@/components/layout/PublicNav'
 import type { RankedHeroGuide } from '@/lib/ranked-hero-guides'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
+import styles from './RankedHeroGuideArticle.module.css'
 
 export default function RankedHeroGuideArticle({ guide }: { guide: RankedHeroGuide }) {
   const path = `/guides/${guide.slug}`
@@ -46,31 +47,32 @@ export default function RankedHeroGuideArticle({ guide }: { guide: RankedHeroGui
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <JsonLd data={jsonLd} />
       <PublicNav />
-      <main className="seo-pillar-page">
+      <main className={`seo-pillar-page ${styles.article}`}>
         <nav className="seo-pillar-breadcrumb" aria-label="Migas de pan">
           <Link href="/guides">Guías</Link><span>/</span><Link href={`/heroes/${guide.heroSlug}`}>{guide.heroName}</Link><span>/</span><span>Ranked</span>
         </nav>
 
-        <header className="seo-pillar-hero">
+        <header className={`seo-pillar-hero ${styles.header}`}>
           <div>
             <div className="eyebrow">GUÍA DE {guide.roleLabel.toUpperCase()} · RANKED</div>
             <h1>{guide.title}</h1>
-            <div className="seo-pillar-intro">{guide.intro.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>
+            <div className="seo-pillar-intro"><p>{guide.quickAnswer}</p></div>
             <div className="seo-pillar-meta">
               <span>Por Replaid Lab</span>
-              <span>Última revisión: {guide.updatedAt}</span>
-              <Link href="/contact" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Comunicar una corrección</Link>
+              <span>Publicada el <time dateTime={guide.publishedAt}>{new Intl.DateTimeFormat('es-ES', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(guide.publishedAt))}</time></span>
+              <span>Última revisión: <time dateTime={guide.modifiedAt}>{guide.updatedAt}</time></span>
+              <Link href="/contact">Comunicar una corrección</Link>
             </div>
           </div>
-          <div className="seo-pillar-portrait">
-            <Image src={`/heroes/${guide.heroSlug}.png`} alt={`${guide.heroName} en Overwatch`} fill priority sizes="(max-width: 760px) 100vw, 360px" />
+          <div className={`seo-pillar-portrait ${styles.portrait}`}>
+            <Image src={`/heroes/${guide.heroSlug}.png`} alt={`${guide.heroName} en Overwatch`} fill priority sizes="(max-width: 760px) 160px, 200px" />
           </div>
         </header>
 
         <section className="seo-pillar-section">
-          <div className="eyebrow">RESPUESTA RÁPIDA</div>
-          <h2>La idea que debe ordenar tu partida</h2>
-          <div className="seo-pillar-intro"><p>{guide.quickAnswer}</p></div>
+          <div className="eyebrow">PLAN DE PARTIDA</div>
+          <h2>Cómo organizar tus peleas con {guide.heroName}</h2>
+          <div className="seo-pillar-intro">{guide.intro.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>
         </section>
 
         {guide.sections.map((section, index) => (

@@ -6,7 +6,7 @@ import ApplyForm from './ApplyForm'
 import ExpertAuthSection from './ExpertAuthSection'
 
 export default async function ApplyPage() {
-  const supabase = createClient()
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
   let profile = null

@@ -1,3 +1,6 @@
+import { reviewedTeamCompositions } from './reviewed-team-compositions'
+import { reviewedCounters } from './reviewed-counters'
+
 export type EditorialFaq = {
   question: string
   answer: string
@@ -22,7 +25,9 @@ export type CounterPillar = {
   role: string
   updatedAt: string
   schemaDate?: string
+  publishedDate?: string
   reviewedPatch: string
+  analysisStatus?: 'trial'
   seoTitle: string
   seoDescription: string
   h1: string
@@ -55,6 +60,7 @@ export type TeamCompPillar = {
   name: string
   updatedAt: string
   schemaDate?: string
+  publishedDate?: string
   reviewedPatch: string
   seoTitle: string
   seoDescription: string
@@ -69,13 +75,18 @@ export type TeamCompPillar = {
   checklist: string[]
   faqs: EditorialFaq[]
   links: EditorialLink[]
+  quickAnswer?: string
+  vodQuestions?: string[]
+  conclusion?: string
 }
 
 const SHION_COUNTER: CounterPillar = {
   slug: 'shion',
   name: 'Shion',
   role: 'DPS',
-  updatedAt: '28 de junio de 2026',
+  updatedAt: '2 de octubre de 2026',
+  schemaDate: '2026-10-02',
+  publishedDate: '2026-06-28',
   reviewedPatch: 'Season 3, ajuste de Execution',
   seoTitle: 'Counters de Shion en Overwatch: cómo frenarla en ranked',
   seoDescription: 'Aprende cómo jugar contra Shion en Overwatch: mejores counters, ventanas tras Evade, Joyride y Execution, errores habituales y respuestas por rol.',
@@ -96,42 +107,42 @@ const SHION_COUNTER: CounterPillar = {
       href: '/heroes/brigitte',
       danger: 'Protege al objetivo que Shion quiere rematar y convierte una entrada agresiva en una pelea larga que no le interesa.',
       signal: 'Shion aparece sobre un support o usa Evade para acercarse.',
-      response: 'Mantén distancia de Whip Shot, espera a que Brigitte gaste peel y evita pelear dentro de Inspire sin ayuda.',
+      response: 'Como Brigitte, mantén al support a distancia de ayuda y usa Whip Shot para cortar la aproximación. Si Shion se retira, vuelve a cubrir el lateral en vez de perseguirla lejos del compañero.',
     },
     {
       name: 'Cassidy',
       href: '/heroes/cassidy',
       danger: 'Controla el rango medio y castiga una ruta repetida cuando Shion ya ha gastado movilidad.',
-      signal: 'Cassidy conserva su recurso de control y juega cerca de la backline.',
-      response: 'No entres por el mismo ángulo. Fuerza primero su atención o su cooldown y busca un objetivo distinto.',
+      signal: 'Shion entra hacia un support después de gastar Evade y Cassidy puede verla desde una cobertura cercana.',
+      response: 'Espera a poder castigar el destino de Evade y combina Flashbang con daño del equipo. Si Joyride la saca de rango, conserva la posición de ayuda: correr detrás puede dejar otra vez solo al support.',
     },
     {
       name: 'Ana',
       href: '/heroes/ana',
       danger: 'Sleep Dart puede terminar la entrada y Biotic Grenade elimina el margen de curación en un duelo ajustado.',
-      signal: 'Ana aún no ha usado Sleep y tiene visión directa de la ruta de Shion.',
-      response: 'Amenaza desde cobertura, espera el disparo o entra cuando Ana esté ocupada respondiendo al engage principal.',
+      signal: 'Shion muestra la ruta de entrada y Ana mantiene visión sin salir a una línea abierta.',
+      response: 'Guarda Sleep para un movimiento que puedas seguir y no abandones cobertura por acertar el tiro. Si fuerzas una retirada con granada y ayuda, vuelve a curar al equipo en lugar de perseguir el remate.',
     },
     {
       name: 'D.Va',
       href: '/heroes/dva',
       danger: 'Puede contestar el lateral, cubrir supports y negar parte de la presión sin abandonar del todo la frontline.',
-      signal: 'D.Va guarda Boosters y gira en cuanto Shion muestra la entrada.',
-      response: 'Haz que decida entre seguirte o proteger el frente. Si te persigue, sal; tu equipo ya ha ganado espacio.',
+      signal: 'Shion intenta aislar a un support y D.Va conserva una ruta corta para intervenir.',
+      response: 'Usa Boosters para acercar ayuda y orienta Matrix hacia la presión que puedes negar. No persigas la moto hasta perder a tus supports: cortar la baja y recuperar la posición puede ser suficiente.',
     },
     {
       name: 'Sombra',
       href: '/heroes/sombra',
       danger: 'Un hack bien medido rompe el timing de Joyride o deja a Shion expuesta después de entrar.',
-      signal: 'Sombra no aparece en la frontal y la backline rival juega demasiado tranquila.',
-      response: 'Evita entradas largas sin información. Juega cerca de cobertura y conserva Evade hasta confirmar dónde está.',
+      signal: 'Shion se compromete con Joyride o gasta su salida cerca de una línea que tu equipo puede cubrir.',
+      response: 'Coordina Hack con daño o una retirada del compañero amenazado. Si nadie puede intervenir, revelar la ruta y conservar cobertura ayuda más que iniciar un duelo aislado. Esta respuesta corresponde al kit de DPS anterior al rework de Season 5.',
     },
     {
       name: 'Junkrat',
       href: '/heroes/junkrat',
       danger: 'Mina y trampa convierten pasillos estrechos y rutas previsibles en zonas muy caras para Shion.',
       signal: 'La ruta lateral tiene poca visibilidad o un health pack fácil de preparar.',
-      response: 'No repitas ese pasillo. Busca altura, limpia la trampa desde rango o acompaña la entrada de tu Tank.',
+      response: 'Coloca la trampa en la ruta que Shion necesita cruzar y mantén distancia para responder con daño o mina. Si descubre la preparación y cambia de lateral, avisa al equipo; no sigas disparando al pasillo vacío.',
     },
   ],
   cooldownWindows: [
@@ -189,6 +200,7 @@ const SHION_TEAM_COMP: TeamCompPillar = {
   slug: 'shion',
   name: 'Shion',
   updatedAt: '28 de junio de 2026',
+  schemaDate: '2026-06-28',
   reviewedPatch: 'Season 3, ajuste de Execution',
   seoTitle: 'Composiciones con Shion en Overwatch: dive, rush y 6v6',
   seoDescription: 'Composiciones recomendadas con Shion en Overwatch: lineups de dive, rush y 6v6, condición de victoria, rotaciones, sustituciones y errores que evitar.',
@@ -293,7 +305,9 @@ const ANA_COUNTER: CounterPillar = {
   slug: 'ana',
   name: 'Ana',
   role: 'Support',
-  updatedAt: '28 de junio de 2026',
+  updatedAt: '3 de octubre de 2026',
+  schemaDate: '2026-10-03',
+  publishedDate: '2026-06-28',
   reviewedPatch: 'Season 3, Into the Tiger\'s Den',
   seoTitle: 'Counters de Ana en Overwatch: cómo presionarla en ranked',
   seoDescription: 'Aprende a jugar contra Ana en Overwatch: mejores counters, ventanas tras Sleep Dart y Granada Biótica, adaptaciones por rol y errores que debes evitar.',
@@ -306,7 +320,7 @@ const ANA_COUNTER: CounterPillar = {
     'Corta su línea de visión antes de comprometer recursos.',
     'Fuerza Sleep Dart antes de la entrada principal.',
     'Ataca después de Granada Biótica, no mientras aún la conserva.',
-    'No despiertes a un aliado dormido sin poder protegerlo.',
+    'Cubre al aliado dormido: tu daño no puede despertarlo.',
   ],
   threats: [
     {
@@ -314,7 +328,7 @@ const ANA_COUNTER: CounterPillar = {
       href: '/heroes/winston',
       danger: 'Su salto y Barrier Projector aíslan a Ana de su equipo y hacen incómodo acertar Sleep o recibir ayuda desde la frontal.',
       signal: 'Ana juega lejos de su segundo support o ha gastado Granada Biótica en la frontline.',
-      response: 'Salta con una ruta de vuelta y coloca la barrera entre Ana y sus aliados. Si no cae rápido, fuerza recursos y sal antes de quedarte sin armadura.',
+      response: 'Salta con una ruta de vuelta y coloca la barrera entre Ana y sus aliados. Si no cae rápido, fuerza recursos y sal antes de que el daño rival te deje sin margen para volver.',
     },
     {
       name: 'D.Va',
@@ -368,7 +382,7 @@ const ANA_COUNTER: CounterPillar = {
   ],
   mistakes: [
     'Entrar solo mientras Ana conserva Sleep y granada.',
-    'Despertar inmediatamente a un aliado dormido y regalar una baja fácil.',
+    'Dejar sin cobertura a un aliado dormido mientras el rival prepara el remate.',
     'Seguir disparando a un Tank nanoestimulado sin una condición clara.',
     'Usar toda la movilidad para llegar hasta Ana y no conservar salida.',
     'Pelear en una línea larga donde Ana ve a todo su equipo sin moverse.',
@@ -383,7 +397,7 @@ const ANA_COUNTER: CounterPillar = {
     'Sé desde qué cobertura está jugando Ana.',
     'Conozco el estado de Sleep Dart antes de entrar.',
     'Tengo una salida después de forzar granada.',
-    'No despierto a un aliado sin poder salvarlo.',
+    'Puedo cubrir al aliado dormido o impedir que el rival lo remate.',
     'Corto su línea de visión cuando no puedo alcanzarla.',
     'Distingo entre forzar recursos y perseguir una baja.',
   ],
@@ -408,6 +422,7 @@ const ANA_TEAM_COMP: TeamCompPillar = {
   slug: 'ana',
   name: 'Ana',
   updatedAt: '28 de junio de 2026',
+  schemaDate: '2026-06-28',
   reviewedPatch: 'Season 3, Into the Tiger\'s Den',
   seoTitle: 'Composiciones con Ana en Overwatch: dive, brawl y 6v6',
   seoDescription: 'Descubre composiciones con Ana en Overwatch para dive, brawl y 6v6: lineups, Nano Boost, rotaciones, responsabilidades, debilidades y sustituciones.',
@@ -513,6 +528,7 @@ const GENJI_COUNTER: CounterPillar = {
   name: 'Genji',
   role: 'DPS',
   updatedAt: '28 de junio de 2026',
+  schemaDate: '2026-06-28',
   reviewedPatch: 'Season 3, Into the Tiger\'s Den',
   seoTitle: 'Counters de Genji en Overwatch: cómo frenar su dive',
   seoDescription: 'Aprende a jugar contra Genji en Overwatch: mejores counters, ventanas tras Swift Strike y Deflect, cómo responder a Dragonblade y errores que evitar.',
@@ -627,6 +643,7 @@ const GENJI_TEAM_COMP: TeamCompPillar = {
   slug: 'genji',
   name: 'Genji',
   updatedAt: '28 de junio de 2026',
+  schemaDate: '2026-06-28',
   reviewedPatch: 'Season 3, Into the Tiger\'s Den',
   seoTitle: 'Composiciones con Genji en Overwatch: dive y Dragonblade',
   seoDescription: 'Composiciones recomendadas con Genji en Overwatch: dive, brawl híbrido y 6v6, planes de engage, Nano Blade, rotaciones, debilidades y sustituciones.',
@@ -732,6 +749,7 @@ const KIRIKO_COUNTER: CounterPillar = {
   name: 'Kiriko',
   role: 'Support',
   updatedAt: '28 de junio de 2026',
+  schemaDate: '2026-06-28',
   reviewedPatch: 'Season 3, Into the Tiger\'s Den',
   seoTitle: 'Counters de Kiriko en Overwatch: fuerza Suzu y Paso ligero',
   seoDescription: 'Aprende a jugar contra Kiriko en Overwatch: mejores counters, cómo forzar Suzu y Swift Step, respuestas a Kitsune Rush y errores habituales.',
@@ -1637,8 +1655,9 @@ const ZARYA_COUNTER: CounterPillar = {
   slug: 'zarya',
   name: 'Zarya',
   role: 'Tank',
-  updatedAt: '12 de julio de 2026',
-  schemaDate: '2026-07-12',
+  updatedAt: '2 de octubre de 2026',
+  schemaDate: '2026-10-02',
+  publishedDate: '2026-07-12',
   reviewedPatch: 'Season 3, Into the Tiger\'s Den',
   seoTitle: 'Counter Zarya en Overwatch: picks, burbujas y cuándo castigar',
   seoDescription: 'Aprende cómo jugar contra Zarya en Overwatch: mejores picks, cómo no regalar energía, cuándo castigar burbujas y errores comunes en ranked.',
@@ -1654,11 +1673,11 @@ const ZARYA_COUNTER: CounterPillar = {
     'Castiga cuando camina sin burbujas o con energía baja.',
   ],
   threats: [
-    { name: 'Widowmaker', href: '/heroes/widowmaker', danger: 'Obliga a Zarya a respetar líneas largas y amenaza objetivos que sus burbujas no cubren a tiempo.', signal: 'Zarya avanza por main mientras sus supports cruzan una línea abierta.', response: 'No juegues quieto contra el ángulo largo. Fuerza rotaciones cubiertas o manda presión sobre Widow antes de caminar.' },
-    { name: 'Hanzo', href: '/heroes/hanzo', danger: 'Puede presionar desde rango, romper ritmo y castigar al equipo de Zarya sin darle siempre una pelea frontal cómoda.', signal: 'Zarya usa burbuja para cruzar pero su equipo queda agrupado detrás.', response: 'Evita chokes previsibles y no camines en línea recta después de gastar burbujas.' },
-    { name: 'Cassidy', href: '/heroes/cassidy', danger: 'Controla rango medio y castiga a Zarya cuando ya no tiene burbujas para sostener el avance.', signal: 'Zarya ha usado burbuja personal y proyectada para tomar una esquina.', response: 'No sigas avanzando por inercia. Espera recursos o fuerza a Cassidy a recolocarse.' },
-    { name: 'Zenyatta', href: '/heroes/zenyatta', danger: 'Discord Orb acelera mucho el castigo cuando Zarya se queda sin burbujas o camina demasiado abierta.', signal: 'Zarya enseña cuerpo sin cobertura mientras Discord está activo.', response: 'Rompe línea, espera limpieza o juega una esquina antes de absorber daño gratuito.' },
-    { name: 'Tracer', href: '/heroes/tracer', danger: 'Puede ignorar el duelo frontal y forzar recursos de supports, obligando a Zarya a elegir a quién proteger.', signal: 'Tracer aparece en backline mientras Zarya intenta caminar por main.', response: 'No gastes burbuja por ansiedad. Decide si proteges backline o aceleras la pelea frontal con una baja real.' },
+    { name: 'Widowmaker', href: '/heroes/widowmaker', danger: 'Obliga a Zarya a respetar líneas largas y amenaza objetivos que sus burbujas no cubren a tiempo.', signal: 'Zarya avanza por main mientras sus supports cruzan una línea abierta.', response: 'Busca al compañero que cruza sin protección y conserva una retirada si te disputan el ángulo. Si Zarya usa burbuja sobre ese objetivo, puedes cambiar de línea sin regalarle carga.' },
+    { name: 'Hanzo', href: '/heroes/hanzo', danger: 'Puede presionar desde rango, romper ritmo y castigar al equipo de Zarya sin darle siempre una pelea frontal cómoda.', signal: 'Zarya usa burbuja para cruzar pero su equipo queda agrupado detrás.', response: 'Presiona la línea que la burbuja no cubre. Guarda el burst para cuando el equipo pueda seguirlo; vaciar Storm Arrows en una protección sin posibilidad de baja puede darle energía sin impedir el avance.' },
+    { name: 'Cassidy', href: '/heroes/cassidy', danger: 'Controla rango medio y castiga a Zarya cuando ya no tiene burbujas para sostener el avance.', signal: 'Zarya ha usado burbuja personal y proyectada para tomar una esquina.', response: 'Castiga desde una cobertura con visión aliada antes de que recupere recursos. No te acerques al alcance de su haz por intentar rematar: si conserva energía y ayuda, el duelo corto sigue siendo peligroso.' },
+    { name: 'Zenyatta', href: '/heroes/zenyatta', danger: 'Discord Orb acelera mucho el castigo cuando Zarya se queda sin burbujas o camina demasiado abierta.', signal: 'Zarya enseña cuerpo sin cobertura y tus DPS pueden añadir daño.', response: 'Aplica Discord cuando el equipo tenga línea para aprovecharlo y conserva distancia. Si se cubre o usa una defensa, cambia el objetivo disponible en vez de caminar detrás de ella para mantener el foco.' },
+    { name: 'Tracer', href: '/heroes/tracer', danger: 'Puede ignorar el duelo frontal y forzar recursos de supports, obligando a Zarya a elegir a quién proteger.', signal: 'Los supports sostienen el avance desde una posición a la que puedes acceder sin gastar toda la movilidad.', response: 'Amenaza un lateral cuando tu Tank pueda actuar. Si Zarya usa burbuja para salvar a tu objetivo, sal con Recall o cobertura y comunica el recurso; insistir en ese duelo puede regalarle energía y dejarte sin retirada.' },
   ],
   cooldownWindows: [
     { title: 'Después de dos burbujas', body: 'Es la ventana más clara. Si Zarya usa burbuja personal y proyectada para cruzar, no retrocedas gratis: corta línea de curación, aplica Discord o concentra daño antes de que vuelvan.' },
@@ -1710,8 +1729,9 @@ const TRACER_COUNTER: CounterPillar = {
   slug: 'tracer',
   name: 'Tracer',
   role: 'DPS',
-  updatedAt: '12 de julio de 2026',
-  schemaDate: '2026-07-12',
+  updatedAt: '2 de octubre de 2026',
+  schemaDate: '2026-10-02',
+  publishedDate: '2026-07-12',
   reviewedPatch: 'Season 3, Into the Tiger\'s Den',
   seoTitle: 'Counter Tracer en Overwatch: forzar Recall, peel y mejores picks',
   seoDescription: 'Aprende cómo jugar contra Tracer en Overwatch: mejores picks, cómo forzar Recall, proteger backline y evitar errores contra flankers.',
@@ -1727,11 +1747,11 @@ const TRACER_COUNTER: CounterPillar = {
     'Prepara sus rutas habituales antes de que aparezca.',
   ],
   threats: [
-    { name: 'Brigitte', href: '/heroes/brigitte', danger: 'Reduce mucho el valor del duel contra supports y castiga a Tracer cuando se acerca sin Recall.', signal: 'Tracer busca al mismo support cada pelea.', response: 'No entres en Inspire sin ventaja. Fuerza packs o boop antes de comprometerte.' },
-    { name: 'Torbjörn', href: '/heroes/torbjorn', danger: 'La torreta marca rutas y obliga a Tracer a gastar tiempo limpiando o entrando por zonas peores.', signal: 'Tracer repite flanco por health pack o lateral corto.', response: 'Rompe torreta antes del engage o cambia la ruta; pelear con torreta viva reduce mucho tu margen.' },
-    { name: 'Cassidy', href: '/heroes/cassidy', danger: 'Controla rango medio y castiga entradas rectas si Tracer ya gastó blinks.', signal: 'Tracer usa dos blinks para llegar al objetivo.', response: 'No gastes toda la movilidad para entrar. Conserva salida y no pelees en línea recta.' },
-    { name: 'Mei', href: '/heroes/mei', danger: 'Puede cortar rutas, ralentizar el duelo y convertir un blink agresivo en una salida incómoda.', signal: 'Tracer entra por una puerta o pasillo estrecho.', response: 'Evita espacios cerrados y no pelees cuando Ice Wall puede separar tu retirada.' },
-    { name: 'Moira', href: '/heroes/moira', danger: 'Sobrevive bien al duelo, aplica daño fácil y puede negar una entrada con Fade si no la fuerzas antes.', signal: 'Moira conserva Fade mientras Tracer intenta commit.', response: 'Fuerza Fade primero o cambia de objetivo; perseguirla con todo disponible suele ser pérdida de tiempo.' },
+    { name: 'Brigitte', href: '/heroes/brigitte', danger: 'Puede sostener al support amenazado y dificultar que Tracer mantenga el duelo a corta distancia.', signal: 'Tracer busca al mismo support cada pelea.', response: 'Mantén al compañero a distancia de ayuda, usa packs si los necesita y busca Whip Shot para cortar la aproximación. No persigas a Tracer al health pack si vas a dejar solo al objetivo que protegías.' },
+    { name: 'Torbjörn', href: '/heroes/torbjorn', danger: 'La torreta vigila rutas y obliga a Tracer a gastar tiempo limpiando o entrando por zonas peores.', signal: 'Tracer repite flanco por health pack o lateral corto.', response: 'Coloca la torreta donde pueda cubrir ese acceso sin regalarse al poke frontal. Usa la información para ayudar al support; no esperes que la torreta gane sola el duelo mientras tú miras a otro sitio.' },
+    { name: 'Cassidy', href: '/heroes/cassidy', danger: 'Controla rango medio y castiga entradas rectas si Tracer ya gastó blinks.', signal: 'Tracer usa dos blinks para llegar al objetivo.', response: 'Prepara el ángulo cerca del support y espera una aproximación dentro de rango para usar Flashbang. Si fuerza Recall, comunica que lo ha gastado y vuelve al frente cuando ya no haya una amenaza inmediata.' },
+    { name: 'Mei', href: '/heroes/mei', danger: 'Puede cortar rutas y convertir un blink agresivo en una salida incómoda.', signal: 'Tracer entra por una puerta o pasillo estrecho.', response: 'Presiona desde cobertura y usa el muro si puedes cortar su acceso sin aislar a tus compañeros. No bloquees la visión de tu support por intentar atrapar a Tracer en una persecución que ya está saliendo del objetivo.' },
+    { name: 'Moira', href: '/heroes/moira', danger: 'Puede responder al duelo sin dejar de disponer de una salida con Fade.', signal: 'Tracer te presiona desde un lateral mientras aún puedes volver hacia tu equipo.', response: 'Responde con daño cuando sea seguro y usa Fade para recuperar una cobertura útil si necesitas salir. No sigas a Tracer después de Recall dejando a tu Tank sin ayuda; obligarla a abandonar el duelo ya puede bastar.' },
   ],
   cooldownWindows: [
     { title: 'Recall usado', body: 'Es la señal más importante. Si Tracer ya usó Recall, cualquier daño posterior pesa mucho más. No abandones el foco: comunica y niega su siguiente entrada.' },
@@ -1783,8 +1803,9 @@ const DOMINA_COUNTER: CounterPillar = {
   slug: 'domina',
   name: 'Domina',
   role: 'Tank',
-  updatedAt: '12 de julio de 2026',
-  schemaDate: '2026-07-12',
+  updatedAt: '2 de octubre de 2026',
+  schemaDate: '2026-10-02',
+  publishedDate: '2026-07-12',
   reviewedPatch: 'Season 3, Into the Tiger\'s Den',
   seoTitle: 'Counter Domina en Overwatch: picks, ángulos y presión frontal',
   seoDescription: 'Aprende cómo jugar contra Domina en Overwatch: mejores picks, cómo abrir ángulos, castigar su presión frontal y evitar errores comunes.',
@@ -1800,11 +1821,11 @@ const DOMINA_COUNTER: CounterPillar = {
     'Castiga cuando avanza más rápido que sus supports.',
   ],
   threats: [
-    { name: 'Winston', href: '/heroes/winston', danger: 'Puede saltar por encima de la presión frontal y obligar a la backline de Domina a jugar la pelea en otro sitio.', signal: 'Domina camina por main mientras sus supports juegan atrás.', response: 'No abandones a tu backline. Si Winston salta, decide rápido si lo castigas o si aceleras la pelea frontal.' },
-    { name: 'Ramattra', href: '/heroes/ramattra', danger: 'Puede alternar poke y forma Nemesis para pelear ventanas sin aceptar siempre el mismo rango.', signal: 'Domina intenta fijar una esquina corta sin recursos enemigos gastados.', response: 'Respeta el cambio de forma y evita quedarte sin cobertura durante Nemesis.' },
-    { name: 'Bastion', href: '/heroes/bastion', danger: 'Castiga avances predecibles cuando Domina no tiene cobertura o ya gastó recursos defensivos.', signal: 'Domina cruza una zona abierta o empuja sin haber visto la configuración.', response: 'Espera la transformación o rota antes de caminar. No conviertas su cooldown en tu pelea perdida.' },
-    { name: 'Sojourn', href: '/heroes/sojourn', danger: 'Presiona desde rango medio, cambia ángulo y castiga objetivos que quedan expuestos detrás de Domina.', signal: 'Sojourn carga rail mientras Domina ocupa main.', response: 'No dejes a tu equipo en línea recta. Obliga a Sojourn a moverse antes de comprometerte.' },
-    { name: 'Lúcio', href: '/heroes/lucio', danger: 'Permite acelerar o kitear, lo que evita que Domina controle el ritmo de la pelea a su distancia favorita.', signal: 'El equipo rival guarda velocidad para cruzar o salir de tu engage.', response: 'Fuerza Amp It Up antes de comprometer todo o corta la ruta a la que quieren escapar.' },
+    { name: 'Winston', href: '/heroes/winston', danger: 'Puede saltar por encima de la presión frontal y obligar a la backline de Domina a jugar la pelea en otro sitio.', signal: 'Domina camina por main mientras sus supports juegan atrás.', response: 'Salta sobre un destino con seguimiento y salida, no solo porque puedas alcanzar al support. Si fuerzas atención o un recurso, comprueba si toca volver; perseguir sin curación puede dejar a Domina avanzar libremente.' },
+    { name: 'Ramattra', href: '/heroes/ramattra', danger: 'Puede alternar poke y forma Nemesis para pelear ventanas sin aceptar siempre el mismo rango.', signal: 'Domina se acerca a una esquina y tu equipo puede seguir el intercambio desde cobertura.', response: 'Prepara el rango con poke y usa Nemesis cuando puedas presionar junto al equipo. Conserva una esquina para el final de la forma; no hagas un cruce largo que te deje vendido cuando termine.' },
+    { name: 'Bastion', href: '/heroes/bastion', danger: 'Castiga avances predecibles cuando Domina no tiene cobertura o ya gastó recursos defensivos.', signal: 'Domina cruza una zona abierta o empuja sin haber visto la configuración.', response: 'Activa Assault cuando exista una línea útil sobre el cruce y tus compañeros puedan seguir el daño. Si Domina vuelve a cobertura, gana la posición cedida en vez de salir solo para terminar la baja.' },
+    { name: 'Sojourn', href: '/heroes/sojourn', danger: 'Presiona desde rango medio, cambia ángulo y castiga objetivos que quedan expuestos detrás de Domina.', signal: 'Domina ocupa main y puedes abrir una línea sobre el compañero que la sostiene.', response: 'Busca un lateral corto con retirada y cambia el foco si el Tank cubre el frente. No gastes Slide únicamente para acercarte: puede ser la salida que necesites cuando su equipo conteste el ángulo.' },
+    { name: 'Lúcio', href: '/heroes/lucio', danger: 'Permite acelerar o kitear, lo que evita que Domina controle el ritmo de la pelea a su distancia favorita.', signal: 'El equipo necesita cruzar un tramo expuesto o separarse de un avance que no puede sostener.', response: 'Comunica la ruta y usa Amp It Up para que lleguen los compañeros que necesitan ayuda. Acelerar solo tu propio cruce no resuelve el del resto; termina en una cobertura que todos puedan jugar.' },
   ],
   cooldownWindows: [
     { title: 'Avance sin backline', body: 'Si Domina se adelanta más que sus supports, no hace falta matarla al instante. Corta curación, presiona laterales y fuerza una retirada mala.' },
@@ -1855,69 +1876,70 @@ const DOMINA_COUNTER: CounterPillar = {
 const TRACER_TEAM_COMP: TeamCompPillar = {
   slug: 'tracer',
   name: 'Tracer',
-  updatedAt: '5 de septiembre de 2026',
-  schemaDate: '2026-09-05',
+  updatedAt: '5 de octubre de 2026',
+  schemaDate: '2026-10-05',
   reviewedPatch: 'Season 4, Heroes of Busan',
-  seoTitle: 'Composiciones con Tracer en Overwatch: dive, control y 6v6',
-  seoDescription: 'Composiciones con Tracer para ranked: lineups de dive y control, timing de engage, trabajo por rol, sustituciones y errores frecuentes.',
+  seoTitle: 'Composiciones con Tracer en Overwatch: dive y presión lateral',
+  seoDescription: 'Elige un equipo con Tracer para 5v5 o 6v6: cuándo entrar con Winston, cómo jugar junto a brawl y qué cambiar si la backline rival frena cada flanco.',
   h1: 'Composiciones con Tracer: dive, control y presión lateral',
   intro: [
-    'Tracer funciona cuando puede presionar un lateral al mismo tiempo que su equipo obliga al rival a mirar al frente. No necesita que todos salten sobre el mismo objetivo, pero sí que las amenazas coincidan. Si entra cinco segundos antes, gasta Recall y deja de existir justo cuando empieza la pelea real.',
-    'Los lineups de esta guía no son recetas cerradas. Son formas de repartir trabajos: alguien inicia, Tracer corta la retirada o fuerza a la backline y los supports sostienen el tempo sin perseguirla por todo el mapa.',
+    'Tracer no necesita que cuatro compañeros la sigan por el flanco. Necesita que el rival no pueda dedicarse solo a ella. Un salto de Winston, la entrada de Junker Queen al punto o el disparo de Sojourn desde otra posición pueden darle esa oportunidad. Si el resto todavía está cruzando el mapa, iniciar un duelo largo solo te obliga a gastar Recall antes de tener ayuda.',
+    'Los tres equipos de abajo son ejemplos para repartir ese trabajo, no una lista de picks que gane por sí sola. Dos pertenecen a cola por roles 5v5; el tercero lleva dos Tanks y solo encaja en 6v6. En cualquiera de ellos, decide desde dónde vas a atacar y dónde acabarás si el rival te obliga a salir.',
   ],
+  quickAnswer: 'En 5v5, Tracer encaja con un Tank que presione al mismo tiempo que su flanco: Winston para dive o Junker Queen para una pelea corta alrededor del punto. El segundo DPS debe aprovechar esa atención y los Supports conservar una posición segura. En 6v6 puedes añadir un segundo Tank, pero sigue haciendo falta coordinar la entrada; más protección no convierte cualquier persecución en buena.',
   summary: [
-    'La presión frontal y el flanco deben llegar a la vez.',
+    'Entra cuando tu equipo ya está presionando, no mientras sigue rotando.',
     'Tracer necesita una ruta con health pack o una salida prevista.',
     'Forzar un cooldown puede ser suficiente para preparar el segundo engage.',
     'El equipo no debe abandonar el objetivo para seguir cada duelo de Tracer.',
   ],
   compositions: [
     {
-      name: 'Dive de dos tiempos',
+      name: 'Winston inicia; Tracer y Genji siguen',
       format: '5v5',
       style: 'Dive',
       lineup: ['Winston', 'Tracer', 'Genji', 'Ana', 'Kiriko'],
-      winCondition: 'Tracer localiza y desgasta el objetivo; Winston entra cuando aparece un cooldown defensivo y Genji convierte la vida baja en un reset.',
-      engagePlan: 'Tracer toma el lateral sin usar todos los blinks. Ana prepara daño, Winston marca el salto y el segundo DPS entra después de la primera reacción. Kiriko guarda Suzu para estabilizar la salida, no para rescatar un flanco imposible.',
-      goodMaps: 'Mapas con altura, rutas laterales y health packs cercanos, como Gibraltar o Numbani. El equipo necesita llegar a la backline sin cruzar una calle abierta durante demasiado tiempo.',
-      weakAgainst: 'Anti-dive compacto, varias respuestas de corto alcance y rivales que pueden ceder espacio sin perder el objetivo.',
-      substitutions: 'D.Va por Winston si hace falta más peel; Sombra por Genji para ganar información; Juno por Kiriko cuando la velocidad de rotación sea más valiosa que la limpieza.',
+      winCondition: 'Winston obliga a la backline a responder y Tracer dispara desde otra dirección. Genji busca el remate cuando tiene alcance y salida; su reset depende de conseguir la eliminación, no de que el objetivo esté tocado.',
+      engagePlan: 'Tracer prepara el lateral con munición y una salida sin gastar todos los Blinks. Winston entra cuando Ana puede ayudar y el resto tiene acceso al objetivo. Tracer ataca durante esa presión; no necesita esperar una cuenta fija. Kiriko ayuda desde una línea segura y solo usa Swift Step si el destino permite salir.',
+      goodMaps: 'Gibraltar y Numbani ofrecen altura para Winston y rutas a pie para Tracer. Comprueba que puedes llegar al objetivo: Blink no te sube automáticamente al high ground y una ruta larga puede hacerte perder el salto de tu Tank.',
+      weakAgainst: 'Una backline que juega junta con Brigitte o Cassidy puede sobrevivir al primer intento y castigar la salida. Si cada entrada consume Recall sin desplazar a nadie, cambia el acceso o presiona un objetivo menos protegido.',
+      substitutions: 'D.Va por Winston si el problema son los disparos sobre el engage o el peel, sin esperar que Matrix pare todo el daño. Echo por Genji aporta presión vertical, pero también necesita ayuda. Juno por Kiriko mejora las rotaciones a costa de perder Suzu.',
     },
     {
       name: 'Control con flanco corto',
       format: '5v5',
       style: 'Brawl móvil',
       lineup: ['Junker Queen', 'Tracer', 'Cassidy', 'Lúcio', 'Kiriko'],
-      winCondition: 'El núcleo ocupa el punto y obliga al rival a acercarse mientras Tracer controla una salida, molesta al support más aislado y corta retiradas.',
-      engagePlan: 'Lúcio guarda velocidad hasta la esquina importante. Junker Queen y Cassidy muestran la amenaza frontal; Tracer no busca un viaje largo, sino un lateral corto desde el que pueda volver en cuanto el rival gire.',
-      goodMaps: 'Puntos de Control y Flashpoint con coberturas cercanas, puertas laterales y rotaciones cortas.',
-      weakAgainst: 'Poke en espacios muy abiertos o composiciones que mantienen dos ángulos largos y no necesitan entrar en el punto todavía.',
-      substitutions: 'Mei por Cassidy para cortar una retirada; Reinhardt por Junker Queen en zonas más cerradas; Moira por Kiriko si el equipo necesita sostén inmediato y menos flanco.',
+      winCondition: 'Junker Queen y Cassidy amenazan la entrada al punto mientras Tracer vigila una puerta lateral. Si el rival se gira para expulsarla, el núcleo aprovecha para acercarse; si ignora el flanco, ella puede disparar a un Support que pierda cobertura.',
+      engagePlan: 'Lúcio ayuda al núcleo a alcanzar la esquina desde la que puede pelear. Tracer se mantiene cerca de ese avance: una vuelta por medio mapa deja a Queen sin segundo ángulo. Cuando el rival responde al flanco, retrocede sin arrastrar a tus Supports detrás de ti.',
+      goodMaps: 'En Oasis University, un lateral cercano al punto puede acompañar la pelea del núcleo. En Control o Flashpoint, compara siempre el tiempo que cuesta tu ruta con la posición del equipo; una puerta lateral no es útil si llegas después de perder al Tank.',
+      weakAgainst: 'Dos ángulos largos pueden desgastar a Queen antes de que alcance a nadie. Tracer no debe intentar resolverlos sola: el equipo necesita una ruta cubierta y Cassidy una posición desde la que ayudar, no quedarse expuesto en la calle.',
+      substitutions: 'Mei por Cassidy ayuda a separar una retirada, pero reduce la respuesta a distancia. Reinhardt por Queen encaja en un recorrido cerrado; no arregla la falta de acceso a alturas. Moira por Kiriko sostiene un núcleo compacto, pero no aporta Suzu ni una ayuda fiable a cualquier flanco lejano.',
     },
     {
       name: 'Dive con segundo Tank',
       format: '6v6',
       style: 'Dive',
       lineup: ['Winston', 'D.Va', 'Tracer', 'Sojourn', 'Ana', 'Juno'],
-      winCondition: 'Winston y Tracer fuerzan la primera reacción, D.Va niega el burst de respuesta y Sojourn castiga al objetivo que pierde cobertura.',
-      engagePlan: 'La primera oleada busca recursos, no una baja obligatoria. Si salen movilidad o defensivos, el equipo resetea unos segundos y entra de nuevo antes de que vuelvan. D.Va decide si acompaña o protege a Ana según el dive rival.',
-      goodMaps: 'Escenarios verticales donde los Tanks puedan ocupar alturas distintas y Tracer disponga de rutas para enlazar health packs.',
-      weakAgainst: 'Equipos que sobreviven a la primera entrada y responden con control acumulado en espacios cerrados.',
-      substitutions: 'Kiriko por Juno frente a efectos que exijan limpieza; Genji por Sojourn para acelerar el dive; Wrecking Ball por Winston si las rutas favorecen engages independientes.',
+      winCondition: 'En 6v6, Winston amenaza una posición y D.Va puede acompañarlo o proteger a Ana. Tracer abre otro ángulo y Sojourn aprovecha un cruce visible. Matrix ayuda contra proyectiles; no convierte el salto de los dos Tanks en una entrada invulnerable.',
+      engagePlan: 'Antes de saltar, D.Va decide si hace falta quedarse con Ana frente al dive rival. Si el primer intento fuerza defensivas, vuelve a comprobar salud, munición y cooldowns propios antes de repetir. Una respuesta gastada no sirve de ventaja si tu equipo tampoco puede volver a entrar.',
+      goodMaps: 'En las zonas verticales de Gibraltar, los Tanks pueden disputar la altura mientras Tracer trabaja una ruta alcanzable desde el suelo. Es un ejemplo para 6v6: no lleves Winston y D.Va al mismo equipo en cola por roles 5v5.',
+      weakAgainst: 'Un equipo compacto puede negar el segundo intento si Ana ha perdido la línea de curación o D.Va ya no puede cubrir disparos. Recupera una posición segura antes de insistir; no cambies dos muertes propias por un cooldown enemigo.',
+      substitutions: 'Kiriko por Juno añade Suzu si puedes prescindir de su ayuda para rotar. Genji por Sojourn concentra el daño cerca del salto y reduce la presión a distancia. Wrecking Ball por Winston exige acordar otro momento de entrada, no seguir automáticamente cualquier boop.',
     },
   ],
   responsibilities: [
-    { title: 'Tank', body: 'Crea una amenaza visible y comunica el momento de entrada. No tiene que perseguir a Tracer; debe impedir que cinco rivales puedan girarse hacia ella sin perder espacio.' },
+    { title: 'Tank', body: 'Ataca una posición que el equipo pueda sostener y señala cuándo entras. Si varios rivales se giran hacia Tracer, comprueba qué puedes ganar: una esquina, el punto o una línea de curación cortada. Su distracción no sirve si tú sigues esperando detrás de la misma puerta.' },
     { title: 'Segundo DPS', body: 'Castiga la atención que mueve Tracer. Si ambos DPS desaparecen por el mismo flanco, el equipo pierde presión frontal y el rival solo tiene que mirar una puerta.' },
     { title: 'Supports', body: 'Sostienen al núcleo y reconocen la ruta de regreso. Curar a Tracer ayuda cuando vuelve a una posición razonable; abandonar cobertura para seguirla elimina la ventaja del flanco.' },
-    { title: 'Tracer', body: 'Llega con recursos, comunica el objetivo y sabe cuándo basta con forzar Recall contrario, Suzu o una rotación. Sobrevivir mantiene el lateral activo para la siguiente ventana.' },
+    { title: 'Tracer', body: 'Llega con munición y mira la posición de tu equipo antes de empezar el duelo. Recall te devuelve a una posición anterior: prepara ese recorrido, no lo trates como un teleport al pack más cercano. Si has gastado tus Blinks, espera a recuperar la movilidad necesaria antes de buscar otra entrada.' },
   ],
   rotationPlan: [
     'Tracer identifica el health pack y la salida antes de enseñar el flanco.',
     'El equipo principal llega a cobertura sin gastar la herramienta de engage.',
     'Tank y segundo DPS muestran presión para que la backline deje de mirar el lateral.',
     'Tracer entra cuando esa presión obliga a tomar una decisión, no antes.',
-    'Si no hay baja, se conservan vidas y se repite antes de que vuelvan los recursos forzados.',
+    'Después de salir, comprobad si aún podéis pelear. Repetid solo con salud, alcance y recursos propios; si faltan compañeros, regroup.',
   ],
   weaknesses: [
     'Tracer empieza el duelo mientras su Tank todavía está rotando.',
@@ -1927,22 +1949,31 @@ const TRACER_TEAM_COMP: TeamCompPillar = {
     'Todos entran por el lateral y desaparece la amenaza frontal.',
   ],
   examples: [
-    { title: 'Recall que gana la segunda entrada', body: 'Tracer fuerza Recall a la rival y sale. Winston espera dos segundos, salta sobre el mismo sector y ahora su Tracer puede volver con todos los blinks contra un objetivo sin reset defensivo.' },
-    { title: 'Presión de punto', body: 'En Control, Junker Queen ocupa la esquina del objetivo. Tracer no cruza medio mapa: vigila la puerta lateral y castiga a Ana cuando intenta recolocarse. La baja nace del movimiento rival, no de una persecución.' },
-    { title: 'Retirada a tiempo', body: 'Brigitte y Cassidy giran hacia Tracer. Ella usa Recall y vuelve al health pack; mientras tanto, Winston y Sojourn ganan el high ground que ambos abandonaron. No hubo baja, pero sí espacio real.' },
+    { title: 'Numbani: no perder el salto por buscar otro duelo', body: 'Imagina que Winston puede llegar a una Ana que acaba de cruzar a otra cobertura. Tracer ya está cerca, pero ve a la Tracer rival a poca vida. Si la persigue por una sala, deja a Winston sin follow-up. Puede renunciar a ese duelo y atacar el objetivo del salto desde el lateral. Si el dive se cancela, no tiene que entrar igualmente: conserva Recall y vuelve a preparar la ruta.' },
+    { title: 'Oasis University: un flanco que acompaña al punto', body: 'Tu Queen se acerca a la entrada del objetivo con Lúcio. Tracer toma una puerta cercana y dispara al Support que intenta seguir a su Tank. Cassidy rival se gira para frenarla. En lugar de continuar el duelo hasta gastar todo, Tracer sale hacia cobertura mientras Queen y Cassidy intentan ganar el acceso al punto. En el replay, mira si llegaron a avanzar: obligar a girarse a alguien no garantiza por sí solo una ventaja.' },
+    { title: 'Gibraltar: salir no significa regalar la siguiente entrada', body: 'Brigitte se acerca a expulsarte de la zona baja del hangar y usas Recall. Vuelves al lugar desde el que habías empezado, no a cualquier pack del mapa. Antes de repetir, mira munición, cargas de Blink y si Winston todavía mantiene la presión arriba. Si ya se ha retirado, busca el pack y espera al equipo. Volver sola contra Brigitte y Cassidy no aprovecha nada, aunque hayan gastado un cooldown.' },
   ],
   checklist: [
     'Hay presión frontal cuando Tracer entra.',
     'Tracer conoce su health pack y su retirada.',
     'El equipo sabe qué cooldown quiere forzar.',
     'Los supports no abandonan cobertura para seguir el flanco.',
-    'Existe una segunda entrada si la primera no mata.',
+    'Si queremos repetir, tenemos salud, movilidad y compañeros para hacerlo.',
+  ],
+  vodQuestions: [
+    'Cuando hice el primer disparo, ¿mi Tank ya estaba presionando o aún cruzaba?',
+    '¿Perdí una entrada conjunta por perseguir un duelo lateral?',
+    '¿A qué posición me devolvió Recall y seguía siendo segura?',
+    'Cuando el rival se giró hacia mí, ¿qué ganó realmente mi equipo?',
+    '¿Intenté volver al flanco sin Blinks o después de la retirada de mi Tank?',
   ],
   faqs: [
     { question: '¿Cuál es la mejor composición con Tracer?', answer: 'Dive suele darle objetivos y timing, pero también funciona en control junto a un núcleo de brawl móvil. El mapa y la capacidad de sincronizar presión importan más que un lineup exacto.' },
     { question: '¿Tracer necesita a Winston?', answer: 'No. Winston crea una señal de entrada muy clara, pero D.Va, Wrecking Ball o un equipo de control pueden darle el espacio que necesita de otras maneras.' },
-    { question: '¿Quién debe curar a Tracer?', answer: 'Tracer debe gestionar health packs y volver a líneas seguras. Los supports pueden ayudar cuando la ruta es razonable, pero no deben romper su posición para perseguirla.' },
-    { question: '¿Qué hago si el rival juega anti-dive?', answer: 'Acorta los engages, fuerza cooldowns sin comprometer Recall y permite que el equipo principal gane espacio cuando varias personas giren hacia el flanco.' },
+    { question: '¿Quién debe curar a Tracer?', answer: 'Un Support puede ayudarte cuando tiene una línea segura, pero no tiene que abandonar al núcleo para seguirte por el mapa. Usa packs y vuelve a una posición en la que pueda verte. Si tu ruta depende de que Kiriko se teleporte a un duelo sin salida, revisa la ruta antes de culpar a la curación.' },
+    { question: '¿Qué hago si el rival juega anti-dive?', answer: 'No necesitas demostrar que puedes matar a Brigitte junto a Cassidy. Acorta el flanco, dispara durante la presión de tu Tank y sal cuando ambos se giren. Comprueba si tu equipo puede aprovechar ese giro; si no, cambia el objetivo o la ruta en vez de repetir el mismo duelo.' },
+    { question: '¿Hay que combinar Pulse Bomb con otra ultimate?', answer: 'No necesariamente. Comprueba que puedes acercarte sin gastar toda la salida y que el objetivo no tiene una defensa lista para sobrevivir al daño. Si tu equipo puede terminar la baja con disparos, no hace falta añadir otra ultimate. Tampoco abandones una pelea ganada para buscar una bomba más vistosa.' },
+    { question: '¿Puedo usar el equipo de Winston y D.Va en 5v5?', answer: 'No en cola por roles 5v5: solo hay una plaza de Tank. Esa propuesta es para 6v6. En 5v5 elige cuál de los dos resuelve mejor el problema del equipo y adapta tu entrada; no asumas que tendrás el salto de Winston y el peel de D.Va a la vez.' },
   ],
   links: [
     { href: '/heroes/tracer', label: 'Guía completa de Tracer' },
@@ -1950,22 +1981,28 @@ const TRACER_TEAM_COMP: TeamCompPillar = {
     { href: '/team-comps/winston', label: 'Dive con Winston' },
     { href: '/guides/como-elegir-composicion-dive-poke-brawl', label: 'Elegir entre dive, poke y brawl' },
     { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Revisar cooldowns en una VOD' },
+    { href: '/maps/numbani', label: 'Rutas y alturas de Numbani' },
+    { href: '/maps/oasis', label: 'Cómo jugar los puntos de Oasis' },
+    { href: '/maps/watchpoint-gibraltar', label: 'Ataque y defensa en Gibraltar' },
+    { href: '/guides/como-mejorar-en-overwatch-revisando-vod', label: 'Revisar el timing de tu equipo' },
   ],
+  conclusion: 'En la próxima partida, fíjate en el primer disparo de cada flanco. Si coincide con la presión de tu equipo y puedes salir, tienes una entrada que merece la pena repetir. Si llegas sola o el resto no puede aprovechar el giro rival, corrige ese timing antes de buscar una combinación distinta de héroes.',
 }
 
 const ZARYA_TEAM_COMP: TeamCompPillar = {
   slug: 'zarya',
   name: 'Zarya',
-  updatedAt: '5 de septiembre de 2026',
-  schemaDate: '2026-09-05',
+  updatedAt: '5 de octubre de 2026',
+  schemaDate: '2026-10-05',
   reviewedPatch: 'Season 4, Heroes of Busan',
   seoTitle: 'Composiciones con Zarya en Overwatch: brawl, energía y Graviton',
-  seoDescription: 'Composiciones con Zarya para 5v5 y 6v6: cómo gestionar burbujas, caminar por coberturas, preparar Graviton y adaptar el lineup al mapa.',
-  h1: 'Composiciones con Zarya: brawl, energía y control del tempo',
+  seoDescription: 'Equipos con Zarya para 5v5 y 6v6: quién acompaña sus avances, cuándo usar burbujas, cómo jugar contra alturas y qué preparar antes de Graviton.',
+  h1: 'Composiciones con Zarya: brawl, energía y Graviton',
   intro: [
-    'Zarya necesita peleas que pueda dividir en pequeños avances. Las burbujas compran el tiempo para cruzar una esquina, salvar al compañero que inicia o castigar al rival cuando ya no puede retroceder. Si el equipo las consume durante poke sin ganar metros, Zarya llega a la pelea sin energía ni protección.',
-    'Una buena composición no intenta cargarla a cualquier precio. Le da coberturas, velocidad o amenazas laterales para que cada burbuja tenga una consecuencia: espacio, un cooldown forzado o una baja.',
+    'El problema de Zarya no siempre es tener poca energía. Puedes estar cargada y no alcanzar a nadie, o entrar con daño suficiente y quedarte sin ayuda al acabar la burbuja. El equipo tiene que facilitarle una pelea a distancia útil y seguir curándola cuando el rival vuelva a poder dañarla.',
+    'Aquí encontrarás un brawl de 5v5, una opción con presión lateral y una pareja de Tanks para 6v6. Son propuestas para tomar decisiones, no una garantía de meta. Si la ruta te obliga a cruzar una calle larga bajo dos alturas, cambia el acceso o el lineup: otra burbuja no sustituye una cobertura a la que puedas llegar.',
   ],
+  quickAnswer: 'En 5v5, acompaña a Zarya con movilidad para cruzar y DPS que puedan pelear desde la siguiente esquina: Lúcio, Mei y Cassidy son un ejemplo sencillo. Tracer y Sojourn ofrecen otro ángulo si Zarya mantiene ayuda al avanzar. Reinhardt y Zarya juntos pertenecen a 6v6. En todos los casos, guarda un plan para cuando termine la burbuja y prepara el daño antes de lanzar Grav.',
   summary: [
     'Cada burbuja debe comprar espacio o proteger una acción concreta.',
     'Zarya necesita rutas con coberturas, no calles abiertas interminables.',
@@ -1978,72 +2015,81 @@ const ZARYA_TEAM_COMP: TeamCompPillar = {
       format: '5v5',
       style: 'Brawl',
       lineup: ['Zarya', 'Mei', 'Cassidy', 'Lúcio', 'Kiriko'],
-      winCondition: 'Lúcio permite cruzar entre coberturas, Mei corta una retirada y Zarya usa burbujas para sostener al jugador que se compromete primero.',
-      engagePlan: 'El equipo llega a la esquina sin gastar velocidad. Mei amenaza el muro, Zarya avanza con una burbuja reservada y Cassidy controla el rango medio. La segunda burbuja protege el commit, no el poke previo.',
-      goodMaps: 'Control, Flashpoint y tramos urbanos con esquinas cercanas, como varias zonas de King\'s Row o Midtown.',
-      weakAgainst: 'Poke desde varios high grounds, rotaciones largas y equipos que pueden retroceder sin ceder el objetivo.',
-      substitutions: 'Reaper por Cassidy en espacios muy cortos; Juno por Lúcio si el mapa exige más alcance; Symmetra por Mei para cruzar una zona concreta con teleport.',
+      winCondition: 'Lúcio ayuda a alcanzar la siguiente esquina, Mei separa a un enemigo y Cassidy puede seguir el daño. Zarya protege el tramo del avance que queda expuesto. El objetivo es llegar a una pelea alcanzable, no cargar energía parada en la puerta.',
+      engagePlan: 'Elegid la cobertura de llegada antes de salir. Lúcio acelera el cruce necesario y Zarya usa barrera cuando recibe presión, no por costumbre al empezar a andar. Al terminar, el equipo sigue junto a la esquina; si no puede curarla ni añadir daño, no avancéis otra vez solo porque le quede una burbuja.',
+      goodMaps: 'En King\'s Row y en los interiores de Midtown hay tramos donde puedes enlazar coberturas y pelear de cerca. No extrapoles ese plan a toda la calle: si Cassidy o Kiriko no pueden completar el cruce, Zarya llega sola aunque tenga protección.',
+      weakAgainst: 'Dos posiciones altas pueden disparar al núcleo durante todo el avance. Si Mei no puede cortar una línea y Cassidy no consigue presionar la otra, cambia de ruta o incorpora acceso vertical; seguir burbujeando el mismo cruce no resuelve el mapa.',
+      substitutions: 'Reaper por Cassidy concentra daño de cerca y pierde respuesta a distancia. Juno por Lúcio ayuda a rotar con otro alcance, pero cambia el uso de velocidad. Symmetra por Mei puede preparar un teleport para un cruce concreto: comprobad también la seguridad de la salida.',
     },
     {
       name: 'Presión de dos ángulos',
       format: '5v5',
       style: 'Híbrida',
       lineup: ['Zarya', 'Tracer', 'Sojourn', 'Ana', 'Juno'],
-      winCondition: 'Zarya y Sojourn fijan la atención frontal mientras Tracer obliga a gastar recursos en la backline. La burbuja proyectada protege el momento en que Tracer o Juno quedan expuestas, no un flanco sin timing.',
-      engagePlan: 'Ana busca daño previo, Tracer enseña el lateral y Zarya camina cuando el rival gira. Si Tracer fuerza una respuesta, Sojourn aprovecha la línea que queda abierta. El equipo evita perseguir y conserva la siguiente esquina.',
-      goodMaps: 'Mapas mixtos donde exista una ruta frontal cubierta y un lateral corto. No necesita un dive profundo, sino presión simultánea.',
-      weakAgainst: 'Snipers en calles muy largas, burst que castiga a Zarya después de dos burbujas y dives que obligan a elegir entre avanzar o proteger a Ana.',
-      substitutions: 'Cassidy por Sojourn para más peel; Kiriko por Ana frente a anti-heal; Genji por Tracer si la verticalidad del mapa es más importante.',
+      winCondition: 'Tracer amenaza a la backline mientras Zarya y Sojourn presionan desde otra dirección. Cuando el rival se gira, Zarya puede ganar una esquina si sigue teniendo visión de sus Supports. Projected Barrier protege una acción alcanzable; no acompaña automáticamente a Tracer a cualquier parte del mapa.',
+      engagePlan: 'Ana y Juno toman una posición desde la que puedan seguir el avance. Tracer abre el lateral y Zarya comprueba qué enemigo ha dejado de ayudar al frente. Si nada cambia, no hace falta correr hacia la backline: conserva cobertura y espera una oportunidad que Sojourn también pueda aprovechar.',
+      goodMaps: 'Tramos de Hybrid con una ruta frontal cubierta y un lateral próximo, como el acceso al primer punto de King\'s Row. La composición funciona por presión simultánea; si Tracer necesita un rodeo largo, habrá que ajustar el momento de entrada.',
+      weakAgainst: 'Un dive sobre Ana puede obligar a Zarya a dejar de avanzar para protegerla. Un sniper en una altura inaccesible también reduce sus opciones. Mira cuál de los dos problemas está frenando al equipo antes de pedir más curación o cambiar un DPS al azar.',
+      substitutions: 'Cassidy por Sojourn ofrece ayuda cercana frente al flanker y cambia la presión de largo alcance. Kiriko por Ana aporta Suzu, pero pierde Sleep y granada. Genji por Tracer puede llegar a alturas distintas, sin hacer que Zarya pueda seguir cualquier dive suyo.',
     },
     {
-      name: 'Doble Tank de recursos',
+      name: 'Reinhardt abre el paso; Zarya lo cubre',
       format: '6v6',
       style: 'Brawl',
       lineup: ['Reinhardt', 'Zarya', 'Mei', 'Cassidy', 'Lúcio', 'Ana'],
-      winCondition: 'Reinhardt inicia el avance y recibe la burbuja cuando baja el escudo para pelear. Zarya gana energía sin exponerse primero y el núcleo encadena esquinas con velocidad.',
-      engagePlan: 'Reinhardt conserva barrera para el cruce, Lúcio acelera el último tramo y Zarya proyecta burbuja durante el swing o el pin corto. Mei corta al rival que no completa la retirada.',
-      goodMaps: 'Chokes cerrados, objetivos interiores y rutas donde el equipo pueda avanzar como una unidad sin recibir fuego desde tres alturas.',
-      weakAgainst: 'Dive que evita el frente, spam desde varios ángulos y composiciones que nunca aceptan la distancia de martillo.',
-      substitutions: 'Junker Queen por Reinhardt para un ritmo más móvil; Kiriko por Ana si la limpieza es imprescindible; Reaper por Cassidy contra doble Tank de corto alcance.',
+      winCondition: 'En 6v6, Reinhardt amenaza con el martillo y Zarya protege una parte de ese intercambio. Mei puede impedir una retirada y Cassidy sigue el daño. Ganar energía ayuda, pero la burbuja sigue siendo útil si permite volver a la esquina con vida aunque el rival deje de disparar.',
+      engagePlan: 'Reinhardt conserva escudo para el cruce y acuerda cuándo bajará a pelear. Zarya proyecta la barrera durante la exposición que quiera proteger, no para prolongar una Charge hacia cinco rivales. Usad las reglas de cargas y cooldowns del modo que estáis jugando; no copiéis automáticamente la gestión del 5v5.',
+      goodMaps: 'Pasos cerrados de King\'s Row o la entrada al castillo de Eichenwalde cuando el núcleo puede avanzar junto. Dos Tanks no eliminan las líneas laterales: Ana necesita una posición segura y los DPS un ángulo para continuar la pelea.',
+      weakAgainst: 'Si el rival evita el frente y salta sobre Ana, Reinhardt no puede perseguirlo sin abandonar la ruta. Si dispara desde varias alturas, el escudo cubre solo una dirección. Decidid quién responde a la amenaza y qué espacio podéis ceder antes de gastar todas las barreras.',
+      substitutions: 'Junker Queen por Reinhardt cambia protección frontal por otro tipo de presión cercana. Kiriko por Ana añade Suzu y pierde el control de Sleep. Reaper por Cassidy aprovecha una pelea corta contra dos Tanks, pero no resuelve un ángulo lejano que nadie puede disputar.',
     },
   ],
   responsibilities: [
-    { title: 'Zarya', body: 'Cuenta burbujas y marca cuándo puede caminar. No debe usar ambas para conseguir energía durante poke; necesita al menos una respuesta cuando el equipo se compromete.' },
+    { title: 'Zarya', body: 'Comprueba qué protegerás y dónde estarás al acabar la barrera. Bloquear poke puede dar energía, pero si consumes toda la protección y el equipo no gana nada, el rival puede avanzar después. Gastar ambos recursos para salvar una pelea es válido; termina a cubierto en vez de confiar en una tercera respuesta que no tienes.' },
     { title: 'DPS', body: 'Crean una razón para que el rival deje de mirar a Zarya. Un muro, un lateral o presión sobre la backline convierte el avance frontal en una decisión difícil.' },
-    { title: 'Supports', body: 'Mantienen visión durante la rotación y reservan velocidad o curación fuerte para después de la primera burbuja. Gastarlo todo antes deja a Zarya parada en mitad del cruce.' },
+    { title: 'Supports', body: 'Prepara la línea desde la que podrás ayudar cuando acabe la burbuja. La protección de Zarya no garantiza que los otros cuatro crucen contigo: Lúcio debe ayudar al grupo y el segundo Support evitar quedarse en la esquina anterior. Si entra un flanker, avisa antes de perder la visión del Tank.' },
     { title: 'Iniciador', body: 'En 6v6 o con un DPS agresivo, avisa antes de recibir la burbuja proyectada. El recurso funciona mejor sobre una acción decidida que como rescate tardío.' },
   ],
   rotationPlan: [
     'Elegid la siguiente esquina antes de enseñar al equipo en la calle.',
-    'Forzad poke con cobertura sin gastar las dos burbujas.',
+    'Intercambiad daño desde cobertura y comprobad qué protección queda para avanzar.',
     'Usad velocidad, muro o presión lateral para iniciar el cruce.',
-    'La primera burbuja compra entrada; la segunda sostiene el commit o la retirada.',
-    'Con energía alta, acelerad sobre un objetivo alcanzable antes de que el rival recupere recursos.',
+    'Usad barrera para la exposición necesaria. Si gastáis toda la protección, buscad cobertura al terminar.',
+    'Antes de continuar, comprobad salud, ayuda y alcance. Tener energía no obliga a perseguir.',
   ],
   weaknesses: [
     'Zarya gasta dos burbujas para cargar energía y el rival entra justo después.',
     'El equipo camina por main sin disputar los ángulos largos.',
     'La burbuja proyectada llega tarde, cuando el aliado ya está saliendo.',
-    'Graviton se lanza sin comprobar Suzu, barreras o ultimates defensivas.',
+    'Graviton agrupa enemigos, pero nadie tiene munición, visión o alcance para seguir el daño.',
     'Nadie ajusta la ruta cuando el mapa exige verticalidad que la composición no tiene.',
   ],
   examples: [
-    { title: 'Una burbuja que compra esquina', body: 'Lúcio acelera el cruce y Zarya usa burbuja personal solo durante el tramo abierto. Al llegar a cobertura la baja, conserva la proyectada y puede responder cuando Mei corta a un enemigo.' },
-    { title: 'Presión lateral útil', body: 'Tracer fuerza a Ana a girarse. Zarya no corre detrás: avanza sobre el Tank sin curación directa y Sojourn abre otro ángulo. La composición gana porque explota la atención dividida.' },
-    { title: 'Graviton con objetivo claro', body: 'Kiriko rival ya ha gastado Suzu. Zarya comunica Graviton sobre dos objetivos en la esquina y Cassidy añade daño desde cobertura. No esperan agrupar a cinco; aseguran la pelea disponible.' },
+    { title: 'Midtown: terminar el cruce antes que la protección', body: 'Imagina que el equipo necesita llegar de una cobertura a otra en la calle. Lúcio ayuda al cruce y Zarya usa la barrera cuando empieza a recibir daño. Al llegar, se queda detrás de la nueva esquina hasta que termina: no puede bajarla manualmente para recuperar antes el recurso. Si Cassidy y Kiriko siguen atrás, espera a que lleguen. Dar otro paso porque has ganado energía puede cortar la curación y convertir un buen cruce en una muerte.' },
+    { title: 'King\'s Row: comprobar quién sigue curando al Tank', body: 'Tracer amenaza a Ana por el lateral y ella se gira. Desde el frente, Zarya ve una oportunidad de avanzar, pero el otro Support rival continúa ayudando a su Tank. Puede tomar la siguiente esquina con Sojourn, no asumir que ese Tank se ha quedado sin curación y perseguirlo por la calle. En la VOD, comprueba la ayuda de ambos equipos: un giro de Ana no equivale a una baja gratis.' },
+    { title: 'Eichenwalde: preparar Grav antes de cruzar la puerta', body: 'En la entrada al castillo, ves dos enemigos cerca y tienes Graviton. Cassidy está recargando detrás y tu Support aún no ha completado la rotación. Lanzarlo ahora puede agruparlos sin que nadie haga daño. Espera a tener follow-up, mira qué defensas pueden protegerlos durante el daño y busca un lanzamiento que llegue al lugar elegido. Que Kiriko haya gastado Suzu facilita el seguimiento, pero no asegura por sí solo la pelea.' },
   ],
   checklist: [
     'La ruta tiene coberturas alcanzables.',
-    'No gastamos dos burbujas durante poke.',
+    'Sabemos qué protección queda y cómo saldremos cuando se agote.',
     'Existe velocidad, control o un segundo ángulo para avanzar.',
     'El equipo sabe quién puede recibir la burbuja proyectada.',
     'Contamos la respuesta rival antes de Graviton.',
   ],
+  vodQuestions: [
+    '¿A qué cobertura quería llegar al usar la primera burbuja?',
+    '¿Gané energía, protegí una acción útil o gasté el recurso sin cambiar nada?',
+    'Cuando acabó la barrera, ¿seguían viéndome mis Supports?',
+    '¿Me quedé sin ayuda por perseguir con energía alta?',
+    'Antes de Grav, ¿quién podía seguir el daño y qué defensa debía comprobar?',
+  ],
   faqs: [
     { question: '¿Cuál es la mejor composición con Zarya?', answer: 'Un brawl con velocidad y control suele ser la opción más directa. También puede funcionar con presión lateral si el mapa permite que Zarya avance entre coberturas.' },
-    { question: '¿Cómo consigue energía sin regalar burbujas?', answer: 'Protegiendo acciones que el rival tiene que disparar: un cruce, un engage o un aliado comprometido. Usarlas solo para cargar durante poke deja al equipo sin recursos.' },
+    { question: '¿Tiene que dar energía cada burbuja?', answer: 'No. Proteger a un aliado que está cruzando o permitirle volver a cobertura también puede justificarla aunque el rival deje de disparar. Sí conviene revisar una burbuja usada durante poke si no protege una acción y deja al equipo sin respuesta al siguiente engage.' },
     { question: '¿Zarya funciona en mapas verticales?', answer: 'Puede hacerlo, pero necesita que los DPS disputen las alturas o rutas que acorten la distancia. Si nadie puede acceder al high ground, conviene cambiar la composición o el Tank.' },
     { question: '¿Con qué ultimate combino Graviton?', answer: 'No siempre necesita una combinación. Daño normal coordinado puede bastar cuando las defensivas rivales ya se han gastado. Guarda otra ultimate si la pelea ya está ganada.' },
+    { question: '¿Puedo bajar la burbuja al llegar a una esquina?', answer: 'No puedes cancelarla manualmente. Usa la cobertura mientras termina y decide qué harás después. Entrar más lejos para aprovechar toda su duración no es obligatorio; llegar a una posición desde la que puedas sobrevivir sin ella suele importar más.' },
+    { question: '¿Reinhardt y Zarya pueden jugar juntos en ranked 5v5?', answer: 'No en cola por roles 5v5, donde hay una plaza de Tank. La pareja de esta guía es un ejemplo para 6v6. También cambian las reglas de recursos según el modo: organiza la ayuda a Reinhardt con el kit que tengas disponible, no con cifras recordadas de otro formato.' },
   ],
   links: [
     { href: '/heroes/zarya', label: 'Guía completa de Zarya' },
@@ -2051,13 +2097,20 @@ const ZARYA_TEAM_COMP: TeamCompPillar = {
     { href: '/team-comps/reinhardt', label: 'Composiciones con Reinhardt' },
     { href: '/team-comps/tracer', label: 'Presión lateral con Tracer' },
     { href: '/guides/como-usar-ultimates-overwatch', label: 'Cómo preparar ultimates' },
+    { href: '/maps/midtown', label: 'Cruces y posiciones de Midtown' },
+    { href: '/maps/kings-row', label: 'Avanzar por King\'s Row' },
+    { href: '/maps/eichenwalde', label: 'Entrar al castillo de Eichenwalde' },
+    { href: '/guides/como-mejorar-en-overwatch-revisando-vod', label: 'Revisar protección y seguimiento en tu VOD' },
   ],
+  conclusion: 'Elige una pelea y mira qué ocurrió al terminar tu primera burbuja. Si llegaste a cobertura con ayuda, el equipo tenía un plan. Si te quedaste sola en la calle, ganar más energía no habría resuelto el problema. Ajusta esa ruta y prepara el follow-up de Grav antes de cambiar todos los picks.',
 }
 
 export function getCounterPillar(slug: string) {
+  if (Object.hasOwn(reviewedCounters, slug)) return reviewedCounters[slug]
   return [SHION_COUNTER, ANA_COUNTER, GENJI_COUNTER, KIRIKO_COUNTER, REINHARDT_COUNTER, DVA_COUNTER, WINSTON_COUNTER, CASSIDY_COUNTER, ZARYA_COUNTER, TRACER_COUNTER, DOMINA_COUNTER].find(pillar => pillar.slug === slug) ?? null
 }
 
 export function getTeamCompPillar(slug: string) {
+  if (Object.hasOwn(reviewedTeamCompositions, slug)) return reviewedTeamCompositions[slug]
   return [SHION_TEAM_COMP, ANA_TEAM_COMP, GENJI_TEAM_COMP, KIRIKO_TEAM_COMP, REINHARDT_TEAM_COMP, DVA_TEAM_COMP, WINSTON_TEAM_COMP, CASSIDY_TEAM_COMP, TRACER_TEAM_COMP, ZARYA_TEAM_COMP].find(pillar => pillar.slug === slug) ?? null
 }

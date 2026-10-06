@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import JsonLd from '@/components/content/JsonLd'
-import AdSenseScript from '@/components/content/AdSenseScript'
 import VercelAnalytics from '@/components/content/VercelAnalytics'
 import PublicFooter from '@/components/layout/PublicFooter'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
@@ -103,10 +102,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body style={{ margin: 0, background: '#0a0a0a', color: '#f5f5f5' }}>
         <JsonLd data={organizationJsonLd} />
         <JsonLd data={websiteJsonLd} />
-        <AdSenseScript />
         {children}
         <PublicFooter />
-        <VercelAnalytics />
+        {process.env.VERCEL === '1' && <VercelAnalytics />}
       </body>
     </html>
   )

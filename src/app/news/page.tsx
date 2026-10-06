@@ -8,13 +8,14 @@ import { announcementPath, articleDescription } from '@/lib/content'
 import { isAnnouncementSitemapEligible } from '@/lib/indexing-policy'
 import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 import JsonLd from '@/components/content/JsonLd'
+import { ANNOUNCEMENT_REVIEW_COLUMNS } from '@/lib/editorial-review'
 
 const featuredNews = [
   {
     href: '/doctrine-support-sombra-roadhog-rework-overwatch',
     title: 'Doctrine llega a Overwatch: Sombra será Support y Roadhog tendrá rework',
     date: '12 de septiembre de 2026',
-    description: 'Doctrine ya se puede probar, Sombra cambia de rol, Roadhog recibe rework, hay una mítica gratis y Blizzard ha enseñado la silueta de otro héroe.',
+    description: 'El trial de Doctrine ya terminó. Su lanzamiento está anunciado para el 6 de octubre, junto a los reworks de Sombra y Roadhog. El vale mítico tiene plazo hasta el 5.',
   },
   {
     href: '/blizzcon-2026-overwatch-horarios-espana',
@@ -48,23 +49,6 @@ const featuredNews = [
   },
 ]
 
-const ANNOUNCEMENT_LIST_COLUMNS = `
-  id,
-  title,
-  slug,
-  body,
-  excerpt,
-  seo_title,
-  seo_description,
-  hero,
-  role,
-  map,
-  cover_image,
-  content_type,
-  published,
-  created_at,
-  updated_at
-`
 
 export const metadata: Metadata = buildMetadata({
   title: 'Noticias de Overwatch: temporadas, héroes, mapas y BlizzCon',
@@ -73,7 +57,7 @@ export const metadata: Metadata = buildMetadata({
 })
 
 export default async function NewsPage() {
-  const supabase = createClient()
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
   let profile = null
@@ -85,7 +69,7 @@ export default async function NewsPage() {
   const admin = createAdminClient()
   const { data: announcements } = await admin
     .from('announcements')
-    .select(ANNOUNCEMENT_LIST_COLUMNS)
+    .select(ANNOUNCEMENT_REVIEW_COLUMNS)
     .eq('published', true)
     .neq('content_type', 'patch_note')
     .order('created_at', { ascending: false })
@@ -125,7 +109,7 @@ export default async function NewsPage() {
         </nav>
       ))}
 
-      <section style={{ maxWidth: 900, margin: '0 auto', padding: '64px 24px 80px' }}>
+      <main style={{ maxWidth: 900, margin: '0 auto', padding: '64px 24px 80px' }}>
         <div style={{ marginBottom: 40 }}>
           <div style={{ fontSize: 11, letterSpacing: 2, color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif', marginBottom: 8 }}>
             HEMEROTECA
@@ -144,15 +128,15 @@ export default async function NewsPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 18 }}>
             <div>
               <strong style={{ color: 'var(--text)', fontSize: 14 }}>Temporadas y héroes</strong>
-              <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65, margin: '7px 0 0' }}>Resumimos qué llega, cuándo se puede jugar y qué cambia de verdad. Si aparece un héroe nuevo, separamos el kit confirmado de las primeras impresiones y actualizamos su guía cuando hay partidas suficientes.</p>
+              <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65, margin: '7px 0 0' }}>Doctrine se estrenará con Season 5 el 6 de octubre. Su prueba de septiembre ya terminó. D.Mon y Shion, de las temporadas anteriores, siguen disponibles.</p>
             </div>
             <div>
               <strong style={{ color: 'var(--text)', fontSize: 14 }}>Mapas y balance</strong>
-              <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65, margin: '7px 0 0' }}>Un rework de mapa puede cambiar rutas, high grounds y composiciones aunque las notas parezcan cortas. Cuando un ajuste altera un matchup, enlazamos la explicación práctica para ranked.</p>
+              <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65, margin: '7px 0 0' }}>Busan, Eichenwalde y Paraíso cambiaron con Season 4. Si vuelves al juego después de un tiempo, revisa sus rutas y alturas antes de repetir las posiciones de la versión anterior.</p>
             </div>
             <div>
               <strong style={{ color: 'var(--text)', fontSize: 14 }}>Eventos y directos</strong>
-              <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65, margin: '7px 0 0' }}>Convertimos horarios a España, comprobamos dónde se emite el evento y distinguimos los anuncios confirmados de lo que todavía no tiene detalle oficial.</p>
+              <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65, margin: '7px 0 0' }}>BlizzCon se celebró el 12 y 13 de septiembre. El vale mítico anunciado durante el evento tiene plazo hasta el 5 de octubre: debes conseguirlo y canjearlo antes de que termine.</p>
             </div>
           </div>
         </section>
@@ -202,17 +186,17 @@ export default async function NewsPage() {
           <div className="eyebrow">PARA SEGUIR JUGANDO</div>
           <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 28, letterSpacing: 1, margin: '8px 0 12px' }}>Del anuncio a la partida</h2>
           <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.7, margin: '0 0 16px', maxWidth: 780 }}>
-            Si buscas el estado actual del juego, empieza por la <Link href="/overwatch-temporada-4-heroes-of-busan" style={{ color: 'var(--accent)' }}>Season 4</Link>. Para preparar tus partidas puedes consultar las <Link href="/guides" style={{ color: 'var(--accent)' }}>guías</Link>, los <Link href="/counters" style={{ color: 'var(--accent)' }}>matchups</Link> o las <Link href="/maps" style={{ color: 'var(--accent)' }}>guías de mapas</Link>. Las fechas visibles solo cambian cuando el contenido se ha revisado de verdad.
+            Si vuelves a jugar estos días, empieza por el resumen de <Link href="/overwatch-temporada-4-heroes-of-busan" style={{ color: 'var(--accent)' }}>Season 4</Link>. Para preparar una partida, consulta las <Link href="/guides" style={{ color: 'var(--accent)' }}>guías de héroes y ranked</Link> o las <Link href="/maps" style={{ color: 'var(--accent)' }}>rutas de cada mapa</Link>.
           </p>
           <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.7, margin: '0 0 16px', maxWidth: 780 }}>
-            En noticias en desarrollo indicamos qué está confirmado y qué falta por conocer. Cuando Blizzard publica horarios, requisitos de drops o notas de balance nuevas, corregimos la misma noticia para que no tengas que comparar versiones contradictorias. Si una novedad merece una explicación más larga, la encontrarás enlazada desde el resumen.
+            Un héroe nuevo puede llamar mucho la atención sin ser la respuesta a todos tus duelos. Antes de cambiar de pick, mira qué te está impidiendo jugar: una altura que no puedes alcanzar, una entrada sin seguimiento o un cooldown que gastas demasiado pronto. Puedes comparar esas situaciones en las <Link href="/counters" style={{ color: 'var(--accent)' }}>guías de matchups</Link>.
           </p>
           <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.7, margin: '0 0 16px', maxWidth: 780 }}>
-            También mantenemos visibles las noticias anteriores cuando siguen ayudando a entender un héroe, un mapa o el origen de un cambio que todavía afecta al juego actual.
+            Las noticias anteriores conservan la fecha de publicación. Comprueba las fechas de pruebas, eventos y recompensas antes de entrar al juego: una noticia sobre su anuncio no implica que sigan disponibles hoy.
           </p>
-          <div style={{ color: 'var(--text3)', fontSize: 12 }}>Última revisión del hub: 12 de septiembre de 2026 · Replaid Lab</div>
+          <div style={{ color: 'var(--text3)', fontSize: 12 }}>Última revisión: 1 de octubre de 2026 · Replaid Lab</div>
         </section>
-      </section>
+      </main>
     </div>
   )
 }

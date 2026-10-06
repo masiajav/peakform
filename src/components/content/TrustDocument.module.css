@@ -1,0 +1,16 @@
+.page p a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.page a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.page h1,
+.page h2,
+.page p,
+.page li {
+  overflow-wrap: anywhere;
+}

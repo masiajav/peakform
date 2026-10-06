@@ -13,11 +13,12 @@ const STATUS_LABELS: Record<string, string> = {
   suspended: 'Suspendido',
 }
 
-export default async function AdminExpertsPage({
-  searchParams,
-}: {
-  searchParams: { status?: string }
-}) {
+export default async function AdminExpertsPage(
+  props: {
+    searchParams: Promise<{ status?: string }>
+  }
+) {
+  const searchParams = await props.searchParams;
   const supabase = createAdminClient()
   const filter = searchParams.status ?? 'pending'
 

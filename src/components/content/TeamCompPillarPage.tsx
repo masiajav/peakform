@@ -5,6 +5,7 @@ import PublicNav from '@/components/layout/PublicNav'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
 import type { TeamCompPillar } from '@/lib/seo-clusters'
 import { safeTopicHref } from '@/lib/topic-links'
+import styles from './TeamCompPillarPage.module.css'
 
 type TeamCompPillarPageProps = {
   pillar: TeamCompPillar
@@ -20,8 +21,8 @@ export default function TeamCompPillarPage({ pillar }: TeamCompPillarPageProps) 
       description: pillar.seoDescription,
       image: absoluteUrl(`/heroes/${pillar.slug}.png`),
       url: pageUrl,
-      datePublished: pillar.schemaDate ?? '2026-06-28',
-      dateModified: pillar.schemaDate ?? '2026-06-28',
+      datePublished: pillar.publishedDate,
+      dateModified: pillar.schemaDate,
       author: { '@type': 'Organization', name: SITE_NAME },
       publisher: { '@type': 'Organization', name: SITE_NAME },
       mainEntityOfPage: pageUrl,
@@ -50,7 +51,7 @@ export default function TeamCompPillarPage({ pillar }: TeamCompPillarPageProps) 
       <JsonLd data={jsonLd} />
       <PublicNav />
 
-      <main className="seo-pillar-page">
+      <main className={`seo-pillar-page${pillar.quickAnswer ? ` ${styles.reviewed}` : ''}`}>
         <nav className="seo-pillar-breadcrumb" aria-label="Migas de pan">
           <Link href="/team-comps">Composiciones</Link><span>/</span><span>{pillar.name}</span>
         </nav>
@@ -59,18 +60,24 @@ export default function TeamCompPillarPage({ pillar }: TeamCompPillarPageProps) 
           <div>
             <div className="eyebrow">COMPOSICIONES · 5V5 Y 6V6</div>
             <h1>{pillar.h1}</h1>
-            <div className="seo-pillar-intro">{pillar.intro.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>
+            <div className="seo-pillar-intro">{pillar.quickAnswer ? <p>{pillar.quickAnswer}</p> : pillar.intro.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>
             <div className="seo-pillar-meta">
               <span>Por Replaid Lab</span>
-              <span>Actualizado: {pillar.updatedAt}</span>
+              <span>Actualizado: <time dateTime={pillar.schemaDate}>{pillar.updatedAt}</time></span>
               <span>Parche revisado: {pillar.reviewedPatch}</span>
               <Link href="/contact" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Comunicar una corrección</Link>
             </div>
           </div>
-          <div className="seo-pillar-portrait">
-            <Image src={`/heroes/${pillar.slug}.png`} alt={`${pillar.name} en Overwatch`} fill priority sizes="(max-width: 760px) 100vw, 360px" />
+          <div className="seo-pillar-portrait seo-composition-portrait">
+            <Image src={`/heroes/${pillar.slug}.png`} alt={`${pillar.name} en Overwatch`} fill priority sizes={pillar.quickAnswer ? '(max-width: 760px) 160px, 200px' : '(max-width: 760px) 100vw, 360px'} />
           </div>
         </header>
+
+        {pillar.quickAnswer && <section className="seo-pillar-section">
+          <div className="eyebrow">PLAN DE EQUIPO</div>
+          <h2>Cómo acompañar a {pillar.name}</h2>
+          <div className="seo-pillar-intro">{pillar.intro.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>
+        </section>}
 
         <section className="seo-pillar-section">
           <div className="eyebrow">RESUMEN RÁPIDO</div>
@@ -110,7 +117,7 @@ export default function TeamCompPillarPage({ pillar }: TeamCompPillarPageProps) 
         <section className="seo-pillar-section seo-pillar-two-column">
           <div>
             <div className="eyebrow">ROTACIÓN Y ENGAGE</div>
-            <h2>Un plan sencillo para entrar juntos</h2>
+            <h2>Cómo preparar la siguiente pelea</h2>
             <ol className="seo-pillar-steps">{pillar.rotationPlan.map(item => <li key={item}>{item}</li>)}</ol>
           </div>
           <div>
@@ -122,21 +129,32 @@ export default function TeamCompPillarPage({ pillar }: TeamCompPillarPageProps) 
 
         <section className="seo-pillar-section">
           <div className="eyebrow">EJEMPLOS DE RANKED</div>
-          <h2>Cómo se coordina sin convertir la partida en una scrim</h2>
+          <h2>Decisiones que cambian una pelea</h2>
           <div className="seo-pillar-card-grid three">{pillar.examples.map(item => <article key={item.title}><h3>{item.title}</h3><p>{item.body}</p></article>)}</div>
         </section>
 
         <section className="seo-pillar-section">
           <div className="eyebrow">CHECKLIST</div>
-          <h2>Antes de bloquear la composición</h2>
+          <h2>Antes de empezar la siguiente pelea</h2>
           <ul className="seo-pillar-checklist compact">{pillar.checklist.map(item => <li key={item}>{item}</li>)}</ul>
         </section>
+
+        {pillar.vodQuestions && <section className="seo-pillar-section">
+          <div className="eyebrow">REVISIÓN DE VOD</div>
+          <h2>Qué mirar en una pelea perdida</h2>
+          <ol className="seo-pillar-steps">{pillar.vodQuestions.map(question => <li key={question}>{question}</li>)}</ol>
+        </section>}
 
         <section className="seo-pillar-section">
           <div className="eyebrow">FAQ</div>
           <h2>Preguntas frecuentes sobre composiciones con {pillar.name}</h2>
           <div className="seo-pillar-faq">{pillar.faqs.map(item => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div>
         </section>
+
+        {pillar.conclusion && <section className="seo-pillar-section">
+          <h2>Qué cambiar en tu próxima partida</h2>
+          <div className="seo-pillar-intro"><p>{pillar.conclusion}</p></div>
+        </section>}
 
         <section className="seo-pillar-related">
           <div><div className="eyebrow">SIGUIENTE PASO</div><h2>Completa el plan de partida</h2></div>

@@ -4,9 +4,28 @@ import {
   expertQualityDecision,
   isAnnouncementSitemapEligible,
   isGuideSitemapEligible,
+  guidePublicationIssues,
   isPathAdEligible,
   topicQualityDecision,
 } from '@/lib/indexing-policy'
+import { reviewedGuideRevisions } from '@/lib/reviewed-guide-revisions'
+import { reviewedPatchFixture } from '../fixtures/reviewed-patch'
+import { editorialReviewTags } from '@/lib/editorial-review'
+
+const revision = reviewedGuideRevisions['mauga-guia-video-overwatch']
+const guide = {
+  slug: 'guia-revisada',
+  title: revision.title,
+  seo_title: revision.title,
+  seo_description: revision.description,
+  excerpt: revision.quickAnswer,
+  body: revision.body,
+  author: 'Replaid Lab',
+  created_at: '2026-05-06',
+  updated_at: '2026-10-01',
+  content_type: 'guide',
+}
+const completeGuide = { ...guide, tags: editorialReviewTags(guide, 'admin-fixture', '2026-10-02') }
 
 describe('indexing quality gates', () => {
   it('keeps stale seasonal guides out of the sitemap', () => {
@@ -26,7 +45,28 @@ describe('indexing quality gates', () => {
       slug: 'cuando-cambiar-de-heroe-overwatch',
       body: 'contenido editorial '.repeat(700),
       excerpt: 'Resumen útil y específico para jugadores de Overwatch que quieren tomar mejores decisiones durante una partida competitiva, entender sus errores, revisar cooldowns y aplicar cambios concretos en la siguiente sesión de ranked.',
-    })).toBe(true)
+    })).toBe(false)
+    expect(isGuideSitemapEligible(completeGuide)).toBe(true)
+    expect(isGuideSitemapEligible({ ...completeGuide, tags: [] })).toBe(false)
+    expect(isGuideSitemapEligible({ ...completeGuide, body: `${completeGuide.body}\n\nUna corrección sin revisar.` })).toBe(false)
+  })
+
+  it('rejects repeated paragraphs, internal instructions and incomplete metadata', () => {
+    expect(guidePublicationIssues(completeGuide)).toEqual([])
+    const paragraph = completeGuide.body.split(/\n\s*\n/).find(text => text.split(/\s+/).length >= 30)!
+    for (const guide of [
+      { ...completeGuide, body: `${completeGuide.body}\n\n${paragraph}` },
+      { ...completeGuide, body: `${completeGuide.body}\n\n## TITLE SEO\n\nNotas internas` },
+      { ...completeGuide, body: `${completeGuide.body}\n\n## URL\n\n/guides/prueba` },
+      { ...completeGuide, author: null },
+      { ...completeGuide, updated_at: 'fecha sin comprobar' },
+      { ...completeGuide, seo_title: null },
+      { ...completeGuide, published: false },
+      { ...completeGuide, body: `## Introducción\n\n${'contenido editorial '.repeat(700)}\n\n## Ejemplos\n\nConsulta [Ana](/heroes/ana).\n\n## Revisión\n\nConsulta [King\'s Row](/maps/kings-row).` },
+      { ...completeGuide, body: completeGuide.body.replace(/\]\(\/[^)]+\)/g, ']') },
+    ]) {
+      expect(isGuideSitemapEligible(guide)).toBe(false)
+    }
   })
 
   it('requires an editorial review before indexing a patch note', () => {
@@ -42,7 +82,10 @@ describe('indexing quality gates', () => {
     expect(isAnnouncementSitemapEligible({
       ...basePatch,
       tags: [PATCH_NOTE_EDITORIAL_TAG],
-    })).toBe(true)
+    })).toBe(false)
+    expect(isAnnouncementSitemapEligible(reviewedPatchFixture)).toBe(true)
+    expect(isAnnouncementSitemapEligible({ ...reviewedPatchFixture, published: false })).toBe(false)
+    expect(isAnnouncementSitemapEligible({ ...reviewedPatchFixture, seo_description: null })).toBe(false)
   })
 
   it('only indexes complete expert profiles', () => {
@@ -62,29 +105,15 @@ describe('indexing quality gates', () => {
     expect(expertQualityDecision({ ...completeExpert, bio: 'Bio breve' }).indexable).toBe(false)
   })
 
-  it('indexes only the completed counter and composition batch', () => {
-    expect(topicQualityDecision('counter', 'shion').indexable).toBe(true)
-    expect(topicQualityDecision('team_comp', 'shion').indexable).toBe(true)
-    expect(topicQualityDecision('counter', 'ana').indexable).toBe(true)
-    expect(topicQualityDecision('team_comp', 'ana').indexable).toBe(true)
-    expect(topicQualityDecision('counter', 'genji').indexable).toBe(true)
-    expect(topicQualityDecision('team_comp', 'genji').indexable).toBe(true)
-    expect(topicQualityDecision('counter', 'kiriko').indexable).toBe(true)
-    expect(topicQualityDecision('team_comp', 'kiriko').indexable).toBe(true)
-    expect(topicQualityDecision('counter', 'reinhardt').indexable).toBe(true)
-    expect(topicQualityDecision('team_comp', 'reinhardt').indexable).toBe(true)
-    expect(topicQualityDecision('counter', 'dva').indexable).toBe(true)
-    expect(topicQualityDecision('team_comp', 'dva').indexable).toBe(true)
-    expect(topicQualityDecision('counter', 'winston').indexable).toBe(true)
-    expect(topicQualityDecision('team_comp', 'winston').indexable).toBe(true)
-    expect(topicQualityDecision('counter', 'cassidy').indexable).toBe(true)
-    expect(topicQualityDecision('team_comp', 'cassidy').indexable).toBe(true)
-    expect(topicQualityDecision('counter', 'zarya').indexable).toBe(true)
-    expect(topicQualityDecision('team_comp', 'zarya').indexable).toBe(true)
-    expect(topicQualityDecision('counter', 'tracer').indexable).toBe(true)
-    expect(topicQualityDecision('team_comp', 'tracer').indexable).toBe(true)
-    expect(topicQualityDecision('counter', 'domina').indexable).toBe(true)
-    expect(topicQualityDecision('counter', 'mercy').indexable).toBe(false)
+  it('does not treat the legacy slug list as an editorial approval', () => {
+    for (const slug of ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'zarya', 'tracer', 'domina']) {
+      expect(topicQualityDecision('counter', slug)).toMatchObject({ indexable: ['genji', 'kiriko'].includes(slug), adsAllowed: false })
+      expect(topicQualityDecision('team_comp', slug)).toMatchObject({ indexable: ['tracer', 'zarya'].includes(slug), adsAllowed: false })
+    }
+    for (const slug of ['freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'sombra']) {
+      expect(topicQualityDecision('counter', slug)).toMatchObject({ indexable: true, adsAllowed: false })
+    }
+    expect(topicQualityDecision('counter', 'doctrine').indexable).toBe(false)
   })
 
   it('keeps ads off hubs, profiles and unfinished routes', () => {
@@ -93,7 +122,7 @@ describe('indexing quality gates', () => {
     expect(isPathAdEligible('/counters')).toBe(false)
     expect(isPathAdEligible('/news')).toBe(false)
     expect(isPathAdEligible('/experts/coach-overwatch')).toBe(false)
-    expect(isPathAdEligible('/guides/como-jugar-ana-ranked-overwatch')).toBe(true)
+    expect(isPathAdEligible('/guides/como-jugar-ana-ranked-overwatch')).toBe(false)
     expect(isPathAdEligible('/guides/guia-programatica-pendiente')).toBe(false)
   })
 })

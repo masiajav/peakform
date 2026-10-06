@@ -1,4 +1,5 @@
 import { articleDescription, ROLE_LABELS, topicLabel, type GuideContent } from './content'
+import { hasReviewedGuideRevision } from './reviewed-guide-policy'
 
 type GuideEditorial = {
   title: string
@@ -326,6 +327,13 @@ const ROLE_FOCUS: Record<string, { suffix: string; seoSuffix: string; descriptio
 }
 
 export function guideEditorial(guide: GuideContent): GuideEditorial {
+  if (hasReviewedGuideRevision(guide.slug)) {
+    return {
+      title: guide.title,
+      seoTitle: guide.seo_title || guide.title,
+      description: articleDescription(guide),
+    }
+  }
   if (guide.slug && PILLAR_GUIDE_FOCUS[guide.slug]) {
     return PILLAR_GUIDE_FOCUS[guide.slug]
   }

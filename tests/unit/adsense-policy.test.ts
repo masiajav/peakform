@@ -15,11 +15,23 @@ describe('AdSense verification and inventory', () => {
   })
 
   it('review mode forbids ad execution even when approval and CMP flags are true', () => {
-    expect(canLoadAdSense(config, editorial)).toBe(true)
-    expect(canLoadAdSense({ ...config, reviewMode: 'true' }, editorial)).toBe(false)
-    expect(canLoadAdSense({ ...config, approved: 'false' }, editorial)).toBe(false)
-    expect(canLoadAdSense({ ...config, cmpReady: 'false' }, editorial)).toBe(false)
-    expect(canLoadAdSense({ ...config, approved: undefined }, editorial)).toBe(false)
+    expect(canLoadAdSense(config, editorial)).toBe(false)
+    expect(canLoadAdSense(config, editorial, true)).toBe(true)
+    expect(canLoadAdSense({ ...config, reviewMode: 'true' }, editorial, true)).toBe(false)
+    expect(canLoadAdSense({ ...config, approved: 'false' }, editorial, true)).toBe(false)
+    expect(canLoadAdSense({ ...config, cmpReady: 'false' }, editorial, true)).toBe(false)
+    expect(canLoadAdSense({ ...config, approved: undefined }, editorial, true)).toBe(false)
+  })
+
+  it('requires per-article approval, not a strategic URL, and rejects non-editorial placements', () => {
+    for (const path of [editorial, '/guides/como-jugar-ana-ranked-overwatch', '/news/articulo-revisado']) {
+      expect(canLoadAdSense(config, path)).toBe(false)
+      expect(canLoadAdSense(config, path, true)).toBe(true)
+      expect(canLoadAdSense(config, `${path}?filter=ana`, true)).toBe(false)
+    }
+    for (const path of ['/', '/guides', '/news', '/experts/coach', '/dashboard', '/orders/123', '/privacy', '/heroes/ana', '/tools/checklist', '/guides/nested/route']) {
+      expect(canLoadAdSense(config, path, true)).toBe(false)
+    }
   })
 
   it('never enables ads on navigation, unreviewed content or transaction screens', () => {

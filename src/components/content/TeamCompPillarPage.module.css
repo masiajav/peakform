@@ -1,0 +1,66 @@
+.reviewed {
+  --text3: #b3b3b3;
+  letter-spacing: 0;
+}
+
+.reviewed :global(.seo-pillar-hero) {
+  grid-template-columns: minmax(0, 1fr) 200px;
+  align-items: start;
+}
+
+.reviewed :global(.seo-pillar-hero h1) {
+  font-size: 54px;
+  line-height: 1.06;
+}
+
+.reviewed :global(.seo-composition-portrait) {
+  width: 200px;
+  background: var(--surface);
+}
+
+.reviewed :global(.seo-composition-portrait img) {
+  padding: 12px;
+}
+
+.reviewed a:focus-visible,
+.reviewed summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.reviewed summary {
+  min-height: 44px;
+}
+
+.reviewed :global(.seo-pillar-meta a) {
+  align-self: center;
+  padding: 8px 0;
+}
+
+.reviewed h1,
+.reviewed h2,
+.reviewed h3,
+.reviewed p,
+.reviewed li,
+.reviewed dd,
+.reviewed strong {
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 760px) {
+  .reviewed :global(.seo-pillar-hero) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .reviewed :global(.seo-pillar-hero h1) {
+    font-size: 36px;
+  }
+
+  .reviewed :global(.seo-composition-portrait) {
+    order: 0;
+    width: 160px;
+    min-height: 0;
+  }
+}

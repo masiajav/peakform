@@ -21,7 +21,7 @@ export const metadata: Metadata = buildMetadata({
 const quickFacts = [
   {
     title: 'Doctrine es Support',
-    body: 'Es el héroe 54 de Overwatch. Cura y hace daño con Cetro eterno, potencia habilidades con Imbuir y llegará de forma completa en Season 5.',
+    body: 'Es el héroe 54 de Overwatch. Cura y hace daño con Cetro eterno y potencia habilidades con Imbuir. Su estreno está anunciado para el 6 de octubre.',
   },
   {
     title: 'Sombra cambia de rol',
@@ -32,8 +32,8 @@ const quickFacts = [
     body: 'Blizzard también ha confirmado una revisión importante de Roadhog, aunque todavía no ha enseñado el kit completo.',
   },
   {
-    title: 'Hay una mítica gratis',
-    body: 'Juega una partida después de la ceremonia de apertura para conseguir un vale mítico canjeable por una skin de héroe dentro de una selección.',
+    title: 'Vale mítico: hasta el 5 de octubre',
+    body: 'La promoción tiene un plazo para obtener y canjear el regalo. La elección se hace entre las míticas incluidas en la tienda del juego.',
   },
   {
     title: 'Hay otro héroe en camino',
@@ -94,7 +94,7 @@ const faqs = [
   },
   {
     question: '¿Cuándo se puede jugar Doctrine?',
-    answer: 'Su hero trial comenzó el 12 de septiembre de 2026. El lanzamiento completo está previsto para Season 5.',
+    answer: 'El trial fue del 12 al 14 de septiembre y ya terminó. El lanzamiento completo está anunciado para el 6 de octubre de 2026, con Season 5.',
   },
   {
     question: '¿Cuáles son las habilidades de Doctrine?',
@@ -118,7 +118,7 @@ const faqs = [
   },
   {
     question: '¿Cómo consigo la skin mítica gratis de BlizzCon?',
-    answer: 'Después de la ceremonia de apertura, juega una partida de Overwatch para recibir un vale mítico. Ese vale se puede canjear por una skin mítica de héroe dentro de la selección disponible.',
+    answer: 'Juega una partida para recibir el vale y canjéalo en la tienda mítica por una opción elegible. El plazo para obtenerlo y usarlo termina el 5 de octubre.',
   },
   {
     question: '¿Quién es el nuevo héroe del paraguas?',
@@ -136,7 +136,7 @@ export default function DoctrineBlizzConNewsPage() {
     image: [absoluteUrl(PAGE_IMAGE), absoluteUrl(DOCTRINE_IMAGE), absoluteUrl(MYTHIC_IMAGE)],
     url: pageUrl,
     datePublished: '2026-09-12',
-    dateModified: '2026-09-13',
+    dateModified: '2026-10-01',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -176,15 +176,15 @@ export default function DoctrineBlizzConNewsPage() {
 
         <header style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(300px, 0.92fr)', gap: 28, alignItems: 'center', marginBottom: 28 }} className="home-hero-grid">
           <div>
-            <div className="eyebrow">ÚLTIMA HORA · BLIZZCON 2026</div>
+            <div className="eyebrow">BLIZZCON 2026 · REVISADO EL 1 DE OCTUBRE</div>
             <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(42px, 7vw, 76px)', lineHeight: 0.96, letterSpacing: 1, margin: '0 0 18px' }}>
               DOCTRINE LLEGA A OVERWATCH: <span style={{ color: 'var(--accent)' }}>SOMBRA SERÁ SUPPORT</span> Y ROADHOG TENDRÁ REWORK
             </h1>
             <p style={{ color: 'var(--text2)', fontSize: 17, lineHeight: 1.72, margin: '0 0 14px' }}>
-              Overwatch ya tiene nuevo héroe confirmado. Doctrine será Support, ya se puede probar y llegará de forma completa con Season 5. El anuncio viene acompañado por dos cambios grandes: Sombra abandona el rol de DPS para pasar a Support y Roadhog recibe un nuevo rework.
+              Doctrine es el nuevo Support presentado en BlizzCon. Su trial de septiembre ya terminó y el estreno completo está anunciado para el 6 de octubre, con Season 5. La misma actualización traerá el paso de Sombra a Support y un nuevo rework de Roadhog.
             </p>
             <p style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.72, margin: '0 0 18px' }}>
-              Además, la celebración deja un regalo fácil de conseguir y una pista sobre el futuro: basta con jugar una partida después de la ceremonia para recibir un vale canjeable por una skin mítica, y Blizzard ha enseñado la silueta de otro héroe todavía sin nombre.
+              El regalo mítico tiene plazo hasta el 5 de octubre. Blizzard también enseñó la silueta de otro héroe todavía sin nombre. Aquí puedes repasar los anuncios sin confundir la prueba temporal de Doctrine con su lanzamiento.
             </p>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
               <Link href="/heroes/doctrine" className="btn btn-primary btn-sm">GUÍA DE DOCTRINE</Link>
@@ -236,7 +236,7 @@ export default function DoctrineBlizzConNewsPage() {
                 Sus drones curan y aumentan la velocidad de ataque de un aliado. Liberación, su definitiva, juega a una escala mayor: reduce la salud máxima del equipo rival y concede exceso de salud a los aliados. Es una ultimate pensada para inclinar la pelea, no para lanzarla cuando nadie puede aprovechar la ventaja.
               </p>
               <p style={{ margin: 0 }}>
-                El hero trial ya está activo. El kit está confirmado, aunque sus números todavía podrían cambiar antes del lanzamiento con Season 5. Las primeras partidas servirán para medir cuánto puede arriesgar Doctrine y qué uso de Imbuir resulta más consistente.
+                La prueba temporal permitió conocer el kit, pero no equivale a su disponibilidad permanente ni garantiza que los números de lanzamiento sean idénticos. Para preparar tus primeras partidas, identifica qué usos de Imbuir te permiten ayudar al equipo sin gastar la movilidad antes de necesitarla.
               </p>
               <Link href="/heroes/doctrine" style={{ color: 'var(--accent)', fontWeight: 700 }}>Ver la guía y el kit confirmado de Doctrine →</Link>
             </div>
@@ -309,15 +309,15 @@ export default function DoctrineBlizzConNewsPage() {
             <li>Canjéalo por una skin mítica de héroe dentro de la selección que ofrece el juego.</li>
           </ol>
           <p style={{ ...paragraphStyle, marginTop: 16 }}>
-            No lo dejes para el último momento: la pantalla confirma el requisito, pero no muestra una fecha límite. También conviene recordar que el vale permite elegir dentro de una selección; no promete acceso a cualquier mítica publicada hasta ahora.
+            El anuncio de Blizzard fija el 5 de octubre como límite tanto para obtener el vale como para canjearlo. La selección no incluye cualquier mítica publicada: comprueba las opciones elegibles antes de elegir.
           </p>
         </section>
 
         <section style={sectionStyle}>
           <div className="eyebrow">QUÉ HACER AHORA</div>
-          <h2 style={headingStyle}>Un plan sencillo para este fin de semana</h2>
+          <h2 style={headingStyle}>Qué preparar antes de Season 5</h2>
           <div style={cardGridStyle}>
-            <InfoCard title="Prueba Doctrine" body="Juega unas partidas centrado en el uso de Imbuir. Comprueba cuándo te compensa potenciar el disparo, los drones o la movilidad." />
+            <InfoCard title="Aprende el kit de Doctrine" body="Distingue las tres decisiones de Imbuir: potenciar el disparo, los drones o la movilidad. El trial ya terminó; no confundas esos vídeos con una prueba todavía disponible." />
             <InfoCard title="Consigue el vale" body="Completa una partida después de la ceremonia y comprueba el apartado de recompensas antes de elegir la mítica." />
             <InfoCard title="No borres a Sombra de tus planes" body="Su versión live sigue siendo DPS hasta que llegue el rework. Guarda las conclusiones nuevas para el parche correcto." />
             <InfoCard title="Espera al kit de Roadhog" body="El rework está confirmado, pero los counters solo deben cambiar cuando conozcamos las herramientas reales." />
@@ -341,7 +341,7 @@ export default function DoctrineBlizzConNewsPage() {
           <div className="eyebrow">ENLACES RELACIONADOS</div>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
             <a href="https://x.com/OWCavalry/status/2098836204599054663" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">VER GAMEPLAY</a>
-            <a href="https://www.polygon.com/overwatch-new-hero-54-doctrine-blizzcon-2026/" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">LEER EL ANUNCIO</a>
+            <a href="https://overwatch.blizzard.com/en-gb/news/24294376/" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">ANUNCIO DE BLIZZARD</a>
             <a href="https://x.com/OWCavalry/status/2098839072483545244" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">VER EL TEASER</a>
             <Link href="/news" className="btn btn-primary btn-sm">MÁS NOTICIAS</Link>
           </div>

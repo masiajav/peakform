@@ -1,9 +1,14 @@
 import { expect, test, type Page } from '@playwright/test'
+import { rankedHeroGuides } from '../../src/lib/ranked-hero-guides'
+import { hasCurrentStaticEditorialReview } from '../../src/lib/static-editorial-review'
 
 const PUBLIC_ROUTES = [
   '/',
   '/heroes',
   '/heroes/dmon',
+  '/heroes/doctrine',
+  '/doctrine-support-sombra-roadhog-rework-overwatch',
+  '/blizzcon-2026-overwatch-horarios-espana',
   '/overwatch-temporada-4-heroes-of-busan',
   '/dmon-nuevo-heroe-tank-overwatch',
   '/busan-eichenwalde-paraiso-reworks-overwatch',
@@ -15,6 +20,31 @@ const PUBLIC_ROUTES = [
   '/counters/genji',
   '/team-comps/genji',
   '/counters/kiriko',
+  '/counters/freja',
+  '/counters/pharah',
+  '/counters/lifeweaver',
+  '/counters/juno',
+  '/counters/baptiste',
+  '/counters/illari',
+  '/counters/lucio',
+  '/counters/mercy',
+  '/counters/orisa',
+  '/counters/ramattra',
+  '/counters/sigma',
+  '/counters/jetpack-cat',
+  '/counters/wuyang',
+  '/counters/zenyatta',
+  '/counters/junker-queen',
+  '/counters/mauga',
+  '/counters/hazard',
+  '/counters/junkrat',
+  '/counters/soldier-76',
+  '/counters/wrecking-ball',
+  '/counters/venture',
+  '/counters/vendetta',
+  '/counters/anran',
+  '/counters/mizuki',
+  '/counters/sombra',
   '/team-comps/kiriko',
   '/counters/reinhardt',
   '/team-comps/reinhardt',
@@ -51,16 +81,17 @@ const PUBLIC_ROUTES = [
   '/editorial-methodology',
 ]
 
+const RESTORED_TOPIC_ROUTES = ['/counters/genji', '/counters/kiriko', '/counters/freja', '/counters/pharah', '/counters/lifeweaver', '/counters/juno', '/counters/baptiste', '/counters/illari', '/counters/lucio', '/counters/mercy', '/counters/orisa', '/counters/ramattra', '/counters/sigma', '/counters/jetpack-cat', '/counters/wuyang', '/counters/zenyatta', '/counters/junker-queen', '/counters/mauga', '/counters/hazard', '/counters/junkrat', '/counters/soldier-76', '/counters/wrecking-ball', '/counters/venture', '/counters/vendetta', '/counters/anran', '/counters/mizuki', '/counters/sombra']
+
 for (const route of PUBLIC_ROUTES) {
   test(`${route} is a healthy public page`, async ({ page }) => {
     const errors: string[] = []
     page.on('console', message => {
-      if (message.type() === 'error' && !message.text().startsWith('Failed to load resource')) errors.push(message.text())
+      if (message.type() === 'error') errors.push(message.text())
     })
     page.on('pageerror', error => errors.push(error.message))
     page.on('response', response => {
-      const isLocalAnalytics = response.url().includes('/_vercel/insights/')
-      if (response.status() >= 400 && !isLocalAnalytics) errors.push(`${response.status()} ${response.url()}`)
+      if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`)
     })
 
     const response = await page.goto(route, { waitUntil: 'networkidle' })
@@ -93,6 +124,7 @@ for (const route of ['/guides/como-usar-ultimates-overwatch', '/guides/cuando-ca
     expect(articleText).not.toContain('Notas para Codex')
     expect(articleText).not.toContain('Keywords principales')
     await expect(page.locator('.ad-slot')).toHaveCount(0)
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/)
   })
 }
 
@@ -101,42 +133,63 @@ test('sitemap contains only the completed editorial batches', async ({ request }
   expect(response.status()).toBe(200)
   const xml = await response.text()
 
-  expect(xml).toContain('/counters/shion')
-  expect(xml).toContain('/team-comps/shion')
-  expect(xml).toContain('/guides/como-usar-ultimates-overwatch')
-  expect(xml).toContain('/counters/ana')
-  expect(xml).toContain('/team-comps/ana')
-  expect(xml).toContain('/counters/genji')
-  expect(xml).toContain('/team-comps/genji')
-  expect(xml).toContain('/counters/kiriko')
-  expect(xml).toContain('/team-comps/kiriko')
-  expect(xml).toContain('/counters/reinhardt')
-  expect(xml).toContain('/team-comps/reinhardt')
-  expect(xml).toContain('/counters/dva')
-  expect(xml).toContain('/team-comps/dva')
-  expect(xml).toContain('/counters/winston')
-  expect(xml).toContain('/team-comps/winston')
-  expect(xml).toContain('/counters/cassidy')
-  expect(xml).toContain('/team-comps/cassidy')
-  expect(xml).toContain('/counters/zarya')
-  expect(xml).toContain('/counters/tracer')
-  expect(xml).toContain('/counters/domina')
-  expect(xml).toContain('/team-comps/tracer')
-  expect(xml).toContain('/team-comps/zarya')
-  expect(xml).toContain('/guides/como-jugar-ana-ranked-overwatch')
-  expect(xml).toContain('/guides/como-jugar-kiriko-ranked-overwatch')
-  expect(xml).toContain('/guides/como-jugar-genji-ranked-overwatch')
-  expect(xml).toContain('/guides/como-jugar-cassidy-ranked-overwatch')
-  expect(xml).toContain('/guides/como-jugar-reinhardt-ranked-overwatch')
-  expect(xml).toContain('/guides/como-jugar-dva-ranked-overwatch')
-  expect(xml).toContain('/guides/como-jugar-winston-ranked-overwatch')
-  expect(xml).toContain('/guides/cuando-cambiar-de-heroe-overwatch')
+  // Legacy publication intent must not substitute for a version-bound review.
+  for (const slug of ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'zarya', 'tracer', 'domina']) {
+    if (['genji', 'kiriko'].includes(slug)) expect(xml).toContain(`/counters/${slug}</loc>`)
+    else expect(xml).not.toContain(`/counters/${slug}</loc>`)
+    if (['tracer', 'zarya'].includes(slug)) expect(xml).toContain(`/team-comps/${slug}</loc>`)
+    else expect(xml).not.toContain(`/team-comps/${slug}`)
+  }
+  for (const slug of ['freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'sombra']) {
+    expect(xml).toContain(`/counters/${slug}</loc>`)
+    expect(xml).toMatch(new RegExp(`/counters/${slug}</loc>\\s*<lastmod>2026-10-03T00:00:00\\.000Z</lastmod>`))
+  }
+  expect(xml).not.toContain('/guides/como-usar-ultimates-overwatch')
+  for (const guide of rankedHeroGuides) {
+    const path = `/guides/${guide.slug}`
+    if (hasCurrentStaticEditorialReview(path, guide)) expect(xml).toContain(`${path}</loc>`)
+    else expect(xml).not.toContain(`${path}</loc>`)
+  }
+  expect(xml).not.toContain('/guides/cuando-cambiar-de-heroe-overwatch')
   expect(xml).toContain('/overwatch-temporada-4-heroes-of-busan')
-  expect(xml).toContain('/heroes/dmon')
+  expect(xml).toContain('/heroes/ana</loc>')
+  expect(xml).toContain('/heroes/dmon</loc>')
+  expect(xml).toMatch(/\/heroes\/dmon<\/loc>\s*<lastmod>2026-10-04T00:00:00\.000Z<\/lastmod>/)
   expect(xml).toContain('/dmon-nuevo-heroe-tank-overwatch')
   expect(xml).not.toContain('tier-list-season-2-overwatch-mejores-heroes-rol')
-  expect(xml).not.toContain('/counters/mercy')
+  expect(xml).not.toContain('/counters/doctrine')
+  for (const slug of ['como-usar-ultimates-overwatch', 'como-mejorar-en-overwatch-revisando-vod', 'como-mejorar-como-tank-overwatch', 'cuando-cambiar-de-heroe-overwatch', 'como-revisar-cooldowns-overwatch', 'como-elegir-composicion-dive-poke-brawl']) {
+    expect(xml).not.toContain(`/guides/${slug}`)
+  }
 })
+
+for (const route of PUBLIC_ROUTES.filter(path => /^\/(?:counters|team-comps)\//.test(path))) {
+  test(`${route} stays readable and follows its individual version approval`, async ({ page, request }) => {
+    const response = await page.goto(route)
+    expect(response?.status()).toBe(200)
+    await expect(page.locator('h1')).toHaveCount(1)
+    await expect(page.locator('main')).toContainText('Replaid Lab')
+    const restored = RESTORED_TOPIC_ROUTES.includes(route) || ['/team-comps/tracer', '/team-comps/zarya'].includes(route)
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', restored ? 'index, follow' : 'noindex, follow')
+    await expect(page.locator('.ad-slot, ins.adsbygoogle, script[src*="adsbygoogle"]')).toHaveCount(0)
+    const sitemap = await (await request.get('/sitemap.xml')).text()
+    if (restored) expect(sitemap).toContain(`https://www.replaidlab.com${route}</loc>`)
+    else expect(sitemap).not.toContain(`https://www.replaidlab.com${route}</loc>`)
+  })
+}
+
+for (const slug of ['como-usar-ultimates-overwatch', 'como-mejorar-en-overwatch-revisando-vod', 'como-mejorar-como-tank-overwatch', 'cuando-cambiar-de-heroe-overwatch', 'como-revisar-cooldowns-overwatch', 'como-elegir-composicion-dive-poke-brawl']) {
+  test(`${slug} remains accessible in the guide hub while version approval is pending`, async ({ page, request }) => {
+    await page.goto('/guides', { waitUntil: 'networkidle' })
+    await expect(page.locator(`main a[href="/guides/${slug}"]`).first()).toBeVisible()
+    const response = await request.get(`/guides/${slug}`)
+    expect(response.status()).toBe(200)
+    const html = await response.text()
+    expect(html).toMatch(/name="robots" content="noindex, follow"/)
+    expect(html).not.toContain('__editorial_review_')
+    expect(html).not.toContain('ins class="adsbygoogle"')
+  })
+}
 
 for (const route of [
   '/counters/shion',

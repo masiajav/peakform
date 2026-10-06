@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { ANNOUNCEMENT_REVIEW_COLUMNS, GUIDE_REVIEW_COLUMNS } from '@/lib/editorial-review'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { announcementPath, ROLE_SLUGS } from '@/lib/content'
 import { COUNTER_HEROES } from '@/lib/overwatch-counters'
@@ -16,24 +17,34 @@ import {
   editorialTopicQualityDecision,
   isAnnouncementSitemapEligible,
   isGuideSitemapEligible,
+  topicQualityDecision,
+  rankedGuideQualityDecision,
 } from '@/lib/indexing-policy'
 import { absoluteUrl } from '@/lib/seo'
 import { getCounterPillar, getTeamCompPillar } from '@/lib/seo-clusters'
+import { getHeroPillar } from '@/lib/hero-pillars'
+import { getRankedHeroGuide } from '@/lib/ranked-hero-guides'
+import { TRUST_REVIEW_DATE } from '@/lib/site-operator'
 
 export const dynamic = 'force-dynamic'
 
 const STATIC_LAST_MODIFIED: Record<string, string> = {
+  '/heroes': '2026-10-04',
+  '/counters': '2026-10-03',
+  '/news': '2026-10-01',
+  '/privacy': TRUST_REVIEW_DATE,
+  '/legal': TRUST_REVIEW_DATE,
   '/guides/como-subir-de-rango-overwatch': '2026-08-29',
   '/guides/mejores-heroes-overwatch': '2026-08-29',
   '/guides/counters-overwatch-guia-completa': '2026-08-29',
   '/guides/composiciones-overwatch-5v5-6v6': '2026-08-29',
   '/guides/review-vod-overwatch-espanol': '2026-08-29',
-  '/blizzcon-2026-overwatch-horarios-espana': '2026-09-05',
-  '/doctrine-support-sombra-roadhog-rework-overwatch': '2026-09-13',
-  '/heroes/doctrine': '2026-09-13',
+  '/blizzcon-2026-overwatch-horarios-espana': '2026-10-01',
+  '/doctrine-support-sombra-roadhog-rework-overwatch': '2026-10-01',
+  '/heroes/doctrine': '2026-10-01',
   '/overwatch-temporada-4-heroes-of-busan': '2026-08-11',
   '/dmon-nuevo-heroe-tank-overwatch': '2026-08-11',
-  '/heroes/dmon': '2026-08-11',
+  '/heroes/dmon': '2026-10-01',
   '/busan-eichenwalde-paraiso-reworks-overwatch': '2026-08-11',
   '/overwatch-temporada-3-into-the-tigers-den': '2026-06-16',
   '/counters/shion': '2026-06-28',
@@ -54,13 +65,6 @@ const STATIC_LAST_MODIFIED: Record<string, string> = {
   '/team-comps/cassidy': '2026-07-01',
   '/team-comps/tracer': '2026-09-05',
   '/team-comps/zarya': '2026-09-05',
-  '/guides/como-jugar-ana-ranked-overwatch': '2026-09-05',
-  '/guides/como-jugar-kiriko-ranked-overwatch': '2026-09-05',
-  '/guides/como-jugar-genji-ranked-overwatch': '2026-09-05',
-  '/guides/como-jugar-cassidy-ranked-overwatch': '2026-09-05',
-  '/guides/como-jugar-reinhardt-ranked-overwatch': '2026-09-05',
-  '/guides/como-jugar-dva-ranked-overwatch': '2026-09-05',
-  '/guides/como-jugar-winston-ranked-overwatch': '2026-09-05',
   '/pick-lab': '2026-09-09',
   '/roles/tank': '2026-09-05',
   '/roles/dps': '2026-09-05',
@@ -121,16 +125,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/dmon-nuevo-heroe-tank-overwatch',
     '/busan-eichenwalde-paraiso-reworks-overwatch',
     '/overwatch-temporada-3-into-the-tigers-den',
-    ...[...STATIC_EDITORIAL_GUIDE_SLUGS, ...RANKED_EDITORIAL_GUIDE_SLUGS].map(slug => `/guides/${slug}`),
+    ...STATIC_EDITORIAL_GUIDE_SLUGS.map(slug => `/guides/${slug}`),
+    ...RANKED_EDITORIAL_GUIDE_SLUGS.filter(slug => rankedGuideQualityDecision(getRankedHeroGuide(slug)).indexable).map(slug => `/guides/${slug}`),
     ...TRUST_ROUTES,
     ...ROLE_SLUGS.map(role => `/roles/${role}`),
-    ...PILLAR_HERO_SLUGS.map(hero => `/heroes/${hero}`),
+    ...PILLAR_HERO_SLUGS.filter(hero => topicQualityDecision('hero', hero).indexable).map(hero => `/heroes/${hero}`),
     ...PILLAR_MAP_SLUGS.map(map => `/maps/${map}`),
     ...COUNTER_HEROES.filter(hero => PILLAR_COUNTER_SLUGS.includes(hero.slug) && editorialTopicQualityDecision('counter', hero.slug, getCounterPillar(hero.slug)).indexable).map(hero => `/counters/${hero.slug}`),
     ...TEAM_COMP_HEROES.filter(hero => PILLAR_TEAM_COMP_SLUGS.includes(hero.slug) && editorialTopicQualityDecision('team_comp', hero.slug, getTeamCompPillar(hero.slug)).indexable).map(hero => `/team-comps/${hero.slug}`),
   ].map(path => {
     const normalizedPath = path || '/'
-    const lastModified = STATIC_LAST_MODIFIED[normalizedPath] ?? MAP_LAST_MODIFIED[normalizedPath]
+    const counterSlug = normalizedPath.match(/^\/counters\/([^/]+)$/)?.[1]
+    const reviewedCounterDate = counterSlug ? getCounterPillar(counterSlug)?.schemaDate : undefined
+    const compositionSlug = normalizedPath.match(/^\/team-comps\/([^/]+)$/)?.[1]
+    const reviewedCompositionDate = compositionSlug ? getTeamCompPillar(compositionSlug)?.schemaDate : undefined
+    const heroSlug = normalizedPath.match(/^\/heroes\/([^/]+)$/)?.[1]
+    const reviewedHeroDate = heroSlug ? getHeroPillar(heroSlug)?.schemaDate : undefined
+    const guideSlug = normalizedPath.match(/^\/guides\/([^/]+)$/)?.[1]
+    const reviewedRankedDate = guideSlug ? getRankedHeroGuide(guideSlug)?.modifiedAt : undefined
+    const lastModified = reviewedRankedDate ?? reviewedHeroDate ?? reviewedCounterDate ?? reviewedCompositionDate ?? STATIC_LAST_MODIFIED[normalizedPath] ?? MAP_LAST_MODIFIED[normalizedPath]
     return {
       url: absoluteUrl(normalizedPath),
       ...(lastModified ? { lastModified: new Date(lastModified) } : {}),
@@ -141,13 +154,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const admin = createAdminClient()
   const [{ data: guides }, { data: announcements }, { data: experts }] = await Promise.all([
-    admin.from('guides').select('slug, title, excerpt, seo_description, body, category, content_type, map, updated_at, created_at').eq('published', true),
-    admin.from('announcements').select('slug, title, excerpt, seo_description, body, content_type, map, updated_at, created_at').eq('published', true),
+    admin.from('guides').select(GUIDE_REVIEW_COLUMNS).eq('published', true),
+    admin.from('announcements').select(ANNOUNCEMENT_REVIEW_COLUMNS).eq('published', true),
     admin.from('experts').select('id, slug, display_name, bio, specialties, avatar_url, peak_rank, main_role, status, tier_starter_enabled, tier_pro_enabled, tier_deep_dive_enabled, updated_at, created_at').eq('status', 'active'),
   ])
 
   const guideRoutes = (guides ?? [])
-    .filter((guide: any) => isGuideSitemapEligible(guide))
+    .filter((guide: any) => !getRankedHeroGuide(guide.slug) && isGuideSitemapEligible(guide))
     .map((guide: any) => ({
       url: absoluteUrl(`/guides/${guide.slug}`),
       lastModified: new Date(guide.updated_at || guide.created_at),

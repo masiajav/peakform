@@ -7,7 +7,7 @@ import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 
 const PAGE_PATH = '/blizzcon-2026-overwatch-horarios-espana'
 const PAGE_IMAGE = '/news/blizzcon-2026-overwatch-schedule.png'
-const UPDATED_AT = '12 de septiembre de 2026'
+const UPDATED_AT = '1 de octubre de 2026'
 
 type ScheduleItem = {
   day: string
@@ -35,7 +35,7 @@ const keySlots: ScheduleItem[] = [
     originalTime: '10:30 - 11:45 PDT',
     stage: 'Main Stage',
     priority: 'Alta',
-    whyItMatters: 'Es el bloque donde suelen caer los anuncios grandes. Si hay teaser fuerte de Overwatch, lo normal es que aparezca aquí primero.',
+    whyItMatters: 'Presentación de Doctrine y anuncios generales de Overwatch. Es el bloque de partida para repasar las novedades del evento.',
   },
   {
     day: 'Sábado 12 de septiembre',
@@ -44,7 +44,7 @@ const keySlots: ScheduleItem[] = [
     originalTime: '12:00 - 12:45 PDT',
     stage: 'Legends Stage',
     priority: 'Alta',
-    whyItMatters: 'El directo de desarrolladores es el slot más importante para contexto: dirección del juego, próximos cambios y lectura de temporada.',
+    whyItMatters: 'Conversación con los desarrolladores sobre la dirección del juego y los cambios presentados durante el evento.',
   },
   {
     day: 'Domingo 13 de septiembre',
@@ -53,7 +53,7 @@ const keySlots: ScheduleItem[] = [
     originalTime: '15:45 - 16:30 PDT',
     stage: 'Main Stage',
     priority: 'Alta',
-    whyItMatters: 'Este bloque apunta directamente al héroe. Si toca gameplay, kit, rol o filosofía de diseño, aquí saldrá lo más útil para guías y counters.',
+    whyItMatters: 'El panel dedicado al héroe: funcionamiento de sus habilidades y decisiones de diseño. Busca esta grabación si te interesa conocer el kit.',
   },
   {
     day: 'Domingo 13 de septiembre',
@@ -62,7 +62,7 @@ const keySlots: ScheduleItem[] = [
     originalTime: '18:15 - 19:00 PDT',
     stage: 'Overwatch World Cup Arena',
     priority: 'Media',
-    whyItMatters: 'Interesa si buscas skins, colaboraciones, identidad visual y pistas de eventos. Menos gameplay, pero mucho material para actualidad.',
+    whyItMatters: 'Panel sobre arte, skins y colaboraciones. Es una conversación distinta a las charlas de balance y gameplay.',
   },
   {
     day: 'Sábado 12 / madrugada del 13',
@@ -71,7 +71,7 @@ const keySlots: ScheduleItem[] = [
     originalTime: '12:00 - 18:00 PDT',
     stage: 'Overwatch World Cup Arena',
     priority: 'Media',
-    whyItMatters: 'No es un anuncio de contenido, pero sí puede mover mucho interés competitivo, picks meta y conversación sobre héroes fuertes.',
+    whyItMatters: 'Partidos de cuartos de final de la World Cup. Las composiciones permiten observar cómo coordinan los equipos profesionales, sin asumir que todo se traslada igual a ranked.',
   },
   {
     day: 'Domingo 13 de septiembre',
@@ -80,7 +80,7 @@ const keySlots: ScheduleItem[] = [
     originalTime: '12:00 PDT',
     stage: 'Día 2 de BlizzCon',
     priority: 'Media',
-    whyItMatters: 'Puede ser un bloque más ligero o de comunidad, pero merece seguimiento si conecta con narrativa, eventos o recompensas.',
+    whyItMatters: 'Sesión de rol de mesa con personajes de Overwatch. Un bloque de entretenimiento, separado del balance competitivo.',
   },
   {
     day: 'Lunes 14 de septiembre',
@@ -89,57 +89,57 @@ const keySlots: ScheduleItem[] = [
     originalTime: '15:00 PDT',
     stage: 'Día 2 de BlizzCon',
     priority: 'Alta',
-    whyItMatters: 'Si el segundo día trae otra ronda de detalles, este directo puede aclarar cambios que no entren en la ceremonia ni en el Hero Deep Dive.',
+    whyItMatters: 'Segundo directo con desarrolladores. Para revisar la agenda completa, ten en cuenta que en España este bloque pasó a la madrugada del lunes.',
   },
 ]
 
 const quickReads = [
   {
-    title: 'Empieza el sábado a las 19:30',
-    body: 'La ceremonia de apertura comienza el 12 de septiembre a las 19:30 en España peninsular. En Canarias será a las 18:30. El resto de horarios de esta página ya están convertidos.',
+    title: 'La apertura fue a las 19:30',
+    body: 'La ceremonia comenzó el 12 de septiembre a las 19:30 en España peninsular, 18:30 en Canarias. Esta página conserva el horario del evento, no una convocatoria futura.',
   },
   {
-    title: 'Los bloques que no conviene perderse',
-    body: 'El directo de desarrolladores empieza a las 21:00 y el Hero Deep Dive a las 00:45. La World Cup comparte horario con parte de la programación del sábado.',
+    title: 'Paneles y World Cup',
+    body: 'El primer directo de desarrolladores estaba programado a las 21:00 y el Hero Deep Dive a las 00:45. Parte de la World Cup coincidió con otros bloques del sábado.',
   },
   {
-    title: 'Dónde verlo gratis',
-    body: 'La ceremonia, los paneles principales y la World Cup se podrán seguir sin pagar en los canales oficiales de Overwatch y Overwatch Esports en YouTube y Twitch.',
+    title: 'Canales oficiales',
+    body: 'La emisión fue gratuita. Para buscar las grabaciones, utiliza Overwatch para los anuncios y Overwatch Esports para las competiciones.',
   },
 ]
 
 const watchPlan = [
-  'Mira la ceremonia de apertura si solo quieres los anuncios grandes.',
-  'Prioriza el directo de desarrolladores si buscas contexto real y no solo trailer.',
-  'Apunta el Hero Deep Dive: es el bloque más probable para sacar detalles de kit, rol, counters y composición.',
-  'Si te interesa competitivo, deja abierta la World Cup para ver qué picks aparecen en partidas serias.',
-  'Vuelve a las guías permanentes después de la noticia: lo importante no es solo saber qué sale, sino cómo jugarlo.',
+  'Busca la ceremonia de apertura para repasar los anuncios generales.',
+  'Elige el Hero Deep Dive si quieres entender las habilidades de Doctrine.',
+  'Los directos de desarrolladores aportan la conversación sobre cambios y diseño.',
+  'Para ver partidas, entra en Overwatch Esports y busca las eliminatorias de la World Cup.',
+  'Comprueba la fecha del vídeo: el kit del trial puede recibir ajustes antes del lanzamiento.',
 ]
 
 const faqs = [
   {
     question: '¿A qué hora empieza BlizzCon 2026 en España?',
-    answer: 'La ceremonia de apertura empieza el sábado 12 de septiembre a las 19:30 en horario peninsular español. En Canarias será a las 18:30.',
+    answer: 'La ceremonia de apertura fue el sábado 12 de septiembre a las 19:30 en horario peninsular español, 18:30 en Canarias. El evento ya terminó.',
   },
   {
     question: '¿Cuándo es el directo de desarrolladores de Overwatch?',
-    answer: 'El primer directo de desarrolladores de Overwatch está marcado para el sábado 12 de septiembre a las 21:00 en España peninsular.',
+    answer: 'El primer directo estaba programado para el sábado 12 de septiembre a las 21:00 en España peninsular. Conservamos aquí la agenda para consultar las grabaciones.',
   },
   {
     question: '¿Cuándo es el Hero Deep Dive de Overwatch?',
-    answer: 'El Hero Deep Dive cae en España ya de madrugada: domingo 13 de septiembre, de 00:45 a 01:30 en horario peninsular.',
+    answer: 'El Hero Deep Dive estaba programado para la madrugada del domingo 13 de septiembre, de 00:45 a 01:30 en horario peninsular.',
   },
   {
     question: '¿Dónde se puede ver Overwatch en la BlizzCon 2026?',
-    answer: 'Los anuncios y paneles se podrán seguir en los canales oficiales de Overwatch en YouTube y Twitch. La World Cup tendrá además cobertura en los canales de Overwatch Esports.',
+    answer: 'Los canales oficiales son Overwatch en YouTube y Twitch para anuncios y paneles, y Overwatch Esports para la World Cup. El directo terminó; busca las grabaciones disponibles en cada canal.',
   },
   {
     question: '¿Es gratis ver la BlizzCon 2026?',
-    answer: 'Sí. Blizzard emitirá gratis la ceremonia de apertura, los paneles principales y las competiciones seleccionadas en YouTube, Twitch y Battle.net.',
+    answer: 'La emisión de la ceremonia, los paneles principales y las competiciones seleccionadas fue gratuita en los canales oficiales.',
   },
   {
     question: '¿Cómo se consiguen los drops de Overwatch de la BlizzCon?',
-    answer: 'Además de los drops de la emisión, Blizzard regala un vale mítico por jugar una partida después de la ceremonia de apertura. Se puede canjear por una skin mítica de héroe dentro de una selección.',
+    answer: 'El vale mítico se obtiene jugando una partida y tiene plazo de obtención y canje hasta el 5 de octubre. Es distinto de las recompensas por ver emisiones: el directo de BlizzCon ya terminó.',
   },
   {
     question: '¿Qué horario uso si vivo en Canarias?',
@@ -157,7 +157,7 @@ export default function BlizzConOverwatchSchedulePage() {
     image: [absoluteUrl(PAGE_IMAGE)],
     url: pageUrl,
     datePublished: '2026-09-02',
-    dateModified: '2026-09-12',
+    dateModified: '2026-10-01',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -216,7 +216,7 @@ export default function BlizzConOverwatchSchedulePage() {
               BLIZZCON 2026: HORARIOS DE <span style={{ color: 'var(--accent)' }}>OVERWATCH</span> EN ESPAÑA
             </h1>
             <p style={leadStyle}>
-              BlizzCon 2026 se celebra el 12 y 13 de septiembre. La ceremonia de apertura empieza el sábado a las 19:30 en España peninsular y la emisión será gratuita. Aquí tienes la agenda de Overwatch ya convertida, con los canales donde verla y lo que se sabe de los drops.
+              BlizzCon 2026 se celebró el 12 y 13 de septiembre. La apertura comenzó a las 19:30 en España peninsular y la emisión fue gratuita. El evento ya terminó: conservamos sus horarios para consultar los paneles y buscar las grabaciones.
             </p>
             <p style={{ ...paragraphStyle, marginBottom: 18 }}>
               Todos los horarios de esta noticia están en CEST, hora peninsular española. En Canarias es una hora menos.
@@ -247,22 +247,22 @@ export default function BlizzConOverwatchSchedulePage() {
 
         <section style={{ ...sectionStyle, borderColor: 'rgba(255, 92, 42, 0.55)' }}>
           <div className="eyebrow" style={{ marginBottom: 10 }}>ANUNCIOS CONFIRMADOS</div>
-          <h2 style={headingStyle}>Doctrine ya se puede probar y Sombra será Support</h2>
+          <h2 style={headingStyle}>Doctrine fue presentado y Sombra será Support</h2>
           <p style={paragraphStyle}>
-            La ceremonia ya ha dejado las primeras noticias: <Link href="/heroes/doctrine" style={inlineLinkStyle}>Doctrine</Link> es el nuevo Support y su hero trial está activo. Blizzard también ha anunciado que Sombra pasará de DPS a Support y que Roadhog recibirá un rework.
+            La ceremonia presentó a <Link href="/heroes/doctrine" style={inlineLinkStyle}>Doctrine</Link> como nuevo Support. Su prueba temporal terminó el 14 de septiembre. Blizzard también anunció que Sombra pasará de DPS a Support y que Roadhog recibirá un rework.
           </p>
           <p style={paragraphStyle}>
             También hemos visto la silueta de otro héroe en desarrollo. Parece un ómnico y lleva un objeto similar a un paraguas o bastón, aunque su nombre, rol y habilidades siguen sin anunciarse.
           </p>
           <p style={{ ...paragraphStyle, marginBottom: 18 }}>
-            Hemos reunido el kit confirmado, el cambio de roles y el regalo mítico en una noticia separada para no mezclar la agenda con el análisis de gameplay.
+            Consulta el kit y las fechas en el resumen de anuncios; esta página mantiene la agenda original del evento.
           </p>
           <Link href="/doctrine-support-sombra-roadhog-rework-overwatch" className="btn btn-primary btn-sm">VER TODOS LOS ANUNCIOS</Link>
         </section>
 
         <section style={sectionStyle}>
           <div className="eyebrow" style={{ marginBottom: 10 }}>RESUMEN RÁPIDO</div>
-          <h2 style={headingStyle}>Lo importante antes de guardar la agenda</h2>
+          <h2 style={headingStyle}>Cómo leer los horarios del evento</h2>
           <div style={cardGridStyle}>
             {quickReads.map(item => (
               <InfoCard key={item.title} title={item.title} body={item.body} />
@@ -274,7 +274,7 @@ export default function BlizzConOverwatchSchedulePage() {
           <div className="eyebrow" style={{ marginBottom: 10 }}>HORARIO ESPAÑOL</div>
           <h2 style={headingStyle}>Agenda de Overwatch para BlizzCon 2026</h2>
           <p style={{ ...paragraphStyle, marginBottom: 18 }}>
-            La tabla está ordenada como se vivirá desde España. Por eso algunos eventos del sábado en Anaheim aparecen aquí ya como madrugada del domingo.
+            Los horarios están convertidos a España peninsular. Por eso algunos eventos del sábado en Anaheim aparecen aquí como madrugada del domingo. En Canarias, resta una hora.
           </p>
 
           <div style={{ display: 'grid', gap: 12 }}>
@@ -307,7 +307,7 @@ export default function BlizzConOverwatchSchedulePage() {
           <div className="eyebrow" style={{ marginBottom: 10 }}>EMISIÓN GRATUITA</div>
           <h2 style={headingStyle}>Dónde ver Overwatch en la BlizzCon 2026</h2>
           <p style={{ ...paragraphStyle, marginBottom: 18 }}>
-            Blizzard emitirá gratis la ceremonia de apertura, los paneles principales y las competiciones seleccionadas. Para los anuncios y las charlas de desarrollo, entra en los canales de Overwatch. Para seguir los partidos, utiliza los de Overwatch Esports.
+            La emisión fue gratuita. Para buscar los anuncios y las charlas de desarrollo, entra en los canales de Overwatch. Para las grabaciones de los partidos, utiliza los de Overwatch Esports. La disponibilidad de cada vídeo depende del canal.
           </p>
           <div style={cardGridStyle}>
             <article style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', padding: 16 }}>
@@ -334,10 +334,10 @@ export default function BlizzConOverwatchSchedulePage() {
           <h2 style={headingStyle}>Vale mítico gratis y drops de BlizzCon</h2>
           <div style={{ display: 'grid', gap: 14 }}>
             <p style={paragraphStyle}>
-              Blizzard ha confirmado recompensas de audiencia durante el fin de semana. Si vas a seguir la emisión desde casa, comprueba antes que tu cuenta de Battle.net esté conectada con Twitch o YouTube para que el tiempo de visualización pueda contar.
+              Las recompensas de audiencia correspondían a las emisiones del evento. No des por hecho que ver una grabación activa los mismos drops. Para futuras campañas, comprueba los requisitos y conecta Battle.net con la plataforma indicada.
             </p>
             <p style={paragraphStyle}>
-              Hay además un regalo que no depende de acumular horas de directo: juega una partida después de la ceremonia de apertura y recibirás un vale canjeable por una skin mítica de héroe dentro de la selección disponible.
+              El vale mítico es una promoción distinta: se obtiene jugando y se canjea por una opción elegible. Blizzard fija el 5 de octubre como plazo para obtenerlo y usarlo.
             </p>
           </div>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 18 }}>
@@ -347,7 +347,7 @@ export default function BlizzConOverwatchSchedulePage() {
 
         <section style={sectionStyle}>
           <div className="eyebrow" style={{ marginBottom: 10 }}>QUÉ VER</div>
-          <h2 style={headingStyle}>Plan recomendado para seguir Overwatch en BlizzCon</h2>
+          <h2 style={headingStyle}>Qué grabaciones buscar según lo que te interesa</h2>
           <div style={{ display: 'grid', gap: 10 }}>
             {watchPlan.map(item => (
               <div key={item} style={{ display: 'grid', gridTemplateColumns: '22px minmax(0, 1fr)', gap: 10, alignItems: 'start', color: 'var(--text2)', fontSize: 14, lineHeight: 1.65 }}>
@@ -364,7 +364,7 @@ export default function BlizzConOverwatchSchedulePage() {
           <div style={cardGridStyle}>
             <InfoCard
               title="Ya está confirmado"
-              body="Doctrine es el nuevo Support y ya tiene hero trial. Sombra pasará a Support, Roadhog recibirá un rework y jugar una partida después de la ceremonia entrega un vale para una skin mítica."
+              body="Doctrine fue presentado como nuevo Support y su prueba temporal ya terminó. Sombra pasará a Support y Roadhog recibirá un rework. El resumen de anuncios recoge también las condiciones del vale mítico."
             />
             <InfoCard
               title="Lo siguiente"
