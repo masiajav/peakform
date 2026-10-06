@@ -353,6 +353,13 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/content-review-hero-dmon-2026-10-04.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/team-comps/ana': {
+    path: '/team-comps/ana',
+    version: '8b72d504f8b6ec22e3d515e503700418bccfba996a67f85f7de11f87c20d854a',
+    reviewedAt: '2026-10-06', reviewer: 'Codex',
+    evidence: 'docs/content-review-comp-ana-2026-10-06.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/tracer': {
     path: '/team-comps/tracer',
     version: 'bacbd9b6195cb55af8916afa6dd0dcbf163fb11796e3af88b5eb9d53a2f7b31b',

@@ -64,7 +64,7 @@ export default function TeamCompPillarPage({ pillar }: TeamCompPillarPageProps) 
             <div className="seo-pillar-meta">
               <span>Por Replaid Lab</span>
               <span>Actualizado: <time dateTime={pillar.schemaDate}>{pillar.updatedAt}</time></span>
-              <span>Parche revisado: {pillar.reviewedPatch}</span>
+              {pillar.reviewedPatch && <span>Parche revisado: {pillar.reviewedPatch}</span>}
               <Link href="/contact" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Comunicar una corrección</Link>
             </div>
           </div>
