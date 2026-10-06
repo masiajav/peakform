@@ -5,13 +5,16 @@ import JsonLd from './JsonLd'
 import SeoFaq from './SeoFaq'
 import type { EvergreenGuide } from '@/lib/evergreen-guides'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
+import { hasCurrentStaticEditorialReview } from '@/lib/static-editorial-review'
 
 type EvergreenGuideArticleProps = {
   guide: EvergreenGuide
 }
 
 export default function EvergreenGuideArticle({ guide }: EvergreenGuideArticleProps) {
-  const pageUrl = absoluteUrl(`/guides/${guide.slug}`)
+  const pagePath = `/guides/${guide.slug}`
+  const pageUrl = absoluteUrl(pagePath)
+  const allowAds = hasCurrentStaticEditorialReview(pagePath, guide)
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -67,7 +70,7 @@ export default function EvergreenGuideArticle({ guide }: EvergreenGuideArticlePr
           <p>{guide.quickAnswer}</p>
         </section>
 
-        <AdSlot variant="inline" slot="guide-after-summary" allowAds />
+        <AdSlot variant="inline" slot="guide-after-summary" allowAds={allowAds} />
 
         <article className="guide-body">
           {guide.sections.map(section => (
