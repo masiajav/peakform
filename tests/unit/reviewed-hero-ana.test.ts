@@ -36,6 +36,6 @@ describe('individual Ana hero article', () => {
   })
 
   it('publishes only individually reviewed hero revisions, keeping other public heroes pending', () => {
-    for (const slug of PUBLIC_HERO_PAGE_SLUGS) expect(topicQualityDecision('hero', slug), slug).toMatchObject({ indexable: ['ana', 'kiriko', 'genji', 'reinhardt', 'dva', 'winston', 'cassidy', 'tracer', 'zarya', 'shion', 'dmon'].includes(slug), adsAllowed: false })
+    for (const slug of PUBLIC_HERO_PAGE_SLUGS) expect(topicQualityDecision('hero', slug), slug).toMatchObject({ indexable: ['ana', 'kiriko', 'genji', 'reinhardt', 'dva', 'winston', 'cassidy', 'tracer', 'zarya', 'shion', 'dmon', 'doctrine'].includes(slug), adsAllowed: false })
   })
 })

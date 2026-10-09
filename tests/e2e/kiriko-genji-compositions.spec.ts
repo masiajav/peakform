@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 import { getTeamCompPillar } from '../../src/lib/seo-clusters'
 
-for (const slug of ['kiriko', 'genji']) {
+for (const slug of ['kiriko', 'genji', 'reinhardt']) {
   test(`${slug} composition renders decisions, matching schema and safe navigation without ads`, async ({ page, request }) => {
     const errors: string[] = []
     page.on('pageerror', error => errors.push(error.message))
@@ -28,20 +28,21 @@ for (const slug of ['kiriko', 'genji']) {
       await expect(page.getByText(faq.answer, { exact: true })).toBeVisible()
     }
     const schemas = (await page.locator('script[type="application/ld+json"]').allTextContents()).flatMap(block => JSON.parse(block))
-    expect(schemas.find(schema => schema['@type'] === 'Article')).toMatchObject({ dateModified: '2026-10-06', headline: article.h1 })
+    expect(schemas.find(schema => schema['@type'] === 'Article')).toMatchObject({ dateModified: slug === 'reinhardt' ? '2026-10-09' : '2026-10-06', headline: article.h1 })
     expect(schemas.find(schema => schema['@type'] === 'Article')).not.toHaveProperty('datePublished')
     expect(schemas.find(schema => schema['@type'] === 'FAQPage').mainEntity).toEqual(article.faqs.map(faq => ({
       '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer },
     })))
     const xml = await (await request.get('/sitemap.xml')).text()
-    expect(xml).toMatch(new RegExp(`/team-comps/${slug}</loc>\\s*<lastmod>2026-10-06T00:00:00\\.000Z</lastmod>`))
+    expect(xml).toMatch(new RegExp(`/team-comps/${slug}</loc>\\s*<lastmod>${slug === 'reinhardt' ? '2026-10-09' : '2026-10-06'}T00:00:00\\.000Z</lastmod>`))
     for (const link of article.links) expect((await request.get(link.href)).status(), link.href).toBe(200)
     await expect.poll(() => page.locator('main img').evaluateAll(images => images.every(image =>
       (image as HTMLImageElement).complete && (image as HTMLImageElement).naturalWidth > 0))).toBe(true)
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
     await expect(page.locator('ins.adsbygoogle, script[src*="pagead"], .ad-slot-placeholder')).toHaveCount(0)
     await page.screenshot({ path: `reports/kiriko-genji-compositions/${slug}-${test.info().project.name}.png`, fullPage: true })
-    const map = slug === 'kiriko' ? { label: 'Alturas y rutas de Dorado', path: 'dorado', name: 'Dorado' }
+    const map = slug === 'reinhardt' ? { label: 'Rutas y esquinas de King’s Row', path: 'kings-row', name: "King's Row" }
+      : slug === 'kiriko' ? { label: 'Alturas y rutas de Dorado', path: 'dorado', name: 'Dorado' }
       : { label: 'Entradas y alturas de Numbani', path: 'numbani', name: 'Numbani' }
     await page.getByRole('link', { name: map.label, exact: true }).click()
     await expect(page).toHaveURL(new RegExp(`/maps/${map.path}$`))

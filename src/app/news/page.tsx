@@ -13,9 +13,9 @@ import { ANNOUNCEMENT_REVIEW_COLUMNS } from '@/lib/editorial-review'
 const featuredNews = [
   {
     href: '/doctrine-support-sombra-roadhog-rework-overwatch',
-    title: 'Doctrine llega a Overwatch: Sombra será Support y Roadhog tendrá rework',
-    date: '12 de septiembre de 2026',
-    description: 'El trial de Doctrine ya terminó. Su lanzamiento está anunciado para el 6 de octubre, junto a los reworks de Sombra y Roadhog. El vale mítico tiene plazo hasta el 5.',
+    title: 'Overwatch Season 5: Doctrine, Sombra Support y novedades',
+    date: 'Actualizado el 9 de octubre de 2026',
+    description: 'A Grim Doctrine ya está disponible: nuevo Support, reworks de Sombra y Roadhog, Grímsvötn, Halloween y pases recuperados. Qué cambia respecto a la prueba de septiembre.',
   },
   {
     href: '/blizzcon-2026-overwatch-horarios-espana',
@@ -128,15 +128,15 @@ export default async function NewsPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 18 }}>
             <div>
               <strong style={{ color: 'var(--text)', fontSize: 14 }}>Temporadas y héroes</strong>
-              <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65, margin: '7px 0 0' }}>Doctrine se estrenará con Season 5 el 6 de octubre. Su prueba de septiembre ya terminó. D.Mon y Shion, de las temporadas anteriores, siguen disponibles.</p>
+              <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65, margin: '7px 0 0' }}>Season 5 empezó el 6 de octubre: Doctrine ya forma parte del roster y Sombra es Support. D.Mon y Shion siguen disponibles. Los vídeos del trial de Doctrine no reflejan todos los ajustes de lanzamiento.</p>
             </div>
             <div>
               <strong style={{ color: 'var(--text)', fontSize: 14 }}>Mapas y balance</strong>
-              <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65, margin: '7px 0 0' }}>Busan, Eichenwalde y Paraíso cambiaron con Season 4. Si vuelves al juego después de un tiempo, revisa sus rutas y alturas antes de repetir las posiciones de la versión anterior.</p>
+              <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65, margin: '7px 0 0' }}>Grímsvötn es la nueva Escolta y Roadhog ya tiene su rework. Si vuelves al juego, revisa también los cambios de Busan, Eichenwalde y Paraíso de Season 4 antes de repetir posiciones antiguas.</p>
             </div>
             <div>
               <strong style={{ color: 'var(--text)', fontSize: 14 }}>Eventos y directos</strong>
-              <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65, margin: '7px 0 0' }}>BlizzCon se celebró el 12 y 13 de septiembre. El vale mítico anunciado durante el evento tiene plazo hasta el 5 de octubre: debes conseguirlo y canjearlo antes de que termine.</p>
+              <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.65, margin: '7px 0 0' }}>Halloween está activo hasta el 2 de noviembre y Shadow Monarch, hasta el 19 de octubre. El plazo del vale mítico de BlizzCon terminó el 5 de octubre; ya no es una promoción que puedas reclamar ahora.</p>
             </div>
           </div>
         </section>

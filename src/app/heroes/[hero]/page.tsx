@@ -498,7 +498,7 @@ function buildHeroQuickAnswers(pillar: HeroPillar) {
       },
       {
         title: 'Estado del héroe',
-        body: 'El hero trial empezó el 12 de septiembre y el lanzamiento completo llegará con Season 5. Su kit gira alrededor de Cetro eterno, Imbuir, Impulso velado, Drones vigorizantes y Liberación.',
+        body: 'Doctrine ya está disponible desde el 6 de octubre de 2026 con Season 5. Su kit gira alrededor de Cetro eterno, Imbuir, Impulso velado, Drones vigorizantes y Liberación; los ajustes del lanzamiento cambian varios valores del trial.',
       },
     ]
   }

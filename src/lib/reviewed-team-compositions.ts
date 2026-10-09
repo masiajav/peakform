@@ -196,13 +196,13 @@ export const reviewedTeamCompositions: Record<string, TeamCompPillar> = {
   roadhog: {
     slug: 'roadhog', name: 'Roadhog',
     updatedAt: '2 de octubre de 2026', schemaDate: '2026-10-02',
-    reviewedPatch: 'Previo a Season 5; pendiente del rework anunciado',
+    reviewedPatch: 'Archivo del kit anterior al rework del 6 de octubre de 2026',
     seoTitle: 'Composiciones con Roadhog: seguimiento del hook y juego de esquina',
     seoDescription: 'Coordina el hook de Roadhog con daño aliado, recupera cobertura y prepara Whole Hog. Propuestas 5v5 y 6v6 previas al rework anunciado para Season 5.',
     h1: 'Composiciones con Roadhog: que el hook tenga seguimiento',
     intro: [
       'Un hook conectado no garantiza una baja. Roadhog necesita traer al objetivo hasta una posición donde sus compañeros puedan disparar y donde él aún reciba ayuda. Antes de asomarte, mira la munición del DPS, las defensas del enemigo y la esquina a la que volverás si el intento falla. El equipo no debería quedarse esperando un pick mientras pierde el control del resto del mapa.',
-      'Estas propuestas están revisadas el 2 de octubre de 2026 para el juego anterior a Season 5. El rework de Roadhog está anunciado para el 6 de octubre; no damos por activas sus mecánicas nuevas ni prometemos combos o valores de daño para esa versión. Trabajamos seguimiento de Chain Hook, gestión de exposición y uso de Whole Hog para disputar una ruta.',
+      'Estas propuestas se revisaron el 2 de octubre de 2026, antes de Season 5. Roadhog recibió su rework el 6 de octubre: el nuevo disparo en dos ráfagas y Trash Compactor no forman parte del análisis de abajo. Conservamos los ejemplos como archivo; para el kit actual, consulta las novedades de la temporada antes de copiar un combo antiguo.',
     ],
     summary: ['El objetivo del hook debe quedar al alcance de un compañero.', 'Prepara una esquina a la que volver si fallas.', 'Breather no sustituye la cobertura ni limpia antiheal.', 'El equipo necesita avanzar también cuando no consigue el pick.', 'Estas lineups no describen el rework pendiente de Season 5.'],
     compositions: [
@@ -251,7 +251,7 @@ export const reviewedTeamCompositions: Record<string, TeamCompPillar> = {
     ],
     checklist: ['El objetivo del hook quedará en un tiro aliado.', 'Los compañeros tienen munición y están en esta pelea.', 'Tengo una esquina a la que volver si falla.', 'No espero que Breather limpie anticuración.', 'Estoy usando el kit live, no adelantando el rework de Season 5.'],
     faqs: [
-      { question: '¿Estas composiciones ya incluyen el rework de Season 5?', answer: 'No. La revisión es del 2 de octubre de 2026 y el rework está anunciado para el 6 de octubre. Las propuestas se centran en decisiones anteriores al cambio, sin asumir habilidades nuevas o combos de lanzamiento. Después habrá que contrastarlas con el kit realmente disponible.' },
+      { question: '¿Estas composiciones ya incluyen el rework de Season 5?', answer: 'No. Son ejemplos del kit anterior, revisados el 2 de octubre de 2026. El rework llegó el 6 de octubre con el disparo en dos ráfagas y Trash Compactor. No uses estas propuestas como prueba de los combos o el balance de la versión actual.' },
       { question: '¿Un hook conectado garantiza eliminar al objetivo?', answer: 'No. La vida restante, las defensas, la ayuda rival y el seguimiento aliado cambian el resultado. Antes de asomarte, confirma qué compañero puede disparar al objetivo que vas a traer. Si el intento falla, vuelve a cobertura en lugar de comprometer también toda la curación.' },
       { question: '¿Take a Breather limpia la anticuración?', answer: 'No. No prepares la recuperación como si ese efecto desapareciera al usar Breather. Reduce la exposición, vuelve a cobertura y comunica la amenaza a los supports. Una habilidad de limpieza disponible puede ayudar, pero no convierte cualquier posición abierta en un lugar donde aguantar sin límite.' },
     ],
@@ -540,12 +540,12 @@ export const reviewedTeamCompositions: Record<string, TeamCompPillar> = {
   sombra: {
     slug: 'sombra', name: 'Sombra',
     updatedAt: '2 de octubre de 2026', schemaDate: '2026-10-02',
-    reviewedPatch: 'Versión DPS anterior a Season 5; pendiente del rework de Support',
+    reviewedPatch: 'Archivo de la versión DPS anterior al 6 de octubre de 2026',
     seoTitle: 'Composiciones con Sombra DPS: Hack, dive y EMP',
     seoDescription: 'Coordina la Sombra DPS con el dive, protege tu salida y prepara seguimiento para EMP. Equipos 5v5 y 6v6 anteriores al rework de Support de Season 5.',
     h1: 'Composiciones con Sombra DPS: que el equipo llegue cuando tú atacas',
     intro: [
-      'Esta revisión corresponde a Sombra DPS, el rol disponible el 2 de octubre de 2026. Blizzard ha anunciado su paso a Support con Season 5, cuyo inicio es el 6 de octubre. Los equipos de abajo no describen ese rework: ocupan un slot de DPS y parten de Hack, Virus, Translocator y EMP en la versión actual.',
+      'Este archivo corresponde a Sombra DPS, el rol disponible el 2 de octubre de 2026. Desde el 6 de octubre, Sombra es Support. Los equipos de abajo conservan un slot de DPS y el antiguo kit de Hack y Virus: no los copies para una partida de Season 5. En la noticia de la temporada encontrarás Hotfix, Cyberspace y los cambios del rework.',
       'Llegar a la espalda de un Support no significa que el dive esté preparado. Si Winston sigue detrás de una pared y Tracer aún busca su entrada, Sombra puede gastar la sorpresa sin crear una baja. Confirma el momento de contacto y reserva una salida hacia cobertura. Hack interesa cuando limita una respuesta concreta que tus compañeros pueden aprovechar; si retrasa los disparos o se interrumpe, no es siempre la mejor apertura.',
     ],
     summary: ['Estas propuestas usan la Sombra DPS previa al rework de Season 5.', 'La llegada aliada importa más que empezar el ataque desde detrás.', 'Hack debe quitar una respuesta útil, no retrasar siempre los disparos.', 'Translocator necesita un destino que no abra otra exposición.', 'EMP necesita aliados preparados para continuar la pelea.'],
@@ -595,7 +595,7 @@ export const reviewedTeamCompositions: Record<string, TeamCompPillar> = {
     ],
     checklist: ['La propuesta corresponde a Sombra DPS, no al rework anunciado.', 'Tank y DPS estarán listos cuando empiece el ataque.', 'Hack tiene una respuesta rival concreta que limitar.', 'Translocator conserva una vuelta con cobertura.', 'EMP no espera seguimiento de aliados fuera del combate.'],
     faqs: [
-      { question: '¿Estas composiciones sirven para Sombra Support?', answer: 'No. Están revisadas el 2 de octubre de 2026 para su versión DPS. El cambio a Support está anunciado para Season 5, que empieza el 6 de octubre. La nueva composición debe partir del kit y las reglas disponibles tras ese rework, no de mover estas listas a otro rol.' },
+      { question: '¿Estas composiciones sirven para Sombra Support?', answer: 'No. Son un archivo revisado el 2 de octubre de 2026 para la versión DPS. Sombra pasó a Support el 6 de octubre. Hotfix y Cyberspace cambian su función; no basta con mover estas listas a otro rol para conseguir un equipo válido.' },
       { question: '¿Hack se puede usar siempre sin salir de invisibilidad?', answer: 'No lo presupongas. Encrypted Upload es el perk que permite usar Hack estando invisible. Además, el daño puede interrumpir el intento; prepara el ataque según los recursos realmente elegidos y la presión que haya sobre Sombra.' },
       { question: '¿EMP garantiza una baja si alcanza a varios enemigos?', answer: 'No. Los aliados necesitan acceso y daño disponible durante la oportunidad. Un objetivo visible para Ashe o alcanzable para Winston puede ser más útil que varios enemigos al otro lado de una estructura, donde el equipo no puede continuar.' },
     ],
@@ -603,7 +603,7 @@ export const reviewedTeamCompositions: Record<string, TeamCompPillar> = {
       { href: '/guides/sombra-guia-video-overwatch', label: 'Hack, salida y timing de la Sombra DPS' },
       { href: '/heroes/winston', label: 'Confirmar el aterrizaje antes del dive' },
       { href: '/maps/numbani', label: 'Accesos y visión entre alturas en Numbani' },
-      { href: '/doctrine-support-sombra-roadhog-rework-overwatch', label: 'Qué está anunciado para el rework de Season 5' },
+      { href: '/doctrine-support-sombra-roadhog-rework-overwatch', label: 'El kit actual de Sombra Support en Season 5' },
       { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Revisar la defensa rival y el seguimiento disponible' },
     ],
   },
@@ -1792,12 +1792,12 @@ export const reviewedTeamCompositions: Record<string, TeamCompPillar> = {
   doctrine: {
     slug: 'doctrine', name: 'Doctrine',
     updatedAt: '2 de octubre de 2026', schemaDate: '2026-10-02',
-    reviewedPatch: 'Kit mostrado en el trial; pendiente del balance de lanzamiento',
+    reviewedPatch: 'Archivo del trial de septiembre, anterior a los ajustes del lanzamiento',
     seoTitle: 'Composiciones para Doctrine: drones, Imbuir y apoyo al engage',
     seoDescription: 'Prepara un equipo para Doctrine según el kit mostrado: quién aprovecha los drones, cómo repartir la curación y qué revisar con el balance de lanzamiento.',
     h1: 'Composiciones para Doctrine: qué preparar antes de su estreno',
     intro: [
-      'Doctrine tiene su estreno anunciado para el 6 de octubre de 2026. La prueba del 12 al 14 de septiembre ya terminó. Estas propuestas parten del kit mostrado y no son una clasificación de los mejores equipos de Season 5: antes de llevarlas a ranked habrá que comprobar sus ajustes de lanzamiento.',
+      'Doctrine ya está disponible desde el 6 de octubre de 2026. La prueba del 12 al 14 de septiembre terminó y estas propuestas conservan aquel kit, anterior a los ajustes de lanzamiento. No son una clasificación de los mejores equipos de Season 5. Para los valores actuales de Impulso velado, los drones y Transfusión, consulta su ficha de héroe.',
       'La decisión principal es quién puede aprovechar los Drones vigorizantes sin alejarse de la curación del cetro. Potenciar al DPS que está recargando o enviar toda la ayuda a un Tank detrás de una pared puede dejar al resto sin respuesta. Imbuir añade otra elección: mejorar una acción ofensiva, recibir también los efectos de los drones o reservar una movilidad potenciada para salir.',
     ],
     summary: ['Los drones van a un aliado que pueda actuar durante su efecto.', 'La posición permite apuntar tanto al frente como al compañero en peligro.', 'Imbuir se reserva para una necesidad, no se gasta solo por estar disponible.', 'Estas propuestas necesitan revisión con el kit de lanzamiento.'],
@@ -1847,7 +1847,7 @@ export const reviewedTeamCompositions: Record<string, TeamCompPillar> = {
     ],
     checklist: ['El kit y la disponibilidad están comprobados en el modo actual.', 'El destinatario de los drones puede actuar ahora.', 'Imbuir no elimina la salida que necesitamos conservar.', 'Hay reparto de atención entre los supports.', 'Liberación coincide con una pelea todavía jugable.'],
     faqs: [
-      { question: '¿Ya se puede jugar Doctrine en ranked?', answer: 'A fecha de esta revisión, el estreno está anunciado para el 6 de octubre de 2026. El trial del 12 al 14 de septiembre terminó. Estas propuestas no implican que ya esté habilitado ni confirman las reglas de disponibilidad competitiva del lanzamiento.' },
+      { question: '¿Estas composiciones describen el Doctrine actual?', answer: 'No. Doctrine salió el 6 de octubre de 2026, pero estas propuestas corresponden al trial de septiembre. El lanzamiento ajustó Impulso velado, los drones, Transfusión y Liberación; consulta su ficha actual antes de trasladar estos ejemplos a una partida.' },
       { question: '¿A quién deberían ir los Drones vigorizantes?', answer: 'Al aliado que pueda aprovechar su curación y velocidad de ataque en ese momento. Mira su munición, objetivo y posición. No hace falta mantener el mismo beneficiario cuando la pelea cambia o está recargando.' },
       { question: '¿Hay una composición de Doctrine que ya sea la mejor?', answer: 'No hay base para afirmarlo con el balance de estreno pendiente. Las propuestas permiten organizar posiciones y tareas alrededor del kit mostrado; después habrá que comprobar qué intercambios puede sostener y qué ajustes ha recibido.' },
     ],

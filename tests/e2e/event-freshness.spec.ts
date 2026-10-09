@@ -5,7 +5,8 @@ for (const path of ['/', '/news', '/heroes', '/heroes/doctrine', '/doctrine-supp
     await page.goto(path, { waitUntil: 'networkidle' })
     const text = await page.locator('main').innerText()
     expect(text).not.toMatch(/ya se puede probar|ya tiene hero trial|hero trial (?:ya )?está activo|trial disponible desde|este fin de semana permite|no muestra una fecha límite/i)
-    expect(text).toMatch(/trial[^.]*termin[oó]|prueba temporal[^.]*termin[oó]/i)
+    if (path === '/blizzcon-2026-overwatch-horarios-espana') expect(text).toMatch(/trial[^.]*termin[oó]|prueba temporal[^.]*termin[oó]/i)
+    else expect(text).toMatch(/ya est[áa] disponible|Season 5|SEASON 5/i)
     await expect(page.locator('.ad-slot, ins.adsbygoogle')).toHaveCount(0)
     expect(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth)).toBe(false)
   })
@@ -18,7 +19,7 @@ test('the Doctrine announcement shows voucher limits, dates and matching structu
   await expect(page.locator('main')).toContainText('6 de octubre')
   await expect(page.locator('h1')).toHaveCount(1)
   const schemas = (await page.locator('script[type="application/ld+json"]').allTextContents()).map(text => JSON.parse(text))
-  expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'NewsArticle', datePublished: '2026-09-12', dateModified: '2026-10-01' }))
+  expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'NewsArticle', datePublished: '2026-09-12', dateModified: '2026-10-09' }))
   const faq = schemas.find(schema => schema['@type'] === 'FAQPage')
   for (const question of faq.mainEntity) {
     await expect(page.locator('main')).toContainText(question.name)
@@ -33,9 +34,9 @@ test('the Doctrine announcement shows voucher limits, dates and matching structu
     }))
   }, sitemap)
   for (const route of [path, '/blizzcon-2026-overwatch-horarios-espana']) {
-    expect(entries).toContainEqual({ loc: `https://www.replaidlab.com${route}`, lastmod: '2026-10-01T00:00:00.000Z' })
+    expect(entries).toContainEqual({ loc: `https://www.replaidlab.com${route}`, lastmod: `${route === path ? '2026-10-09' : '2026-10-01'}T00:00:00.000Z` })
   }
-  expect(entries.map(entry => entry.loc)).not.toContain('https://www.replaidlab.com/heroes/doctrine')
+  expect(entries).toContainEqual({ loc: 'https://www.replaidlab.com/heroes/doctrine', lastmod: '2026-10-09T00:00:00.000Z' })
   await page.screenshot({ path: `reports/event-freshness/doctrine-${test.info().project.name}.png` })
 })
 

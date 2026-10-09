@@ -155,11 +155,12 @@ function buildRecommendation(hero: CounterHero, template: TeamCompTemplate, form
   }
   const forcedRole = poolsByRole[hero.role]
 
-  const tanks = fillSlots(template.tanks, forcedRole === 'tanks' ? hero.name : null, tankSlots)
-  const dps = fillSlots(template.dps, forcedRole === 'dps' ? hero.name : null, dpsSlots)
-  const supports = fillSlots(template.supports, forcedRole === 'supports' ? hero.name : null, supportSlots)
+  const currentPool = (pool: string[], role: CounterRole) => pool.filter(name => TEAM_COMP_HEROES.some(candidate => candidate.name === name && candidate.role === role))
+  const tanks = fillSlots(currentPool(template.tanks, 'tank'), forcedRole === 'tanks' ? hero.name : null, tankSlots)
+  const dps = fillSlots(currentPool(template.dps, 'dps'), forcedRole === 'dps' ? hero.name : null, dpsSlots)
+  const supports = fillSlots(currentPool(template.supports, 'support'), forcedRole === 'supports' ? hero.name : null, supportSlots)
   const picked = new Set([...tanks, ...dps, ...supports])
-  const alternatives = [...template.tanks, ...template.dps, ...template.supports]
+  const alternatives = [...currentPool(template.tanks, 'tank'), ...currentPool(template.dps, 'dps'), ...currentPool(template.supports, 'support')]
     .filter(name => name !== hero.name && !picked.has(name))
     .slice(0, 5)
 

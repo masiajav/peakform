@@ -108,10 +108,10 @@ describe('indexing quality gates', () => {
   it('does not treat the legacy slug list as an editorial approval', () => {
     for (const slug of ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'zarya', 'tracer', 'domina']) {
       expect(topicQualityDecision('counter', slug)).toMatchObject({ indexable: ['genji', 'kiriko'].includes(slug), adsAllowed: false })
-      expect(topicQualityDecision('team_comp', slug)).toMatchObject({ indexable: ['ana', 'genji', 'kiriko', 'tracer', 'zarya'].includes(slug), adsAllowed: false })
+      expect(topicQualityDecision('team_comp', slug)).toMatchObject({ indexable: ['ana', 'genji', 'kiriko', 'reinhardt', 'tracer', 'zarya'].includes(slug), adsAllowed: false })
     }
     for (const slug of ['freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'sombra']) {
-      expect(topicQualityDecision('counter', slug)).toMatchObject({ indexable: true, adsAllowed: false })
+      expect(topicQualityDecision('counter', slug)).toMatchObject({ indexable: slug !== 'sombra', adsAllowed: false })
     }
     expect(topicQualityDecision('counter', 'doctrine').indexable).toBe(false)
   })

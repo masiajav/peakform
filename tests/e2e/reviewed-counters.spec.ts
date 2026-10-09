@@ -4,7 +4,7 @@ import { getCounterPillar } from '../../src/lib/seo-clusters'
 import { PILLAR_COUNTER_SLUGS } from '../../src/lib/public-topic-policy'
 
 // Independent expectations, not derived from the approval registry under test.
-const RESTORED_COUNTERS = ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'sombra']
+const RESTORED_COUNTERS = ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki']
 
 test('counter hub shows its actual catalogue without a blanket review claim', async ({ page, request }) => {
   const errors: string[] = []

@@ -32,12 +32,12 @@ const roleOrder: CounterRole[] = ['tank', 'dps', 'support']
 const heroBySlug = new Map(COUNTER_HEROES.map(hero => [hero.slug, hero]))
 const spotlightHeroes = pickHeroes(spotlightHeroSlugs)
 const seasonNews = [
-  { title: 'Doctrine', label: 'Nuevo Support', body: 'El trial terminó el 14 de septiembre. Su estreno con Season 5 está anunciado para el 6 de octubre.' },
-  { title: 'Sombra', label: 'Cambio de rol', body: 'El rework anunciado la mueve de DPS a Support y obliga a releer su utilidad, sus counters y sus comps.' },
-  { title: 'Roadhog', label: 'Rework', body: 'Recibirá un rework con Season 5, el 6 de octubre, junto al cambio de rol de Sombra.' },
-  { title: 'Vale mítico', label: 'Plazo: 5 de octubre', body: 'La promoción de BlizzCon tiene fecha límite para obtener y canjear el vale. Revisa la selección en la tienda del juego.' },
-  { title: 'Season 5', label: '6 de octubre', body: 'El lanzamiento anunciado incluye Doctrine, Watchpoint: Grímsvötn y los reworks de Sombra y Roadhog.' },
-  { title: 'Próximo héroe', label: 'Primer teaser', body: 'La silueta parece ómnica y lleva algo parecido a un paraguas. Todavía no hay nombre, rol ni kit confirmados.' },
+  { title: 'Doctrine', label: 'Ya disponible', body: 'El nuevo Support llega con ajustes respecto al trial. Repasa Imbuir, los drones y su movilidad antes de entrar en partida.' },
+  { title: 'Sombra', label: 'Ahora Support', body: 'Hotfix cura a un aliado y Cyberspace combina curación de área con debilitación del rival.' },
+  { title: 'Roadhog', label: 'Rework disponible', body: 'Su arma dispara en dos ráfagas y Trash Compactor absorbe proyectiles antes de devolver un disparo explosivo.' },
+  { title: 'Grímsvötn', label: 'Nuevo mapa', body: 'La nueva Escolta lleva la carga a una prisión islandesa ligada a Doctrine y Doomfist.' },
+  { title: 'Halloween', label: 'Hasta el 2 de noviembre', body: 'Mystery Madness: Graveyard Games añade poderes aleatorios y recompensas de evento.' },
+  { title: 'Unvaulted Passes', label: 'Pases antiguos', body: 'Puedes progresar un pase recuperado junto al actual. No incluye míticas, prismas ni monedas.' },
 ]
 
 export default async function RootPage() {
@@ -136,7 +136,7 @@ export default async function RootPage() {
               <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 12 }}>
                 <Link href="/heroes" className="btn btn-secondary btn-sm">VER HÉROES</Link>
                 <Link href="/blizzcon-2026-overwatch-horarios-espana" className="btn btn-secondary btn-sm">BLIZZCON</Link>
-                <Link href="/overwatch-temporada-4-heroes-of-busan" className="btn btn-secondary btn-sm">SEASON 4</Link>
+                <Link href="/doctrine-support-sombra-roadhog-rework-overwatch" className="btn btn-secondary btn-sm">SEASON 5</Link>
                 <Link href="/guides/como-mejorar-en-overwatch" className="btn btn-secondary btn-sm">EMPEZAR A MEJORAR</Link>
               </div>
             </div>
@@ -162,10 +162,10 @@ export default async function RootPage() {
                 <div>
                   <div className="eyebrow">ÚLTIMAS NOVEDADES</div>
                   <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(32px, 5vw, 48px)', letterSpacing: 1, lineHeight: 1, margin: '0 0 8px' }}>
-                    DOCTRINE, SOMBRA SUPPORT Y REWORK DE ROADHOG
+                    SEASON 5 YA DISPONIBLE: A GRIM DOCTRINE
                   </h2>
                   <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0, maxWidth: 760 }}>
-                    Doctrine llegará con Season 5, el 6 de octubre. Repasa su kit, los reworks anunciados y el plazo del vale mítico; el trial de septiembre ya terminó.
+                    La temporada arrancó el 6 de octubre. Doctrine, Sombra Support, el rework de Roadhog y Grímsvötn ya están en el juego; aquí tienes lo que cambia y las fechas de los eventos.
                   </p>
                 </div>
                 <span className="btn btn-primary btn-sm">VER TODO</span>

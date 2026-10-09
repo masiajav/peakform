@@ -40,7 +40,7 @@ describe('individual team composition revisions', () => {
     const hog = reviewedTeamCompositions.roadhog
     expect(hog.intro.join(' ')).toContain('2 de octubre de 2026')
     expect(hog.intro.join(' ')).toContain('6 de octubre')
-    expect(hog.reviewedPatch).toContain('pendiente del rework')
+    expect(hog.reviewedPatch).toContain('Archivo del kit anterior')
     expect(hog.faqs.find(faq => faq.question.includes('rework'))?.answer).toMatch(/^No\./)
     expect(hog.faqs.find(faq => faq.question.includes('anticuración'))?.answer).toMatch(/^No\./)
     expect(hog.summary).toContain('Breather no sustituye la cobertura ni limpia antiheal.')
@@ -72,7 +72,7 @@ describe('individual team composition revisions', () => {
     const sombra = reviewedTeamCompositions.sombra
     expect(sombra.intro.join(' ')).toContain('2 de octubre de 2026')
     expect(sombra.intro.join(' ')).toContain('6 de octubre')
-    expect(sombra.reviewedPatch).toContain('pendiente del rework')
+    expect(sombra.reviewedPatch).toContain('Archivo de la versión DPS')
     expect(sombra.faqs.find(faq => faq.question.includes('Support'))?.answer).toContain('No.')
   })
   it('does not promise experimental mines, default perk mobility or defensive cleanses', () => {
@@ -118,8 +118,8 @@ describe('individual team composition revisions', () => {
   it('does not present Doctrine trial proposals as a confirmed launch meta', () => {
     const doctrine = reviewedTeamCompositions.doctrine
     expect(doctrine.intro.join(' ')).toContain('6 de octubre de 2026')
-    expect(doctrine.intro.join(' ')).toContain('ya terminó')
-    expect(doctrine.reviewedPatch).toContain('pendiente del balance de lanzamiento')
+    expect(doctrine.intro.join(' ')).toContain('septiembre terminó')
+    expect(doctrine.reviewedPatch).toContain('Archivo del trial')
     expect(doctrine.compositions.find(comp => comp.format === '6v6')?.engagePlan).toContain('disponibilidad de Doctrine')
   })
   it('serves the reviewed article without promoting it into the sitemap', () => {
@@ -136,8 +136,9 @@ describe('individual team composition revisions', () => {
         expect(heroes.every(Boolean), comp.name).toBe(true)
         const roles = heroes.map(hero => hero!.role)
         expect(roles.filter(role => role === 'tank')).toHaveLength(comp.format === '5v5' ? 1 : 2)
-        expect(roles.filter(role => role === 'dps')).toHaveLength(2)
-        expect(roles.filter(role => role === 'support')).toHaveLength(2)
+        const archivedSombra = comp.lineup.includes('Sombra')
+        expect(roles.filter(role => role === 'dps')).toHaveLength(archivedSombra ? 1 : 2)
+        expect(roles.filter(role => role === 'support')).toHaveLength(archivedSombra ? 3 : 2)
         for (const field of ['winCondition', 'engagePlan', 'goodMaps', 'weakAgainst', 'substitutions'] as const) {
           expect(comp[field].split(/\s+/).length).toBeGreaterThan(20)
         }

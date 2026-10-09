@@ -5,6 +5,7 @@ import PublicNav from '@/components/layout/PublicNav'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
 import type { TeamCompPillar } from '@/lib/seo-clusters'
 import { safeTopicHref } from '@/lib/topic-links'
+import { COUNTER_HEROES } from '@/lib/overwatch-counters'
 import styles from './TeamCompPillarPage.module.css'
 
 type TeamCompPillarPageProps = {
@@ -13,6 +14,8 @@ type TeamCompPillarPageProps = {
 
 export default function TeamCompPillarPage({ pillar }: TeamCompPillarPageProps) {
   const pageUrl = absoluteUrl(`/team-comps/${pillar.slug}`)
+  const hasOldSombraLineup = pillar.compositions.some(comp => comp.lineup.includes('Sombra')
+    && comp.lineup.filter(name => COUNTER_HEROES.some(hero => hero.name === name && hero.role === 'support')).length !== 2)
   const jsonLd = [
     {
       '@context': 'https://schema.org',
@@ -86,7 +89,8 @@ export default function TeamCompPillarPage({ pillar }: TeamCompPillarPageProps) 
         </section>
 
         <section className="seo-pillar-section">
-          <div className="eyebrow">LINEUPS RECOMENDADOS</div>
+          {hasOldSombraLineup && <p className="seo-pillar-intro">Estas alineaciones conservan la versión DPS anterior al 6 de octubre. Sombra ya es Support: no copies un equipo que la coloque en un puesto de DPS. <Link href="/doctrine-support-sombra-roadhog-rework-overwatch">Consulta el kit actual de Season 5.</Link></p>}
+          <div className="eyebrow">{hasOldSombraLineup ? 'ALINEACIONES ANTERIORES A SEASON 5' : 'LINEUPS RECOMENDADOS'}</div>
           <h2>Tres formas de jugar alrededor de {pillar.name}</h2>
           <div className="seo-composition-list">
             {pillar.compositions.map(comp => (

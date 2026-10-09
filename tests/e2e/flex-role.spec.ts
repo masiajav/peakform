@@ -53,7 +53,7 @@ test('flex offers a specific guide, usable pools and matching metadata without a
 test('Doctrine explicitly labels trial options and hypothetical examples', async ({ page, request }) => {
   await page.goto('/counters/doctrine')
   await expect(page.getByRole('heading', { name: 'Qué puedes probar frente a Doctrine', exact: true })).toBeVisible()
-  await expect(page.locator('main')).toContainText('no partidas jugadas con la versión de lanzamiento')
+  await expect(page.locator('main')).toContainText('conserva el kit del trial de septiembre')
   await expect(page.locator('main')).toContainText('SITUACIONES PARA REVISAR')
   await expect(page.locator('main')).not.toContainText('EJEMPLOS DE RANKED')
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow')

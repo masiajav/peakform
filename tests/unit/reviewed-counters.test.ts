@@ -13,7 +13,7 @@ test('reviewed counters only restore individually approved publication candidate
     expect(article.threats).toHaveLength(['genji', 'kiriko'].includes(slug) ? 6 : 4)
     expect(article.examples).toHaveLength(3)
     expect(article.faqs).toHaveLength(3)
-    expect(editorialTopicQualityDecision('counter', slug, article)).toMatchObject({ indexable: ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'sombra'].includes(slug), adsAllowed: false })
+    expect(editorialTopicQualityDecision('counter', slug, article)).toMatchObject({ indexable: ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki'].includes(slug), adsAllowed: false })
     for (const threat of article.threats) {
       const normalizeName = (name: string) => name.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
       expect(normalizeName(getCounterHero(threat.href.slice('/heroes/'.length))?.name ?? '')).toBe(normalizeName(threat.name))
@@ -38,8 +38,8 @@ test('counter revisions have distinct arguments, examples and metadata', () => {
 test('Doctrine stays a trial-kit analysis, not a ranked counter tier', () => {
   const article = reviewedCounters.doctrine
   expect(article.analysisStatus).toBe('trial')
-  expect(article.intro.join(' ')).toContain('El trial de septiembre ya terminó')
-  expect(article.intro.join(' ')).toContain('no partidas jugadas con la versión de lanzamiento')
+  expect(article.intro.join(' ')).toContain('ya está disponible desde el 6 de octubre')
+  expect(article.intro.join(' ')).toContain('conserva el kit del trial')
   expect(JSON.stringify(article)).toContain('Transfusión es una opción major')
   expect(JSON.stringify(article)).toContain('Succión sanguinaria es un minor')
   expect(JSON.stringify(article)).toContain('Salvación es una opción minor')
@@ -60,7 +60,8 @@ test('Mizuki counters separate both return positions, sanctuary borders and alte
 
 test('Sombra counters use the DPS kit, completed hack distinction and current perk alternatives', () => {
   const article = JSON.stringify(reviewedCounters.sombra)
-  expect(article).toContain('No aplica estas respuestas al rework de Support anunciado')
+  expect(article).toContain('Sombra ya es Support desde el 6 de octubre')
+  expect(article).toContain('no describen a la Sombra de Season 5')
   expect(article).toContain('Si Hack ya se ha completado, tu daño no lo deshace')
   expect(article).toContain('Encrypted Upload es un perk minor opcional')
   expect(article).toContain('CTRL ALT ESC es un perk minor opcional')

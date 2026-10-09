@@ -3,6 +3,13 @@ import type { StaticEditorialReview } from './static-editorial-review'
 // Explicit, version-bound reviews. No build task may populate this registry
 // from slugs or automatically renew approval after an editorial change.
 export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialReview>> = {
+  '/team-comps/reinhardt': {
+    path: '/team-comps/reinhardt',
+    version: '8cf1f7b84f9a5172e4531c3757da766a327f346a9de8f1d6f6243fd6ccf9fb8d',
+    reviewedAt: '2026-10-09', reviewer: 'Codex',
+    evidence: 'docs/content-review-composition-reinhardt-2026-10-09.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/guides/como-jugar-ana-ranked-overwatch': {
     path: '/guides/como-jugar-ana-ranked-overwatch',
     version: '628887f1efc611feb27620923c96e4b1095c7d10dc0af9c699bbc9f57e241628',
@@ -54,9 +61,9 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
   },
   '/heroes/doctrine': {
     path: '/heroes/doctrine',
-    version: '4094fb4dbe3e3929642f65cf3833642ae2cc28a7e8ad72ea6fad337f6d85c505',
-    reviewedAt: '2026-10-04', reviewer: 'Codex',
-    evidence: 'docs/content-review-hero-doctrine-2026-10-04.md',
+    version: '166bbbf1414d3f7a4893c1620a74015fc0649b1ec226dbc56b21526c8797a379',
+    reviewedAt: '2026-10-09', reviewer: 'Codex',
+    evidence: 'docs/content-review-season-five-2026-10-09.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
   '/heroes/shion': {
@@ -101,13 +108,6 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/content-review-hero-kiriko-2026-10-03.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
-  '/counters/doctrine': {
-    path: '/counters/doctrine',
-    version: 'f47c74ba2d893a6eb5f2eb5df232001dfbd39941533ef148a61c5aade4083ce1',
-    reviewedAt: '2026-10-03', reviewer: 'Codex',
-    evidence: 'docs/content-review-doctrine-flex-2026-10-03.md',
-    checks: { specific: true, accurate: true, links: true, visual: true },
-  },
   '/roles/flex': {
     path: '/roles/flex',
     version: '7acd8531df8f814f0272e7206c8bac30ef08886d5ca3b98218c017743ab78d78',
@@ -118,13 +118,6 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
   '/counters/mizuki': {
     path: '/counters/mizuki',
     version: '83cd4aa05281582916f5b28025887b53b6a262f9f857a38fbd0e2e8e635c8277',
-    reviewedAt: '2026-10-03', reviewer: 'Codex',
-    evidence: 'docs/content-review-mizuki-sombra-2026-10-03.md',
-    checks: { specific: true, accurate: true, links: true, visual: true },
-  },
-  '/counters/sombra': {
-    path: '/counters/sombra',
-    version: 'e80acb53f38ae294ebd801ce7a221c8bebf88d39941bf8b0531e5aadf23e562f',
     reviewedAt: '2026-10-03', reviewer: 'Codex',
     evidence: 'docs/content-review-mizuki-sombra-2026-10-03.md',
     checks: { specific: true, accurate: true, links: true, visual: true },

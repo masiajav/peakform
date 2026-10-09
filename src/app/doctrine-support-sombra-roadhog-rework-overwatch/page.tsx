@@ -11,8 +11,8 @@ const DOCTRINE_IMAGE = '/heroes/doctrine.png'
 const MYTHIC_IMAGE = '/news/blizzcon-2026-mythic-voucher.png'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Doctrine Overwatch: habilidades, perks y BlizzCon',
-  description: 'Doctrine ya tiene kit: Cetro eterno, Imbuir, Drones vigorizantes y Liberación. Repasamos sus perks y los reworks de Sombra y Roadhog.',
+  title: 'Overwatch Season 5: Doctrine, Sombra Support y novedades',
+  description: 'Season 5 ya disponible: Doctrine, Sombra Support, rework de Roadhog, Grímsvötn, Halloween y Unvaulted Passes. Fechas y cambios para tus partidas.',
   path: PAGE_PATH,
   image: PAGE_IMAGE,
   type: 'article',
@@ -21,23 +21,23 @@ export const metadata: Metadata = buildMetadata({
 const quickFacts = [
   {
     title: 'Doctrine es Support',
-    body: 'Es el héroe 54 de Overwatch. Cura y hace daño con Cetro eterno y potencia habilidades con Imbuir. Su estreno está anunciado para el 6 de octubre.',
+    body: 'Está disponible desde el 6 de octubre. Mantiene Cetro eterno, Imbuir y los drones, con ajustes de lanzamiento respecto al trial.',
   },
   {
     title: 'Sombra cambia de rol',
-    body: 'El rework anunciado convierte a Sombra en Support. Su función, sus matchups y la forma de jugar alrededor de Hack tendrán que releerse desde cero.',
+    body: 'Ya es Support: cura con Hotfix y Cyberspace. Su antiguo Hack y Virus dejan de ser habilidades del kit normal.',
   },
   {
     title: 'Roadhog recibe rework',
-    body: 'Blizzard también ha confirmado una revisión importante de Roadhog, aunque todavía no ha enseñado el kit completo.',
+    body: 'El disparo llega en dos ráfagas. Trash Compactor absorbe proyectiles y devuelve un disparo explosivo.',
   },
   {
-    title: 'Vale mítico: hasta el 5 de octubre',
-    body: 'La promoción tiene un plazo para obtener y canjear el regalo. La elección se hace entre las míticas incluidas en la tienda del juego.',
+    title: 'Grímsvötn es Escolta',
+    body: 'La nueva carga recorre una prisión islandesa relacionada con Doctrine y Doomfist. No es un mapa de Control ni de Stadium.',
   },
   {
-    title: 'Hay otro héroe en camino',
-    body: 'Blizzard ha enseñado una nueva silueta. Parece un ómnico de estética detectivesca y lleva algo parecido a un paraguas, pero todavía no tiene nombre ni rol confirmados.',
+    title: 'Pases recuperados',
+    body: 'Unvaulted Passes permite avanzar un pase antiguo junto al actual, con una selección de recompensas que excluye míticas, monedas y prismas.',
   },
 ]
 
@@ -56,7 +56,7 @@ const doctrineAbilities = [
   },
   {
     title: 'Drones vigorizantes',
-    body: 'Envía drones a un aliado para curarlo y aumentar su velocidad de ataque. Con Imbuir, Doctrine también recibe el efecto.',
+    body: 'Envía drones a un aliado para curarlo y aumentar su velocidad de ataque. Con Imbuir, Doctrine también recibe el efecto. El bonus de velocidad de ataque del lanzamiento es del 30%, no el 35% del trial.',
   },
   {
     title: 'Liberación',
@@ -79,7 +79,7 @@ const doctrinePerks = [
   },
   {
     title: 'Major · Transfusión',
-    body: 'El daño y la curación reducen el cooldown de Imbuir, premiando una aportación constante durante la pelea.',
+    body: 'El daño y la curación reducen el cooldown de Imbuir. En el lanzamiento se ha reducido a la mitad la conversión de esa aportación respecto al trial.',
   },
   {
     title: 'Major · El precio de la vida',
@@ -94,7 +94,7 @@ const faqs = [
   },
   {
     question: '¿Cuándo se puede jugar Doctrine?',
-    answer: 'El trial fue del 12 al 14 de septiembre y ya terminó. El lanzamiento completo está anunciado para el 6 de octubre de 2026, con Season 5.',
+    answer: 'Doctrine está disponible desde el 6 de octubre de 2026, cuando comenzó Season 5: A Grim Doctrine. La prueba del 12 al 14 de septiembre fue un trial previo, no la versión de lanzamiento.',
   },
   {
     question: '¿Cuáles son las habilidades de Doctrine?',
@@ -110,15 +110,23 @@ const faqs = [
   },
   {
     question: '¿Sombra pasa a ser Support?',
-    answer: 'Sí. Blizzard ha anunciado un rework que mueve a Sombra al rol de Support. Hasta que la actualización llegue al juego, seguirá apareciendo como DPS porque ese es su rol en el parche actual.',
+    answer: 'Sí. Desde el parche del 6 de octubre, Sombra es Support. Hotfix cura a aliados y Cyberspace crea una zona que cura al equipo y debilita al rival.',
   },
   {
-    question: '¿Roadhog va a recibir un rework?',
-    answer: 'Sí. El rework de Roadhog está confirmado. Hasta que se publiquen todos los cambios, todavía no se puede valorar cómo afectará a su rendimiento ni a sus matchups.',
+    question: '¿Qué cambia en el rework de Roadhog?',
+    answer: 'Scrap Gun dispara en dos ráfagas por descarga y Trash Compactor absorbe proyectiles enemigos antes de devolver un disparo explosivo. También hay ajustes de Hook y Take a Breather; no conviene repetir el combo antiguo sin comprobar el nuevo timing.',
   },
   {
-    question: '¿Cómo consigo la skin mítica gratis de BlizzCon?',
-    answer: 'Juega una partida para recibir el vale y canjéalo en la tienda mítica por una opción elegible. El plazo para obtenerlo y usarlo termina el 5 de octubre.',
+    question: '¿Sigue disponible el vale mítico de BlizzCon?',
+    answer: 'No. El plazo anunciado para obtenerlo y canjearlo terminó el 5 de octubre de 2026. No lo confundas con las nuevas míticas ni con los Unvaulted Passes de Season 5.',
+  },
+  {
+    question: '¿Hasta cuándo dura el evento de Halloween?',
+    answer: 'Mystery Madness: Graveyard Games está anunciado del 6 de octubre al 2 de noviembre de 2026. Shadow Monarch tiene otro calendario: del 6 al 19 de octubre.',
+  },
+  {
+    question: '¿Los Unvaulted Passes incluyen las skins míticas antiguas?',
+    answer: 'No. Los pases recuperados excluyen skins míticas de héroe y arma, prismas míticos, Overwatch Coins, boosts de XP y títulos de prestigio. Revisa las recompensas elegibles del pase antes de comprarlo o activarlo.',
   },
   {
     question: '¿Quién es el nuevo héroe del paraguas?',
@@ -131,12 +139,12 @@ export default function DoctrineBlizzConNewsPage() {
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
-    headline: 'Doctrine llega a Overwatch: Sombra será Support y Roadhog tendrá rework',
-    description: 'Habilidades y perks de Doctrine junto a los anuncios de Overwatch en BlizzCon 2026: reworks de Sombra y Roadhog, vale mítico y nuevo teaser.',
+    headline: 'Overwatch Season 5: Doctrine, Sombra Support y novedades',
+    description: 'Season 5 ya disponible: Doctrine, Sombra Support, rework de Roadhog, Grímsvötn, Halloween y Unvaulted Passes. Fechas y cambios para tus partidas.',
     image: [absoluteUrl(PAGE_IMAGE), absoluteUrl(DOCTRINE_IMAGE), absoluteUrl(MYTHIC_IMAGE)],
     url: pageUrl,
     datePublished: '2026-09-12',
-    dateModified: '2026-10-01',
+    dateModified: '2026-10-09',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -147,7 +155,7 @@ export default function DoctrineBlizzConNewsPage() {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Noticias', item: absoluteUrl('/news') },
-      { '@type': 'ListItem', position: 2, name: 'Doctrine, Sombra y Roadhog en BlizzCon', item: pageUrl },
+      { '@type': 'ListItem', position: 2, name: 'Season 5: Doctrine, Sombra y Roadhog', item: pageUrl },
     ],
   }
   const faqJsonLd = {
@@ -171,20 +179,23 @@ export default function DoctrineBlizzConNewsPage() {
         <div style={{ marginBottom: 24, fontSize: 12, color: 'var(--text3)', display: 'flex', gap: 8, flexWrap: 'wrap' }}>
           <Link href="/news" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Noticias</Link>
           <span>/</span>
-          <span>BlizzCon 2026</span>
+          <span>Season 5: A Grim Doctrine</span>
         </div>
 
         <header style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(300px, 0.92fr)', gap: 28, alignItems: 'center', marginBottom: 28 }} className="home-hero-grid">
           <div>
-            <div className="eyebrow">BLIZZCON 2026 · REVISADO EL 1 DE OCTUBRE</div>
-            <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(42px, 7vw, 76px)', lineHeight: 0.96, letterSpacing: 1, margin: '0 0 18px' }}>
-              DOCTRINE LLEGA A OVERWATCH: <span style={{ color: 'var(--accent)' }}>SOMBRA SERÁ SUPPORT</span> Y ROADHOG TENDRÁ REWORK
+            <div className="eyebrow">SEASON 5 · A GRIM DOCTRINE</div>
+            <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 48, lineHeight: 1.05, letterSpacing: 0, margin: '0 0 18px', overflowWrap: 'break-word' }}>
+              Overwatch Season 5: <span style={{ color: 'var(--accent)' }}>Doctrine, Sombra Support</span> y novedades
             </h1>
+            <p style={{ color: 'var(--text3)', fontSize: 12, lineHeight: 1.65 }}>
+              Por Replaid Lab · Publicado: <time dateTime="2026-09-12">12 de septiembre de 2026</time> · Actualizado: <time dateTime="2026-10-09">9 de octubre de 2026</time>
+            </p>
             <p style={{ color: 'var(--text2)', fontSize: 17, lineHeight: 1.72, margin: '0 0 14px' }}>
-              Doctrine es el nuevo Support presentado en BlizzCon. Su trial de septiembre ya terminó y el estreno completo está anunciado para el 6 de octubre, con Season 5. La misma actualización traerá el paso de Sombra a Support y un nuevo rework de Roadhog.
+              Season 5: A Grim Doctrine empezó el 6 de octubre de 2026. Doctrine ya está disponible, Sombra es Support y Roadhog tiene su rework. La temporada también estrena Grímsvötn, un mapa de Escolta, y recupera pases de batalla antiguos con Unvaulted Passes.
             </p>
             <p style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.72, margin: '0 0 18px' }}>
-              El regalo mítico tiene plazo hasta el 5 de octubre. Blizzard también enseñó la silueta de otro héroe todavía sin nombre. Aquí puedes repasar los anuncios sin confundir la prueba temporal de Doctrine con su lanzamiento.
+              Si vuelves al juego, empieza por las herramientas que han cambiado, no por los combos de vídeos antiguos. Más abajo tienes los ajustes de Doctrine, los nuevos kits y las fechas de Halloween y de las colaboraciones. El vale mítico de BlizzCon ya caducó.
             </p>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
               <Link href="/heroes/doctrine" className="btn btn-primary btn-sm">GUÍA DE DOCTRINE</Link>
@@ -206,7 +217,7 @@ export default function DoctrineBlizzConNewsPage() {
 
         <section style={sectionStyle}>
           <div className="eyebrow">EN 30 SEGUNDOS</div>
-          <h2 style={headingStyle}>Todo lo que se ha anunciado</h2>
+          <h2 style={headingStyle}>Lo que ya está en el juego</h2>
           <div style={cardGridStyle}>
             {quickFacts.map(item => <InfoCard key={item.title} title={item.title} body={item.body} />)}
           </div>
@@ -236,7 +247,7 @@ export default function DoctrineBlizzConNewsPage() {
                 Sus drones curan y aumentan la velocidad de ataque de un aliado. Liberación, su definitiva, juega a una escala mayor: reduce la salud máxima del equipo rival y concede exceso de salud a los aliados. Es una ultimate pensada para inclinar la pelea, no para lanzarla cuando nadie puede aprovechar la ventaja.
               </p>
               <p style={{ margin: 0 }}>
-                La prueba temporal permitió conocer el kit, pero no equivale a su disponibilidad permanente ni garantiza que los números de lanzamiento sean idénticos. Para preparar tus primeras partidas, identifica qué usos de Imbuir te permiten ayudar al equipo sin gastar la movilidad antes de necesitarla.
+                El lanzamiento no mantiene todos los valores de septiembre. Antes de repetir una entrada del trial, comprueba qué movilidad conservas para salir y quién puede cubrir tu llegada. La reducción de daño ayuda a recolocarse, pero no convierte a Doctrine en invulnerable.
               </p>
               <Link href="/heroes/doctrine" style={{ color: 'var(--accent)', fontWeight: 700 }}>Ver la guía y el kit confirmado de Doctrine →</Link>
             </div>
@@ -249,19 +260,26 @@ export default function DoctrineBlizzConNewsPage() {
           <div style={cardGridStyle}>
             {doctrinePerks.map(item => <InfoCard key={item.title} title={item.title} body={item.body} />)}
           </div>
+          <h3 style={{ ...headingStyle, fontSize: 28, marginTop: 24 }}>Qué se ha ajustado desde el trial</h3>
+          <p style={paragraphStyle}>
+            Impulso velado pasa de 7 a 8 segundos de cooldown y del 50% al 40% de reducción de daño; ya no protege de los críticos. Liberación requiere un 8% más de carga, sus drones actúan más rápido y sus efectos duran menos. No confundas una aplicación más rápida con una duración mayor.
+          </p>
+          <p style={paragraphStyle}>
+            Para tus primeras partidas, reserva una cobertura de llegada antes de usar Imbuir para entrar. Si el enemigo sigue apuntándote al terminar el desplazamiento, el cambio de posición no ha resuelto la amenaza. En la <Link href="/heroes/doctrine" style={{ color: 'var(--accent)' }}>guía de Doctrine</Link> puedes revisar las decisiones de cada versión de Imbuir.
+          </p>
         </section>
 
         <section style={sectionStyle}>
           <div className="eyebrow">CAMBIO DE ROL</div>
           <h2 style={headingStyle}>Sombra pasa de DPS a Support</h2>
           <p style={paragraphStyle}>
-            El cambio de Sombra no es un ajuste menor. Moverla a Support obliga a replantear su función dentro de la composición: cuánto de su valor seguirá viniendo de Hack, cómo ayudará a mantener vivo al equipo y qué parte de su presión de flanco conservará después del rework.
+            Sombra ya ocupa un slot de Support. Hotfix aplica curación a un aliado y también permite hackear botiquines y muchos dispositivos enemigos. Cyberspace lanza un proyectil que crea una zona de curación para aliados y debilitación para enemigos. No es simplemente su kit de DPS con una cura añadida: Hack y Virus se han retirado como habilidades.
           </p>
           <p style={paragraphStyle}>
-            Hasta que el parche esté disponible, Sombra seguirá siendo DPS en el juego. Conviene separar bien las dos versiones: las decisiones, counters y composiciones del rework no sirven todavía para las partidas que se están jugando hoy.
+            Translocator sigue siendo una forma de recolocarse, con invisibilidad breve después del teleport, y EMP sigue castigando al grupo enemigo. Si acompañas un flank, comprueba primero quién está curando al Tank: que puedas llegar a la espalda del rival no significa que debas abandonar al compañero al que estabas ayudando.
           </p>
           <div style={{ background: 'var(--surface2)', borderLeft: '3px solid var(--accent)', padding: 18, color: 'var(--text2)', lineHeight: 1.65 }}>
-            <strong style={{ color: 'var(--text)' }}>La pregunta clave:</strong> no es si Sombra seguirá haciendo daño, sino qué utilidad defensiva u ofensiva tendrá para justificar uno de los dos slots de Support.
+            <strong style={{ color: 'var(--text)' }}>Para ranked:</strong> revisa el equipo desde los roles actuales. Sombra no reemplaza a Tracer o Genji en uno de los dos puestos de DPS; reemplaza a un Support y cambia cómo se reparte la curación.
           </div>
         </section>
 
@@ -269,15 +287,43 @@ export default function DoctrineBlizzConNewsPage() {
           <div className="eyebrow">REWORK</div>
           <h2 style={headingStyle}>Roadhog también cambia</h2>
           <p style={paragraphStyle}>
-            Roadhog vuelve a pasar por una revisión importante. El anuncio confirma el rework, pero la lectura útil llegará cuando podamos ver el kit completo y probar qué ocurre con su capacidad de pick, su sustain y la forma en la que ocupa espacio como Tank.
+            Scrap Gun dispara ahora en dos ráfagas por descarga. La novedad más clara es Trash Compactor: absorbe proyectiles enemigos delante de Roadhog y los convierte en un disparo explosivo. Chain Hook, Take a Breather y Whole Hog siguen formando parte del kit, pero el ritmo de disparo y los ajustes de Hook cambian cómo preparas un remate.
           </p>
           <p style={paragraphStyle}>
-            Hasta que conozcamos el desglose, cualquier conclusión sobre sus counters sería prematura. Un cambio en Hook, Take a Breather o su control de espacio puede alterar por completo cómo se juega contra él, especialmente para supports sin movilidad y composiciones anti-dive.
+            No sigas disparando proyectiles al frente durante Trash Compactor por costumbre. Busca cobertura para la respuesta y mira si puedes mantener presión desde otro ángulo. Como Roadhog, absorber daño no sustituye proteger la retirada de tus Supports: decide dónde vas a usar el disparo y qué paso del mapa quieres disputar.
           </p>
         </section>
 
         <section style={sectionStyle}>
-          <div className="eyebrow">PRIMER TEASER</div>
+          <div className="eyebrow">MAPA Y EVENTOS</div>
+          <h2 style={headingStyle}>Grímsvötn, Halloween y fechas de Season 5</h2>
+          <p style={paragraphStyle}>
+            Grímsvötn lleva la carga a una prisión islandesa. En tus primeras partidas, localiza desde dónde puedes acompañarla con cobertura y cómo volver a tu equipo tras un lateral. No hace falta elegir una composición definitiva antes de conocer el recorrido: comprueba primero qué posiciones puede sostener vuestro grupo.
+          </p>
+          <ul style={{ ...paragraphStyle, paddingLeft: 22 }}>
+            <li><strong>Mystery Madness: Graveyard Games:</strong> del 6 de octubre al 2 de noviembre. El modo de Halloween añade poderes aleatorios al morir y ofrendas para votar por incorporaciones a su roster.</li>
+            <li><strong>Shadow Monarch:</strong> del 6 al 19 de octubre, con skins para Genji, Reaper, Anran, Reinhardt y Lifeweaver.</li>
+            <li><strong>Tech Witches:</strong> del 9 al 26 de octubre, con D.Mon, Shion, Juno, Sierra y Jetpack Cat.</li>
+            <li><strong>Team Drives:</strong> del 29 de octubre al 1 de noviembre. Completa tus placements antes de participar.</li>
+          </ul>
+          <p style={paragraphStyle}>
+            Las nuevas míticas son Dragon Shaoxia Wuyang y el arma Treblemaker de Lúcio. Son cosméticos, no cambios del kit. Tampoco conviene trasladar los poderes del evento de Halloween a una partida normal: una combinación que funciona allí no demuestra que tengas esas herramientas en ranked.
+          </p>
+        </section>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow">PASES DE BATALLA</div>
+          <h2 style={headingStyle}>Cómo funcionan los Unvaulted Passes</h2>
+          <p style={paragraphStyle}>
+            Puedes avanzar un pase recuperado junto al pase actual. Los pases clásicos de las temporadas 1 a 15 vuelven con recompensas elegibles, pero no incluyen monedas, boosts de XP, prismas, títulos de prestigio ni skins míticas de héroe o arma. No los compres esperando recuperar una mítica que dejaste pasar.
+          </p>
+          <p style={paragraphStyle}>
+            Antes de activarlo, mira cuánto progreso conservas y qué recompensa quieres conseguir. El pase de Season 4 de 2026 no está disponible desde este lanzamiento: está previsto para el midseason. Que un pase aparezca bloqueado no significa que hayas perdido tu progreso.
+          </p>
+        </section>
+
+        <section style={sectionStyle}>
+          <div className="eyebrow">ANUNCIO PREVIO DE BLIZZCON</div>
           <h2 style={headingStyle}>Otro héroe aparece en escena, pero aún no sabemos quién es</h2>
           <p style={paragraphStyle}>
             La presentación también ha dejado un primer vistazo a otro personaje. La imagen enseña una silueta de aspecto ómnico, con una pose muy marcada y un objeto largo que recuerda a un paraguas o un bastón. La estética ha hecho que muchos jugadores lo describan como una especie de detective, pero Blizzard todavía no ha confirmado ese concepto.
@@ -292,7 +338,7 @@ export default function DoctrineBlizzConNewsPage() {
 
         <section style={{ ...sectionStyle, borderColor: 'rgba(146, 92, 255, 0.55)' }}>
           <div className="eyebrow">REGALO DE BLIZZCON</div>
-          <h2 style={headingStyle}>Cómo conseguir una skin mítica gratis</h2>
+          <h2 style={headingStyle}>El vale mítico de BlizzCon ya ha caducado</h2>
           <div style={{ position: 'relative', aspectRatio: '16 / 9', background: 'var(--surface2)', border: '1px solid var(--border2)', overflow: 'hidden', marginBottom: 20 }}>
             <Image
               src={MYTHIC_IMAGE}
@@ -303,30 +349,30 @@ export default function DoctrineBlizzConNewsPage() {
             />
           </div>
           <ol style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.75, margin: 0, paddingLeft: 22 }}>
-            <li>Abre Overwatch después de la ceremonia de apertura de BlizzCon.</li>
-            <li>Juega una partida completa.</li>
-            <li>Recibirás un vale mítico como agradecimiento a la comunidad.</li>
-            <li>Canjéalo por una skin mítica de héroe dentro de la selección que ofrece el juego.</li>
+            <li>La promoción se abrió después de la ceremonia de BlizzCon.</li>
+            <li>Completar una partida permitía recibir el vale.</li>
+            <li>El canje daba acceso a una opción elegible de la tienda mítica.</li>
+            <li>El plazo para obtenerlo y canjearlo terminó el 5 de octubre de 2026.</li>
           </ol>
           <p style={{ ...paragraphStyle, marginTop: 16 }}>
-            El anuncio de Blizzard fija el 5 de octubre como límite tanto para obtener el vale como para canjearlo. La selección no incluye cualquier mítica publicada: comprueba las opciones elegibles antes de elegir.
+            Conservamos este anuncio para quienes lleguen desde vídeos o enlaces de septiembre. La recompensa no sigue disponible por jugar ahora y no forma parte de los nuevos pases recuperados.
           </p>
         </section>
 
         <section style={sectionStyle}>
           <div className="eyebrow">QUÉ HACER AHORA</div>
-          <h2 style={headingStyle}>Qué preparar antes de Season 5</h2>
+          <h2 style={headingStyle}>Qué revisar antes de tu primera partida</h2>
           <div style={cardGridStyle}>
-            <InfoCard title="Aprende el kit de Doctrine" body="Distingue las tres decisiones de Imbuir: potenciar el disparo, los drones o la movilidad. El trial ya terminó; no confundas esos vídeos con una prueba todavía disponible." />
-            <InfoCard title="Consigue el vale" body="Completa una partida después de la ceremonia y comprueba el apartado de recompensas antes de elegir la mítica." />
-            <InfoCard title="No borres a Sombra de tus planes" body="Su versión live sigue siendo DPS hasta que llegue el rework. Guarda las conclusiones nuevas para el parche correcto." />
-            <InfoCard title="Espera al kit de Roadhog" body="El rework está confirmado, pero los counters solo deben cambiar cuando conozcamos las herramientas reales." />
+            <InfoCard title="Conserva una salida con Doctrine" body="Antes de gastar Imbuir para atacar, mira qué harás si llega un flanker. No cuentes con la protección de Impulso velado como inmunidad." />
+            <InfoCard title="Reparte la curación con Sombra" body="Acordad quién sostiene al Tank cuando Sombra toma otro ángulo. Una entrada por detrás no compensa dejar sin ayuda la pelea principal." />
+            <InfoCard title="Mira el nuevo timing de Roadhog" body="Prueba las dos ráfagas y Trash Compactor antes de dar por hecho el remate del combo antiguo. Contra él, busca cobertura para el disparo de respuesta." />
+            <InfoCard title="Aprende el recorrido de la carga" body="En Grímsvötn, localiza la siguiente cobertura y comprueba si tu Support ve la entrada. No persigas un lateral que te deje sin vuelta al grupo." />
           </div>
         </section>
 
         <section style={sectionStyle}>
           <div className="eyebrow">PREGUNTAS RÁPIDAS</div>
-          <h2 style={headingStyle}>FAQ de los anuncios de Overwatch</h2>
+          <h2 style={headingStyle}>Preguntas sobre Season 5</h2>
           <div style={{ display: 'grid', gap: 12 }}>
             {faqs.map(item => (
               <article key={item.question} style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', padding: 18 }}>
@@ -340,8 +386,9 @@ export default function DoctrineBlizzConNewsPage() {
         <section style={{ borderTop: '1px solid var(--border)', paddingTop: 24 }}>
           <div className="eyebrow">ENLACES RELACIONADOS</div>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-            <a href="https://x.com/OWCavalry/status/2098836204599054663" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">VER GAMEPLAY</a>
-            <a href="https://overwatch.blizzard.com/en-gb/news/24294376/" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">ANUNCIO DE BLIZZARD</a>
+            <a href="https://x.com/OWCavalry/status/2098836204599054663" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">GAMEPLAY DEL TRIAL</a>
+            <a href="https://news.blizzard.com/en-us/article/24303008/feed-your-hunger-in-reign-of-talon-season-5-a-grim-doctrine" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">VER SEASON 5 EN BLIZZARD</a>
+            <a href="https://overwatch.blizzard.com/en-us/news/patch-notes/live/" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">NOTAS DEL PARCHE</a>
             <a href="https://x.com/OWCavalry/status/2098839072483545244" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">VER EL TEASER</a>
             <Link href="/news" className="btn btn-primary btn-sm">MÁS NOTICIAS</Link>
           </div>

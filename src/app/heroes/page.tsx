@@ -48,7 +48,7 @@ const heroesFaq = [
 const heroIntentLinks = [
   {
     title: 'Héroes nuevos',
-    body: 'D.Mon alterna Beast y piloto. Doctrine tiene anunciado su estreno para el 6 de octubre; su trial de septiembre ya terminó y la ficha conserva el kit mostrado en aquella prueba.',
+    body: 'Doctrine ya está disponible desde el 6 de octubre, con Season 5. Sombra también pasa a Support. Si vuelves después de una pausa, comprueba el kit y el rol antes de elegir; D.Mon sigue alternando entre Beast y piloto.',
     links: [
       { href: '/heroes/doctrine', label: 'Doctrine' },
       { href: '/heroes/dmon', label: 'D.Mon' },
@@ -85,7 +85,7 @@ export default function HeroesIndexPage() {
     name: 'Héroes de Overwatch por rol',
     description: 'Catálogo de Tank, DPS y Support con retratos, fichas y guías.',
     url: absoluteUrl('/heroes'),
-    dateModified: '2026-10-04',
+    dateModified: '2026-10-09',
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntity: {
       '@type': 'ItemList',

@@ -29,9 +29,9 @@ import { TRUST_REVIEW_DATE } from '@/lib/site-operator'
 export const dynamic = 'force-dynamic'
 
 const STATIC_LAST_MODIFIED: Record<string, string> = {
-  '/heroes': '2026-10-04',
+  '/heroes': '2026-10-09',
   '/counters': '2026-10-03',
-  '/news': '2026-10-01',
+  '/news': '2026-10-09',
   '/privacy': TRUST_REVIEW_DATE,
   '/legal': TRUST_REVIEW_DATE,
   '/guides/como-subir-de-rango-overwatch': '2026-08-29',
@@ -40,8 +40,8 @@ const STATIC_LAST_MODIFIED: Record<string, string> = {
   '/guides/composiciones-overwatch-5v5-6v6': '2026-08-29',
   '/guides/review-vod-overwatch-espanol': '2026-08-29',
   '/blizzcon-2026-overwatch-horarios-espana': '2026-10-01',
-  '/doctrine-support-sombra-roadhog-rework-overwatch': '2026-10-01',
-  '/heroes/doctrine': '2026-10-01',
+  '/doctrine-support-sombra-roadhog-rework-overwatch': '2026-10-09',
+  '/heroes/doctrine': '2026-10-09',
   '/overwatch-temporada-4-heroes-of-busan': '2026-08-11',
   '/dmon-nuevo-heroe-tank-overwatch': '2026-08-11',
   '/heroes/dmon': '2026-10-01',

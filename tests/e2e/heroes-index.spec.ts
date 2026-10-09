@@ -21,8 +21,9 @@ test('hero directory shows the full role catalogue before advice, with matching 
   expect(collection.mainEntity.itemListElement.map(({ name, url, position }: { name: string; url: string; position: number }) => ({ name, url, position })))
     .toEqual(visibleItems.map((item, index) => ({ ...item, position: index + 1 })))
   expect(await page.locator('main').evaluate(element => Array.from(element.querySelectorAll(':scope > section')).slice(0, 3).map(section => section.id))).toEqual(['tank', 'dps', 'support'])
-  await expect(page.locator('#support a[href="/heroes/doctrine"]')).toContainText('PREVIEW')
-  await expect(page.locator('#dps a[href="/guides?hero=sombra"]')).toContainText('Sombra')
+  await expect(page.locator('#support a[href="/heroes/doctrine"]')).not.toContainText('PREVIEW')
+  await expect(page.locator('#support a[href="/guides?hero=sombra"]')).toContainText('Sombra')
+  await expect(page.locator('#dps a[href="/guides?hero=sombra"]')).toHaveCount(0)
   const faq = schemas.find(schema => schema['@type'] === 'FAQPage')
   for (const item of faq.mainEntity) {
     await expect(page.locator('main')).toContainText(item.name)
@@ -31,8 +32,8 @@ test('hero directory shows the full role catalogue before advice, with matching 
   await expect(page.locator('main')).not.toContainText('CÓMO USAR ESTE HUB')
   await expect(page.locator('.ad-slot, ins.adsbygoogle, script[src*="adsbygoogle"]')).toHaveCount(0)
   const sitemap = await (await request.get('/sitemap.xml')).text()
-  expect(sitemap).toMatch(/\/heroes<\/loc>\s*<lastmod>2026-10-04T00:00:00\.000Z<\/lastmod>/)
-  expect(sitemap).not.toContain('/heroes/doctrine</loc>')
+  expect(sitemap).toMatch(/\/heroes<\/loc>\s*<lastmod>2026-10-09T00:00:00\.000Z<\/lastmod>/)
+  expect(sitemap).toContain('/heroes/doctrine</loc>')
 })
 
 test('role anchors and direct hero or filtered guide links preserve their destinations', async ({ page }) => {

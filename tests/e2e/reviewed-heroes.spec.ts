@@ -123,7 +123,7 @@ for (const hero of [ana, kiriko, genji, reinhardt, dva, winston, cassidy, tracer
   })
 }
 
-for (const slug of PUBLIC_HERO_PAGE_SLUGS.filter(slug => !['ana', 'kiriko', 'genji', 'reinhardt', 'dva', 'winston', 'cassidy', 'tracer', 'zarya', 'shion', 'dmon'].includes(slug))) {
+for (const slug of PUBLIC_HERO_PAGE_SLUGS.filter(slug => !['ana', 'kiriko', 'genji', 'reinhardt', 'dva', 'winston', 'cassidy', 'tracer', 'zarya', 'shion', 'dmon', 'doctrine'].includes(slug))) {
   test(slug + ' remains accessible and linked without publishing the trial kit for search', async ({ page, request }) => {
     await page.goto('/heroes')
     await expect(page.locator('main a[href="/heroes/' + slug + '"]').first()).toBeAttached()

@@ -32,15 +32,16 @@ describe('hero directory', () => {
     expect(collection.mainEntity.itemListElement).toEqual(heroes.map((hero, index) => ({
       '@type': 'ListItem', position: index + 1, name: hero.name, url: absoluteUrl(heroTopicHref(hero.slug)),
     })))
-    expect(collection.dateModified).toBe('2026-10-04')
+    expect(collection.dateModified).toBe('2026-10-09')
   })
 
-  it('keeps the catalogue first, distinguishes passive subroles and marks the trial', () => {
+  it('keeps the catalogue first and reflects the launched Support roster', () => {
     const html = renderToStaticMarkup(createElement(HeroesIndexPage))
     expect(html.indexOf('id="tank"')).toBeLessThan(html.indexOf('id="choose-hero"'))
     expect(html.indexOf('id="support"')).toBeLessThan(html.indexOf('Preguntas sobre héroes'))
-    expect(html).toContain('PREVIEW')
-    expect(html).toContain('trial de septiembre ya terminó')
+    expect(html).not.toContain('PREVIEW')
+    expect(html).toContain('Doctrine ya está disponible')
+    expect(html).toContain('Sombra también pasa a Support')
     expect(html).toContain('con una pasiva compartida')
     expect(html).toContain('no son esos subroles')
     expect(html).not.toContain('CÓMO USAR ESTE HUB')

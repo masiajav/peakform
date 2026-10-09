@@ -10,7 +10,7 @@ export const reviewedCounters: Record<string, CounterPillar> = {
     h1: 'Counters de Doctrine: qué vigilar antes de cambiar de héroe',
     intro: [
       'Doctrine combina curación y daño a media distancia, potencia su siguiente acción con Imbuir y puede usar esa mejora para disparar, volar o beneficiarse también de sus drones. Para responder, fíjate en qué versión acaba de gastar y en el aliado que está ayudando. Ashe puede disputar una línea larga, Ana limitar una recuperación, Tracer abrir un segundo ángulo y Winston llegar a una altura con seguimiento. Son opciones para probar, no una lista de duelos ganados por elegir el héroe correcto.',
-      'El trial de septiembre ya terminó. Este análisis parte del kit mostrado durante aquella prueba; no presenta sus resultados como balance definitivo de Season 5. Los ejemplos de abajo son situaciones posibles para entender las decisiones, no partidas jugadas con la versión de lanzamiento. Un cambio en las habilidades puede cambiar también la respuesta que conviene preparar.',
+      'Doctrine ya está disponible desde el 6 de octubre de 2026. Este análisis conserva el kit del trial de septiembre, no los valores del lanzamiento: Impulso velado, los drones y Transfusión han cambiado. Consulta su ficha de héroe para el kit de Season 5. Los ejemplos de abajo son propuestas de aquella prueba, no resultados de partidas jugadas con la versión actual.',
     ],
     summary: ['Mira qué acción ha potenciado con Imbuir.', 'Vigila al aliado que recibe los Drones vigorizantes, no solo a Doctrine.', 'No sigas el vuelo hasta quedarte sin ayuda.', 'Ante Liberación, busca cobertura y comprueba quién puede seguir peleando.'],
     threats: [
@@ -135,10 +135,10 @@ export const reviewedCounters: Record<string, CounterPillar> = {
     reviewedPatch: 'Kit de DPS; Hack, Virus y Translocator, antes del rework de Support',
     seoTitle: 'Counters de Sombra: proteger al objetivo de Hack y Virus',
     seoDescription: 'Cómo jugar contra la Sombra DPS en Overwatch: contestar Hack, ayudar frente a Virus y seguir Translocator sin perseguir a ciegas. Picks y ejemplos por mapa.',
-    h1: 'Counters de Sombra: responde al ataque sin abandonar al compañero',
+    h1: 'Archivo: counters de Sombra antes del cambio a Support',
     intro: [
-      'Contra Sombra, lo primero es evitar que un compañero reciba Hack, Virus y los disparos sin ninguna ayuda. Brigitte protege al otro Support, Kiriko puede limpiar Virus, Cassidy contesta al contacto y Winston presiona una posición alcanzable. No necesitas verla durante toda la partida: necesitas conservar tiro o una defensa cuando aparece. Girarte tarde y perseguir después suele dejar al mismo aliado vendido en el siguiente intento.',
-      'Esta guía trata a la Sombra DPS con Machine Pistol, Hack, Virus, Translocator y EMP. No aplica estas respuestas al rework de Support anunciado. Dentro de este kit, Translocator cambia su posición y da invisibilidad temporal: no es un beacon que siempre permanece colocado junto a un botiquín lejano. Observa el destino del lanzamiento antes de dar por perdida la baja o salir corriendo detrás.',
+      'Sombra ya es Support desde el 6 de octubre de 2026. Hotfix y Cyberspace sustituyen a Hack y Virus como habilidades del kit. Esta guía conserva el análisis de su versión DPS anterior al cambio: las interacciones de abajo no describen a la Sombra de Season 5.',
+      'En aquella versión, la primera amenaza era que un compañero recibiera Hack, Virus y los disparos sin ayuda. Brigitte podía proteger al otro Support, Kiriko limpiar Virus, Cassidy contestar el contacto y Winston presionar una posición alcanzable. Mantener ayuda al aparecer era más útil que perseguir después. Consulta las novedades de Season 5 para distinguir este archivo del kit actual.',
     ],
     summary: ['Ten tiro al compañero que recibe el ataque.', 'El daño interrumpe el intento de Hack; no revierte uno que ya terminó.', 'Ayuda también cuando Virus sigue haciendo daño detrás de cobertura.', 'Mira dónde llega Translocator antes de decidir si merece la pena seguir.'],
     threats: [
