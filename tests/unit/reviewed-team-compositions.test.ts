@@ -30,11 +30,11 @@ describe('individual team composition revisions', () => {
       expect(article.schemaDate).toMatch(/^2026-10-0[12]$/)
       expect(article.publishedDate).toBeUndefined()
     }
-    for (const slug of ['shion', 'genji']) {
-      expect(getTeamCompPillar(slug)?.schemaDate).toBe('2026-06-28')
+    expect(getTeamCompPillar('shion')?.schemaDate).toBe('2026-06-28')
+    for (const slug of ['ana', 'genji', 'kiriko']) {
+      expect(getTeamCompPillar(slug)?.schemaDate).toBe('2026-10-06')
+      expect(getTeamCompPillar(slug)?.publishedDate).toBeUndefined()
     }
-    expect(getTeamCompPillar('ana')?.schemaDate).toBe('2026-10-06')
-    expect(getTeamCompPillar('ana')?.publishedDate).toBeUndefined()
   })
   it('keeps Roadhog proposals separate from his announced Season 5 rework', () => {
     const hog = reviewedTeamCompositions.roadhog

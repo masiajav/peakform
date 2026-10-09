@@ -360,6 +360,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/content-review-comp-ana-2026-10-06.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/team-comps/genji': {
+    path: '/team-comps/genji',
+    version: '317b0b928c60df44b061eb200e57d05a8377800e25202ad36ba5f64831c3189e',
+    reviewedAt: '2026-10-06', reviewer: 'Codex',
+    evidence: 'docs/content-review-comps-kiriko-genji-2026-10-06.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/kiriko': {
+    path: '/team-comps/kiriko',
+    version: '0ea898318cef4660eaa2cec30c37d6f45c7e2af4e3ad74b205f6a80ddb6f5de4',
+    reviewedAt: '2026-10-06', reviewer: 'Codex',
+    evidence: 'docs/content-review-comps-kiriko-genji-2026-10-06.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/tracer': {
     path: '/team-comps/tracer',
     version: 'bacbd9b6195cb55af8916afa6dd0dcbf163fb11796e3af88b5eb9d53a2f7b31b',
