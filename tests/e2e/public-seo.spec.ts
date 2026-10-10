@@ -138,7 +138,7 @@ test('sitemap contains only the completed editorial batches', async ({ request }
   for (const slug of ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'zarya', 'tracer', 'domina']) {
     if (['genji', 'kiriko'].includes(slug)) expect(xml).toContain(`/counters/${slug}</loc>`)
     else expect(xml).not.toContain(`/counters/${slug}</loc>`)
-    if (['ana', 'genji', 'kiriko', 'reinhardt', 'tracer', 'zarya'].includes(slug)) expect(xml).toContain(`/team-comps/${slug}</loc>`)
+    if (['ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'tracer', 'zarya'].includes(slug)) expect(xml).toContain(`/team-comps/${slug}</loc>`)
     else expect(xml).not.toContain(`/team-comps/${slug}`)
   }
   for (const slug of ['freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki']) {
@@ -171,7 +171,7 @@ for (const route of PUBLIC_ROUTES.filter(path => /^\/(?:counters|team-comps)\//.
     expect(response?.status()).toBe(200)
     await expect(page.locator('h1')).toHaveCount(1)
     await expect(page.locator('main')).toContainText('Replaid Lab')
-    const restored = RESTORED_TOPIC_ROUTES.includes(route) || ['/team-comps/ana', '/team-comps/genji', '/team-comps/kiriko', '/team-comps/reinhardt', '/team-comps/tracer', '/team-comps/zarya'].includes(route)
+    const restored = RESTORED_TOPIC_ROUTES.includes(route) || ['/team-comps/ana', '/team-comps/genji', '/team-comps/kiriko', '/team-comps/reinhardt', '/team-comps/dva', '/team-comps/winston', '/team-comps/tracer', '/team-comps/zarya'].includes(route)
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', restored ? 'index, follow' : 'noindex, follow')
     await expect(page.locator('.ad-slot, ins.adsbygoogle, script[src*="adsbygoogle"]')).toHaveCount(0)
     const sitemap = await (await request.get('/sitemap.xml')).text()

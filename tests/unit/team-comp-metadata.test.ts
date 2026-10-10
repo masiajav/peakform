@@ -4,7 +4,7 @@ import { absoluteUrl } from '@/lib/seo'
 
 describe('composition metadata follows the publication decision', () => {
   it('explicitly indexes only the individually approved compositions', async () => {
-    for (const hero of ['ana', 'genji', 'kiriko', 'reinhardt', 'tracer', 'zarya', 'sombra', 'roadhog', 'doctrine']) {
+    for (const hero of ['ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'tracer', 'zarya', 'sombra', 'roadhog', 'doctrine']) {
       const metadata = await generateMetadata({ params: Promise.resolve({ hero }) })
       expect(metadata.robots).toEqual({ index: true, follow: true })
       expect(metadata.alternates?.canonical).toBe(absoluteUrl(`/team-comps/${hero}`))
@@ -12,7 +12,7 @@ describe('composition metadata follows the publication decision', () => {
   })
 
   it('does not index an existing composition without an exact review', async () => {
-    for (const hero of ['shion', 'dva', 'winston', 'cassidy']) {
+    for (const hero of ['shion', 'cassidy']) {
       const metadata = await generateMetadata({ params: Promise.resolve({ hero }) })
       expect(metadata.robots).toEqual({ index: false, follow: true })
       expect(metadata.alternates?.canonical).toBe(absoluteUrl(`/team-comps/${hero}`))

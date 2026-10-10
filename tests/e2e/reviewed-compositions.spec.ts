@@ -16,7 +16,7 @@ test('only individually approved compositions enter sitemap and retain honest da
     expect(articleSchema.dateModified).toBe(article.schemaDate)
     expect(articleSchema.datePublished).toBe(article.publishedDate)
     expect(html).toContain(`<time dateTime="${article.schemaDate}">${article.updatedAt}</time>`)
-    const approved = ['ana', 'genji', 'kiriko', 'reinhardt', 'tracer', 'zarya', 'sombra', 'roadhog', 'doctrine'].includes(slug)
+    const approved = ['ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'tracer', 'zarya', 'sombra', 'roadhog', 'doctrine'].includes(slug)
     expect(html).toContain(`name="robots" content="${approved ? 'index' : 'noindex'}, follow"`)
     expect(sitemap.includes(`/team-comps/${slug}</loc>`)).toBe(approved)
   }
