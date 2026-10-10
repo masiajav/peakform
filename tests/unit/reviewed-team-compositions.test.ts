@@ -12,7 +12,7 @@ const reviewDates: Record<string, string> = {
   mei: '2026-10-02', moira: '2026-10-02', reaper: '2026-10-02',
   bastion: '2026-10-02', lifeweaver: '2026-10-02',
   freja: '2026-10-02', sierra: '2026-10-02', wuyang: '2026-10-02',
-  doctrine: '2026-10-02', domina: '2026-10-02', 'jetpack-cat': '2026-10-02',
+  doctrine: '2026-10-10', domina: '2026-10-02', 'jetpack-cat': '2026-10-02',
   symmetra: '2026-10-02', torbjorn: '2026-10-02',
   hanzo: '2026-10-02', widowmaker: '2026-10-02', sojourn: '2026-10-02',
   'soldier-76': '2026-10-02', emre: '2026-10-02',
@@ -126,19 +126,25 @@ describe('individual team composition revisions', () => {
     expect(reviewedTeamCompositions.torbjorn.faqs.find(faq => faq.question.includes('Molten Core'))?.answer).toContain('No.')
     expect(reviewedTeamCompositions.torbjorn.intro.join(' ')).toContain('En ataque')
   })
-  it('does not present Doctrine trial proposals as a confirmed launch meta', () => {
+  it('uses released Doctrine kits in concrete teams without promising a measured meta', () => {
     const doctrine = reviewedTeamCompositions.doctrine
-    expect(doctrine.intro.join(' ')).toContain('6 de octubre de 2026')
-    expect(doctrine.intro.join(' ')).toContain('septiembre terminó')
-    expect(doctrine.reviewedPatch).toContain('Archivo del trial')
-    expect(doctrine.compositions.find(comp => comp.format === '6v6')?.engagePlan).toContain('disponibilidad de Doctrine')
+    expect(doctrine.intro.join(' ')).toContain('Doctrine salió el 6 de octubre')
+    expect(doctrine.intro.join(' ')).toContain('30% de velocidad de ataque')
+    expect(doctrine.reviewedPatch).toContain('Season 5')
+    expect(doctrine.compositions.find(comp => comp.format === '6v6')?.engagePlan).toContain('solo corresponde a cola por roles 6v6')
+    expect(doctrine.faqs[0].answer).toContain('con la mitad de eficacia')
+    expect(doctrine.faqs[0].answer).toContain('cuesta un 8% más')
+    expect(doctrine.vodQuestions).toHaveLength(5)
+    expect(doctrine.conclusion).toContain('cambia el momento del buff')
+    expect(doctrine.links.map(link => link.href)).toContain('/counters/doctrine')
+    expect(JSON.stringify(doctrine)).not.toMatch(/antes de su estreno|tras el estreno|después del estreno|Archivo del trial|balance de estreno pendiente/)
   })
   it('publishes only individually approved revisions with valid role-queue lineups', () => {
     for (const [slug, article] of Object.entries(reviewedTeamCompositions)) {
       expect(getTeamCompPillar(slug)).toBe(article)
       expect(article.compositions).toHaveLength(3)
       expect(article.schemaDate).toBe(reviewDates[slug])
-      expect(editorialTopicQualityDecision('team_comp', slug, article)).toMatchObject({ indexable: ['sombra', 'roadhog'].includes(slug), adsAllowed: false })
+      expect(editorialTopicQualityDecision('team_comp', slug, article)).toMatchObject({ indexable: ['sombra', 'roadhog', 'doctrine'].includes(slug), adsAllowed: false })
       for (const comp of article.compositions) {
         expect(comp.lineup).toContain(article.name)
         expect(comp.lineup).toHaveLength(comp.format === '5v5' ? 5 : 6)
@@ -157,7 +163,7 @@ describe('individual team composition revisions', () => {
   })
 
   it('invalidates Season 5 composition approval after any unreviewed edit', () => {
-    for (const slug of ['sombra', 'roadhog']) {
+    for (const slug of ['sombra', 'roadhog', 'doctrine']) {
       const article = reviewedTeamCompositions[slug]
       expect(editorialTopicQualityDecision('team_comp', slug, article)).toMatchObject({ indexable: true, adsAllowed: false })
       expect(editorialTopicQualityDecision('team_comp', slug, { ...article, h1: 'Changed without review' })).toMatchObject({ indexable: false, adsAllowed: false })

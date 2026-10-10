@@ -157,7 +157,8 @@ test('sitemap contains only the completed editorial batches', async ({ request }
   expect(xml).toMatch(/\/heroes\/dmon<\/loc>\s*<lastmod>2026-10-09T00:00:00\.000Z<\/lastmod>/)
   expect(xml).toContain('/dmon-nuevo-heroe-tank-overwatch')
   expect(xml).not.toContain('tier-list-season-2-overwatch-mejores-heroes-rol')
-  expect(xml).not.toContain('/counters/doctrine')
+  expect(xml).toContain('/counters/doctrine</loc>')
+  expect(xml).toContain('/team-comps/doctrine</loc>')
   for (const slug of ['como-usar-ultimates-overwatch', 'como-mejorar-en-overwatch-revisando-vod', 'como-mejorar-como-tank-overwatch', 'cuando-cambiar-de-heroe-overwatch', 'como-revisar-cooldowns-overwatch', 'como-elegir-composicion-dive-poke-brawl']) {
     expect(xml).not.toContain(`/guides/${slug}`)
   }

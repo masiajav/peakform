@@ -388,6 +388,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/content-review-comps-tracer-zarya-2026-10-05.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/counters/doctrine': {
+    path: '/counters/doctrine',
+    version: '7e2a5438d78685332c6460685bb892c4692f88581a40b6cded463c04dd71f916',
+    reviewedAt: '2026-10-10', reviewer: 'Codex',
+    evidence: 'docs/content-review-doctrine-season-five-2026-10-10.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/doctrine': {
+    path: '/team-comps/doctrine',
+    version: 'dcf02e9fa680bf1520aa846dbdc114a916fe6f77c44e62bc986661c49dedda76',
+    reviewedAt: '2026-10-10', reviewer: 'Codex',
+    evidence: 'docs/content-review-doctrine-season-five-2026-10-10.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/zarya': {
     path: '/team-comps/zarya',
     version: '40de9429f726f9396cb6d2c3aa44d8eca29c9b77c5b7eeac49598631fa1b35a6',

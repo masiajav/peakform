@@ -113,7 +113,7 @@ describe('indexing quality gates', () => {
     for (const slug of ['freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'sombra']) {
       expect(topicQualityDecision('counter', slug)).toMatchObject({ indexable: slug !== 'sombra', adsAllowed: false })
     }
-    expect(topicQualityDecision('counter', 'doctrine').indexable).toBe(false)
+    expect(topicQualityDecision('counter', 'doctrine')).toMatchObject({ indexable: true, adsAllowed: false })
   })
 
   it('keeps ads off hubs, profiles and unfinished routes', () => {

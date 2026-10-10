@@ -95,7 +95,31 @@ test('released Sombra and Roadhog compositions publish only the reviewed revisio
     expect(sitemap).toMatch(new RegExp(`${route}</loc>\\s*<lastmod>2026-10-10T00:00:00\\.000Z</lastmod>`))
     expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false)
   }
-  expect(sitemap).not.toContain('/team-comps/doctrine</loc>')
+  expect(sitemap).toContain('/team-comps/doctrine</loc>')
   expect(sitemap).not.toContain('/counters/sombra</loc>')
   expect(sitemap).not.toContain('/counters/roadhog</loc>')
+})
+
+test('Doctrine launch advice is individually indexable and links between counters and compositions', async ({ page, request }) => {
+  const sitemap = await (await request.get('/sitemap.xml')).text()
+  for (const route of ['/counters/doctrine', '/team-comps/doctrine']) {
+    expect((await page.goto(route, { waitUntil: 'networkidle' }))?.status()).toBe(200)
+    await expect(page.locator('h1')).toHaveCount(1)
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index, follow')
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://www.replaidlab.com' + route)
+    await expect(page.locator('.seo-pillar-meta time')).toHaveAttribute('datetime', '2026-10-10')
+    await expect(page.locator('main')).toContainText('30%')
+    await expect(page.locator('main')).toContainText('40%')
+    await expect(page.locator('main')).not.toContainText('Archivo del trial')
+    await expect(page.locator('main')).not.toContainText('balance de estreno pendiente')
+    const relatedRoute = route === '/counters/doctrine' ? '/team-comps/doctrine' : '/counters/doctrine'
+    await expect(page.locator(`main a[href="${relatedRoute}"]`).first()).toBeVisible()
+    const schemas = (await page.locator('script[type="application/ld+json"]').allTextContents()).flatMap(text => JSON.parse(text))
+    const article = schemas.find(item => item['@type'] === 'Article')
+    expect(article).toMatchObject({ dateModified: '2026-10-10', author: { '@type': 'Organization', name: 'Replaid Lab' } })
+    expect(article).not.toHaveProperty('datePublished')
+    expect(sitemap).toMatch(new RegExp(`${route}</loc>\\s*<lastmod>2026-10-10T00:00:00\\.000Z</lastmod>`))
+    await expect(page.locator('ins.adsbygoogle,.ad-slot,script[src*="adsbygoogle"]')).toHaveCount(0)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false)
+  }
 })

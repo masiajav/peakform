@@ -8,13 +8,13 @@ import { MAP_PILLAR_SLUGS } from '@/lib/overwatch-maps'
 test('reviewed counters only restore individually approved publication candidates, never ads', () => {
   for (const [slug, article] of Object.entries(reviewedCounters)) {
     expect(getCounterPillar(slug)).toBe(article)
-    const revisionDate = ['sombra', 'roadhog'].includes(slug) ? '2026-10-10' : ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine'].includes(slug) ? '2026-10-03' : '2026-10-02'
+    const revisionDate = ['sombra', 'roadhog', 'doctrine'].includes(slug) ? '2026-10-10' : ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki'].includes(slug) ? '2026-10-03' : '2026-10-02'
     expect(article.schemaDate).toBe(revisionDate)
     expect(wordCount(JSON.stringify(article))).toBeGreaterThan(1100)
     expect(article.threats).toHaveLength(['genji', 'kiriko'].includes(slug) ? 6 : 4)
     expect(article.examples).toHaveLength(3)
     expect(article.faqs).toHaveLength(3)
-    expect(editorialTopicQualityDecision('counter', slug, article)).toMatchObject({ indexable: ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki'].includes(slug), adsAllowed: false })
+    expect(editorialTopicQualityDecision('counter', slug, article)).toMatchObject({ indexable: ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine'].includes(slug), adsAllowed: false })
     for (const threat of article.threats) {
       const normalizeName = (name: string) => name.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
       expect(normalizeName(getCounterHero(threat.href.slice('/heroes/'.length))?.name ?? '')).toBe(normalizeName(threat.name))
@@ -36,16 +36,22 @@ test('counter revisions have distinct arguments, examples and metadata', () => {
   expect(new Set(Object.values(reviewedCounters).map(article => article.seoDescription)).size).toBe(Object.keys(reviewedCounters).length)
 })
 
-test('Doctrine stays a trial-kit analysis, not a ranked counter tier', () => {
+test('Doctrine counters use launch defenses, conditional perks and antiheal distinctions', () => {
   const article = reviewedCounters.doctrine
-  expect(article.analysisStatus).toBe('trial')
+  expect(article.analysisStatus).toBeUndefined()
   expect(article.intro.join(' ')).toContain('ya está disponible desde el 6 de octubre')
-  expect(article.intro.join(' ')).toContain('conserva el kit del trial')
+  expect(article.intro.join(' ')).toContain('8 segundos de cooldown')
+  expect(article.intro.join(' ')).toContain('no protege de los críticos')
   expect(JSON.stringify(article)).toContain('Transfusión es una opción major')
-  expect(JSON.stringify(article)).toContain('Succión sanguinaria es un minor')
+  expect(JSON.stringify(article)).toContain('Succión sanguinaria es un minor opcional')
   expect(JSON.stringify(article)).toContain('Salvación es una opción minor')
-  expect(JSON.stringify(article)).toContain('un major de la prueba')
-  expect(editorialTopicQualityDecision('counter', 'doctrine', article)).toMatchObject({ indexable: false, adsAllowed: false })
+  expect(JSON.stringify(article)).toContain('El precio de la vida es un major opcional')
+  expect(article.cooldownWindows[3].body).toContain('6 segundos, con 4 segundos de declive')
+  expect(article.threats[1].response).toContain('no quita la velocidad de ataque de los drones ni borra el overhealth')
+  expect(article.links.map(link => link.href)).toContain('/team-comps/doctrine')
+  expect(JSON.stringify(article)).not.toMatch(/conserva el kit del trial|balance de lanzamiento por confirmar|un major de la prueba|curación con drones.*invulnerabilidad/i)
+  expect(editorialTopicQualityDecision('counter', 'doctrine', article)).toMatchObject({ indexable: true, adsAllowed: false })
+  expect(editorialTopicQualityDecision('counter', 'doctrine', { ...article, h1: 'Changed without review' })).toMatchObject({ indexable: false, adsAllowed: false })
 })
 
 test('Mizuki counters separate both return positions, sanctuary borders and alternate perks from temporary modes', () => {

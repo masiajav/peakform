@@ -4,7 +4,7 @@ import { getCounterPillar } from '../../src/lib/seo-clusters'
 import { PILLAR_COUNTER_SLUGS } from '../../src/lib/public-topic-policy'
 
 // Independent expectations, not derived from the approval registry under test.
-const RESTORED_COUNTERS = ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki']
+const RESTORED_COUNTERS = ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine']
 
 test('counter hub shows its actual catalogue without a blanket review claim', async ({ page, request }) => {
   const errors: string[] = []
@@ -14,7 +14,7 @@ test('counter hub shows its actual catalogue without a blanket review claim', as
   await expect(page.locator('h1')).toHaveCount(1)
   await expect(page.locator('main')).not.toContainText('guías revisadas')
   await expect(page.locator('main')).not.toContainText('Matchups revisados por')
-  for (const name of ['Freja', 'Pharah', 'Genji', 'Kiriko', 'Lifeweaver', 'Juno', 'Baptiste', 'Illari', 'Lucio', 'Mercy', 'Orisa', 'Ramattra', 'Sigma', 'Jetpack Cat', 'Wuyang', 'Zenyatta', 'Junker Queen', 'Mauga', 'Hazard', 'Junkrat', 'Soldier-76', 'Wrecking Ball', 'Venture', 'Vendetta', 'Anran', 'Mizuki', 'Sombra']) {
+  for (const name of ['Freja', 'Pharah', 'Genji', 'Kiriko', 'Lifeweaver', 'Juno', 'Baptiste', 'Illari', 'Lucio', 'Mercy', 'Orisa', 'Ramattra', 'Sigma', 'Jetpack Cat', 'Wuyang', 'Zenyatta', 'Junker Queen', 'Mauga', 'Hazard', 'Junkrat', 'Soldier-76', 'Wrecking Ball', 'Venture', 'Vendetta', 'Anran', 'Mizuki', 'Sombra', 'Doctrine']) {
     await expect(page.locator('main').getByRole('link', { name, exact: true })).toBeVisible()
   }
   const catalogueLinks = await page.locator('main a[href^="/counters/"]').evaluateAll(links => links.map(link => link.getAttribute('href')!))

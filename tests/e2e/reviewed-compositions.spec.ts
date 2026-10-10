@@ -16,7 +16,7 @@ test('only individually approved compositions enter sitemap and retain honest da
     expect(articleSchema.dateModified).toBe(article.schemaDate)
     expect(articleSchema.datePublished).toBe(article.publishedDate)
     expect(html).toContain(`<time dateTime="${article.schemaDate}">${article.updatedAt}</time>`)
-    const approved = ['ana', 'genji', 'kiriko', 'reinhardt', 'tracer', 'zarya', 'sombra', 'roadhog'].includes(slug)
+    const approved = ['ana', 'genji', 'kiriko', 'reinhardt', 'tracer', 'zarya', 'sombra', 'roadhog', 'doctrine'].includes(slug)
     expect(html).toContain(`name="robots" content="${approved ? 'index' : 'noindex'}, follow"`)
     expect(sitemap.includes(`/team-comps/${slug}</loc>`)).toBe(approved)
   }
@@ -36,7 +36,7 @@ for (const [slug, article] of Object.entries(reviewedTeamCompositions)) {
     await expect(page).toHaveTitle(`${article.seoTitle} - Replaid Lab`)
     await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', article.seoDescription)
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://www.replaidlab.com/team-comps/${slug}`)
-    const approved = ['sombra', 'roadhog'].includes(slug)
+    const approved = ['sombra', 'roadhog', 'doctrine'].includes(slug)
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', `${approved ? 'index' : 'noindex'}, follow`)
     await expect(page.locator('.seo-composition-card')).toHaveCount(3)
     await expect(page.locator('main')).not.toContainText('Mejores composiciones 5v5')
