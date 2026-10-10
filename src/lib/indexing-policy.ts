@@ -10,6 +10,7 @@ import { getCounterPillar, getTeamCompPillar, type TeamComposition } from './seo
 import { COUNTER_HEROES } from './overwatch-counters'
 import { getHeroPillar, type HeroPillarCard } from './hero-pillars'
 import { getRankedHeroGuide, type RankedHeroGuide } from './ranked-hero-guides'
+import { evergreenGuides, type EvergreenGuide } from './evergreen-guides'
 export { isPathAdEligible } from './ad-inventory-policy'
 
 export type IndexingDecision = 'indexable' | 'noindex_follow' | 'not_found'
@@ -132,8 +133,8 @@ export const PILLAR_GUIDE_SLUGS = [
   'cuando-cambiar-de-heroe-overwatch',
 ]
 
-// These routes have a hand-reviewed, repository-owned article. Database guides
-// must still pass the content checks below even when their slug is strategic.
+// Repository-owned routes, not a list of approved revisions. Every article
+// still needs the exact-version decision below before it enters the sitemap.
 export const STATIC_EDITORIAL_GUIDE_SLUGS = [
   'como-mejorar-en-overwatch',
   'como-subir-de-rango-overwatch',
@@ -232,6 +233,8 @@ export function isVideoOnlyGuide(guide: GuideLike) {
 
 export function isGuideSitemapEligible(guide: GuideLike) {
   if (!guide.slug || guide.published === false) return false
+  const evergreen = Object.hasOwn(evergreenGuides, guide.slug) ? evergreenGuides[guide.slug] : null
+  if (evergreen) return evergreenGuideQualityDecision(evergreen).indexable
   const ranked = getRankedHeroGuide(guide.slug)
   if (ranked) return rankedGuideQualityDecision(ranked).indexable
   if (hasReviewedGuideRevision(guide.slug) || reviewedGuideTarget(guide.slug)) return false
@@ -268,6 +271,7 @@ export function guidePublicationIssues(guide: GuideLike) {
 
 export function isGuideAdEligible(guide: GuideLike) {
   if (!guide.slug) return false
+  if (Object.hasOwn(evergreenGuides, guide.slug)) return false
   if (getRankedHeroGuide(guide.slug)) return false
   return isGuideSitemapEligible(guide) && wordCount(guide.body) >= QUALITY_MINIMUMS.guideAdsWords
 }
@@ -283,6 +287,11 @@ export function guideQualityDecision(guide: GuideLike): PageQualityDecision {
   if (ranked) return guide.published === false
     ? blocked('Registro no publicado; la ruta editorial se evalúa por separado', words)
     : rankedGuideQualityDecision(ranked)
+
+  const evergreen = Object.hasOwn(evergreenGuides, guide.slug) ? evergreenGuides[guide.slug] : null
+  if (evergreen) return guide.published === false
+    ? blocked('Registro no publicado; la ruta editorial se evalúa por separado', words)
+    : evergreenGuideQualityDecision(evergreen)
 
   if (hasReviewedGuideRevision(guide.slug) || reviewedGuideTarget(guide.slug)) {
     return blocked('Lote revisado accesible para lectores; indexación y anuncios aún desactivados', words)
@@ -485,6 +494,31 @@ export function editorialTopicQualityDecision(
 
 export function robotsForQuality(decision: PageQualityDecision) {
   return decision.indexable ? undefined : { index: false, follow: true }
+}
+
+export function evergreenGuideQualityDecision(content: EvergreenGuide | null): PageQualityDecision {
+  if (!content || !Object.hasOwn(evergreenGuides, content.slug)) return blocked('Falta la guía editorial', 0)
+  if (!hasCurrentStaticEditorialReview(`/guides/${content.slug}`, content)) {
+    return blocked('Esta versión sigue pendiente de revisión individual', 0)
+  }
+  const paragraphs = [...content.intro, ...content.sections.flatMap(section => section.body)]
+  const normalized = paragraphs.map(value => normalize(value).replace(/\s+/g, ' ').trim())
+  const structure = [content.title, content.seoTitle, content.seoDescription, content.h1, content.quickAnswer, content.updatedAt].every(value => value.trim())
+    && content.intro.length > 0 && content.sections.length >= 3
+    && content.sections.every(section => section.title.trim() && section.body.length && section.body.every(value => value.trim()))
+    && new Set(content.sections.map(section => normalize(section.title))).size === content.sections.length
+    && content.checklist.length > 0 && content.checklist.every(value => value.trim())
+    && content.faqs.length >= 3 && content.faqs.every(faq => faq.question.trim() && faq.answer.trim())
+    && content.links.length >= 3 && content.links.every(link => link.label.trim() && /^\/(?!\/)/.test(link.href))
+  if (!structure) return blocked('Falta contenido o estructura editorial', 0)
+  if (!validEditorialDate(content.publishedAtIso) || !validEditorialDate(content.modifiedAtIso) || content.modifiedAtIso < content.publishedAtIso) {
+    return blocked('Fechas de publicación y revisión no válidas', 0)
+  }
+  if (new Set(normalized).size !== normalized.length) return blocked('La guía repite párrafos', 0)
+  if (/\b(?:lorem ipsum|pendiente de completar|texto de ejemplo|title seo|meta description|keywords principales)\b/i.test(JSON.stringify(content))) {
+    return blocked('La guía contiene texto interno o provisional', 0)
+  }
+  return indexNoAds('Guía revisada individualmente; sin publicidad durante la revisión de AdSense', wordCount(paragraphs.join(' ')))
 }
 
 // The repository article is rendered before the database guide. Review that

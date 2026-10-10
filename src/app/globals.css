@@ -1136,6 +1136,17 @@ textarea {
 .guide-body a:hover { text-decoration: underline; }
 .guide-body hr { border: none; border-top: 1px solid var(--border); margin: 2em 0; }
 
+.evergreen-guide-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px;
+  line-height: 1.04;
+  letter-spacing: 0;
+  margin: 0 0 18px;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 600px) {
+  .evergreen-guide-title { font-size: 36px; }
+}
 .guide-video-summary {
   background: var(--surface);
   border: 1px solid var(--border);

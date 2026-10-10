@@ -18,6 +18,13 @@ for (const guide of Object.values(evergreenGuides)) {
     expect(`${robots},${response?.headers()['x-robots-tag'] || ''}`).not.toMatch(/\b(?:noindex|none)\b/i)
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://www.replaidlab.com/guides/${guide.slug}`)
     await expect(page.locator('.guide-video-summary')).toContainText(guide.quickAnswer)
+    await expect(page.locator('time[datetime="' + guide.publishedAtIso + '"]')).toBeVisible()
+    await expect(page.locator('time[datetime="' + guide.modifiedAtIso + '"]')).toBeVisible()
+    expect(await page.locator('header').evaluate(element => {
+      const summary = element.querySelector('.guide-video-summary')
+      const intro = element.querySelector('p:not(.guide-video-summary p)')
+      return Boolean(summary && intro && summary.compareDocumentPosition(intro) & Node.DOCUMENT_POSITION_FOLLOWING)
+    })).toBe(true)
     await expect(page.locator('.guide-body')).toContainText(guide.sections[0].body[0])
     await expect(page.locator('.ad-slot, ins.adsbygoogle, script[src*="adsbygoogle"]')).toHaveCount(0)
     await expect(page.getByRole('link', { name: 'Comunicar una corrección', exact: true })).toHaveAttribute('href', '/contact')
@@ -30,6 +37,15 @@ for (const guide of Object.values(evergreenGuides)) {
       author: { '@type': 'Organization', name: 'Replaid Lab' },
     }))
     expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'FAQPage' }))
+    const faq = schemas.find(schema => schema['@type'] === 'FAQPage')
+    expect(faq.mainEntity).toHaveLength(guide.faqs.length)
+    for (const item of await page.locator('main details summary').all()) await item.click()
+    const visibleText = await page.locator('main').innerText()
+    for (const item of faq.mainEntity) {
+      expect(visibleText).toContain(item.name)
+      expect(visibleText).toContain(item.acceptedAnswer.text)
+    }
+    expect(visibleText).not.toMatch(/guía pilar|base evergreen|TITLE SEO|META DESCRIPTION|Ã|â€/i)
     const background = await page.locator('body').evaluate(element => getComputedStyle(element).backgroundColor)
     expect(background).not.toBe('rgb(255, 255, 255)')
     expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false)

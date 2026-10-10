@@ -19,7 +19,9 @@ import {
   isGuideSitemapEligible,
   topicQualityDecision,
   rankedGuideQualityDecision,
+  evergreenGuideQualityDecision,
 } from '@/lib/indexing-policy'
+import { evergreenGuides } from '@/lib/evergreen-guides'
 import { absoluteUrl } from '@/lib/seo'
 import { getCounterPillar, getTeamCompPillar } from '@/lib/seo-clusters'
 import { getHeroPillar } from '@/lib/hero-pillars'
@@ -34,11 +36,6 @@ const STATIC_LAST_MODIFIED: Record<string, string> = {
   '/news': '2026-10-09',
   '/privacy': TRUST_REVIEW_DATE,
   '/legal': TRUST_REVIEW_DATE,
-  '/guides/como-subir-de-rango-overwatch': '2026-08-29',
-  '/guides/mejores-heroes-overwatch': '2026-08-29',
-  '/guides/counters-overwatch-guia-completa': '2026-08-29',
-  '/guides/composiciones-overwatch-5v5-6v6': '2026-08-29',
-  '/guides/review-vod-overwatch-espanol': '2026-08-29',
   '/blizzcon-2026-overwatch-horarios-espana': '2026-10-01',
   '/doctrine-support-sombra-roadhog-rework-overwatch': '2026-10-09',
   '/heroes/doctrine': '2026-10-09',
@@ -125,7 +122,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/dmon-nuevo-heroe-tank-overwatch',
     '/busan-eichenwalde-paraiso-reworks-overwatch',
     '/overwatch-temporada-3-into-the-tigers-den',
-    ...STATIC_EDITORIAL_GUIDE_SLUGS.map(slug => `/guides/${slug}`),
+    ...STATIC_EDITORIAL_GUIDE_SLUGS.filter(slug => evergreenGuideQualityDecision(evergreenGuides[slug] ?? null).indexable).map(slug => `/guides/${slug}`),
     ...RANKED_EDITORIAL_GUIDE_SLUGS.filter(slug => rankedGuideQualityDecision(getRankedHeroGuide(slug)).indexable).map(slug => `/guides/${slug}`),
     ...TRUST_ROUTES,
     ...ROLE_SLUGS.map(role => `/roles/${role}`),
@@ -143,7 +140,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const reviewedHeroDate = heroSlug ? getHeroPillar(heroSlug)?.schemaDate : undefined
     const guideSlug = normalizedPath.match(/^\/guides\/([^/]+)$/)?.[1]
     const reviewedRankedDate = guideSlug ? getRankedHeroGuide(guideSlug)?.modifiedAt : undefined
-    const lastModified = reviewedRankedDate ?? reviewedHeroDate ?? reviewedCounterDate ?? reviewedCompositionDate ?? STATIC_LAST_MODIFIED[normalizedPath] ?? MAP_LAST_MODIFIED[normalizedPath]
+    const reviewedEvergreenDate = guideSlug && Object.hasOwn(evergreenGuides, guideSlug) ? evergreenGuides[guideSlug].modifiedAtIso : undefined
+    const lastModified = reviewedEvergreenDate ?? reviewedRankedDate ?? reviewedHeroDate ?? reviewedCounterDate ?? reviewedCompositionDate ?? STATIC_LAST_MODIFIED[normalizedPath] ?? MAP_LAST_MODIFIED[normalizedPath]
     return {
       url: absoluteUrl(normalizedPath),
       ...(lastModified ? { lastModified: new Date(lastModified) } : {}),
@@ -160,7 +158,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ])
 
   const guideRoutes = (guides ?? [])
-    .filter((guide: any) => !getRankedHeroGuide(guide.slug) && isGuideSitemapEligible(guide))
+    .filter((guide: any) => !Object.hasOwn(evergreenGuides, guide.slug) && !getRankedHeroGuide(guide.slug) && isGuideSitemapEligible(guide))
     .map((guide: any) => ({
       url: absoluteUrl(`/guides/${guide.slug}`),
       lastModified: new Date(guide.updated_at || guide.created_at),

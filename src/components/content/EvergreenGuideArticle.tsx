@@ -5,7 +5,7 @@ import JsonLd from './JsonLd'
 import SeoFaq from './SeoFaq'
 import type { EvergreenGuide } from '@/lib/evergreen-guides'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
-import { hasCurrentStaticEditorialReview } from '@/lib/static-editorial-review'
+import { evergreenGuideQualityDecision } from '@/lib/indexing-policy'
 
 type EvergreenGuideArticleProps = {
   guide: EvergreenGuide
@@ -14,7 +14,7 @@ type EvergreenGuideArticleProps = {
 export default function EvergreenGuideArticle({ guide }: EvergreenGuideArticleProps) {
   const pagePath = `/guides/${guide.slug}`
   const pageUrl = absoluteUrl(pagePath)
-  const allowAds = hasCurrentStaticEditorialReview(pagePath, guide)
+  const allowAds = evergreenGuideQualityDecision(guide).adsAllowed
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -50,9 +50,13 @@ export default function EvergreenGuideArticle({ guide }: EvergreenGuideArticlePr
 
         <header style={{ marginBottom: 34 }}>
           <div className="eyebrow">{guide.kicker.toUpperCase()}</div>
-          <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(40px, 7vw, 70px)', lineHeight: 0.96, letterSpacing: 1, margin: '0 0 18px' }}>
+          <h1 className="evergreen-guide-title">
             {guide.h1}
           </h1>
+          <section className="guide-video-summary">
+            <div>RESPUESTA RÁPIDA</div>
+            <p>{guide.quickAnswer}</p>
+          </section>
           <div style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.72, display: 'grid', gap: 12, maxWidth: 820 }}>
             {guide.intro.map(paragraph => (
               <p key={paragraph} style={{ margin: 0 }}>{paragraph}</p>
@@ -60,15 +64,11 @@ export default function EvergreenGuideArticle({ guide }: EvergreenGuideArticlePr
           </div>
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', color: 'var(--text3)', fontSize: 12, marginTop: 18 }}>
             <span>Por Replaid Lab</span>
-            <span>Última revisión: {guide.updatedAt}</span>
+            <span>Publicación: <time dateTime={guide.publishedAtIso}>{new Intl.DateTimeFormat('es-ES', { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(guide.publishedAtIso))}</time></span>
+            <span>Última revisión: <time dateTime={guide.modifiedAtIso}>{guide.updatedAt}</time></span>
             <Link href="/contact" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Comunicar una corrección</Link>
           </div>
         </header>
-
-        <section className="guide-video-summary">
-          <div>RESPUESTA RÁPIDA</div>
-          <p>{guide.quickAnswer}</p>
-        </section>
 
         <AdSlot variant="inline" slot="guide-after-summary" allowAds={allowAds} />
 

@@ -3,6 +3,48 @@ import type { StaticEditorialReview } from './static-editorial-review'
 // Explicit, version-bound reviews. No build task may populate this registry
 // from slugs or automatically renew approval after an editorial change.
 export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialReview>> = {
+  '/guides/como-mejorar-en-overwatch': {
+    path: '/guides/como-mejorar-en-overwatch',
+    version: '3300bbb3ea897a4d3adc306a4eeec4a59a8b934bf9396eebec3a4c2a16e09414',
+    reviewedAt: '2026-10-10', reviewer: 'Codex',
+    evidence: 'docs/content-review-evergreen-season-five-2026-10-10.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/guides/como-subir-de-rango-overwatch': {
+    path: '/guides/como-subir-de-rango-overwatch',
+    version: 'dfd7066489373afe65c495d67e6560707ba44ef2ce4e0bba83fdcc112332f29d',
+    reviewedAt: '2026-10-10', reviewer: 'Codex',
+    evidence: 'docs/content-review-evergreen-season-five-2026-10-10.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/guides/mejores-heroes-overwatch': {
+    path: '/guides/mejores-heroes-overwatch',
+    version: 'd3a1e52a3e386999da7aefb45f4404882d92502887838f101314dce936fef5e3',
+    reviewedAt: '2026-10-10', reviewer: 'Codex',
+    evidence: 'docs/content-review-evergreen-season-five-2026-10-10.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/guides/counters-overwatch-guia-completa': {
+    path: '/guides/counters-overwatch-guia-completa',
+    version: 'dc5a8b6c7940b2ed6d16c2011a316a26afbbb171f48789c75f29126ff9883b3b',
+    reviewedAt: '2026-10-10', reviewer: 'Codex',
+    evidence: 'docs/content-review-evergreen-season-five-2026-10-10.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/guides/composiciones-overwatch-5v5-6v6': {
+    path: '/guides/composiciones-overwatch-5v5-6v6',
+    version: 'cd2699fe9fe04c299571b180186a1acb778bd9aa1ab57fa4e66edafc0c74a66b',
+    reviewedAt: '2026-10-10', reviewer: 'Codex',
+    evidence: 'docs/content-review-evergreen-season-five-2026-10-10.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/guides/review-vod-overwatch-espanol': {
+    path: '/guides/review-vod-overwatch-espanol',
+    version: '9cc7a73149d8defac5d8af99271f019e457e414788626c4a9c63d58b3a32dd8a',
+    reviewedAt: '2026-10-10', reviewer: 'Codex',
+    evidence: 'docs/content-review-evergreen-season-five-2026-10-10.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/dva': {
     path: '/team-comps/dva',
     version: 'b28e55cd13468b39c4a8b1eabe6cbde74fa6d598cf84c45da5d0a0e478fd0a6f',

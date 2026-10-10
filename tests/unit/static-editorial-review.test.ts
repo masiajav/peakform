@@ -5,6 +5,7 @@ import { getCounterPillar, getTeamCompPillar } from '@/lib/seo-clusters'
 import { flexRoleGuide } from '@/lib/flex-role-guide'
 import { getHeroPillar } from '@/lib/hero-pillars'
 import { getRankedHeroGuide } from '@/lib/ranked-hero-guides'
+import { evergreenGuides } from '@/lib/evergreen-guides'
 import { hasCurrentStaticEditorialReview, matchesStaticEditorialReview, staticEditorialContentVersion } from '@/lib/static-editorial-review'
 
 const path = '/counters/example'
@@ -45,11 +46,12 @@ describe('version-bound static editorial reviews', () => {
     expect(Object.keys(STATIC_EDITORIAL_REVIEWS).sort()).toEqual([
       '/counters/anran', '/counters/baptiste', '/counters/doctrine', '/counters/freja', '/counters/genji', '/counters/hazard', '/counters/illari', '/counters/jetpack-cat', '/counters/junker-queen', '/counters/junkrat', '/counters/juno', '/counters/kiriko', '/counters/lifeweaver', '/counters/lucio', '/counters/mauga', '/counters/mercy', '/counters/mizuki', '/counters/moira', '/counters/orisa', '/counters/pharah', '/counters/ramattra', '/counters/reaper', '/counters/roadhog', '/counters/sigma', '/counters/soldier-76', '/counters/sombra', '/counters/vendetta', '/counters/venture', '/counters/wrecking-ball', '/counters/wuyang', '/counters/zenyatta',
       '/guides/como-jugar-ana-ranked-overwatch', '/guides/como-jugar-cassidy-ranked-overwatch', '/guides/como-jugar-dva-ranked-overwatch', '/guides/como-jugar-genji-ranked-overwatch', '/guides/como-jugar-kiriko-ranked-overwatch', '/guides/como-jugar-reinhardt-ranked-overwatch', '/guides/como-jugar-winston-ranked-overwatch',
+      '/guides/como-mejorar-en-overwatch', '/guides/como-subir-de-rango-overwatch', '/guides/composiciones-overwatch-5v5-6v6', '/guides/counters-overwatch-guia-completa', '/guides/mejores-heroes-overwatch', '/guides/review-vod-overwatch-espanol',
       '/heroes/ana', '/heroes/cassidy', '/heroes/dmon', '/heroes/doctrine', '/heroes/dva', '/heroes/genji', '/heroes/kiriko', '/heroes/reinhardt', '/heroes/shion', '/heroes/tracer', '/heroes/winston', '/heroes/zarya', '/roles/flex',
       '/team-comps/ana', '/team-comps/doctrine', '/team-comps/dva', '/team-comps/genji', '/team-comps/kiriko', '/team-comps/reinhardt', '/team-comps/roadhog', '/team-comps/sombra', '/team-comps/tracer', '/team-comps/winston', '/team-comps/zarya',
-    ])
+    ].sort())
     for (const [articlePath, record] of Object.entries(STATIC_EDITORIAL_REVIEWS)) {
-      const article = articlePath === '/roles/flex' ? flexRoleGuide : articlePath.startsWith('/guides/') ? getRankedHeroGuide(articlePath.split('/')[2]) : articlePath.startsWith('/heroes/') ? getHeroPillar(articlePath.split('/')[2]) : articlePath.startsWith('/team-comps/') ? getTeamCompPillar(articlePath.split('/')[2]) : getCounterPillar(articlePath.split('/')[2])
+      const article = articlePath === '/roles/flex' ? flexRoleGuide : articlePath.startsWith('/guides/') ? getRankedHeroGuide(articlePath.split('/')[2]) ?? evergreenGuides[articlePath.split('/')[2]] : articlePath.startsWith('/heroes/') ? getHeroPillar(articlePath.split('/')[2]) : articlePath.startsWith('/team-comps/') ? getTeamCompPillar(articlePath.split('/')[2]) : getCounterPillar(articlePath.split('/')[2])
       expect(hasCurrentStaticEditorialReview(articlePath, article), articlePath).toBe(true)
       expect(existsSync(record.evidence), record.evidence).toBe(true)
       expect(matchesStaticEditorialReview(articlePath, { ...article, h1: 'Una edición no revisada' }, record)).toBe(false)
