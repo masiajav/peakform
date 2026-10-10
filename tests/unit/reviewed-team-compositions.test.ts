@@ -19,15 +19,15 @@ const reviewDates: Record<string, string> = {
   anran: '2026-10-02', vendetta: '2026-10-02', mizuki: '2026-10-02',
   hazard: '2026-10-02', venture: '2026-10-02', mauga: '2026-10-02',
   'junker-queen': '2026-10-02', lucio: '2026-10-02',
-  sombra: '2026-10-02', 'wrecking-ball': '2026-10-02', baptiste: '2026-10-02', illari: '2026-10-02',
+  sombra: '2026-10-10', 'wrecking-ball': '2026-10-02', baptiste: '2026-10-02', illari: '2026-10-02',
   brigitte: '2026-10-02', zenyatta: '2026-10-02', juno: '2026-10-02', echo: '2026-10-02',
-  junkrat: '2026-10-02', orisa: '2026-10-02', ramattra: '2026-10-02', roadhog: '2026-10-02',
+  junkrat: '2026-10-02', orisa: '2026-10-02', ramattra: '2026-10-02', roadhog: '2026-10-10',
 }
 
 describe('individual team composition revisions', () => {
   it('records known review dates without inventing original publication dates', () => {
     for (const article of Object.values(reviewedTeamCompositions)) {
-      expect(article.schemaDate).toMatch(/^2026-10-0[12]$/)
+      expect(article.schemaDate).toBe(reviewDates[article.slug])
       expect(article.publishedDate).toBeUndefined()
     }
     expect(getTeamCompPillar('shion')?.schemaDate).toBe('2026-06-28')
@@ -36,14 +36,17 @@ describe('individual team composition revisions', () => {
       expect(getTeamCompPillar(slug)?.publishedDate).toBeUndefined()
     }
   })
-  it('keeps Roadhog proposals separate from his announced Season 5 rework', () => {
+  it('uses the released Roadhog kit without promising collective invulnerability', () => {
     const hog = reviewedTeamCompositions.roadhog
-    expect(hog.intro.join(' ')).toContain('2 de octubre de 2026')
-    expect(hog.intro.join(' ')).toContain('6 de octubre')
-    expect(hog.reviewedPatch).toContain('Archivo del kit anterior')
-    expect(hog.faqs.find(faq => faq.question.includes('rework'))?.answer).toMatch(/^No\./)
+    expect(hog.intro.join(' ')).toContain('activo desde el 6 de octubre')
+    expect(hog.intro.join(' ')).toContain('dos ráfagas')
+    expect(hog.reviewedPatch).toContain('Season 5')
+    expect(hog.faqs.find(faq => faq.question.includes('barrera'))?.answer).toMatch(/^No\./)
     expect(hog.faqs.find(faq => faq.question.includes('anticuración'))?.answer).toMatch(/^No\./)
     expect(hog.summary).toContain('Breather no sustituye la cobertura ni limpia antiheal.')
+    expect(hog.examples.find(example => example.title.includes('Whole Hog'))?.body).toContain('Si ha elegido Here, Piggy Piggy')
+    for (const comp of hog.compositions) expect(comp.engagePlan).toContain('Trash Compactor')
+    expect(JSON.stringify(hog)).not.toMatch(/archivo|rework pendiente|está anunciado|Pulled Pork/i)
   })
   it('does not add optional defense and sustain to both versions of a Tank kit', () => {
     expect(reviewedTeamCompositions.orisa.faqs.find(faq => faq.question.includes('barrera'))?.answer).toContain('reemplaza Javelin Spin')
@@ -68,12 +71,20 @@ describe('individual team composition revisions', () => {
     expect(reviewedTeamCompositions.echo.faqs.find(faq => faq.question.includes('Focusing Beam'))?.answer).toContain('Focused Rush es un perk opcional')
     expect(reviewedTeamCompositions.echo.examples.find(example => example.title.includes('Dorado'))?.body).toContain('conservar el siguiente intento')
   })
-  it('keeps the Sombra DPS analysis separate from the announced Support rework', () => {
+  it('rebuilds Sombra Support plans rather than relabelling the old DPS lineups', () => {
     const sombra = reviewedTeamCompositions.sombra
-    expect(sombra.intro.join(' ')).toContain('2 de octubre de 2026')
     expect(sombra.intro.join(' ')).toContain('6 de octubre')
-    expect(sombra.reviewedPatch).toContain('Archivo de la versión DPS')
-    expect(sombra.faqs.find(faq => faq.question.includes('Support'))?.answer).toContain('No.')
+    expect(sombra.h1).toContain('Sombra Support')
+    expect(sombra.faqs.find(faq => faq.question.includes('Suzu'))?.answer).toContain('No limpia anticuración ni silencia')
+    expect(sombra.faqs.find(faq => faq.question.includes('preparo EMP'))?.answer).toContain('un perk minor')
+    expect(sombra.faqs.find(faq => faq.question.includes('puesto'))?.answer).toContain('solo corresponde a 6v6')
+    for (const comp of sombra.compositions) {
+      expect(comp.winCondition).toMatch(/Hotfix|Cyberspace/)
+      expect(comp.lineup.slice(-2)).toContain('Sombra')
+    }
+    expect(JSON.stringify(sombra)).not.toMatch(/Encrypted Upload|Virus|Archivo de la versión|Hack antes/)
+    expect(sombra.vodQuestions).toHaveLength(5)
+    expect(sombra.conclusion).toContain('acorta el flanco')
   })
   it('does not promise experimental mines, default perk mobility or defensive cleanses', () => {
     const ball = reviewedTeamCompositions['wrecking-ball']
@@ -122,12 +133,12 @@ describe('individual team composition revisions', () => {
     expect(doctrine.reviewedPatch).toContain('Archivo del trial')
     expect(doctrine.compositions.find(comp => comp.format === '6v6')?.engagePlan).toContain('disponibilidad de Doctrine')
   })
-  it('serves the reviewed article without promoting it into the sitemap', () => {
+  it('publishes only individually approved revisions with valid role-queue lineups', () => {
     for (const [slug, article] of Object.entries(reviewedTeamCompositions)) {
       expect(getTeamCompPillar(slug)).toBe(article)
       expect(article.compositions).toHaveLength(3)
       expect(article.schemaDate).toBe(reviewDates[slug])
-      expect(editorialTopicQualityDecision('team_comp', slug, article)).toMatchObject({ indexable: false, adsAllowed: false })
+      expect(editorialTopicQualityDecision('team_comp', slug, article)).toMatchObject({ indexable: ['sombra', 'roadhog'].includes(slug), adsAllowed: false })
       for (const comp of article.compositions) {
         expect(comp.lineup).toContain(article.name)
         expect(comp.lineup).toHaveLength(comp.format === '5v5' ? 5 : 6)
@@ -136,13 +147,20 @@ describe('individual team composition revisions', () => {
         expect(heroes.every(Boolean), comp.name).toBe(true)
         const roles = heroes.map(hero => hero!.role)
         expect(roles.filter(role => role === 'tank')).toHaveLength(comp.format === '5v5' ? 1 : 2)
-        const archivedSombra = comp.lineup.includes('Sombra')
-        expect(roles.filter(role => role === 'dps')).toHaveLength(archivedSombra ? 1 : 2)
-        expect(roles.filter(role => role === 'support')).toHaveLength(archivedSombra ? 3 : 2)
+        expect(roles.filter(role => role === 'dps')).toHaveLength(2)
+        expect(roles.filter(role => role === 'support')).toHaveLength(2)
         for (const field of ['winCondition', 'engagePlan', 'goodMaps', 'weakAgainst', 'substitutions'] as const) {
           expect(comp[field].split(/\s+/).length).toBeGreaterThan(20)
         }
       }
+    }
+  })
+
+  it('invalidates Season 5 composition approval after any unreviewed edit', () => {
+    for (const slug of ['sombra', 'roadhog']) {
+      const article = reviewedTeamCompositions[slug]
+      expect(editorialTopicQualityDecision('team_comp', slug, article)).toMatchObject({ indexable: true, adsAllowed: false })
+      expect(editorialTopicQualityDecision('team_comp', slug, { ...article, h1: 'Changed without review' })).toMatchObject({ indexable: false, adsAllowed: false })
     }
   })
 

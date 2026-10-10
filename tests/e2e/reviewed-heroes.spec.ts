@@ -19,7 +19,11 @@ for (const hero of [ana, kiriko, genji, reinhardt, dva, winston, cassidy, tracer
     const canonical = 'https://www.replaidlab.com' + path
     const errors: string[] = []
     page.on('pageerror', error => errors.push(error.message))
-    page.on('console', message => { if (message.type() === 'error') errors.push(message.text()) })
+    page.on('console', message => {
+      const isVideoPermissionWarning = message.text() === 'Permissions policy violation: compute-pressure is not allowed in this document.'
+        && /^https:\/\/(?:www\.)?youtube(?:-nocookie)?\.com\//.test(message.location().url)
+      if (message.type() === 'error' && !isVideoPermissionWarning) errors.push(message.text())
+    })
     expect((await page.goto(path))?.status()).toBe(200)
     await expect(page.locator('h1')).toHaveCount(1)
     await expect(page.locator('h1')).toHaveText(hero.h1)

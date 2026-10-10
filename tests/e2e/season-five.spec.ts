@@ -45,22 +45,19 @@ test('home and news link the current season without advertising the upcoming tri
   }
 })
 
-test('Sombra counter uses the released Support kit while its old composition remains an archive', async ({ page, request }) => {
+test('Sombra counter and composition use the released Support kit', async ({ page, request }) => {
   for (const route of ['/counters/sombra', '/team-comps/sombra']) {
     await page.goto(route, { waitUntil: 'networkidle' })
     await expect(page.locator('main')).toContainText('Sombra')
     await expect(page.locator('main')).toContainText('Support')
-    if (route === '/counters/sombra') {
-      await expect(page.locator('main')).toContainText('Cyberspace')
-      await expect(page.locator('main')).toContainText('Hotfix')
-      await expect(page.locator('main')).not.toContainText('Encrypted Upload')
-      await expect(page.locator('h1')).not.toContainText('Archivo')
-    } else {
-      await expect(page.locator('main')).toContainText('no los copies')
-    }
-    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow')
+    await expect(page.locator('main')).toContainText('Cyberspace')
+    await expect(page.locator('main')).toContainText('Hotfix')
+    await expect(page.locator('main')).not.toContainText('Encrypted Upload')
+    await expect(page.locator('h1')).not.toContainText('Archivo')
+    const reviewedComposition = route === '/team-comps/sombra'
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', `${reviewedComposition ? 'index' : 'noindex'}, follow`)
     await expect(page.locator('main a[href="' + path + '"]').first()).toBeVisible()
-    expect(await (await request.get('/sitemap.xml')).text()).not.toContain(route + '</loc>')
+    expect((await (await request.get('/sitemap.xml')).text()).includes(route + '</loc>')).toBe(reviewedComposition)
   }
 })
 
@@ -78,4 +75,27 @@ test('Sombra guide keeps its old video but appears in Support rather than DPS fi
   }
   await page.goto('/guides?role=dps', { waitUntil: 'domcontentloaded' })
   await expect(page.locator(`main a[href="${slug}"]`)).toHaveCount(0)
+})
+
+test('released Sombra and Roadhog compositions publish only the reviewed revisions, without ads', async ({ page, request }) => {
+  const sitemap = await (await request.get('/sitemap.xml')).text()
+  for (const slug of ['sombra', 'roadhog']) {
+    const route = `/team-comps/${slug}`
+    expect((await page.goto(route, { waitUntil: 'networkidle' }))?.status()).toBe(200)
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index, follow')
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://www.replaidlab.com' + route)
+    await expect(page.locator('.seo-composition-card')).toHaveCount(3)
+    await expect(page.locator('.seo-pillar-meta time')).toHaveAttribute('datetime', '2026-10-10')
+    await expect(page.locator('main')).not.toContainText('ALINEACIONES ANTERIORES A SEASON 5')
+    await expect(page.locator('main')).not.toContainText('no los copies')
+    await expect(page.locator('main')).not.toContainText('Encrypted Upload')
+    await expect(page.getByRole('heading', { name: 'Qué mirar en una pelea perdida', exact: true })).toBeVisible()
+    await expect(page.locator('main')).toContainText(slug === 'sombra' ? 'No limpia anticuración ni silencia' : 'no crea una barrera')
+    await expect(page.locator('ins.adsbygoogle,.ad-slot,script[src*="adsbygoogle"]')).toHaveCount(0)
+    expect(sitemap).toMatch(new RegExp(`${route}</loc>\\s*<lastmod>2026-10-10T00:00:00\\.000Z</lastmod>`))
+    expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false)
+  }
+  expect(sitemap).not.toContain('/team-comps/doctrine</loc>')
+  expect(sitemap).not.toContain('/counters/sombra</loc>')
+  expect(sitemap).not.toContain('/counters/roadhog</loc>')
 })

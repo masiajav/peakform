@@ -11,16 +11,16 @@ test('Sombra is Support and no generic example puts her in a DPS slot', () => {
   }
 })
 
-test('pre-rework archives stay accessible, clearly labelled and outside index approval', () => {
+test('released kit advice replaces Sombra and Roadhog archives without approving Doctrine trial advice', () => {
   expect(getCounterPillar('sombra')?.role).toBe('Support')
   expect(getCounterPillar('sombra')?.intro[0]).toContain('Sombra ya es Support')
   expect(getCounterPillar('roadhog')?.intro[1]).toContain('está activo desde el 6 de octubre')
-  expect(getTeamCompPillar('sombra')?.intro[0]).toContain('no los copies')
+  expect(getTeamCompPillar('sombra')?.h1).toContain('Sombra Support')
   expect(getTeamCompPillar('doctrine')?.intro[0]).toContain('anterior a los ajustes de lanzamiento')
-  expect(getTeamCompPillar('roadhog')?.intro[1]).toContain('recibió su rework')
+  expect(getTeamCompPillar('roadhog')?.intro[0]).toContain('está activo desde el 6 de octubre')
   for (const slug of ['sombra', 'doctrine', 'roadhog']) {
     expect(topicQualityDecision('counter', slug).adsAllowed).toBe(false)
-    expect(topicQualityDecision('team_comp', slug)).toMatchObject({ indexable: false, adsAllowed: false })
+    expect(topicQualityDecision('team_comp', slug)).toMatchObject({ indexable: slug !== 'doctrine', adsAllowed: false })
   }
   expect(topicQualityDecision('counter', 'sombra').indexable).toBe(false)
 })
