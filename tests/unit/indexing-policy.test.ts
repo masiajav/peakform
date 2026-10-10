@@ -111,9 +111,10 @@ describe('indexing quality gates', () => {
       expect(topicQualityDecision('team_comp', slug)).toMatchObject({ indexable: ['ana', 'genji', 'kiriko', 'reinhardt', 'tracer', 'zarya'].includes(slug), adsAllowed: false })
     }
     for (const slug of ['freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'sombra']) {
-      expect(topicQualityDecision('counter', slug)).toMatchObject({ indexable: slug !== 'sombra', adsAllowed: false })
+      expect(topicQualityDecision('counter', slug)).toMatchObject({ indexable: true, adsAllowed: false })
     }
     expect(topicQualityDecision('counter', 'doctrine')).toMatchObject({ indexable: true, adsAllowed: false })
+    expect(topicQualityDecision('counter', 'roadhog')).toMatchObject({ indexable: true, adsAllowed: false })
   })
 
   it('keeps ads off hubs, profiles and unfinished routes', () => {

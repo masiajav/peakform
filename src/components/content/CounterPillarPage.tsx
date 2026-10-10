@@ -158,6 +158,11 @@ export default function CounterPillarPage({ pillar }: CounterPillarPageProps) {
           </div>
         </section>
 
+        {pillar.conclusion && <section className="seo-pillar-section">
+          <h2>Qué cambiar en tu próxima partida</h2>
+          <p>{pillar.conclusion}</p>
+        </section>}
+
         <section className="seo-pillar-related">
           <div><div className="eyebrow">SIGUIENTE PASO</div><h2>Sigue preparando el matchup</h2></div>
           <div>{pillar.links.map(link => <Link key={link.href} href={safeTopicHref(link.href)}>{link.label}</Link>)}</div>

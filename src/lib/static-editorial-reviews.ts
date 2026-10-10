@@ -3,6 +3,20 @@ import type { StaticEditorialReview } from './static-editorial-review'
 // Explicit, version-bound reviews. No build task may populate this registry
 // from slugs or automatically renew approval after an editorial change.
 export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialReview>> = {
+  '/counters/sombra': {
+    path: '/counters/sombra',
+    version: '3378fe38bd7fbc242c6be6b53f7bca1edd1310a989f544053bf38693042be754',
+    reviewedAt: '2026-10-10', reviewer: 'Codex',
+    evidence: 'docs/content-review-counters-sombra-roadhog-season-five-2026-10-10.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/counters/roadhog': {
+    path: '/counters/roadhog',
+    version: 'a798efac5f3df6c3dba488228cf4ef307f676fb14caedbc698cc8f0478fecc1e',
+    reviewedAt: '2026-10-10', reviewer: 'Codex',
+    evidence: 'docs/content-review-counters-sombra-roadhog-season-five-2026-10-10.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/sombra': {
     path: '/team-comps/sombra',
     version: 'f83df217ee5e9c423064172676170275e893e200b5d97dab3c771167bbe397e1',

@@ -45,6 +45,7 @@ const PUBLIC_ROUTES = [
   '/counters/anran',
   '/counters/mizuki',
   '/counters/sombra',
+  '/counters/roadhog',
   '/team-comps/kiriko',
   '/counters/reinhardt',
   '/team-comps/reinhardt',
@@ -81,7 +82,7 @@ const PUBLIC_ROUTES = [
   '/editorial-methodology',
 ]
 
-const RESTORED_TOPIC_ROUTES = ['/counters/genji', '/counters/kiriko', '/counters/freja', '/counters/pharah', '/counters/lifeweaver', '/counters/juno', '/counters/baptiste', '/counters/illari', '/counters/lucio', '/counters/mercy', '/counters/orisa', '/counters/ramattra', '/counters/sigma', '/counters/jetpack-cat', '/counters/wuyang', '/counters/zenyatta', '/counters/junker-queen', '/counters/mauga', '/counters/hazard', '/counters/junkrat', '/counters/soldier-76', '/counters/wrecking-ball', '/counters/venture', '/counters/vendetta', '/counters/anran', '/counters/mizuki']
+const RESTORED_TOPIC_ROUTES = ['/counters/genji', '/counters/kiriko', '/counters/freja', '/counters/pharah', '/counters/lifeweaver', '/counters/juno', '/counters/baptiste', '/counters/illari', '/counters/lucio', '/counters/mercy', '/counters/orisa', '/counters/ramattra', '/counters/sigma', '/counters/jetpack-cat', '/counters/wuyang', '/counters/zenyatta', '/counters/junker-queen', '/counters/mauga', '/counters/hazard', '/counters/junkrat', '/counters/soldier-76', '/counters/wrecking-ball', '/counters/venture', '/counters/vendetta', '/counters/anran', '/counters/mizuki', '/counters/sombra', '/counters/roadhog']
 
 for (const route of PUBLIC_ROUTES) {
   test(`${route} is a healthy public page`, async ({ page }) => {

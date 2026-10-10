@@ -19,10 +19,7 @@ test('released kit advice replaces archives while publication requires its own r
   expect(getTeamCompPillar('doctrine')?.intro[0]).toContain('Doctrine salió el 6 de octubre')
   expect(getTeamCompPillar('roadhog')?.intro[0]).toContain('está activo desde el 6 de octubre')
   for (const slug of ['sombra', 'doctrine', 'roadhog']) {
-    expect(topicQualityDecision('counter', slug).adsAllowed).toBe(false)
+    expect(topicQualityDecision('counter', slug)).toMatchObject({ indexable: true, adsAllowed: false })
     expect(topicQualityDecision('team_comp', slug)).toMatchObject({ indexable: true, adsAllowed: false })
   }
-  expect(topicQualityDecision('counter', 'sombra').indexable).toBe(false)
-  expect(topicQualityDecision('counter', 'roadhog').indexable).toBe(false)
-  expect(topicQualityDecision('counter', 'doctrine').indexable).toBe(true)
 })

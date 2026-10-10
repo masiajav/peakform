@@ -14,7 +14,7 @@ test('reviewed counters only restore individually approved publication candidate
     expect(article.threats).toHaveLength(['genji', 'kiriko'].includes(slug) ? 6 : 4)
     expect(article.examples).toHaveLength(3)
     expect(article.faqs).toHaveLength(3)
-    expect(editorialTopicQualityDecision('counter', slug, article)).toMatchObject({ indexable: ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine'].includes(slug), adsAllowed: false })
+    expect(editorialTopicQualityDecision('counter', slug, article)).toMatchObject({ indexable: ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine', 'sombra', 'roadhog'].includes(slug), adsAllowed: false })
     for (const threat of article.threats) {
       const normalizeName = (name: string) => name.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
       expect(normalizeName(getCounterHero(threat.href.slice('/heroes/'.length))?.name ?? '')).toBe(normalizeName(threat.name))
@@ -69,14 +69,27 @@ test('Sombra counters use Support output reduction, preserved EMP and current pe
   const article = JSON.stringify(reviewedCounters.sombra)
   expect(reviewedCounters.sombra.role).toBe('Support')
   expect(article).toContain('Sombra ya es Support desde el 6 de octubre')
-  expect(article).toContain('Weaken reduce el daño y la curación que produce el afectado')
+  expect(article).toContain('Weaken reduce un 50% el daño y la curación que produce el afectado')
+  expect(article).toContain('La zona dura 3 segundos')
+  expect(article).toContain('Hotfix tiene dos cargas')
   expect(article).toContain('no bloquea sus habilidades ni impide que reciba curación')
   expect(article).toContain('EMP conserva el hack de enemigos')
   expect(article).toContain('CTRL ALT ESC es un perk minor opcional')
   expect(article).toContain('Cybersecurity es un perk major opcional')
   expect(article).toContain('Data Packet es la alternativa major')
   expect(article).toContain('Life Hack es una opción minor')
+  expect(reviewedCounters.sombra.conclusion).toContain('preparad otra posición de curación')
+  expect(reviewedCounters.sombra.links.map(link => link.href)).toContain('/team-comps/sombra')
   expect(article).not.toMatch(/Encrypted Upload|Viral Replication|High-Speed Bandwidth|Suzu limpia Virus|Si Sombra logra Hack sobre ti|EMP.*daño.*salud máxima/i)
+})
+
+test('Season 5 counter approvals reject an unreviewed conclusion or metadata edit', () => {
+  for (const slug of ['sombra', 'roadhog'] as const) {
+    const article = reviewedCounters[slug]
+    expect(editorialTopicQualityDecision('counter', slug, article)).toMatchObject({ indexable: true, adsAllowed: false })
+    expect(editorialTopicQualityDecision('counter', slug, { ...article, conclusion: 'Unreviewed replacement' })).toMatchObject({ indexable: false, adsAllowed: false })
+    expect(editorialTopicQualityDecision('counter', slug, { ...article, seoDescription: 'Unreviewed description' })).toMatchObject({ indexable: false, adsAllowed: false })
+  }
 })
 
 test('Venture counters separate underground invulnerability, personal shields and alternate ranked perks', () => {
@@ -400,6 +413,11 @@ test('peel and hook counters avoid self-targeted packs and use the released Road
   expect(roadhog).toContain('Here, Piggy Piggy, un perk minor')
   expect(roadhog).toContain('Toxic Exhaust, un perk major opcional')
   expect(roadhog).toContain('Take a Breather no limpia la anticuración')
+  expect(roadhog).toContain('anti no borra todo el efecto')
+  expect(roadhog).toContain('La absorción dura 2 segundos')
+  expect(roadhog).toContain('Fortify te permite resistir el control del hook')
+  expect(reviewedCounters.roadhog.conclusion).toContain('corta también ese tiro')
+  expect(reviewedCounters.roadhog.links.map(link => link.href)).toContain('/team-comps/roadhog')
   expect(roadhog).not.toMatch(/one.?shot garantizado|rework.*sigue pendiente|versión pendiente/i)
 })
 

@@ -54,10 +54,9 @@ test('Sombra counter and composition use the released Support kit', async ({ pag
     await expect(page.locator('main')).toContainText('Hotfix')
     await expect(page.locator('main')).not.toContainText('Encrypted Upload')
     await expect(page.locator('h1')).not.toContainText('Archivo')
-    const reviewedComposition = route === '/team-comps/sombra'
-    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', `${reviewedComposition ? 'index' : 'noindex'}, follow`)
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index, follow')
     await expect(page.locator('main a[href="' + path + '"]').first()).toBeVisible()
-    expect((await (await request.get('/sitemap.xml')).text()).includes(route + '</loc>')).toBe(reviewedComposition)
+    expect((await (await request.get('/sitemap.xml')).text()).includes(route + '</loc>')).toBe(true)
   }
 })
 
@@ -96,8 +95,25 @@ test('released Sombra and Roadhog compositions publish only the reviewed revisio
     expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false)
   }
   expect(sitemap).toContain('/team-comps/doctrine</loc>')
-  expect(sitemap).not.toContain('/counters/sombra</loc>')
-  expect(sitemap).not.toContain('/counters/roadhog</loc>')
+  expect(sitemap).toContain('/counters/sombra</loc>')
+  expect(sitemap).toContain('/counters/roadhog</loc>')
+})
+
+test('reviewed Season 5 counters show distinct tactical conclusions and link their compositions', async ({ page, request }) => {
+  const sitemap = await (await request.get('/sitemap.xml')).text()
+  for (const slug of ['sombra', 'roadhog']) {
+    const route = `/counters/${slug}`
+    expect((await page.goto(route, { waitUntil: 'networkidle' }))?.status()).toBe(200)
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index, follow')
+    await expect(page.getByRole('heading', { name: 'Qué cambiar en tu próxima partida', exact: true })).toBeVisible()
+    await expect(page.locator(`main a[href="/team-comps/${slug}"]`)).toBeVisible()
+    await expect(page.locator('main')).toContainText(slug === 'sombra' ? 'La zona dura 3 segundos' : 'La absorción dura 2 segundos')
+    await expect(page.locator('main')).toContainText(slug === 'sombra' ? 'Hotfix tiene dos cargas' : 'anti no borra todo el efecto')
+    await expect(page.locator('main')).toContainText(slug === 'sombra' ? 'preparad otra posición de curación' : 'corta también ese tiro')
+    expect(sitemap).toMatch(new RegExp(`${route}</loc>\\s*<lastmod>2026-10-10T00:00:00\\.000Z</lastmod>`))
+    await expect(page.locator('ins.adsbygoogle,.ad-slot,script[src*="adsbygoogle"]')).toHaveCount(0)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false)
+  }
 })
 
 test('Doctrine launch advice is individually indexable and links between counters and compositions', async ({ page, request }) => {

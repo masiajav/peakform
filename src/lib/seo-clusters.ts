@@ -40,6 +40,7 @@ export type CounterPillar = {
   examples: { title: string; body: string }[]
   checklist: string[]
   faqs: EditorialFaq[]
+  conclusion?: string
   links: EditorialLink[]
 }
 
