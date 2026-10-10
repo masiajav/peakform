@@ -45,13 +45,37 @@ test('home and news link the current season without advertising the upcoming tri
   }
 })
 
-test('old Sombra articles warn about the Support rework and stay outside search', async ({ page, request }) => {
+test('Sombra counter uses the released Support kit while its old composition remains an archive', async ({ page, request }) => {
   for (const route of ['/counters/sombra', '/team-comps/sombra']) {
     await page.goto(route, { waitUntil: 'networkidle' })
     await expect(page.locator('main')).toContainText('Sombra')
     await expect(page.locator('main')).toContainText('Support')
+    if (route === '/counters/sombra') {
+      await expect(page.locator('main')).toContainText('Cyberspace')
+      await expect(page.locator('main')).toContainText('Hotfix')
+      await expect(page.locator('main')).not.toContainText('Encrypted Upload')
+      await expect(page.locator('h1')).not.toContainText('Archivo')
+    } else {
+      await expect(page.locator('main')).toContainText('no los copies')
+    }
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow')
     await expect(page.locator('main a[href="' + path + '"]').first()).toBeVisible()
     expect(await (await request.get('/sitemap.xml')).text()).not.toContain(route + '</loc>')
   }
+})
+
+test('Sombra guide keeps its old video but appears in Support rather than DPS filters', async ({ page }) => {
+  const slug = '/guides/sombra-guia-video-overwatch'
+  await page.goto(slug, { waitUntil: 'domcontentloaded' })
+  await expect(page.locator('main a[href="/roles/support"]').first()).toBeVisible()
+  await expect(page.locator('.guide-body')).toContainText('El vídeo de esta página muestra la versión anterior de Sombra como DPS')
+  await expect(page.locator('.guide-body')).toContainText('Hotfix')
+  await expect(page.locator('iframe')).toHaveCount(1)
+  for (const query of ['role=support', 'q=Support']) {
+    await page.goto(`/guides?${query}`, { waitUntil: 'domcontentloaded' })
+    await expect(page.locator(`main a[href="${slug}"]`)).toHaveCount(1)
+    await expect(page.locator(`main a[href="${slug}"]`)).toContainText('Sombra Support')
+  }
+  await page.goto('/guides?role=dps', { waitUntil: 'domcontentloaded' })
+  await expect(page.locator(`main a[href="${slug}"]`)).toHaveCount(0)
 })

@@ -12,8 +12,9 @@ test('Sombra is Support and no generic example puts her in a DPS slot', () => {
 })
 
 test('pre-rework archives stay accessible, clearly labelled and outside index approval', () => {
-  expect(getCounterPillar('sombra')?.h1).toContain('Archivo')
+  expect(getCounterPillar('sombra')?.role).toBe('Support')
   expect(getCounterPillar('sombra')?.intro[0]).toContain('Sombra ya es Support')
+  expect(getCounterPillar('roadhog')?.intro[1]).toContain('está activo desde el 6 de octubre')
   expect(getTeamCompPillar('sombra')?.intro[0]).toContain('no los copies')
   expect(getTeamCompPillar('doctrine')?.intro[0]).toContain('anterior a los ajustes de lanzamiento')
   expect(getTeamCompPillar('roadhog')?.intro[1]).toContain('recibió su rework')

@@ -17,7 +17,7 @@ import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
 import { guideQualityDecision, rankedGuideQualityDecision, robotsForQuality } from '@/lib/indexing-policy'
 import { discoverableGuides } from '@/lib/guide-discovery'
-import { applyReviewedGuideRevision, hasReviewedGuideRevision, mergeReviewedGuideVideo, reviewedGuideVideoSource, reviewedGuideTarget } from '@/lib/reviewed-guide-revisions'
+import { applyReviewedGuideRevision, hasReviewedGuideRevision, mergeReviewedGuideVideo, reviewedGuideVideoSource, reviewedGuideTarget, reviewedGuideRevisions } from '@/lib/reviewed-guide-revisions'
 import { guideEditorial } from '@/lib/guide-editorial'
 import { heroTopicHref } from '@/lib/topic-links'
 import { formatPrice } from '@/types'
@@ -189,11 +189,12 @@ export default async function GuideDetailPage(props: { params: Promise<{ slug: s
     mainEntityOfPage: absoluteUrl(guidePath(guide.slug)),
   }
 
+  const videoDescription = hasReviewedGuideRevision(guide.slug) ? reviewedGuideRevisions[guide.slug].videoDescription : undefined
   const videoJsonLd = guide.video_id ? {
     '@context': 'https://schema.org',
     '@type': 'VideoObject',
     name: guide.video_title || displayTitle,
-    description: guide.video_summary || description,
+    description: videoDescription || guide.video_summary || description,
     thumbnailUrl: [`https://i.ytimg.com/vi/${guide.video_id}/hqdefault.jpg`],
     uploadDate: guide.video_published_at || publishedDate,
     embedUrl: `https://www.youtube-nocookie.com/embed/${guide.video_id}`,
@@ -299,13 +300,16 @@ export default async function GuideDetailPage(props: { params: Promise<{ slug: s
         <AdSlot variant="inline" slot="guide-after-summary" allowAds={allowAds} />
 
         {guide.video_id && (
-          <GuideVideo
-            videoId={guide.video_id}
-            title={guide.video_title || displayTitle}
-            channel={guide.video_channel}
-            language={guide.video_language}
-            url={guide.video_url}
-          />
+          <>
+            {videoDescription && <p className="guide-video-context" style={{ color: '#b3b3b3', lineHeight: 1.7, margin: '0 0 16px' }}>{videoDescription}</p>}
+            <GuideVideo
+              videoId={guide.video_id}
+              title={guide.video_title || displayTitle}
+              channel={guide.video_channel}
+              language={guide.video_language}
+              url={guide.video_url}
+            />
+          </>
         )}
 
         <AdSlot variant="inline" slot="guide-after-video" allowAds={allowAds} />

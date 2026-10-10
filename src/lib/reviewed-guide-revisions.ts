@@ -16,9 +16,11 @@ export type GuideRevision = {
   description: string
   quickAnswer: string
   videoSlug: string
+  videoDescription?: string
   body: string
   revisedAt?: string
   category?: string
+  role?: GuideContent['role']
 }
 
 export const GUIDE_REVISION_DATE = '2026-09-30'
@@ -607,6 +609,7 @@ export function applyReviewedGuideRevision<T extends Pick<GuideContent, 'slug'>>
   const revision = reviewedGuideRevisions[guide.slug]
   return {
     ...guide,
+    ...(revision.role ? { role: revision.role } : {}),
     title: revision.title,
     seo_title: revision.title,
     seo_description: revision.description,

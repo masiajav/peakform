@@ -85,7 +85,6 @@ export default async function GuidesPage(props: { searchParams: Promise<GuidesSe
     .select(GUIDE_REVIEW_COLUMNS)
     .eq('published', true)
 
-  if (effectiveRole) query = query.eq('role', effectiveRole)
   if (effectiveHero) query = query.eq('hero', effectiveHero)
   if (filters.map) query = query.eq('map', filters.map)
   if (filters.category) query = query.eq('category', filters.category)
@@ -95,7 +94,9 @@ export default async function GuidesPage(props: { searchParams: Promise<GuidesSe
   else query = query.order('created_at', { ascending: false })
 
   const [{ data: guides }, { data: filterOptions }] = await Promise.all([query.returns<GuideContent[]>(), filterOptionsQuery])
-  const visibleGuides = filterBySearch(discoverableGuides(guides ?? []), freeTextQuery)
+  // Filter after editorial corrections: a stored DPS guide may now be Support.
+  const roleGuides = discoverableGuides(guides ?? []).filter(guide => !effectiveRole || guide.role === effectiveRole)
+  const visibleGuides = filterBySearch(roleGuides, freeTextQuery)
   const sortedGuides = filters.sort === 'read'
     ? [...visibleGuides].sort((a: any, b: any) => readingTime(a.body) - readingTime(b.body))
     : visibleGuides

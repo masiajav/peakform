@@ -21,6 +21,26 @@ const original: GuideContent = {
 }
 
 describe('reviewed guide batch', () => {
+  it('updates the released Sombra and Roadhog kits without changing videos or publication history', () => {
+    for (const hero of ['sombra', 'roadhog']) {
+      const slug = `${hero}-guia-video-overwatch`
+      const source = { ...original, slug, hero, role: hero === 'sombra' ? 'dps' as const : 'tank' as const, video_id: 'original-video', video_channel: 'Original channel' }
+      const revised = applyReviewedGuideRevision(source)
+      expect(revised).toMatchObject({ slug, hero, role: hero === 'sombra' ? 'support' : 'tank', created_at: source.created_at, updated_at: '2026-10-10', video_id: source.video_id, video_channel: source.video_channel, author: 'Replaid Lab' })
+      expect(source.role).toBe(hero === 'sombra' ? 'dps' : 'tank')
+      expect(revised.body).toContain(hero === 'sombra' ? 'versión anterior de Sombra como DPS' : 'kit anterior')
+      expect(revised.body).toContain(reviewedGuideRevisions[slug].videoDescription)
+      expect(guideQualityDecision(revised)).toMatchObject({ indexable: false, adsAllowed: false })
+    }
+    const sombra = reviewedGuideRevisions['sombra-guia-video-overwatch']
+    expect(sombra.body).toContain('no es anticuración')
+    expect(sombra.body).toContain('EMP conserva el hack')
+    expect(sombra.body).not.toMatch(/Support está anunciado, no aplicado|sigue siendo DPS|Virus necesita|Hago siempre Hack antes de Virus/)
+    const roadhog = reviewedGuideRevisions['roadhog-guia-video-overwatch']
+    expect(roadhog.body).toContain('Trash Compactor protege una dirección')
+    expect(roadhog.body).toContain('dos ráfagas')
+    expect(roadhog.body).not.toMatch(/rework.*llegará|temporada está anunciada para el 6/)
+  })
   it('keeps the Reaper kit correction on its original route and publication date', () => {
     const revised = applyReviewedGuideRevision({ ...original, slug: 'reaper-guia-video-overwatch', hero: 'reaper' })
     expect(revised).toMatchObject({ slug: 'reaper-guia-video-overwatch', hero: 'reaper', created_at: original.created_at, updated_at: '2026-10-02', author: 'Replaid Lab' })

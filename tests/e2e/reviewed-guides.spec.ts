@@ -27,6 +27,14 @@ for (const [slug, revision] of Object.entries(reviewedGuideRevisions)) {
     expect(articleText).not.toMatch(/Ã|Â|â€|ï¿½|Title SEO|Meta description|Mira primero el vídeo/)
     const jsonLd = await page.locator('script[type="application/ld+json"]').allTextContents()
     const schemas = jsonLd.map(block => JSON.parse(block))
+    if (revision.videoDescription) {
+      expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'VideoObject', description: revision.videoDescription }))
+      await expect(page.locator('.guide-body')).toContainText(revision.videoDescription)
+      await expect(page.locator('.guide-video-context')).toHaveText(revision.videoDescription)
+      const contextBox = await page.locator('.guide-video-context').boundingBox()
+      const videoBox = await page.locator('.guide-video-frame').boundingBox()
+      expect(contextBox && videoBox && contextBox.y + contextBox.height <= videoBox.y).toBe(true)
+    }
     expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'BlogPosting', dateModified: revision.revisedAt || GUIDE_REVISION_DATE, author: { '@type': 'Organization', name: 'Replaid Lab' } }))
     expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'FAQPage' }))
     const faq = schemas.find(schema => schema['@type'] === 'FAQPage')

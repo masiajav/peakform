@@ -8,7 +8,8 @@ import { MAP_PILLAR_SLUGS } from '@/lib/overwatch-maps'
 test('reviewed counters only restore individually approved publication candidates, never ads', () => {
   for (const [slug, article] of Object.entries(reviewedCounters)) {
     expect(getCounterPillar(slug)).toBe(article)
-    expect(article.schemaDate).toBe(['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'sombra', 'doctrine'].includes(slug) ? '2026-10-03' : '2026-10-02')
+    const revisionDate = ['sombra', 'roadhog'].includes(slug) ? '2026-10-10' : ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine'].includes(slug) ? '2026-10-03' : '2026-10-02'
+    expect(article.schemaDate).toBe(revisionDate)
     expect(wordCount(JSON.stringify(article))).toBeGreaterThan(1100)
     expect(article.threats).toHaveLength(['genji', 'kiriko'].includes(slug) ? 6 : 4)
     expect(article.examples).toHaveLength(3)
@@ -58,17 +59,18 @@ test('Mizuki counters separate both return positions, sanctuary borders and alte
   expect(article).not.toMatch(/Rule of Three|la cadena se engancha a paredes|Katashiro.*cura alrededor de la muñeca|Kekkai.*invulnerabilidad permanente/i)
 })
 
-test('Sombra counters use the DPS kit, completed hack distinction and current perk alternatives', () => {
+test('Sombra counters use Support output reduction, preserved EMP and current perk alternatives', () => {
   const article = JSON.stringify(reviewedCounters.sombra)
+  expect(reviewedCounters.sombra.role).toBe('Support')
   expect(article).toContain('Sombra ya es Support desde el 6 de octubre')
-  expect(article).toContain('no describen a la Sombra de Season 5')
-  expect(article).toContain('Si Hack ya se ha completado, tu daño no lo deshace')
-  expect(article).toContain('Encrypted Upload es un perk minor opcional')
+  expect(article).toContain('Weaken reduce el daño y la curación que produce el afectado')
+  expect(article).toContain('no bloquea sus habilidades ni impide que reciba curación')
+  expect(article).toContain('EMP conserva el hack de enemigos')
   expect(article).toContain('CTRL ALT ESC es un perk minor opcional')
-  expect(article).toContain('Viral Replication es un perk major opcional')
-  expect(article).toContain('High-Speed Bandwidth es un perk major opcional')
-  expect(article).toContain('es la alternativa a Viral Replication')
-  expect(article).not.toMatch(/Hack ha sido eliminado|Virus cura a aliados|EMP.*daño.*salud máxima/i)
+  expect(article).toContain('Cybersecurity es un perk major opcional')
+  expect(article).toContain('Data Packet es la alternativa major')
+  expect(article).toContain('Life Hack es una opción minor')
+  expect(article).not.toMatch(/Encrypted Upload|Viral Replication|High-Speed Bandwidth|Suzu limpia Virus|Si Sombra logra Hack sobre ti|EMP.*daño.*salud máxima/i)
 })
 
 test('Venture counters separate underground invulnerability, personal shields and alternate ranked perks', () => {
@@ -379,16 +381,20 @@ test('Kiriko advice distinguishes cleansing, prevention and already applied prot
   expect(article).not.toMatch(/Shuffling|Kunai Mastery|Predatory Instincts|Two-Zu/)
 })
 
-test('peel and hook counters avoid self-targeted packs and unannounced rework mechanics', () => {
+test('peel and hook counters avoid self-targeted packs and use the released Roadhog rework', () => {
   const brigitte = JSON.stringify(reviewedCounters.brigitte)
   expect(brigitte).toContain('no puede lanzarse Repair Pack a sí misma')
   expect(brigitte).toContain('Inspiring Strike es un perk opcional')
   expect(brigitte).not.toContain('gastar un pack sobre sí misma')
   expect(brigitte).not.toContain('gira para ayudarte')
   const roadhog = JSON.stringify(reviewedCounters.roadhog)
-  expect(roadhog).toContain('El rework de Season 5 sigue pendiente')
+  expect(roadhog).toContain('El rework de Season 5 está activo desde el 6 de octubre')
+  expect(roadhog).toContain('Trash Compactor absorbe proyectiles de frente')
+  expect(roadhog).toContain('6 segundos en 5v5 y 7 en 6v6')
+  expect(roadhog).toContain('Here, Piggy Piggy, un perk minor')
+  expect(roadhog).toContain('Toxic Exhaust, un perk major opcional')
   expect(roadhog).toContain('Take a Breather no limpia la anticuración')
-  expect(roadhog).not.toMatch(/one.?shot garantizado|nuevas mecánicas ya activas/i)
+  expect(roadhog).not.toMatch(/one.?shot garantizado|rework.*sigue pendiente|versión pendiente/i)
 })
 
 test('deployable counters distinguish optional perks and persistent ultimate hazards', () => {

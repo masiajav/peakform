@@ -165,16 +165,17 @@ Para preparar los accesos, consulta [Lijiang Tower](/maps/lijiang-tower). Puedes
   },
   'roadhog-guia-video-overwatch': {
     hero: 'roadhog',
-    title: 'Cómo jugar Roadhog: hooks con seguimiento y Breather a cubierto',
-    description: 'Busca un hook que el equipo pueda aprovechar, gestiona Take a Breather sin quedarte en abierto y usa Whole Hog para controlar una ruta.',
-    quickAnswer: 'Roadhog debe amenazar desde una esquina que permita traer al objetivo hasta el daño de sus compañeros. Antes del hook, mira la munición, las defensas del rival y quién puede seguirlo. Take a Breather ayuda a recuperar y resistir, pero no reemplaza la cobertura. El rework de Season 5 está anunciado para el 6 de octubre; esta guía trata las decisiones del kit disponible antes de ese cambio.',
+    title: 'Cómo jugar Roadhog en Season 5: hook, Trash Compactor y cobertura',
+    description: 'Aprende a preparar el hook de Roadhog, proteger un cruce con Trash Compactor y gestionar Breather. Ejemplos de ranked y errores del rework de Season 5.',
+    quickAnswer: 'Con el rework de Season 5, Roadhog tiene que preparar el seguimiento del hook y aprovechar Trash Compactor para proteger el avance. Juega una esquina donde tus compañeros vean al objetivo, conserva munición y gira hacia el fuego que necesitas absorber. No te quedes en abierto esperando que Breather resuelva todo el daño.',
     videoSlug: 'roadhog-guia-video-overwatch',
-    revisedAt: '2026-10-01',
-    body: `## Qué versión de Roadhog estás preparando
+    videoDescription: 'El vídeo que acompaña esta guía corresponde al kit anterior. Puede servir para observar esquinas y seguimiento, pero no para copiar el disparo secundario o el combo antiguo.',
+    revisedAt: '2026-10-10',
+    body: `## Qué cambia al jugar el Roadhog de Season 5
 
-El rework de Season 5 llegará con la nueva temporada, anunciada para el 6 de octubre de 2026. No conviene presentar sus cambios como si ya estuvieran activos. Aquí trabajamos posición, Chain Hook, Take a Breather y Whole Hog sin dar por válidos combos, tiempos o cifras de daño para una versión todavía pendiente de lanzamiento.
+El rework está disponible desde el 6 de octubre de 2026. Scrap Gun dispara dos ráfagas por pulsación y Trash Compactor ocupa el disparo secundario. El hook sigue desplazando al enemigo, pero no conviene jugar como si cada enganche asegurara una baja inmediata. Prepara el tiro siguiente y la ayuda del equipo antes de asomarte.
 
-Si vuelves después de mucho tiempo, no intentes repetir de memoria una secuencia de un vídeo antiguo. Mira el arma y las habilidades del modo que estás jugando. Las reglas de 5v5, 6v6 y los modos temporales no siempre han utilizado el mismo kit ni el mismo balance.
+El vídeo que acompaña esta guía corresponde al kit anterior. Puede servir para observar esquinas y seguimiento, pero no para copiar el disparo secundario o el combo antiguo. Para las habilidades actuales, sigue los consejos de abajo. En 5v5 y 6v6 también cambian algunos cooldowns: no alargues una salida porque recuerdas otro modo.
 
 ## Un hook bueno empieza en el lugar donde recibes al objetivo
 
@@ -182,7 +183,7 @@ Antes de lanzar Chain Hook, mira tu propia esquina. Si traes al enemigo hasta un
 
 En Ilios Well, la amenaza de caída puede condicionar dónde se coloca el rival. No hace falta recorrer siempre el borde buscando una eliminación ambiental: puedes usar esa presión para controlar un acceso y obligar al enemigo a cambiar su ruta. Mantén una posición desde la que tus supports puedan ayudarte.
 
-La munición importa antes del lanzamiento. Enganchar a alguien y tener que recargar reduce la ventana disponible. Prepárate durante las pausas y avisa del objetivo cuando puedas; un hook aislado es más difícil de convertir que uno que los compañeros ya están esperando.
+La munición importa antes del lanzamiento. Enganchar a alguien y tener que recargar reduce la ventana disponible. Con las dos ráfagas del arma, sigue apuntando después del primer impacto; no des por terminado el intercambio. Scrap Hook, si eliges ese perk minor, devuelve munición al acertar el gancho. Es una ayuda, no una razón para olvidarte de recargar entre peleas.
 
 ## No todos los impactos dan el mismo duelo
 
@@ -208,6 +209,16 @@ Contra Ana, ten en cuenta la granada anticuración antes de depender de recupera
 
 No gastes la defensa únicamente para mantener una posición que no aporta. Si tus DPS no pueden disparar desde allí y el objetivo queda en otro lugar, aguantar más tiempo puede retrasar una rotación necesaria. La supervivencia tiene sentido cuando conserva presión útil o permite volver al equipo.
 
+## Trash Compactor protege una dirección, no toda la pelea
+
+Úsalo para absorber proyectiles que llegan de frente durante un cruce o cuando un compañero necesita salir de una línea peligrosa. Mira de dónde viene ese fuego antes de activarlo. Si te giras para buscar al DPS del lateral, puedes dejar de cubrir justo la dirección por la que estaba avanzando el grupo.
+
+Al terminar, devuelves un disparo explosivo que gana daño con lo absorbido. Apunta donde el rival todavía tiene que jugar: una puerta que está disputando o una esquina desde la que sigue presionando. No camines hasta su backline solo por querer aprovechar el disparo. El daño adicional no compensa quedarte sin salida y fuera de la curación aliada.
+
+En King's Row, puedes ayudar al equipo a cruzar una calle expuesta mirando al ángulo que os está frenando. Avanza hasta la siguiente cobertura, no hasta la siguiente víctima. Si el rival deja de disparar y cambia de lado, ya habéis ganado tiempo para moveros; no necesitas absorber mucho daño para que el uso haya servido.
+
+Cuando vuelva a estar en cooldown, conserva una esquina desde la que puedas recibir ayuda. Trash Compactor y Breather resuelven problemas distintos: uno responde al fuego frontal y el otro permite recuperar vida. Gastar ambos para sostener el mismo peek, sin avance ni seguimiento, suele dejarte vendido en el siguiente intento.
+
 ## Whole Hog se orienta según lo que necesitas desplazar
 
 La ultimate puede presionar y empujar al enemigo. Una pared o una retirada estrecha pueden favorecer el daño; un espacio abierto puede separar al objetivo del seguimiento aliado. Decide qué resultado buscas antes de activarla.
@@ -216,12 +227,15 @@ Puede servir para impedir una entrada o sacar al enemigo de una zona que necesit
 
 Comprueba las defensas que pueden negar tu presión y los ángulos desde los que te atacarán. No te coloques en medio de toda la backline solo porque la ultimate esté lista. Una buena orientación necesita también una posición desde la que puedas seguir vivo al terminar.
 
+Here, Piggy Piggy es una elección minor que permite usar el hook mucho más a menudo durante Whole Hog. Si la llevas, prepara un destino útil para el objetivo que atraes, en vez de enganchar a alguien que estabas intentando alejar del punto. Fuera de la ultimate, no funciona como una reducción permanente del cooldown.
+
 ## Qué revisar antes de culpar al combo
 
 - ¿Tenías munición y compañeros con visión después del hook?
 - ¿Qué defensa rival seguía disponible para salvar al objetivo?
 - ¿Cambiaste de exposición después de fallar el enganche?
 - ¿Breather te permitió volver a cobertura o solo retrasó la muerte?
+- ¿Trash Compactor cubrió el ángulo por el que cruzaban tus compañeros?
 - ¿Whole Hog desplazó al rival hacia una zona útil para tu equipo?
 
 Revisa un hook acertado sin baja desde la cámara de tus DPS. Mira si podían disparar y cuánto tardaron en ver al objetivo. El resultado puede depender de tu posición y del seguimiento, no de necesitar un combo distinto en cada intento.
@@ -236,93 +250,95 @@ No. Forzar una defensa o sacar a alguien de una posición puede ayudar, pero deb
 
 Solo si esa posición aporta y puedes sostenerla. Usa cobertura para reducir presión y respeta anticuración e interrupciones. Curarte no compensa quedar aislado del equipo.
 
-### ¿Esta guía incluye el rework de Season 5?
+### ¿Cuándo uso Trash Compactor en vez de Breather?
 
-No lo presenta como activo. La revisión es del 1 de octubre y la temporada está anunciada para el 6 de octubre. Evita aplicar al lanzamiento combos o cifras de una versión anterior sin comprobar sus cambios.
+Cuando necesitas responder a proyectiles que llegan de frente, especialmente durante un cruce. Breather sirve para recuperar y resistir, pero no limpia la anticuración. Ninguna de las dos habilidades sustituye una esquina o garantiza que puedas ignorar el fuego del lateral.
 
 ## Guías relacionadas
 
-Puedes preparar los accesos con [Ilios](/maps/ilios), revisar recursos con [la guía de cooldowns](/guides/como-revisar-cooldowns-overwatch) y consultar [los anuncios de Season 5](/doctrine-support-sombra-roadhog-rework-overwatch) para distinguir lo disponible de lo anunciado.`,
+Puedes preparar los accesos con [Ilios](/maps/ilios), entender [qué intentará hacer el rival contra Roadhog](/counters/roadhog) y revisar recursos con [la guía de cooldowns](/guides/como-revisar-cooldowns-overwatch). En [Season 5](/doctrine-support-sombra-roadhog-rework-overwatch) tienes el resto de cambios del lanzamiento.`,
   },
   'sombra-guia-video-overwatch': {
     hero: 'sombra',
-    title: 'Cómo jugar Sombra antes de Season 5: Hack, Virus y entradas con salida',
-    description: 'Prepara el timing de Hack y Virus, elige una retirada con Translocator y usa EMP con seguimiento. El cambio a Support todavía está pendiente.',
-    quickAnswer: 'Sombra sigue siendo DPS antes del lanzamiento de Season 5, anunciado para el 6 de octubre. Prepara un lateral cercano y entra cuando el equipo también presione. Hack debe negar una respuesta relevante, no preceder por costumbre todos los disparos. Conserva un destino seguro para Translocator y usa EMP cuando los compañeros puedan aprovechar el bloqueo; no como un intento aislado de salvar una pelea perdida.',
+    role: 'support',
+    title: 'Cómo jugar Sombra Support: Hotfix, Cyberspace y EMP en Season 5',
+    description: 'Juega Sombra Support sin dejar solo al equipo: a quién dar Hotfix, dónde lanzar Cyberspace y cuándo entrar con EMP. Consejos del rework de Season 5.',
+    quickAnswer: 'Sombra es Support desde el lanzamiento de Season 5. Mantén Hotfix sobre el compañero que necesita ayuda, coloca Cyberspace donde vuestro equipo pueda pelear y reserva una salida con Translocator. Puedes presionar desde un lateral, pero si tu recorrido te impide curar, la sorpresa está costando demasiado al equipo.',
     videoSlug: 'sombra-guia-video-overwatch',
-    revisedAt: '2026-10-01',
-    body: `## El cambio a Support está anunciado, no aplicado
+    videoDescription: 'El vídeo de esta página muestra la versión anterior de Sombra como DPS. Las rutas pueden darte ideas, pero sus combos y habilidades no describen Season 5.',
+    revisedAt: '2026-10-10',
+    body: `## Sombra ya es Support: cambia el objetivo de tus entradas
 
-Blizzard ha anunciado que Sombra pasará de DPS a Support con el rework de Season 5. La nueva temporada está prevista para el 6 de octubre de 2026. Esta guía se revisa antes de ese lanzamiento y trata su juego con Machine Pistol, Hack, Virus, Translocator y EMP, no una versión de Support que todavía no está disponible.
+Desde el 6 de octubre de 2026, no juegas un DPS que busca encadenar Hack y Virus. Hotfix y Cyberspace cambian qué necesita el equipo de ti: curar durante el intercambio y debilitar al rival cuando intenta imponer su daño. Machine Pistol sigue permitiendo presionar, pero buscar una baja no justifica perder de vista al compañero que depende de tu ayuda.
 
-Si consultas un vídeo antiguo, comprueba especialmente cómo funciona el teleport y cuándo puedes usar invisibilidad en la versión de tu partida. No todos los reworks han conservado esas reglas. Preparar una retirada basándote en un translocator colocado permanentemente lejos del combate puede no corresponder al kit que tienes delante.
+El vídeo de esta página muestra la versión anterior de Sombra como DPS. Las rutas pueden darte ideas, pero sus combos y habilidades no describen Season 5. Los consejos que siguen están centrados en la versión Support y en cómo participar sin pasar media pelea escondida lejos del grupo.
 
-## Un buen lateral te deja llegar a tiempo
+## Hotfix antes de perder la línea con tu compañero
 
-Sombra necesita que el rival tenga otra amenaza a la que responder. Dar una vuelta enorme hasta sus supports puede dejar a tus compañeros jugando sin tu presión mientras tú buscas una sorpresa. Un acceso corto permite ver cuándo entra el Tank y aparecer durante el intercambio.
+Prepara la curación sobre quien va a recibir presión. Si vuestro Tank está a punto de doblar una esquina, comprueba que puedes ayudar antes de buscar un lateral. Hotfix sigue curando durante un tiempo, pero tiene un límite: no permite olvidarte de un aliado que continúa recibiendo disparos. Mira su vida de nuevo después de cambiar de posición.
 
-En Dorado, una ruta lateral puede abrir una línea hacia la defensa sin obligarte a atravesar toda la calle. Antes de salir, mira si el equipo está avanzando o si acaba de perder a alguien. Si la pelea ya se está retirando, iniciar tu duelo detrás no recupera el engage que habéis perdido.
+Puedes aplicarlo estando en sigilo; Sombra se revela brevemente sin perderlo por completo. Eso permite acompañar una rotación sin empezar por el arma. Tampoco te hace intocable: el enemigo puede estar vigilando tu ruta y la curación no concede invulnerabilidad ni limpia la anticuración.
 
-Usa también la posición para observar. Identificar quién está aislado o qué defensa acaba de gastarse puede ayudarte más que atacar al primer enemigo al alcance. Avisa con un ping cuando el equipo pueda actuar sobre esa información.
+En Watchpoint: Gibraltar, mantener la altura con vuestro otro Support puede ser mejor que bajar detrás de un DPS enemigo. Desde arriba puedes dar Hotfix al compañero que disputa otra plataforma y comprobar si necesita más ayuda. Si bajas y el Tank queda fuera de tu alcance, volver a subir después de una baja no repara el tiempo que pasó solo.
 
-## Hack tiene que negar algo que importe ahora
+## Cyberspace se coloca donde la pelea va a continuar
 
-Puedes utilizarlo para dificultar una entrada, interrumpir una habilidad que admita esa respuesta o limitar las opciones de un objetivo que el equipo ya está atacando. Lanzarlo siempre antes del arma puede dar tiempo al enemigo para reaccionar sin que el bloqueo aporte una ventaja concreta.
+El área ayuda a los aliados y aplica Weaken a los enemigos que están dentro. Esa debilitación reduce el daño y la curación que ellos producen; no es anticuración sobre la vida que reciben ni un bloqueo de sus habilidades. Si el rival sigue usando recursos, no significa que la habilidad haya fallado.
 
-El daño recibido interrumpe el intento, así que no lo prepares en una posición donde todos pueden dispararte. Busca una ventana corta mientras el objetivo está ocupado o una cobertura desde la que no recibas presión de varios lados. Si el intento falla, adapta el duelo; no mantengas la misma exposición esperando que el siguiente salga por sí solo.
+Busca una esquina que vuestro equipo esté disputando o la llegada de una entrada que ya has visto. Lanzarla al primer rival que aparece puede dejarte sin ella cuando el Tank enemigo avance de verdad. También importa que tus compañeros puedan aprovechar el área: un proyectil muy lejano, detrás de una pared, no sostiene a la backline que acaba de recibir dive.
 
-Hackear un botiquín puede favorecer una ruta que realmente utilices y dificultar la recuperación rival en esa zona. No hace falta dedicar una rotación larga a un pack que no influirá en la pelea. Mira el acceso, el estado del equipo y cuánto tardarás en volver a intervenir.
+En Colosseo, puedes usarla en el contacto junto al robot mientras vuestro Tank y un DPS comparten esa esquina. Si el rival se aparta, aprovecha para recolocar al grupo. No cruces solo para intentar mantenerlo dentro; has abierto una oportunidad de movimiento, no recibido una orden de perseguir.
 
-## Virus necesita un objetivo al que puedas seguir presionando
+Cybersecurity, un perk major, refuerza la curación del área sobre aliados con poca vida. Puede ayudar en contactos cercanos, pero no convierte en buena idea quedarse dentro de todo el fuego rival. Su alternativa, Data Packet, favorece recuperar Hotfix al hackear botiquines. Elige según las rutas que puedes usar sin ausentarte de la pelea.
 
-El proyectil aplica daño en el tiempo y actúa más rápido sobre enemigos hackeados. Eso puede favorecer una secuencia, pero no significa que debas gastar Hack sobre cualquier objetivo antes de lanzarlo. La urgencia de la baja, la exposición y la respuesta rival pueden hacer mejor empezar por el daño.
+## Hackear botiquines no es silenciar al héroe de delante
 
-Tras acertar, utiliza Machine Pistol desde una distancia y un ángulo que puedas sostener. Si el enemigo recupera ayuda o se cubre, no cruces hasta una sala donde toda su backline pueda mirarte. Forzar una defensa y volver con vida permite preparar otra ventana.
+Hotfix permite seguir hackeando botiquines y muchos dispositivos enemigos. Eso no devuelve el antiguo Hack sobre héroes. El daño recibido puede interrumpir el intento sobre esos objetos: prepara cobertura y no te quedes canalizando mientras el equipo rival te ve.
 
-Si Virus falla, vuelve a valorar el estado del duelo. Continuar puede tener sentido contra un objetivo accesible y sin recursos, pero insistir contra alguien sano y protegido puede gastar tu salida sin una ventaja probable. No decidas la persecución solo por haber llegado detrás.
+Un botiquín de una ruta cercana puede facilitar que vuelvas a intervenir. Dedicar una vuelta larga a uno que nadie va a usar no aporta la misma ventaja. Antes de salir, mira el estado del otro Support y qué compañero está entrando. Si estás lejos cuando empieza el engage, una buena ruta de botiquines no sustituye la curación que faltó.
 
-## Translocator se lanza mirando dónde acabarás
+## Un lateral corto permite disparar y seguir ayudando
 
-El teleport permite cambiar de posición y activa invisibilidad temporal. Identifica la cobertura de destino antes de depender de él. Una trayectoria que pasa cerca de una puerta controlada o termina en una esquina ocupada puede cambiar un mal duelo por otro.
+En Dorado, asomarte desde una calle próxima al equipo puede hacer que la defensa tenga que girarse. La diferencia respecto a un flanco profundo es que puedes volver a dar Hotfix sin recorrer medio mapa. Comprueba esa distancia antes del primer disparo, no cuando oyes que vuestro Tank está muriendo.
 
-Conserva la habilidad cuando el lateral exija una salida. Si la has utilizado para llegar, necesitas comprobar qué recorrido puedes hacer mientras vuelve a estar disponible. Entrar al fondo con el recurso gastado no permite después escapar solo por haber tenido una buena ruta inicial.
+Conserva Translocator si vas a necesitar salir. Identifica una llegada con cobertura y cerca de un aliado, en lugar de lanzar el teleport hacia cualquier sitio al quedarte con poca vida. Tras usarlo, el sigilo no aparece de forma instantánea y el enemigo todavía puede contestar tu llegada.
 
-No retrases la retirada hasta que sea imposible reaccionar. Mira la ayuda que recibe el objetivo y tu propia exposición después de los primeros disparos. Salir antes de que el rival te rodee puede conservar vida, tiempo y presión para la siguiente entrada.
+Si el rival empieza a buscarte con dos jugadores, acorta el duelo. Forzar ese giro y regresar a curar puede bastar para que vuestro frente avance. No necesitas terminar siempre la baja; sí necesitas volver antes de que el otro Support tenga que sostener a todos por su cuenta.
 
-## EMP debe coincidir con daño aliado
+## EMP necesita una entrada preparada, no un rescate imposible
 
-La ultimate afecta a los enemigos cercanos y puede negar barreras y habilidades, pero necesita seguimiento para convertir esa ventana en una ventaja. Comprueba que el equipo está vivo, tiene visión y puede entrar o disparar. Usarla mientras tus compañeros siguen cruzando el mapa puede dejarles la pelea restablecida al llegar.
+EMP conserva el hack y la destrucción de barreras, aunque Hack ya no sea una habilidad normal sobre héroes. Habla con el Tank o usa un ping para que la activación coincida con su presión. Si tus compañeros están retirándose, llegar a varios rivales no garantiza que puedan aprovecharlo.
 
-No esperes siempre una agrupación perfecta. Bloquear a un objetivo importante durante un intercambio preparado puede servir más que alcanzar a varios enemigos muy lejos. Mira también qué respuestas quedan fuera del área y quién puede castigarte después del uso.
+Mira también a tus aliados antes de teleportar al centro. Si uno va a necesitar curación inmediata, prepara Hotfix y una salida. Life Hack es una opción minor que aplica Hotfix a aliados próximos al usar EMP; sin ese perk, no esperes ese efecto. Tampoco justifica gastar la ultimate solo por haber dejado de curar a tiempo.
 
-Si la pelea ya está resuelta en contra, conservar EMP para el siguiente engage suele ofrecer más opciones. En overtime puedes necesitar intentar una disputa urgente; fuera de ese caso, entrar sola para conseguir una animación grande no devuelve a los compañeros que faltan.
+Una EMP pequeña sobre un objetivo que el equipo puede atacar suele tener más sentido que perseguir una agrupación perfecta fuera de vuestro alcance. En overtime quizá necesites disputar de urgencia, pero en una pelea normal conviene guardar el recurso si faltan compañeros y no hay seguimiento posible.
 
-## Qué revisar cuando pasas mucho tiempo sin intervenir
+## Qué revisar en tu VOD con la nueva Sombra
 
-- ¿Tu recorrido te dejó preparada cuando empezó la pelea?
-- ¿Hack negó una respuesta concreta o solo anunció tu posición?
-- ¿Podías seguir el daño de Virus sin cruzar hacia ayuda rival?
-- ¿El destino de Translocator seguía disponible al retirarte?
-- ¿EMP llegó con daño aliado y no antes de su rotación?
+- ¿Quién recibió Hotfix antes del primer contacto?
+- ¿Seguías pudiendo ayudar después de abrir el lateral?
+- ¿Cyberspace coincidió con una entrada real o se gastó antes?
+- ¿El destino de Translocator tenía cobertura y permitía volver al equipo?
+- ¿Había compañeros preparados para seguir EMP?
 
-Mira una pelea donde el equipo perdió antes de tu primer ataque. Cuenta el tiempo de preparación y comprueba si un lateral más corto habría permitido intervenir. La sorpresa deja de aportar cuando llega después de la ventana que querías aprovechar.
+Mira una muerte de vuestro Tank desde su cámara y después desde la tuya. Comprueba si estabas fuera de alcance buscando daño, si se agotó la ayuda de Hotfix o si el grupo avanzó sin recursos. Son problemas distintos: no todos se arreglan simplemente curando más ni renunciando a disparar durante toda la partida.
 
 ## FAQ
 
-### ¿Sombra ya es Support?
+### ¿Sombra puede seguir hackeando enemigos?
 
-No en esta revisión del 1 de octubre. El cambio está anunciado para Season 5, prevista para el 6 de octubre de 2026. No confundas el anuncio con el rol disponible antes del lanzamiento.
+No tiene el antiguo Hack normal sobre héroes. Hotfix conserva el hack de botiquines y muchos dispositivos; EMP sí sigue hackeando enemigos en su área. No prepares el duelo esperando una secuencia de Hack y Virus del kit de DPS.
 
-### ¿Hago siempre Hack antes de Virus?
+### ¿Cyberspace impide que curen al enemigo?
 
-No hay una secuencia obligatoria para todos los duelos. Mira qué habilidad necesitas negar y cuánto tiempo tienes. El daño, la cobertura y las defensas rivales pueden favorecer otro orden.
+No funciona como anticuración. Weaken reduce el daño y la curación que produce el enemigo afectado, no la curación que recibe de sus compañeros. También conserva sus habilidades: la respuesta depende de la posición y del seguimiento.
 
-### ¿Uso Translocator para entrar en la backline?
+### ¿Tengo que dejar de flankear al ser Support?
 
-Puede abrir una posición, pero gastarlo al entrar reduce tu salida inmediata. Comprueba dónde podrás jugar mientras vuelve el recurso y evita un destino que dependa de matar al instante para sobrevivir.
+No, pero el flanco debe permitirte seguir ayudando. Usa laterales cercanos, prepara Hotfix y conserva una retirada. Si tu recorrido deja al equipo con un solo Support durante el engage, acórtalo antes de buscar otra baja.
 
 ## Guías relacionadas
 
-Puedes trabajar las rutas en [Dorado](/maps/dorado), preparar EMP con [cómo gestionar ultimates](/guides/como-usar-ultimates-overwatch) y consultar [los anuncios del rework](/doctrine-support-sombra-roadhog-rework-overwatch) sin aplicar todavía un kit de Support.`,
+Para preparar los laterales, consulta [Dorado](/maps/dorado) y [Watchpoint: Gibraltar](/maps/watchpoint-gibraltar). Puedes revisar [cómo responderán los rivales a Sombra Support](/counters/sombra), trabajar el timing con [la guía de ultimates](/guides/como-usar-ultimates-overwatch) y ver el resto de novedades de [Season 5](/doctrine-support-sombra-roadhog-rework-overwatch).`,
   },
 }
