@@ -14,7 +14,7 @@ describe('individual D.Mon hero article', () => {
   it('preserves publication, both images and specific map decisions', () => {
     expect(getHeroPillar('dmon')).toBe(dmon)
     expect(dmon.publishedAt).toBe('2026-08-06')
-    expect(dmon.schemaDate).toBe('2026-10-04')
+    expect(dmon.schemaDate).toBe('2026-10-09')
     expect(dmon.abilityKit).toMatchObject({ src: '/heroes/dmon-ability-kit.png', width: 1920, height: 1080 })
     expect(dmon.sections.some(item => item.title.startsWith('Lijiang, Control Center:'))).toBe(true)
     expect(dmon.sections.some(item => item.title.startsWith('Busan, MEKA Base:'))).toBe(true)
@@ -31,7 +31,10 @@ describe('individual D.Mon hero article', () => {
     expect(dmon.perks?.[2].body).toContain('no de todos los ataques')
     expect(dmon.compositions[2].body).toContain('no cabe en la cola por roles 5v5')
     expect(dmon.compositions[1].body).toContain('no la tratéis como una limpieza universal')
-    expect(dmon.counters[5].body).toContain('kit actual de DPS')
+    expect(dmon.counters[5].title).toBe('Sombra Support')
+    expect(dmon.counters[5].body).toContain('no es un anti que bloquee las curas que recibes')
+    expect(dmon.counters[5].body).toContain('Su Hack normal sobre héroes se retiró')
+    expect(JSON.stringify(dmon)).not.toMatch(/kit actual de DPS|futuro rework/)
   })
 
   it('separates dated balance changes and format-specific armor from launch values', () => {

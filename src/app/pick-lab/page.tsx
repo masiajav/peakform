@@ -4,11 +4,17 @@ import PublicNav from '@/components/layout/PublicNav'
 import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 import PickLab from './PickLab'
 
-export const metadata: Metadata = buildMetadata({
-  title: 'Pick Lab de Overwatch: picks, counters y sinergias',
-  description: 'Elige tu rol, mapa, aliados y rivales para saber qué héroe jugar en Overwatch. Compara picks por sinergias, counters y estilo de composición.',
-  path: '/pick-lab',
-})
+export async function generateMetadata(props: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>
+}): Promise<Metadata> {
+  const searchParams = await props.searchParams
+  return buildMetadata({
+    title: 'Pick Lab de Overwatch: picks, counters y sinergias',
+    description: 'Elige tu rol, mapa, aliados y rivales para saber qué héroe jugar en Overwatch. Compara picks por sinergias, counters y estilo de composición.',
+    path: '/pick-lab',
+    robots: { index: Object.keys(searchParams).length === 0, follow: true },
+  })
+}
 
 export default function PickLabPage() {
   const applicationJsonLd = {

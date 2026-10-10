@@ -8,7 +8,7 @@ describe('individual Genji hero article', () => {
   it('keeps its own dated article, map examples and conclusion', () => {
     expect(getHeroPillar('genji')).toBe(genji)
     expect(genji.publishedAt).toBe('2026-06-26')
-    expect(genji.schemaDate).toBe('2026-10-04')
+    expect(genji.schemaDate).toBe('2026-10-09')
     expect(genji.sections.some(item => item.title.startsWith('Gibraltar:'))).toBe(true)
     expect(genji.sections.some(item => item.title.startsWith('King’s Row:'))).toBe(true)
     expect(genji.conclusion).toContain('posición de los diez jugadores')
@@ -22,6 +22,11 @@ describe('individual Genji hero article', () => {
     expect(genji.abilities.find(item => item.title === 'Swift Strike')?.body).toContain('las eliminaciones reinician su cooldown')
     expect(genji.faqs.find(item => item.question === '¿Qué combo debo practicar con Genji?')?.answer).toContain('No existe una secuencia que garantice la baja')
     expect(genji.rankedPlan[3]).toContain('no cuentes con detenerlo libremente')
+    expect(genji.abilities.find(item => item.title === 'Swift Strike')?.body).toContain('su daño base es 60, antes 50')
+    expect(genji.abilities.find(item => item.title === 'Dragonblade')?.body).toContain('de 110 a 100')
+    expect(genji.abilities.find(item => item.title === 'Dragonblade')?.body).toContain('un 15%')
+    expect(genji.balanceReview?.[0].title).toContain('6 de octubre')
+    expect(genji.faqs.find(item => item.question === '¿Qué cambió en Dash y Dragonblade con Season 5?')?.answer).toContain('Son valores base')
   })
 
   it('separates current normal perks from old perks and Stadium powers', () => {

@@ -2,14 +2,14 @@ import type { HeroPillar } from './hero-pillars'
 
 export const reviewedAnaHero: HeroPillar = {
   slug: 'ana', name: 'Ana', role: 'Support', roleSlug: 'support',
-  publishedAt: '2026-06-26', schemaDate: '2026-10-03', updatedAt: '3 de octubre de 2026',
+  publishedAt: '2026-06-26', schemaDate: '2026-10-09', updatedAt: '9 de octubre de 2026',
   seoTitle: 'Ana en Overwatch: posición, Sleep, granada y Nano para ranked',
   seoDescription: 'Cómo jugar Ana en Overwatch: curar sin quedarte aislada, preparar Sleep y anti-nade, elegir el Nano y sobrevivir al dive. Ejemplos por mapa y revisión de VOD.',
   h1: 'Ana en Overwatch: cómo jugar con granada, Sleep y Nano',
   kicker: 'Curar desde cobertura y preparar la siguiente pelea',
   intro: [
     'Con Ana, empieza por una posición desde la que puedas curar y cubrirte sin perder a tu equipo de vista. Después decide qué amenaza necesita Sleep y qué enemigo podrá recibir daño si aciertas la granada. Nano no tiene que esperar siempre a Dragonblade: busca un compañero que pueda aprovecharlo en la pelea que está ocurriendo.',
-    'Tener buen aim ayuda, pero no arregla una línea de curación cortada ni una entrada rival que no viste llegar. Esta guía trabaja esas decisiones: cómo acompañar una rotación, cuándo gastar recursos para sobrevivir y qué mirar en un replay cuando sientes que estabas curando mucho sin poder influir en la partida.',
+    'Tener buen aim ayuda, pero no arregla una línea de curación cortada ni una entrada rival que no viste llegar. En Season 5, Local Anesthetic sustituye a Groggy y añade una explosión al impacto de Sleep, no al despertar. Más abajo tienes los perks actuales y ejemplos para acompañar una rotación, sobrevivir al dive y revisar por qué una granada no tuvo seguimiento.',
   ],
   headerTips: [
     'Posición: conserva una esquina y una línea hacia el compañero que va a recibir presión.',
@@ -50,10 +50,13 @@ export const reviewedAnaHero: HeroPillar = {
   ],
   perksIntro: 'Estas elecciones pertenecen al kit normal y se desbloquean durante la partida. Los poderes de Stadium son distintos: no conviertas una mejora de ese modo en una capacidad que Ana tenga siempre.',
   perks: [
-    { title: 'Minor · Groggy', body: 'Añade ralentización y daño al despertar del Sleep. Ayuda a castigar al enemigo cuando se despierta, pero no asegura que puedas quedarte a rematarlo: mira si llega otro rival y si tienes ayuda.' },
-    { title: 'Minor · Speed Serum', body: 'Nano aporta también velocidad de movimiento a Ana y al objetivo. Esa movilidad puede ayudar a acompañar o recolocarte. No des por incluida esta mejora en cualquier Nano: es una elección alternativa a Groggy.' },
+    { title: 'Minor · Local Anesthetic', body: 'Sleep Dart explota al impactar, ralentiza y causa 45 de daño durante 3 segundos. Sustituye a Groggy desde Season 5: el efecto no espera a que el objetivo se despierte. Puede afectar a enemigos cercanos al impacto, pero no significa que todos queden dormidos. Si entra Winston con otro rival, usa ese margen para buscar ayuda; no te quedes sola esperando que el daño termine la pelea.' },
+    { title: 'Minor · Speed Serum', body: 'Nano aporta también velocidad de movimiento a Ana y al objetivo. Esa movilidad puede ayudar a acompañar o recolocarte. No des por incluida esta mejora en cualquier Nano: es una elección alternativa a Local Anesthetic.' },
     { title: 'Major · Biotic Bounce', body: 'La granada rebota y produce una segunda explosión. Mira qué zona quedará al alcance de esa segunda aplicación; no prepares todo el seguimiento suponiendo que golpeará al mismo enemigo que la primera.' },
     { title: 'Major · Headhunter', body: 'Permite críticos del rifle sobre enemigos. Es una mejora ofensiva alternativa a Biotic Bounce; no añade críticos a tus curas. Aprovecha los tiros a la cabeza cuando haya margen, sin dejar de atender a un aliado que puede morir.' },
+  ],
+  balanceReview: [
+    { title: '6 de octubre: Sleep con Local Anesthetic', body: 'Groggy salió del kit y la nueva Minor aplica su explosión al impacto. En una entrada rival con varios enemigos cerca, mira a quién alcanzó el dardo y quién sigue pudiendo atacarte: ralentizar alrededor no equivale a dormir al grupo. En la VOD, separa el acierto de Sleep de lo que hiciste después. Reunirte con tu otro Support puede aportar más que gastar granada para rematar mientras el segundo flanker continúa disparando.' },
   ],
   mistakes: [
     'Juzgar la posición solo por cuánto pudiste curar. Revisa si tenías una salida cuando entró el flanker y si otro compañero podía ayudarte sin abandonar todo el frente.',
@@ -98,8 +101,10 @@ export const reviewedAnaHero: HeroPillar = {
     { question: '¿Está mal usar la granada para curarme?', answer: 'No. Puede darte el margen necesario para sobrevivir y seguir ayudando. Revisa por separado si hacía falta gastarla y si una posición previa distinta habría evitado la presión; no la clasifiques como mala solo por ser defensiva.' },
     { question: '¿Debo reservar siempre Nano para Genji?', answer: 'No. Valora qué aliado tiene acceso al rival, recursos y una acción útil en la pelea actual. Genji con Blade es una opción, pero Winston o Reinhardt pueden aprovechar otra oportunidad antes. Guardarlo sin un plan también puede desperdiciar una pelea disputable.' },
     { question: '¿Por qué mi anti-nade no consigue bajas?', answer: 'Puede faltar seguimiento o el objetivo puede cubrirse antes de recibir daño. Mira quién tenía tiro al acertarla y qué ruta usó el rival. Preparar la granada para una exposición común suele importar más que alcanzar a muchos enemigos protegidos.' },
+    { question: '¿Qué hace Local Anesthetic y sigue existiendo Groggy?', answer: 'Local Anesthetic es la Minor que sustituyó a Groggy el 6 de octubre. Sleep Dart explota al impactar, ralentiza enemigos y causa 45 de daño durante 3 segundos. No es el antiguo efecto al despertar ni convierte la ralentización de los enemigos cercanos en un Sleep para todos. Speed Serum es la otra opción Minor.' },
     { question: '¿Cuándo conviene cambiar de Ana?', answer: 'Cuando una limitación se repite en peleas comparables pese a ajustar posición, ruta y ayuda, y conoces otra opción que pueda resolverla. Una muerte aislada no demuestra que el pick sea el problema; explica qué cambiará con el nuevo héroe.' },
   ],
+  conclusion: 'En tu próxima VOD, escoge un Sleep acertado y una granada sin baja. Mira quién seguía amenazándote tras el dardo y qué compañero podía disparar después del anti. Así sabrás si necesitas cambiar de posición, avisar antes o esperar otro momento; practicar más aim no resuelve por sí solo esas tres decisiones.',
   links: [
     { href: '/guides/como-jugar-ana-ranked-overwatch', label: 'Practicar las decisiones de Ana en ranked' },
     { href: '/counters/ana', label: 'Adaptarte a las amenazas de Ana' },
@@ -111,6 +116,7 @@ export const reviewedAnaHero: HeroPillar = {
     { href: '/maps/kings-row', label: 'Acompañar los cruces de King’s Row' },
     { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Seguir Sleep y granada en el replay' },
     { href: '/guides/como-mejorar-en-overwatch-revisando-vod', label: 'Comparar decisiones en una VOD' },
+    { href: '/doctrine-support-sombra-roadhog-rework-overwatch', label: 'Qué ha cambiado con Season 5' },
     { href: '/experts', label: 'Pedir ayuda con una partida de Ana' },
   ],
 }

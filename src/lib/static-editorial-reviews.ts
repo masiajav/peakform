@@ -68,9 +68,9 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
   },
   '/heroes/shion': {
     path: '/heroes/shion',
-    version: '839b7a91df36b2a37a1decf8530fa3619ca1263ce0e87309d87337c2a2e0d56c',
-    reviewedAt: '2026-10-04', reviewer: 'Codex',
-    evidence: 'docs/content-review-hero-shion-2026-10-04.md',
+    version: '957591718db105df78e66363e2908d65390ea910ceb4ebc0a464ff0f4e4d9a5b',
+    reviewedAt: '2026-10-09', reviewer: 'Codex',
+    evidence: 'docs/content-review-heroes-season-five-2026-10-09.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
   '/heroes/zarya': {
@@ -96,9 +96,9 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
   },
   '/heroes/genji': {
     path: '/heroes/genji',
-    version: '46b60f0129f194033d4845a6c44265458bbe0a14a0417ba4b95273eca3a56aed',
-    reviewedAt: '2026-10-04', reviewer: 'Codex',
-    evidence: 'docs/content-review-hero-genji-2026-10-04.md',
+    version: 'a25e17ec41e41d9845dbfbe969f263995e6202f7d7276e2549aa4a8ca64880da',
+    reviewedAt: '2026-10-09', reviewer: 'Codex',
+    evidence: 'docs/content-review-heroes-season-five-2026-10-09.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
   '/heroes/kiriko': {
@@ -327,9 +327,9 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
   },
   '/heroes/ana': {
     path: '/heroes/ana',
-    version: '84ad06a22431d2eea78d1b61a987c0651bf65d2f337fc5b0927995480ba07628',
-    reviewedAt: '2026-10-03', reviewer: 'Codex',
-    evidence: 'docs/content-review-hero-ana-2026-10-03.md',
+    version: 'bd1d5255465d57bd765dd082325eecb826180d62763e286bc3fe5c36923359de',
+    reviewedAt: '2026-10-09', reviewer: 'Codex',
+    evidence: 'docs/content-review-heroes-season-five-2026-10-09.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
   '/heroes/cassidy': {
@@ -341,9 +341,9 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
   },
   '/heroes/dmon': {
     path: '/heroes/dmon',
-    version: '710bfd45f9484773a522a97535205e187928331288c7414b0fb1c04bd4f84504',
-    reviewedAt: '2026-10-04', reviewer: 'Codex',
-    evidence: 'docs/content-review-hero-dmon-2026-10-04.md',
+    version: 'b0bfa5e3d6f15b70a5d2a2d88f1473b1007dc337c80f2e4595d1f60834e42466',
+    reviewedAt: '2026-10-09', reviewer: 'Codex',
+    evidence: 'docs/content-review-heroes-season-five-2026-10-09.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
   '/team-comps/ana': {

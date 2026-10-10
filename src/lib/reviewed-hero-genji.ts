@@ -2,14 +2,14 @@ import type { HeroPillar } from './hero-pillars'
 
 export const reviewedGenjiHero: HeroPillar = {
   slug: 'genji', name: 'Genji', role: 'DPS', roleSlug: 'dps',
-  publishedAt: '2026-06-26', schemaDate: '2026-10-04', updatedAt: '4 de octubre de 2026',
+  publishedAt: '2026-06-26', schemaDate: '2026-10-09', updatedAt: '9 de octubre de 2026',
   seoTitle: 'Genji en Overwatch: Dash, Deflect y Dragonblade para ranked',
   seoDescription: 'Cuándo entrar con Genji, cómo aprovechar los resets de Dash y cómo preparar Dragonblade. Combos, perks, matchups y ejemplos para revisar tus partidas.',
   h1: 'Genji en Overwatch: cuándo entrar y cómo usar Dragonblade',
   kicker: 'Llegar al objetivo cuando tu equipo puede seguirte',
   intro: [
     'Con Genji, una barra de vida baja no basta para justificar un Dash. Antes de entrar, mira quién puede ayudar a ese enemigo, dónde acabarás y qué están haciendo tus compañeros. Puedes acertar el combo y aun así morir si llegas solo o terminas demasiado lejos de la curación.',
-    'La movilidad también sirve para preparar la pelea: tomar una altura, asomar desde otra puerta y volver a cubrirte sin gastar todo. Aquí encontrarás cómo acercarte, cuándo buscar un reset, qué protege realmente Deflect y cómo elegir la primera víctima de Dragonblade sin convertir cada ultimate en una persecución.',
+    'En Season 5, Dash gana daño y Blade golpea más rápido, aunque cada corte hace menos daño. Eso cambia el ritmo de los remates, no la necesidad de llegar con ayuda. Aquí encontrarás cómo preparar un off-angle, cuándo buscar un reset y cómo acercarte antes de Blade para no gastar la ultimate persiguiendo.',
   ],
   headerTips: [
     'Antes del Dash, elige dónde quieres terminar. No des por hecho que llegará un reset.',
@@ -45,9 +45,9 @@ export const reviewedGenjiHero: HeroPillar = {
   ],
   abilities: [
     { title: 'Shuriken', body: 'El primario concentra tres proyectiles en una ráfaga y permite presionar a distancia. El secundario lanza un abanico que puedes aprovechar cuando estás cerca. No elijas solo por costumbre: mira cuánto ocupa el objetivo en pantalla y por dónde se mueve. Si los enemigos ya te están esperando, disparar desde una exposición corta puede aportar más que intentar cerrar distancia a cualquier precio.' },
-    { title: 'Swift Strike', body: 'Dash atraviesa hacia delante y hace daño a los enemigos que alcanzas; las eliminaciones reinician su cooldown. Planifica el destino antes de pulsarlo. Un reset da otra decisión, no una segunda entrada obligatoria. Cuando no llega, usa la cobertura y la movilidad que ya habías preparado en lugar de contar con que Deflect resolverá cualquier situación.' },
+    { title: 'Swift Strike', body: 'Dash atraviesa hacia delante y hace daño a los enemigos que alcanzas; las eliminaciones reinician su cooldown. Desde el 6 de octubre, su daño base es 60, antes 50. Planifica el destino antes de pulsarlo: más daño no evita la armadura, una defensa rival o el focus al aterrizar. Un reset da otra decisión, no una segunda entrada obligatoria. Si no llega, busca la cobertura que habías preparado.' },
     { title: 'Deflect', body: 'Devuelve los proyectiles hacia donde apuntas y bloquea ataques cuerpo a cuerpo, sin devolver el daño de esos golpes. Orientarte importa: no cubre automáticamente la espalda. Puedes cancelarlo antes de que termine si necesitas volver a disparar, pero cancelar delante de alguien que esperaba ese momento vuelve a exponerte. No lo trates como una invulnerabilidad ni como respuesta universal frente a beams o daño de área.' },
-    { title: 'Dragonblade', body: 'Desenvainas una espada para atacar cuerpo a cuerpo. Necesitas llegar a rango y mantener el contacto: la ultimate no hace que un enemigo con escape tenga que quedarse a pelear. Antes de activarla, mira el primer objetivo, qué defensa conserva y qué compañeros pueden seguir el intento. Si os obligan a retiraros, salir con vida puede ser mejor que forzar el último golpe dentro del equipo rival.' },
+    { title: 'Dragonblade', body: 'Desenvainas una espada para atacar cuerpo a cuerpo. Season 5 baja el daño base del corte de 110 a 100 y aumenta la velocidad de los golpes un 15%. Necesitas llegar a rango y mantener el contacto para aprovechar ese ritmo. Antes de activarla, mira el primer objetivo, qué defensa conserva y quién puede seguir. Si sale de tu alcance, la mayor velocidad no recupera el tiempo que pasas corriendo detrás.' },
     { title: 'Cyber-Agility', body: 'Trepar y usar el doble salto permite acceder a alturas, cambiar de ruta y evitar depender siempre de Dash para acercarte. No es una razón para estar saltando sin parar: una trayectoria repetida puede facilitar que te sigan la mira. Usa la pared para llegar a una posición útil y comprueba qué enemigos ven el borde antes de asomar.' },
   ],
   perksIntro: 'Eliges una alternativa Minor y otra Major a medida que avanzas en la partida. Estas son las opciones del kit normal; los poderes y objetos de Stadium tienen efectos distintos y no forman parte de estas elecciones.',
@@ -56,6 +56,9 @@ export const reviewedGenjiHero: HeroPillar = {
     { title: 'Minor · Dragon’s Thirst', body: 'Los golpes de Dragonblade recuperan vida mediante robo de vida. Es alternativa a Swift Cuts. La ayuda depende de acertar golpes; no compensa el trayecto hasta un objetivo que se ha alejado ni hace segura una Blade contra todo el focus rival.' },
     { title: 'Major · Blade Twisting', body: 'Swift Strike añade daño en el tiempo contra enemigos por debajo de media vida. Puede reforzar un remate, pero ese daño no es una eliminación garantizada ni exige haber conseguido una baja anterior para aplicarse. Mira si el objetivo aún tiene una defensa o puede recibir ayuda.' },
     { title: 'Major · Meditation', body: 'Regeneras vida mientras Deflect está activo. Es alternativa a Blade Twisting y no depende de haber reflejado daño. Puedes ganar margen para cubrirte, pero sigues teniendo que orientar Deflect y evitar amenazas que no bloquea. No confundas esta regeneración con los poderes de Stadium que curan según el daño prevenido.' },
+  ],
+  balanceReview: [
+    { title: '6 de octubre: más daño de Dash y otro ritmo para Blade', body: 'Swift Strike pasa de 50 a 60 de daño; Dragonblade, de 110 a 100 por corte, con un 15% más de velocidad de ataque. No juzgues todo el ajuste solo por uno de esos números. Para practicar un remate, comprueba la vida del objetivo, armadura y ayudas defensivas con el parche actual. En el replay, distingue fallar un golpe de perder contacto: el segundo caso requiere preparar mejor la llegada, no atacar más rápido desde lejos.' },
   ],
   mistakes: [
     'Atravesar al objetivo con Dash y acabar expuesto a sus compañeros. Mira dónde apareces en la cámara del rival y prueba otra dirección o un aterrizaje junto al suelo o una pared. No basta con que el Dash alcance al enemigo: también tienes que poder jugar desde donde termina.',
@@ -101,6 +104,7 @@ export const reviewedGenjiHero: HeroPillar = {
   faqs: [
     { question: '¿Cuándo conviene entrar con Genji?', answer: 'Cuando puedas llegar a un objetivo y tu equipo amenace al mismo tiempo, con una posición de llegada que no dependa de conseguir una baja inmediata. Mira sus defensas y quién puede ayudarlo. Ver poca vida o un cooldown gastado es información útil, pero no convierte por sí sola cualquier Dash en una buena entrada.' },
     { question: '¿Qué combo debo practicar con Genji?', answer: 'Practica el abanico de shurikens a corta distancia, el melee y un Dash que termine donde quieres. Después varía el orden según la distancia y los recursos disponibles. No existe una secuencia que garantice la baja contra cualquier objetivo; acertar los proyectiles y elegir bien el destino importa más que repetirla a toda velocidad.' },
+    { question: '¿Qué cambió en Dash y Dragonblade con Season 5?', answer: 'El 6 de octubre, Swift Strike subió de 50 a 60 de daño. Dragonblade bajó de 110 a 100 por corte y ganó un 15% de velocidad de ataque. Son valores base: armadura, aumentos de daño y defensas cambian el resultado del duelo. Practica los remates con el parche actual en lugar de dar por válido cualquier combo de un vídeo anterior.' },
     { question: '¿Deflect devuelve los ataques cuerpo a cuerpo?', answer: 'No. Bloquea ataques cuerpo a cuerpo, pero devuelve los proyectiles hacia donde apuntas. Tampoco es una invulnerabilidad: la dirección y el tipo de ataque importan. Si recibes presión por varios lados o daño que no puede reflejar, necesitas cobertura y una salida, no confiar en quedarte quieto durante toda la habilidad.' },
     { question: '¿Hay que usar Dragonblade siempre con Nano Boost?', answer: 'No. Nano puede mejorar una entrada coordinada, pero Blade también puede aprovechar enemigos tocados, movilidad gastada o una pelea en la que tu Tank ya esté presionando. Con o sin Nano necesitas llegar a rango. Acuerda la ayuda con Ana y comprueba su visión antes de cruzar fuera de su alcance visual.' },
     { question: '¿Qué hago después de conseguir un reset de Dash?', answer: 'Mira el siguiente objetivo y dónde está tu equipo antes de volver a usarlo. Puedes seguir una eliminación alcanzable, retirarte o tomar una altura. Si para continuar tienes que entrar solo entre varios enemigos, conservar la ventaja que ya has conseguido suele valer más que intentar encadenar otra baja.' },
@@ -118,6 +122,7 @@ export const reviewedGenjiHero: HeroPillar = {
     { href: '/roles/dps', label: 'Elegir la presión que necesita tu equipo como DPS' },
     { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Revisar las respuestas disponibles antes de entrar' },
     { href: '/guides/como-mejorar-en-overwatch-revisando-vod', label: 'Elegir una pelea y revisarla paso a paso' },
+    { href: '/doctrine-support-sombra-roadhog-rework-overwatch', label: 'Las novedades y el balance de Season 5' },
     { href: '/experts', label: 'Pedir una revisión de tus decisiones de entrada' },
   ],
 }

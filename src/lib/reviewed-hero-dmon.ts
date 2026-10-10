@@ -2,7 +2,7 @@ import type { HeroPillar } from './hero-pillars'
 
 export const reviewedDmonHero: HeroPillar = {
   slug: 'dmon', name: 'D.Mon', role: 'Tank', roleSlug: 'tank',
-  publishedAt: '2026-08-06', schemaDate: '2026-10-04', updatedAt: '4 de octubre de 2026',
+  publishedAt: '2026-08-06', schemaDate: '2026-10-09', updatedAt: '9 de octubre de 2026',
   seoTitle: 'D.Mon en Overwatch: barrera, Propulsors, perks y counters',
   seoDescription: 'Acércate con Beast sin agotar barrera y combustible. Cómo usar Plasma Saber, Fusion Repeater y Limit Break, jugar como piloto y responder a sus counters.',
   h1: 'D.Mon en Overwatch: acercarte con Beast sin quedarte aislada',
@@ -80,7 +80,7 @@ export const reviewedDmonHero: HeroPillar = {
     { title: 'Reaper', body: 'Si entra por un lateral mientras miras al Tank, puede atacarte de cerca sin quedar delante de la barrera. Avisa y reúne el daño del grupo en vez de perseguirlo hasta otra habitación. Cuando se retire con Wraith, recupera tu posición y mira al frente; no necesitas gastar el combustible restante siguiendo una retirada que su equipo puede cubrir.' },
     { title: 'Pharah, Echo y snipers', body: 'Su alcance o posición vertical puede obligarte a exponerte antes de poder contestar. Puedes presionar con Fusion Repeater cuando hay tiro, pero Propulsors no te sube automáticamente a su plataforma. Busca otro acceso o coordina qué compañero disputa esa línea. Si miras arriba todo el tiempo, el otro Tank puede avanzar mientras tu equipo sigue bajo el mismo ángulo.' },
     { title: 'Zenyatta', body: 'Discord hace más peligroso el focus durante el tramo abierto. Comprueba quién más te está disparando y vuelve a cobertura si el cruce dejó de ser sostenible. No sigas hasta Zen solo porque lo veas: llegar a él sin combustible ni curas puede exponer a todo el grupo a otra dirección.' },
-    { title: 'Sombra', body: 'En su kit actual de DPS, la presión lateral y Hack pueden complicar el momento de moverte. Mira dónde están tus Supports y qué esquina puedes alcanzar si interrumpe tu plan. Esto no describe su futuro rework de Support anunciado para Season 5: no presupongas que todas las interacciones serán iguales después de ese cambio.' },
+    { title: 'Sombra Support', body: 'Desde el 6 de octubre, Sombra juega como Support. Cyberspace debilita el daño y la curación que producen los enemigos dentro de su zona; no es un anti que bloquee las curas que recibes. Si Beast llega allí, puedes estar usando espada sobre un rival que además recibe su ayuda. Mira si puedes salir del área hacia una esquina sin gastar todo el combustible. Su Hack normal sobre héroes se retiró; EMP conserva el hackeo, así que no confundas perder esa habilidad con no tener ningún control.' },
   ],
   counterplay: [
     'Si el rival os dispara desde dos direcciones, cambia la cobertura o el recorrido antes de consumir toda la barrera. El objetivo es llegar con recursos para pelear, no demostrar que puedes aguantar cada tiro en main.',
@@ -135,6 +135,7 @@ export const reviewedDmonHero: HeroPillar = {
     { href: '/overwatch-temporada-4-heroes-of-busan', label: 'Las novedades de Heroes of Busan' },
     { href: '/dmon-nuevo-heroe-tank-overwatch', label: 'El anuncio de D.Mon' },
     { href: '/busan-eichenwalde-paraiso-reworks-overwatch', label: 'Los cambios de Busan, Eichenwalde y Paraíso' },
+    { href: '/doctrine-support-sombra-roadhog-rework-overwatch', label: 'El rework de Sombra y las novedades de Season 5' },
     { href: '/experts', label: 'Pedir una revisión de tus entradas con Beast' },
   ],
 }

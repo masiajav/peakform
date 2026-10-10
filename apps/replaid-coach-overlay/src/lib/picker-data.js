@@ -32,7 +32,6 @@ export const HEROES = [
   hero('sierra', 'Sierra', 'dps', 'poke'),
   hero('sojourn', 'Sojourn', 'dps', 'poke', 'dive'),
   hero('soldier-76', 'Soldier: 76', 'dps', 'poke'),
-  hero('sombra', 'Sombra', 'dps', 'dive'),
   hero('symmetra', 'Symmetra', 'dps', 'brawl', 'rush'),
   hero('torbjorn', 'Torbjorn', 'dps', 'poke', 'brawl'),
   hero('tracer', 'Tracer', 'dps', 'dive'),
@@ -43,6 +42,7 @@ export const HEROES = [
   hero('ana', 'Ana', 'support', 'poke', 'dive'),
   hero('baptiste', 'Baptiste', 'support', 'poke', 'brawl'),
   hero('brigitte', 'Brigitte', 'support', 'brawl', 'dive'),
+  hero('doctrine', 'Doctrine', 'support', 'dive', 'brawl'),
   hero('illari', 'Illari', 'support', 'poke'),
   hero('jetpack-cat', 'Jetpack Cat', 'support', 'dive', 'poke'),
   hero('juno', 'Juno', 'support', 'dive', 'rush'),
@@ -52,6 +52,7 @@ export const HEROES = [
   hero('mercy', 'Mercy', 'support', 'poke', 'dive'),
   hero('mizuki', 'Mizuki', 'support', 'brawl', 'poke'),
   hero('moira', 'Moira', 'support', 'brawl', 'rush'),
+  hero('sombra', 'Sombra', 'support', 'dive'),
   hero('wuyang', 'Wuyang', 'support', 'dive', 'brawl'),
   hero('zenyatta', 'Zenyatta', 'support', 'poke'),
 ]

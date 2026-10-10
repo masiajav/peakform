@@ -8,8 +8,8 @@ describe('individual Ana hero article', () => {
   it('uses its own opening decisions, dated model and map examples', () => {
     expect(getHeroPillar('ana')).toBe(ana)
     expect(ana.publishedAt).toBe('2026-06-26')
-    expect(ana.schemaDate).toBe('2026-10-03')
-    expect(ana.updatedAt).toBe('3 de octubre de 2026')
+    expect(ana.schemaDate).toBe('2026-10-09')
+    expect(ana.updatedAt).toBe('9 de octubre de 2026')
     expect(ana.headerTips).toHaveLength(3)
     expect(ana.quickAnswers?.map(item => item.title)).toEqual(['Si estás muriendo al dive', 'Si la granada no consigue bajas', 'Si no sabes a quién dar Nano'])
     expect(ana.sections.some(item => item.title.startsWith('Gibraltar:'))).toBe(true)
@@ -18,12 +18,17 @@ describe('individual Ana hero article', () => {
   })
 
   it('separates mutually exclusive normal perks from Stadium and avoids unstable numeric claims', () => {
-    expect(ana.perks?.map(item => item.title)).toEqual(['Minor · Groggy', 'Minor · Speed Serum', 'Major · Biotic Bounce', 'Major · Headhunter'])
+    expect(ana.perks?.map(item => item.title)).toEqual(['Minor · Local Anesthetic', 'Minor · Speed Serum', 'Major · Biotic Bounce', 'Major · Headhunter'])
     expect(ana.perksIntro).toContain('Stadium son distintos')
-    expect(ana.perks?.[1].body).toContain('alternativa a Groggy')
+    expect(ana.perks?.[0].body).toContain('explota al impactar')
+    expect(ana.perks?.[0].body).toContain('45 de daño durante 3 segundos')
+    expect(ana.perks?.[0].body).toContain('no significa que todos queden dormidos')
+    expect(ana.perks?.[1].body).toContain('alternativa a Local Anesthetic')
     expect(ana.perks?.[3].body).toContain('alternativa a Biotic Bounce')
     expect(ana.perks?.[3].body).toContain('no añade críticos a tus curas')
     expect(JSON.stringify(ana.perks)).not.toMatch(/30%|40%/)
+    expect(ana.balanceReview?.[0].title).toBe('6 de octubre: Sleep con Local Anesthetic')
+    expect(ana.conclusion).toContain('un Sleep acertado y una granada sin baja')
   })
 
   it('retains the entire public hero route list independently of approval', () => {

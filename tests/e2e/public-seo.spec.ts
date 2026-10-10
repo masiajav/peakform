@@ -154,7 +154,7 @@ test('sitemap contains only the completed editorial batches', async ({ request }
   expect(xml).toContain('/overwatch-temporada-4-heroes-of-busan')
   expect(xml).toContain('/heroes/ana</loc>')
   expect(xml).toContain('/heroes/dmon</loc>')
-  expect(xml).toMatch(/\/heroes\/dmon<\/loc>\s*<lastmod>2026-10-04T00:00:00\.000Z<\/lastmod>/)
+  expect(xml).toMatch(/\/heroes\/dmon<\/loc>\s*<lastmod>2026-10-09T00:00:00\.000Z<\/lastmod>/)
   expect(xml).toContain('/dmon-nuevo-heroe-tank-overwatch')
   expect(xml).not.toContain('tier-list-season-2-overwatch-mejores-heroes-rol')
   expect(xml).not.toContain('/counters/doctrine')
