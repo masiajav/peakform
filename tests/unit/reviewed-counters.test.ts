@@ -8,13 +8,13 @@ import { MAP_PILLAR_SLUGS } from '@/lib/overwatch-maps'
 test('reviewed counters only restore individually approved publication candidates, never ads', () => {
   for (const [slug, article] of Object.entries(reviewedCounters)) {
     expect(getCounterPillar(slug)).toBe(article)
-    const revisionDate = ['sombra', 'roadhog', 'doctrine'].includes(slug) ? '2026-10-10' : ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki'].includes(slug) ? '2026-10-03' : '2026-10-02'
+    const revisionDate = ['doomfist', 'dmon'].includes(slug) ? '2026-10-11' : ['sombra', 'roadhog', 'doctrine'].includes(slug) ? '2026-10-10' : ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki'].includes(slug) ? '2026-10-03' : '2026-10-02'
     expect(article.schemaDate).toBe(revisionDate)
     expect(wordCount(JSON.stringify(article))).toBeGreaterThan(1100)
     expect(article.threats).toHaveLength(['genji', 'kiriko'].includes(slug) ? 6 : 4)
     expect(article.examples).toHaveLength(3)
-    expect(article.faqs).toHaveLength(3)
-    expect(editorialTopicQualityDecision('counter', slug, article)).toMatchObject({ indexable: ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine', 'sombra', 'roadhog'].includes(slug), adsAllowed: false })
+    expect(article.faqs).toHaveLength(['doomfist', 'dmon'].includes(slug) ? 5 : 3)
+    expect(editorialTopicQualityDecision('counter', slug, article)).toMatchObject({ indexable: ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine', 'sombra', 'roadhog', 'doomfist', 'dmon'].includes(slug), adsAllowed: false })
     for (const threat of article.threats) {
       const normalizeName = (name: string) => name.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
       expect(normalizeName(getCounterHero(threat.href.slice('/heroes/'.length))?.name ?? '')).toBe(normalizeName(threat.name))

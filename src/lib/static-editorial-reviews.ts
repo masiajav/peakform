@@ -3,6 +3,34 @@ import type { StaticEditorialReview } from './static-editorial-review'
 // Explicit, version-bound reviews. No build task may populate this registry
 // from slugs or automatically renew approval after an editorial change.
 export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialReview>> = {
+  '/counters/doomfist': {
+    path: '/counters/doomfist',
+    version: '38453629e48f24fbe8001d5907467a4f6a7d7bf23e449b704bb9baea4af9031b',
+    reviewedAt: '2026-10-11', reviewer: 'Codex',
+    evidence: 'docs/content-review-doomfist-dmon-season-five-2026-10-11.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/counters/dmon': {
+    path: '/counters/dmon',
+    version: '138ea54ca9f7d55730df87197fa86742af3cc4b7eaac8bd4dede17ad053ef8c0',
+    reviewedAt: '2026-10-11', reviewer: 'Codex',
+    evidence: 'docs/content-review-doomfist-dmon-season-five-2026-10-11.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/doomfist': {
+    path: '/team-comps/doomfist',
+    version: '28e01a77f22d81b3050e813dfd1c7800e04ce93d24b2d670dc785fabfec17e62',
+    reviewedAt: '2026-10-11', reviewer: 'Codex',
+    evidence: 'docs/content-review-doomfist-dmon-season-five-2026-10-11.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/dmon': {
+    path: '/team-comps/dmon',
+    version: 'e2fd3e9208e59c736b0992890eeea0a41a9592819024e4dae348c1c9e9885431',
+    reviewedAt: '2026-10-11', reviewer: 'Codex',
+    evidence: 'docs/content-review-doomfist-dmon-season-five-2026-10-11.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/guides/como-mejorar-en-overwatch': {
     path: '/guides/como-mejorar-en-overwatch',
     version: '3300bbb3ea897a4d3adc306a4eeec4a59a8b934bf9396eebec3a4c2a16e09414',

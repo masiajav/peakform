@@ -97,3 +97,18 @@ described as proof of a production fault or silently converted into test failure
 Authenticated Stripe checkout was not exercised, and local expert-status reads
 still reported the previously known Stripe authentication issue. No payment or
 onboarding implementation was changed in this release.
+
+## Published verification
+
+Commit `6a553b96bf4dd5fe1d038a5dc7bbf604891aa7cb` was pushed to `main`.
+GitHub's Vercel status reported success for deployment
+`5wtdu7ZvcAvPdnWBWim4M2xoouEa`. The independent production check completed
+on 10 October at 22:55 local time: twelve views, 118 sitemap URLs, no errors,
+and exact agreement with the local final article/schema/metadata/FAQ/link data.
+Evidence: ignored `reports/evergreen-season-five/production.json` and screenshots.
+
+The internal browser showed the published composition guide with the new date,
+answer, lineup examples and current Support roles; its error log was empty.
+The browser connection closed during the additional manual mobile capture.
+No successful internal-browser mobile capture is claimed for that attempt;
+production mobile views were checked by the independent Playwright run.

@@ -144,6 +144,12 @@ export default function CounterPillarPage({ pillar }: CounterPillarPageProps) {
           </div>
         </section>
 
+        {pillar.vodQuestions && <section className="seo-pillar-section">
+          <div className="eyebrow">REVISIÓN DE VOD</div>
+          <h2>Qué mirar en tu repetición</h2>
+          <ol className="seo-pillar-steps">{pillar.vodQuestions.map(question => <li key={question}>{question}</li>)}</ol>
+        </section>}
+
         <section className="seo-pillar-section">
           <div className="eyebrow">REVISIÓN RÁPIDA</div>
           <h2>Checklist para tu siguiente partida</h2>

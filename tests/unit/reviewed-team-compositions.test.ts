@@ -7,7 +7,7 @@ import { COUNTER_HEROES } from '@/lib/overwatch-counters'
 import { toSlug } from '@/lib/content'
 
 const reviewDates: Record<string, string> = {
-  doomfist: '2026-10-01', dmon: '2026-10-01',
+  doomfist: '2026-10-11', dmon: '2026-10-11',
   ashe: '2026-10-02', sigma: '2026-10-02', pharah: '2026-10-02', mercy: '2026-10-02',
   mei: '2026-10-02', moira: '2026-10-02', reaper: '2026-10-02',
   bastion: '2026-10-02', lifeweaver: '2026-10-02',
@@ -144,7 +144,7 @@ describe('individual team composition revisions', () => {
       expect(getTeamCompPillar(slug)).toBe(article)
       expect(article.compositions).toHaveLength(3)
       expect(article.schemaDate).toBe(reviewDates[slug])
-      expect(editorialTopicQualityDecision('team_comp', slug, article)).toMatchObject({ indexable: ['sombra', 'roadhog', 'doctrine'].includes(slug), adsAllowed: false })
+      expect(editorialTopicQualityDecision('team_comp', slug, article)).toMatchObject({ indexable: ['sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon'].includes(slug), adsAllowed: false })
       for (const comp of article.compositions) {
         expect(comp.lineup).toContain(article.name)
         expect(comp.lineup).toHaveLength(comp.format === '5v5' ? 5 : 6)

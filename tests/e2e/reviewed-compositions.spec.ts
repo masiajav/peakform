@@ -16,7 +16,7 @@ test('only individually approved compositions enter sitemap and retain honest da
     expect(articleSchema.dateModified).toBe(article.schemaDate)
     expect(articleSchema.datePublished).toBe(article.publishedDate)
     expect(html).toContain(`<time dateTime="${article.schemaDate}">${article.updatedAt}</time>`)
-    const approved = ['ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'tracer', 'zarya', 'sombra', 'roadhog', 'doctrine'].includes(slug)
+    const approved = ['ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'tracer', 'zarya', 'sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon'].includes(slug)
     expect(html).toContain(`name="robots" content="${approved ? 'index' : 'noindex'}, follow"`)
     expect(sitemap.includes(`/team-comps/${slug}</loc>`)).toBe(approved)
   }
@@ -36,12 +36,18 @@ for (const [slug, article] of Object.entries(reviewedTeamCompositions)) {
     await expect(page).toHaveTitle(`${article.seoTitle} - Replaid Lab`)
     await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', article.seoDescription)
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://www.replaidlab.com/team-comps/${slug}`)
-    const approved = ['sombra', 'roadhog', 'doctrine'].includes(slug)
+    const approved = ['sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon'].includes(slug)
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', `${approved ? 'index' : 'noindex'}, follow`)
     await expect(page.locator('.seo-composition-card')).toHaveCount(3)
     await expect(page.locator('main')).not.toContainText('Mejores composiciones 5v5')
     await expect(page.locator('main')).not.toContainText('bloquear la composición')
     await expect(page.getByRole('heading', { name: 'Antes de empezar la siguiente pelea', exact: true })).toBeVisible()
+    if (article.vodQuestions) {
+      const vodSection = page.locator('main section').filter({ has: page.getByRole('heading', { name: 'Qué mirar en una pelea perdida', exact: true }) })
+      await expect(vodSection.locator('ol li')).toHaveCount(article.vodQuestions.length)
+      for (const question of article.vodQuestions) await expect(vodSection).toContainText(question)
+    }
+    if (article.conclusion) await expect(page.locator('main')).toContainText(article.conclusion)
     for (const comp of article.compositions) {
       const card = page.locator('.seo-composition-card').filter({ has: page.getByRole('heading', { name: comp.name, exact: true }) })
       for (const field of ['winCondition', 'engagePlan', 'goodMaps', 'weakAgainst', 'substitutions'] as const) {

@@ -4,7 +4,7 @@ import { getCounterPillar } from '../../src/lib/seo-clusters'
 import { PILLAR_COUNTER_SLUGS } from '../../src/lib/public-topic-policy'
 
 // Independent expectations, not derived from the approval registry under test.
-const RESTORED_COUNTERS = ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine', 'sombra', 'roadhog']
+const RESTORED_COUNTERS = ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine', 'sombra', 'roadhog', 'doomfist', 'dmon']
 
 test('counter hub shows its actual catalogue without a blanket review claim', async ({ page, request }) => {
   const errors: string[] = []
@@ -14,7 +14,7 @@ test('counter hub shows its actual catalogue without a blanket review claim', as
   await expect(page.locator('h1')).toHaveCount(1)
   await expect(page.locator('main')).not.toContainText('guías revisadas')
   await expect(page.locator('main')).not.toContainText('Matchups revisados por')
-  for (const name of ['Freja', 'Pharah', 'Genji', 'Kiriko', 'Lifeweaver', 'Juno', 'Baptiste', 'Illari', 'Lucio', 'Mercy', 'Orisa', 'Ramattra', 'Sigma', 'Jetpack Cat', 'Wuyang', 'Zenyatta', 'Junker Queen', 'Mauga', 'Hazard', 'Junkrat', 'Soldier-76', 'Wrecking Ball', 'Venture', 'Vendetta', 'Anran', 'Mizuki', 'Sombra', 'Doctrine', 'Roadhog']) {
+  for (const name of ['Freja', 'Pharah', 'Genji', 'Kiriko', 'Lifeweaver', 'Juno', 'Baptiste', 'Illari', 'Lucio', 'Mercy', 'Orisa', 'Ramattra', 'Sigma', 'Jetpack Cat', 'Wuyang', 'Zenyatta', 'Junker Queen', 'Mauga', 'Hazard', 'Junkrat', 'Soldier-76', 'Wrecking Ball', 'Venture', 'Vendetta', 'Anran', 'Mizuki', 'Sombra', 'Doctrine', 'Roadhog', 'Doomfist', 'D.Mon']) {
     await expect(page.locator('main').getByRole('link', { name, exact: true })).toBeVisible()
   }
   const catalogueLinks = await page.locator('main a[href^="/counters/"]').evaluateAll(links => links.map(link => link.getAttribute('href')!))
@@ -51,6 +51,13 @@ for (const [slug, article] of Object.entries(reviewedCounters)) {
       await expect(page.locator('main')).toContainText(window.body)
     }
     const conclusionHeading = page.getByRole('heading', { name: 'Qué cambiar en tu próxima partida', exact: true })
+    const vodSection = page.locator('main section').filter({ has: page.getByRole('heading', { name: 'Qué mirar en tu repetición', exact: true }) })
+    if (article.vodQuestions) {
+      await expect(vodSection.locator('ol li')).toHaveCount(article.vodQuestions.length)
+      for (const question of article.vodQuestions) await expect(vodSection).toContainText(question)
+    } else {
+      await expect(vodSection).toHaveCount(0)
+    }
     if (article.conclusion) {
       await expect(conclusionHeading).toBeVisible()
       await expect(page.locator('main')).toContainText(article.conclusion)
