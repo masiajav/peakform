@@ -44,7 +44,7 @@ describe('version-bound static editorial reviews', () => {
 
   it('pins only individually reviewed article revisions, with existing evidence', () => {
     expect(Object.keys(STATIC_EDITORIAL_REVIEWS).sort()).toEqual([
-      '/counters/shion', '/team-comps/shion',
+      '/counters/ana', '/counters/shion', '/team-comps/shion',
       '/counters/doomfist', '/counters/dmon', '/team-comps/doomfist', '/team-comps/dmon',
       '/counters/anran', '/counters/baptiste', '/counters/doctrine', '/counters/freja', '/counters/genji', '/counters/hazard', '/counters/illari', '/counters/jetpack-cat', '/counters/junker-queen', '/counters/junkrat', '/counters/juno', '/counters/kiriko', '/counters/lifeweaver', '/counters/lucio', '/counters/mauga', '/counters/mercy', '/counters/mizuki', '/counters/moira', '/counters/orisa', '/counters/pharah', '/counters/ramattra', '/counters/reaper', '/counters/roadhog', '/counters/sigma', '/counters/soldier-76', '/counters/sombra', '/counters/vendetta', '/counters/venture', '/counters/wrecking-ball', '/counters/wuyang', '/counters/zenyatta',
       '/guides/como-jugar-ana-ranked-overwatch', '/guides/como-jugar-cassidy-ranked-overwatch', '/guides/como-jugar-dva-ranked-overwatch', '/guides/como-jugar-genji-ranked-overwatch', '/guides/como-jugar-kiriko-ranked-overwatch', '/guides/como-jugar-reinhardt-ranked-overwatch', '/guides/como-jugar-winston-ranked-overwatch',

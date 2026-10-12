@@ -160,3 +160,18 @@ This suite covers anonymous private-route restrictions and editorial public
 navigation. It does not establish authenticated checkout, account-side CMP
 configuration, legal completeness or approval by Google. Publication and
 post-deployment agreement with the reviewed local pages are checked next.
+
+## Published release proof
+
+Published as `350c5f8c77d13b557cb7c43b94e1777e20620437`. GitHub's Vercel commit
+status became success for deployment `HY8eyakj3vTqnEakDR77oQ1pXnLr`. Authenticated
+Vercel tooling remained unavailable; this is a commit-status signal, not access
+to deployment logs. Independent production checks completed with four viewport
+cases, sitemap 124, no errors, and exact agreement with the approved local main
+text, metadata, Article, FAQ and internal links. The two Shion routes were the
+only sitemap additions to the prior 122-entry release.
+
+Four production viewport screenshots were inspected. In the internal browser,
+the Evade FAQ and the Kiriko/Sombra composition FAQ were opened and the
+counter-to-composition link followed; no console errors. Production evidence:
+`reports/shion-season-five/production.json`. No ads or Google account actions.

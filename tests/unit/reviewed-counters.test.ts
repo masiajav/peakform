@@ -489,8 +489,8 @@ test('existing counter corrections retain original publication dates and face th
   const originalDates: Record<string, string> = { shion: '2026-06-28', ana: '2026-06-28', zarya: '2026-07-12', tracer: '2026-07-12', domina: '2026-07-12' }
   for (const [slug, publishedDate] of Object.entries(originalDates)) {
     const article = getCounterPillar(slug)!
-    expect(article).toMatchObject({ publishedDate, schemaDate: slug === 'shion' ? '2026-10-11' : slug === 'ana' ? '2026-10-03' : '2026-10-02', updatedAt: slug === 'shion' ? '11 de octubre de 2026' : slug === 'ana' ? '3 de octubre de 2026' : '2 de octubre de 2026' })
-    expect(editorialTopicQualityDecision('counter', slug, article).indexable).toBe(slug === 'shion')
+    expect(article).toMatchObject({ publishedDate, schemaDate: slug === 'shion' ? '2026-10-11' : slug === 'ana' ? '2026-10-12' : '2026-10-02', updatedAt: slug === 'shion' ? '11 de octubre de 2026' : slug === 'ana' ? '12 de octubre de 2026' : '2 de octubre de 2026' })
+    expect(editorialTopicQualityDecision('counter', slug, article).indexable).toBe(['shion', 'ana'].includes(slug))
   }
   expect(getCounterPillar('shion')!.threats.find(item => item.name === 'Ana')!.response).toContain('Guarda Sleep')
   expect(getCounterPillar('zarya')!.threats.find(item => item.name === 'Zenyatta')!.response).toContain('Aplica Discord')

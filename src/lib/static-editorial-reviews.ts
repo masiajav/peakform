@@ -3,6 +3,13 @@ import type { StaticEditorialReview } from './static-editorial-review'
 // Explicit, version-bound reviews. No build task may populate this registry
 // from slugs or automatically renew approval after an editorial change.
 export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialReview>> = {
+  '/counters/ana': {
+    path: '/counters/ana',
+    version: 'd1c2469332abe583ec17187a4fcc2f141efdc98ea45b1a9a1fee8839fd60d7db',
+    reviewedAt: '2026-10-12', reviewer: 'Codex',
+    evidence: 'docs/content-review-ana-counter-season-five-2026-10-12.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/counters/shion': {
     path: '/counters/shion',
     version: '5e85de60b3396f18fb97598f1df98c4eabd3f816dbf47a4bbff46aa2c775b0f3',
