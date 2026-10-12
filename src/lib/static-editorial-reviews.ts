@@ -3,6 +3,20 @@ import type { StaticEditorialReview } from './static-editorial-review'
 // Explicit, version-bound reviews. No build task may populate this registry
 // from slugs or automatically renew approval after an editorial change.
 export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialReview>> = {
+  '/counters/shion': {
+    path: '/counters/shion',
+    version: '5e85de60b3396f18fb97598f1df98c4eabd3f816dbf47a4bbff46aa2c775b0f3',
+    reviewedAt: '2026-10-11', reviewer: 'Codex',
+    evidence: 'docs/content-review-shion-season-five-2026-10-11.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/shion': {
+    path: '/team-comps/shion',
+    version: 'dd74aea049e0146128b81f7440d42f10ed11f9baf4ed4e52af03be0628223283',
+    reviewedAt: '2026-10-11', reviewer: 'Codex',
+    evidence: 'docs/content-review-shion-season-five-2026-10-11.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/counters/doomfist': {
     path: '/counters/doomfist',
     version: '38453629e48f24fbe8001d5907467a4f6a7d7bf23e449b704bb9baea4af9031b',

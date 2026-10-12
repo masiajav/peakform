@@ -82,7 +82,7 @@ const PUBLIC_ROUTES = [
   '/editorial-methodology',
 ]
 
-const RESTORED_TOPIC_ROUTES = ['/counters/genji', '/counters/kiriko', '/counters/freja', '/counters/pharah', '/counters/lifeweaver', '/counters/juno', '/counters/baptiste', '/counters/illari', '/counters/lucio', '/counters/mercy', '/counters/orisa', '/counters/ramattra', '/counters/sigma', '/counters/jetpack-cat', '/counters/wuyang', '/counters/zenyatta', '/counters/junker-queen', '/counters/mauga', '/counters/hazard', '/counters/junkrat', '/counters/soldier-76', '/counters/wrecking-ball', '/counters/venture', '/counters/vendetta', '/counters/anran', '/counters/mizuki', '/counters/sombra', '/counters/roadhog']
+const RESTORED_TOPIC_ROUTES = ['/counters/shion', '/team-comps/shion', '/counters/genji', '/counters/kiriko', '/counters/freja', '/counters/pharah', '/counters/lifeweaver', '/counters/juno', '/counters/baptiste', '/counters/illari', '/counters/lucio', '/counters/mercy', '/counters/orisa', '/counters/ramattra', '/counters/sigma', '/counters/jetpack-cat', '/counters/wuyang', '/counters/zenyatta', '/counters/junker-queen', '/counters/mauga', '/counters/hazard', '/counters/junkrat', '/counters/soldier-76', '/counters/wrecking-ball', '/counters/venture', '/counters/vendetta', '/counters/anran', '/counters/mizuki', '/counters/sombra', '/counters/roadhog']
 
 for (const route of PUBLIC_ROUTES) {
   test(`${route} is a healthy public page`, async ({ page }) => {
@@ -136,9 +136,9 @@ test('sitemap contains only the completed editorial batches', async ({ request }
 
   // Legacy publication intent must not substitute for a version-bound review.
   for (const slug of ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'zarya', 'tracer', 'domina']) {
-    if (['genji', 'kiriko'].includes(slug)) expect(xml).toContain(`/counters/${slug}</loc>`)
+    if (['shion', 'genji', 'kiriko'].includes(slug)) expect(xml).toContain(`/counters/${slug}</loc>`)
     else expect(xml).not.toContain(`/counters/${slug}</loc>`)
-    if (['ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'tracer', 'zarya'].includes(slug)) expect(xml).toContain(`/team-comps/${slug}</loc>`)
+    if (['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'tracer', 'zarya'].includes(slug)) expect(xml).toContain(`/team-comps/${slug}</loc>`)
     else expect(xml).not.toContain(`/team-comps/${slug}`)
   }
   for (const slug of ['freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki']) {

@@ -30,7 +30,7 @@ describe('individual team composition revisions', () => {
       expect(article.schemaDate).toBe(reviewDates[article.slug])
       expect(article.publishedDate).toBeUndefined()
     }
-    expect(getTeamCompPillar('shion')?.schemaDate).toBe('2026-06-28')
+    expect(getTeamCompPillar('shion')?.schemaDate).toBe('2026-10-11')
     for (const slug of ['ana', 'genji', 'kiriko']) {
       expect(getTeamCompPillar(slug)?.schemaDate).toBe('2026-10-06')
       expect(getTeamCompPillar(slug)?.publishedDate).toBeUndefined()

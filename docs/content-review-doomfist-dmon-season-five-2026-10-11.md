@@ -141,3 +141,14 @@ The Vercel app connector returned UNAUTHORIZED/re-authentication required for
 project inspection. Release status will be checked through the already working
 GitHub integration and independent public-domain verification, not presented as
 a successful authenticated Vercel MCP inspection.
+
+## Published result
+
+Committed and pushed on main as `5f839d6ad222393c75197cb6f40154bb02e3c1d1`.
+The GitHub Vercel check reported success for deployment
+`https://vercel.com/masiajavs-projects/peakform/BKC8tSi4BCAByai4jiPK99CQFMHB`.
+The independent public-domain browser check then completed with exit code 0:
+eight desktop/mobile views, 122 sitemap entries and no errors. Full article text,
+metadata, schemas, links and sitemap matched the final local report exactly.
+Production mobile Doomfist and desktop D.Mon screenshots were also inspected.
+No advertising or account-side AdSense action was performed.
