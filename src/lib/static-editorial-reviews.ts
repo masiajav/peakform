@@ -3,6 +3,20 @@ import type { StaticEditorialReview } from './static-editorial-review'
 // Explicit, version-bound reviews. No build task may populate this registry
 // from slugs or automatically renew approval after an editorial change.
 export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialReview>> = {
+  '/counters/reinhardt': {
+    path: '/counters/reinhardt',
+    version: '77b717769878f6165ab5f40dc3b0346a7bcb36a87a95742a820b45ac8c6351ca',
+    reviewedAt: '2026-10-12', reviewer: 'Codex',
+    evidence: 'docs/content-review-reinhardt-dva-counters-season-five-2026-10-12.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/counters/dva': {
+    path: '/counters/dva',
+    version: 'dc6893495bcf3e5f7c6ba6020e4d09136ca14c123044b036dc5a0ee26873fd68',
+    reviewedAt: '2026-10-12', reviewer: 'Codex',
+    evidence: 'docs/content-review-reinhardt-dva-counters-season-five-2026-10-12.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/counters/ana': {
     path: '/counters/ana',
     version: 'd1c2469332abe583ec17187a4fcc2f141efdc98ea45b1a9a1fee8839fd60d7db',

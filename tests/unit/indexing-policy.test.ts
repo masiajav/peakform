@@ -107,7 +107,7 @@ describe('indexing quality gates', () => {
 
   it('does not treat the legacy slug list as an editorial approval', () => {
     for (const slug of ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'zarya', 'tracer', 'domina']) {
-      expect(topicQualityDecision('counter', slug)).toMatchObject({ indexable: ['shion', 'ana', 'genji', 'kiriko'].includes(slug), adsAllowed: false })
+      expect(topicQualityDecision('counter', slug)).toMatchObject({ indexable: ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva'].includes(slug), adsAllowed: false })
       expect(topicQualityDecision('team_comp', slug)).toMatchObject({ indexable: ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'tracer', 'zarya'].includes(slug), adsAllowed: false })
     }
     for (const slug of ['freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'sombra']) {

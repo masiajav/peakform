@@ -31,9 +31,15 @@ for (const [slug, revision] of Object.entries(reviewedGuideRevisions)) {
       expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'VideoObject', description: revision.videoDescription }))
       await expect(page.locator('.guide-body')).toContainText(revision.videoDescription)
       await expect(page.locator('.guide-video-context')).toHaveText(revision.videoDescription)
-      const contextBox = await page.locator('.guide-video-context').boundingBox()
-      const videoBox = await page.locator('.guide-video-frame').boundingBox()
-      expect(contextBox && videoBox && contextBox.y + contextBox.height <= videoBox.y).toBe(true)
+      await page.evaluate(() => document.fonts.ready)
+      // Read both elements in one layout snapshot, after the web fonts settle.
+      const videoLayout = await page.evaluate(() => {
+        const context = document.querySelector('.guide-video-context')?.getBoundingClientRect()
+        const video = document.querySelector('.guide-video-frame')?.getBoundingClientRect()
+        return context && video ? { contextBottom: context.bottom, videoTop: video.top } : null
+      })
+      expect(videoLayout).not.toBeNull()
+      expect(videoLayout!.contextBottom).toBeLessThanOrEqual(videoLayout!.videoTop)
     }
     expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'BlogPosting', dateModified: revision.revisedAt || GUIDE_REVISION_DATE, author: { '@type': 'Organization', name: 'Replaid Lab' } }))
     expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'FAQPage' }))

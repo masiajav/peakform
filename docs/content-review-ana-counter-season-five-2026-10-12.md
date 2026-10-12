@@ -93,3 +93,17 @@ account-side approval remain unverified. No ad execution or review submission.
 Next individual counter candidate: Reinhardt. Its existing base article still
 uses a July review date and Season 3 label; it is not approved by this batch.
 Other unfinished pages remain accessible and require their own review.
+
+## Published release evidence
+
+Commit 0a60edd18280b6ccadb78a9be550709af0690054 was pushed to main. Its GitHub
+Vercel commit status reached success; authenticated deployment logs were not
+available. Actual public production was checked separately with the readonly
+helper: two viewports, 125 sitemap entries, no errors, and exact agreement
+with approved local text, metadata, schemas and links. Every main internal
+link returned 200, the portrait decoded, FAQ matched visible text and no
+ads executed. Production desktop/mobile header captures were inspected.
+
+Internal-browser production read, expanded anti/Tank FAQ and actual
+hero-counter-composition navigation passed, with empty error logs. Reports
+are in reports/ana-season-five/production.json and associated captures.
