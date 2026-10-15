@@ -20,6 +20,8 @@
 .player { position: relative; aspect-ratio: 16 / 9; background: #080f17; }
 .player:fullscreen { width: 100vw; height: 100dvh; aspect-ratio: auto; }
 .frame { display: block; width: 100%; height: 100%; border: 0; }
+.fullscreenExit { position: absolute; z-index: 2; top: 14px; right: 14px; background: #0a1819ed; color: #d5eae2; border: 1px solid #44605c; padding: 12px 16px; font: inherit; font-size: 10px; letter-spacing: .08em; cursor: pointer; }
+.fullscreenExit:hover { background: #16312f; color: #fff; }
 .cover { position: absolute; inset: 0; display: flex; align-items: center; background: linear-gradient(90deg, #071018d9, #07101825 70%), url('/arcade/oversvivors/cover.webp') center / cover; }
 .coverCopy { padding: 7%; position: relative; z-index: 1; }
 .coverTag { font-size: 9px; letter-spacing: .23em; color: #b5d2cd; }
@@ -27,7 +29,7 @@
 .cover p { font-size: 13px; line-height: 1.8; color: #bed0cc; margin: 0 0 26px; }
 .play { display: flex; align-items: center; justify-content: space-between; gap: 54px; cursor: pointer; padding: 16px 24px; color: #151811; background: #ffa36b; border: 1px solid #ffb68b; font-size: 12px; letter-spacing: .09em; font-weight: 700; }
 .play:hover { background: #ffbd92; }
-.play:focus-visible, .toolbar button:focus-visible, .playerFoot a:focus-visible { outline: 2px solid #83efd2; outline-offset: 5px; }
+.play:focus-visible, .toolbar button:focus-visible, .fullscreenExit:focus-visible, .playerFoot a:focus-visible { outline: 2px solid #83efd2; outline-offset: 5px; }
 .loadNote { display: block; font-size: 10px; margin-top: 14px; color: #b0c0bd; }
 .coverStamp { position: absolute; bottom: 28px; right: 28px; color: #cbe8e0; font-size: 9px; letter-spacing: .18em; text-align: right; line-height: 2; }
 .coverStamp b { font-weight: 400; color: #8eafab; }

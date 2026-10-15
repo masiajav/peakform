@@ -86,6 +86,27 @@ for (const hero of heroes) {
   })
 }
 
+test('fullscreen has a visible exit and preserves the running game', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name.startsWith('mobile'), 'Desktop fullscreen controls.')
+  const frame = await loadGame(page)
+  await frame.locator('canvas').focus()
+  await page.keyboard.press('Enter')
+  await expect.poll(async () => (await state(frame))?.scene).toBe('HeroSelect')
+  await page.keyboard.press('Enter')
+  await expect.poll(async () => (await state(frame))?.scene).toBe('main')
+  const before = (await state(frame))!
+  await page.getByRole('button', { name: 'PANTALLA COMPLETA', exact: false }).click()
+  await expect.poll(() => page.evaluate(() => Boolean(document.fullscreenElement))).toBe(true)
+  const exit = page.getByRole('button', { name: 'SALIR DE PANTALLA COMPLETA' })
+  await expect(exit).toBeVisible()
+  await exit.click()
+  await expect.poll(() => page.evaluate(() => Boolean(document.fullscreenElement))).toBe(false)
+  await expect(exit).not.toBeVisible()
+  await expect.poll(async () => (await state(frame))?.scene).toBe('main')
+  expect((await state(frame))?.hero).toBe(before.hero)
+  expect((await state(frame))?.time).toBeGreaterThanOrEqual(before.time!)
+})
+
 test('losing focus pauses combat and master volume persists after reload', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name.startsWith('mobile'), 'Desktop controls.')
   const frame = await loadGame(page)
