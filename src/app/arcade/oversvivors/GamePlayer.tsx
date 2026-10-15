@@ -9,6 +9,7 @@ export default function GamePlayer() {
   const [started, setStarted] = useState(false)
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading')
   const [fullscreenError, setFullscreenError] = useState(false)
+  const [isFullscreen, setIsFullscreen] = useState(false)
   const frame = useRef<HTMLIFrameElement>(null)
   const player = useRef<HTMLDivElement>(null)
 
@@ -18,14 +19,30 @@ export default function GamePlayer() {
       if (event.data.type === 'ready') setStatus('ready')
       if (event.data.type === 'error') setStatus('error')
     }
+    function onFullscreenChange() {
+      setIsFullscreen(Boolean(player.current && document.fullscreenElement === player.current))
+    }
     window.addEventListener('message', onMessage)
-    return () => window.removeEventListener('message', onMessage)
+    document.addEventListener('fullscreenchange', onFullscreenChange)
+    return () => {
+      window.removeEventListener('message', onMessage)
+      document.removeEventListener('fullscreenchange', onFullscreenChange)
+    }
   }, [])
 
   async function enterFullscreen() {
     setFullscreenError(false)
     try {
       if (!document.fullscreenElement) await player.current?.requestFullscreen()
+      frame.current?.focus()
+    } catch {
+      setFullscreenError(true)
+    }
+  }
+
+  async function exitFullscreen() {
+    try {
+      if (document.fullscreenElement) await document.exitFullscreen()
       frame.current?.focus()
     } catch {
       setFullscreenError(true)
@@ -40,6 +57,7 @@ export default function GamePlayer() {
         {started ? <button type="button" onClick={enterFullscreen}>PANTALLA COMPLETA ↗</button> : <span className={styles.version}>WEB ALPHA 01</span>}
       </div>
       <div className={styles.player} ref={player}>
+        {isFullscreen ? <button type="button" className={styles.fullscreenExit} onClick={exitFullscreen}>SALIR DE PANTALLA COMPLETA ↙</button> : null}
         {started ? (
           <iframe ref={frame} className={styles.frame} src={GAME_URL} title="Oversvivors: juego de supervivencia" allow="autoplay; fullscreen; gamepad" onLoad={() => frame.current?.contentWindow?.postMessage({ source: 'replaidlab', type: 'status' }, window.location.origin)} />
         ) : (

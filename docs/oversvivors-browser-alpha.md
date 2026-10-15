@@ -32,7 +32,9 @@ provenance are in the game repository's `assets/menu/README.md`.
   endless continuation. Desktop runs remain thirty minutes.
 - Keyboard and mouse. The page is responsive, but this alpha has no touch controls.
 - Escape pauses/resumes. Losing focus pauses combat and requires manual resume.
-- Fullscreen requires a player gesture. The host also offers a separate-tab link.
+- Fullscreen requires a player gesture. An exit button remains visible inside
+  the fullscreen player; returning to the page preserves the game session.
+  The host also offers a separate-tab link.
 - Runtime failure is displayed by the game loader and reflected in the host.
 - Audio settings and run records are stored locally in the browser; there is no
   account synchronization or shared leaderboard.
