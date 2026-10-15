@@ -1,0 +1,41 @@
+{
+  "name": "Oversvivors",
+  "engine": "4.6.2",
+  "source": "https://github.com/masiajav/2d-game",
+  "revision": "dcbeef130c6ced086213ed909130402e3f6d3524",
+  "dirty": false,
+  "assets": {
+    "index.html": {
+      "bytes": 4161,
+      "sha256": "06c1e1f4fd5447966db02d29aa6f90fdd910506466bf756aa94848aa4fe40a54"
+    },
+    "index.js": {
+      "bytes": 315759,
+      "sha256": "e3f56ee40e6f84371053db06692cfac15e2c8659547b11c6b2dfa1996dabd981"
+    },
+    "index.wasm": {
+      "bytes": 37695054,
+      "sha256": "cca8bc7c462d348aaa3f318aecf3281d99bf219e182256412711b24f0d086d80"
+    },
+    "index.pck": {
+      "bytes": 2105368,
+      "sha256": "670f3c485835b4357dee2d91488b81cea0b4ff17d34d97c93c971b7d9ec9d289"
+    },
+    "index.audio.worklet.js": {
+      "bytes": 7298,
+      "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
+    },
+    "index.audio.position.worklet.js": {
+      "bytes": 2973,
+      "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8"
+    },
+    "index.icon.png": {
+      "bytes": 1288,
+      "sha256": "25b574f9e9d056337c2551bdd883fdae0d4be56c5820d8f67ed007a1a183c38f"
+    },
+    "index.apple-touch-icon.png": {
+      "bytes": 2554,
+      "sha256": "2d1649747028319f549bea095c66ece6a5f5f013b281e27d79819cb472c9e946"
+    }
+  }
+}

@@ -5,6 +5,8 @@
 /.next/
 /.next-e2e/
 /.next-verify/
+/.next-arcade/
+/.next-arcade-production/
 /.next-editorial-preview/
 /.next-editorial-built-preview/
 /.next-hub-corrected-2026-10-04/
