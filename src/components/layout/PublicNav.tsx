@@ -15,6 +15,7 @@ const NAV_LINKS = [
   { href: '/guides', label: 'Guías' },
   { href: '/team-comps', label: 'Composiciones' },
   { href: '/pick-lab', label: 'Pick Lab' },
+  { href: '/arcade/oversvivors', label: 'Arcade' },
   { href: '/maps', label: 'Mapas' },
   { href: '/news', label: 'Noticias' },
   { href: '/experts', label: 'Expertos' },
