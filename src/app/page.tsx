@@ -165,7 +165,7 @@ export default async function RootPage() {
                     SEASON 5 YA DISPONIBLE: A GRIM DOCTRINE
                   </h2>
                   <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0, maxWidth: 760 }}>
-                    La temporada arrancó el 6 de octubre. Doctrine, Sombra Support, el rework de Roadhog y Grímsvötn ya están en el juego; aquí tienes lo que cambia y las fechas de los eventos.
+                    La temporada arrancó el 6 de octubre y ya tiene otro ajuste de balance: nerfs de Doctrine y Sombra y mejoras para Roadhog. Repasa el hotfix del 13 de octubre, Grímsvötn y las fechas de los eventos.
                   </p>
                 </div>
                 <span className="btn btn-primary btn-sm">VER TODO</span>

@@ -33,11 +33,11 @@ export const dynamic = 'force-dynamic'
 const STATIC_LAST_MODIFIED: Record<string, string> = {
   '/heroes': '2026-10-09',
   '/counters': '2026-10-03',
-  '/news': '2026-10-09',
+  '/news': '2026-10-15',
   '/privacy': TRUST_REVIEW_DATE,
   '/legal': TRUST_REVIEW_DATE,
   '/blizzcon-2026-overwatch-horarios-espana': '2026-10-01',
-  '/doctrine-support-sombra-roadhog-rework-overwatch': '2026-10-09',
+  '/doctrine-support-sombra-roadhog-rework-overwatch': '2026-10-15',
   '/heroes/doctrine': '2026-10-09',
   '/overwatch-temporada-4-heroes-of-busan': '2026-08-11',
   '/dmon-nuevo-heroe-tank-overwatch': '2026-08-11',

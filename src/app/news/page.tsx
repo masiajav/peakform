@@ -14,8 +14,8 @@ const featuredNews = [
   {
     href: '/doctrine-support-sombra-roadhog-rework-overwatch',
     title: 'Overwatch Season 5: Doctrine, Sombra Support y novedades',
-    date: 'Actualizado el 9 de octubre de 2026',
-    description: 'A Grim Doctrine ya está disponible: nuevo Support, reworks de Sombra y Roadhog, Grímsvötn, Halloween y pases recuperados. Qué cambia respecto a la prueba de septiembre.',
+    date: 'Actualizado el 15 de octubre de 2026',
+    description: 'El hotfix del 13 de octubre ajusta a Doctrine, Sombra y Roadhog. Balance, Grímsvötn, Halloween y pases recuperados de A Grim Doctrine.',
   },
   {
     href: '/blizzcon-2026-overwatch-horarios-espana',

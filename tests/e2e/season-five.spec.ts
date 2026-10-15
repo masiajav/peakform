@@ -14,11 +14,11 @@ test('Season 5 news shows current kits, event dates and matching metadata', asyn
   for (const text of ['empezó el 6 de octubre de 2026', 'Hotfix', 'Cyberspace', 'Trash Compactor', 'Grímsvötn', 'del 6 de octubre al 2 de noviembre', 'del 6 al 19 de octubre', 'del 9 al 26 de octubre', 'del 29 de octubre al 1 de noviembre', 'ya ha caducado', 'no incluyen monedas']) await expect(main).toContainText(text)
   const schemas = (await page.locator('script[type="application/ld+json"]').allTextContents()).flatMap(text => JSON.parse(text))
   const article = schemas.find(item => item['@type'] === 'NewsArticle')
-  expect(article).toMatchObject({ datePublished: '2026-09-12', dateModified: '2026-10-09', author: { name: 'Replaid Lab' } })
+  expect(article).toMatchObject({ datePublished: '2026-09-12', dateModified: '2026-10-15', author: { name: 'Replaid Lab' } })
   expect(article.headline).toBe((await page.locator('h1').innerText()).replace(/\s+/g, ' ').trim())
   expect(article.description).toBe(await page.locator('meta[name="description"]').getAttribute('content'))
   const faq = schemas.find(item => item['@type'] === 'FAQPage')
-  expect(faq.mainEntity).toHaveLength(11)
+  expect(faq.mainEntity).toHaveLength(12)
   for (const item of faq.mainEntity) {
     await expect(main).toContainText(item.name)
     await expect(main).toContainText(item.acceptedAnswer.text)

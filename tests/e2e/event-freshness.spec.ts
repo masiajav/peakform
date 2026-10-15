@@ -19,7 +19,7 @@ test('the Doctrine announcement shows voucher limits, dates and matching structu
   await expect(page.locator('main')).toContainText('6 de octubre')
   await expect(page.locator('h1')).toHaveCount(1)
   const schemas = (await page.locator('script[type="application/ld+json"]').allTextContents()).map(text => JSON.parse(text))
-  expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'NewsArticle', datePublished: '2026-09-12', dateModified: '2026-10-09' }))
+  expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'NewsArticle', datePublished: '2026-09-12', dateModified: '2026-10-15' }))
   const faq = schemas.find(schema => schema['@type'] === 'FAQPage')
   for (const question of faq.mainEntity) {
     await expect(page.locator('main')).toContainText(question.name)
@@ -34,7 +34,7 @@ test('the Doctrine announcement shows voucher limits, dates and matching structu
     }))
   }, sitemap)
   for (const route of [path, '/blizzcon-2026-overwatch-horarios-espana']) {
-    expect(entries).toContainEqual({ loc: `https://www.replaidlab.com${route}`, lastmod: `${route === path ? '2026-10-09' : '2026-10-01'}T00:00:00.000Z` })
+    expect(entries).toContainEqual({ loc: `https://www.replaidlab.com${route}`, lastmod: `${route === path ? '2026-10-15' : '2026-10-01'}T00:00:00.000Z` })
   }
   expect(entries).toContainEqual({ loc: 'https://www.replaidlab.com/heroes/doctrine', lastmod: '2026-10-09T00:00:00.000Z' })
   await page.screenshot({ path: `reports/event-freshness/doctrine-${test.info().project.name}.png` })

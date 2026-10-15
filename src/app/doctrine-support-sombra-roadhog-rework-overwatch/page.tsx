@@ -12,7 +12,7 @@ const MYTHIC_IMAGE = '/news/blizzcon-2026-mythic-voucher.png'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Overwatch Season 5: Doctrine, Sombra Support y novedades',
-  description: 'Season 5 ya disponible: Doctrine, Sombra Support, rework de Roadhog, Grímsvötn, Halloween y Unvaulted Passes. Fechas y cambios para tus partidas.',
+  description: 'Overwatch Season 5: hotfix del 13 de octubre, nerfs de Doctrine y Sombra, buffs de Roadhog, nuevo mapa, Halloween y pases recuperados. Qué cambia en ranked.',
   path: PAGE_PATH,
   image: PAGE_IMAGE,
   type: 'article',
@@ -89,6 +89,10 @@ const doctrinePerks = [
 
 const faqs = [
   {
+    question: '¿Qué cambia con el hotfix del 13 de octubre?',
+    answer: 'Doctrine pierde daño, curación del arma y duración de los drones; Sombra hace menos daño y tarda más en recuperar Cyberspace. Roadhog mejora su disparo central y Take a Breather. Kiriko gana salud base y D.Mon pierde armadura base. Son ajustes posteriores al lanzamiento de Season 5, no otros reworks.',
+  },
+  {
     question: '¿Doctrine es Tank, DPS o Support?',
     answer: 'Doctrine es Support. Es el héroe 54 de Overwatch y utiliza Cetro eterno para curar aliados o hacer daño a enemigos a media distancia.',
   },
@@ -140,11 +144,11 @@ export default function DoctrineBlizzConNewsPage() {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
     headline: 'Overwatch Season 5: Doctrine, Sombra Support y novedades',
-    description: 'Season 5 ya disponible: Doctrine, Sombra Support, rework de Roadhog, Grímsvötn, Halloween y Unvaulted Passes. Fechas y cambios para tus partidas.',
+    description: 'Overwatch Season 5: hotfix del 13 de octubre, nerfs de Doctrine y Sombra, buffs de Roadhog, nuevo mapa, Halloween y pases recuperados. Qué cambia en ranked.',
     image: [absoluteUrl(PAGE_IMAGE), absoluteUrl(DOCTRINE_IMAGE), absoluteUrl(MYTHIC_IMAGE)],
     url: pageUrl,
     datePublished: '2026-09-12',
-    dateModified: '2026-10-09',
+    dateModified: '2026-10-15',
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
@@ -189,15 +193,16 @@ export default function DoctrineBlizzConNewsPage() {
               Overwatch Season 5: <span style={{ color: 'var(--accent)' }}>Doctrine, Sombra Support</span> y novedades
             </h1>
             <p style={{ color: 'var(--text3)', fontSize: 12, lineHeight: 1.65 }}>
-              Por Replaid Lab · Publicado: <time dateTime="2026-09-12">12 de septiembre de 2026</time> · Actualizado: <time dateTime="2026-10-09">9 de octubre de 2026</time>
+              Por Replaid Lab · Publicado: <time dateTime="2026-09-12">12 de septiembre de 2026</time> · Actualizado: <time dateTime="2026-10-15">15 de octubre de 2026</time>
             </p>
             <p style={{ color: 'var(--text2)', fontSize: 17, lineHeight: 1.72, margin: '0 0 14px' }}>
               Season 5: A Grim Doctrine empezó el 6 de octubre de 2026. Doctrine ya está disponible, Sombra es Support y Roadhog tiene su rework. La temporada también estrena Grímsvötn, un mapa de Escolta, y recupera pases de batalla antiguos con Unvaulted Passes.
             </p>
             <p style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.72, margin: '0 0 18px' }}>
-              Si vuelves al juego, empieza por las herramientas que han cambiado, no por los combos de vídeos antiguos. Más abajo tienes los ajustes de Doctrine, los nuevos kits y las fechas de Halloween y de las colaboraciones. El vale mítico de BlizzCon ya caducó.
+              El hotfix del 13 de octubre ya retoca ese lanzamiento: recorta a Doctrine y Sombra y refuerza a Roadhog. Aquí tienes el balance más reciente, los kits actuales y las fechas de los eventos. El vale mítico de BlizzCon ya caducó.
             </p>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+              <a href="#balance-13-octubre" className="btn btn-secondary btn-sm">BALANCE DEL 13 DE OCTUBRE</a>
               <Link href="/heroes/doctrine" className="btn btn-primary btn-sm">GUÍA DE DOCTRINE</Link>
               <Link href="/roles/support" className="btn btn-secondary btn-sm">APRENDER SUPPORT</Link>
             </div>
@@ -214,6 +219,28 @@ export default function DoctrineBlizzConNewsPage() {
             />
           </div>
         </header>
+
+        <section id="balance-13-octubre" aria-labelledby="balance-heading" style={{ padding: '24px 0', marginBottom: 28, borderTop: '1px solid var(--border)', scrollMarginTop: 76 }}>
+          <div className="eyebrow">ÚLTIMO BALANCE · 13 DE OCTUBRE</div>
+          <h2 id="balance-heading" style={headingStyle}>Doctrine y Sombra bajan; Roadhog recupera fuerza</h2>
+          <p style={paragraphStyle}>
+            Estos son los cambios del <a href="https://overwatch.blizzard.com/es-es/news/patch-notes/live/2026/10/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>hotfix del 13 de octubre</a>, posteriores al parche de lanzamiento:
+          </p>
+          <ul className="season-balance-changes" style={{ ...paragraphStyle, paddingLeft: 22, display: 'grid', gap: 12 }}>
+            <li><strong style={{ color: 'var(--text)' }}>Doctrine:</strong> Cetro eterno baja de 60 a 55 de daño y curación; Drones vigorizantes dura 5 segundos en vez de 6.</li>
+            <li><strong style={{ color: 'var(--text)' }}>Sombra:</strong> Machine Pistol pasa de 7 a 6,5 de daño. La explosión de Cyberspace baja de 40 a 20 y su cooldown sube de 12 a 13 segundos.</li>
+            <li><strong style={{ color: 'var(--text)' }}>Roadhog:</strong> el proyectil central de Scrap Gun sube de 34 a 40 de daño. Take a Breather pasa de 2 a 1,25 segundos de cooldown, del 35% al 40% de reducción de daño y de 2 a 2,5 segundos de duración máxima.</li>
+            <li><strong style={{ color: 'var(--text)' }}>Kiriko:</strong> su salud base aumenta de 225 a 250.</li>
+            <li><strong style={{ color: 'var(--text)' }}>D.Mon:</strong> su armadura base baja de 275 a 250. Es armadura, no una reducción de toda su vida a 250.</li>
+          </ul>
+          <h3 style={{ ...headingStyle, fontSize: 28 }}>Qué tener en cuenta en ranked</h3>
+          <p style={paragraphStyle}>
+            Con Doctrine, manda los drones cuando el aliado pueda aprovecharlos: si tarda en asomarse, ahora pierde más parte de su ventana. Con Sombra, mira si Cyberspace ha vuelto antes de repetir la entrada; que haya terminado una pelea no significa que ya lo tengas.
+          </p>
+          <p style={paragraphStyle}>
+            Contra Roadhog, no confundas ver Take a Breather con encontrarlo indefenso. Busca un tiro que tu equipo pueda seguir sin acercarte al hook. Estos cambios tampoco demuestran por sí solos quién lidera el meta: un nerf de números no sustituye mirar posición, recursos y ayuda disponible.
+          </p>
+        </section>
 
         <section style={sectionStyle}>
           <div className="eyebrow">EN 30 SEGUNDOS</div>
