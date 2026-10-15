@@ -6,6 +6,7 @@ type GameState = {
   scene: string; paused: boolean; hero?: string; x?: number; y?: number;
   health?: number; kills?: number; time?: number; ended?: boolean; duration?: number;
   master_volume: number; map?: string;
+  art?: string; art_frame?: number; art_facing?: number;
 }
 
 const state = (frame: Frame) => frame.evaluate(() => (window as Window & { oversvivorsState?: GameState }).oversvivorsState)
@@ -61,6 +62,10 @@ for (const hero of heroes) {
     const before = (await state(frame))!
     await page.keyboard.down('KeyD')
     await expect.poll(async () => (await state(frame))!.x! - before.x!).toBeGreaterThan(80)
+    if (['Ranger', 'Viper', 'Scramble'].includes(hero.name)) {
+      expect((await state(frame))?.art).toContain('walk-v2.png')
+      await expect.poll(async () => ((await state(frame))?.art_frame ?? 0) % 4).toBeGreaterThan(0)
+    }
     await page.keyboard.up('KeyD')
     await page.keyboard.press('Shift')
     await page.keyboard.press('KeyE')

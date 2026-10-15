@@ -57,6 +57,10 @@ during pause, boss sequencing and victory/endless/defeat records.
 
 This is a playable alpha with a first visual pass: new menu art, portrait cards,
 closer camera, unit shadows/player marker, a clearer HUD and quieter forest floor.
-The three basic hero sprites and enemies still need a consistent animation pass;
-late-run performance and Safari should be checked on real devices before treating
-this as a finished release.
+Ranger, Viper and Scramble now have four-direction walking atlases and new
+selection portraits. All six regular enemies and both bosses have new walking
+strips. The 80 new frames are checked for nonempty silhouettes, clipping and
+idle/walk/facing transitions in the source game's art smoke test. Raw generated
+art stays in the source repository and is excluded from the resource pack.
+Late-run performance and Safari should still be checked on real devices before
+treating this alpha as a finished release.
