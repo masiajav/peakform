@@ -9,7 +9,7 @@ IndexedDB. No cross-origin isolation headers or service worker are required.
 ## Source and rebuilding
 
 Game repository: `https://github.com/masiajav/2d-game`, branch
-`codex/oversvivors-web`. The source revision and SHA-256 checksums for every
+`master`. The source revision and SHA-256 checksums for every
 packaged file are in `public/games/oversvivors/build.json`.
 
 1. Install Godot 4.6.2 and its standard web export templates.
@@ -66,3 +66,27 @@ idle/walk/facing transitions in the source game's art smoke test. Raw generated
 art stays in the source repository and is excluded from the resource pack.
 Late-run performance and Safari should still be checked on real devices before
 treating this alpha as a finished release.
+
+## Control update
+
+The optional control point opens at 25 seconds, then every 90 seconds. Hold it
+for eight uncontested seconds to earn healing, XP, ultimate charge and an XP
+magnet. Contested rings stop progress; occupied expired points enter overtime.
+Nearby health packs recharge, and heroes regenerate after five damage-free
+seconds. The ultimate ring, ready sounds, hit numbers and distinct hero shots
+make combat state easier to read. Selection identifies the existing heroes'
+Tracer/Mei/Widowmaker/Cassidy/Junkrat inspirations.
+
+XP now uses a gentler early curve with increasing gaps later, and all earned choices are queued. Stackable upgrades allow three picks. Use 1/2/3
+to choose or R to reroll. Level 6 and each fifth level offer an eligible legendary.
+Viper supports held manual fire, pierces targets and attracts remote XP. Captures
+and best streak persist in run history. Enemy/XP/text caps protect late-run
+resource use, and spawning assigns positions before bodies enter the physics
+world so new waves do not briefly damage the hero at the origin.
+
+The source rules and reproducible full-run input simulation are documented in
+`docs/control-update.md` in the game repository. Ten native smoke scenes pass.
+The browser suite adds a natural progression/objective test and verifies that
+the hero keeps full health while the first enemies are still distant. It now
+passes ten checks (eight desktop gameplay cases plus the public page on desktop
+and mobile); mobile gameplay remains outside this keyboard/mouse release.
