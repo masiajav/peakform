@@ -2,12 +2,12 @@
   "name": "Oversvivors",
   "engine": "4.6.2",
   "source": "https://github.com/masiajav/2d-game",
-  "revision": "1901e20b26e84838ad057b909979db2fd24796fa",
+  "revision": "19e0cf286d0c90bcffdda6c5a0124984216c4582",
   "dirty": false,
   "assets": {
     "index.html": {
       "bytes": 4161,
-      "sha256": "c1afda1300e2dd2eed02c1abe85fc72727529354dbbe6f04990ccd83875e1e4f"
+      "sha256": "77188e7bcb81b36a2fc91fb03ca070100d9ecf9d670920e3c968529f12e10be5"
     },
     "index.js": {
       "bytes": 315759,
@@ -18,8 +18,8 @@
       "sha256": "cca8bc7c462d348aaa3f318aecf3281d99bf219e182256412711b24f0d086d80"
     },
     "index.pck": {
-      "bytes": 2132528,
-      "sha256": "d0a4314de27e0bec17ff11198af0b0798e1a5c97bc464cff423683946ea36649"
+      "bytes": 2463768,
+      "sha256": "8fbb6aeac6956b5ecd2d30229917d10755fb7a349d4f26fead854601050f3842"
     },
     "index.audio.worklet.js": {
       "bytes": 7298,
