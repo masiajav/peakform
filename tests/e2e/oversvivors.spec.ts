@@ -7,6 +7,11 @@ type GameState = {
   health?: number; kills?: number; time?: number; ended?: boolean; duration?: number;
   master_volume: number; map?: string;
   art?: string; art_frame?: number; art_facing?: number;
+  hero_buttons?: { name: string; x: number; y: number }[];
+  upgrades_queued?: number; upgrades?: string[]; level?: number;
+  point_active?: boolean; captures?: number; capture_progress?: number;
+  health_packs?: { x: number; y: number; cooldown: number }[];
+  max_health?: number; nearest_enemy?: number; enemy_count?: number; fps?: number;
 }
 
 const state = (frame: Frame) => frame.evaluate(() => (window as Window & { oversvivorsState?: GameState }).oversvivorsState)
@@ -55,7 +60,9 @@ for (const hero of heroes) {
     await expect.poll(async () => (await state(frame))?.scene).toBe('HeroSelect')
     const size = (await canvas.boundingBox())!
     if (hero.map === 'Ashen Foundry') await canvas.click({ position: { x: size.width * 735 / 1280, y: size.height * 215 / 720 } })
-    await canvas.click({ position: { x: size.width * hero.x / 1280, y: size.height * hero.y / 720 } })
+    const button = (await state(frame))?.hero_buttons?.find(item => item.name === hero.name)
+    expect(button).toBeDefined()
+    await canvas.click({ position: { x: size.width * button!.x, y: size.height * button!.y } })
     await expect.poll(async () => (await state(frame))?.hero).toBe(hero.name)
     expect((await state(frame))?.duration).toBe(600)
     expect((await state(frame))?.map).toBe(hero.map)
@@ -105,6 +112,57 @@ test('fullscreen has a visible exit and preserves the running game', async ({ pa
   await expect.poll(async () => (await state(frame))?.scene).toBe('main')
   expect((await state(frame))?.hero).toBe(before.hero)
   expect((await state(frame))?.time).toBeGreaterThanOrEqual(before.time!)
+})
+
+test('control update preserves early health, resolves upgrades and opens an objective', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name.startsWith('mobile'), 'Desktop gameplay controls.')
+  const errors: string[] = []
+  page.on('pageerror', error => errors.push(error.message))
+  page.on('console', message => { if (message.type() === 'error') errors.push(message.text()) })
+  const frame = await loadGame(page)
+  const canvas = frame.locator('canvas')
+  await canvas.focus()
+  await page.keyboard.press('Enter')
+  await expect.poll(async () => (await state(frame))?.scene).toBe('HeroSelect')
+  await page.keyboard.press('Enter')
+  await expect.poll(async () => (await state(frame))?.scene).toBe('main')
+  await expect.poll(async () => (await state(frame))?.time).toBeGreaterThan(2)
+  const early = (await state(frame))!
+  expect(early.health).toBe(early.max_health)
+  expect(early.nearest_enemy).toBeGreaterThan(200)
+  const held = new Set<string>()
+  const deadline = Date.now() + 55_000
+  let sawPack = false
+  let sawPoint = false
+  let picked = 0
+  while (Date.now() < deadline) {
+    const current = (await state(frame))!
+    expect(current.ended).toBe(false)
+    if (current.upgrades_queued) {
+      await page.keyboard.press('Digit1')
+      await page.waitForTimeout(250)
+      continue
+    }
+    picked = current.upgrades?.length ?? 0
+    sawPack ||= Boolean(current.health_packs?.length)
+    sawPoint ||= Boolean(current.point_active)
+    if (sawPoint && sawPack && picked > 0) break
+    const angle = current.time! * .045
+    const dx = Math.cos(angle) * 500 - current.x!
+    const dy = Math.sin(angle) * 500 - current.y!
+    const keys = new Set<string>()
+    if (Math.abs(dx) > 20) keys.add(dx > 0 ? 'KeyD' : 'KeyA')
+    if (Math.abs(dy) > 20) keys.add(dy > 0 ? 'KeyS' : 'KeyW')
+    for (const key of held) if (!keys.has(key)) { await page.keyboard.up(key); held.delete(key) }
+    for (const key of keys) if (!held.has(key)) { await page.keyboard.down(key); held.add(key) }
+    await page.waitForTimeout(200)
+  }
+  for (const key of held) await page.keyboard.up(key)
+  expect(sawPack).toBe(true)
+  expect(sawPoint).toBe(true)
+  expect(picked).toBeGreaterThan(0)
+  await page.screenshot({ path: testInfo.outputPath('control-objective.png') })
+  expect(errors).toEqual([])
 })
 
 test('losing focus pauses combat and master volume persists after reload', async ({ page }, testInfo) => {
