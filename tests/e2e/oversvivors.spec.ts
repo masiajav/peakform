@@ -6,12 +6,13 @@ type GameState = {
   scene: string; paused: boolean; hero?: string; x?: number; y?: number;
   health?: number; kills?: number; time?: number; ended?: boolean; duration?: number;
   master_volume: number; map?: string;
-  art?: string; art_frame?: number; art_facing?: number;
-  hero_buttons?: { name: string; x: number; y: number }[];
+  art?: string; art_frame?: number; art_facing?: number | string;
+  hero_buttons?: { name: string; x: number; y: number; medals: number }[];
   upgrades_queued?: number; upgrades?: string[]; level?: number;
   point_active?: boolean; captures?: number; capture_progress?: number;
   health_packs?: { x: number; y: number; cooldown: number }[];
   max_health?: number; nearest_enemy?: number; enemy_count?: number; fps?: number;
+  build_visible?: boolean; upgrade_cards?: string[]; mastery_total?: number;
 }
 
 const state = (frame: Frame) => frame.evaluate(() => (window as Window & { oversvivorsState?: GameState }).oversvivorsState)
@@ -33,6 +34,8 @@ test('arcade is public, responsive, and downloads the engine only when requested
   page.on('request', request => { if (request.url().endsWith('.wasm')) engines.push(request.url()) })
   await page.goto('/arcade/oversvivors')
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('OVERSVIVORS.')
+  await expect(page.getByText('Tracer, Mei, Widowmaker, Cassidy y Junkrat.', { exact: false })).toBeVisible()
+  await expect(page.getByText('Un fangame de supervivencia gratuito y no oficial.', { exact: false })).toBeVisible()
   await expect(page.getByRole('button', { name: 'JUGAR GRATIS' })).toBeVisible()
   await expect(page.getByText('Pensado para ordenador', { exact: false })).toBeVisible()
   expect(engines).toEqual([])
@@ -40,11 +43,11 @@ test('arcade is public, responsive, and downloads the engine only when requested
 })
 
 const heroes = [
-  { name: 'Spectra', x: 413, y: 421, map: 'Ruined Moonlit Forest' },
-  { name: 'Glacier', x: 616, y: 421, map: 'Ruined Moonlit Forest' },
-  { name: 'Viper', x: 850, y: 421, map: 'Ruined Moonlit Forest' },
-  { name: 'Ranger', x: 540, y: 639, map: 'Ashen Foundry' },
-  { name: 'Scramble', x: 747, y: 639, map: 'Ashen Foundry' },
+  { name: 'Tracer', map: 'Ruined Moonlit Forest' },
+  { name: 'Mei', map: 'Ruined Moonlit Forest' },
+  { name: 'Widowmaker', map: 'Ruined Moonlit Forest' },
+  { name: 'Cassidy', map: 'Ashen Foundry' },
+  { name: 'Junkrat', map: 'Ashen Foundry' },
 ]
 
 for (const hero of heroes) {
@@ -58,6 +61,7 @@ for (const hero of heroes) {
     await canvas.focus()
     await page.keyboard.press('Enter')
     await expect.poll(async () => (await state(frame))?.scene).toBe('HeroSelect')
+    expect((await state(frame))?.mastery_total).toBe(0)
     const size = (await canvas.boundingBox())!
     if (hero.map === 'Ashen Foundry') await canvas.click({ position: { x: size.width * 735 / 1280, y: size.height * 215 / 720 } })
     const button = (await state(frame))?.hero_buttons?.find(item => item.name === hero.name)
@@ -69,24 +73,24 @@ for (const hero of heroes) {
     const before = (await state(frame))!
     await page.keyboard.down('KeyD')
     await expect.poll(async () => (await state(frame))!.x! - before.x!).toBeGreaterThan(80)
-    if (['Ranger', 'Viper', 'Scramble'].includes(hero.name)) {
-      expect((await state(frame))?.art).toContain('walk-v2.png')
-      await expect.poll(async () => ((await state(frame))?.art_frame ?? 0) % 4).toBeGreaterThan(0)
-    }
+    expect((await state(frame))?.art).toContain(`assets/ow/${hero.name.toLowerCase()}-walk-v3.png`)
+    await expect.poll(async () => ((await state(frame))?.art_frame ?? 0) % 4).toBeGreaterThan(0)
     await page.keyboard.up('KeyD')
     await page.keyboard.press('Shift')
     await page.keyboard.press('KeyE')
-    if (hero.name === 'Viper') {
+    if (hero.name === 'Widowmaker') {
       await canvas.click({ position: { x: size.width * .75, y: size.height * .5 } })
     }
     await page.keyboard.press('Escape')
     await expect.poll(async () => (await state(frame))?.paused).toBe(true)
+    await expect.poll(async () => (await state(frame))?.build_visible).toBe(true)
     const pausedTime = (await state(frame))!.time!
     await page.waitForTimeout(1200)
     await expect.poll(async () => (await state(frame))?.time).toBe(pausedTime)
     await page.screenshot({ path: testInfo.outputPath(`${hero.name}-pause.png`) })
     await page.keyboard.press('Escape')
     await expect.poll(async () => (await state(frame))?.paused).toBe(false)
+    await expect.poll(async () => (await state(frame))?.build_visible).toBe(false)
     await expect.poll(async () => (await state(frame))!.time!).toBeGreaterThan(pausedTime)
     await page.screenshot({ path: testInfo.outputPath(`${hero.name}-run.png`) })
     expect(errors).toEqual([])
@@ -139,6 +143,7 @@ test('control update preserves early health, resolves upgrades and opens an obje
     const current = (await state(frame))!
     expect(current.ended).toBe(false)
     if (current.upgrades_queued) {
+      expect(current.upgrade_cards?.filter(Boolean).every(card => card.includes('STACK') || card.includes('UNIQUE'))).toBe(true)
       await page.keyboard.press('Digit1')
       await page.waitForTimeout(250)
       continue
