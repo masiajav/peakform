@@ -6,7 +6,7 @@ vi.mock('@/components/layout/PublicNav', () => ({ default: () => null }))
 
 import LegalPage from '@/app/legal/page'
 import PrivacyPage from '@/app/privacy/page'
-import { SITE_OPERATOR, TRUST_REVIEW_DATE } from '@/lib/site-operator'
+import { PRIVACY_REVIEW_DATE, SITE_OPERATOR, TRUST_REVIEW_DATE } from '@/lib/site-operator'
 
 describe('authorised public operator identification', () => {
   for (const [name, Component] of [['Legal', LegalPage], ['Privacidad', PrivacyPage]] as const) {
@@ -16,7 +16,7 @@ describe('authorised public operator identification', () => {
       expect(html).toContain(SITE_OPERATOR.address)
       expect(html).toContain(SITE_OPERATOR.publicName)
       expect(html).toContain(`href="mailto:${SITE_OPERATOR.email}"`)
-      expect(html).toContain(`dateTime="${TRUST_REVIEW_DATE}"`)
+      expect(html).toContain(`dateTime="${name === 'Privacidad' ? PRIVACY_REVIEW_DATE : TRUST_REVIEW_DATE}"`)
       expect(html).not.toMatch(/adsbygoogle|ins class="ad/)
     })
   }

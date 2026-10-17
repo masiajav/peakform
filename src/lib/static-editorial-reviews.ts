@@ -103,9 +103,9 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
   },
   '/guides/review-vod-overwatch-espanol': {
     path: '/guides/review-vod-overwatch-espanol',
-    version: '9cc7a73149d8defac5d8af99271f019e457e414788626c4a9c63d58b3a32dd8a',
-    reviewedAt: '2026-10-10', reviewer: 'Codex',
-    evidence: 'docs/content-review-evergreen-season-five-2026-10-10.md',
+    version: 'a3699fad8458a6316695124dc57e9ab799fae8e35040c7057c1c54b3ad8e1ddd',
+    reviewedAt: '2026-10-17', reviewer: 'Codex',
+    evidence: 'docs/adsense-rejection-2026-10-17.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
   '/team-comps/dva': {

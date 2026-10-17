@@ -9,7 +9,7 @@ import PublicNav from '@/components/layout/PublicNav'
 import HeroPortraitImage from '@/components/heroes/HeroPortraitImage'
 import { announcementPath, ROLE_LABELS, topicLabel, type GuideContent } from '@/lib/content'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
-import { evergreenGuideList } from '@/lib/evergreen-guides'
+import { evergreenGuides } from '@/lib/evergreen-guides'
 import { guideEditorial } from '@/lib/guide-editorial'
 import { isAnnouncementSitemapEligible, isGuideSitemapEligible } from '@/lib/indexing-policy'
 import { ANNOUNCEMENT_REVIEW_COLUMNS, GUIDE_REVIEW_COLUMNS } from '@/lib/editorial-review'
@@ -31,6 +31,11 @@ const spotlightHeroSlugs = ['doctrine', 'dmon', 'shion', 'sierra']
 const roleOrder: CounterRole[] = ['tank', 'dps', 'support']
 const heroBySlug = new Map(COUNTER_HEROES.map(hero => [hero.slug, hero]))
 const spotlightHeroes = pickHeroes(spotlightHeroSlugs)
+const homeLearningGuides = [
+  evergreenGuides['review-vod-overwatch-espanol'],
+  evergreenGuides['como-subir-de-rango-overwatch'],
+  evergreenGuides['counters-overwatch-guia-completa'],
+]
 const seasonNews = [
   { title: 'Doctrine', label: 'Ya disponible', body: 'El nuevo Support llega con ajustes respecto al trial. Repasa Imbuir, los drones y su movilidad antes de entrar en partida.' },
   { title: 'Sombra', label: 'Ahora Support', body: 'Hotfix cura a un aliado y Cyberspace combina curación de área con debilitación del rival.' },
@@ -86,7 +91,7 @@ export default async function RootPage() {
     .slice(0, 3)
 
   const homeGuideItems = [
-    ...evergreenGuideList.slice(0, 3).map(guide => ({
+    ...homeLearningGuides.map(guide => ({
       name: guide.seoTitle,
       url: absoluteUrl(`/guides/${guide.slug}`),
     })),
@@ -230,13 +235,13 @@ export default async function RootPage() {
           </CardGrid>
         </Section>
 
-        <Section title="Mejorar todo el año" kicker="EVERGREEN" href="/guides" linkLabel="Ver guías">
+        <Section title="Prepara tu siguiente partida" kicker="ENTRENAR" href="/guides" linkLabel="Ver guías">
           <CardGrid>
-            {evergreenGuideList.slice(0, 3).map(guide => (
+            {homeLearningGuides.map(guide => (
               <Link key={guide.slug} href={`/guides/${guide.slug}`} style={{ textDecoration: 'none' }}>
                 <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 20, height: '100%' }}>
                   <div style={{ color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 11, letterSpacing: 1.2, marginBottom: 8 }}>
-                    GUÍA EVERGREEN
+                    PARA TUS PARTIDAS
                   </div>
                   <h3 style={{ color: 'var(--text)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 25, lineHeight: 1.05, letterSpacing: 0.8, margin: '0 0 10px' }}>
                     {guide.title}
@@ -261,7 +266,7 @@ export default async function RootPage() {
                 ¿Quieres que un experto revise tus errores?
               </h3>
               <p style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.65, margin: 0, maxWidth: 720 }}>
-                Las guías te dan el marco. Una review de VOD te dice exactamente qué repetir, qué dejar de hacer y qué entrenar en tus próximas partidas.
+                Una review puede ayudarte a detectar errores que repites y elegir qué practicar. Consulta en cada perfil el formato, los plazos y qué incluye el servicio.
               </p>
             </div>
             <CardGrid>

@@ -20,7 +20,7 @@ for (const guide of Object.values(evergreenGuides)) {
     await expect(page.locator('.guide-video-summary')).toContainText(guide.quickAnswer)
     await expect(page.locator('time[datetime="' + guide.publishedAtIso + '"]')).toBeVisible()
     await expect(page.locator('time[datetime="' + guide.modifiedAtIso + '"]')).toBeVisible()
-    expect(await page.locator('header').evaluate(element => {
+    expect(await page.locator('main > header').evaluate(element => {
       const summary = element.querySelector('.guide-video-summary')
       const intro = element.querySelector('p:not(.guide-video-summary p)')
       return Boolean(summary && intro && summary.compareDocumentPosition(intro) & Node.DOCUMENT_POSITION_FOLLOWING)

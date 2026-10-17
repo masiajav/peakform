@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import type { ReactNode } from 'react'
 import AdSlot from './AdSlot'
 import ArticleCta from './ArticleCta'
 import JsonLd from './JsonLd'
@@ -9,9 +10,10 @@ import { evergreenGuideQualityDecision } from '@/lib/indexing-policy'
 
 type EvergreenGuideArticleProps = {
   guide: EvergreenGuide
+  children?: ReactNode
 }
 
-export default function EvergreenGuideArticle({ guide }: EvergreenGuideArticleProps) {
+export default function EvergreenGuideArticle({ guide, children }: EvergreenGuideArticleProps) {
   const pagePath = `/guides/${guide.slug}`
   const pageUrl = absoluteUrl(pagePath)
   const allowAds = evergreenGuideQualityDecision(guide).adsAllowed
@@ -69,6 +71,8 @@ export default function EvergreenGuideArticle({ guide }: EvergreenGuideArticlePr
             <Link href="/contact" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Comunicar una corrección</Link>
           </div>
         </header>
+
+        {children}
 
         <AdSlot variant="inline" slot="guide-after-summary" allowAds={allowAds} />
 

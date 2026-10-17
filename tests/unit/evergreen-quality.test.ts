@@ -67,7 +67,7 @@ describe('evergreen exact-version publication', () => {
     expect(new Set(articles.map(article => article.seoTitle)).size).toBe(6)
     expect(new Set(articles.map(article => article.seoDescription)).size).toBe(6)
     for (const article of articles) {
-      expect(article.modifiedAtIso).toBe('2026-10-10')
+      expect(article.modifiedAtIso).toBe(article.slug === 'review-vod-overwatch-espanol' ? '2026-10-17' : '2026-10-10')
       expect(article.publishedAtIso).toBe(article.slug === 'como-mejorar-en-overwatch' ? '2026-06-01' : '2026-08-29')
     }
     expect(JSON.stringify(articles)).not.toMatch(/página interactiva|base evergreen|guía pilar|ventana ganadora|hackeas tarde/)

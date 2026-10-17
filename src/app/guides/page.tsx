@@ -213,7 +213,7 @@ export default async function GuidesPage(props: { searchParams: Promise<GuidesSe
                 <Link href="/team-comps">Composiciones</Link>
                 <Link href="/guides/como-subir-de-rango-overwatch">Subir de rango</Link>
                 <Link href="/guides/mejores-heroes-overwatch">Mejores héroes</Link>
-                <Link href="/guides/review-vod-overwatch-espanol">Review de VOD</Link>
+                <Link href="/guides/review-vod-overwatch-espanol#cuaderno-vod">Cuaderno de revisión de VOD</Link>
                 <Link href="/roles/tank">Tank</Link>
                 <Link href="/roles/dps">DPS</Link>
                 <Link href="/roles/support">Support</Link>

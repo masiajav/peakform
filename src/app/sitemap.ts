@@ -26,15 +26,17 @@ import { absoluteUrl } from '@/lib/seo'
 import { getCounterPillar, getTeamCompPillar } from '@/lib/seo-clusters'
 import { getHeroPillar } from '@/lib/hero-pillars'
 import { getRankedHeroGuide } from '@/lib/ranked-hero-guides'
-import { TRUST_REVIEW_DATE } from '@/lib/site-operator'
+import { PRIVACY_REVIEW_DATE, TRUST_REVIEW_DATE } from '@/lib/site-operator'
 
 export const dynamic = 'force-dynamic'
 
 const STATIC_LAST_MODIFIED: Record<string, string> = {
+  '/': '2026-10-17',
+  '/guides': '2026-10-17',
   '/heroes': '2026-10-09',
   '/counters': '2026-10-03',
   '/news': '2026-10-15',
-  '/privacy': TRUST_REVIEW_DATE,
+  '/privacy': PRIVACY_REVIEW_DATE,
   '/legal': TRUST_REVIEW_DATE,
   '/blizzcon-2026-overwatch-horarios-espana': '2026-10-01',
   '/doctrine-support-sombra-roadhog-rework-overwatch': '2026-10-15',

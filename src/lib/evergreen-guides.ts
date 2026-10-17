@@ -17,6 +17,7 @@ export type EvergreenGuide = {
   checklist: string[]
   faqs: EvergreenFaq[]
   links: EvergreenLink[]
+  notebookVersion?: 1
 }
 
 export const evergreenGuides: Record<string, EvergreenGuide> = {
@@ -250,10 +251,11 @@ export const evergreenGuides: Record<string, EvergreenGuide> = {
   'review-vod-overwatch-espanol': {
     slug: 'review-vod-overwatch-espanol', title: 'Review de VOD en Overwatch',
     seoTitle: 'Review de VOD en Overwatch: cómo analizar una partida',
-    seoDescription: 'Revisa una repetición paso a paso: posición, cooldowns y ultimates. Ejemplos por rol y materiales que preparar para una review de Overwatch en español.',
+    seoDescription: 'Analiza tu VOD de Overwatch con un cuaderno de partida: anota decisiones, compara peleas y exporta tu revisión. Ejemplos por rol y una tarea para practicar.',
     h1: 'Review de VOD en Overwatch: qué mirar y qué corregir', kicker: 'Análisis de partidas',
-    publishedAtIso: '2026-08-29', modifiedAtIso: '2026-10-10', updatedAt: '10 de octubre de 2026',
-    quickAnswer: 'Elige una partida reciente, pausa antes de dos peleas importantes y compara posición, ayuda y cooldowns. Termina con una decisión que puedas practicar. Para una review con un experto, prepara la repetición, tu nombre dentro de la partida, rol, héroes y una pregunta concreta.',
+    publishedAtIso: '2026-08-29', modifiedAtIso: '2026-10-17', updatedAt: '17 de octubre de 2026',
+    notebookVersion: 1,
+    quickAnswer: 'Elige una partida reciente y pausa antes de dos peleas importantes. Anota qué sabías, qué decidiste y qué alternativa tenías. Compara ambos momentos y termina con una tarea para la siguiente partida. Puedes guardar esas notas en el cuaderno de esta página y exportarlas como texto.',
     intro: ['Una VOD puede ser una grabación; una repetición del juego permite observar desde distintos puntos de vista. Ambas ayudan, pero tu cámara conserva mejor lo que estabas mirando y la información disponible en ese momento.', 'Una revisión útil no enumera todos los fallos: explica por qué una decisión era arriesgada, qué alternativa había y cómo reconocer otra situación parecida jugando.'],
     sections: [
       { title: 'Elige una partida que responda a tu pregunta', body: [

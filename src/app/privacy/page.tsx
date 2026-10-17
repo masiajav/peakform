@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import PublicNav from '@/components/layout/PublicNav'
 import { buildMetadata } from '@/lib/seo'
-import { SITE_OPERATOR, TRUST_REVIEW_DATE } from '@/lib/site-operator'
+import { SITE_OPERATOR, PRIVACY_REVIEW_DATE } from '@/lib/site-operator'
 import styles from '@/components/content/TrustDocument.module.css'
 
 export const metadata: Metadata = buildMetadata({
@@ -21,7 +21,7 @@ export default function PrivacyPage() {
         <p className="trust-lead">
           Puedes leer nuestras guías sin crear una cuenta. Si te registras, compras una revisión o trabajas como experto, necesitamos algunos datos para gestionar ese servicio. Aquí explicamos cuáles son, quién los recibe y cómo puedes ejercer tus derechos.
         </p>
-        <p>Última revisión: <time dateTime={TRUST_REVIEW_DATE}>5 de octubre de 2026</time>.</p>
+        <p>Última revisión: <time dateTime={PRIVACY_REVIEW_DATE}>17 de octubre de 2026</time>.</p>
 
         <section>
           <h2>Responsable del tratamiento</h2>
@@ -60,6 +60,7 @@ export default function PrivacyPage() {
           </p>
           <p>La web integra Vercel Web Analytics para conocer de forma agregada qué páginas se visitan. Según la documentación de Vercel, esta herramienta no utiliza cookies de terceros para identificar visitantes. Puedes leer cómo funciona en su <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer">información sobre privacidad de Analytics</a>. Esto no significa que la web carezca de cookies técnicas o de conexiones con otros proveedores.</p>
           <p>Pick Lab guarda en el almacenamiento local del navegador el feedback que introduces en la herramienta. Este historial permanece en ese dispositivo y puede eliminarse borrando los datos del sitio desde el navegador. No es una cookie publicitaria.</p>
+          <p>El cuaderno de revisión de VOD guarda las notas, el héroe, el rol y el mapa que anotas en este navegador, no en tu cuenta. El cuaderno no envía esas notas a nuestros servidores. Puedes borrarlas con «Borrar revisión» o al eliminar los datos del sitio. La exportación crea un archivo de texto en tu dispositivo; compartirlo después depende de ti. Evita guardar información sensible si utilizas un equipo compartido.</p>
         </section>
 
         <section>

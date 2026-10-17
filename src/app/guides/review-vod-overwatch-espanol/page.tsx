@@ -4,6 +4,8 @@ import EvergreenGuideArticle from '@/components/content/EvergreenGuideArticle'
 import { evergreenGuides } from '@/lib/evergreen-guides'
 import { buildMetadata } from '@/lib/seo'
 import { evergreenGuideQualityDecision } from '@/lib/indexing-policy'
+import VodReviewNotebook from '@/components/content/VodReviewNotebook'
+import { COUNTER_HEROES } from '@/lib/overwatch-counters'
 
 const guide = evergreenGuides['review-vod-overwatch-espanol']
 
@@ -19,7 +21,9 @@ export default function VodReviewGuidePage() {
   return (
     <>
       <PublicNav />
-      <EvergreenGuideArticle guide={guide} />
+      <EvergreenGuideArticle guide={guide}>
+        <VodReviewNotebook heroes={COUNTER_HEROES.map(hero => ({ slug: hero.slug, name: hero.name, role: hero.role }))} />
+      </EvergreenGuideArticle>
     </>
   )
 }

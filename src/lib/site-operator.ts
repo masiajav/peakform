@@ -8,3 +8,4 @@ export const SITE_OPERATOR = {
 } as const
 
 export const TRUST_REVIEW_DATE = '2026-10-05'
+export const PRIVACY_REVIEW_DATE = '2026-10-17'
