@@ -17,7 +17,8 @@ import { COUNTER_HEROES, type CounterHero, type CounterRole } from '@/lib/overwa
 import { getHeroPortrait } from '@/lib/overwatch-hero-portraits'
 import { heroTopicHref } from '@/lib/topic-links'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
-import { formatPrice } from '@/types'
+import ExpertPriceSummary from '@/components/content/ExpertPriceSummary'
+import { EXPERT_PUBLIC_PRICE_COLUMNS } from '@/lib/expert-public-pricing'
 import { discoverableGuides } from '@/lib/guide-discovery'
 import { getRankedHeroGuide } from '@/lib/ranked-hero-guides'
 
@@ -70,7 +71,7 @@ export default async function RootPage() {
       .returns<GuideContent[]>(),
     admin
       .from('experts')
-      .select('id, slug, display_name, peak_rank, main_role, specialties, avg_rating, total_reviews, price_starter')
+      .select(`id, slug, display_name, peak_rank, main_role, specialties, avg_rating, total_reviews, ${EXPERT_PUBLIC_PRICE_COLUMNS}`)
       .eq('status', 'active')
       .eq('service_paused', false)
       .order('avg_rating', { ascending: false })
@@ -278,9 +279,7 @@ export default async function RootPage() {
                     <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.5, minHeight: 38 }}>
                       {(expert.specialties ?? []).slice(0, 3).join(' · ') || 'Review personalizada de partidas'}
                     </p>
-                    <div style={{ color: 'var(--text2)', fontSize: 13 }}>
-                      Desde <span style={{ color: 'var(--text)' }}>{formatPrice(expert.price_starter)}</span>
-                    </div>
+                    <ExpertPriceSummary expert={expert} />
                   </article>
                 </Link>
               ))}

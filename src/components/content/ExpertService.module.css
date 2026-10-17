@@ -1,0 +1,5 @@
+.page, .price {
+  --text2: #b3b3b3;
+  --text3: #999999;
+}
+.page { overflow-wrap: anywhere; }

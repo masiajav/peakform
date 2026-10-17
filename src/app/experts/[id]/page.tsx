@@ -13,6 +13,9 @@ import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 import type { Metadata } from 'next'
 import { expertQualityDecision, robotsForQuality } from '@/lib/indexing-policy'
 import { getStripeConnectStatus, isStripeAccountReadyForCheckout } from '@/lib/stripe-connect'
+import ExpertPriceSummary from '@/components/content/ExpertPriceSummary'
+import { lowestStandardOffer } from '@/lib/expert-public-pricing'
+import styles from '@/components/content/ExpertService.module.css'
 
 const ROLE_LABELS: Record<string, string> = {
   tank: 'Tank', dps: 'DPS', support: 'Support', flex: 'Flex',
@@ -117,6 +120,7 @@ export default async function ExpertDetailPage(props: { params: Promise<{ id: st
   if (!expert) notFound()
 
   const stripeStatus = await getStripeConnectStatus(expert.stripe_account_id)
+  const publicOffer = lowestStandardOffer(expert)
 
   // Check if this user has used the trial for this expert
   let hasUsedTrial = false
@@ -153,19 +157,19 @@ export default async function ExpertDetailPage(props: { params: Promise<{ id: st
       ratingValue: Number(expert.avg_rating).toFixed(1),
       reviewCount: expert.total_reviews,
     } : undefined,
-    makesOffer: {
+    makesOffer: publicOffer && !stripeStatus.statusCheckFailed && isStripeAccountReadyForCheckout(stripeStatus) ? {
       '@type': 'Offer',
-      name: `Review de replay por ${expert.display_name}`,
+      name: `${publicOffer.label} por ${expert.display_name}`,
       priceCurrency: 'EUR',
-      price: (expert.price_starter / 100).toFixed(2),
+      price: (publicOffer.total / 100).toFixed(2),
       url: absoluteUrl(`/experts/${expert.slug || expert.id}`),
-      availability: expert.service_paused ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
+      availability: 'https://schema.org/InStock',
       offeredBy: { '@type': 'Organization', name: SITE_NAME },
-    },
+    } : undefined,
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
+    <div className={styles.page} style={{ minHeight: '100vh', background: 'var(--bg)' }}>
       <JsonLd data={expertJsonLd} />
 
       <PublicNav
@@ -198,7 +202,7 @@ export default async function ExpertDetailPage(props: { params: Promise<{ id: st
         </nav>
       ))}
 
-      <div style={{ maxWidth: 860, margin: '0 auto', padding: '32px 24px' }}>
+      <main style={{ maxWidth: 860, margin: '0 auto', padding: '32px 24px' }}>
 
         {/* Breadcrumb */}
         <Link href="/experts" style={{ fontSize: 13, color: 'var(--text3)', textDecoration: 'none' }}>
@@ -315,6 +319,7 @@ export default async function ExpertDetailPage(props: { params: Promise<{ id: st
         )}
 
         {/* Tier selector (client) */}
+        <div style={{ marginBottom: 20 }}><ExpertPriceSummary expert={expert} /></div>
         <TierSelector
           expert={expert}
           hasUsedTrial={hasUsedTrial}
@@ -322,7 +327,7 @@ export default async function ExpertDetailPage(props: { params: Promise<{ id: st
           stripeConnected={isStripeAccountReadyForCheckout(stripeStatus) || stripeStatus.statusCheckFailed}
         />
 
-      </div>
+      </main>
     </div>
   )
 }

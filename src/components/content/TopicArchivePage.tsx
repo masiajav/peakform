@@ -5,7 +5,8 @@ import JsonLd from './JsonLd'
 import SiteNav from '@/components/layout/PublicNav'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
 import Link from 'next/link'
-import { formatPrice } from '@/types'
+import ExpertPriceSummary from './ExpertPriceSummary'
+import { EXPERT_PUBLIC_PRICE_COLUMNS } from '@/lib/expert-public-pricing'
 import { getCounterHero } from '@/lib/overwatch-counters'
 import { buildHeroSeoProfile, ROLE_SEO } from '@/lib/overwatch-seo'
 import { guideEditorial } from '@/lib/guide-editorial'
@@ -47,7 +48,7 @@ export default async function TopicArchivePage({
   const expertsQuery = kind === 'role'
     ? admin
         .from('experts')
-        .select('id, slug, display_name, peak_rank, main_role, avg_rating, total_reviews, price_starter')
+        .select(`id, slug, display_name, peak_rank, main_role, avg_rating, total_reviews, ${EXPERT_PUBLIC_PRICE_COLUMNS}`)
         .eq('status', 'active')
         .eq('service_paused', false)
         .eq('main_role', slug)
@@ -55,7 +56,7 @@ export default async function TopicArchivePage({
         .limit(6)
     : admin
         .from('experts')
-        .select('id, slug, display_name, peak_rank, main_role, avg_rating, total_reviews, price_starter')
+        .select(`id, slug, display_name, peak_rank, main_role, avg_rating, total_reviews, ${EXPERT_PUBLIC_PRICE_COLUMNS}`)
         .eq('status', 'active')
         .eq('service_paused', false)
         .order('avg_rating', { ascending: false })
@@ -275,8 +276,9 @@ export default async function TopicArchivePage({
                       <div style={{ borderTop: '1px solid var(--border)', paddingTop: 10 }}>
                         <div style={{ color: 'var(--text)', fontSize: 13, fontWeight: 600 }}>{expert.display_name}</div>
                         <div style={{ color: 'var(--text3)', fontSize: 11, marginTop: 3 }}>
-                          {expert.peak_rank} · desde {formatPrice(expert.price_starter)}
+                          {expert.peak_rank}
                         </div>
+                        <ExpertPriceSummary expert={expert} />
                       </div>
                     </Link>
                   ))}

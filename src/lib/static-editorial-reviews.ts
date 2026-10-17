@@ -3,6 +3,20 @@ import type { StaticEditorialReview } from './static-editorial-review'
 // Explicit, version-bound reviews. No build task may populate this registry
 // from slugs or automatically renew approval after an editorial change.
 export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialReview>> = {
+  '/counters/winston': {
+    path: '/counters/winston',
+    version: 'e16e1f8d088977335ab2e5b79408820e18d710451a703c8744e9d60f64100b14',
+    reviewedAt: '2026-10-17', reviewer: 'Codex',
+    evidence: 'docs/content-review-winston-cassidy-counters-2026-10-17.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/counters/cassidy': {
+    path: '/counters/cassidy',
+    version: '9d3ac971b6de50b228dedc0c45f3c8a5697e5f6741cf01da59e7e75e64a1cac8',
+    reviewedAt: '2026-10-17', reviewer: 'Codex',
+    evidence: 'docs/content-review-winston-cassidy-counters-2026-10-17.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/counters/reinhardt': {
     path: '/counters/reinhardt',
     version: '77b717769878f6165ab5f40dc3b0346a7bcb36a87a95742a820b45ac8c6351ca',

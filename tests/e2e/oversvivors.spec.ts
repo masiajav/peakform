@@ -120,6 +120,8 @@ test('fullscreen has a visible exit and preserves the running game', async ({ pa
 
 test('control update preserves early health, resolves upgrades and opens an objective', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name.startsWith('mobile'), 'Desktop gameplay controls.')
+  // Allow engine startup and the bounded 55-second gameplay observation.
+  test.setTimeout(90_000)
   const errors: string[] = []
   page.on('pageerror', error => errors.push(error.message))
   page.on('console', message => { if (message.type() === 'error') errors.push(message.text()) })

@@ -2,7 +2,9 @@ import { createClient } from '@/lib/supabase/server'
 import Image from 'next/image'
 import Link from 'next/link'
 import PublicNav from '@/components/layout/PublicNav'
-import { Expert, formatPrice } from '@/types'
+import { COMMISSION_RATE, type Expert } from '@/types'
+import ExpertPriceSummary from '@/components/content/ExpertPriceSummary'
+import styles from '@/components/content/ExpertService.module.css'
 import { buildMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import JsonLd from '@/components/content/JsonLd'
@@ -12,7 +14,7 @@ export async function generateMetadata(props: { searchParams: Promise<{ role?: s
   const searchParams = await props.searchParams;
   const metadata = buildMetadata({
     title: 'Expertos de Overwatch',
-    description: 'Encuentra expertos verificados de Overwatch por rol, rango, precio y valoraciones para revisar tu replay.',
+    description: 'Compara expertos de Overwatch por rol, especialidad y ofertas activas. Consulta el precio con comisión, el formato y las condiciones antes de enviar tu replay.',
     path: '/experts',
   })
 
@@ -84,11 +86,11 @@ const EXPERT_LIST_COLUMNS = `
 const EXPERT_FAQS = [
   {
     question: '¿Qué es una VOD review de Overwatch?',
-    answer: 'Es una revisión de una partida completa. El experto identifica decisiones repetidas de posicionamiento, cooldowns, engages y ultimates, y las convierte en un plan de práctica concreto.',
+    answer: 'Es un análisis de tus decisiones en una partida: posición, habilidades, engages y ultimates. El alcance depende de la oferta que contrates; comprueba cuántos replays incluye, el formato de entrega y las preguntas de seguimiento.',
   },
   {
     question: '¿Qué replay debería enviar?',
-    answer: 'Una partida competitiva reciente, igualada y en la que no tengas claro por qué perdiste. Una derrota unilateral suele enseñar menos que una partida donde varias decisiones pequeñas cambiaron el resultado.',
+    answer: 'Elige una partida reciente que contenga varias veces el problema que quieres trabajar. Puede ser una victoria o una derrota. Comprueba que el replay se abre y añade tu nombre dentro de la partida, el rol y dos momentos que te generen dudas.',
   },
   {
     question: '¿Cómo elijo al experto adecuado?',
@@ -97,6 +99,14 @@ const EXPERT_FAQS = [
   {
     question: '¿Una review garantiza que subiré de rango?',
     answer: 'No. La review ofrece diagnóstico y prioridades de práctica, pero la mejora depende de aplicar esas correcciones durante varias sesiones. Replaid Lab no promete una subida de rango concreta.',
+  },
+  {
+    question: '¿El precio incluye la comisión de Replaid Lab?',
+    answer: `El precio «desde» del directorio corresponde a una oferta estándar activa e incluye el ${COMMISSION_RATE * 100}% de comisión de la plataforma. En el perfil puedes ver el precio del experto, la comisión y el total de cada oferta antes de iniciar el pago. Las pruebas de una sola vez tienen sus propias condiciones.`,
+  },
+  {
+    question: '¿Necesito contratar una review para analizar mi partida?',
+    answer: 'No. Puedes empezar con la guía y el cuaderno de VOD gratuitos. Una revisión externa puede ser útil si no localizas el error o dudas entre varias correcciones; no necesitas pagar para leer las guías o usar el cuaderno.',
   },
 ]
 
@@ -140,7 +150,7 @@ export default async function ExpertsPage(
   if (roleFilter) query = query.eq('main_role', roleFilter)
   if (rankFilter) query = query.ilike('peak_rank', `${rankFilter}%`)
 
-  const { data: experts } = await query
+  const { data: experts, error: expertsError } = await query
   const jsonLd = [
     {
       '@context': 'https://schema.org',
@@ -162,7 +172,7 @@ export default async function ExpertsPage(
   ]
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
+    <div className={styles.page} style={{ minHeight: '100vh', background: 'var(--bg)' }}>
       <JsonLd data={jsonLd} />
 
       <PublicNav
@@ -170,7 +180,7 @@ export default async function ExpertsPage(
         ctaLabel={user ? 'MI PANEL' : 'ENTRAR'}
       />
 
-      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '32px 24px' }}>
+      <main style={{ maxWidth: 1100, margin: '0 auto', padding: '32px 24px', color: 'var(--text)' }}>
 
         {/* Header */}
         <div style={{ marginBottom: 28 }}>
@@ -238,7 +248,7 @@ export default async function ExpertsPage(
         </div>
 
         {/* Results count */}
-        {(roleFilter || rankFilter) && (
+        {!expertsError && (roleFilter || rankFilter) && (
           <div style={{ fontSize: 13, color: 'var(--text3)', marginBottom: 20 }}>
             {experts?.length ?? 0} experto{(experts?.length ?? 0) !== 1 ? 's' : ''} encontrado{(experts?.length ?? 0) !== 1 ? 's' : ''}
             {' '}·{' '}
@@ -248,23 +258,30 @@ export default async function ExpertsPage(
           </div>
         )}
 
-        {(!experts || experts.length === 0) ? (
+        {expertsError ? (
+          <section role="status" style={{ borderTop: '1px solid var(--border)', padding: '28px 0' }}>
+            <h2 style={{ fontSize: 22, margin: '0 0 10px' }}>No hemos podido cargar los expertos</h2>
+            <p style={{ color: 'var(--text2)', lineHeight: 1.7 }}>Inténtalo de nuevo en unos minutos. No podemos confirmar los perfiles ni sus ofertas ahora mismo.</p>
+            {/* A full navigation retries the query rather than reusing a cached error. */}
+            <a href={buildUrl(roleFilter, rankFilter)}>Volver a cargar</a>
+          </section>
+        ) : (!experts || experts.length === 0) ? (
           <div style={{
             background: 'var(--surface)', border: '1px solid var(--border2)',
             padding: '48px 32px', textAlign: 'center',
           }}>
             <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 24, color: 'var(--text2)', marginBottom: 8 }}>
-              {roleFilter || rankFilter ? 'SIN RESULTADOS' : 'PRÓXIMAMENTE'}
+              {roleFilter || rankFilter ? 'SIN RESULTADOS' : 'SIN EXPERTOS ACTIVOS'}
             </div>
             <p style={{ color: 'var(--text3)', fontSize: 14, margin: 0 }}>
               {roleFilter || rankFilter
                 ? 'No hay expertos activos con estos filtros. Prueba otra combinación.'
-                : 'Estamos verificando a los primeros expertos. Vuelve pronto.'
+                : 'Ahora mismo no hay perfiles activos en el directorio. Puedes empezar con la guía de VOD y volver a consultar más adelante.'
               }
             </p>
           </div>
         ) : (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 16 }}>
+          <div data-expert-directory style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))', gap: 16 }}>
             {experts.map((expert: Expert) => (
               <Link key={expert.id} href={`/experts/${expert.slug || expert.id}`} style={{ textDecoration: 'none' }}>
                 <div style={{
@@ -283,7 +300,7 @@ export default async function ExpertsPage(
                         : <span style={{ color: 'var(--text2)' }}>{expert.display_name[0]}</span>
                       }
                     </div>
-                    <div>
+                    <div style={{ minWidth: 0, overflowWrap: 'anywhere' }}>
                       <div style={{ fontSize: 15, color: 'var(--text)', fontWeight: 600 }}>
                         {expert.display_name}
                       </div>
@@ -319,7 +336,7 @@ export default async function ExpertsPage(
 
                   <div style={{
                     display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                    borderTop: '1px solid var(--border)', paddingTop: 14,
+                    borderTop: '1px solid var(--border)', paddingTop: 14, gap: 12, flexWrap: 'wrap',
                   }}>
                     <div style={{ fontSize: 12, color: 'var(--text2)' }}>
                       {expert.total_reviews > 0
@@ -327,9 +344,7 @@ export default async function ExpertsPage(
                         : 'Nuevo experto'
                       }
                     </div>
-                    <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 18, color: 'var(--text)' }}>
-                      {expert.service_paused ? 'no disponible' : `desde ${formatPrice(expert.price_starter)}`}
-                    </div>
+                    <ExpertPriceSummary expert={expert} />
                   </div>
                 </div>
               </Link>
@@ -343,18 +358,18 @@ export default async function ExpertsPage(
           <div className="experts-editorial-grid">
             <article>
               <span>01</span>
-              <h3>Elige una partida útil</h3>
-              <p>Envía una ranked reciente y competida. Cuéntanos tu rol, el héroe y la situación que más dudas te genera.</p>
+              <h3>Comprueba la oferta</h3>
+              <p>Mira si el experto trabaja tu rol y tus héroes. Lee qué incluye el análisis, cuántas partidas admite y el plazo de entrega antes de elegir.</p>
             </article>
             <article>
               <span>02</span>
-              <h3>El experto revisa el patrón</h3>
-              <p>Se buscan primeras muertes, cooldowns sin propósito, rutas previsibles, engages descoordinados y ultimates que no cambian la pelea.</p>
+              <h3>Envía la partida y tu pregunta</h3>
+              <p>Comprueba que el replay se abre y señala quién eres. Con «pierdo la altura con Ana cuando salta Winston» das más contexto que con «quiero mejorar».</p>
             </article>
             <article>
               <span>03</span>
               <h3>Practica una prioridad cada vez</h3>
-              <p>Recibes ejemplos y un orden de trabajo. La intención es que sepas qué mirar en tus siguientes partidas, no abrumarte con veinte correcciones.</p>
+              <p>Después del feedback, elige una decisión para entrenar y busca una situación parecida en otra partida. Si algo no queda claro, consulta las preguntas de seguimiento incluidas en tu oferta.</p>
             </article>
           </div>
         </section>
@@ -368,7 +383,8 @@ export default async function ExpertsPage(
           <div>
             <div className="eyebrow">EXPECTATIVAS</div>
             <h2>Qué puedes esperar del feedback</h2>
-            <p>Una review no garantiza rango ni sustituye la práctica. Sí puede ahorrarte partidas repitiendo el mismo error sin verlo y darte una forma más objetiva de revisar tus propias VODs.</p>
+            <p>Una review puede ayudarte a detectar un patrón y elegir qué practicar. No garantiza rango, victorias ni un plazo de mejora. El contenido, el formato y la entrega son los que indique la oferta, no un servicio idéntico en todos los perfiles.</p>
+            <p><Link href="/guides/review-vod-overwatch-espanol#cuaderno-vod">Empezar con el cuaderno de VOD gratuito</Link></p>
           </div>
         </section>
 
@@ -385,7 +401,7 @@ export default async function ExpertsPage(
           </div>
         </section>
 
-      </div>
+      </main>
     </div>
   )
 }
