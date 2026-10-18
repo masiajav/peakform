@@ -3,6 +3,41 @@ import type { StaticEditorialReview } from './static-editorial-review'
 // Explicit, version-bound reviews. No build task may populate this registry
 // from slugs or automatically renew approval after an editorial change.
 export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialReview>> = {
+  '/guides/como-mejorar-como-tank-overwatch': {
+    path: '/guides/como-mejorar-como-tank-overwatch',
+    version: 'd72e3e7af1bab046d7e2f074ed84bd1b405e86a1c05413845411d48a31043667',
+    reviewedAt: '2026-10-18', reviewer: 'Codex',
+    evidence: 'docs/content-review-ranked-fundamentals-2026-10-18.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/guides/como-usar-ultimates-overwatch': {
+    path: '/guides/como-usar-ultimates-overwatch',
+    version: 'a2993da2bad2136fdf84020731a4713a59e3176e5e95abceaeb3b0f0778da79d',
+    reviewedAt: '2026-10-18', reviewer: 'Codex',
+    evidence: 'docs/content-review-ranked-fundamentals-2026-10-18.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/guides/cuando-cambiar-de-heroe-overwatch': {
+    path: '/guides/cuando-cambiar-de-heroe-overwatch',
+    version: 'fa9954c99cc99f0c97801ba48db70459bb035b1cea26d02a4ed4375851769ad7',
+    reviewedAt: '2026-10-18', reviewer: 'Codex',
+    evidence: 'docs/content-review-ranked-fundamentals-2026-10-18.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/guides/como-revisar-cooldowns-overwatch': {
+    path: '/guides/como-revisar-cooldowns-overwatch',
+    version: 'cfa12b13de240651d2df7b8f38dba18677de41efd8f24199895774390bf7c158',
+    reviewedAt: '2026-10-18', reviewer: 'Codex',
+    evidence: 'docs/content-review-cooldowns-2026-10-18.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/cassidy': {
+    path: '/team-comps/cassidy',
+    version: '83b4e1f72e77772573b41a3b19f3f8e67c2a3710d594ef00e7bcd4bfb98c1af4',
+    reviewedAt: '2026-10-17', reviewer: 'Codex',
+    evidence: 'docs/content-review-cassidy-composition-2026-10-17.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/counters/winston': {
     path: '/counters/winston',
     version: 'e16e1f8d088977335ab2e5b79408820e18d710451a703c8744e9d60f64100b14',

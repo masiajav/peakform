@@ -32,7 +32,7 @@ export const dynamic = 'force-dynamic'
 
 const STATIC_LAST_MODIFIED: Record<string, string> = {
   '/': '2026-10-17',
-  '/guides': '2026-10-17',
+  '/guides': '2026-10-18',
   '/experts': '2026-10-17',
   '/heroes': '2026-10-09',
   '/counters': '2026-10-03',

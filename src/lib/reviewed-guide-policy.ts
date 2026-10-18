@@ -51,8 +51,15 @@ const standaloneReviewedSlugs = [
 
 const reviewedSlugs = new Set([...Object.values(videoTargets), ...standaloneReviewedSlugs])
 
+const consolidatedTargets: Record<string, string> = {
+  'como-mejorar-en-overwatch-revisando-vod': 'review-vod-overwatch-espanol',
+  'como-elegir-composicion-dive-poke-brawl': 'composiciones-overwatch-5v5-6v6',
+}
+
 export function reviewedGuideTarget(slug?: string | null) {
-  return slug && Object.hasOwn(videoTargets, slug) ? videoTargets[slug] : undefined
+  if (!slug) return undefined
+  if (Object.hasOwn(consolidatedTargets, slug)) return consolidatedTargets[slug]
+  return Object.hasOwn(videoTargets, slug) ? videoTargets[slug] : undefined
 }
 
 export function hasReviewedGuideRevision(slug?: string | null) {

@@ -91,7 +91,8 @@ while (queue.length && pages.length + resources.length < maximumPages) {
     ...(!robots.includes('noindex') && words.length < minimumUsefulWords(path) ? [`Indexable con menos de ${minimumUsefulWords(path)} palabras útiles`] : []),
     ...(images.some(image => !image.hasAltAttribute) ? ['Imágenes sin atributo alt'] : []),
     ...jsonLdErrors,
-    ...(/\b(?:title seo|meta description|keywords principales|página pilar|pagina pilar|indexable|sitemap|tráfico orgánico|trafico organico)\b/i.test(text) ? ['Texto interno visible'] : []),
+    ...(/\b(?:title seo|meta description|keywords principales|página pilar|pagina pilar|indexable|sitemap|tráfico orgánico|trafico organico)\b/i.test(text)
+      || [...mainHtml.matchAll(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/gi)].some(match => /^(?:cta|enlaces internos)$/i.test(visibleText(match[1]))) ? ['Texto interno visible'] : []),
     ...(/Ã|Â|â€|ï¿½/.test(text) ? ['Posible mojibake'] : []),
   ]
 

@@ -1,5 +1,25 @@
 import { expect, test } from '@playwright/test'
 
+test('a guide recommendation shows the same active total and commission as its expert profile', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', error => errors.push(error.message))
+  page.on('console', message => { if (message.type() === 'error') errors.push(message.text()) })
+  await page.goto('/guides/como-mejorar-como-dps-overwatch')
+  const recommendations = page.locator('main section').filter({ has: page.getByText('EXPERTOS RECOMENDADOS', { exact: true }) })
+  const prices = recommendations.locator('[data-expert-price]')
+  expect(await prices.count()).toBeGreaterThan(0)
+  for (const price of await prices.all()) await expect(price).toContainText(/Incluye el 20% de comisión\.|Prueba disponible: consulta las condiciones en el perfil\.|Sin ofertas activas\.|Pedidos pausados/)
+  const card = recommendations.locator('a[href^="/experts/"]').first()
+  const summary = await card.locator('[data-expert-price]').innerText()
+  const href = await card.getAttribute('href')
+  await card.click()
+  await expect(page).toHaveURL(new RegExp(href + '$'))
+  await expect(page.locator('main [data-expert-price]')).toHaveText(summary, { useInnerText: true })
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+  await expect(page.locator('ins.adsbygoogle,.ad-slot,script[src*="adsbygoogle"]')).toHaveCount(0)
+  expect(errors).toEqual([])
+})
+
 test('expert directory explains the price and service scope with matching visible FAQ', async ({ page }) => {
   const errors: string[] = []
   page.on('pageerror', error => errors.push(error.message))

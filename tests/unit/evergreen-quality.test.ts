@@ -53,22 +53,25 @@ describe('evergreen exact-version publication', () => {
       { ...guide, publishedAtIso: '2026-02-30' }, { ...guide, modifiedAtIso: '2026-06-01' },
       { ...guide, intro: [guide.intro[0], guide.intro[0]] },
       { ...guide, intro: ['Title SEO: instrucciones'] },
+      { ...guide, h1: 'CTA' },
+      { ...guide, sections: [{ ...guide.sections[0], title: 'Enlaces internos' }, ...guide.sections.slice(1)] },
+      { ...guide, faqs: [{ question: 'CTA', answer: 'Instrucción visible' }, ...guide.faqs.slice(1)] },
       { ...guide, links: [{ href: '//external.example', label: 'Externo' }, ...guide.links] },
     ]) {
       approve(changed)
       expect(evergreenGuideQualityDecision(changed).indexable).toBe(false)
     }
   })
-  it('has six distinct articles, honest dates and no old normal Hack recommendation', () => {
+  it('has ten distinct articles, honest dates and no old normal Hack recommendation', () => {
     const articles = Object.values(evergreenGuides)
-    expect(articles).toHaveLength(6)
+    expect(articles).toHaveLength(10)
     const paragraphs = articles.flatMap(article => [...article.intro, ...article.sections.flatMap(section => section.body)])
     expect(new Set(paragraphs).size).toBe(paragraphs.length)
-    expect(new Set(articles.map(article => article.seoTitle)).size).toBe(6)
-    expect(new Set(articles.map(article => article.seoDescription)).size).toBe(6)
+    expect(new Set(articles.map(article => article.seoTitle)).size).toBe(10)
+    expect(new Set(articles.map(article => article.seoDescription)).size).toBe(10)
     for (const article of articles) {
-      expect(article.modifiedAtIso).toBe(article.slug === 'review-vod-overwatch-espanol' ? '2026-10-17' : '2026-10-10')
-      expect(article.publishedAtIso).toBe(article.slug === 'como-mejorar-en-overwatch' ? '2026-06-01' : '2026-08-29')
+      expect(article.modifiedAtIso).toBe(['como-revisar-cooldowns-overwatch', 'como-mejorar-como-tank-overwatch', 'como-usar-ultimates-overwatch', 'cuando-cambiar-de-heroe-overwatch'].includes(article.slug) ? '2026-10-18' : article.slug === 'review-vod-overwatch-espanol' ? '2026-10-17' : '2026-10-10')
+      expect(article.publishedAtIso).toBe(['como-revisar-cooldowns-overwatch', 'como-mejorar-como-tank-overwatch'].includes(article.slug) ? '2026-06-21' : ['como-usar-ultimates-overwatch', 'cuando-cambiar-de-heroe-overwatch'].includes(article.slug) ? '2026-06-28' : article.slug === 'como-mejorar-en-overwatch' ? '2026-06-01' : '2026-08-29')
     }
     expect(JSON.stringify(articles)).not.toMatch(/página interactiva|base evergreen|guía pilar|ventana ganadora|hackeas tarde/)
     expect(JSON.stringify(evergreenGuides['counters-overwatch-guia-completa'])).toContain('No bloquea habilidades ni reduce directamente la curación que recibe')

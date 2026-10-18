@@ -1,5 +1,7 @@
 import { articleDescription, ROLE_LABELS, topicLabel, type GuideContent } from './content'
 import { hasReviewedGuideRevision } from './reviewed-guide-policy'
+import { evergreenGuides } from './evergreen-guides'
+import { getRankedHeroGuide } from './ranked-hero-guides'
 
 type GuideEditorial = {
   title: string
@@ -266,16 +268,6 @@ const HERO_FOCUS: Record<string, { title: string; seoTitle: string; description:
 }
 
 const PILLAR_GUIDE_FOCUS: Record<string, { title: string; seoTitle: string; description: string }> = {
-  'como-mejorar-en-overwatch-revisando-vod': {
-    title: 'Cómo mejorar en Overwatch revisando tus VODs',
-    seoTitle: 'Cómo revisar una VOD de Overwatch y corregir errores',
-    description: 'Detecta por qué mueres primero, qué cooldown gastas demasiado pronto y cuándo pierdes posición. Revisa una partida y elige un error para corregir.',
-  },
-  'como-mejorar-como-tank-overwatch': {
-    title: 'Cómo mejorar como Tank en Overwatch',
-    seoTitle: 'Cómo mejorar como Tank: espacio, engages y protección del equipo',
-    description: 'Decide cuándo avanzar, ceder una esquina o volver a proteger a tus supports. Aprende a reconocer un engage sin seguimiento y revisarlo en tu VOD.',
-  },
   'como-revisar-cooldowns-overwatch': {
     title: 'Cómo revisar tus cooldowns en Overwatch',
     seoTitle: 'Cómo revisar cooldowns en Overwatch: errores y prioridades',
@@ -290,21 +282,6 @@ const PILLAR_GUIDE_FOCUS: Record<string, { title: string; seoTitle: string; desc
     title: 'Cómo mejorar como Support en Overwatch',
     seoTitle: 'Cómo mejorar como Support: posición, curación y cooldowns',
     description: 'Prioriza a quién ayudar, encuentra ventanas para hacer daño y conserva una respuesta al dive. Revisa tus muertes antes de juzgar la cifra de curación.',
-  },
-  'como-elegir-composicion-dive-poke-brawl': {
-    title: 'Dive, poke y brawl en Overwatch: cómo elegir composición',
-    seoTitle: 'Composiciones de Overwatch: cómo elegir dive, poke o brawl',
-    description: 'Aprende cuándo jugar dive, poke o brawl en Overwatch según mapa, héroes, rango y condición de victoria, con ejemplos prácticos para ranked.',
-  },
-  'como-usar-ultimates-overwatch': {
-    title: 'Cómo usar ultimates en Overwatch sin desperdiciar peleas',
-    seoTitle: 'Cómo usar ultimates en Overwatch: timing, combos y errores comunes',
-    description: 'Guía para usar ultimates en Overwatch con mejor timing: cuándo iniciar, cuándo guardar, cómo combinar recursos y qué revisar en tus VODs.',
-  },
-  'cuando-cambiar-de-heroe-overwatch': {
-    title: 'Cuándo cambiar de héroe en Overwatch y cuándo insistir',
-    seoTitle: 'Cuándo cambiar de héroe en Overwatch: counters, mapas y señales',
-    description: 'Aprende cuándo cambiar de héroe en Overwatch por counters, mapa o composición, y cuándo el problema real es timing, posición o cooldowns.',
   },
 }
 
@@ -327,6 +304,14 @@ const ROLE_FOCUS: Record<string, { suffix: string; seoSuffix: string; descriptio
 }
 
 export function guideEditorial(guide: GuideContent): GuideEditorial {
+  if (Object.hasOwn(evergreenGuides, guide.slug)) {
+    const article = evergreenGuides[guide.slug]
+    return { title: article.title, seoTitle: article.seoTitle, description: article.seoDescription }
+  }
+  const ranked = getRankedHeroGuide(guide.slug)
+  if (ranked) {
+    return { title: ranked.title, seoTitle: ranked.seoTitle, description: ranked.seoDescription }
+  }
   if (hasReviewedGuideRevision(guide.slug)) {
     return {
       title: guide.title,

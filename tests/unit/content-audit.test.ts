@@ -8,6 +8,35 @@ import { expect, test } from 'vitest'
 
 const execFileAsync = promisify(execFile)
 
+test('the public audit catches internal headings even inside markup without flagging ordinary prose', async () => {
+  const temp = await mkdtemp(join(tmpdir(), 'replaid-heading-audit-'))
+  const output = join(temp, 'audit.json')
+  const server = createServer((request, response) => {
+    const origin = `http://${request.headers.host}`
+    if (request.url === '/sitemap.xml') {
+      response.end(`<urlset><url><loc>${origin}/about</loc></url></urlset>`)
+      return
+    }
+    const heading = request.url === '/cta' ? '<h2><span>CTA</span></h2>'
+      : request.url === '/links' ? '<h3> Enlaces internos </h3>' : '<h2>Cómo navegar</h2>'
+    response.end(`<html><head><title>Guía de Overwatch</title><meta name="description" content="Una guía práctica de Overwatch para revisar posiciones, recursos y decisiones de partida sin depender de reglas fijas."><meta name="robots" content="noindex, follow"><link rel="canonical" href="${origin}${request.url}"></head><body><main><h1>Guía de Overwatch</h1>${heading}<p>La frase CTA y enlaces internos forma parte de esta prueba, no de un encabezado.</p><a href="/cta">Caso CTA</a><a href="/links">Caso de enlaces</a></main></body></html>`)
+  })
+  await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve))
+  try {
+    const address = server.address()
+    if (!address || typeof address === 'string') throw new Error('No audit fixture port')
+    await execFileAsync(process.execPath, ['scripts/audit-public-content.mjs'], {
+      env: { ...process.env, AUDIT_BASE_URL: `http://127.0.0.1:${address.port}`, AUDIT_OUTPUT: output, AUDIT_SEED_FILE: '', AUDIT_BUILD_MANIFEST: '' },
+    })
+    const report = JSON.parse(await readFile(output, 'utf8'))
+    expect(report.pages.find((page: { path: string }) => page.path === '/about').issues).not.toContain('Texto interno visible')
+    for (const path of ['/cta', '/links']) expect(report.pages.find((page: { path: string }) => page.path === path).issues).toContain('Texto interno visible')
+  } finally {
+    await new Promise<void>((resolve, reject) => server.close(error => error ? reject(error) : resolve()))
+    await rm(temp, { recursive: true, force: true })
+  }
+})
+
 test('linked binary resources are checked separately, never parsed as editorial pages', async () => {
   let resourceInSitemap = false
   let resourceStatus = 200

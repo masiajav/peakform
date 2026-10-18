@@ -1,3 +1,6 @@
+import { reviewedCooldownGuide } from './reviewed-cooldown-guide'
+import { reviewedHeroSwapGuide, reviewedTankGuide, reviewedUltimateGuide } from './reviewed-ranked-fundamentals'
+
 export type EvergreenFaq = { question: string; answer: string }
 export type EvergreenLink = { href: string; label: string }
 export type EvergreenSection = { title: string; body: string[]; bullets?: string[] }
@@ -21,6 +24,10 @@ export type EvergreenGuide = {
 }
 
 export const evergreenGuides: Record<string, EvergreenGuide> = {
+  'como-revisar-cooldowns-overwatch': reviewedCooldownGuide,
+  'como-mejorar-como-tank-overwatch': reviewedTankGuide,
+  'como-usar-ultimates-overwatch': reviewedUltimateGuide,
+  'cuando-cambiar-de-heroe-overwatch': reviewedHeroSwapGuide,
   'como-mejorar-en-overwatch': {
     slug: 'como-mejorar-en-overwatch', title: 'Cómo mejorar en Overwatch',
     seoTitle: 'Cómo mejorar en Overwatch: posición, cooldowns y práctica',

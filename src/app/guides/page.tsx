@@ -11,7 +11,7 @@ import { DEFAULT_HEROES, ROLE_LABELS, topicLabel, type GuideContent } from '@/li
 import { evergreenGuideList } from '@/lib/evergreen-guides'
 import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
 import { guideEditorial } from '@/lib/guide-editorial'
-import { discoverableGuides } from '@/lib/guide-discovery'
+import { discoverableGuides, repositoryGuideSearchCards } from '@/lib/guide-discovery'
 import GuideFilters from '@/components/content/GuideFilters'
 import { GUIDE_REVIEW_COLUMNS } from '@/lib/editorial-review'
 
@@ -96,7 +96,16 @@ export default async function GuidesPage(props: { searchParams: Promise<GuidesSe
   const [{ data: guides }, { data: filterOptions }] = await Promise.all([query.returns<GuideContent[]>(), filterOptionsQuery])
   // Filter after editorial corrections: a stored DPS guide may now be Support.
   const roleGuides = discoverableGuides(guides ?? []).filter(guide => !effectiveRole || guide.role === effectiveRole)
-  const visibleGuides = filterBySearch(roleGuides, freeTextQuery)
+  const repositorySearchCards = freeTextQuery && !effectiveHero && !effectiveRole && !filters.map
+    ? repositoryGuideSearchCards().filter(card => (!filters.category || card.category === filters.category) && !roleGuides.some(guide => guide.slug === card.slug))
+    : []
+  const searchCards = [...roleGuides, ...repositorySearchCards]
+  if (repositorySearchCards.length) {
+    searchCards.sort((a, b) => filters.sort === 'title'
+      ? guideEditorial(a).title.localeCompare(guideEditorial(b).title, 'es')
+      : (Date.parse(a.created_at) - Date.parse(b.created_at)) * (filters.sort === 'oldest' ? 1 : -1))
+  }
+  const visibleGuides = filterBySearch(searchCards, freeTextQuery)
   const sortedGuides = filters.sort === 'read'
     ? [...visibleGuides].sort((a: any, b: any) => readingTime(a.body) - readingTime(b.body))
     : visibleGuides

@@ -119,13 +119,13 @@ for (const route of PUBLIC_ROUTES) {
 for (const route of ['/guides/como-usar-ultimates-overwatch', '/guides/cuando-cambiar-de-heroe-overwatch']) {
   test(`${route} does not expose implementation notes`, async ({ page }) => {
     await page.goto(route, { waitUntil: 'networkidle' })
-    const articleText = await page.locator('article').innerText()
+    const articleText = await page.locator('main').innerText()
     expect(articleText).not.toContain('Title SEO')
     expect(articleText).not.toContain('Meta description')
     expect(articleText).not.toContain('Notas para Codex')
     expect(articleText).not.toContain('Keywords principales')
     await expect(page.locator('.ad-slot')).toHaveCount(0)
-    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/)
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index, follow')
   })
 }
 
@@ -138,20 +138,20 @@ test('sitemap contains only the completed editorial batches', async ({ request }
   for (const slug of ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'zarya', 'tracer', 'domina']) {
     if (['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy'].includes(slug)) expect(xml).toContain(`/counters/${slug}</loc>`)
     else expect(xml).not.toContain(`/counters/${slug}</loc>`)
-    if (['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'tracer', 'zarya'].includes(slug)) expect(xml).toContain(`/team-comps/${slug}</loc>`)
+    if (['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'tracer', 'zarya'].includes(slug)) expect(xml).toContain(`/team-comps/${slug}</loc>`)
     else expect(xml).not.toContain(`/team-comps/${slug}`)
   }
   for (const slug of ['freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki']) {
     expect(xml).toContain(`/counters/${slug}</loc>`)
     expect(xml).toMatch(new RegExp(`/counters/${slug}</loc>\\s*<lastmod>2026-10-03T00:00:00\\.000Z</lastmod>`))
   }
-  expect(xml).not.toContain('/guides/como-usar-ultimates-overwatch')
+  expect(xml).toContain('/guides/como-usar-ultimates-overwatch</loc>')
   for (const guide of rankedHeroGuides) {
     const path = `/guides/${guide.slug}`
     if (hasCurrentStaticEditorialReview(path, guide)) expect(xml).toContain(`${path}</loc>`)
     else expect(xml).not.toContain(`${path}</loc>`)
   }
-  expect(xml).not.toContain('/guides/cuando-cambiar-de-heroe-overwatch')
+  expect(xml).toContain('/guides/cuando-cambiar-de-heroe-overwatch</loc>')
   expect(xml).toContain('/overwatch-temporada-4-heroes-of-busan')
   expect(xml).toContain('/heroes/ana</loc>')
   expect(xml).toContain('/heroes/dmon</loc>')
@@ -160,8 +160,12 @@ test('sitemap contains only the completed editorial batches', async ({ request }
   expect(xml).not.toContain('tier-list-season-2-overwatch-mejores-heroes-rol')
   expect(xml).toContain('/counters/doctrine</loc>')
   expect(xml).toContain('/team-comps/doctrine</loc>')
-  for (const slug of ['como-usar-ultimates-overwatch', 'como-mejorar-en-overwatch-revisando-vod', 'como-mejorar-como-tank-overwatch', 'cuando-cambiar-de-heroe-overwatch', 'como-revisar-cooldowns-overwatch', 'como-elegir-composicion-dive-poke-brawl']) {
+  expect(xml).toMatch(/\/guides\/como-revisar-cooldowns-overwatch<\/loc>\s*<lastmod>2026-10-18T00:00:00\.000Z<\/lastmod>/)
+  for (const slug of ['como-mejorar-en-overwatch-revisando-vod', 'como-elegir-composicion-dive-poke-brawl']) {
     expect(xml).not.toContain(`/guides/${slug}`)
+  }
+  for (const slug of ['como-mejorar-como-tank-overwatch', 'como-usar-ultimates-overwatch', 'cuando-cambiar-de-heroe-overwatch']) {
+    expect(xml).toMatch(new RegExp(`/guides/${slug}</loc>\\s*<lastmod>2026-10-18T00:00:00\\.000Z</lastmod>`))
   }
 })
 
@@ -171,7 +175,7 @@ for (const route of PUBLIC_ROUTES.filter(path => /^\/(?:counters|team-comps)\//.
     expect(response?.status()).toBe(200)
     await expect(page.locator('h1')).toHaveCount(1)
     await expect(page.locator('main')).toContainText('Replaid Lab')
-    const restored = RESTORED_TOPIC_ROUTES.includes(route) || ['/counters/reinhardt', '/counters/dva', '/counters/winston', '/counters/cassidy', '/team-comps/ana', '/team-comps/genji', '/team-comps/kiriko', '/team-comps/reinhardt', '/team-comps/dva', '/team-comps/winston', '/team-comps/tracer', '/team-comps/zarya'].includes(route)
+    const restored = RESTORED_TOPIC_ROUTES.includes(route) || ['/counters/reinhardt', '/counters/dva', '/counters/winston', '/counters/cassidy', '/team-comps/ana', '/team-comps/genji', '/team-comps/kiriko', '/team-comps/reinhardt', '/team-comps/dva', '/team-comps/winston', '/team-comps/cassidy', '/team-comps/tracer', '/team-comps/zarya'].includes(route)
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', restored ? 'index, follow' : 'noindex, follow')
     await expect(page.locator('.ad-slot, ins.adsbygoogle, script[src*="adsbygoogle"]')).toHaveCount(0)
     const sitemap = await (await request.get('/sitemap.xml')).text()
@@ -180,14 +184,14 @@ for (const route of PUBLIC_ROUTES.filter(path => /^\/(?:counters|team-comps)\//.
   })
 }
 
-for (const slug of ['como-usar-ultimates-overwatch', 'como-mejorar-en-overwatch-revisando-vod', 'como-mejorar-como-tank-overwatch', 'cuando-cambiar-de-heroe-overwatch', 'como-revisar-cooldowns-overwatch', 'como-elegir-composicion-dive-poke-brawl']) {
-  test(`${slug} remains accessible in the guide hub while version approval is pending`, async ({ page, request }) => {
+for (const slug of ['como-usar-ultimates-overwatch', 'como-mejorar-como-tank-overwatch', 'cuando-cambiar-de-heroe-overwatch']) {
+  test(`${slug} stays discoverable and individually indexable without advertising`, async ({ page, request }) => {
     await page.goto('/guides', { waitUntil: 'networkidle' })
     await expect(page.locator(`main a[href="/guides/${slug}"]`).first()).toBeVisible()
     const response = await request.get(`/guides/${slug}`)
     expect(response.status()).toBe(200)
     const html = await response.text()
-    expect(html).toMatch(/name="robots" content="noindex, follow"/)
+    expect(html).toMatch(/name="robots" content="index, follow"/)
     expect(html).not.toContain('__editorial_review_')
     expect(html).not.toContain('ins class="adsbygoogle"')
   })

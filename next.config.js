@@ -10,6 +10,16 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/guides/como-mejorar-en-overwatch-revisando-vod',
+        destination: '/guides/review-vod-overwatch-espanol',
+        permanent: true,
+      },
+      {
+        source: '/guides/como-elegir-composicion-dive-poke-brawl',
+        destination: '/guides/composiciones-overwatch-5v5-6v6',
+        permanent: true,
+      },
+      {
         source: '/guides/ana-guia-video-overwatch',
         destination: '/guides/ana-primeros-habitos-impactar-mas',
         permanent: true,

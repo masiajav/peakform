@@ -20,7 +20,8 @@ import { discoverableGuides } from '@/lib/guide-discovery'
 import { applyReviewedGuideRevision, hasReviewedGuideRevision, mergeReviewedGuideVideo, reviewedGuideVideoSource, reviewedGuideTarget, reviewedGuideRevisions } from '@/lib/reviewed-guide-revisions'
 import { guideEditorial } from '@/lib/guide-editorial'
 import { heroTopicHref } from '@/lib/topic-links'
-import { formatPrice } from '@/types'
+import ExpertPriceSummary from '@/components/content/ExpertPriceSummary'
+import { EXPERT_PUBLIC_PRICE_COLUMNS } from '@/lib/expert-public-pricing'
 import RankedHeroGuideArticle from '@/components/content/RankedHeroGuideArticle'
 import { getRankedHeroGuide } from '@/lib/ranked-hero-guides'
 import { canLoadAdSense } from '@/lib/adsense-policy'
@@ -143,7 +144,7 @@ export default async function GuideDetailPage(props: { params: Promise<{ slug: s
     guide.role
       ? admin
           .from('experts')
-          .select('id, slug, display_name, peak_rank, main_role, avg_rating, total_reviews, price_starter')
+          .select(`id, slug, display_name, peak_rank, main_role, avg_rating, total_reviews, ${EXPERT_PUBLIC_PRICE_COLUMNS}`)
           .eq('status', 'active')
           .eq('service_paused', false)
           .eq('main_role', guide.role)
@@ -151,7 +152,7 @@ export default async function GuideDetailPage(props: { params: Promise<{ slug: s
           .limit(3)
       : admin
           .from('experts')
-          .select('id, slug, display_name, peak_rank, main_role, avg_rating, total_reviews, price_starter')
+          .select(`id, slug, display_name, peak_rank, main_role, avg_rating, total_reviews, ${EXPERT_PUBLIC_PRICE_COLUMNS}`)
           .eq('status', 'active')
           .eq('service_paused', false)
           .order('avg_rating', { ascending: false })
@@ -323,16 +324,14 @@ export default async function GuideDetailPage(props: { params: Promise<{ slug: s
           <section style={{ marginTop: 48 }}>
             <SectionTitle>EXPERTOS RECOMENDADOS</SectionTitle>
             <div style={{ display: 'grid', gap: 10 }}>
-              {experts.map((expert: any) => (
+              {experts.map(expert => (
                 <Link key={expert.id} href={`/experts/${expert.slug || expert.id}`} style={{ textDecoration: 'none' }}>
-                  <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '14px 16px', display: 'flex', justifyContent: 'space-between', gap: 14, alignItems: 'center' }}>
-                    <div>
+                  <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '14px 16px', display: 'flex', justifyContent: 'space-between', gap: 14, alignItems: 'center', flexWrap: 'wrap', overflowWrap: 'anywhere' }}>
+                    <div style={{ minWidth: 0 }}>
                       <div style={{ color: 'var(--text)', fontWeight: 600, fontSize: 14 }}>{expert.display_name}</div>
                       <div style={{ color: 'var(--accent)', fontSize: 12, marginTop: 3 }}>{expert.peak_rank} · {ROLE_LABELS[expert.main_role as keyof typeof ROLE_LABELS] || expert.main_role}</div>
                     </div>
-                    <div style={{ color: 'var(--text2)', fontSize: 13, whiteSpace: 'nowrap' }}>
-                      desde <span style={{ color: 'var(--text)' }}>{formatPrice(expert.price_starter)}</span>
-                    </div>
+                    <ExpertPriceSummary expert={expert} />
                   </div>
                 </Link>
               ))}
@@ -348,10 +347,10 @@ export default async function GuideDetailPage(props: { params: Promise<{ slug: s
                 <Link key={item.id} href={`/guides/${item.slug}`} style={{ textDecoration: 'none' }}>
                   <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '16px', height: '100%' }}>
                     <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 17, letterSpacing: 0.5, lineHeight: 1.2, marginBottom: 8 }}>
-                      {item.title}
+                      {guideEditorial(item).title}
                     </div>
                     <p style={{ color: 'var(--text2)', fontSize: 12, lineHeight: 1.5, margin: 0 }}>
-                      {item.excerpt || item.body?.slice(0, 110)}
+                      {guideEditorial(item).description}
                     </p>
                   </div>
                 </Link>

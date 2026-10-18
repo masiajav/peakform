@@ -116,7 +116,6 @@ export const PILLAR_GUIDE_SLUGS = [
   'counters-overwatch-guia-completa',
   'composiciones-overwatch-5v5-6v6',
   'review-vod-overwatch-espanol',
-  'como-mejorar-en-overwatch-revisando-vod',
   'como-jugar-ana-ranked-overwatch',
   'como-jugar-cassidy-ranked-overwatch',
   'como-jugar-genji-ranked-overwatch',
@@ -128,7 +127,6 @@ export const PILLAR_GUIDE_SLUGS = [
   'como-mejorar-como-dps-overwatch',
   'como-mejorar-como-support-overwatch',
   'como-revisar-cooldowns-overwatch',
-  'como-elegir-composicion-dive-poke-brawl',
   'como-usar-ultimates-overwatch',
   'cuando-cambiar-de-heroe-overwatch',
 ]
@@ -136,6 +134,10 @@ export const PILLAR_GUIDE_SLUGS = [
 // Repository-owned routes, not a list of approved revisions. Every article
 // still needs the exact-version decision below before it enters the sitemap.
 export const STATIC_EDITORIAL_GUIDE_SLUGS = [
+  'como-mejorar-como-tank-overwatch',
+  'como-usar-ultimates-overwatch',
+  'cuando-cambiar-de-heroe-overwatch',
+  'como-revisar-cooldowns-overwatch',
   'como-mejorar-en-overwatch',
   'como-subir-de-rango-overwatch',
   'mejores-heroes-overwatch',
@@ -200,7 +202,7 @@ export function patchNotePublicationIssues(item: AnnouncementLike) {
   if (hasDraftMarkers) issues.push('Elimina todos los marcadores pendientes del borrador')
   if (headings.length < 3 || new Set(headings).size !== headings.length) issues.push('Organiza el análisis en secciones propias y distintas')
   if (hasPadding || new Set(paragraphs).size !== paragraphs.length) issues.push('El análisis contiene relleno o párrafos repetidos')
-  if (/^#{1,6}\s*(?:url|title seo|meta description|h1|keywords principales|instrucciones para codex)\s*$/im.test(body)) issues.push('Elimina las instrucciones internas del contenido visible')
+  if (/^#{1,6}\s*(?:url|title seo|meta description|h1|keywords principales|instrucciones para codex|cta|enlaces internos)\s*$/im.test(body)) issues.push('Elimina las instrucciones internas del contenido visible')
 
   return issues
 }
@@ -255,7 +257,7 @@ export function guidePublicationIssues(guide: GuideLike) {
   const links = new Set(Array.from(body.matchAll(/\]\((\/(?:guides|heroes|maps|roles|counters|team-comps)\/[^)\s]+)\)/g), match => match[1]))
   const words = normalize(stripMarkdown(body)).split(/\s+/).filter(Boolean)
   const hasWordPadding = words.length > 100 && new Set(words).size / words.length < 0.06
-  const hasInternalText = /^#{1,6}\s*(?:url|title seo|meta description|h1|keywords principales|pregunta que resuelve|instrucciones para codex)\s*$/im.test(body)
+  const hasInternalText = /^#{1,6}\s*(?:url|title seo|meta description|h1|keywords principales|pregunta que resuelve|instrucciones para codex|cta|enlaces internos)\s*$/im.test(body)
     || /\b(?:lorem ipsum|pendiente de completar|texto de ejemplo)\b/i.test(body)
 
   if (!guide.title?.trim() || !guide.seo_title?.trim() || !guide.seo_description?.trim()) issues.push('Faltan título o descripción editoriales')
@@ -334,7 +336,7 @@ export function announcementPublicationIssues(item: AnnouncementLike) {
   if (!item.created_at || !item.updated_at || !Number.isFinite(Date.parse(item.created_at)) || !Number.isFinite(Date.parse(item.updated_at))) issues.push('Faltan fechas válidas de publicación y revisión')
   if (wordCount(body) < QUALITY_MINIMUMS.newsIndexWords || wordCount([item.excerpt, item.seo_description].filter(Boolean).join(' ')) < 12) issues.push('Falta una noticia desarrollada y una respuesta inicial útil')
   if (new Set(paragraphs).size !== paragraphs.length) issues.push('El artículo repite párrafos')
-  if (/^#{1,6}\s*(?:url|title seo|meta description|h1|keywords principales|pregunta que resuelve|instrucciones para codex)\s*$/im.test(body) || /\b(?:lorem ipsum|pendiente de completar|texto de ejemplo)\b/i.test(body)) issues.push('Elimina las instrucciones internas y el texto provisional')
+  if (/^#{1,6}\s*(?:url|title seo|meta description|h1|keywords principales|pregunta que resuelve|instrucciones para codex|cta|enlaces internos)\s*$/im.test(body) || /\b(?:lorem ipsum|pendiente de completar|texto de ejemplo)\b/i.test(body)) issues.push('Elimina las instrucciones internas y el texto provisional')
   return issues
 }
 
@@ -515,7 +517,8 @@ export function evergreenGuideQualityDecision(content: EvergreenGuide | null): P
     return blocked('Fechas de publicación y revisión no válidas', 0)
   }
   if (new Set(normalized).size !== normalized.length) return blocked('La guía repite párrafos', 0)
-  if (/\b(?:lorem ipsum|pendiente de completar|texto de ejemplo|title seo|meta description|keywords principales)\b/i.test(JSON.stringify(content))) {
+  if (/\b(?:lorem ipsum|pendiente de completar|texto de ejemplo|title seo|meta description|keywords principales)\b/i.test(JSON.stringify(content))
+    || [content.h1, content.kicker, ...content.sections.map(section => section.title), ...content.faqs.map(faq => faq.question)].some(title => /^(?:cta|enlaces internos)$/i.test(title.trim()))) {
     return blocked('La guía contiene texto interno o provisional', 0)
   }
   return indexNoAds('Guía revisada individualmente; sin publicidad durante la revisión de AdSense', wordCount(paragraphs.join(' ')))

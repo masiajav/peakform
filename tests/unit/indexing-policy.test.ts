@@ -38,11 +38,11 @@ describe('indexing quality gates', () => {
 
   it('requires real editorial depth even for strategic guide slugs', () => {
     expect(isGuideSitemapEligible({
-      slug: 'como-usar-ultimates-overwatch',
+      slug: 'como-mejorar-como-dps-overwatch',
       body: 'contenido editorial',
     })).toBe(false)
     expect(isGuideSitemapEligible({
-      slug: 'cuando-cambiar-de-heroe-overwatch',
+      slug: 'como-mejorar-como-support-overwatch',
       body: 'contenido editorial '.repeat(700),
       excerpt: 'Resumen útil y específico para jugadores de Overwatch que quieren tomar mejores decisiones durante una partida competitiva, entender sus errores, revisar cooldowns y aplicar cambios concretos en la siguiente sesión de ranked.',
     })).toBe(false)
@@ -58,6 +58,8 @@ describe('indexing quality gates', () => {
       { ...completeGuide, body: `${completeGuide.body}\n\n${paragraph}` },
       { ...completeGuide, body: `${completeGuide.body}\n\n## TITLE SEO\n\nNotas internas` },
       { ...completeGuide, body: `${completeGuide.body}\n\n## URL\n\n/guides/prueba` },
+      { ...completeGuide, body: `${completeGuide.body}\n\n## CTA\n\nNotas de publicación` },
+      { ...completeGuide, body: `${completeGuide.body}\n\n### Enlaces internos\n\nNotas de publicación` },
       { ...completeGuide, author: null },
       { ...completeGuide, updated_at: 'fecha sin comprobar' },
       { ...completeGuide, seo_title: null },
@@ -108,7 +110,7 @@ describe('indexing quality gates', () => {
   it('does not treat the legacy slug list as an editorial approval', () => {
     for (const slug of ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'zarya', 'tracer', 'domina']) {
       expect(topicQualityDecision('counter', slug)).toMatchObject({ indexable: ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy'].includes(slug), adsAllowed: false })
-      expect(topicQualityDecision('team_comp', slug)).toMatchObject({ indexable: ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'tracer', 'zarya'].includes(slug), adsAllowed: false })
+      expect(topicQualityDecision('team_comp', slug)).toMatchObject({ indexable: ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'tracer', 'zarya'].includes(slug), adsAllowed: false })
     }
     for (const slug of ['freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'sombra']) {
       expect(topicQualityDecision('counter', slug)).toMatchObject({ indexable: true, adsAllowed: false })
