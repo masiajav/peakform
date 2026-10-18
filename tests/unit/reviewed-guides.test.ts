@@ -86,7 +86,7 @@ describe('reviewed guide batch', () => {
   it('keeps role guides in their original category without borrowing a hero video', () => {
     const source = { ...original, slug: 'como-mejorar-como-dps-overwatch', hero: null, role: 'dps' as const, category: 'Fundamentos' }
     const revised = applyReviewedGuideRevision(source)
-    expect(revised).toMatchObject({ id: original.id, slug: source.slug, hero: null, role: 'dps', category: 'Fundamentos', created_at: original.created_at, updated_at: '2026-10-01' })
+    expect(revised).toMatchObject({ id: original.id, slug: source.slug, hero: null, role: 'dps', category: 'Fundamentos', created_at: original.created_at, updated_at: '2026-10-18' })
     expect(reviewedGuideVideoSource(source.slug)).toBeUndefined()
     expect(revised.body).toContain('off-angle')
     expect(guideQualityDecision(revised)).toMatchObject({ indexable: false, adsAllowed: false })

@@ -287,6 +287,7 @@ export default async function GuideDetailPage(props: { params: Promise<{ slug: s
             <span>Última revisión: {new Date(updatedDate).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
             <span>{readMinutes} min de lectura{guide.video_id ? ' · Con vídeo' : ''}</span>
             <span>{author}</span>
+            <Link href="/contact" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Comunicar una corrección</Link>
           </div>
         </header>
 
