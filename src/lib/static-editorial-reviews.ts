@@ -3,6 +3,27 @@ import type { StaticEditorialReview } from './static-editorial-review'
 // Explicit, version-bound reviews. No build task may populate this registry
 // from slugs or automatically renew approval after an editorial change.
 export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialReview>> = {
+  '/counters/tracer': {
+    path: '/counters/tracer',
+    version: 'd532bd32f685ee8da78c3c186d8c19c9efee32a2b1f7c2439111975d9db2c35e',
+    reviewedAt: '2026-10-19', reviewer: 'Codex',
+    evidence: 'docs/content-review-tracer-domina-zarya-counters-2026-10-19.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/counters/domina': {
+    path: '/counters/domina',
+    version: '7f7542cb2553c602615504e9763dafc9d896cd3af97d2d46f8edf649a6115b00',
+    reviewedAt: '2026-10-19', reviewer: 'Codex',
+    evidence: 'docs/content-review-tracer-domina-zarya-counters-2026-10-19.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/counters/zarya': {
+    path: '/counters/zarya',
+    version: '368587b028b7d1bd39fea5d42ed382939d5e3bb0d563bcd83474eb2323ceeed7',
+    reviewedAt: '2026-10-19', reviewer: 'Codex',
+    evidence: 'docs/content-review-tracer-domina-zarya-counters-2026-10-19.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/guides/como-mejorar-como-tank-overwatch': {
     path: '/guides/como-mejorar-como-tank-overwatch',
     version: 'd72e3e7af1bab046d7e2f074ed84bd1b405e86a1c05413845411d48a31043667',

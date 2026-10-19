@@ -4,7 +4,7 @@ import { getCounterPillar } from '../../src/lib/seo-clusters'
 import { PILLAR_COUNTER_SLUGS } from '../../src/lib/public-topic-policy'
 
 // Independent expectations, not derived from the approval registry under test.
-const RESTORED_COUNTERS = ['reinhardt', 'dva', 'winston', 'cassidy', 'ana', 'shion', 'genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine', 'sombra', 'roadhog', 'doomfist', 'dmon']
+const RESTORED_COUNTERS = ['tracer', 'domina', 'zarya', 'reinhardt', 'dva', 'winston', 'cassidy', 'ana', 'shion', 'genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine', 'sombra', 'roadhog', 'doomfist', 'dmon']
 
 test('counter hub shows its actual catalogue without a blanket review claim', async ({ page, request }) => {
   const errors: string[] = []
@@ -132,17 +132,12 @@ for (const slug of ['shion', 'ana', 'zarya', 'tracer', 'domina']) {
     const schemas = (await page.locator('script[type="application/ld+json"]').allTextContents()).flatMap(text => JSON.parse(text))
     expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'Article', datePublished: article.publishedDate, dateModified: article.schemaDate }))
     const robotTags = await page.locator('meta[name="robots"], meta[name="googlebot"]').evaluateAll(tags => tags.map(tag => tag.getAttribute('content') || '').join(','))
-    if (['shion', 'ana'].includes(slug)) {
-      expect(`${robotTags},${response?.headers()['x-robots-tag'] || ''}`).not.toMatch(/\bnoindex\b/i)
-      await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index, follow')
-    } else {
-      expect(`${robotTags},${response?.headers()['x-robots-tag'] || ''}`).toMatch(/\bnoindex\b/i)
-    }
+    expect(`${robotTags},${response?.headers()['x-robots-tag'] || ''}`).not.toMatch(/\bnoindex\b/i)
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index, follow')
     expect(robotTags).not.toMatch(/\b(?:nofollow|none)\b/i)
     await expect(page.locator('.ad-slot, ins.adsbygoogle')).toHaveCount(0)
     const sitemap = await (await request.get('/sitemap.xml')).text()
-    if (['shion', 'ana'].includes(slug)) expect(sitemap).toContain(`/counters/${slug}</loc>`)
-    else expect(sitemap).not.toContain(`/counters/${slug}</loc>`)
+    expect(sitemap).toContain(`/counters/${slug}</loc>`)
     expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false)
   })
 }

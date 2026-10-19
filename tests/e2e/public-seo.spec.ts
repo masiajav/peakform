@@ -136,8 +136,7 @@ test('sitemap contains only the completed editorial batches', async ({ request }
 
   // Legacy publication intent must not substitute for a version-bound review.
   for (const slug of ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'zarya', 'tracer', 'domina']) {
-    if (['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy'].includes(slug)) expect(xml).toContain(`/counters/${slug}</loc>`)
-    else expect(xml).not.toContain(`/counters/${slug}</loc>`)
+    expect(xml).toContain(`/counters/${slug}</loc>`)
     if (['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'tracer', 'zarya'].includes(slug)) expect(xml).toContain(`/team-comps/${slug}</loc>`)
     else expect(xml).not.toContain(`/team-comps/${slug}`)
   }
@@ -175,7 +174,7 @@ for (const route of PUBLIC_ROUTES.filter(path => /^\/(?:counters|team-comps)\//.
     expect(response?.status()).toBe(200)
     await expect(page.locator('h1')).toHaveCount(1)
     await expect(page.locator('main')).toContainText('Replaid Lab')
-    const restored = RESTORED_TOPIC_ROUTES.includes(route) || ['/counters/reinhardt', '/counters/dva', '/counters/winston', '/counters/cassidy', '/team-comps/ana', '/team-comps/genji', '/team-comps/kiriko', '/team-comps/reinhardt', '/team-comps/dva', '/team-comps/winston', '/team-comps/cassidy', '/team-comps/tracer', '/team-comps/zarya'].includes(route)
+    const restored = RESTORED_TOPIC_ROUTES.includes(route) || ['/counters/reinhardt', '/counters/dva', '/counters/winston', '/counters/cassidy', '/counters/tracer', '/counters/domina', '/counters/zarya', '/team-comps/ana', '/team-comps/genji', '/team-comps/kiriko', '/team-comps/reinhardt', '/team-comps/dva', '/team-comps/winston', '/team-comps/cassidy', '/team-comps/tracer', '/team-comps/zarya'].includes(route)
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', restored ? 'index, follow' : 'noindex, follow')
     await expect(page.locator('.ad-slot, ins.adsbygoogle, script[src*="adsbygoogle"]')).toHaveCount(0)
     const sitemap = await (await request.get('/sitemap.xml')).text()
