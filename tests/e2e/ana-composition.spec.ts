@@ -12,7 +12,7 @@ test('Ana composition explains the teams, FAQ and VOD without ads or stale patch
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://www.replaidlab.com/team-comps/ana')
   await expect(page.locator('main')).toContainText('No protege la granada aliada')
   await expect(page.locator('main')).not.toContainText('Parche revisado:')
-  await expect(page.getByRole('heading', { name: 'Qué mirar en una pelea perdida' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Qué mirar en tu repetición' })).toBeVisible()
   const model = getTeamCompPillar('ana')!
   await expect(page).toHaveTitle(`${model.seoTitle} - Replaid Lab`)
   await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', model.seoDescription)

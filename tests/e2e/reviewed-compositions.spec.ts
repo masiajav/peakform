@@ -16,7 +16,7 @@ test('only individually approved compositions enter sitemap and retain honest da
     expect(articleSchema.dateModified).toBe(article.schemaDate)
     expect(articleSchema.datePublished).toBe(article.publishedDate)
     expect(html).toContain(`<time dateTime="${article.schemaDate}">${article.updatedAt}</time>`)
-    const approved = ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'tracer', 'zarya', 'sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon'].includes(slug)
+    const approved = ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'tracer', 'zarya', 'sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon', 'domina', 'jetpack-cat', 'wuyang'].includes(slug)
     expect(html).toContain(`name="robots" content="${approved ? 'index' : 'noindex'}, follow"`)
     expect(sitemap.includes(`/team-comps/${slug}</loc>`)).toBe(approved)
   }
@@ -36,14 +36,14 @@ for (const [slug, article] of Object.entries(reviewedTeamCompositions)) {
     await expect(page).toHaveTitle(`${article.seoTitle} - Replaid Lab`)
     await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', article.seoDescription)
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://www.replaidlab.com/team-comps/${slug}`)
-    const approved = ['sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon'].includes(slug)
+    const approved = ['sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon', 'domina', 'jetpack-cat', 'wuyang'].includes(slug)
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', `${approved ? 'index' : 'noindex'}, follow`)
     await expect(page.locator('.seo-composition-card')).toHaveCount(3)
     await expect(page.locator('main')).not.toContainText('Mejores composiciones 5v5')
     await expect(page.locator('main')).not.toContainText('bloquear la composición')
     await expect(page.getByRole('heading', { name: 'Antes de empezar la siguiente pelea', exact: true })).toBeVisible()
     if (article.vodQuestions) {
-      const vodSection = page.locator('main section').filter({ has: page.getByRole('heading', { name: 'Qué mirar en una pelea perdida', exact: true }) })
+      const vodSection = page.locator('main section').filter({ has: page.getByRole('heading', { name: 'Qué mirar en tu repetición', exact: true }) })
       await expect(vodSection.locator('ol li')).toHaveCount(article.vodQuestions.length)
       for (const question of article.vodQuestions) await expect(vodSection).toContainText(question)
     }

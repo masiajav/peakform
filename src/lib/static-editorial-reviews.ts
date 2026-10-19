@@ -3,6 +3,27 @@ import type { StaticEditorialReview } from './static-editorial-review'
 // Explicit, version-bound reviews. No build task may populate this registry
 // from slugs or automatically renew approval after an editorial change.
 export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialReview>> = {
+  '/team-comps/domina': {
+    path: '/team-comps/domina',
+    version: '27602039fcd038d755a3e52190fc5d1f46447909a29201e65a348ef4fe2b36cb',
+    reviewedAt: '2026-10-19', reviewer: 'Codex',
+    evidence: 'docs/content-review-comps-domina-cat-wuyang-2026-10-19.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/jetpack-cat': {
+    path: '/team-comps/jetpack-cat',
+    version: '1b8ed545f871973946fc1d894dd96a490211fd006da4ce89cb923cfe05baf407',
+    reviewedAt: '2026-10-19', reviewer: 'Codex',
+    evidence: 'docs/content-review-comps-domina-cat-wuyang-2026-10-19.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/wuyang': {
+    path: '/team-comps/wuyang',
+    version: '1879d82008a49ddee47843e25f24999b9451cb89a996484bbc76b7f00124f35d',
+    reviewedAt: '2026-10-19', reviewer: 'Codex',
+    evidence: 'docs/content-review-comps-domina-cat-wuyang-2026-10-19.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/counters/tracer': {
     path: '/counters/tracer',
     version: 'd532bd32f685ee8da78c3c186d8c19c9efee32a2b1f7c2439111975d9db2c35e',

@@ -13,7 +13,7 @@ for (const route of ['/counters/shion', '/team-comps/shion']) {
     await expect(page.locator('main')).toContainText('Sombra Support')
     await expect(page.locator('main')).not.toContainText('kit de DPS anterior')
     const counter = route.startsWith('/counters/')
-    const vodHeading = counter ? 'Qué mirar en tu repetición' : 'Qué mirar en una pelea perdida'
+    const vodHeading = 'Qué mirar en tu repetición'
     const vod = page.locator('main section').filter({ has: page.getByRole('heading', { name: vodHeading, exact: true }) })
     await expect(vod.locator('ol li')).toHaveCount(5)
     const schemas = (await page.locator('script[type="application/ld+json"]').allTextContents()).flatMap(value => JSON.parse(value))

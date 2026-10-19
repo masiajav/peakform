@@ -11,8 +11,8 @@ const reviewDates: Record<string, string> = {
   ashe: '2026-10-02', sigma: '2026-10-02', pharah: '2026-10-02', mercy: '2026-10-02',
   mei: '2026-10-02', moira: '2026-10-02', reaper: '2026-10-02',
   bastion: '2026-10-02', lifeweaver: '2026-10-02',
-  freja: '2026-10-02', sierra: '2026-10-02', wuyang: '2026-10-02',
-  doctrine: '2026-10-10', domina: '2026-10-02', 'jetpack-cat': '2026-10-02',
+  freja: '2026-10-02', sierra: '2026-10-02', wuyang: '2026-10-19',
+  doctrine: '2026-10-10', domina: '2026-10-19', 'jetpack-cat': '2026-10-19',
   symmetra: '2026-10-02', torbjorn: '2026-10-02',
   hanzo: '2026-10-02', widowmaker: '2026-10-02', sojourn: '2026-10-02',
   'soldier-76': '2026-10-02', emre: '2026-10-02',
@@ -144,7 +144,7 @@ describe('individual team composition revisions', () => {
       expect(getTeamCompPillar(slug)).toBe(article)
       expect(article.compositions).toHaveLength(3)
       expect(article.schemaDate).toBe(reviewDates[slug])
-      expect(editorialTopicQualityDecision('team_comp', slug, article)).toMatchObject({ indexable: ['sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon'].includes(slug), adsAllowed: false })
+      expect(editorialTopicQualityDecision('team_comp', slug, article)).toMatchObject({ indexable: ['sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon', 'domina', 'jetpack-cat', 'wuyang'].includes(slug), adsAllowed: false })
       for (const comp of article.compositions) {
         expect(comp.lineup).toContain(article.name)
         expect(comp.lineup).toHaveLength(comp.format === '5v5' ? 5 : 6)

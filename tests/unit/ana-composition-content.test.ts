@@ -23,7 +23,7 @@ describe('Ana composition decisions', () => {
   it('renders visible decisions, matching FAQ schema and no empty patch label', () => {
     const html = renderToStaticMarkup(createElement(TeamCompPillarPage, { pillar: ana }))
     expect(html).toContain(ana.quickAnswer)
-    expect(html).toContain('Qué mirar en una pelea perdida')
+    expect(html).toContain('Qué mirar en tu repetición')
     expect(html).not.toContain('Parche revisado:')
     expect(html).not.toContain('adsbygoogle')
     const schemas = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)]

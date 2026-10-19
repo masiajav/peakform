@@ -16,7 +16,7 @@ for (const slug of ['kiriko', 'genji', 'reinhardt']) {
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://www.replaidlab.com/team-comps/${slug}`)
     await expect(page.locator('main')).toContainText(article.quickAnswer!)
     await expect(page.locator('main')).not.toContainText('Parche revisado:')
-    await expect(page.getByRole('heading', { name: 'Qué mirar en una pelea perdida' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Qué mirar en tu repetición' })).toBeVisible()
     for (const team of article.compositions) {
       const card = page.locator('.seo-composition-card').filter({ has: page.getByRole('heading', { name: team.name, exact: true }) })
       for (const field of ['winCondition', 'engagePlan', 'goodMaps', 'weakAgainst', 'substitutions'] as const) {

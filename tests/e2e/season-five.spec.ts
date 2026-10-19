@@ -88,7 +88,7 @@ test('released Sombra and Roadhog compositions publish only the reviewed revisio
     await expect(page.locator('main')).not.toContainText('ALINEACIONES ANTERIORES A SEASON 5')
     await expect(page.locator('main')).not.toContainText('no los copies')
     await expect(page.locator('main')).not.toContainText('Encrypted Upload')
-    await expect(page.getByRole('heading', { name: 'Qué mirar en una pelea perdida', exact: true })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Qué mirar en tu repetición', exact: true })).toBeVisible()
     await expect(page.locator('main')).toContainText(slug === 'sombra' ? 'No limpia anticuración ni silencia' : 'no crea una barrera')
     await expect(page.locator('ins.adsbygoogle,.ad-slot,script[src*="adsbygoogle"]')).toHaveCount(0)
     expect(sitemap).toMatch(new RegExp(`${route}</loc>\\s*<lastmod>2026-10-10T00:00:00\\.000Z</lastmod>`))

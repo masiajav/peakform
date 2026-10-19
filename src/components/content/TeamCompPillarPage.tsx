@@ -14,6 +14,7 @@ type TeamCompPillarPageProps = {
 
 export default function TeamCompPillarPage({ pillar }: TeamCompPillarPageProps) {
   const pageUrl = absoluteUrl(`/team-comps/${pillar.slug}`)
+  const reviewLabel = /^(?:Ranked|Kit)\b/i.test(pillar.reviewedPatch || '') ? 'Habilidades revisadas' : 'Parche revisado'
   const hasOldSombraLineup = pillar.compositions.some(comp => comp.lineup.includes('Sombra')
     && comp.lineup.filter(name => COUNTER_HEROES.some(hero => hero.name === name && hero.role === 'support')).length !== 2)
   const jsonLd = [
@@ -67,7 +68,7 @@ export default function TeamCompPillarPage({ pillar }: TeamCompPillarPageProps) 
             <div className="seo-pillar-meta">
               <span>Por Replaid Lab</span>
               <span>Actualizado: <time dateTime={pillar.schemaDate}>{pillar.updatedAt}</time></span>
-              {pillar.reviewedPatch && <span>Parche revisado: {pillar.reviewedPatch}</span>}
+              {pillar.reviewedPatch && <span>{reviewLabel}: {pillar.reviewedPatch}</span>}
               <Link href="/contact" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Comunicar una corrección</Link>
             </div>
           </div>
@@ -145,7 +146,7 @@ export default function TeamCompPillarPage({ pillar }: TeamCompPillarPageProps) 
 
         {pillar.vodQuestions && <section className="seo-pillar-section">
           <div className="eyebrow">REVISIÓN DE VOD</div>
-          <h2>Qué mirar en una pelea perdida</h2>
+          <h2>Qué mirar en tu repetición</h2>
           <ol className="seo-pillar-steps">{pillar.vodQuestions.map(question => <li key={question}>{question}</li>)}</ol>
         </section>}
 

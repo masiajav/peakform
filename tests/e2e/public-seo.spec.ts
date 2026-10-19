@@ -137,7 +137,7 @@ test('sitemap contains only the completed editorial batches', async ({ request }
   // Legacy publication intent must not substitute for a version-bound review.
   for (const slug of ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'zarya', 'tracer', 'domina']) {
     expect(xml).toContain(`/counters/${slug}</loc>`)
-    if (['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'tracer', 'zarya'].includes(slug)) expect(xml).toContain(`/team-comps/${slug}</loc>`)
+    if (['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'tracer', 'zarya', 'domina'].includes(slug)) expect(xml).toContain(`/team-comps/${slug}</loc>`)
     else expect(xml).not.toContain(`/team-comps/${slug}`)
   }
   for (const slug of ['freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki']) {
