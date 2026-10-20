@@ -146,7 +146,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const guideSlug = normalizedPath.match(/^\/guides\/([^/]+)$/)?.[1]
     const reviewedRankedDate = guideSlug ? getRankedHeroGuide(guideSlug)?.modifiedAt : undefined
     const reviewedEvergreenDate = guideSlug && Object.hasOwn(evergreenGuides, guideSlug) ? evergreenGuides[guideSlug].modifiedAtIso : undefined
-    const lastModified = reviewedEvergreenDate ?? reviewedRankedDate ?? reviewedHeroDate ?? reviewedCounterDate ?? reviewedCompositionDate ?? STATIC_LAST_MODIFIED[normalizedPath] ?? MAP_LAST_MODIFIED[normalizedPath]
+    const lastModified = reviewedEvergreenDate ?? reviewedRankedDate ?? reviewedHeroDate ?? reviewedCounterDate ?? reviewedCompositionDate ?? MAP_LAST_MODIFIED[normalizedPath] ?? STATIC_LAST_MODIFIED[normalizedPath]
     return {
       url: absoluteUrl(normalizedPath),
       ...(lastModified ? { lastModified: new Date(lastModified) } : {}),

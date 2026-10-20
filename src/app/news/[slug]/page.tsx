@@ -4,50 +4,21 @@ import AnnouncementArticlePage from '@/components/content/AnnouncementArticlePag
 import { announcementPath, articleDescription, type AnnouncementContent } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 import { announcementQualityDecision, robotsForQuality } from '@/lib/indexing-policy'
+import { ANNOUNCEMENT_REVIEW_COLUMNS } from '@/lib/editorial-review'
 import { notFound } from 'next/navigation'
 import { cache } from 'react'
 
-const NEWS_DETAIL_COLUMNS = `
-  id,
-  title,
-  slug,
-  body,
-  excerpt,
-  seo_title,
-  seo_description,
-  author,
-  hero,
-  role,
-  map,
-  tags,
-  cover_image,
-  content_type,
-  sponsor_label,
-  sponsor_title,
-  sponsor_body,
-  sponsor_url,
-  sponsor_cta,
-  source_name,
-  source_url,
-  source_id,
-  source_published_at,
-  auto_imported,
-  source_sections,
-  published,
-  created_at,
-  updated_at
-`
-
 const fetchNews = cache(async (slug: string) => {
   const admin = createAdminClient()
-  const { data } = await admin
+  const { data, error } = await admin
     .from('announcements')
-    .select(NEWS_DETAIL_COLUMNS)
+    .select(ANNOUNCEMENT_REVIEW_COLUMNS)
     .eq('slug', slug)
     .eq('published', true)
     .neq('content_type', 'patch_note')
-    .single()
+    .maybeSingle()
 
+  if (error) throw new Error('No se ha podido cargar la noticia')
   return data as AnnouncementContent | null
 })
 

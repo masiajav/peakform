@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import PublicNav from '@/components/layout/PublicNav'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { announcementPath, articleDescription } from '@/lib/content'
+import { announcementPath, articleDescription, type AnnouncementContent } from '@/lib/content'
+import { resolveLegacyPatchArchive } from '@/lib/legacy-patch-archives'
 import { buildMetadata } from '@/lib/seo'
 import { unstable_noStore as noStore } from 'next/cache'
 
@@ -10,7 +11,7 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Patch notes de Overwatch',
-  description: 'Últimas notas de parche de Overwatch importadas desde Blizzard y resumidas por Replaid Lab.',
+  description: 'Resúmenes de parches de Overwatch por fecha: cambios de héroes, correcciones y eventos, con los modos de juego y su contexto histórico.',
   path: '/patch-notes',
   robots: { index: false, follow: true },
 })
@@ -19,12 +20,17 @@ export default async function PatchNotesPage() {
   noStore()
 
   const admin = createAdminClient()
-  const { data: notes } = await admin
+  const { data, error } = await admin
     .from('announcements')
     .select('*')
     .eq('published', true)
     .eq('content_type', 'patch_note')
-    .order('source_published_at', { ascending: false, nullsFirst: false })
+    .order('created_at', { ascending: false })
+
+  if (error) throw new Error('No se han podido cargar las notas del parche')
+  const notes = ((data || []) as AnnouncementContent[])
+    .map(resolveLegacyPatchArchive)
+    .sort((a, b) => Date.parse(b.source_published_at || b.created_at) - Date.parse(a.source_published_at || a.created_at))
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
@@ -37,33 +43,28 @@ export default async function PatchNotesPage() {
             PATCH NOTES
           </h1>
           <p style={{ fontSize: 15, color: 'var(--text2)', lineHeight: 1.65, margin: 0, maxWidth: 720 }}>
-            Cambios oficiales publicados por Blizzard, organizados en Replaid Lab con resumen propio y enlace a la fuente original.
+            Consulta qué cambió en cada actualización. La fecha de cada nota corresponde a su parche; los eventos y las cifras antiguas no describen necesariamente el juego actual.
           </p>
         </header>
 
         {!notes || notes.length === 0 ? (
           <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 24 }}>
             <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.6, margin: 0 }}>
-              Todavía no hay patch notes importadas. La sincronización automática añadirá nuevas entradas cuando detecte cambios oficiales.
+              Todavía no hay notas publicadas. Puedes consultar las <a href="https://overwatch.blizzard.com/es-es/news/patch-notes/">patch notes oficiales de Overwatch</a>.
             </p>
           </div>
         ) : (
           <div style={{ display: 'grid', gap: 16 }}>
-            {notes.map((note: any) => (
+            {notes.map(note => (
               <Link key={note.id} href={announcementPath(note)} style={{ textDecoration: 'none' }}>
                 <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '22px 24px' }}>
                   <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 10, alignItems: 'center' }}>
                     <span style={{ fontSize: 10, letterSpacing: 0, color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif' }}>
                       PATCH NOTE
                     </span>
-                    <span style={{ fontSize: 11, color: 'var(--text3)' }}>
+                    <time dateTime={note.source_published_at || note.created_at} style={{ fontSize: 11, color: 'var(--text2)' }}>
                       {new Date(note.source_published_at || note.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}
-                    </span>
-                    {note.auto_imported && (
-                      <span style={{ fontSize: 11, color: 'var(--text3)' }}>
-                        Blizzard
-                      </span>
-                    )}
+                    </time>
                   </div>
                   <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 24, letterSpacing: 0, color: 'var(--text)', margin: '0 0 10px' }}>
                     {note.title}

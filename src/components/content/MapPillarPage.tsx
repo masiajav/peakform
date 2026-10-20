@@ -34,7 +34,7 @@ export default function MapPillarPage({ map }: { map: MapPillar }) {
     image: absoluteUrl(map.image),
     url: pageUrl,
     inLanguage: 'es',
-    datePublished: map.updatedAtIso,
+    datePublished: map.publishedAtIso,
     dateModified: map.updatedAtIso,
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
@@ -84,7 +84,7 @@ export default function MapPillarPage({ map }: { map: MapPillar }) {
         <div className="map-meta-strip">
           <Meta label="Modo" value={map.mode} />
           <Meta label="Localización" value={map.location} />
-          <Meta label="Última revisión" value={map.updatedAt} />
+          <Meta label="Última revisión" value={map.updatedAt} dateTime={map.updatedAtIso} />
           <Meta label="Revisión" value="Replaid Lab" />
         </div>
 
@@ -177,6 +177,11 @@ export default function MapPillarPage({ map }: { map: MapPillar }) {
 
         <SeoFaq items={map.faq} title={`Preguntas sobre ${map.name}`} />
 
+        {map.conclusion ? <section className="map-section">
+          <h2>Para tu próxima partida</h2>
+          <p className="map-section-lead">{map.conclusion}</p>
+        </section> : null}
+
         <section className="map-related">
           <div><div className="eyebrow">SIGUIENTE PASO</div><h2>Contenido relacionado</h2></div>
           <div>{map.relatedLinks.map(link => <Link key={link.href} href={safeTopicHref(link.href)}>{link.label}</Link>)}</div>
@@ -186,8 +191,8 @@ export default function MapPillarPage({ map }: { map: MapPillar }) {
   )
 }
 
-function Meta({ label, value }: { label: string; value: string }) {
-  return <div><span>{label}</span><strong>{value}</strong></div>
+function Meta({ label, value, dateTime }: { label: string; value: string; dateTime?: string }) {
+  return <div><span>{label}</span><strong>{dateTime ? <time dateTime={dateTime}>{value}</time> : value}</strong></div>
 }
 
 function InfoCard({ title, body }: { title: string; body: string }) {

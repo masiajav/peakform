@@ -6,23 +6,26 @@ import { buildMetadata } from '@/lib/seo'
 import { announcementQualityDecision, robotsForQuality } from '@/lib/indexing-policy'
 import { unstable_noStore as noStore } from 'next/cache'
 import { notFound } from 'next/navigation'
+import { cache } from 'react'
+import { resolveLegacyPatchArchive } from '@/lib/legacy-patch-archives'
 
 export const dynamic = 'force-dynamic'
 
-async function fetchPatchNote(slug: string) {
+const fetchPatchNote = cache(async (slug: string) => {
   noStore()
 
   const admin = createAdminClient()
-  const { data } = await admin
+  const { data, error } = await admin
     .from('announcements')
     .select('*')
     .eq('slug', slug)
     .eq('published', true)
     .eq('content_type', 'patch_note')
-    .single()
+    .maybeSingle()
 
-  return data as AnnouncementContent | null
-}
+  if (error) throw new Error('No se ha podido cargar la nota del parche')
+  return data ? resolveLegacyPatchArchive(data as AnnouncementContent) : null
+})
 
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const params = await props.params;
@@ -45,5 +48,5 @@ export default async function PatchNoteDetailPage(props: { params: Promise<{ slu
   const article = await fetchPatchNote(params.slug)
   if (!article) notFound()
 
-  return <AnnouncementArticlePage article={article} sectionLabel="Patch notes" sectionHref="/patch-notes" schemaType="Article" />
+  return <AnnouncementArticlePage article={article} reviewedAt={article.archiveReviewedAt} sectionLabel="Patch notes" sectionHref="/patch-notes" schemaType="Article" />
 }

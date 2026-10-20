@@ -34,10 +34,10 @@ export default function MapsPage() {
         <header className="maps-hub-header">
           <div className="eyebrow">GUÍAS DE OVERWATCH</div>
           <h1>MAPAS DE OVERWATCH</h1>
-          <p>Consulta todos los mapas principales de Overwatch por modo. Las guías completas explican dónde pelear, cuándo rotar y qué revisar después de una derrota.</p>
+          <p>Prepara el ataque, la defensa o la siguiente recuperación del punto. Encuentra guías por modo de juego y compara las rutas con lo que ocurrió en tu partida.</p>
         </header>
 
-        <section className="maps-hub-grid" aria-label="Mapas con guía completa">
+        <section className="maps-hub-grid" aria-label="Mapas con guía">
           {MAP_PILLARS.map((map, index) => (
             <Link key={map.slug} href={`/maps/${map.slug}`} className="map-hub-card">
               <article>
@@ -58,10 +58,10 @@ export default function MapsPage() {
         <section className="map-catalog-section" aria-labelledby="map-catalog-title">
           <div className="map-catalog-heading">
             <div>
-              <div className="eyebrow">CATÁLOGO COMPLETO</div>
-              <h2 id="map-catalog-title">Todos los mapas por modo</h2>
+              <div className="eyebrow">MAPAS POR MODO</div>
+              <h2 id="map-catalog-title">Guías por modo de juego</h2>
             </div>
-            <span>{MAP_PILLARS.length} guías completas · {MAP_CATALOG.length} mapas</span>
+            <span>{MAP_PILLARS.length} guías disponibles · {MAP_CATALOG.length} mapas en este catálogo</span>
           </div>
 
           <div className="map-catalog-groups">
@@ -80,7 +80,7 @@ export default function MapsPage() {
                       const content = (
                         <>
                           <div><strong>{map.name}</strong><span>{map.location}</span></div>
-                          <small>{ready ? 'GUÍA COMPLETA →' : 'EN PREPARACIÓN'}</small>
+                          <small>{ready ? 'ABRIR GUÍA →' : 'EN PREPARACIÓN'}</small>
                         </>
                       )
 

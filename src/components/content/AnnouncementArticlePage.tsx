@@ -10,16 +10,21 @@ import { heroTopicHref } from '@/lib/topic-links'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 
+// The page header owns the H1, including when legacy Markdown has a title.
+const ARTICLE_MARKDOWN_COMPONENTS = { h1: 'h2' } as const
+
 export default async function AnnouncementArticlePage({
   article,
   sectionLabel,
   sectionHref,
   schemaType,
+  reviewedAt,
 }: {
   article: AnnouncementContent
   sectionLabel: string
   sectionHref: string
   schemaType: 'NewsArticle' | 'Article'
+  reviewedAt?: string
 }) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
@@ -85,8 +90,8 @@ export default async function AnnouncementArticlePage({
       ))}
 
       <article style={{ maxWidth: 760, margin: '0 auto', padding: '64px 24px 80px' }}>
-        <div style={{ fontSize: 12, color: 'var(--text3)', marginBottom: 32, display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
-          <Link href={sectionHref} style={{ color: 'var(--text3)', textDecoration: 'none' }}>{sectionLabel}</Link>
+        <div className="announcement-breadcrumb" style={{ fontSize: 12, color: 'var(--text2)', marginBottom: 32, display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+          <Link href={sectionHref} style={{ color: 'var(--text2)', textDecoration: 'none' }}>{sectionLabel}</Link>
           <span>›</span>
           <span>{article.title}</span>
         </div>
@@ -101,15 +106,16 @@ export default async function AnnouncementArticlePage({
           <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(30px, 5vw, 52px)', letterSpacing: 1, color: 'var(--text)', margin: '0 0 16px', lineHeight: 1.05 }}>
             {article.title}
           </h1>
-          <div style={{ fontSize: 12, color: 'var(--text3)', display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-            <span>{new Date(article.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
+          <div className="announcement-meta" style={{ fontSize: 12, color: 'var(--text2)', display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+            <time dateTime={article.created_at}>{new Date(article.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}</time>
+            {reviewedAt && <span>Revisado el <time dateTime={reviewedAt}>{new Date(reviewedAt).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}</time></span>}
             <span>{readMinutes} min de lectura</span>
             <span>{author}</span>
           </div>
         </header>
 
         <div className="guide-body">
-          <ReactMarkdown>{article.body}</ReactMarkdown>
+          <ReactMarkdown components={ARTICLE_MARKDOWN_COMPONENTS}>{article.body}</ReactMarkdown>
         </div>
 
         <SponsoredBlock item={article} />

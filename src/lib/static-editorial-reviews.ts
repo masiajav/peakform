@@ -3,6 +3,27 @@ import type { StaticEditorialReview } from './static-editorial-review'
 // Explicit, version-bound reviews. No build task may populate this registry
 // from slugs or automatically renew approval after an editorial change.
 export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialReview>> = {
+  '/maps/kings-row': {
+    path: '/maps/kings-row',
+    version: '0577c69ce0cc354ec9e853b202b447cfd45ac1e1cd42213e15251311c7c50460',
+    reviewedAt: '2026-10-19', reviewer: 'Codex',
+    evidence: 'docs/content-review-kings-row-lijiang-2026-10-19.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/maps/lijiang-tower': {
+    path: '/maps/lijiang-tower',
+    version: '91708582d9f4f29204eebc908ae400c394826b8dc6bcfb7c79b41c2b533285f0',
+    reviewedAt: '2026-10-19', reviewer: 'Codex',
+    evidence: 'docs/content-review-kings-row-lijiang-2026-10-19.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/maps/neon-junction': {
+    path: '/maps/neon-junction',
+    version: 'f01bfee108ed7ce22e22a9793ad94a0e7011871776507707e8f990bc26d75067',
+    reviewedAt: '2026-10-19', reviewer: 'Codex',
+    evidence: 'docs/content-review-neon-junction-map-2026-10-19.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/domina': {
     path: '/team-comps/domina',
     version: '27602039fcd038d755a3e52190fc5d1f46447909a29201e65a348ef4fe2b36cb',
