@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { normalizeRole, normalizeTopic, parseTags, toSlug } from '@/lib/content'
+import { isGameId } from '@/lib/games'
 import { NextResponse } from 'next/server'
 import { editorialInputIssues, prepareEditorialPublication } from '@/lib/editorial-publication'
 
@@ -14,6 +15,7 @@ async function assertAdmin() {
 
 function contentPayload(body: any) {
   return {
+    game: isGameId(body.game) ? body.game : 'overwatch',
     title: body.title.trim(),
     slug: toSlug(body.slug),
     body: body.body.trim(),
@@ -64,6 +66,7 @@ export async function POST(request: Request) {
   if (!user) return NextResponse.json({ error: 'No autorizado' }, { status: 403 })
 
   const body = await request.json()
+  if (body?.game !== undefined && !isGameId(body.game)) return NextResponse.json({ error: 'Juego no válido' }, { status: 400 })
   const inputIssues = editorialInputIssues(body)
   if (inputIssues.length) return NextResponse.json({ error: inputIssues.join('. ') }, { status: 400 })
   if (!body.title?.trim() || !body.slug?.trim() || !body.body?.trim()) {

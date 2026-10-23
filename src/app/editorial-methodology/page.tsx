@@ -4,7 +4,7 @@ import PublicNav from '@/components/layout/PublicNav'
 import { buildMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Cómo revisamos las guías de Overwatch',
+  title: 'Cómo revisamos las guías de Overwatch y Deadlock',
   description: 'Así preparamos y actualizamos las guías de Replaid Lab: utilidad en partida, lenguaje claro, comprobación de cambios y corrección de errores.',
   path: '/editorial-methodology',
 })
@@ -34,6 +34,10 @@ export default function EditorialMethodologyPage() {
           </p>
         </section>
 
+        <section>
+          <h2>Publicación y comprobaciones automáticas</h2>
+          <p>Parte del contenido se investiga, redacta y comprueba mediante una tarea de Codex. Cada publicación automática conserva las fuentes consultadas y una revisión vinculada a esa versión. Las comprobaciones incluyen enlaces y presentación en móvil y escritorio; no se presentan como revisión humana ni como pruebas realizadas dentro de una partida. Si falta evidencia, el tema se aplaza.</p>
+        </section>
         <section>
           <h2>Tono de las guías</h2>
           <p>

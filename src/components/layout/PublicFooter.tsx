@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { DEADLOCK_SECTIONS, gameForPath } from '@/lib/games'
 import { usePathname } from 'next/navigation'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 
@@ -35,6 +36,8 @@ const TRUST_LINKS = [
 
 export default function PublicFooter() {
   const pathname = usePathname()
+  const game = gameForPath(pathname)
+  const links = game === 'deadlock' ? DEADLOCK_SECTIONS.map(s => ({href: `/deadlock/${s.slug}`, label: s.label})) : game === 'overwatch' ? CONTENT_LINKS : [{href:'/overwatch',label:'Overwatch'},{href:'/deadlock',label:'Deadlock'}]
   if (PRIVATE_PREFIXES.some(prefix => pathname === prefix || pathname.startsWith(`${prefix}/`))) return null
 
   return (
@@ -42,12 +45,12 @@ export default function PublicFooter() {
       <div className="public-footer-inner">
         <div className="public-footer-brand">
           <Link href="/">REPLAID LAB</Link>
-          <p>Guías prácticas de Overwatch para entender tus errores y tomar mejores decisiones en ranked.</p>
+          <p>Guías prácticas de Overwatch y Deadlock en español para entender el juego y tomar mejores decisiones.</p>
         </div>
 
         <nav className="public-footer-column" aria-label="Contenido de Replaid Lab">
           <strong>Contenido</strong>
-          {CONTENT_LINKS.map(link => <Link key={link.href} href={link.href}>{link.label}</Link>)}
+          {links.map(link => <Link key={link.href} href={link.href}>{link.label}</Link>)}
         </nav>
 
         <nav className="public-footer-column" aria-label="Confianza y contacto">
@@ -57,8 +60,8 @@ export default function PublicFooter() {
 
         <div className="public-footer-column">
           <strong>Comunidad</strong>
-          <Link href="/experts">Expertos</Link>
-          <Link href="/news">Noticias</Link>
+          {game !== 'deadlock' && <Link href="/experts">Expertos de Overwatch</Link>}
+          {game && <Link href={game === 'deadlock' ? '/deadlock/news' : '/news'}>Noticias</Link>}
           <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer">Discord</a>
         </div>
       </div>

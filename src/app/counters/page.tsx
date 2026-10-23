@@ -1,3 +1,5 @@
+import EditorialUpdates from '@/components/content/EditorialUpdates'
+export const dynamic = 'force-dynamic'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import JsonLd from '@/components/content/JsonLd'
@@ -47,6 +49,7 @@ export default function CountersPage() {
       <SiteNav />
 
       <main style={{ maxWidth: 1180, margin: '0 auto', padding: '56px 24px 88px' }}>
+        <EditorialUpdates game="overwatch" kinds={["counter"]}/>
         <header style={{ maxWidth: 820, marginBottom: 28 }}>
           <div className="eyebrow">COUNTERS POR HÉROE</div>
           <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(42px, 7vw, 76px)', letterSpacing: 1, lineHeight: 0.96, margin: '0 0 16px' }}>

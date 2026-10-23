@@ -1,3 +1,6 @@
+export const dynamic = 'force-dynamic'
+import { editorialForPath } from '@/lib/editorial-store'
+import GameEditorialArticle from '@/components/content/GameEditorialArticle'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -19,6 +22,8 @@ export function generateStaticParams() {
 
 export async function generateMetadata(props: { params: Promise<{ hero: string }> }): Promise<Metadata> {
   const params = await props.params;
+  const revision = await editorialForPath('overwatch', `/counters/${params.hero}`)
+  if (revision) return buildMetadata({title:revision.title,description:revision.description,path:revision.path,type:'article'})
   const hero = getCounterHero(params.hero)
   if (!hero) return {}
   const pillar = getCounterPillar(params.hero)
@@ -36,6 +41,8 @@ export async function generateMetadata(props: { params: Promise<{ hero: string }
 
 export default async function CounterHeroPage(props: { params: Promise<{ hero: string }> }) {
   const params = await props.params;
+  const revision = await editorialForPath('overwatch', `/counters/${params.hero}`)
+  if (revision) return <GameEditorialArticle article={revision}/>
   const hero = getCounterHero(params.hero)
   const pillar = getCounterPillar(params.hero)
   const profile = buildHeroSeoProfile(params.hero)

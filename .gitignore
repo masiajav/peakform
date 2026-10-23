@@ -43,3 +43,6 @@ test-results/
 next-*.log
 next-*.pid
 tmp-*.png
+
+/.next-multigame/
+/.next-multigame-production/

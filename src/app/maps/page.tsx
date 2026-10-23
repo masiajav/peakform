@@ -1,3 +1,5 @@
+import EditorialUpdates from '@/components/content/EditorialUpdates'
+export const dynamic = 'force-dynamic'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -31,6 +33,7 @@ export default function MapsPage() {
       <JsonLd data={itemListJsonLd} />
       <PublicNav />
       <main className="maps-hub">
+        <EditorialUpdates game="overwatch" kinds={["map"]}/>
         <header className="maps-hub-header">
           <div className="eyebrow">GUÍAS DE OVERWATCH</div>
           <h1>MAPAS DE OVERWATCH</h1>

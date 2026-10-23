@@ -1,3 +1,4 @@
+vi.mock('@/components/content/EditorialUpdates', () => ({ default: () => null }))
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 
@@ -46,7 +47,7 @@ describe('published legacy patch routes', () => {
     expect(page.props.article.body).toContain('Underwatch')
     expect(page.props.article.body).toContain('no eran cambios del competitivo')
     expect(page.props.article.created_at).toBe(state.article.created_at)
-    expect(state.filters).toEqual(['slug=notas-parche-overwatch-2026-04-01', 'published=true', 'content_type=patch_note'])
+    expect(state.filters).toEqual(['game=overwatch', 'slug=notas-parche-overwatch-2026-04-01', 'published=true', 'content_type=patch_note'])
   })
   it('keeps the same canonical and does not grant indexing permission', async () => {
     const metadata = await generateMetadata(props())

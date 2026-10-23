@@ -5,6 +5,7 @@ import { hasCurrentEditorialReview, publicEditorialTags } from '@/lib/editorial-
 import EditorialReviewChecklist, { useEditorialReviewState } from './EditorialReviewChecklist'
 
 interface Announcement {
+  game?: string
   id: string
   title: string
   slug: string
@@ -35,6 +36,7 @@ function toSlug(str: string) {
 }
 
 const emptyForm = {
+  game: 'overwatch',
   title: '',
   slug: '',
   body: '',
@@ -57,6 +59,7 @@ const emptyForm = {
 
 function formFromAnnouncement(item: Announcement) {
   return {
+    game: item.game || 'overwatch',
     title: item.title || '',
     slug: item.slug || '',
     body: item.body || '',
@@ -78,11 +81,11 @@ function formFromAnnouncement(item: Announcement) {
   }
 }
 
-export default function AnnouncementManager({ initialAnnouncements }: { initialAnnouncements: Announcement[] }) {
+export default function AnnouncementManager({ initialAnnouncements, game = 'overwatch' }: { initialAnnouncements: Announcement[]; game?: string }) {
   const [items, setItems] = useState(initialAnnouncements)
-  const [form, setForm] = useState(emptyForm)
+  const [form, setForm] = useState({...emptyForm,game})
   const [editingId, setEditingId] = useState<string | null>(null)
-  const [editForm, setEditForm] = useState(emptyForm)
+  const [editForm, setEditForm] = useState({...emptyForm,game})
   const review = useEditorialReviewState(editForm, editingId)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -103,7 +106,7 @@ export default function AnnouncementManager({ initialAnnouncements }: { initialA
     const data = await res.json()
     if (!res.ok) { setError(publicationError(data)); setSaving(false); return }
     setItems([data, ...items])
-    setForm(emptyForm)
+    setForm({...emptyForm,game})
     setSaving(false)
   }
 

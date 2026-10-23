@@ -32,7 +32,7 @@ describe('news loading against the existing legacy announcement schema', () => {
     const page = await NewsPage(props())
     expect(page.props.article).toEqual(state.article)
     expect(state.selected).toEqual(['*'])
-    expect(state.filters).toEqual(['slug=legacy-news', 'published=true', 'content_type!=patch_note'])
+    expect(state.filters).toEqual(['game=overwatch', 'slug=legacy-news', 'published=true', 'content_type!=patch_note'])
   })
   it('keeps canonical metadata and noindex without granting editorial approval', async () => {
     const metadata = await generateMetadata(props())

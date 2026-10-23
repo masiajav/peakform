@@ -1,3 +1,5 @@
+import EditorialUpdates from '@/components/content/EditorialUpdates'
+export const dynamic = 'force-dynamic'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import JsonLd from '@/components/content/JsonLd'
@@ -102,6 +104,7 @@ export default function HeroesIndexPage() {
       <JsonLd data={itemListJsonLd} />
       <PublicNav />
       <main className={styles.main}>
+        <EditorialUpdates game="overwatch" kinds={["hero"]}/>
         <header className={styles.header}>
           <div className="eyebrow">HÉROES DE OVERWATCH</div>
           <h1>Todos los héroes,<br /><span>por rol</span></h1>

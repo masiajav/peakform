@@ -1,3 +1,5 @@
+vi.mock('@/components/content/EditorialUpdates', () => ({ default: () => null }))
+import { vi } from 'vitest'
 import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { expect, it } from 'vitest'

@@ -18,7 +18,9 @@
     "lint": "next lint",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "verify": "npm run lint -- --no-cache && npm run test && npm run build:verify && npm run test:e2e"
+    "verify": "npm run lint -- --no-cache && npm run test && npm run build:verify && npm run test:e2e",
+    "editorial": "node --env-file=.env.local --experimental-strip-types scripts/editorial.mjs",
+    "test:multigame": "vitest run tests/unit/multigame.test.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.92.0",

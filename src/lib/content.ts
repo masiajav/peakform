@@ -1,3 +1,4 @@
+import { gamePath, type GameId } from './games'
 import { buildExcerpt } from './seo'
 
 export type ContentType = 'guide' | 'news' | 'patch_note'
@@ -21,6 +22,7 @@ export interface SourceFields {
 }
 
 export interface GuideContent extends SponsoredFields {
+  game?: GameId
   id: string
   title: string
   slug: string
@@ -50,6 +52,7 @@ export interface GuideContent extends SponsoredFields {
 }
 
 export interface AnnouncementContent extends SponsoredFields, SourceFields {
+  game?: GameId
   id: string
   title: string
   slug: string
@@ -187,8 +190,8 @@ export function guidePath(slug: string) {
   return `/guides/${slug}`
 }
 
-export function announcementPath(item: { slug: string; content_type?: string | null }) {
-  return item.content_type === 'patch_note' ? `/patch-notes/${item.slug}` : `/news/${item.slug}`
+export function announcementPath(item: { slug: string; content_type?: string | null; game?: GameId }) {
+  return gamePath(item.game ?? 'overwatch', item.content_type === 'patch_note' ? 'patch-notes' : 'news', item.slug)
 }
 
 export function topicLabel(slug: string) {

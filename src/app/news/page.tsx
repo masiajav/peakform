@@ -1,3 +1,5 @@
+import EditorialUpdates from '@/components/content/EditorialUpdates'
+export const dynamic = 'force-dynamic'
 import type { Metadata } from 'next'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { createClient } from '@/lib/supabase/server'
@@ -70,6 +72,7 @@ export default async function NewsPage() {
   const { data: announcements } = await admin
     .from('announcements')
     .select(ANNOUNCEMENT_REVIEW_COLUMNS)
+    .eq('game', 'overwatch')
     .eq('published', true)
     .neq('content_type', 'patch_note')
     .order('created_at', { ascending: false })
@@ -110,6 +113,7 @@ export default async function NewsPage() {
       ))}
 
       <main style={{ maxWidth: 900, margin: '0 auto', padding: '64px 24px 80px' }}>
+        <EditorialUpdates game="overwatch" kinds={["news"]}/>
         <div style={{ marginBottom: 40 }}>
           <div style={{ fontSize: 11, letterSpacing: 2, color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif', marginBottom: 8 }}>
             HEMEROTECA

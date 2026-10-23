@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 
 vi.mock('@/lib/supabase/admin', () => ({
-  createAdminClient: () => ({ from: () => ({ select: () => ({ eq: async () => ({ data: [] }) }) }) }),
+  createAdminClient: () => ({ from: () => { const query = {select:()=>query,eq:()=>query,then:(resolve:any)=>Promise.resolve({data:[]}).then(resolve)};return query } }),
 }))
 
 import sitemap from '@/app/sitemap'

@@ -6,7 +6,7 @@ import { absoluteUrl, buildMetadata, SITE_NAME } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Sobre Replaid Lab',
-  description: 'Conoce el objetivo editorial de Replaid Lab: guías, counters, composiciones y review de partidas de Overwatch con criterio experto.',
+  description: 'Replaid Lab reúne guías, héroes, counters y noticias de Overwatch y Deadlock en español, junto al servicio de revisión de partidas de Overwatch.',
   path: '/about',
 })
 
@@ -28,7 +28,7 @@ export default function AboutPage() {
         <div className="eyebrow">REPLAID LAB</div>
         <h1>Sobre Replaid Lab</h1>
         <p className="trust-lead">
-          Replaid Lab es una web en español dedicada a entender mejor Overwatch. Reúne guías de héroes, mapas, counters y composiciones con un servicio de revisión de partidas para quienes quieren saber por qué una pelea salió mal y qué pueden cambiar en la siguiente.
+          Replaid Lab es una web en español dedicada a entender mejor Overwatch y Deadlock. Reúne guías de héroes, counters, builds y noticias para tomar decisiones con un plan. Overwatch cuenta además con mapas, composiciones, Pick Lab y un servicio de revisión de partidas.
         </p>
 
         <section>

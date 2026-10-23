@@ -1,3 +1,7 @@
+export const dynamic = 'force-dynamic'
+import { editorialForPath } from '@/lib/editorial-store'
+import GameEditorialArticle from '@/components/content/GameEditorialArticle'
+import { buildMetadata as revisionMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import PublicNav from '@/components/layout/PublicNav'
 import EvergreenGuideArticle from '@/components/content/EvergreenGuideArticle'
@@ -7,7 +11,7 @@ import { evergreenGuideQualityDecision } from '@/lib/indexing-policy'
 
 const guide = evergreenGuides['composiciones-overwatch-5v5-6v6']
 
-export const metadata: Metadata = buildMetadata({
+const legacyMetadata: Metadata = buildMetadata({
   title: guide.seoTitle,
   description: guide.seoDescription,
   path: `/guides/${guide.slug}`,
@@ -15,7 +19,10 @@ export const metadata: Metadata = buildMetadata({
   robots: { index: evergreenGuideQualityDecision(guide).indexable, follow: true },
 })
 
-export default function TeamCompsGuidePage() {
+export default async function TeamCompsGuidePage() {
+  const revision = await editorialForPath('overwatch', '/guides/composiciones-overwatch-5v5-6v6')
+  if (revision) return <GameEditorialArticle article={revision}/>
+
   return (
     <>
       <PublicNav />
@@ -23,3 +30,5 @@ export default function TeamCompsGuidePage() {
     </>
   )
 }
+
+export async function generateMetadata(){const revision=await editorialForPath('overwatch','/guides/composiciones-overwatch-5v5-6v6');return revision?revisionMetadata({title:revision.title,description:revision.description,path:revision.path,type:'article'}):legacyMetadata}

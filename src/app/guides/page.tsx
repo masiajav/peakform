@@ -1,3 +1,5 @@
+import EditorialUpdates from '@/components/content/EditorialUpdates'
+export const dynamic = 'force-dynamic'
 import type { Metadata } from 'next'
 import { Fragment } from 'react'
 import { createAdminClient } from '@/lib/supabase/admin'
@@ -78,11 +80,13 @@ export default async function GuidesPage(props: { searchParams: Promise<GuidesSe
   const filterOptionsQuery = admin
     .from('guides')
     .select('category, role, hero, map')
+    .eq('game', 'overwatch')
     .eq('published', true)
 
   let query = admin
     .from('guides')
     .select(GUIDE_REVIEW_COLUMNS)
+    .eq('game', 'overwatch')
     .eq('published', true)
 
   if (effectiveHero) query = query.eq('hero', effectiveHero)
@@ -199,6 +203,7 @@ export default async function GuidesPage(props: { searchParams: Promise<GuidesSe
       />
 
       <main style={{ maxWidth: 1120, margin: '0 auto', padding: '56px 24px 80px' }}>
+        <EditorialUpdates game="overwatch" kinds={["guide"]} q={filters.q} hero={effectiveHero}/>
         <div style={{
           background: 'var(--surface)',
           border: '1px solid var(--border)',

@@ -1,7 +1,7 @@
 import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { describe, expect, it } from 'vitest'
-import CooldownReviewGuidePage, { metadata } from '@/app/guides/como-revisar-cooldowns-overwatch/page'
+import CooldownReviewGuidePage, { generateMetadata } from '@/app/guides/como-revisar-cooldowns-overwatch/page'
 import { evergreenGuides } from '@/lib/evergreen-guides'
 import { evergreenGuideQualityDecision } from '@/lib/indexing-policy'
 import { discoverableGuides } from '@/lib/guide-discovery'
@@ -16,7 +16,8 @@ const stored: GuideContent = {
 }
 
 describe('individual cooldown review guide', () => {
-  it('keeps the existing URL and real publication day, with its actual revision date', () => {
+  it('keeps the existing URL and real publication day, with its actual revision date', async () => {
+    const metadata=await generateMetadata()
     expect(guide.slug).toBe('como-revisar-cooldowns-overwatch')
     expect(guide.publishedAtIso).toBe('2026-06-21')
     expect(guide.modifiedAtIso).toBe('2026-10-18')
@@ -48,8 +49,8 @@ describe('individual cooldown review guide', () => {
     expect(discoverableGuides([{ ...stored, published: false }])).toEqual([])
     expect(guideEditorial(stored)).toEqual({ title: guide.title, seoTitle: guide.seoTitle, description: guide.seoDescription })
   })
-  it('renders its direct answer, dates and matching FAQ without a database fetch, adverts or internal text', () => {
-    const html = renderToStaticMarkup(createElement(CooldownReviewGuidePage))
+  it('renders its direct answer, dates and matching FAQ without a database fetch, adverts or internal text', async () => {
+    const html = renderToStaticMarkup(await CooldownReviewGuidePage())
     expect([...html.matchAll(/<h1\b/g)]).toHaveLength(1)
     expect(html).toContain(guide.h1)
     expect(html).toContain(guide.quickAnswer)

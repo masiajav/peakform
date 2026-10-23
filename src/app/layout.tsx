@@ -13,10 +13,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   applicationName: SITE_NAME,
   title: {
-    default: 'Replaid Lab - Guías, counters y vídeos de Overwatch',
+    default: 'Replaid Lab - Guías de Overwatch y Deadlock',
     template: `%s - ${SITE_NAME}`,
   },
-  description: 'Guías, counters, vídeos, noticias y consejos de Overwatch para mejorar por héroe, rol y mapa.',
+  description: 'Guías, héroes, counters y noticias de Overwatch y Deadlock en español.',
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
   openGraph: {
     title: 'Replaid Lab',
-    description: 'Guías, counters, vídeos y consejos de Overwatch para mejorar por héroe, rol y mapa.',
+    description: 'Aprende Overwatch y Deadlock con guías prácticas, héroes, builds y noticias en español.',
     siteName: SITE_NAME,
     url: SITE_URL,
     locale: 'es_ES',
@@ -53,14 +53,14 @@ export const metadata: Metadata = {
         url: absoluteUrl('/og-image.svg'),
         width: 1200,
         height: 630,
-        alt: 'Replaid Lab - Guías y counters de Overwatch',
+        alt: 'Replaid Lab - Overwatch y Deadlock',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Replaid Lab',
-    description: 'Guías, counters, vídeos y consejos de Overwatch para mejorar por héroe, rol y mapa.',
+    description: 'Aprende Overwatch y Deadlock con guías prácticas, héroes, builds y noticias en español.',
     images: [absoluteUrl('/og-image.svg')],
   },
 }

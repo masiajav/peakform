@@ -1,0 +1,254 @@
+[
+  {
+    "id": 1,
+    "name": "Infernus",
+    "className": "hero_inferno",
+    "guide": "infernus"
+  },
+  {
+    "id": 2,
+    "name": "Siete",
+    "className": "hero_gigawatt",
+    "guide": "seven"
+  },
+  {
+    "id": 3,
+    "name": "Vindicta",
+    "className": "hero_hornet",
+    "guide": null
+  },
+  {
+    "id": 4,
+    "name": "Lady Geist",
+    "className": "hero_ghost",
+    "guide": null
+  },
+  {
+    "id": 6,
+    "name": "Abrams",
+    "className": "hero_atlas",
+    "guide": "abrams"
+  },
+  {
+    "id": 7,
+    "name": "Espectro",
+    "className": "hero_wraith",
+    "guide": null
+  },
+  {
+    "id": 8,
+    "name": "McGinnis",
+    "className": "hero_forge",
+    "guide": null
+  },
+  {
+    "id": 10,
+    "name": "Paradoja",
+    "className": "hero_chrono",
+    "guide": null
+  },
+  {
+    "id": 11,
+    "name": "Dínamo",
+    "className": "hero_dynamo",
+    "guide": "dynamo"
+  },
+  {
+    "id": 12,
+    "name": "Kelvin",
+    "className": "hero_kelvin",
+    "guide": null
+  },
+  {
+    "id": 13,
+    "name": "Bruma",
+    "className": "hero_haze",
+    "guide": "haze"
+  },
+  {
+    "id": 14,
+    "name": "Holliday",
+    "className": "hero_astro",
+    "guide": null
+  },
+  {
+    "id": 15,
+    "name": "Bebop",
+    "className": "hero_bebop",
+    "guide": null
+  },
+  {
+    "id": 16,
+    "name": "Calico",
+    "className": "hero_nano",
+    "guide": null
+  },
+  {
+    "id": 17,
+    "name": "Garra Gris",
+    "className": "hero_orion",
+    "guide": null
+  },
+  {
+    "id": 18,
+    "name": "Mo y Krill",
+    "className": "hero_krill",
+    "guide": null
+  },
+  {
+    "id": 19,
+    "name": "El Navajas",
+    "className": "hero_shiv",
+    "guide": null
+  },
+  {
+    "id": 20,
+    "name": "Hiedra",
+    "className": "hero_tengu",
+    "guide": null
+  },
+  {
+    "id": 25,
+    "name": "Guardia",
+    "className": "hero_warden",
+    "guide": null
+  },
+  {
+    "id": 27,
+    "name": "Yamato",
+    "className": "hero_yamato",
+    "guide": null
+  },
+  {
+    "id": 31,
+    "name": "Lash",
+    "className": "hero_lash",
+    "guide": "lash"
+  },
+  {
+    "id": 35,
+    "name": "Viscoso",
+    "className": "hero_viscous",
+    "guide": null
+  },
+  {
+    "id": 50,
+    "name": "Pocket",
+    "className": "hero_synth",
+    "guide": null
+  },
+  {
+    "id": 52,
+    "name": "Espejismo",
+    "className": "hero_mirage",
+    "guide": null
+  },
+  {
+    "id": 58,
+    "name": "Víbora",
+    "className": "hero_viper",
+    "guide": null
+  },
+  {
+    "id": 60,
+    "name": "Sinclair",
+    "className": "hero_magician",
+    "guide": null
+  },
+  {
+    "id": 63,
+    "name": "Mina",
+    "className": "hero_vampirebat",
+    "guide": null
+  },
+  {
+    "id": 64,
+    "name": "Vagabundo",
+    "className": "hero_drifter",
+    "guide": null
+  },
+  {
+    "id": 65,
+    "name": "Venator",
+    "className": "hero_priest",
+    "guide": null
+  },
+  {
+    "id": 66,
+    "name": "Víctor",
+    "className": "hero_frank",
+    "guide": null
+  },
+  {
+    "id": 67,
+    "name": "Paige",
+    "className": "hero_bookworm",
+    "guide": null
+  },
+  {
+    "id": 69,
+    "name": "El Portero",
+    "className": "hero_doorman",
+    "guide": null
+  },
+  {
+    "id": 72,
+    "name": "Billy",
+    "className": "hero_punkgoat",
+    "guide": null
+  },
+  {
+    "id": 76,
+    "name": "Graves",
+    "className": "hero_necro",
+    "guide": null
+  },
+  {
+    "id": 77,
+    "name": "Apolo",
+    "className": "hero_fencer",
+    "guide": null
+  },
+  {
+    "id": 78,
+    "name": "Danny Difunto",
+    "className": "hero_deadpack",
+    "guide": null
+  },
+  {
+    "id": 79,
+    "name": "Rem",
+    "className": "hero_familiar",
+    "guide": null
+  },
+  {
+    "id": 80,
+    "name": "Silver",
+    "className": "hero_werewolf",
+    "guide": null
+  },
+  {
+    "id": 81,
+    "name": "Celeste",
+    "className": "hero_unicorn",
+    "guide": null
+  },
+  {
+    "id": 84,
+    "name": "Rey Rata",
+    "className": "hero_ratking",
+    "guide": null
+  },
+  {
+    "id": 85,
+    "name": "Salomón",
+    "className": "hero_chessmaster",
+    "guide": null
+  },
+  {
+    "id": 87,
+    "name": "Enfermera Harrow",
+    "className": "hero_nurse",
+    "guide": null
+  }
+]

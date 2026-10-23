@@ -1,5 +1,7 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
+import { DEADLOCK_SECTIONS, GAMES, gameForPath } from '@/lib/games'
 import { useId, useRef, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
@@ -29,6 +31,9 @@ const linkStyle = {
 } as const
 
 export default function PublicNav({ ctaHref = '/login', ctaLabel = 'ENTRAR' }: PublicNavProps) {
+  const pathname = usePathname()
+  const game = gameForPath(pathname)
+  const links = game === 'deadlock' ? DEADLOCK_SECTIONS.map(s => ({ href: `/deadlock/${s.slug}`, label: s.label })) : game === 'overwatch' ? NAV_LINKS : []
   const [menuOpen, setMenuOpen] = useState(false)
   const menuId = useId()
   const toggle = useRef<HTMLButtonElement>(null)
@@ -43,6 +48,7 @@ export default function PublicNav({ ctaHref = '/login', ctaLabel = 'ENTRAR' }: P
       <Link href="/" className="public-nav-brand" aria-label="Ir al inicio de Replaid Lab">
         REPLAID LAB
       </Link>
+      <div className="game-switch" aria-label="Elegir juego">{Object.entries(GAMES).map(([id, item]) => <Link key={id} href={item.href} aria-current={game === id ? 'page' : undefined}>{item.name}</Link>)}</div>
       <div className="public-nav-spacer" />
       <button
         ref={toggle}
@@ -59,7 +65,7 @@ export default function PublicNav({ ctaHref = '/login', ctaLabel = 'ENTRAR' }: P
       <div id={menuId} className={`public-nav-links${menuOpen ? ' is-open' : ''}`} aria-label="Navegación principal" onClick={event => {
         if ((event.target as HTMLElement).closest('a')) setMenuOpen(false)
       }}>
-        {NAV_LINKS.map(link => (
+        {links.map(link => (
           <Link key={link.href} href={link.href} style={linkStyle}>
             {link.label}
           </Link>

@@ -1,3 +1,6 @@
+export const dynamic = 'force-dynamic'
+import { editorialForPath } from '@/lib/editorial-store'
+import GameEditorialArticle from '@/components/content/GameEditorialArticle'
 ﻿import type { Metadata } from 'next'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { createClient } from '@/lib/supabase/server'
@@ -66,6 +69,7 @@ const fetchGuide = cache(async (slug: string): Promise<GuideContent | null> => {
   const { data } = await admin
     .from('guides')
     .select(GUIDE_DETAIL_COLUMNS)
+    .eq('game', 'overwatch')
     .eq('slug', slug)
     .eq('published', true)
     .single()
@@ -80,6 +84,8 @@ const fetchGuide = cache(async (slug: string): Promise<GuideContent | null> => {
 
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const params = await props.params;
+  const revision = await editorialForPath('overwatch', `/guides/${params.slug}`)
+  if (revision) return buildMetadata({title:revision.title,description:revision.description,path:revision.path,type:'article'})
   const rankedGuide = getRankedHeroGuide(params.slug)
   if (rankedGuide) {
     return buildMetadata({
@@ -109,6 +115,8 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
 
 export default async function GuideDetailPage(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params;
+  const revision = await editorialForPath('overwatch', `/guides/${params.slug}`)
+  if (revision) return <GameEditorialArticle article={revision}/>
   const reviewedTarget = reviewedGuideTarget(params.slug)
   if (reviewedTarget) permanentRedirect(guidePath(reviewedTarget))
   const rankedGuide = getRankedHeroGuide(params.slug)
@@ -130,6 +138,7 @@ export default async function GuideDetailPage(props: { params: Promise<{ slug: s
   let relatedQuery = admin
     .from('guides')
     .select(GUIDE_REVIEW_COLUMNS)
+    .eq('game', 'overwatch')
     .eq('published', true)
     .neq('slug', guide.slug)
     .limit(12)

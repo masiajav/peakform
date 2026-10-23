@@ -3,7 +3,7 @@ import type { StaticEditorialReview } from '@/lib/static-editorial-review'
 
 const fixture = vi.hoisted(() => ({ reviews: {} as Record<string, StaticEditorialReview>, guides: [] as object[] }))
 vi.mock('@/lib/static-editorial-reviews', () => ({ STATIC_EDITORIAL_REVIEWS: fixture.reviews }))
-vi.mock('@/lib/supabase/admin', () => ({ createAdminClient: () => ({ from: (table: string) => ({ select: () => ({ eq: async () => ({ data: table === 'guides' ? fixture.guides : [] }) }) }) }) }))
+vi.mock('@/lib/supabase/admin', () => ({ createAdminClient: () => ({ from: (table: string) => { const query={select:()=>query,eq:()=>query,then:(resolve:any)=>Promise.resolve({data:table === 'guides' ? fixture.guides : []}).then(resolve)};return query } }) }))
 import sitemap from '@/app/sitemap'
 import { rankedHeroGuides } from '@/lib/ranked-hero-guides'
 import { staticEditorialContentVersion } from '@/lib/static-editorial-review'

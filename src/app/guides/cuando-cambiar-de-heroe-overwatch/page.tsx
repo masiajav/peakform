@@ -1,3 +1,7 @@
+export const dynamic = 'force-dynamic'
+import { editorialForPath } from '@/lib/editorial-store'
+import GameEditorialArticle from '@/components/content/GameEditorialArticle'
+import { buildMetadata as revisionMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import PublicNav from '@/components/layout/PublicNav'
 import EvergreenGuideArticle from '@/components/content/EvergreenGuideArticle'
@@ -5,12 +9,17 @@ import { reviewedHeroSwapGuide as guide } from '@/lib/reviewed-ranked-fundamenta
 import { buildMetadata } from '@/lib/seo'
 import { evergreenGuideQualityDecision } from '@/lib/indexing-policy'
 
-export const metadata: Metadata = buildMetadata({
+const legacyMetadata: Metadata = buildMetadata({
   title: guide.seoTitle, description: guide.seoDescription,
   path: `/guides/${guide.slug}`, type: 'article',
   robots: { index: evergreenGuideQualityDecision(guide).indexable, follow: true },
 })
 
-export default function HeroSwapGuidePage() {
+export default async function HeroSwapGuidePage() {
+  const revision = await editorialForPath('overwatch', '/guides/cuando-cambiar-de-heroe-overwatch')
+  if (revision) return <GameEditorialArticle article={revision}/>
+
   return <><PublicNav /><EvergreenGuideArticle guide={guide} /></>
 }
+
+export async function generateMetadata(){const revision=await editorialForPath('overwatch','/guides/cuando-cambiar-de-heroe-overwatch');return revision?revisionMetadata({title:revision.title,description:revision.description,path:revision.path,type:'article'}):legacyMetadata}

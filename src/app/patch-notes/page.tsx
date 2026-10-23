@@ -1,3 +1,4 @@
+import EditorialUpdates from '@/components/content/EditorialUpdates'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import PublicNav from '@/components/layout/PublicNav'
@@ -23,6 +24,7 @@ export default async function PatchNotesPage() {
   const { data, error } = await admin
     .from('announcements')
     .select('*')
+    .eq('game', 'overwatch')
     .eq('published', true)
     .eq('content_type', 'patch_note')
     .order('created_at', { ascending: false })
@@ -37,6 +39,7 @@ export default async function PatchNotesPage() {
       <PublicNav />
 
       <main style={{ maxWidth: 900, margin: '0 auto', padding: '64px 24px 88px' }}>
+        <EditorialUpdates game="overwatch" kinds={["patch_note"]}/>
         <header style={{ marginBottom: 40 }}>
           <div className="eyebrow">OVERWATCH</div>
           <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(40px, 7vw, 68px)', letterSpacing: 0, color: 'var(--text)', margin: '0 0 12px', lineHeight: 0.98 }}>

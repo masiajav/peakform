@@ -1,3 +1,5 @@
+import { publishedEditorial } from '@/lib/editorial-store'
+import { DEADLOCK_SECTIONS } from '@/lib/games'
 import type { MetadataRoute } from 'next'
 import { ANNOUNCEMENT_REVIEW_COLUMNS, GUIDE_REVIEW_COLUMNS } from '@/lib/editorial-review'
 import { createAdminClient } from '@/lib/supabase/admin'
@@ -112,6 +114,9 @@ const MAP_LAST_MODIFIED = Object.fromEntries(
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
     '',
+    '/overwatch',
+    '/deadlock',
+    ...DEADLOCK_SECTIONS.map(s=>`/deadlock/${s.slug}`),
     '/experts',
     '/heroes',
     '/guides',
@@ -157,8 +162,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const admin = createAdminClient()
   const [{ data: guides }, { data: announcements }, { data: experts }] = await Promise.all([
-    admin.from('guides').select(GUIDE_REVIEW_COLUMNS).eq('published', true),
-    admin.from('announcements').select(ANNOUNCEMENT_REVIEW_COLUMNS).eq('published', true),
+    admin.from('guides').select(GUIDE_REVIEW_COLUMNS).eq('game','overwatch').eq('published', true),
+    admin.from('announcements').select(ANNOUNCEMENT_REVIEW_COLUMNS).eq('game','overwatch').eq('published', true),
     admin.from('experts').select('id, slug, display_name, bio, specialties, avatar_url, peak_rank, main_role, status, tier_starter_enabled, tier_pro_enabled, tier_deep_dive_enabled, updated_at, created_at').eq('status', 'active'),
   ])
 
@@ -189,6 +194,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     }))
 
-  const routes = [...staticRoutes, ...guideRoutes, ...announcementRoutes, ...expertRoutes]
+  const editorial = (await Promise.all([publishedEditorial('overwatch'),publishedEditorial('deadlock')])).flat().map(a=>({url:absoluteUrl(a.path),lastModified:new Date(a.updatedAt),changeFrequency:'weekly' as const,priority:0.75}))
+  const routes = [...staticRoutes, ...guideRoutes, ...announcementRoutes, ...expertRoutes, ...editorial]
   return Array.from(new Map(routes.map(route => [route.url, route])).values())
 }

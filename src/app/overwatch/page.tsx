@@ -1,0 +1,423 @@
+import EditorialUpdates from '@/components/content/EditorialUpdates'
+export const dynamic = 'force-dynamic'
+import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
+import Link from 'next/link'
+import { createClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/supabase/admin'
+import JsonLd from '@/components/content/JsonLd'
+import AdSlot from '@/components/content/AdSlot'
+import PublicNav from '@/components/layout/PublicNav'
+import HeroPortraitImage from '@/components/heroes/HeroPortraitImage'
+import { announcementPath, ROLE_LABELS, topicLabel, type GuideContent } from '@/lib/content'
+import { REPLAID_DISCORD_URL } from '@/lib/community'
+import { evergreenGuides } from '@/lib/evergreen-guides'
+import { guideEditorial } from '@/lib/guide-editorial'
+import { isAnnouncementSitemapEligible, isGuideSitemapEligible } from '@/lib/indexing-policy'
+import { ANNOUNCEMENT_REVIEW_COLUMNS, GUIDE_REVIEW_COLUMNS } from '@/lib/editorial-review'
+import { COUNTER_HEROES, type CounterHero, type CounterRole } from '@/lib/overwatch-counters'
+import { getHeroPortrait } from '@/lib/overwatch-hero-portraits'
+import { heroTopicHref } from '@/lib/topic-links'
+import { absoluteUrl, buildMetadata } from '@/lib/seo'
+import ExpertPriceSummary from '@/components/content/ExpertPriceSummary'
+import { EXPERT_PUBLIC_PRICE_COLUMNS } from '@/lib/expert-public-pricing'
+import { discoverableGuides } from '@/lib/guide-discovery'
+import { getRankedHeroGuide } from '@/lib/ranked-hero-guides'
+
+export const metadata: Metadata = buildMetadata({
+  title: 'Guías de Overwatch, héroes y consejos para mejorar',
+  description: 'Aprende Overwatch con guías por héroe, rol y mapa, counters, composiciones y análisis de partidas.',
+  path: '/overwatch',
+})
+
+const spotlightHeroSlugs = ['doctrine', 'dmon', 'shion', 'sierra']
+const roleOrder: CounterRole[] = ['tank', 'dps', 'support']
+const heroBySlug = new Map(COUNTER_HEROES.map(hero => [hero.slug, hero]))
+const spotlightHeroes = pickHeroes(spotlightHeroSlugs)
+const homeLearningGuides = [
+  evergreenGuides['review-vod-overwatch-espanol'],
+  evergreenGuides['como-subir-de-rango-overwatch'],
+  evergreenGuides['counters-overwatch-guia-completa'],
+]
+const seasonNews = [
+  { title: 'Doctrine', label: 'Ya disponible', body: 'El nuevo Support llega con ajustes respecto al trial. Repasa Imbuir, los drones y su movilidad antes de entrar en partida.' },
+  { title: 'Sombra', label: 'Ahora Support', body: 'Hotfix cura a un aliado y Cyberspace combina curación de área con debilitación del rival.' },
+  { title: 'Roadhog', label: 'Rework disponible', body: 'Su arma dispara en dos ráfagas y Trash Compactor absorbe proyectiles antes de devolver un disparo explosivo.' },
+  { title: 'Grímsvötn', label: 'Nuevo mapa', body: 'La nueva Escolta lleva la carga a una prisión islandesa ligada a Doctrine y Doomfist.' },
+  { title: 'Halloween', label: 'Hasta el 2 de noviembre', body: 'Mystery Madness: Graveyard Games añade poderes aleatorios y recompensas de evento.' },
+  { title: 'Unvaulted Passes', label: 'Pases antiguos', body: 'Puedes progresar un pase recuperado junto al actual. No incluye míticas, prismas ni monedas.' },
+]
+
+export default async function RootPage() {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+
+  let profileRole: string | null = null
+  if (user) {
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('role')
+      .eq('id', user.id)
+      .single()
+    profileRole = profile?.role ?? 'user'
+  }
+
+  const admin = createAdminClient()
+  const [{ data: featuredGuides }, { data: experts }, { data: latestNews }] = await Promise.all([
+    admin
+      .from('guides')
+      .select(GUIDE_REVIEW_COLUMNS)
+      .eq('game', 'overwatch')
+      .eq('published', true)
+      .order('created_at', { ascending: false })
+      .limit(18)
+      .returns<GuideContent[]>(),
+    admin
+      .from('experts')
+      .select(`id, slug, display_name, peak_rank, main_role, specialties, avg_rating, total_reviews, ${EXPERT_PUBLIC_PRICE_COLUMNS}`)
+      .eq('status', 'active')
+      .eq('service_paused', false)
+      .order('avg_rating', { ascending: false })
+      .limit(3),
+    admin
+      .from('announcements')
+      .select(ANNOUNCEMENT_REVIEW_COLUMNS)
+      .eq('game', 'overwatch')
+      .eq('published', true)
+      .order('created_at', { ascending: false })
+      .limit(12),
+  ])
+
+  const qualityFeaturedGuides = discoverableGuides(featuredGuides ?? [])
+    .filter((guide: any) => Boolean(getRankedHeroGuide(guide.slug)) || isGuideSitemapEligible(guide))
+    .slice(0, 6)
+  const qualityLatestNews = (latestNews ?? [])
+    .filter((item: any) => item.content_type !== 'patch_note' && isAnnouncementSitemapEligible(item))
+    .slice(0, 3)
+
+  const homeGuideItems = [
+    ...homeLearningGuides.map(guide => ({
+      name: guide.seoTitle,
+      url: absoluteUrl(`/guides/${guide.slug}`),
+    })),
+    ...qualityFeaturedGuides.map((guide: any) => ({
+      name: guideEditorial(guide).seoTitle,
+      url: absoluteUrl(`/guides/${guide.slug}`),
+    })),
+  ]
+
+  const itemListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Guías destacadas de Overwatch',
+    itemListElement: homeGuideItems.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      url: item.url,
+    })),
+  }
+
+  return (
+    <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
+      <JsonLd data={itemListJsonLd} />
+      <PublicNav
+        ctaHref={user ? profileRole === 'admin' ? '/admin' : profileRole === 'expert' ? '/expert/dashboard' : '/dashboard' : '/login'}
+        ctaLabel={user ? 'MI PANEL' : 'ENTRAR'}
+      />
+
+      <main>
+        <EditorialUpdates game="overwatch" kinds={["guide","news","patch_note"]}/>
+        <section style={{ maxWidth: 1120, margin: '0 auto', padding: '72px 24px 36px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.15fr) minmax(280px, 0.85fr)', gap: 32, alignItems: 'center' }} className="home-hero-grid">
+            <div>
+              <div className="eyebrow">HEMEROTECA DE OVERWATCH</div>
+              <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(46px, 8vw, 82px)', lineHeight: 0.94, letterSpacing: 1.5, margin: '0 0 22px', color: 'var(--text)' }}>
+                GUÍAS DE OVERWATCH, <br />
+                <span style={{ color: 'var(--accent)' }}>HÉROES Y CONSEJOS</span> <br />
+                PARA MEJORAR
+              </h1>
+              <p style={{ color: 'var(--text2)', fontSize: 17, lineHeight: 1.65, maxWidth: 610, margin: '0 0 28px' }}>
+                Encuentra guías por héroe, rol o problema concreto. Primero aprende el patrón; después, si lo necesitas, pide a un experto que revise tu VOD.
+              </p>
+              <form action="/guides" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) auto', gap: 10, maxWidth: 620 }} className="home-search">
+                <input name="q" placeholder="Buscar Genji, counters, support, 6v6..." aria-label="Buscar guías de Overwatch" />
+                <button className="btn btn-primary" type="submit">BUSCAR GUÍAS</button>
+              </form>
+              <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 12 }}>
+                <Link href="/heroes" className="btn btn-secondary btn-sm">VER HÉROES</Link>
+                <Link href="/blizzcon-2026-overwatch-horarios-espana" className="btn btn-secondary btn-sm">BLIZZCON</Link>
+                <Link href="/doctrine-support-sombra-roadhog-rework-overwatch" className="btn btn-secondary btn-sm">SEASON 5</Link>
+                <Link href="/guides/como-mejorar-en-overwatch" className="btn btn-secondary btn-sm">EMPEZAR A MEJORAR</Link>
+              </div>
+            </div>
+
+            <div className="home-hero-panel">
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, marginBottom: 14 }}>
+                <div className="eyebrow" style={{ marginBottom: 0 }}>ÚLTIMOS HÉROES</div>
+                <Link href="/heroes" className="home-hero-panel-link">TODOS</Link>
+              </div>
+              <div className="home-hero-card-grid">
+                {spotlightHeroes.map((hero, index) => (
+                  <HomeHeroCard key={hero.slug} hero={hero} priority={index < 4} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section style={{ maxWidth: 1120, margin: '0 auto', padding: '20px 24px 44px' }}>
+          <Link href="/doctrine-support-sombra-roadhog-rework-overwatch" style={{ textDecoration: 'none' }}>
+            <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 24 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16, alignItems: 'start', marginBottom: 18, flexWrap: 'wrap' }}>
+                <div>
+                  <div className="eyebrow">ÚLTIMAS NOVEDADES</div>
+                  <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(32px, 5vw, 48px)', letterSpacing: 1, lineHeight: 1, margin: '0 0 8px' }}>
+                    SEASON 5 YA DISPONIBLE: A GRIM DOCTRINE
+                  </h2>
+                  <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0, maxWidth: 760 }}>
+                    La temporada arrancó el 6 de octubre y ya tiene otro ajuste de balance: nerfs de Doctrine y Sombra y mejoras para Roadhog. Repasa el hotfix del 13 de octubre, Grímsvötn y las fechas de los eventos.
+                  </p>
+                </div>
+                <span className="btn btn-primary btn-sm">VER TODO</span>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: 10 }}>
+                {seasonNews.map(item => (
+                  <div key={item.title} style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', padding: 14, minHeight: 118 }}>
+                    <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)', fontSize: 10, letterSpacing: 1.3, marginBottom: 7 }}>
+                      {item.label.toUpperCase()}
+                    </div>
+                    <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 22, letterSpacing: 0.8, margin: '0 0 6px' }}>
+                      {item.title}
+                    </h3>
+                    <p style={{ color: 'var(--text2)', fontSize: 12, lineHeight: 1.45, margin: 0 }}>{item.body}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+          </Link>
+        </section>
+
+        <Section title="Héroes por rol" kicker="HUB VISUAL" href="/heroes" linkLabel="Abrir hub">
+          <div className="home-all-heroes-panel">
+            <div className="home-role-summary">
+              {roleOrder.map(role => (
+                <Link key={role} href={`/roles/${role}`}>
+                  <span>{ROLE_LABELS[role]}</span>
+                  <strong>{COUNTER_HEROES.filter(hero => hero.role === role).length}</strong>
+                </Link>
+              ))}
+            </div>
+            <div className="home-role-stack">
+              {roleOrder.map(role => (
+                <div key={role} className="home-role-lane">
+                  <div className="home-role-lane-header">
+                    <span>{ROLE_LABELS[role]}</span>
+                    <Link href={`/roles/${role}`}>VER ROL</Link>
+                  </div>
+                  <div className="home-role-hero-grid">
+                    {COUNTER_HEROES
+                      .filter(hero => hero.role === role)
+                      .map(hero => (
+                        <HomeHeroCard key={hero.slug} hero={hero} compact />
+                      ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Section>
+
+        <section style={{ maxWidth: 1120, margin: '0 auto', padding: '0 24px' }}>
+          <AdSlot variant="leaderboard" slot="home-top-leaderboard" />
+        </section>
+
+        <Section title="Guías populares" kicker="HEMEROTECA" href="/guides" linkLabel="Ver todas">
+          <CardGrid>
+            {qualityFeaturedGuides.map((guide: any) => (
+              <GuideCard key={guide.id} guide={guide} />
+            ))}
+          </CardGrid>
+        </Section>
+
+        <Section title="Prepara tu siguiente partida" kicker="ENTRENAR" href="/guides" linkLabel="Ver guías">
+          <CardGrid>
+            {homeLearningGuides.map(guide => (
+              <Link key={guide.slug} href={`/guides/${guide.slug}`} style={{ textDecoration: 'none' }}>
+                <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 20, height: '100%' }}>
+                  <div style={{ color: 'var(--accent)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 11, letterSpacing: 1.2, marginBottom: 8 }}>
+                    PARA TUS PARTIDAS
+                  </div>
+                  <h3 style={{ color: 'var(--text)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 25, lineHeight: 1.05, letterSpacing: 0.8, margin: '0 0 10px' }}>
+                    {guide.title}
+                  </h3>
+                  <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.55, margin: 0 }}>
+                    {guide.quickAnswer}
+                  </p>
+                </article>
+              </Link>
+            ))}
+          </CardGrid>
+        </Section>
+
+        <section style={{ maxWidth: 1120, margin: '0 auto', padding: '0 24px' }}>
+          <AdSlot variant="leaderboard" slot="home-mid-leaderboard" />
+        </section>
+
+        {experts && experts.length > 0 && (
+          <Section title="Feedback personalizado" kicker="SIGUIENTE PASO" href="/experts" linkLabel="Ver expertos">
+            <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 24, marginBottom: 16 }}>
+              <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 30, letterSpacing: 1, color: 'var(--text)', margin: '0 0 8px' }}>
+                ¿Quieres que un experto revise tus errores?
+              </h3>
+              <p style={{ color: 'var(--text2)', fontSize: 15, lineHeight: 1.65, margin: 0, maxWidth: 720 }}>
+                Una review puede ayudarte a detectar errores que repites y elegir qué practicar. Consulta en cada perfil el formato, los plazos y qué incluye el servicio.
+              </p>
+            </div>
+            <CardGrid>
+              {experts.map((expert: any) => (
+                <Link key={expert.id} href={`/experts/${expert.slug || expert.id}`} style={{ textDecoration: 'none' }}>
+                  <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 20, height: '100%' }}>
+                    <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 22, letterSpacing: 0.7 }}>{expert.display_name}</div>
+                    <div style={{ color: 'var(--accent)', fontSize: 12, marginTop: 4 }}>{expert.peak_rank} · {ROLE_LABELS[expert.main_role as keyof typeof ROLE_LABELS] || expert.main_role}</div>
+                    <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.5, minHeight: 38 }}>
+                      {(expert.specialties ?? []).slice(0, 3).join(' · ') || 'Review personalizada de partidas'}
+                    </p>
+                    <ExpertPriceSummary expert={expert} />
+                  </article>
+                </Link>
+              ))}
+            </CardGrid>
+          </Section>
+        )}
+
+        {qualityLatestNews.length > 0 && (
+          <Section title="Actualidad" kicker="NOTICIAS" href="/news" linkLabel="Ver noticias">
+            <div style={{ display: 'grid', gap: 12 }}>
+              {qualityLatestNews.map((item: any) => (
+                <Link key={item.id} href={announcementPath(item)} style={{ textDecoration: 'none' }}>
+                  <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '18px 20px' }}>
+                    <div style={{ color: 'var(--text3)', fontFamily: 'Bebas Neue, sans-serif', letterSpacing: 1.2, fontSize: 11, marginBottom: 6 }}>
+                      {new Date(item.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' })}
+                    </div>
+                    <h3 style={{ color: 'var(--text)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 21, letterSpacing: 0.7, margin: '0 0 6px' }}>{item.title}</h3>
+                    <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.5, margin: 0 }}>{item.excerpt || item.body?.slice(0, 150)}</p>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          </Section>
+        )}
+      </main>
+
+    </div>
+  )
+}
+
+function TopNav({ user, profileRole }: { user: any; profileRole: string | null }) {
+  return (
+    <nav style={{ height: 52, background: 'var(--bg)', borderBottom: '1px solid var(--border)', display: 'flex', alignItems: 'center', padding: '0 24px', gap: 20, position: 'sticky', top: 0, zIndex: 100 }}>
+      <Link href="/" style={{ textDecoration: 'none' }}>
+        <span style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 26, color: 'var(--accent)', letterSpacing: 3 }}>REPLAID LAB</span>
+      </Link>
+      <div style={{ flex: 1 }} />
+      <Link href="/guides" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Guías</Link>
+      <Link href="/pick-lab" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Pick Lab</Link>
+      <Link href="/team-comps" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Composiciones</Link>
+      <Link href="/news" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Noticias</Link>
+      <Link href="/experts" className="hide-mobile" style={{ fontSize: 13, color: 'var(--text2)', textDecoration: 'none' }}>Expertos</Link>
+      <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer" className="hide-mobile" style={{ fontSize: 13, color: 'var(--accent)', textDecoration: 'none' }}>Discord</a>
+      {user ? (
+        <Link href={profileRole === 'admin' ? '/admin' : profileRole === 'expert' ? '/expert/dashboard' : '/dashboard'} className="btn btn-primary btn-sm">
+          MI PANEL
+        </Link>
+      ) : (
+        <Link href="/login" className="btn btn-primary btn-sm">ENTRAR</Link>
+      )}
+    </nav>
+  )
+}
+
+function Section({ title, kicker, href, linkLabel, children }: { title: string; kicker: string; href: string; linkLabel: string; children: ReactNode }) {
+  return (
+    <section style={{ maxWidth: 1120, margin: '0 auto', padding: '52px 24px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16, alignItems: 'end', marginBottom: 24 }}>
+        <div>
+          <div className="eyebrow">{kicker}</div>
+          <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 38, letterSpacing: 1, margin: 0 }}>{title}</h2>
+        </div>
+        <Link href={href} style={{ color: 'var(--accent)', textDecoration: 'none', fontSize: 13 }}>{linkLabel} →</Link>
+      </div>
+      {children}
+    </section>
+  )
+}
+
+function CardGrid({ children }: { children: ReactNode }) {
+  return <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 14 }}>{children}</div>
+}
+
+function HomeHeroCard({ hero, compact = false, priority = false }: { hero: CounterHero; compact?: boolean; priority?: boolean }) {
+  const portrait = getHeroPortrait(hero.slug)
+
+  return (
+    <Link href={heroTopicHref(hero.slug)} className={`home-hero-card${compact ? ' is-compact' : ''}`} aria-label={`Ver información de ${hero.name}`}>
+      <article>
+        <div className="home-hero-card-image">
+          <HeroPortraitImage
+            src={portrait}
+            name={hero.name}
+            fallbackClassName="home-hero-card-fallback"
+            priority={priority}
+            sizes={compact ? '(max-width: 768px) 42vw, 150px' : '(max-width: 768px) 42vw, 180px'}
+            imageStyle={{ objectFit: 'contain', objectPosition: 'center bottom' }}
+          />
+          {hero.slug === 'doctrine' && <span className="home-hero-card-badge">NUEVO</span>}
+        </div>
+        <div className="home-hero-card-body">
+          <span className="home-hero-card-name">{hero.name}</span>
+          <span className="home-hero-card-role">{ROLE_LABELS[hero.role]}</span>
+        </div>
+      </article>
+    </Link>
+  )
+}
+
+function GuideCard({ guide, compactMeta = false }: { guide: any; compactMeta?: boolean }) {
+  const editorial = guideEditorial(guide)
+
+  return (
+    <Link href={`/guides/${guide.slug}`} style={{ textDecoration: 'none' }}>
+      <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 20, height: '100%' }}>
+        <div style={{ display: 'flex', gap: 7, flexWrap: 'wrap', marginBottom: 10 }}>
+          {guide.video_id && <Tag label="Video" accent />}
+          {guide.role && <Tag label={ROLE_LABELS[guide.role as keyof typeof ROLE_LABELS] || guide.role} />}
+          {guide.hero && <Tag label={topicLabel(guide.hero)} />}
+        </div>
+        <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 22, letterSpacing: 0.7, lineHeight: 1.15, margin: '0 0 10px' }}>{editorial.title}</h3>
+        <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.5, margin: '0 0 14px' }}>{editorial.description}</p>
+        <div style={{ color: 'var(--text3)', fontSize: 11 }}>
+          {compactMeta && guide.video_published_at
+            ? `Vídeo ${new Date(guide.video_published_at).getFullYear()}`
+            : new Date(guide.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' })}
+          {guide.video_channel ? ` · ${guide.video_channel}` : ''}
+        </div>
+      </article>
+    </Link>
+  )
+}
+
+function Tag({ label, accent = false }: { label: string; accent?: boolean }) {
+  return (
+    <span style={{ fontSize: 10, letterSpacing: 1.3, color: accent ? 'var(--accent)' : 'var(--text3)', fontFamily: 'Bebas Neue, sans-serif' }}>
+      {label.toUpperCase()}
+    </span>
+  )
+}
+
+function pickHeroes(slugs: string[]) {
+  return slugs
+    .map(slug => heroBySlug.get(slug))
+    .filter((hero): hero is CounterHero => Boolean(hero))
+}

@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { normalizeRole, normalizeTopic, parseTags, toSlug } from '@/lib/content'
+import { isGameId } from '@/lib/games'
 import { NextResponse } from 'next/server'
 import { editorialInputIssues, prepareEditorialPublication } from '@/lib/editorial-publication'
 
@@ -16,7 +17,7 @@ function updatePayload(body: any) {
   const allowed: Record<string, unknown> = {}
 
   for (const key of [
-    'title',
+    'game', 'title',
     'body',
     'category',
     'published',
@@ -61,6 +62,7 @@ export async function PATCH(request: Request, props: { params: Promise<{ id: str
   if (!user) return NextResponse.json({ error: 'No autorizado' }, { status: 403 })
 
   const body = await request.json()
+  if (body?.game !== undefined && !isGameId(body.game)) return NextResponse.json({ error: 'Juego no válido' }, { status: 400 })
   const inputIssues = editorialInputIssues(body)
   if (inputIssues.length) return NextResponse.json({ error: inputIssues.join('. ') }, { status: 400 })
   const admin = createAdminClient()

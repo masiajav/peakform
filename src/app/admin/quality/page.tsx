@@ -35,11 +35,11 @@ export default async function QualityAuditPage() {
   const [{ data: guides }, { data: announcements }] = await Promise.all([
     supabase
       .from('guides')
-      .select(GUIDE_REVIEW_COLUMNS)
+      .select(GUIDE_REVIEW_COLUMNS).eq('game','overwatch')
       .eq('published', true),
     supabase
       .from('announcements')
-      .select(ANNOUNCEMENT_REVIEW_COLUMNS)
+      .select(ANNOUNCEMENT_REVIEW_COLUMNS).eq('game','overwatch')
       .eq('published', true),
   ])
 

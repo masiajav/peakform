@@ -5,6 +5,7 @@ import { hasCurrentEditorialReview, publicEditorialTags } from '@/lib/editorial-
 import EditorialReviewChecklist, { useEditorialReviewState } from './EditorialReviewChecklist'
 
 interface Guide {
+  game?: string
   id: string
   title: string
   slug: string
@@ -39,6 +40,7 @@ function toSlug(str: string) {
 }
 
 const emptyForm = {
+  game: 'overwatch',
   title: '',
   slug: '',
   body: '',
@@ -67,6 +69,7 @@ const emptyForm = {
 
 function formFromGuide(item: Guide) {
   return {
+    game: item.game || 'overwatch',
     title: item.title || '',
     slug: item.slug || '',
     body: item.body || '',
@@ -94,11 +97,11 @@ function formFromGuide(item: Guide) {
   }
 }
 
-export default function GuideManager({ initialGuides }: { initialGuides: Guide[] }) {
+export default function GuideManager({ initialGuides, game = 'overwatch' }: { initialGuides: Guide[]; game?: string }) {
   const [items, setItems] = useState(initialGuides)
-  const [form, setForm] = useState(emptyForm)
+  const [form, setForm] = useState({...emptyForm,game})
   const [editingId, setEditingId] = useState<string | null>(null)
-  const [editForm, setEditForm] = useState(emptyForm)
+  const [editForm, setEditForm] = useState({...emptyForm,game})
   const review = useEditorialReviewState(editForm, editingId)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -119,7 +122,7 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
     const data = await res.json()
     if (!res.ok) { setError(data.error); setSaving(false); return }
     setItems([data, ...items])
-    setForm(emptyForm)
+    setForm({...emptyForm,game})
     setSaving(false)
   }
 
@@ -274,7 +277,7 @@ export default function GuideManager({ initialGuides }: { initialGuides: Guide[]
                 </div>
               </div>
               <div style={{ display: 'flex', gap: 8, flexShrink: 0 }}>
-                <a href={`/guides/${item.slug}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: 'var(--text2)', background: 'transparent', border: '1px solid var(--border)', padding: '4px 10px', textDecoration: 'none', display: 'inline-block' }}>Ver</a>
+                <a href={`${item.game === 'deadlock' ? '/deadlock' : ''}/guides/${item.slug}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: 'var(--text2)', background: 'transparent', border: '1px solid var(--border)', padding: '4px 10px', textDecoration: 'none', display: 'inline-block' }}>Ver</a>
                 <button onClick={() => startEdit(item)} className="btn btn-secondary btn-sm">Editar</button>
                 <button onClick={() => togglePublished(item)} className="btn btn-secondary btn-sm">{item.published ? 'Ocultar' : 'Publicar'}</button>
                 <button onClick={() => handleDelete(item.id)} style={{ fontSize: 12, color: 'var(--danger)', background: 'transparent', border: '1px solid rgba(255,68,68,0.3)', padding: '4px 10px', cursor: 'pointer' }}>Eliminar</button>

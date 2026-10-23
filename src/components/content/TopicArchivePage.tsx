@@ -31,6 +31,7 @@ export default async function TopicArchivePage({
   const guideQuery = admin
     .from('guides')
     .select(GUIDE_REVIEW_COLUMNS)
+    .eq('game', 'overwatch')
     .eq('published', true)
     .eq(kind, slug)
     .order('created_at', { ascending: false })
@@ -40,6 +41,7 @@ export default async function TopicArchivePage({
   const newsQuery = admin
     .from('announcements')
     .select(ANNOUNCEMENT_REVIEW_COLUMNS)
+    .eq('game', 'overwatch')
     .eq('published', true)
     .eq(kind, slug)
     .order('created_at', { ascending: false })

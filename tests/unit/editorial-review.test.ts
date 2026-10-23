@@ -56,7 +56,7 @@ describe('version-bound editorial review', () => {
     expect(GUIDE_REVIEW_COLUMNS).toContain('video_summary')
     expect(GUIDE_REVIEW_COLUMNS).not.toContain('source_url')
     expect(editorialContentVersion(content)).toMatch(/^[a-f0-9]{64}$/)
-    const rowFields = ['id', 'tags', 'published', 'created_at', 'updated_at']
+    const rowFields = ['game', 'id', 'tags', 'published', 'created_at', 'updated_at']
     const emptyFields = [...GUIDE_REVIEW_COLUMNS.split(', ').filter(field => !rowFields.includes(field)), 'source_url', 'source_published_at'].map(field => [field, ''])
     expect(editorialContentVersion({})).toBe(createHash('sha256').update(JSON.stringify([emptyFields, []])).digest('hex'))
   })

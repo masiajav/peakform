@@ -1,3 +1,5 @@
+import { editorialForPath } from '@/lib/editorial-store'
+import GameEditorialArticle from '@/components/content/GameEditorialArticle'
 import type { Metadata } from 'next'
 import { createAdminClient } from '@/lib/supabase/admin'
 import AnnouncementArticlePage from '@/components/content/AnnouncementArticlePage'
@@ -18,6 +20,7 @@ const fetchPatchNote = cache(async (slug: string) => {
   const { data, error } = await admin
     .from('announcements')
     .select('*')
+    .eq('game', 'overwatch')
     .eq('slug', slug)
     .eq('published', true)
     .eq('content_type', 'patch_note')
@@ -29,6 +32,8 @@ const fetchPatchNote = cache(async (slug: string) => {
 
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const params = await props.params;
+  const revision = await editorialForPath('overwatch', `/patch-notes/${params.slug}`)
+  if (revision) return buildMetadata({title:revision.title,description:revision.description,path:revision.path,type:'article'})
   const article = await fetchPatchNote(params.slug)
   if (!article) return {}
   const quality = announcementQualityDecision(article)
@@ -45,6 +50,8 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
 
 export default async function PatchNoteDetailPage(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params;
+  const revision = await editorialForPath('overwatch', `/patch-notes/${params.slug}`)
+  if (revision) return <GameEditorialArticle article={revision}/>
   const article = await fetchPatchNote(params.slug)
   if (!article) notFound()
 

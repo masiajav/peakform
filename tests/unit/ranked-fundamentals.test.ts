@@ -1,9 +1,9 @@
 import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { describe, expect, it } from 'vitest'
-import TankPage, { metadata as tankMetadata } from '@/app/guides/como-mejorar-como-tank-overwatch/page'
-import UltimatePage, { metadata as ultimateMetadata } from '@/app/guides/como-usar-ultimates-overwatch/page'
-import SwapPage, { metadata as swapMetadata } from '@/app/guides/cuando-cambiar-de-heroe-overwatch/page'
+import TankPage, { generateMetadata as tankMetadata } from '@/app/guides/como-mejorar-como-tank-overwatch/page'
+import UltimatePage, { generateMetadata as ultimateMetadata } from '@/app/guides/como-usar-ultimates-overwatch/page'
+import SwapPage, { generateMetadata as swapMetadata } from '@/app/guides/cuando-cambiar-de-heroe-overwatch/page'
 import { reviewedRankedFundamentals, reviewedTankGuide, reviewedUltimateGuide, reviewedHeroSwapGuide } from '@/lib/reviewed-ranked-fundamentals'
 import { discoverableGuides } from '@/lib/guide-discovery'
 import { guideEditorial } from '@/lib/guide-editorial'
@@ -14,12 +14,13 @@ import type { GuideContent } from '@/lib/content'
 describe('individual Tank, ultimate and swap revisions', () => {
   for (const [index, Page] of [TankPage, UltimatePage, SwapPage].entries()) {
     const guide = reviewedRankedFundamentals[index]
-    const metadata = [tankMetadata, ultimateMetadata, swapMetadata][index]
-    it(`${guide.slug} keeps publication history and renders actual content and schemas without database access`, () => {
+    const loadMetadata = [tankMetadata, ultimateMetadata, swapMetadata][index]
+    it(`${guide.slug} keeps publication history and renders actual content and schemas without database access`, async () => {
+      const metadata = await loadMetadata()
       expect(guide.publishedAtIso).toBe(index === 0 ? '2026-06-21' : '2026-06-28')
       expect(guide.modifiedAtIso).toBe('2026-10-18')
       expect(metadata.alternates?.canonical).toBe(`https://www.replaidlab.com/guides/${guide.slug}`)
-      const html = renderToStaticMarkup(createElement(Page))
+      const html = renderToStaticMarkup(await Page())
       expect([...html.matchAll(/<h1\b/g)]).toHaveLength(1)
       expect(html).toContain(guide.h1)
       expect(html).toContain(guide.quickAnswer)

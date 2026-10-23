@@ -1,0 +1,1805 @@
+[
+  {
+    "game": "deadlock",
+    "kind": "hero",
+    "slug": "abrams",
+    "path": "/deadlock/heroes/abrams",
+    "title": "Abrams: guía para jugar con un plan",
+    "description": "Entrar cerca sin regalar el contrataque",
+    "intro": "Abrams quiere pelear cerca, pero acercarse no equivale a tener permiso para golpear. Tu primera decisión es preparar una trayectoria de entrada que termine con un enemigo expuesto y con tus compañeros a distancia de ayudar. Si cada embestida acaba detrás de la línea rival, la resistencia de tu héroe solo alarga una muerte evitable.",
+    "sections": [
+      {
+        "title": "Tus habilidades y la decisión que preparan",
+        "body": [
+          "Lee el efecto y el alcance en el cliente antes de practicar una secuencia. La ficha no fija cifras de daño ni recarga que puedan quedar desactualizadas tras un ajuste."
+        ],
+        "bullets": [
+          "Extracción de Vida: Drena la vida de los enemigos cercanos",
+          "Embestida de Hombro: Embiste hacia la batalla, arrastrando a los enemigos contigo",
+          "Resiliencia Infernal: Regenera parte del daño que recibes",
+          "Impacto Sísmico: Choca contra los enemigos desde arriba y atúrdelos"
+        ]
+      },
+      {
+        "title": "Cómo disputar la línea",
+        "body": [
+          "Juega junto a las coberturas que limitan el ángulo del rival. Una pared próxima abre una amenaza de embestida; en una zona abierta, el mismo movimiento puede alejar al enemigo sin darte una pelea favorable. Usa el disparo para disputar la oleada cuando entrar obligaría a atravesar demasiado espacio."
+        ]
+      },
+      {
+        "title": "Tu papel en la pelea",
+        "body": [
+          "Antes de Impacto Sísmico, elige quién puede aprovechar tu llegada. Aterrizar sobre varios enemigos mientras tus aliados limpian una oleada suele dejarte solo. Una entrada sobre un objetivo accesible, cerca de una esquina y con salida lateral, puede producir más presión que un salto espectacular al fondo.",
+          "Si el enemigo espera tus golpes pesados, alterna disparos, reposicionamiento y pausas. Repetir el mismo ritmo facilita el contrataque. No interpretes una habilidad defensiva como una razón para permanecer dentro de todo el daño rival."
+        ]
+      },
+      {
+        "title": "Una decisión para practicar",
+        "body": [
+          "Caso de práctica: llegas a una esquina con Embestida de Hombro disponible y ves dos enemigos. Si el compañero más cercano aún está en el tejado, espera su ángulo; si ya apunta a la pared, puedes buscar el choque y conservar el salto para prolongar o abandonar la pelea."
+        ]
+      }
+    ],
+    "checklist": [
+      "Localiza una pared útil antes de entrar.",
+      "Comprueba si un aliado puede seguir el control.",
+      "Cambia el ritmo si el rival espera el golpe pesado."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Ficha y referencias de habilidades",
+        "url": "https://deadlockbible.com/heroes/abrams/",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Builds y contexto de partidas",
+        "url": "https://www.lockcodex.com/es/heroes/abrams",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026",
+    "hero": "abrams",
+    "aliases": [
+      "Abrams",
+      "Abrams"
+    ],
+    "image": "/deadlock/abrams.webp"
+  },
+  {
+    "game": "deadlock",
+    "kind": "counter",
+    "slug": "abrams",
+    "path": "/deadlock/counters/abrams",
+    "title": "Counters de Abrams: cómo responder",
+    "description": "Respeta las paredes y castiga la entrada fallida",
+    "intro": "Contra Abrams, identifica primero la secuencia que le permite hacer daño. Esta guía propone respuestas de posición, recursos y coordinación; no ordena héroes por un porcentaje de victorias ni promete que un pick decida el enfrentamiento.",
+    "sections": [
+      {
+        "title": "Evita la situación que busca",
+        "body": [
+          "Muévete hacia un espacio donde Embestida de Hombro no pueda empujarte inmediatamente contra una pared. Conserva el contrataque para una animación legible; pulsarlo por miedo antes del golpe deja una ventana que Abrams puede aprovechar."
+        ]
+      },
+      {
+        "title": "Cuándo recuperar la iniciativa",
+        "body": [
+          "Después de una embestida que no consigue aislarte, toma distancia mientras le disparas con apoyo. Si persigues hasta su alcance de curación, devuelves la pelea al terreno que le interesa. Separa el momento de sobrevivir al contacto del momento de volver a presionar."
+        ]
+      },
+      {
+        "title": "Coordina la respuesta del equipo",
+        "body": [
+          "Un aliado que controle o desplace a Abrams puede ayudarte a recuperar distancia, pero debe ver la entrada. No apiles a todo el equipo en la misma esquina: facilita que su salto convierta una defensa individual en una pelea de área."
+        ]
+      },
+      {
+        "title": "Cómo revisar tu última muerte",
+        "body": [
+          "Vuelve al instante anterior al primer daño de Abrams. Anota tu cobertura, el recurso defensivo que conservabas y el aliado que podía ayudarte. Distingue un error de posición de una respuesta gastada demasiado pronto: cada problema pide una corrección distinta."
+        ]
+      }
+    ],
+    "checklist": [
+      "Respeta las paredes y castiga la entrada fallida.",
+      "Comprueba si un aliado puede seguir el control.",
+      "Cambia el ritmo si el rival espera el golpe pesado."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Ficha y referencias de habilidades",
+        "url": "https://deadlockbible.com/heroes/abrams/",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Builds y contexto de partidas",
+        "url": "https://www.lockcodex.com/es/heroes/abrams",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026",
+    "hero": "abrams",
+    "aliases": [
+      "Abrams",
+      "Abrams"
+    ],
+    "image": "/deadlock/abrams.webp"
+  },
+  {
+    "game": "deadlock",
+    "kind": "build",
+    "slug": "abrams",
+    "path": "/deadlock/builds/abrams",
+    "title": "Build de Abrams: compras y adaptaciones",
+    "description": "Primero, compra tiempo para permanecer cerca",
+    "intro": "La build de Abrams debe resolver el siguiente problema de tu partida. Usa esta ruta de decisiones para distinguir el núcleo de tu plan de las compras situacionales. Es una propuesta editorial de aprendizaje, no una build importada ni un ranking estadístico.",
+    "sections": [
+      {
+        "title": "Primeras compras: mantente en la partida",
+        "body": [
+          "Si pierdes vida antes de llegar a la oleada, resuelve ese problema con aguante o recuperación antes de acumular mejoras ofensivas. Robo de Vida Cuerpo a Cuerpo solo tiene sentido si realmente encuentras golpes seguros; no compensa una secuencia de contrataques recibidos."
+        ]
+      },
+      {
+        "title": "Media partida: refuerza lo que puedes ejecutar",
+        "body": [
+          "Una mejora que refuerce un golpe puede acompañar el momento de control, pero no te obliga a lanzar golpes pesados contra rivales preparados. Reserva también espacio para resistencia al daño que de verdad te está expulsando de la pelea."
+        ],
+        "bullets": [
+          "Aguante Adicional: consulta el efecto actual en la tienda y compáralo con el problema que quieres resolver.",
+          "Robo de Vida Cuerpo a Cuerpo: consulta el efecto actual en la tienda y compáralo con el problema que quieres resolver.",
+          "Golpe Espiritual: consulta el efecto actual en la tienda y compáralo con el problema que quieres resolver."
+        ]
+      },
+      {
+        "title": "Últimas compras: responde a la amenaza real",
+        "body": [
+          "Con más recursos, tu prioridad sigue siendo completar una entrada y sobrevivir al contraataque. Si el rival concentra toda su respuesta en ti, una compra defensiva puede permitir que tus aliados hagan el daño. Si no te siguen, revisa la posición del equipo antes de la tienda."
+        ]
+      },
+      {
+        "title": "Cuándo cambiar el orden",
+        "body": [
+          "Después de una muerte, revisa el registro de daño y el recurso que te impidió completar tu secuencia. Si Abrams no consigue llegar a su ventana útil, adelanta una respuesta defensiva o de movimiento. Si ya sobrevives y el enemigo escapa, busca una compra que ayude a mantener la presión. No vendas una pieza funcional solo para copiar otra lista."
+        ]
+      }
+    ],
+    "checklist": [
+      "Explica qué problema resuelve tu siguiente objeto.",
+      "Comprueba el daño recibido antes de comprar resistencia.",
+      "Practica una secuencia con los objetos que ya tienes."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Ficha y referencias de habilidades",
+        "url": "https://deadlockbible.com/heroes/abrams/",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Builds y contexto de partidas",
+        "url": "https://www.lockcodex.com/es/heroes/abrams",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026",
+    "hero": "abrams",
+    "aliases": [
+      "Abrams",
+      "Abrams"
+    ],
+    "image": "/deadlock/abrams.webp"
+  },
+  {
+    "game": "deadlock",
+    "kind": "hero",
+    "slug": "dynamo",
+    "path": "/deadlock/heroes/dynamo",
+    "title": "Dínamo: guía para jugar con un plan",
+    "description": "Controlar la pelea sin depender de una definitiva perfecta",
+    "intro": "Dínamo ofrece control y recuperación incluso cuando Singularidad no está disponible. Tu trabajo consiste en conservar una posición desde la que puedas ayudar y amenazar, en lugar de esperar fuera de la partida a que aparezca un grupo perfecto de enemigos.",
+    "sections": [
+      {
+        "title": "Tus habilidades y la decisión que preparan",
+        "body": [
+          "Lee el efecto y el alcance en el cliente antes de practicar una secuencia. La ficha no fija cifras de daño ni recarga que puedan quedar desactualizadas tras un ajuste."
+        ],
+        "bullets": [
+          "Pulsación Cinética: Libera una pulsación en el suelo que lanza a los enemigos por los aires",
+          "Entrelazamiento Cuántico: Existe y deja de existir",
+          "Aurora Rejuvenecedora: Cúrate a ti mismo⁠/⁠a y a los que te rodean",
+          "Singularidad: Atrae y aturde al equipo enemigo"
+        ]
+      },
+      {
+        "title": "Cómo disputar la línea",
+        "body": [
+          "Mantén una distancia que permita usar Pulsación Cinética sin abandonar la cobertura. Si tu compañero necesita retirarse, no gastes Entrelazamiento Cuántico para acercarte a un enemigo que todavía conserva su respuesta. Una herramienta de movimiento puede valer más como salida compartida."
+        ]
+      },
+      {
+        "title": "Tu papel en la pelea",
+        "body": [
+          "Singularidad necesita seguimiento. Antes de entrar, identifica desde dónde llegará el daño aliado y qué rival puede cortar tu acción. A veces basta con capturar a un enemigo importante: retrasar una oportunidad segura para atrapar a todos puede perder la pelea.",
+          "No confundas curar con permanecer quieto y expuesto. Aurora Rejuvenecedora permite ciertas acciones durante su uso; aprovecha la cobertura y comprueba qué movimientos mantienen el efecto en el cliente actual. Tu recuperación deja de aportar cuando quedas aislado del equipo."
+        ]
+      },
+      {
+        "title": "Una decisión para practicar",
+        "body": [
+          "Caso de práctica: un aliado está retrocediendo y el enemigo prepara una entrada. Puedes sostener la retirada con recuperación y reservar la pulsación para el perseguidor. Usar todas las habilidades al mismo tiempo te deja sin una segunda respuesta si aparece otro enemigo."
+        ]
+      }
+    ],
+    "checklist": [
+      "Señala el objetivo antes de usar Singularidad.",
+      "Conserva una respuesta para la retirada.",
+      "Comprueba dónde está el daño aliado."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Ficha y referencias de habilidades",
+        "url": "https://deadlockbible.com/heroes/dynamo/",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Builds y contexto de partidas",
+        "url": "https://www.lockcodex.com/es/heroes/dynamo",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026",
+    "hero": "dynamo",
+    "aliases": [
+      "Dynamo",
+      "Dínamo"
+    ],
+    "image": "/deadlock/dynamo.webp"
+  },
+  {
+    "game": "deadlock",
+    "kind": "counter",
+    "slug": "dynamo",
+    "path": "/deadlock/counters/dynamo",
+    "title": "Counters de Dínamo: cómo responder",
+    "description": "Separa a Dínamo de quienes aprovechan su control",
+    "intro": "Contra Dínamo, identifica primero la secuencia que le permite hacer daño. Esta guía propone respuestas de posición, recursos y coordinación; no ordena héroes por un porcentaje de victorias ni promete que un pick decida el enfrentamiento.",
+    "sections": [
+      {
+        "title": "Evita la situación que busca",
+        "body": [
+          "Evita colocarte junto a todos tus compañeros cuando Dínamo desaparece de tu visión. Guarda una respuesta para su entrada y mantén una línea de visión útil desde una posición distinta. La presión distribuida le obliga a elegir a quién controlar."
+        ]
+      },
+      {
+        "title": "Cuándo recuperar la iniciativa",
+        "body": [
+          "Cuando Singularidad termina o una entrada fracasa, busca al equipo que había avanzado para seguirla. Gastar todos los recursos sobre Dínamo puede dejar libre al verdadero daño rival. Comprueba primero si puedes presionar sin acercarte de nuevo a su control corto."
+        ]
+      },
+      {
+        "title": "Coordina la respuesta del equipo",
+        "body": [
+          "La curación prolonga la pelea de quienes permanecen cerca de Dínamo. Presiona desde ángulos distintos y evita repartir daño sin foco si el equipo rival puede recuperarlo. Si compras una respuesta activa, practica activarla durante el acercamiento, no después de perder el control."
+        ]
+      },
+      {
+        "title": "Cómo revisar tu última muerte",
+        "body": [
+          "Vuelve al instante anterior al primer daño de Dínamo. Anota tu cobertura, el recurso defensivo que conservabas y el aliado que podía ayudarte. Distingue un error de posición de una respuesta gastada demasiado pronto: cada problema pide una corrección distinta."
+        ]
+      }
+    ],
+    "checklist": [
+      "Separa a Dínamo de quienes aprovechan su control.",
+      "Conserva una respuesta para la retirada.",
+      "Comprueba dónde está el daño aliado."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Ficha y referencias de habilidades",
+        "url": "https://deadlockbible.com/heroes/dynamo/",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Builds y contexto de partidas",
+        "url": "https://www.lockcodex.com/es/heroes/dynamo",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026",
+    "hero": "dynamo",
+    "aliases": [
+      "Dynamo",
+      "Dínamo"
+    ],
+    "image": "/deadlock/dynamo.webp"
+  },
+  {
+    "game": "deadlock",
+    "kind": "build",
+    "slug": "dynamo",
+    "path": "/deadlock/builds/dynamo",
+    "title": "Build de Dínamo: compras y adaptaciones",
+    "description": "Compra una entrada que tus aliados puedan seguir",
+    "intro": "La build de Dínamo debe resolver el siguiente problema de tu partida. Usa esta ruta de decisiones para distinguir el núcleo de tu plan de las compras situacionales. Es una propuesta editorial de aprendizaje, no una build importada ni un ranking estadístico.",
+    "sections": [
+      {
+        "title": "Primeras compras: mantente en la partida",
+        "body": [
+          "Prioriza recursos que te permitan disputar la línea y llegar a una cobertura a tiempo. El movimiento útil es el que conserva una pulsación o una salida para el siguiente intercambio, no el que te deja adelantado respecto a tu compañero."
+        ]
+      },
+      {
+        "title": "Media partida: refuerza lo que puedes ejecutar",
+        "body": [
+          "La reducción de recarga puede aumentar tu disponibilidad, pero solo si tus habilidades están resolviendo intercambios útiles. Si mueres antes de lanzar la segunda habilidad, revisa resistencia y posición antes de seguir comprando frecuencia."
+        ],
+        "bullets": [
+          "Aguante Adicional: consulta el efecto actual en la tienda y compáralo con el problema que quieres resolver.",
+          "Velocidad Persistente: consulta el efecto actual en la tienda y compáralo con el problema que quieres resolver.",
+          "Compresión de Recarga: consulta el efecto actual en la tienda y compáralo con el problema que quieres resolver."
+        ]
+      },
+      {
+        "title": "Últimas compras: responde a la amenaza real",
+        "body": [
+          "Reserva recursos para completar tu secuencia de entrada y soportar la respuesta rival. No construyas toda la partida alrededor de una combinación de objetos si el equipo está jugando separado: adapta tu gasto a las peleas que realmente estáis disputando."
+        ]
+      },
+      {
+        "title": "Cuándo cambiar el orden",
+        "body": [
+          "Después de una muerte, revisa el registro de daño y el recurso que te impidió completar tu secuencia. Si Dínamo no consigue llegar a su ventana útil, adelanta una respuesta defensiva o de movimiento. Si ya sobrevives y el enemigo escapa, busca una compra que ayude a mantener la presión. No vendas una pieza funcional solo para copiar otra lista."
+        ]
+      }
+    ],
+    "checklist": [
+      "Explica qué problema resuelve tu siguiente objeto.",
+      "Comprueba el daño recibido antes de comprar resistencia.",
+      "Practica una secuencia con los objetos que ya tienes."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Ficha y referencias de habilidades",
+        "url": "https://deadlockbible.com/heroes/dynamo/",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Builds y contexto de partidas",
+        "url": "https://www.lockcodex.com/es/heroes/dynamo",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026",
+    "hero": "dynamo",
+    "aliases": [
+      "Dynamo",
+      "Dínamo"
+    ],
+    "image": "/deadlock/dynamo.webp"
+  },
+  {
+    "game": "deadlock",
+    "kind": "hero",
+    "slug": "haze",
+    "path": "/deadlock/heroes/haze",
+    "title": "Bruma: guía para jugar con un plan",
+    "description": "Elegir el momento de entrar y mantener un objetivo",
+    "intro": "Bruma convierte impactos sostenidos en presión, pero necesita tiempo para disparar. Busca intercambios en los que puedas mantener un objetivo dentro de tu ángulo y entrar después de identificar las respuestas enemigas. Acumular daño en una zona sin salida suele impedir que completes la pelea.",
+    "sections": [
+      {
+        "title": "Tus habilidades y la decisión que preparan",
+        "body": [
+          "Lee el efecto y el alcance en el cliente antes de practicar una secuencia. La ficha no fija cifras de daño ni recarga que puedan quedar desactualizadas tras un ajuste."
+        ],
+        "bullets": [
+          "Daga Adormecedora: Duerme a un enemigo",
+          "Bomba de Humo: Desaparece de la vista",
+          "Obsesión: Inflige un daño balístico cada vez mayor a un objetivo",
+          "Baile de Balas: Libera una ráfaga de balas a tu alrededor"
+        ]
+      },
+      {
+        "title": "Cómo disputar la línea",
+        "body": [
+          "Disputa los recursos de la oleada antes de buscar una persecución larga. Si el enemigo usa su movilidad para atacar, observa si puedes responder desde cobertura. Cambiar de blanco continuamente reduce el valor de una secuencia preparada sobre un objetivo."
+        ]
+      },
+      {
+        "title": "Tu papel en la pelea",
+        "body": [
+          "Bomba de Humo facilita un acercamiento, pero no elimina la necesidad de elegir una ruta. Evita pasar junto a enemigos que pueden detectarte cerca. Antes de Baile de Balas, cuenta las herramientas de control visibles y procura entrar cuando un compañero ya haya obligado a gastar alguna.",
+          "Daga Adormecedora no debe tratarse como una interrupción universal de canalizaciones. Su utilidad para preparar un intercambio no implica que vaya a detener cualquier definitiva. Comprueba esa interacción antes de arriesgar una entrada para salvar a todo el equipo."
+        ]
+      },
+      {
+        "title": "Una decisión para practicar",
+        "body": [
+          "Caso de práctica: ves a un enemigo alejado y a otro guardando control junto a él. Entrar sobre el primero sin localizar al segundo convierte tu ventaja de sorpresa en una trampa. Puedes amenazar desde un lateral, forzar una respuesta y cambiar el momento de entrada."
+        ]
+      }
+    ],
+    "checklist": [
+      "Identifica el control rival antes de entrar.",
+      "Mantén un objetivo cuando el intercambio sea seguro.",
+      "No uses la daga como interrupción universal."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Ficha y referencias de habilidades",
+        "url": "https://deadlockbible.com/heroes/haze/",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Builds y contexto de partidas",
+        "url": "https://www.lockcodex.com/es/heroes/haze",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026",
+    "hero": "haze",
+    "aliases": [
+      "Haze",
+      "Bruma"
+    ],
+    "image": "/deadlock/haze.webp"
+  },
+  {
+    "game": "deadlock",
+    "kind": "counter",
+    "slug": "haze",
+    "path": "/deadlock/counters/haze",
+    "title": "Counters de Bruma: cómo responder",
+    "description": "Interrumpe la secuencia de disparo y conserva una salida",
+    "intro": "Contra Bruma, identifica primero la secuencia que le permite hacer daño. Esta guía propone respuestas de posición, recursos y coordinación; no ordena héroes por un porcentaje de victorias ni promete que un pick decida el enfrentamiento.",
+    "sections": [
+      {
+        "title": "Evita la situación que busca",
+        "body": [
+          "No regales un intercambio estático mientras Bruma mantiene el mismo blanco. Usa esquinas para cortar la secuencia y cambia la pelea de lugar. Si ya está cerca, correr por un pasillo abierto puede ser peor que alcanzar una cobertura lateral."
+        ]
+      },
+      {
+        "title": "Cuándo recuperar la iniciativa",
+        "body": [
+          "Guarda control o desplazamiento para el momento en que Bruma se compromete. Gastarlo sobre un objetivo secundario antes de su entrada permite que use Baile de Balas sin presión. Coordina quién conserva la respuesta y quién sigue haciendo daño."
+        ]
+      },
+      {
+        "title": "Coordina la respuesta del equipo",
+        "body": [
+          "Evita que toda la defensa dependa de un único jugador. Si el rival le obliga a usar su respuesta, retirad posiciones antes de la entrada de Bruma. La resistencia adecuada puede darte margen, pero no sustituye cortar la línea de visión o salir del área."
+        ]
+      },
+      {
+        "title": "Cómo revisar tu última muerte",
+        "body": [
+          "Vuelve al instante anterior al primer daño de Bruma. Anota tu cobertura, el recurso defensivo que conservabas y el aliado que podía ayudarte. Distingue un error de posición de una respuesta gastada demasiado pronto: cada problema pide una corrección distinta."
+        ]
+      }
+    ],
+    "checklist": [
+      "Interrumpe la secuencia de disparo y conserva una salida.",
+      "Mantén un objetivo cuando el intercambio sea seguro.",
+      "No uses la daga como interrupción universal."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Ficha y referencias de habilidades",
+        "url": "https://deadlockbible.com/heroes/haze/",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Builds y contexto de partidas",
+        "url": "https://www.lockcodex.com/es/heroes/haze",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026",
+    "hero": "haze",
+    "aliases": [
+      "Haze",
+      "Bruma"
+    ],
+    "image": "/deadlock/haze.webp"
+  },
+  {
+    "game": "deadlock",
+    "kind": "build",
+    "slug": "haze",
+    "path": "/deadlock/builds/haze",
+    "title": "Build de Bruma: compras y adaptaciones",
+    "description": "Construye intercambios que puedas terminar",
+    "intro": "La build de Bruma debe resolver el siguiente problema de tu partida. Usa esta ruta de decisiones para distinguir el núcleo de tu plan de las compras situacionales. Es una propuesta editorial de aprendizaje, no una build importada ni un ranking estadístico.",
+    "sections": [
+      {
+        "title": "Primeras compras: mantente en la partida",
+        "body": [
+          "Cargador Ampliado o Ataque Veloz pueden apoyar un plan de disparo, pero elige según el problema observable: recargar antes de completar el intercambio o no aprovechar una ventana breve. Si no puedes asomarte, arregla primero la supervivencia de línea."
+        ]
+      },
+      {
+        "title": "Media partida: refuerza lo que puedes ejecutar",
+        "body": [
+          "Destructor de Resistencia a Balas acompaña el daño sostenido. Su valor depende de mantener impactos: no soluciona entrar fuera de alcance o perder el objetivo al primer giro. Busca una mejora funcional antes de guardar todos los recursos para un objeto caro."
+        ],
+        "bullets": [
+          "Cargador Ampliado: consulta el efecto actual en la tienda y compáralo con el problema que quieres resolver.",
+          "Ataque Veloz: consulta el efecto actual en la tienda y compáralo con el problema que quieres resolver.",
+          "Destructor de Resistencia a Balas: consulta el efecto actual en la tienda y compáralo con el problema que quieres resolver."
+        ]
+      },
+      {
+        "title": "Últimas compras: responde a la amenaza real",
+        "body": [
+          "Alargar el daño no sirve si un control enemigo decide cada entrada. Separa el núcleo ofensivo de las compras necesarias para llegar al objetivo o sobrevivir a su respuesta. Revisa también qué enemigo está reuniendo resistencia frente a tus disparos."
+        ]
+      },
+      {
+        "title": "Cuándo cambiar el orden",
+        "body": [
+          "Después de una muerte, revisa el registro de daño y el recurso que te impidió completar tu secuencia. Si Bruma no consigue llegar a su ventana útil, adelanta una respuesta defensiva o de movimiento. Si ya sobrevives y el enemigo escapa, busca una compra que ayude a mantener la presión. No vendas una pieza funcional solo para copiar otra lista."
+        ]
+      }
+    ],
+    "checklist": [
+      "Explica qué problema resuelve tu siguiente objeto.",
+      "Comprueba el daño recibido antes de comprar resistencia.",
+      "Practica una secuencia con los objetos que ya tienes."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Ficha y referencias de habilidades",
+        "url": "https://deadlockbible.com/heroes/haze/",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Builds y contexto de partidas",
+        "url": "https://www.lockcodex.com/es/heroes/haze",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026",
+    "hero": "haze",
+    "aliases": [
+      "Haze",
+      "Bruma"
+    ],
+    "image": "/deadlock/haze.webp"
+  },
+  {
+    "game": "deadlock",
+    "kind": "hero",
+    "slug": "infernus",
+    "path": "/deadlock/heroes/infernus",
+    "title": "Infernus: guía para jugar con un plan",
+    "description": "Mantener la quemadura sin perseguir a ciegas",
+    "intro": "Infernus amenaza con daño que continúa después del primer intercambio. Tu objetivo es sostener una aplicación útil y conservar espacio para seguir disparando. Impulso Llameante no convierte cualquier persecución en una buena decisión: también es una herramienta para abandonar una pelea mal preparada.",
+    "sections": [
+      {
+        "title": "Tus habilidades y la decisión que preparan",
+        "body": [
+          "Lee el efecto y el alcance en el cliente antes de practicar una secuencia. La ficha no fija cifras de daño ni recarga que puedan quedar desactualizadas tras un ajuste."
+        ],
+        "bullets": [
+          "Napalm: Esparce napalm que amplifica tu daño",
+          "Impulso Llameante: Corre hacia adelante, dejando un rastro de llamas a tu paso",
+          "Poscombustión: Dispara a los enemigos para prenderles fuego",
+          "Combustión Conmocionadora: Aturde a todos los enemigos cercanos tras un breve retraso"
+        ]
+      },
+      {
+        "title": "Cómo disputar la línea",
+        "body": [
+          "Juega intercambios en los que puedas aplicar presión sin perder de vista la oleada. Si el rival corta el ángulo, no atravieses su cobertura solo para prolongar una quemadura. Puedes mantener tu posición y asegurar los recursos que deja de disputar."
+        ]
+      },
+      {
+        "title": "Tu papel en la pelea",
+        "body": [
+          "Combustión Conmocionadora tiene un retraso antes de detonar. Iníciala con una ruta y un objetivo claros, teniendo en cuenta que el enemigo puede desplazarse mientras esperas. La entrada debe acercarte al espacio que quieres controlar, no obligarte a cruzar todo el equipo rival.",
+          "Usar Impulso Llameante para empezar cada intercambio deja menos opciones cuando llega una segunda amenaza. Alterna presión a distancia y movimiento según lo que veas. No cruces una esquina sin información solo porque el primer enemigo esté a poca vida."
+        ]
+      },
+      {
+        "title": "Una decisión para practicar",
+        "body": [
+          "Caso de práctica: has presionado a un enemigo que retrocede bajo cobertura y tu definitiva está preparada. Si el resto del equipo rival no aparece, detén la persecución y empuja la oleada. Conservar la ventaja económica puede ser más útil que convertir una baja posible en una muerte segura."
+        ]
+      }
+    ],
+    "checklist": [
+      "Conserva una ruta para salir de la persecución.",
+      "Cuenta el retraso de la definitiva.",
+      "Revisa qué tipo de daño te está matando."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Ficha y referencias de habilidades",
+        "url": "https://deadlockbible.com/heroes/infernus/",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Builds y contexto de partidas",
+        "url": "https://www.lockcodex.com/es/heroes/infernus",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026",
+    "hero": "infernus",
+    "aliases": [
+      "Infernus",
+      "Infernus"
+    ],
+    "image": "/deadlock/infernus.webp"
+  },
+  {
+    "game": "deadlock",
+    "kind": "counter",
+    "slug": "infernus",
+    "path": "/deadlock/counters/infernus",
+    "title": "Counters de Infernus: cómo responder",
+    "description": "Corta la continuidad de la quemadura",
+    "intro": "Contra Infernus, identifica primero la secuencia que le permite hacer daño. Esta guía propone respuestas de posición, recursos y coordinación; no ordena héroes por un porcentaje de victorias ni promete que un pick decida el enfrentamiento.",
+    "sections": [
+      {
+        "title": "Evita la situación que busca",
+        "body": [
+          "Usa coberturas para impedir que Infernus mantenga impactos sobre ti. Si continúas intercambiando mientras él sostiene la aplicación, prolongas una pelea favorable a su plan. Retírate con un objetivo: recuperar una esquina y volver a disputar desde otra posición."
+        ]
+      },
+      {
+        "title": "Cuándo recuperar la iniciativa",
+        "body": [
+          "Cuando activa su definitiva, evita que el equipo se retire unido por la misma salida estrecha. Divide las trayectorias posibles y utiliza el espacio antes de la detonación. La respuesta correcta depende de dónde esté el resto de su equipo, no solo de la distancia a Infernus."
+        ]
+      },
+      {
+        "title": "Coordina la respuesta del equipo",
+        "body": [
+          "Distingue entre su daño de arma y el daño espiritual de sus efectos antes de comprar resistencia. Si alguien del equipo aporta reducción de curación o control, coordina el momento: repartir respuestas fuera de la ventana de presión le permite volver a alargar el combate."
+        ]
+      },
+      {
+        "title": "Cómo revisar tu última muerte",
+        "body": [
+          "Vuelve al instante anterior al primer daño de Infernus. Anota tu cobertura, el recurso defensivo que conservabas y el aliado que podía ayudarte. Distingue un error de posición de una respuesta gastada demasiado pronto: cada problema pide una corrección distinta."
+        ]
+      }
+    ],
+    "checklist": [
+      "Corta la continuidad de la quemadura.",
+      "Cuenta el retraso de la definitiva.",
+      "Revisa qué tipo de daño te está matando."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Ficha y referencias de habilidades",
+        "url": "https://deadlockbible.com/heroes/infernus/",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Builds y contexto de partidas",
+        "url": "https://www.lockcodex.com/es/heroes/infernus",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026",
+    "hero": "infernus",
+    "aliases": [
+      "Infernus",
+      "Infernus"
+    ],
+    "image": "/deadlock/infernus.webp"
+  },
+  {
+    "game": "deadlock",
+    "kind": "build",
+    "slug": "infernus",
+    "path": "/deadlock/builds/infernus",
+    "title": "Build de Infernus: compras y adaptaciones",
+    "description": "Mantén la aplicación y compra una salida",
+    "intro": "La build de Infernus debe resolver el siguiente problema de tu partida. Usa esta ruta de decisiones para distinguir el núcleo de tu plan de las compras situacionales. Es una propuesta editorial de aprendizaje, no una build importada ni un ranking estadístico.",
+    "sections": [
+      {
+        "title": "Primeras compras: mantente en la partida",
+        "body": [
+          "Una mejora de manejo o cadencia puede facilitar mantener impactos, pero no justifica perder cada intercambio de vida. Compara si necesitas disparar mejor, recuperar vida entre oleadas o conservar aguante para evitar la respuesta."
+        ]
+      },
+      {
+        "title": "Media partida: refuerza lo que puedes ejecutar",
+        "body": [
+          "Revisa de dónde procede tu daño antes de elegir una mejora: potenciar disparos y potenciar efectos no resuelve exactamente el mismo problema. Una build híbrida exige decidir qué parte de la secuencia estás pudiendo ejecutar de forma consistente."
+        ],
+        "bullets": [
+          "Ataque Veloz: consulta el efecto actual en la tienda y compáralo con el problema que quieres resolver.",
+          "Destructor de Resistencia a Balas: consulta el efecto actual en la tienda y compáralo con el problema que quieres resolver.",
+          "Compresión de Recarga: consulta el efecto actual en la tienda y compáralo con el problema que quieres resolver."
+        ]
+      },
+      {
+        "title": "Últimas compras: responde a la amenaza real",
+        "body": [
+          "Si tu equipo necesita una entrada, compra y juega para completar la llegada a la zona de detonación. Si otro aliado ya inicia, puedes gastar más recursos en sostener presión desde un ángulo seguro. No confundas acumular daño total con hacer daño en el momento decisivo."
+        ]
+      },
+      {
+        "title": "Cuándo cambiar el orden",
+        "body": [
+          "Después de una muerte, revisa el registro de daño y el recurso que te impidió completar tu secuencia. Si Infernus no consigue llegar a su ventana útil, adelanta una respuesta defensiva o de movimiento. Si ya sobrevives y el enemigo escapa, busca una compra que ayude a mantener la presión. No vendas una pieza funcional solo para copiar otra lista."
+        ]
+      }
+    ],
+    "checklist": [
+      "Explica qué problema resuelve tu siguiente objeto.",
+      "Comprueba el daño recibido antes de comprar resistencia.",
+      "Practica una secuencia con los objetos que ya tienes."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Ficha y referencias de habilidades",
+        "url": "https://deadlockbible.com/heroes/infernus/",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Builds y contexto de partidas",
+        "url": "https://www.lockcodex.com/es/heroes/infernus",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026",
+    "hero": "infernus",
+    "aliases": [
+      "Infernus",
+      "Infernus"
+    ],
+    "image": "/deadlock/infernus.webp"
+  },
+  {
+    "game": "deadlock",
+    "kind": "hero",
+    "slug": "lash",
+    "path": "/deadlock/heroes/lash",
+    "title": "Lash: guía para jugar con un plan",
+    "description": "Convertir la altura en una entrada con salida",
+    "intro": "Lash usa la altura para preparar daño y reposicionarse, pero una caída solo resulta útil si termina donde el equipo puede aprovecharla. Antes de buscar el tejado más alto, decide el objetivo, el ángulo de llegada y la siguiente cobertura.",
+    "sections": [
+      {
+        "title": "Tus habilidades y la decisión que preparan",
+        "body": [
+          "Lee el efecto y el alcance en el cliente antes de practicar una secuencia. La ficha no fija cifras de daño ni recarga que puedan quedar desactualizadas tras un ajuste."
+        ],
+        "bullets": [
+          "Ataque Terrestre: Choca contra el suelo e inflige daño a los enemigos",
+          "Pértiga: Usa tu látigo para acercarte a un enemigo",
+          "Azotar: Recibe curación de los objetivos que tienes delante",
+          "Trompazo Mortal: Levanta a los enemigos y los aplasta contra el suelo"
+        ]
+      },
+      {
+        "title": "Cómo disputar la línea",
+        "body": [
+          "Busca una posición desde la que puedas disputar la oleada sin gastar toda tu movilidad. Ataque Terrestre amenaza desde el aire; usarlo sobre un enemigo que ya espera la caída puede exponerte a una respuesta inmediata. A veces basta con conservar esa amenaza y seguir disparando."
+        ]
+      },
+      {
+        "title": "Tu papel en la pelea",
+        "body": [
+          "Trompazo Mortal exige mantener a los enemigos dentro de sus condiciones de alcance y visión mientras se prepara. Elige una zona de aterrizaje que favorezca a tus aliados. Lanzar un enemigo lejos del daño de tu equipo puede salvarlo en lugar de asegurar la eliminación.",
+          "Pértiga restablece opciones de movimiento aéreo, pero necesita un destino útil. No gastes la única ruta de reposicionamiento para perseguir un blanco aislado si luego quedas en el centro del equipo rival. Ten previsto qué harás después del impacto."
+        ]
+      },
+      {
+        "title": "Una decisión para practicar",
+        "body": [
+          "Caso de práctica: puedes caer sobre la retaguardia o sobre el enemigo que persigue a tu compañero. Si nadie puede seguirte al fondo, la segunda opción permite daño, protección y salida en una sola secuencia. La altura es un recurso; el objetivo sigue siendo ganar la pelea."
+        ]
+      }
+    ],
+    "checklist": [
+      "Elige la zona de aterrizaje antes de elevarte.",
+      "Localiza una salida después del impacto.",
+      "No alejes al enemigo del daño aliado."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Ficha y referencias de habilidades",
+        "url": "https://deadlockbible.com/heroes/lash/",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Builds y contexto de partidas",
+        "url": "https://www.lockcodex.com/es/heroes/lash",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026",
+    "hero": "lash",
+    "aliases": [
+      "Lash",
+      "Lash"
+    ],
+    "image": "/deadlock/lash.webp"
+  },
+  {
+    "game": "deadlock",
+    "kind": "counter",
+    "slug": "lash",
+    "path": "/deadlock/counters/lash",
+    "title": "Counters de Lash: cómo responder",
+    "description": "Niega el aterrizaje cómodo y separa los ángulos",
+    "intro": "Contra Lash, identifica primero la secuencia que le permite hacer daño. Esta guía propone respuestas de posición, recursos y coordinación; no ordena héroes por un porcentaje de victorias ni promete que un pick decida el enfrentamiento.",
+    "sections": [
+      {
+        "title": "Evita la situación que busca",
+        "body": [
+          "Mira los accesos altos cuando Lash desaparece. Colocarte bajo cobertura puede limitar la caída directa y forzarle a cambiar el ángulo. No agrupes a varios compañeros en una trayectoria que él puede convertir en daño de área."
+        ]
+      },
+      {
+        "title": "Cuándo recuperar la iniciativa",
+        "body": [
+          "Después de que gaste movilidad para entrar, identifica si conserva un punto de escape. Presionarlo desde dos ángulos puede impedir que vuelva a elevarse cómodamente. Una persecución individual por terreno abierto le permite elegir otra secuencia aérea."
+        ]
+      },
+      {
+        "title": "Coordina la respuesta del equipo",
+        "body": [
+          "Durante la preparación de Trompazo Mortal, busca salir de la visión o del alcance en lugar de permanecer disparando inmóvil. Evita correr detrás de un compañero conectado si eso os reúne en la misma zona de aterrizaje."
+        ]
+      },
+      {
+        "title": "Cómo revisar tu última muerte",
+        "body": [
+          "Vuelve al instante anterior al primer daño de Lash. Anota tu cobertura, el recurso defensivo que conservabas y el aliado que podía ayudarte. Distingue un error de posición de una respuesta gastada demasiado pronto: cada problema pide una corrección distinta."
+        ]
+      }
+    ],
+    "checklist": [
+      "Niega el aterrizaje cómodo y separa los ángulos.",
+      "Localiza una salida después del impacto.",
+      "No alejes al enemigo del daño aliado."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Ficha y referencias de habilidades",
+        "url": "https://deadlockbible.com/heroes/lash/",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Builds y contexto de partidas",
+        "url": "https://www.lockcodex.com/es/heroes/lash",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026",
+    "hero": "lash",
+    "aliases": [
+      "Lash",
+      "Lash"
+    ],
+    "image": "/deadlock/lash.webp"
+  },
+  {
+    "game": "deadlock",
+    "kind": "build",
+    "slug": "lash",
+    "path": "/deadlock/builds/lash",
+    "title": "Build de Lash: compras y adaptaciones",
+    "description": "Compra control sobre tu recorrido",
+    "intro": "La build de Lash debe resolver el siguiente problema de tu partida. Usa esta ruta de decisiones para distinguir el núcleo de tu plan de las compras situacionales. Es una propuesta editorial de aprendizaje, no una build importada ni un ranking estadístico.",
+    "sections": [
+      {
+        "title": "Primeras compras: mantente en la partida",
+        "body": [
+          "Aguante Adicional puede darte margen para corregir un salto o alcanzar una cobertura; no debe gastarse todo en llegar antes a una pelea sin aliados. Practica el recorrido que quieres ejecutar antes de comprar más movilidad."
+        ]
+      },
+      {
+        "title": "Media partida: refuerza lo que puedes ejecutar",
+        "body": [
+          "La frecuencia de habilidades es útil cuando ya puedes repetir entradas con salida. Si cada caída termina en muerte, invierte primero en resistir la respuesta que recibes. Cambiar una compra no arregla una zona de aterrizaje sin apoyo."
+        ],
+        "bullets": [
+          "Aguante Adicional: consulta el efecto actual en la tienda y compáralo con el problema que quieres resolver.",
+          "Velocidad Persistente: consulta el efecto actual en la tienda y compáralo con el problema que quieres resolver.",
+          "Compresión de Recarga: consulta el efecto actual en la tienda y compáralo con el problema que quieres resolver."
+        ]
+      },
+      {
+        "title": "Últimas compras: responde a la amenaza real",
+        "body": [
+          "Elige entre reforzar el impacto inicial o sobrevivir para una segunda secuencia según el combate real. Contra enemigos dispersos, insistir en una gran definitiva puede dejarte sin presión mientras esperas. Conserva la capacidad de castigar un objetivo accesible."
+        ]
+      },
+      {
+        "title": "Cuándo cambiar el orden",
+        "body": [
+          "Después de una muerte, revisa el registro de daño y el recurso que te impidió completar tu secuencia. Si Lash no consigue llegar a su ventana útil, adelanta una respuesta defensiva o de movimiento. Si ya sobrevives y el enemigo escapa, busca una compra que ayude a mantener la presión. No vendas una pieza funcional solo para copiar otra lista."
+        ]
+      }
+    ],
+    "checklist": [
+      "Explica qué problema resuelve tu siguiente objeto.",
+      "Comprueba el daño recibido antes de comprar resistencia.",
+      "Practica una secuencia con los objetos que ya tienes."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Ficha y referencias de habilidades",
+        "url": "https://deadlockbible.com/heroes/lash/",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Builds y contexto de partidas",
+        "url": "https://www.lockcodex.com/es/heroes/lash",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026",
+    "hero": "lash",
+    "aliases": [
+      "Lash",
+      "Lash"
+    ],
+    "image": "/deadlock/lash.webp"
+  },
+  {
+    "game": "deadlock",
+    "kind": "hero",
+    "slug": "seven",
+    "path": "/deadlock/heroes/seven",
+    "title": "Siete: guía para jugar con un plan",
+    "description": "Limpiar rápido y llegar a los objetivos a tiempo",
+    "intro": "Siete puede presionar oleadas y áreas, pero limpiar recursos no gana la partida por sí solo. Tu ventaja aparece cuando esa limpieza abre una rotación, permite defender una estructura o libera a un aliado. Decide qué harás después de la siguiente oleada antes de empezar a atacarla.",
+    "sections": [
+      {
+        "title": "Tus habilidades y la decisión que preparan",
+        "body": [
+          "Lee el efecto y el alcance en el cliente antes de practicar una secuencia. La ficha no fija cifras de daño ni recarga que puedan quedar desactualizadas tras un ajuste."
+        ],
+        "bullets": [
+          "Esfera Eléctrica: Lanza una esfera de electricidad dañina",
+          "Carga Estática: Aplica un aturdimiento en área retardado a un héroe enemigo",
+          "Sobretensión: Crea arcos eléctricos con tus disparos",
+          "Nube de Tormenta: Fríe a todos los enemigos en un área extensa"
+        ]
+      },
+      {
+        "title": "Cómo disputar la línea",
+        "body": [
+          "Busca que Esfera Eléctrica atraviese el espacio que el rival quiere ocupar. Tirarla sobre un objetivo que ya abandona la zona puede desperdiciar presión. Usa su trayectoria para disputar recursos y obligar al enemigo a escoger entre recibir daño o ceder posición."
+        ]
+      },
+      {
+        "title": "Tu papel en la pelea",
+        "body": [
+          "Carga Estática tiene una resolución diferida: coordina el daño para aprovecharla, sin asumir un control inmediato. Nube de Tormenta necesita línea de visión para hacer daño. Elige una posición desde la que el rival tenga que abandonar un objetivo si quiere refugiarse.",
+          "Una canalización visible desde muchos ángulos puede recibir una respuesta antes de producir valor. Tampoco sirve canalizar detrás de una pared que bloquea tu propio daño. Revisa simultáneamente cobertura personal y visión sobre la zona que quieres controlar."
+        ]
+      },
+      {
+        "title": "Una decisión para practicar",
+        "body": [
+          "Caso de práctica: has limpiado una oleada y tu equipo se acerca a un objetivo. Puedes tomar otro recurso cercano o llegar primero a una posición con visión. Si el enemigo ya se mueve, llegar a tiempo con habilidades disponibles puede valer más que ampliar tu cuenta de almas."
+        ]
+      }
+    ],
+    "checklist": [
+      "Elige el siguiente objetivo antes de limpiar.",
+      "Mantén visión sobre el área de la definitiva.",
+      "Respeta el retraso de Carga Estática."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Ficha y referencias de habilidades",
+        "url": "https://deadlockbible.com/heroes/seven/",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Builds y contexto de partidas",
+        "url": "https://www.lockcodex.com/es/heroes/seven",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026",
+    "hero": "seven",
+    "aliases": [
+      "Seven",
+      "Siete"
+    ],
+    "image": "/deadlock/seven.webp"
+  },
+  {
+    "game": "deadlock",
+    "kind": "counter",
+    "slug": "seven",
+    "path": "/deadlock/counters/seven",
+    "title": "Counters de Siete: cómo responder",
+    "description": "Usa las coberturas y evita regalar daño en grupo",
+    "intro": "Contra Siete, identifica primero la secuencia que le permite hacer daño. Esta guía propone respuestas de posición, recursos y coordinación; no ordena héroes por un porcentaje de victorias ni promete que un pick decida el enfrentamiento.",
+    "sections": [
+      {
+        "title": "Evita la situación que busca",
+        "body": [
+          "No permanezcas dentro de una trayectoria de esfera solo para terminar un intercambio. Muévete lateralmente y conserva recursos para volver a disputar después. Si llevas una carga, evita acercarte sin necesidad a compañeros que pueden quedar dentro de su resolución."
+        ]
+      },
+      {
+        "title": "Cuándo recuperar la iniciativa",
+        "body": [
+          "Nube de Tormenta pierde presión sobre quienes salen de su línea de visión. Decide si basta con cubrirte hasta que termine o si vuestro equipo necesita interrumpirla para disputar el objetivo. Asomarte repetidamente sin un plan solo prolonga el daño recibido."
+        ]
+      },
+      {
+        "title": "Coordina la respuesta del equipo",
+        "body": [
+          "Una respuesta de interrupción debe estar disponible cuando Siete se compromete. Si toda la utilidad se gasta antes, ceded temporalmente la zona en vez de pelear agrupados dentro de su área. Reentrad desde ángulos separados cuando desaparezca la amenaza."
+        ]
+      },
+      {
+        "title": "Cómo revisar tu última muerte",
+        "body": [
+          "Vuelve al instante anterior al primer daño de Siete. Anota tu cobertura, el recurso defensivo que conservabas y el aliado que podía ayudarte. Distingue un error de posición de una respuesta gastada demasiado pronto: cada problema pide una corrección distinta."
+        ]
+      }
+    ],
+    "checklist": [
+      "Usa las coberturas y evita regalar daño en grupo.",
+      "Mantén visión sobre el área de la definitiva.",
+      "Respeta el retraso de Carga Estática."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Ficha y referencias de habilidades",
+        "url": "https://deadlockbible.com/heroes/seven/",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Builds y contexto de partidas",
+        "url": "https://www.lockcodex.com/es/heroes/seven",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026",
+    "hero": "seven",
+    "aliases": [
+      "Seven",
+      "Siete"
+    ],
+    "image": "/deadlock/seven.webp"
+  },
+  {
+    "game": "deadlock",
+    "kind": "build",
+    "slug": "seven",
+    "path": "/deadlock/builds/seven",
+    "title": "Build de Siete: compras y adaptaciones",
+    "description": "Transforma la limpieza en presencia útil",
+    "intro": "La build de Siete debe resolver el siguiente problema de tu partida. Usa esta ruta de decisiones para distinguir el núcleo de tu plan de las compras situacionales. Es una propuesta editorial de aprendizaje, no una build importada ni un ranking estadístico.",
+    "sections": [
+      {
+        "title": "Primeras compras: mantente en la partida",
+        "body": [
+          "Carga Adicional puede apoyar la disponibilidad de tus habilidades, pero asegúrate de usar las cargas para controlar espacio o recursos. Limpiar una oleada más rápido no ayuda si después esperas sin decidir la siguiente posición."
+        ]
+      },
+      {
+        "title": "Media partida: refuerza lo que puedes ejecutar",
+        "body": [
+          "La recarga o la ralentización acompañan un plan de presencia repetida. Comprueba si el rival sale de tus áreas con facilidad o si llegas a cada objetivo sin habilidades. Son problemas distintos y no siempre justifican el mismo objeto."
+        ],
+        "bullets": [
+          "Carga Adicional: consulta el efecto actual en la tienda y compáralo con el problema que quieres resolver.",
+          "Compresión de Recarga: consulta el efecto actual en la tienda y compáralo con el problema que quieres resolver.",
+          "Ralentización Mística: consulta el efecto actual en la tienda y compáralo con el problema que quieres resolver."
+        ]
+      },
+      {
+        "title": "Últimas compras: responde a la amenaza real",
+        "body": [
+          "Refuerza el daño que estás pudiendo aplicar. Si Nube de Tormenta se corta inmediatamente, revisar posición y supervivencia debe preceder a comprar más daño de canalización. Si el enemigo se cubre, coordina otra amenaza que le obligue a abandonar su refugio."
+        ]
+      },
+      {
+        "title": "Cuándo cambiar el orden",
+        "body": [
+          "Después de una muerte, revisa el registro de daño y el recurso que te impidió completar tu secuencia. Si Siete no consigue llegar a su ventana útil, adelanta una respuesta defensiva o de movimiento. Si ya sobrevives y el enemigo escapa, busca una compra que ayude a mantener la presión. No vendas una pieza funcional solo para copiar otra lista."
+        ]
+      }
+    ],
+    "checklist": [
+      "Explica qué problema resuelve tu siguiente objeto.",
+      "Comprueba el daño recibido antes de comprar resistencia.",
+      "Practica una secuencia con los objetos que ya tienes."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Ficha y referencias de habilidades",
+        "url": "https://deadlockbible.com/heroes/seven/",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Builds y contexto de partidas",
+        "url": "https://www.lockcodex.com/es/heroes/seven",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026",
+    "hero": "seven",
+    "aliases": [
+      "Seven",
+      "Siete"
+    ],
+    "image": "/deadlock/seven.webp"
+  },
+  {
+    "game": "deadlock",
+    "kind": "guide",
+    "slug": "economia-almas",
+    "path": "/deadlock/guides/economia-almas",
+    "title": "Economía de Deadlock: convierte almas en decisiones",
+    "description": "Ganar recursos sirve cuando puedes convertirlos en una compra y una acción útiles.",
+    "intro": "Una partida mezcla economía, movimiento y coordinación. Esta guía organiza preguntas de práctica para reconocer decisiones repetibles. Los ejemplos son ejercicios propuestos; no se presentan como una partida real ni como una receta que funcione en cualquier rango.",
+    "sections": [
+      {
+        "title": "Una oleada es también una decisión de tiempo",
+        "body": [
+          "Antes de abandonar la línea, comprueba qué recursos quedan sin disputar y qué amenaza aparece en el mapa. Una rotación que no llega a una pelea ni protege una estructura puede costar una oleada sin producir nada a cambio. No uses la cuenta total de almas como única medida de una buena decisión."
+        ]
+      },
+      {
+        "title": "Compra para la siguiente acción",
+        "body": [
+          "Si vas a defender una estructura bajo presión, pregunta qué te permite permanecer en esa zona. Si vas a acompañar una entrada, pregunta si necesitas alcance, movilidad, supervivencia o daño. Ahorrar sin una compra concreta puede dejar recursos fuera de la pelea durante demasiado tiempo."
+        ]
+      },
+      {
+        "title": "Recupera una desventaja con una ruta corta",
+        "body": [
+          "Busca un recurso cercano a una posición que puedas abandonar con seguridad. Encadenar zonas alejadas del equipo puede aumentar tu economía y empeorar la defensa al mismo tiempo. Después de asegurar una oleada, revisa el mapa antes de añadir otro desvío."
+        ]
+      },
+      {
+        "title": "Ejercicio de revisión",
+        "body": [
+          "Elige una muerte y mira qué podías comprar antes de ella. Anota la acción que querías realizar, el objeto que podía ayudar y el motivo por el que no lo tenías. El objetivo es detectar una compra retrasada, no inventar que un objeto habría garantizado ganar."
+        ]
+      }
+    ],
+    "checklist": [
+      "Identifica la información que tenías al decidir.",
+      "Practica un solo cambio durante varias partidas.",
+      "Revisa el resultado sin confundirlo con la calidad de la decisión."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026"
+  },
+  {
+    "game": "deadlock",
+    "kind": "guide",
+    "slug": "fase-de-lineas",
+    "path": "/deadlock/guides/fase-de-lineas",
+    "title": "Fase de líneas: recursos, cobertura y presión",
+    "description": "Aprende a disputar la oleada sin convertir cada intercambio en una persecución.",
+    "intro": "Una partida mezcla economía, movimiento y coordinación. Esta guía organiza preguntas de práctica para reconocer decisiones repetibles. Los ejemplos son ejercicios propuestos; no se presentan como una partida real ni como una receta que funcione en cualquier rango.",
+    "sections": [
+      {
+        "title": "Empieza por una cobertura útil",
+        "body": [
+          "Una buena posición permite atacar la oleada y cortar la respuesta enemiga. Colocarte en el centro del pasillo puede dar un ángulo cómodo para disparar, pero también elimina tu opción de pausar el intercambio. Busca desde el principio una esquina a la que puedas regresar."
+        ]
+      },
+      {
+        "title": "Presiona cuando el enemigo elige",
+        "body": [
+          "La presión tiene valor cuando obliga al rival a ceder recursos o posición. Si abandonas tu propia oleada para perseguir sin información, puedes perder ese valor. Observa qué habilidad usa el enemigo para disputar y si aún conserva una herramienta para escapar."
+        ]
+      },
+      {
+        "title": "No gastes todas las respuestas juntas",
+        "body": [
+          "Después de usar una habilidad ofensiva, considera si necesitas guardar movilidad o control para el siguiente contacto. Dos intercambios cortos con recursos disponibles pueden ser más sostenibles que una secuencia larga que te deja esperando bajo presión."
+        ]
+      },
+      {
+        "title": "Ejercicio con dos preguntas",
+        "body": [
+          "En la siguiente revisión, pausa antes de cada intercambio de línea. Pregunta qué recurso querías disputar y dónde ibas a cortar el daño si perdías el intercambio. Si no puedes responder, la prioridad de práctica es reconocer la ventana antes de abrir fuego."
+        ]
+      }
+    ],
+    "checklist": [
+      "Identifica la información que tenías al decidir.",
+      "Practica un solo cambio durante varias partidas.",
+      "Revisa el resultado sin confundirlo con la calidad de la decisión."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026"
+  },
+  {
+    "game": "deadlock",
+    "kind": "guide",
+    "slug": "movimiento-aguante",
+    "path": "/deadlock/guides/movimiento-aguante",
+    "title": "Movimiento y aguante: llega con una salida",
+    "description": "Usa impulsos, saltos y coberturas con un destino concreto.",
+    "intro": "Una partida mezcla economía, movimiento y coordinación. Esta guía organiza preguntas de práctica para reconocer decisiones repetibles. Los ejemplos son ejercicios propuestos; no se presentan como una partida real ni como una receta que funcione en cualquier rango.",
+    "sections": [
+      {
+        "title": "Decide dónde termina el movimiento",
+        "body": [
+          "Antes de gastar aguante para acercarte, localiza la cobertura a la que quieres llegar. Entrar más rápido en una zona abierta no mejora tu situación si después no puedes salir. Practica recorridos entre dos puntos útiles, no secuencias largas sin objetivo."
+        ]
+      },
+      {
+        "title": "Reserva recursos para una segunda amenaza",
+        "body": [
+          "El enemigo que ves puede no ser el único. Si gastas toda la movilidad durante la aproximación, una segunda entrada puede obligarte a responder sin opciones. Ajusta el recorrido al riesgo visible y vuelve a consultar el mapa al cruzar una esquina."
+        ]
+      },
+      {
+        "title": "Separa práctica mecánica y decisión",
+        "body": [
+          "Primero ensaya un recorrido sin presión. Después añade una condición: llegar, usar una habilidad y regresar a cobertura. Una técnica deja de ser útil cuando el movimiento te coloca fuera del alcance de tus aliados o rompe el ángulo que necesitabas."
+        ]
+      },
+      {
+        "title": "Comprueba el cliente después de un parche",
+        "body": [
+          "Las teclas y las interacciones pueden cambiar. Comprueba tus asignaciones y el efecto del aguante en el entorno de práctica antes de llevar una secuencia a una partida. No cambies varias asignaciones a la vez si aún no reconoces cuál estaba causando el problema."
+        ]
+      }
+    ],
+    "checklist": [
+      "Identifica la información que tenías al decidir.",
+      "Practica un solo cambio durante varias partidas.",
+      "Revisa el resultado sin confundirlo con la calidad de la decisión."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026"
+  },
+  {
+    "game": "deadlock",
+    "kind": "guide",
+    "slug": "rotaciones-objetivos",
+    "path": "/deadlock/guides/rotaciones-objetivos",
+    "title": "Rotaciones y objetivos: cuándo dejar de farmear",
+    "description": "Llega al lugar donde tu siguiente habilidad puede cambiar la partida.",
+    "intro": "Una partida mezcla economía, movimiento y coordinación. Esta guía organiza preguntas de práctica para reconocer decisiones repetibles. Los ejemplos son ejercicios propuestos; no se presentan como una partida real ni como una receta que funcione en cualquier rango.",
+    "sections": [
+      {
+        "title": "Una rotación necesita un motivo",
+        "body": [
+          "Moverte a otra línea tiene sentido si puedes proteger algo, crear una superioridad o aprovechar una ventana. Viajar sin una acción concreta puede dejar dos líneas sin presión útil. Antes de salir, revisa la oleada que abandonas y la posición del rival."
+        ]
+      },
+      {
+        "title": "Prepara la zona antes del combate",
+        "body": [
+          "Llegar primero puede permitir una cobertura y un ángulo mejores. Si esperas a que empiece la pelea para abandonar un recurso lejano, quizá llegues después de que tu equipo gaste sus respuestas. Relaciona tu ruta de economía con el siguiente objetivo probable."
+        ]
+      },
+      {
+        "title": "No conviertas una ventaja en una persecución",
+        "body": [
+          "Después de ganar espacio, comprueba qué objetivo podéis disputar con los recursos restantes. Perseguir a un enemigo a través de zonas sin información puede consumir la ventana de presión. Una retirada rival también puede ser una oportunidad para asegurar posición."
+        ]
+      },
+      {
+        "title": "Ejercicio: compara dos destinos",
+        "body": [
+          "Pausa una repetición al terminar una oleada. Compara seguir recolectando con moverte hacia el equipo: tiempo de llegada, habilidades disponibles y coste de abandonar la línea. No elijas por intuición retrospectiva; usa solo la información visible en ese momento."
+        ]
+      }
+    ],
+    "checklist": [
+      "Identifica la información que tenías al decidir.",
+      "Practica un solo cambio durante varias partidas.",
+      "Revisa el resultado sin confundirlo con la calidad de la decisión."
+    ],
+    "sources": [
+      {
+        "title": "Datos del cliente y localización · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/heroes?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Objetos y habilidades del cliente · API comunitaria",
+        "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Revisión de fundamentos · octubre de 2026"
+  },
+  {
+    "game": "deadlock",
+    "kind": "news",
+    "slug": "enfermera-harrow-disponible",
+    "path": "/deadlock/news/enfermera-harrow-disponible",
+    "title": "Enfermera Harrow ya está disponible en Deadlock",
+    "description": "Valve cierra las incorporaciones de City Never Sleeps con un héroe centrado en interacciones de recuperación y presión.",
+    "intro": "Valve anunció la llegada de Enfermera Harrow el 20 de octubre. Su incorporación completa la tanda de personajes de City Never Sleeps. El anuncio describe un conjunto de herramientas que interactúa con enemigos y aliados; conviene reconocer sus efectos antes de decidir cómo entrar en una pelea.",
+    "sections": [
+      {
+        "title": "Qué ha confirmado Valve",
+        "body": [
+          "El anuncio presenta Leech Therapy, Wretched Vapors, Healing Needles y Lurking Terrors. Describe recuperación de recursos, efectos sobre aliados y amenazas para el equipo rival. La descripción oficial no basta para fijar una build óptima ni para establecer su posición en el meta."
+        ]
+      },
+      {
+        "title": "Qué practicar al encontrarla",
+        "body": [
+          "Observa cuándo sus aliados reciben una mejora y cuándo termina ese efecto. Como ejercicio, separa el daño que puedes mantener de una persecución que te obliga a entrar en la posición de todo el equipo rival. Guarda una cobertura para recuperar espacio si aparece una segunda amenaza."
+        ]
+      },
+      {
+        "title": "Qué no podemos concluir del estreno",
+        "body": [
+          "La popularidad de un personaje recién llegado no demuestra su rendimiento en todos los rangos. Para valorar su fuerza hacen falta partidas comparables y una muestra suficiente. Esta noticia confirma la disponibilidad y propone preguntas de aprendizaje; no publica una tier list anticipada."
+        ]
+      }
+    ],
+    "checklist": [
+      "Lee los efectos actuales en el cliente.",
+      "Identifica qué recurso conserva el rival.",
+      "No copies una build sin entender la compra."
+    ],
+    "sources": [
+      {
+        "title": "Anuncio oficial de Valve",
+        "url": "https://store.steampowered.com/news/app/1422450/view/669505296465396778",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Archivo de anuncios oficiales · API comunitaria",
+        "url": "https://api.deadlock-api.com/v2/patches",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-20T20:59:53Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "City Never Sleeps · anuncio del 20 de octubre"
+  },
+  {
+    "game": "deadlock",
+    "kind": "news",
+    "slug": "violeta-disponible",
+    "path": "/deadlock/news/violeta-disponible",
+    "title": "Violeta llega a Deadlock: qué conviene aprender primero",
+    "description": "El anuncio oficial presenta a Violeta y sus herramientas basadas en tinta y movimiento.",
+    "intro": "Valve anunció la disponibilidad de Violeta el 16 de octubre. Su presentación combina herramientas de disparo, movimiento y efectos sobre el espacio de pelea. Reconocer la secuencia visible del personaje es un primer paso más útil que asignarle inmediatamente una categoría de poder.",
+    "sections": [
+      {
+        "title": "Las herramientas del anuncio",
+        "body": [
+          "Valve presenta Living Ink, Flow State, Still Life y Abstract Landscape. El texto relaciona la tinta con el arma y describe opciones para acercarse al peligro o alejarse. Consulta los efectos del cliente para comprobar alcance, duración e interacciones antes de probar una secuencia."
+        ]
+      },
+      {
+        "title": "Una prioridad para practicar",
+        "body": [
+          "Empieza por distinguir una aproximación de una retirada. Si gastas una herramienta de movimiento para alcanzar a un enemigo, comprueba qué conservas para la respuesta. Este ejercicio sirve tanto para aprender el personaje como para jugar contra él sin perseguirlo a ciegas."
+        ]
+      },
+      {
+        "title": "Cómo leer una build de estreno",
+        "body": [
+          "Las primeras listas suelen resolver un estilo concreto. Pregunta qué parte de la secuencia intenta mejorar cada objeto y si tú consigues ejecutar esa parte. Una compra que produce valor en un vídeo no es automáticamente la mejor respuesta a tu línea o a tu rival."
+        ]
+      }
+    ],
+    "checklist": [
+      "Reconoce qué habilidad cambia la posición.",
+      "Comprueba el efecto de cada compra en práctica.",
+      "Distingue disponibilidad confirmada de valoración del meta."
+    ],
+    "sources": [
+      {
+        "title": "Presentación oficial de Valve",
+        "url": "https://store.steampowered.com/news/app/1422450/view/669505296465396531",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Archivo de anuncios oficiales · API comunitaria",
+        "url": "https://api.deadlock-api.com/v2/patches",
+        "primary": false,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-16T21:00:07Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "City Never Sleeps · anuncio del 16 de octubre"
+  },
+  {
+    "game": "deadlock",
+    "kind": "patch_note",
+    "slug": "ajustes-14-octubre-2026",
+    "path": "/deadlock/patch-notes/ajustes-14-octubre-2026",
+    "title": "Parche del 14 de octubre: Baba y Danny Difunto",
+    "description": "Los últimos ajustes de balance verificados en las fuentes oficiales consultadas reducen herramientas de Baba y refuerzan varias de Danny Difunto.",
+    "intro": "La nota menor del 14 de octubre aparece también como una respuesta de Valve en el hilo de City Never Sleeps. Esta página resume las direcciones del cambio y sus implicaciones de práctica. Los anuncios posteriores de nuevos héroes no se presentan aquí como si fueran este mismo parche de balance.",
+    "sections": [
+      {
+        "title": "Baba: menos margen en varias herramientas",
+        "body": [
+          "Valve reduce resistencia, protección y frecuencia en partes de su kit, y ajusta comportamientos del movimiento aéreo. Si jugabas secuencias basadas en mantener una protección o repetir una entrada, comprueba ahora el tiempo disponible antes de comprometerte. No reutilices una demostración antigua sin revisar sus condiciones."
+        ]
+      },
+      {
+        "title": "Danny Difunto: más presencia y herramientas reforzadas",
+        "body": [
+          "Los cambios oficiales aumentan recursos básicos y mejoran partes del arma y de varias habilidades. Una lectura práctica es revisar si puedes disputar intercambios que antes abandonabas. Esto no prueba por sí solo que el héroe gane cualquier enfrentamiento: el resultado depende de qué parte de la secuencia consigas aplicar."
+        ]
+      },
+      {
+        "title": "Cómo adaptar tu siguiente sesión",
+        "body": [
+          "Elige una interacción afectada y repítela en el entorno de práctica. Después observa una partida y comprueba si el recurso modificado influyó en la entrada o la retirada. Actualiza primero ese hábito antes de cambiar toda la build. Las cifras exactas y la lista íntegra de ajustes están enlazadas en la fuente oficial."
+        ]
+      }
+    ],
+    "checklist": [
+      "Consulta la fecha de la nota que estás usando.",
+      "Prueba una interacción afectada antes de ranked.",
+      "No mezcles un anuncio de héroe con un parche de balance."
+    ],
+    "sources": [
+      {
+        "title": "Nota oficial de balance",
+        "url": "https://store.steampowered.com/news/app/1422450/view/669505296465396213",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      },
+      {
+        "title": "Hilo oficial y correcciones de Valve",
+        "url": "https://forums.playdeadlock.com/threads/09-29-2026.166726/",
+        "primary": true,
+        "accessedAt": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "publishedAt": "2026-10-15T03:11:58Z",
+    "updatedAt": "2026-10-23T09:00:00Z",
+    "patch": "Nota menor · 14 de octubre de 2026"
+  }
+]

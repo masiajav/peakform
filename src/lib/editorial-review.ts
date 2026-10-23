@@ -11,10 +11,11 @@ const REVIEW_FIELDS = [
 ] as const
 
 export type EditorialReviewContent = Partial<Record<typeof REVIEW_FIELDS[number], string | null>> & {
+  game?: string | null
   tags?: string[] | null
 }
 
-const ROW_FIELDS = ['id', 'tags', 'published', 'created_at', 'updated_at']
+const ROW_FIELDS = ['game', 'id', 'tags', 'published', 'created_at', 'updated_at']
 export const GUIDE_REVIEW_COLUMNS = [...REVIEW_FIELDS.filter(field => !field.startsWith('source_')), ...ROW_FIELDS].join(', ')
 // Source columns are absent on older databases. Select the actual row so news
 // still loads and version checks include source fields whenever they exist.
@@ -46,6 +47,7 @@ export function editorialContentVersion(content: EditorialReviewContent) {
     const timestamp = field.endsWith('_published_at') && value ? Date.parse(value) : NaN
     return [field, Number.isFinite(timestamp) ? new Date(timestamp).toISOString() : value]
   })
+  if (content.game && content.game !== 'overwatch') fields.push(['game', content.game])
   const encoded = new TextEncoder().encode(JSON.stringify([fields, Array.from(new Set(publicEditorialTags(content.tags))).sort()]))
   return Array.from(sha256(encoded), byte => byte.toString(16).padStart(2, '0')).join('')
 }
