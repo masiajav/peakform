@@ -32,6 +32,18 @@ Quedan pendientes las fichas, counters y builds de los otros 37 héroes, con las
 
 Para continuar: usar los assets de `reports/deadlock-parity/sources`, recuperar la versión publicada antes de modificar páginas existentes, redactar conjuntos propios como `content/deadlock/mo-krill-depth.mjs`, preparar con `scripts/prepare-deadlock-hero.mjs`, comprobar con `scripts/editorial-batch.mjs` y publicar con base de producción. Las propuestas, evidencias y capturas de esta ampliación están en `reports/deadlock-parity/`. No volver a ejecutar generadores sobre páginas ya publicadas sin conservar las fechas y las actualizaciones de la base de datos. El mantenimiento diario sigue su runbook y no debe importar automáticamente estos lotes de desarrollo.
 
+## Segundo grupo de héroes
+
+Publicadas las quince páginas de Kelvin, Bebop, Hiedra, Guardia y Viscoso. Cada conjunto desarrolla habilidades, decisiones de línea y equipo, una secuencia de práctica, preguntas frecuentes, tres matchups con límites y una ruta de nueve compras con costes actuales. No se copian estadísticas ni se confunde una respuesta disponible con un resultado garantizado. El catálogo editorial suma **49 páginas: 12 fichas, 12 counters, 12 builds, 10 fundamentos, dos noticias y un parche**.
+
+Evidencia de publicación: `reports/deadlock-parity/batch-3/manifest.candidates.json` y `inspection-public/result.json`; las quince versiones exactas se han comprobado en escritorio y móvil, incluidas imágenes, tablas, preguntas desplegables, ausencia de texto del proceso editorial y presencia en sus índices y sitemap. El snapshot publicado está en `reports/deadlock-parity/after-batch-3.json`. Una interrupción del proceso local de publicación se resolvió consultando primero la base de datos y reanudando con las mismas versiones; la publicación idempotente mantuvo las ya publicadas.
+
+La portada mantiene una selección de seis héroes con retratos y un enlace al catálogo, añade tres accesos a fundamentos y ordena las noticias por fecha. Se evita que el crecimiento del catálogo entierre las noticias bajo todas las fichas. La verificación local pasa 22 recorridos de navegador en dos tamaños, las 14 pruebas unitarias relevantes, lint y build.
+
+Se han descargado y verificado los retratos de los 44 héroes seleccionables y no deshabilitados, con ID, URL y SHA en `content/deadlock/catalog-assets.json`. Los retratos no crean páginas ni enlaces de descubrimiento por sí solos.
+
+**Pendiente:** conjuntos editoriales de los otros 32 héroes y auditoría final de profundidad, cobertura, navegación y presentación. Próximo grupo recomendado: Vindicta, Lady Geist, Wraith, McGinnis y Paradoja (IDs 3, 4, 7, 8 y 10). Todos los datos de habilidades en ambos idiomas están en el snapshot actual; contrastar las guías y las compras antes de redactar. La paridad sigue abierta.
+
 ## Límites
 
 Pick Lab, overlays y coaching siguen fuera de esta ampliación editorial. Las fuentes públicas alimentan una síntesis original; no se copian ni traducen artículos o vídeos completos. El código y los cambios de mapas que ya estaban en curso quedan separados de este trabajo.

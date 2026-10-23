@@ -8,7 +8,7 @@ const stateFile=manifestFile.replace(/\.json$/,'.candidates.json')
 const state=fs.existsSync(stateFile)?JSON.parse(fs.readFileSync(stateFile,'utf8')):[]
 const run=(...args)=>{
  const r=spawnSync(process.execPath,['--env-file=.env.local','--experimental-strip-types','scripts/editorial.mjs',...args],{encoding:'utf8',env:process.env,timeout:180000})
- if(r.error||r.status!==0)throw Error(r.error?.message||r.stderr||r.stdout)
+ if(r.error||r.status!==0)throw Error(`editorial ${args[0]} failed (exit ${r.status}, signal ${r.signal??'none'}): ${[r.error?.message,r.stderr,r.stdout].filter(Boolean).join('\n')}`)
  const json=r.stdout.trim().split(/\r?\n/).at(-1)
  return JSON.parse(json)
 }
