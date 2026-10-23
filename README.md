@@ -18,7 +18,7 @@ Marketplace y hemeroteca SEO de Overwatch para el publico hispanohablante. La ap
 
 ## Requisitos
 
-- Node.js 18 o superior.
+- Node.js 24 LTS, version 24.22.1 o posterior dentro de la rama 24.x (ver `.nvmrc`).
 - npm.
 - Proyecto de Supabase.
 - Cuenta de Stripe con Connect activado.
@@ -29,6 +29,15 @@ Marketplace y hemeroteca SEO de Overwatch para el publico hispanohablante. La ap
 
 ## Instalacion
 
+Instala Node.js 24.22.1 o posterior dentro de la rama 24.x. Si usas nvm:
+
+```bash
+nvm install 24.22.1
+nvm use 24.22.1
+```
+
+Despues instala las dependencias y arranca la web:
+
 ```bash
 npm install
 cp .env.example .env.local
@@ -36,6 +45,8 @@ npm run dev
 ```
 
 Abre `http://localhost:3000`.
+
+`.npmrc` activa `engine-strict` para que npm rechace instalaciones con una version de Node.js incompatible con `engines.node`.
 
 ## Variables De Entorno
 
@@ -89,6 +100,8 @@ La decision completa y los criterios para separar repos mas adelante estan docum
 ## Vercel
 
 El repo incluye `vercel.json` con un `ignoreCommand` que ejecuta `scripts/vercel-ignore-build.mjs`.
+
+`engines.node` en `package.json` selecciona Node.js 24.x en Vercel y declara 24.22.1 como version minima en desarrollo. Esta version incluye las correcciones de seguridad del 21 de octubre de 2026 para Brotli, DNS y TLS. Vercel gestiona las actualizaciones de parche del runtime; hay que comprobar el proyecto y sus despliegues para confirmar la rama utilizada. Los proyectos que sigan en Node.js 20.x deben pasar a 24.x y redesplegarse. Referencias: [aviso de Node.js](https://nodejs.org/en/blog/vulnerability/october-2026-security-releases) y [aviso de Vercel](https://vercel.com/kb/bulletin/node-js-security-advisory).
 
 Vercel cancelara el build cuando el diff solo toque documentacion o archivos de ejemplo:
 
