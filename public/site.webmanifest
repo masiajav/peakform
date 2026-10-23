@@ -1,7 +1,7 @@
 {
   "name": "Replaid Lab",
   "short_name": "Replaid Lab",
-  "description": "Coaching de Overwatch, guías y análisis de replays por expertos verificados.",
+  "description": "Guías, héroes, counters y noticias de Overwatch y Deadlock en español.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0a0a",
