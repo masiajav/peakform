@@ -1,0 +1,28 @@
+import { test, expect } from '@playwright/test'
+
+test('builds and counters expose readable purchases, limits and FAQ', async ({ page }) => {
+  for (const path of ['/deadlock/builds/abrams', '/deadlock/counters/haze']) {
+    await page.goto(path)
+    await expect(page.getByRole('columnheader', { name: 'Almas', exact: true })).toBeVisible()
+    await expect(page.getByRole('columnheader', { name: 'Límite', exact: true })).toBeVisible()
+    await expect(page.locator('.game-data-table').last()).toContainText('3200')
+    const question = page.locator('.game-faq').first()
+    await question.locator('summary').click()
+    await expect(question.locator('p')).toBeVisible()
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true)
+    const text = await page.locator('main').innerText()
+    expect(text).not.toMatch(/tarea de Codex|propuesta editorial|contenido automatizado|revisión de fundamentos/i)
+    await expect(page.locator('.game-sources summary')).toHaveText('Referencias')
+  }
+})
+
+test('published learning guides are discoverable with preserved hero links', async ({ page, request }) => {
+  await page.goto('/deadlock/guides?q=resistencias')
+  await page.locator('.game-content-card').filter({ hasText: 'Daño y resistencias' }).click()
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Daño y resistencias')
+  await expect(page.getByRole('table')).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Counters de Infernus: cómo responder' })).toBeVisible()
+  const sitemap = await (await request.get('/sitemap.xml')).text()
+  expect(sitemap).toContain('/deadlock/guides/dano-resistencias')
+  expect(sitemap).toContain('/deadlock/guides/composiciones-sinergias')
+})

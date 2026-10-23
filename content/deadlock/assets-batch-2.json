@@ -1,0 +1,44 @@
+[
+  {
+    "id": 12,
+    "slug": "kelvin",
+    "path": "public/deadlock/kelvin.webp",
+    "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_card.webp",
+    "retrievedAt": "2026-10-23T20:38:49.077Z"
+  },
+  {
+    "id": 15,
+    "slug": "bebop",
+    "path": "public/deadlock/bebop.webp",
+    "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_card.webp",
+    "retrievedAt": "2026-10-23T20:38:49.143Z"
+  },
+  {
+    "id": 18,
+    "slug": "mo-krill",
+    "path": "public/deadlock/mo-krill.webp",
+    "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_card.webp",
+    "retrievedAt": "2026-10-23T20:38:49.169Z"
+  },
+  {
+    "id": 20,
+    "slug": "ivy",
+    "path": "public/deadlock/ivy.webp",
+    "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_card.webp",
+    "retrievedAt": "2026-10-23T20:38:49.212Z"
+  },
+  {
+    "id": 25,
+    "slug": "warden",
+    "path": "public/deadlock/warden.webp",
+    "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_card.webp",
+    "retrievedAt": "2026-10-23T20:38:49.239Z"
+  },
+  {
+    "id": 35,
+    "slug": "viscous",
+    "path": "public/deadlock/viscous.webp",
+    "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_card.webp",
+    "retrievedAt": "2026-10-23T20:38:49.265Z"
+  }
+]

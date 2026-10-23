@@ -24,7 +24,9 @@ Preparadas y comprobadas las 25 revisiones: las seis fichas desarrollan las cuat
 
 El catálogo se corrige a 44 héroes seleccionables y no deshabilitados. Baba y Violeta figuran todavía con una marca interna de desarrollo en los assets, pero son seleccionables y sus lanzamientos están confirmados en los anuncios de Valve del 6 y 16 de octubre. No se excluyen por esa marca. Los nombres sin ficha publicada participan en la búsqueda, sin enlaces a páginas inexistentes.
 
-Quedan pendientes las fichas, counters y builds de los otros 38 héroes; ampliar compras, resistencias, coordinación, selección, revisión, mapa y sinergias. Esta ampliación por sí sola no cierra la paridad.
+Las 25 revisiones están publicadas en producción. También se han comprobado y publicado seis guías nuevas de compras, daño/resistencias, sinergias, elección de héroe, revisión de partidas y lectura del mapa. La biblioteca suma 31 artículos y 10 fundamentos. Pasan los diez recorridos de navegador de producción (cinco en escritorio y cinco en móvil), además de las comprobaciones individuales de las 31 vistas previas. Las doce pruebas unitarias relevantes, lint y build pasan.
+
+Quedan pendientes las fichas, counters y builds de los otros 38 héroes, con las fuentes y los límites de sus interacciones. El siguiente grupo investigado incluye Mo y Krill, Kelvin, Bebop, Hiedra, Guardia y Viscoso; aún no se han creado sus páginas públicas. Esta ampliación por sí sola no cierra la paridad.
 
 ## Límites
 
