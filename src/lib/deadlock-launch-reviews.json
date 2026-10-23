@@ -1,352 +1,352 @@
 {
   "/deadlock/heroes/abrams": {
-    "version": "cad988fa065fee70e36f5bf03d7fc483a3e95fc21a055514540177d11e8c891e",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:07.664Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/heroes/abrams: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "48a65819a8147745d535134ae2dee017d68538f155d5734e0b778f2c8cb24a35",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:22:48.824Z"
   },
   "/deadlock/counters/abrams": {
-    "version": "a22dabd66754d65fce0a04f3cbd459c333fcb70cf6b1ed7da4b8f7c4f3bdb5f5",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:09.196Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/counters/abrams: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "f066d17df78a46229cbe412f82a8d68338a7f939ffb5efbdb6a455179bb73148",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:22:51.978Z"
   },
   "/deadlock/builds/abrams": {
-    "version": "4fda359e1f91f7e85571b70684a7d76d7202c70c919f983568a2310a458efcf7",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:10.762Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/builds/abrams: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "a0d72c8105766b21e909e5f72905bd53af20960c968d2d99a8274ecb4d12592d",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:22:54.974Z"
   },
   "/deadlock/heroes/dynamo": {
-    "version": "3b6aafa52cf4951d258e1d1661ab836633b47e4125be7c651f21ff7689a73acc",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:12.767Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/heroes/dynamo: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "26ce64858731a943c8a87fac68fc2df55c6dc9c9c3c3ec986e55b370c7b09c13",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:22:57.959Z"
   },
   "/deadlock/counters/dynamo": {
-    "version": "66caf2a93bb5f9e60098c270110ebd82761056cb88b7b7b8537f17da235107a6",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:14.409Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/counters/dynamo: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "ba0405ccb5aac151a72a5db6278d6de9fca6c25a489330a96bfbacbc11eca2af",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:23:00.968Z"
   },
   "/deadlock/builds/dynamo": {
-    "version": "cc5b7b908ab8b633dcdac3be6b76f3c85d4c8c73bb5c1d86866edd802190384b",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:15.976Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/builds/dynamo: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "8599f44986f12fc3d1f9f16851eedacf10525dfb383afd64ace8a19afcc4bb46",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:23:13.137Z"
   },
   "/deadlock/heroes/haze": {
-    "version": "123bb30a263ab5cb3108d25a4de4e09f6d6ce4701dda14202f53c3bd6d63a3d0",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:17.891Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/heroes/haze: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "87c28f33d5f38086e9c9ea5897fbf86a2d99ee4bc2b53ed983abfbf3245de223",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:23:03.903Z"
   },
   "/deadlock/counters/haze": {
-    "version": "e207fb0bb74de26d3df390010160f902714d269c530165f5d352f4c6944e4ecf",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:19.439Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/counters/haze: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "31a68a19806b6dc33ae4915f4ffdfa34bb72585922b7611dcc0ffc1fc80664ab",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:23:16.054Z"
   },
   "/deadlock/builds/haze": {
-    "version": "74e8dbb331d12e9991d3af1bc3f2a084e4faa7f6e506b9107b54933048875813",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:20.975Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/builds/haze: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "5118655ca9e3c1d81883afb017a8464e357c6a96c5716aa4b6c89f4629d75968",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:23:55.350Z"
   },
   "/deadlock/heroes/infernus": {
-    "version": "f157c8c3fd2597488ebcc2ff873ed12ff310682ecc63423d730a5fdd7c002dfc",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:22.894Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/heroes/infernus: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "9ba4d8254e5c519cef6b9f39b4e06bef71f4720085515e716bafe2172ac2a60f",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:23:25.067Z"
   },
   "/deadlock/counters/infernus": {
-    "version": "4f3221ea31194aac4723d8d835d1af34258ab994948bf7b9d0bd87fdfd732744",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:24.609Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/counters/infernus: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "d110fd2326628c897aa11ccecf1a0e2bf6576f85d662cf6966274cd0f6dc3cf4",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:24:04.349Z"
   },
   "/deadlock/builds/infernus": {
-    "version": "445db6a3285db06f69652aac2d7a51e471849209aae98f4ab4226b8647e387d2",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:26.241Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/builds/infernus: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "e320ea3716b20403100297f9471b9bc938cba417d24e8b5bca914b1f164b008c",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:23:34.158Z"
   },
   "/deadlock/heroes/lash": {
-    "version": "5a69a6a481b61777a34ffbd14878f55f2409c7d1ee124a060c7327318099fc81",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:28.857Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/heroes/lash: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "e3da0153f8cb94f7ebdd828c9d5259b8bcf81645624ccbb78c1dfdf55faae222",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:24:07.199Z"
   },
   "/deadlock/counters/lash": {
-    "version": "4af6f3558899728e61329980d0ee7a4433a5744deb39e3c78ae004d3f291e1be",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:30.392Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/counters/lash: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "65933920515ae8c6bde0a94851eb35fb43957c7e9acfc0feccd7e14a62070f97",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:23:43.232Z"
   },
   "/deadlock/builds/lash": {
-    "version": "f34166513953b5ee6962a01c1ae0969fa80412b2f17eae6d59246c741c3841ff",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:31.926Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/builds/lash: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "1f7fd40894f623d7688f91f0239050dfa38eb95122ddff3c5abfdd7cdf357a28",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:24:10.161Z"
   },
   "/deadlock/heroes/seven": {
-    "version": "4c9fa629d2f87a0b96ef9f891fb237d7b4c8722558cd597d17da557393519fe4",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:33.836Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/heroes/seven: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "b6ec95281466a2952ba72d3a75229a6178b8a88f274468f7c3dae39922fecd90",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:23:46.410Z"
   },
   "/deadlock/counters/seven": {
-    "version": "6ebb134135c08c90a6b448621b9d49b3575e1e5ddd2797722760a681a6061a49",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:35.435Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/counters/seven: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "2a306b2841f4557e9a3b4ea00b972c415ab2f6648d954b407b0e66bbcbc00e26",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:24:13.266Z"
   },
   "/deadlock/builds/seven": {
-    "version": "641f75dc5caef4e1acc7b9d961850e278a4360dbfaaa2fbf2e394ec0491a0259",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:37.043Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/builds/seven: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "801b392aa161c69f43b767efbc05362e0ea892edf64912a4d03883efe3959137",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:24:26.267Z"
   },
   "/deadlock/guides/economia-almas": {
-    "version": "9646ea74b1a689e62f9086b12f62e7dcd693d840802e38fad2d017753af35e02",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:38.524Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/guides/economia-almas: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "28790318985c1a5eb6db454bbccefe4012f77bb3bf8b098a02e991851b164b4f",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:24:23.271Z"
   },
   "/deadlock/guides/fase-de-lineas": {
-    "version": "dcb9c7e87bce5004824e23a776424895e49d466c0d3aeb9d9e05de05b561f39a",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:39.991Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/guides/fase-de-lineas: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "a302827333872f0169c44cb99cf36288c143160da14f7335b8809fcee88db47d",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:24:29.280Z"
   },
   "/deadlock/guides/movimiento-aguante": {
-    "version": "cfac31d0c127e5b05d7c286c973017e4312b5eb6fffb93d66519c9ca8a63b45a",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:41.436Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/guides/movimiento-aguante: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "020d5e06dd91ae7528c96c0d1483031d660242815a3201c1d8f77eaecd9fe47b",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:24:34.896Z"
   },
   "/deadlock/guides/rotaciones-objetivos": {
-    "version": "d9e56430d0797aa8e742c7725b4840ae41d68225207fa1d4d5bf2b463dea41f3",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:42.912Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/guides/rotaciones-objetivos: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "d5bad98368a5a780b52b72e753a95ef16d374d3b94848ff6273f8b8551d4c947",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:24:32.120Z"
   },
   "/deadlock/news/enfermera-harrow-disponible": {
-    "version": "3997f1e3b2549f574b99bde68fc2a33e29047dd231db224f0961d86c79b00797",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:44.752Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/news/enfermera-harrow-disponible: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "85f06c2458b6d8a1ffd34a9d096aafe19a30eedcefeb143e807df9b84d6fe12d",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:24:37.685Z"
   },
   "/deadlock/news/violeta-disponible": {
-    "version": "02d2cf80f2143456c556f86a301163c88ef40a61e41886f75dc0095b1f735a05",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:46.491Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/news/violeta-disponible: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "f8edd5c942386492e1d227ab91af9f2e894cb770af5c7079f0d1b95d5885df4e",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:24:43.773Z"
   },
   "/deadlock/patch-notes/ajustes-14-octubre-2026": {
-    "version": "4c23051f12742854b6ee9de749a0740d2df6abcd48bbdef754f3064235d24adc",
-    "reviewer": "codex-automated",
-    "reviewedAt": "2026-10-23T18:30:48.774Z",
     "checks": {
       "facts": true,
-      "sources": true,
-      "originality": true,
       "links": true,
+      "mobile": true,
       "desktop": true,
-      "mobile": true
+      "sources": true,
+      "originality": true
     },
-    "report": "Investigación 2026-10-23: datos localizados del cliente descargados desde /v1/assets/heroes e /v1/assets/items; efectos y nombres contrastados con fichas de Deadlock Bible y LockCodex. Noticias verificadas en anuncios de Valve del 16 y 20 de octubre mediante su archivo en /v2/patches. Último balance verificado: nota oficial del 14 de octubre y respuesta de Valve en el hilo 09-29-2026. Las estrategias se presentan como ejercicios editoriales, sin estadísticas inventadas ni supuestas pruebas en partidas. Redacción original, sin trasladar la estructura de una guía de un creador. La validación visual y de enlaces se ejecuta por separado y queda vinculada a la versión exacta."
+    "report": "/deadlock/patch-notes/ajustes-14-octubre-2026: Ampliación original de las 25 páginas existentes. Contrastadas las cuatro habilidades de Abrams, Dínamo, Bruma, Infernus, Lash y Siete con los assets actuales en español e inglés, y las fichas de Deadlock Bible y LockCodex enlazadas en cada artículo. Inventario de 781 objetos por idioma: solo compras shopable y no disabled, nombre localizado por ID y coste actual. Verificados específicamente: Compresión de Recarga y Expansión Mística imbuyen una habilidad; Piel de Metal solo cubre balas; Daga Adormecedora no interrumpe canalizaciones; Combustión Conmocionadora lanzada no se interrumpe; Derribo es retardado; Hechizo Ralentizante no bloquea aguante; Imparable no puede usarse ya aturdido o dormido; resistencias y anticuración se distinguen por daño y aplicación; Disparo Místico y Revientatanques requieren carga y umbral. Las recomendaciones se formulan como decisiones condicionadas por posición, seguimiento y recursos, sin rankings ni resultados inventados. Fundamentos contrastados con las páginas de Souls, Lanes and troopers, Movement and stamina y Map objectives de Deadlock.io, además de los datos de objetos. Las noticias conservan fecha y anuncio oficial de Valve; se han eliminado explicaciones del proceso editorial y afirmaciones ajenas al anuncio. Se conservan los publishedAt, las rutas y los enlaces relacionados solo a páginas publicadas. Copia y desarrollo propios; no se atribuye contenido a vídeos no revisados. Fuentes descargadas y conservadas en reports/deadlock-parity/web; datos en reports/deadlock-parity/sources. La comprobación de vista previa y enlaces se ejecuta para la versión exacta antes de publicar.",
+    "version": "be75fd7e3c732def9b6e0908899659c92622f84889cf92605334ff92eb19c480",
+    "reviewer": "codex-automated",
+    "reviewedAt": "2026-10-23T20:24:41.068Z"
   }
 }

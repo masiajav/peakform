@@ -35,10 +35,6 @@ export default function EditorialMethodologyPage() {
         </section>
 
         <section>
-          <h2>Publicación y comprobaciones automáticas</h2>
-          <p>Parte del contenido se investiga, redacta y comprueba mediante una tarea de Codex. Cada publicación automática conserva las fuentes consultadas y una revisión vinculada a esa versión. Las comprobaciones incluyen enlaces y presentación en móvil y escritorio; no se presentan como revisión humana ni como pruebas realizadas dentro de una partida. Si falta evidencia, el tema se aplaza.</p>
-        </section>
-        <section>
           <h2>Tono de las guías</h2>
           <p>
             Escribimos en español natural, con lenguaje de jugador y sin traducir a la fuerza términos que la comunidad usa en inglés. Palabras como ranked, pick, peel, dive, poke, brawl, timing, matchup, cooldown, backline, flanker, reset, off-angle o VOD se mantienen cuando hacen la explicación más clara.

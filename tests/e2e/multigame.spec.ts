@@ -10,3 +10,10 @@ test('Deadlock sections and sitemap contain the reviewed launch',async({request}
  const xml=await(await request.get('/sitemap.xml')).text();expect(xml).toContain('/deadlock/heroes/haze');expect(xml).toContain('/overwatch');expect(xml).not.toContain('/editorial-preview/')
  const bad=await request.get('/deadlock/heroes/ana');expect(bad.status()).toBe(404);const preview=await request.get('/editorial-preview/seed-0');expect(preview.status()).toBe(404)
 })
+
+test('find a released hero without inventing a guide',async({page})=>{
+ await page.goto('/deadlock/heroes?q=Violet')
+ await expect(page.locator('.game-catalog')).toContainText('Violeta')
+ await expect(page.locator('main a[href="/deadlock/heroes/violet"]')).toHaveCount(0)
+ await expect(page.getByText('No hay artículos que coincidan.',{exact:false})).toHaveCount(0)
+})

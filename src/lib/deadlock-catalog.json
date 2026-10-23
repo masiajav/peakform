@@ -3,252 +3,419 @@
     "id": 1,
     "name": "Infernus",
     "className": "hero_inferno",
-    "guide": "infernus"
+    "aliases": [
+      "Infernus"
+    ],
+    "slug": "infernus"
   },
   {
     "id": 2,
     "name": "Siete",
     "className": "hero_gigawatt",
-    "guide": "seven"
+    "aliases": [
+      "Siete",
+      "Seven"
+    ],
+    "slug": "seven"
   },
   {
     "id": 3,
     "name": "Vindicta",
     "className": "hero_hornet",
-    "guide": null
+    "aliases": [
+      "Vindicta"
+    ],
+    "slug": "vindicta"
   },
   {
     "id": 4,
     "name": "Lady Geist",
     "className": "hero_ghost",
-    "guide": null
+    "aliases": [
+      "Lady Geist"
+    ],
+    "slug": "lady-geist"
   },
   {
     "id": 6,
     "name": "Abrams",
     "className": "hero_atlas",
-    "guide": "abrams"
+    "aliases": [
+      "Abrams"
+    ],
+    "slug": "abrams"
   },
   {
     "id": 7,
     "name": "Espectro",
     "className": "hero_wraith",
-    "guide": null
+    "aliases": [
+      "Espectro",
+      "Wraith"
+    ],
+    "slug": "wraith"
   },
   {
     "id": 8,
     "name": "McGinnis",
     "className": "hero_forge",
-    "guide": null
+    "aliases": [
+      "McGinnis"
+    ],
+    "slug": "mcginnis"
   },
   {
     "id": 10,
     "name": "Paradoja",
     "className": "hero_chrono",
-    "guide": null
+    "aliases": [
+      "Paradoja",
+      "Paradox"
+    ],
+    "slug": "paradox"
   },
   {
     "id": 11,
     "name": "Dínamo",
     "className": "hero_dynamo",
-    "guide": "dynamo"
+    "aliases": [
+      "Dínamo",
+      "Dynamo"
+    ],
+    "slug": "dynamo"
   },
   {
     "id": 12,
     "name": "Kelvin",
     "className": "hero_kelvin",
-    "guide": null
+    "aliases": [
+      "Kelvin"
+    ],
+    "slug": "kelvin"
   },
   {
     "id": 13,
     "name": "Bruma",
     "className": "hero_haze",
-    "guide": "haze"
+    "aliases": [
+      "Bruma",
+      "Haze"
+    ],
+    "slug": "haze"
   },
   {
     "id": 14,
     "name": "Holliday",
     "className": "hero_astro",
-    "guide": null
+    "aliases": [
+      "Holliday"
+    ],
+    "slug": "holliday"
   },
   {
     "id": 15,
     "name": "Bebop",
     "className": "hero_bebop",
-    "guide": null
+    "aliases": [
+      "Bebop"
+    ],
+    "slug": "bebop"
   },
   {
     "id": 16,
     "name": "Calico",
     "className": "hero_nano",
-    "guide": null
+    "aliases": [
+      "Calico"
+    ],
+    "slug": "calico"
   },
   {
     "id": 17,
     "name": "Garra Gris",
     "className": "hero_orion",
-    "guide": null
+    "aliases": [
+      "Garra Gris",
+      "Grey Talon"
+    ],
+    "slug": "grey-talon"
   },
   {
     "id": 18,
     "name": "Mo y Krill",
     "className": "hero_krill",
-    "guide": null
+    "aliases": [
+      "Mo y Krill",
+      "Mo & Krill"
+    ],
+    "slug": "mo-krill"
   },
   {
     "id": 19,
     "name": "El Navajas",
     "className": "hero_shiv",
-    "guide": null
+    "aliases": [
+      "El Navajas",
+      "Shiv"
+    ],
+    "slug": "shiv"
   },
   {
     "id": 20,
     "name": "Hiedra",
     "className": "hero_tengu",
-    "guide": null
+    "aliases": [
+      "Hiedra",
+      "Ivy"
+    ],
+    "slug": "ivy"
   },
   {
     "id": 25,
     "name": "Guardia",
     "className": "hero_warden",
-    "guide": null
+    "aliases": [
+      "Guardia",
+      "Warden"
+    ],
+    "slug": "warden"
   },
   {
     "id": 27,
     "name": "Yamato",
     "className": "hero_yamato",
-    "guide": null
+    "aliases": [
+      "Yamato"
+    ],
+    "slug": "yamato"
   },
   {
     "id": 31,
     "name": "Lash",
     "className": "hero_lash",
-    "guide": "lash"
+    "aliases": [
+      "Lash"
+    ],
+    "slug": "lash"
   },
   {
     "id": 35,
     "name": "Viscoso",
     "className": "hero_viscous",
-    "guide": null
+    "aliases": [
+      "Viscoso",
+      "Viscous"
+    ],
+    "slug": "viscous"
   },
   {
     "id": 50,
     "name": "Pocket",
     "className": "hero_synth",
-    "guide": null
+    "aliases": [
+      "Pocket"
+    ],
+    "slug": "pocket"
   },
   {
     "id": 52,
     "name": "Espejismo",
     "className": "hero_mirage",
-    "guide": null
+    "aliases": [
+      "Espejismo",
+      "Mirage"
+    ],
+    "slug": "mirage"
   },
   {
     "id": 58,
     "name": "Víbora",
     "className": "hero_viper",
-    "guide": null
+    "aliases": [
+      "Víbora",
+      "Vyper"
+    ],
+    "slug": "vyper"
   },
   {
     "id": 60,
     "name": "Sinclair",
     "className": "hero_magician",
-    "guide": null
+    "aliases": [
+      "Sinclair"
+    ],
+    "slug": "sinclair"
   },
   {
     "id": 63,
     "name": "Mina",
     "className": "hero_vampirebat",
-    "guide": null
+    "aliases": [
+      "Mina"
+    ],
+    "slug": "mina"
   },
   {
     "id": 64,
     "name": "Vagabundo",
     "className": "hero_drifter",
-    "guide": null
+    "aliases": [
+      "Vagabundo",
+      "Drifter"
+    ],
+    "slug": "drifter"
   },
   {
     "id": 65,
     "name": "Venator",
     "className": "hero_priest",
-    "guide": null
+    "aliases": [
+      "Venator"
+    ],
+    "slug": "venator"
   },
   {
     "id": 66,
     "name": "Víctor",
     "className": "hero_frank",
-    "guide": null
+    "aliases": [
+      "Víctor",
+      "Victor"
+    ],
+    "slug": "victor"
   },
   {
     "id": 67,
     "name": "Paige",
     "className": "hero_bookworm",
-    "guide": null
+    "aliases": [
+      "Paige"
+    ],
+    "slug": "paige"
   },
   {
     "id": 69,
     "name": "El Portero",
     "className": "hero_doorman",
-    "guide": null
+    "aliases": [
+      "El Portero",
+      "The Doorman"
+    ],
+    "slug": "the-doorman"
   },
   {
     "id": 72,
     "name": "Billy",
     "className": "hero_punkgoat",
-    "guide": null
+    "aliases": [
+      "Billy"
+    ],
+    "slug": "billy"
   },
   {
     "id": 76,
     "name": "Graves",
     "className": "hero_necro",
-    "guide": null
+    "aliases": [
+      "Graves"
+    ],
+    "slug": "graves"
   },
   {
     "id": 77,
     "name": "Apolo",
     "className": "hero_fencer",
-    "guide": null
+    "aliases": [
+      "Apolo",
+      "Apollo"
+    ],
+    "slug": "apollo"
   },
   {
     "id": 78,
-    "name": "Danny Difunto",
+    "name": "Danny Difunto",
     "className": "hero_deadpack",
-    "guide": null
+    "aliases": [
+      "Danny Difunto",
+      "Deadman Danny"
+    ],
+    "slug": "deadman-danny"
   },
   {
     "id": 79,
     "name": "Rem",
     "className": "hero_familiar",
-    "guide": null
+    "aliases": [
+      "Rem"
+    ],
+    "slug": "rem"
   },
   {
     "id": 80,
     "name": "Silver",
     "className": "hero_werewolf",
-    "guide": null
+    "aliases": [
+      "Silver"
+    ],
+    "slug": "silver"
   },
   {
     "id": 81,
     "name": "Celeste",
     "className": "hero_unicorn",
-    "guide": null
+    "aliases": [
+      "Celeste"
+    ],
+    "slug": "celeste"
   },
   {
     "id": 84,
-    "name": "Rey Rata",
+    "name": "Rey Rata",
     "className": "hero_ratking",
-    "guide": null
+    "aliases": [
+      "Rey Rata",
+      "Rat King"
+    ],
+    "slug": "rat-king"
   },
   {
     "id": 85,
     "name": "Salomón",
     "className": "hero_chessmaster",
-    "guide": null
+    "aliases": [
+      "Salomón",
+      "Solomon"
+    ],
+    "slug": "solomon"
+  },
+  {
+    "id": 86,
+    "name": "Violeta",
+    "className": "hero_artist",
+    "aliases": [
+      "Violeta",
+      "Violet"
+    ],
+    "slug": "violet"
   },
   {
     "id": 87,
-    "name": "Enfermera Harrow",
+    "name": "Enfermera Harrow",
     "className": "hero_nurse",
-    "guide": null
+    "aliases": [
+      "Enfermera Harrow",
+      "Nurse Harrow"
+    ],
+    "slug": "nurse-harrow"
+  },
+  {
+    "id": 88,
+    "name": "Yagá",
+    "className": "hero_baba",
+    "aliases": [
+      "Yagá",
+      "Baba"
+    ],
+    "slug": "baba"
   }
 ]

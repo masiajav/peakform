@@ -2,10 +2,16 @@ import { createHash } from 'node:crypto'
 import { isIP } from 'node:net'
 import type { GameId } from './games'
 export type EditorialKind = 'hero' | 'counter' | 'build' | 'guide' | 'news' | 'patch_note' | 'map' | 'team_comp'
+export type EditorialSection = {
+  title: string; body: string[]; bullets?: string[]
+  table?: { columns: string[]; rows: string[][] }
+}
 export type EditorialArticle = {
   game: GameId; kind: EditorialKind; slug: string; path: string; title: string; description: string
   hero?: string; aliases?: string[]; image?: string; publishedAt: string; updatedAt: string; patch: string
-  intro: string; sections: { title: string; body: string[]; bullets?: string[] }[]
+  intro: string; sections: EditorialSection[]
+  faq?: { question: string; answer: string }[]
+  related?: { href: string; label: string }[]
   checklist: string[]; sources: { title: string; url: string; accessedAt: string; primary?: boolean }[]
 }
 export type EditorialEvidence = {
@@ -34,6 +40,15 @@ export function editorialIssues(input: unknown): string[] {
   if (Date.parse(a.updatedAt) < Date.parse(a.publishedAt)) issues.push('La actualización precede a la publicación')
   if (!Array.isArray(a.sections) || a.sections.length < 3 || a.sections.some(s => typeof s.title !== 'string' || !Array.isArray(s.body) || !s.body.length || s.body.some(p => typeof p !== 'string' || !p.trim()) || (s.bullets && (!Array.isArray(s.bullets) || s.bullets.some(b => typeof b !== 'string'))))) issues.push('Secciones incompletas')
   if (!Array.isArray(a.checklist) || a.checklist.length < 3 || a.checklist.some(c => typeof c !== 'string' || !c.trim())) issues.push('Falta checklist práctica')
+  for (const section of a.sections ?? []) {
+    const table = section.table
+    if (table && (!Array.isArray(table.columns) || table.columns.length < 2
+      || table.columns.some(c => typeof c !== 'string' || !c.trim())
+      || !Array.isArray(table.rows) || table.rows.length === 0
+      || table.rows.some(row => !Array.isArray(row) || row.length !== table.columns.length || row.some(cell => typeof cell !== 'string')))) issues.push('Tabla incompleta')
+  }
+  if (a.faq && (!Array.isArray(a.faq) || a.faq.some(f => !f.question?.trim() || !f.answer?.trim()))) issues.push('Preguntas frecuentes no válidas')
+  if (a.related && (!Array.isArray(a.related) || a.related.some(l => !l.label?.trim() || !/^\/(?!\/)/.test(l.href)))) issues.push('Enlaces relacionados no válidos')
   if (!Array.isArray(a.sources) || a.sources.length === 0 || a.sources.some(s => !s.title || !safeSourceUrl(s.url) || !Number.isFinite(Date.parse(s.accessedAt)))) issues.push('Fuentes no válidas')
   else if (!a.sources.some(s => s.primary) && new Set(a.sources.map(s => new URL(s.url).hostname.replace(/^www\./,''))).size < 2) issues.push('Se necesitan dos fuentes independientes o una fuente primaria')
   return issues
