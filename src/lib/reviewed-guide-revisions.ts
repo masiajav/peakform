@@ -8,6 +8,7 @@ import { sixthGuideReviewBatch } from './reviewed-guide-batch-6'
 import { seventhGuideReviewBatch } from './reviewed-guide-batch-7'
 import { eighthGuideReviewBatch } from './reviewed-guide-batch-8'
 import { reviewedRoleGuides } from './reviewed-role-guides'
+import { ninthGuideReviewBatch } from './reviewed-guide-batch-9'
 export { hasReviewedGuideRevision, reviewedGuideTarget } from './reviewed-guide-policy'
 
 export type GuideRevision = {
@@ -596,6 +597,7 @@ export const reviewedGuideRevisions: Record<string, GuideRevision> = {
   ...seventhGuideReviewBatch,
   ...eighthGuideReviewBatch,
   ...reviewedRoleGuides,
+  ...ninthGuideReviewBatch,
 }
 
 export function reviewedGuideVideoSource(slug: string) {

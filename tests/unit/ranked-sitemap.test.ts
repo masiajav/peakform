@@ -29,7 +29,7 @@ describe('ranked sitemap follows the rendered version', () => {
     }
     const entries = (await sitemap()).filter(item => item.url === `https://www.replaidlab.com${path}`)
     expect(entries).toHaveLength(1)
-    expect(entries[0].lastModified).toEqual(new Date('2026-10-05'))
+    expect(entries[0].lastModified).toEqual(new Date('2026-10-20'))
     const other = rankedHeroGuides[1]
     expect((await sitemap()).map(item => item.url)).not.toContain(`https://www.replaidlab.com/guides/${other.slug}`)
   })

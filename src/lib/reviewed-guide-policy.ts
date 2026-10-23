@@ -1,3 +1,5 @@
+import legacyHeroGuideRedirects from './legacy-hero-guide-redirects.json'
+
 // Kept separate from article bodies because the ad gate also runs in the browser.
 const videoTargets: Record<string, string> = {
   'orisa-guia-video-overwatch': 'orisa-guia-overwatch-fortify-javelin',
@@ -20,6 +22,9 @@ const videoTargets: Record<string, string> = {
 }
 
 const standaloneReviewedSlugs = [
+  'tracer-presion-lateral-sin-morir-gratis',
+  'zarya-guia-overwatch-burbujas-energia',
+  'winston-guia-video-overwatch',
   'mauga-guia-video-overwatch',
   'ramattra-guia-video-overwatch',
   'wrecking-ball-guia-video-overwatch',
@@ -52,6 +57,7 @@ const standaloneReviewedSlugs = [
 const reviewedSlugs = new Set([...Object.values(videoTargets), ...standaloneReviewedSlugs])
 
 const consolidatedTargets: Record<string, string> = {
+  ...legacyHeroGuideRedirects,
   'como-mejorar-en-overwatch-revisando-vod': 'review-vod-overwatch-espanol',
   'como-elegir-composicion-dive-poke-brawl': 'composiciones-overwatch-5v5-6v6',
 }

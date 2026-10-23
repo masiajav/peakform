@@ -5,6 +5,7 @@ import PublicNav from '@/components/layout/PublicNav'
 import type { RankedHeroGuide } from '@/lib/ranked-hero-guides'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
 import styles from './RankedHeroGuideArticle.module.css'
+import GuideVideo from './GuideVideo'
 
 export default function RankedHeroGuideArticle({ guide }: { guide: RankedHeroGuide }) {
   const path = `/guides/${guide.slug}`
@@ -41,6 +42,15 @@ export default function RankedHeroGuideArticle({ guide }: { guide: RankedHeroGui
         acceptedAnswer: { '@type': 'Answer', text: item.answer },
       })),
     },
+    ...(guide.video ? [{
+      '@context': 'https://schema.org', '@type': 'VideoObject',
+      name: guide.video.title, description: guide.video.context,
+      thumbnailUrl: [`https://i.ytimg.com/vi/${guide.video.id}/hqdefault.jpg`],
+      uploadDate: guide.video.publishedAt,
+      embedUrl: `https://www.youtube-nocookie.com/embed/${guide.video.id}`,
+      inLanguage: guide.video.language,
+      author: { '@type': 'Organization', name: guide.video.channel },
+    }] : []),
   ]
 
   return (
@@ -96,6 +106,16 @@ export default function RankedHeroGuideArticle({ guide }: { guide: RankedHeroGui
             <ul className="seo-pillar-checklist">{guide.checklist.map(item => <li key={item}>{item}</li>)}</ul>
           </div>
         </section>
+
+        {guide.video && <section className="seo-pillar-section ranked-guide-video" aria-labelledby="ranked-video-title">
+          <h2 id="ranked-video-title">Vídeo de {guide.heroName}: qué llevar a tu partida</h2>
+          <p className="seo-pillar-intro">{guide.video.context}</p>
+          <GuideVideo videoId={guide.video.id} title={guide.video.title} channel={guide.video.channel} language={guide.video.language} url={`https://www.youtube.com/watch?v=${guide.video.id}`} />
+          {guide.video.practice.map(point => <div key={point.seconds} className="seo-pillar-intro">
+            <h3><a href={`https://www.youtube.com/watch?v=${guide.video!.id}&t=${point.seconds}s`} target="_blank" rel="noopener noreferrer">{Math.floor(point.seconds / 60)}:{String(point.seconds % 60).padStart(2, '0')} · {point.title}</a></h3>
+            <p>{point.body}</p>
+          </div>)}
+        </section>}
 
         <section className="seo-pillar-section">
           <div className="eyebrow">DUDAS HABITUALES</div>

@@ -6,10 +6,16 @@ for (const guide of rankedHeroGuides) {
   test(`ranked ${guide.heroSlug}: complete article, matching dates/schema and real navigation`, async ({ page, request }) => {
     test.setTimeout(90_000)
     const errors: string[] = []
+    const externalWarnings: string[] = []
     page.on('pageerror', error => errors.push(error.message))
-    page.on('console', message => { if (message.type() === 'error') errors.push(message.text()) })
+    page.on('console', message => {
+      const externalPermissionWarning = message.text() === 'Permissions policy violation: compute-pressure is not allowed in this document.'
+        && /^https:\/\/www\.youtube-nocookie\.com\/s\/player\//.test(message.location().url)
+      if (externalPermissionWarning) externalWarnings.push(message.text())
+      else if (message.type() === 'error') errors.push(message.text())
+    })
     const path = `/guides/${guide.slug}`
-    const response = await page.goto(path, { waitUntil: 'networkidle' })
+    const response = await page.goto(path, { waitUntil: 'domcontentloaded' })
     expect(response?.status()).toBe(200)
     await expect(page.locator('h1')).toHaveCount(1)
     await expect(page.locator('h1')).toHaveText(guide.title)
@@ -20,7 +26,7 @@ for (const guide of rankedHeroGuides) {
     const reviewed = hasCurrentStaticEditorialReview(path, guide)
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', `${reviewed ? 'index' : 'noindex'}, follow`)
     await expect(page.locator(`time[datetime="${guide.publishedAt}"]`)).toContainText('21 de junio de 2026')
-    await expect(page.locator(`time[datetime="${guide.modifiedAt}"]`)).toContainText('5 de octubre de 2026')
+    await expect(page.locator(`time[datetime="${guide.modifiedAt}"]`)).toContainText(guide.heroSlug === 'winston' ? '5 de octubre de 2026' : '20 de octubre de 2026')
     const article = (await page.locator('script[type="application/ld+json"]').allTextContents()).flatMap(text => JSON.parse(text))
     expect(article.find(item => item['@type'] === 'BlogPosting')).toMatchObject({ headline: guide.title, datePublished: guide.publishedAt, dateModified: guide.modifiedAt, author: { name: 'Replaid Lab' } })
     const faq = article.find(item => item['@type'] === 'FAQPage')
@@ -49,13 +55,14 @@ for (const guide of rankedHeroGuides) {
     const links = await main.locator('a[href^="/"]').evaluateAll(elements => Array.from(new Set(elements.map(element => element.getAttribute('href')!))))
     for (const link of links) expect((await request.get(link)).status(), link).toBe(200)
     const sitemap = await (await request.get('/sitemap.xml')).text()
-    if (reviewed) expect(sitemap).toMatch(new RegExp(`${path}</loc>\\s*<lastmod>2026-10-05T00:00:00\\.000Z</lastmod>`))
+    if (reviewed) expect(sitemap).toMatch(new RegExp(`${path}</loc>\\s*<lastmod>${guide.heroSlug === 'winston' ? '2026-10-05' : '2026-10-20'}T00:00:00\\.000Z</lastmod>`))
     else expect(sitemap).not.toContain(`${path}</loc>`)
     await main.locator(`a[href="/heroes/${guide.heroSlug}"]`).first().click()
     await expect(page).toHaveURL(new RegExp(`/heroes/${guide.heroSlug}$`))
     await expect(page.locator('h1')).toContainText(guide.heroName)
-    await page.goBack({ waitUntil: 'networkidle' })
+    await page.goBack({ waitUntil: 'domcontentloaded' })
     await expect(page.locator('h1')).toHaveText(guide.title)
     expect(errors).toEqual([])
+    for (const warning of externalWarnings) test.info().annotations.push({ type: 'YouTube permission warning', description: warning })
   })
 }

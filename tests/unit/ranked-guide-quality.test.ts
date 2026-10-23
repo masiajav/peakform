@@ -39,6 +39,7 @@ describe('ranked guide exact-version publication gate', () => {
       { ...guide, title: 'Otro título' }, { ...guide, seoDescription: 'Otra descripción' },
       { ...guide, quickAnswer: 'Otro resumen' }, { ...guide, modifiedAt: '2026-10-06' },
       { ...guide, intro: ['contenido '.repeat(3000)] }, { ...guide, links: guide.links.slice(1) },
+      { ...guide, video: { ...guide.video!, context: 'Una explicación distinta' } },
     ]) expect(rankedGuideQualityDecision(changed).indexable).toBe(false)
     expect(rankedGuideQualityDecision(null).indexable).toBe(false)
     expect(rankedGuideQualityDecision({ ...guide, slug: 'invented-route' }).indexable).toBe(false)
@@ -53,6 +54,12 @@ describe('ranked guide exact-version publication gate', () => {
       { ...guide, intro: [guide.intro[0], guide.intro[0]] },
       { ...guide, intro: ['TITLE SEO: instrucciones internas'] },
       { ...guide, links: [{ href: '//external.example', label: 'Externo' }, ...guide.links] },
+      { ...guide, video: { ...guide.video!, id: '../otro-video' } },
+      { ...guide, video: { ...guide.video!, context: '' } },
+      { ...guide, video: { ...guide.video!, practice: [] } },
+      { ...guide, video: { ...guide.video!, publishedAt: '2025-06-23' } },
+      { ...guide, video: { ...guide.video!, publishedAt: '2025-06-23T07:00:10' } },
+      { ...guide, video: { ...guide.video!, publishedAt: '2025-02-30T07:00:10-07:00' } },
     ]) {
       approve(changed)
       expect(rankedGuideQualityDecision(changed).indexable).toBe(false)
@@ -65,7 +72,7 @@ describe('ranked guide exact-version publication gate', () => {
     expect(new Set(paragraphs).size).toBe(paragraphs.length)
     for (const article of rankedHeroGuides) {
       expect(article.publishedAt).toBe('2026-06-21')
-      expect(article.modifiedAt).toBe('2026-10-05')
+      expect(article.modifiedAt).toBe(article.heroSlug === 'winston' ? '2026-10-05' : '2026-10-20')
       expect(article.faqs).toHaveLength(4)
       expect(article.sections).toHaveLength(5)
       expect(article.links.some(link => link.href === '/guides/como-mejorar-en-overwatch-revisando-vod')).toBe(true)

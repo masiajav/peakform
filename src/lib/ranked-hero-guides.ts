@@ -1,3 +1,5 @@
+import { RANKED_GUIDE_VIDEOS, type RankedGuideVideo } from './ranked-guide-videos'
+
 export type RankedGuideSection = {
   title: string
   paragraphs: string[]
@@ -23,6 +25,7 @@ export type RankedHeroGuide = {
   publishedAt: string
   modifiedAt: string
   updatedAt: string
+  video?: RankedGuideVideo
 }
 
 const commonDates = {
@@ -526,7 +529,9 @@ const guides: RankedHeroGuide[] = [
 ]
 
 export function getRankedHeroGuide(slug: string) {
-  return guides.find(guide => guide.slug === slug) ?? null
+  return rankedHeroGuides.find(guide => guide.slug === slug) ?? null
 }
 
-export const rankedHeroGuides = guides
+export const rankedHeroGuides: RankedHeroGuide[] = guides.map(guide => Object.hasOwn(RANKED_GUIDE_VIDEOS, guide.slug)
+  ? { ...guide, video: RANKED_GUIDE_VIDEOS[guide.slug], modifiedAt: '2026-10-20', updatedAt: '20 de octubre de 2026' }
+  : guide)

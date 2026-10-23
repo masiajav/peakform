@@ -116,7 +116,7 @@ describe('reviewed guide batch', () => {
   })
 
   it('keeps every revision and its old URL out of the sitemap and ad inventory', () => {
-    expect(Object.keys(reviewedGuideRevisions)).toHaveLength(44)
+    expect(Object.keys(reviewedGuideRevisions)).toHaveLength(47)
     for (const [slug, revision] of Object.entries(reviewedGuideRevisions)) {
       const guide = applyReviewedGuideRevision({ ...original, slug })
       if (revision.videoSlug === slug) {

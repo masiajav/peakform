@@ -191,20 +191,19 @@ export default async function GuideDetailPage(props: { params: Promise<{ slug: s
   }
 
   const videoDescription = hasReviewedGuideRevision(guide.slug) ? reviewedGuideRevisions[guide.slug].videoDescription : undefined
-  const videoJsonLd = guide.video_id ? {
+  const videoJsonLd = guide.video_id && guide.video_published_at ? {
     '@context': 'https://schema.org',
     '@type': 'VideoObject',
     name: guide.video_title || displayTitle,
     description: videoDescription || guide.video_summary || description,
     thumbnailUrl: [`https://i.ytimg.com/vi/${guide.video_id}/hqdefault.jpg`],
-    uploadDate: guide.video_published_at || publishedDate,
+    uploadDate: guide.video_published_at,
     embedUrl: `https://www.youtube-nocookie.com/embed/${guide.video_id}`,
-    contentUrl: guide.video_url || `https://www.youtube.com/watch?v=${guide.video_id}`,
     inLanguage: guide.video_language || 'es',
-    publisher: {
+    publisher: guide.video_channel ? {
       '@type': 'Organization',
-      name: guide.video_channel || author,
-    },
+      name: guide.video_channel,
+    } : undefined,
   } : null
 
   const breadcrumbJsonLd = {

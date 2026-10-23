@@ -29,7 +29,8 @@ for (const [slug, revision] of Object.entries(reviewedGuideRevisions)) {
     const schemas = jsonLd.map(block => JSON.parse(block))
     if (revision.videoDescription) {
       expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'VideoObject', description: revision.videoDescription }))
-      await expect(page.locator('.guide-body')).toContainText(revision.videoDescription)
+      expect(schemas.find(item => item['@type'] === 'VideoObject')).not.toHaveProperty('contentUrl')
+      await expect(page.locator('.guide-video-context')).toBeVisible()
       await expect(page.locator('.guide-video-context')).toHaveText(revision.videoDescription)
       await page.evaluate(() => document.fonts.ready)
       // Read both elements in one layout snapshot, after the web fonts settle.

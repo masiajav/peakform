@@ -541,6 +541,16 @@ export function rankedGuideQualityDecision(content: RankedHeroGuide | null): Pag
     && content.faqs.length >= 3 && content.faqs.every(item => item.question.trim() && item.answer.trim())
     && content.links.length >= 3 && content.links.every(link => link.label.trim() && /^\/(?!\/)/.test(link.href))
   if (!hasMetadata || !hasStructure) return blocked('Falta contenido o estructura editorial en la guía ranked', 0)
+  if (content.video && (!/^[\w-]{11}$/.test(content.video.id)
+    || !content.video.title.trim() || !content.video.channel.trim() || !content.video.context.trim()
+      || !validEditorialDate(content.video.publishedAt.slice(0, 10))
+      || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})$/.test(content.video.publishedAt)
+      || !Number.isFinite(Date.parse(content.video.publishedAt))
+    || !['en', 'es'].includes(content.video.language)
+    || content.video.practice.length < 2
+    || content.video.practice.some(point => !point.title.trim() || !point.body.trim() || !Number.isInteger(point.seconds) || point.seconds < 0))) {
+    return blocked('Falta contexto o identificación válida del vídeo', 0)
+  }
   if (!validEditorialDate(content.publishedAt) || !validEditorialDate(content.modifiedAt) || content.modifiedAt < content.publishedAt) {
     return blocked('Fechas de publicación y revisión no válidas', 0)
   }

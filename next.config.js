@@ -1,3 +1,5 @@
+const legacyHeroGuideRedirects = require('./src/lib/legacy-hero-guide-redirects.json')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   distDir: process.env.NEXT_DIST_DIR || '.next',
@@ -19,11 +21,11 @@ const nextConfig = {
         destination: '/guides/composiciones-overwatch-5v5-6v6',
         permanent: true,
       },
-      {
-        source: '/guides/ana-guia-video-overwatch',
-        destination: '/guides/ana-primeros-habitos-impactar-mas',
+      ...Object.entries(legacyHeroGuideRedirects).map(([source, destination]) => ({
+        source: `/guides/${source}`,
+        destination: `/guides/${destination}`,
         permanent: true,
-      },
+      })),
       {
         source: '/guides/como-revisar-habilidades-overwatch',
         destination: '/guides/como-revisar-cooldowns-overwatch',

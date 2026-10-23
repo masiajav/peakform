@@ -87,8 +87,12 @@ const RESTORED_TOPIC_ROUTES = ['/counters/ana', '/counters/shion', '/team-comps/
 for (const route of PUBLIC_ROUTES) {
   test(`${route} is a healthy public page`, async ({ page }) => {
     const errors: string[] = []
+    const externalWarnings: string[] = []
     page.on('console', message => {
-      if (message.type() === 'error') errors.push(message.text())
+      const deniedPlayerFeature = message.text() === 'Permissions policy violation: compute-pressure is not allowed in this document.'
+        && /^https:\/\/www\.youtube-nocookie\.com\/s\/player\//.test(message.location().url)
+      if (deniedPlayerFeature) externalWarnings.push(message.text())
+      else if (message.type() === 'error') errors.push(message.text())
     })
     page.on('pageerror', error => errors.push(error.message))
     page.on('response', response => {
@@ -113,6 +117,7 @@ for (const route of PUBLIC_ROUTES) {
 
     await assertLoadedImages(page)
     expect(errors).toEqual([])
+    for (const warning of externalWarnings) test.info().annotations.push({ type: 'YouTube permission warning', description: warning })
   })
 }
 
