@@ -1,5 +1,5 @@
 import { stripMarkdown } from './seo'
-import { MAP_PILLAR_SLUGS } from './overwatch-maps'
+import { getMapPillar, MAP_PILLAR_SLUGS, type MapPillar } from './overwatch-maps'
 import { PUBLIC_HERO_PAGE_SLUGS } from './topic-links'
 import { hasReviewedGuideRevision, reviewedGuideTarget } from './reviewed-guide-policy'
 export { PILLAR_COUNTER_SLUGS, PILLAR_TEAM_COMP_SLUGS } from './public-topic-policy'
@@ -101,6 +101,7 @@ export const UPCOMING_HERO_SLUGS: string[] = []
 
 export const PILLAR_HERO_SLUGS: string[] = [...PUBLIC_HERO_PAGE_SLUGS]
 
+// Catalogue membership is publication intent, not approval of an article version.
 export const PILLAR_MAP_SLUGS = MAP_PILLAR_SLUGS
 
 export const EXCLUDED_GUIDE_SLUGS = [
@@ -407,13 +408,56 @@ export function topicQualityDecision(kind: 'hero' | 'counter' | 'team_comp' | 'r
     return indexNoAds('Hub de rol indexable; sin anuncios hasta ampliar contenido propio', 0)
   }
 
-  return PILLAR_MAP_SLUGS.includes(slug)
-    ? indexNoAds('Mapa pilar indexable; sin anuncios hasta consolidar señales de calidad', 0)
-    : blocked('Mapa pendiente de contenido publicado suficiente', 0)
+  return mapQualityDecision(slug, getMapPillar(slug))
+}
+
+export function mapQualityDecision(slug: string, content: MapPillar | null | undefined): PageQualityDecision {
+  if (!content || content.slug !== slug || !PILLAR_MAP_SLUGS.includes(slug)) {
+    return blocked('Falta el mapa editorial publicado', 0)
+  }
+  if (!hasCurrentStaticEditorialReview(`/maps/${slug}`, content)) {
+    return blocked('Esta versión del mapa sigue pendiente de revisión individual', 0)
+  }
+
+  const words = wordCount(JSON.stringify(content))
+  const dated = validEditorialDate(content.updatedAtIso)
+    && (!content.publishedAtIso || (validEditorialDate(content.publishedAtIso) && content.updatedAtIso >= content.publishedAtIso))
+  const metadata = [content.name, content.mode, content.location, content.seoTitle, content.seoDescription,
+    content.updatedAt, content.image, content.imageAlt].every(value => value.trim())
+  const lists = [content.intro, content.mistakes, content.vodChecklist]
+  const cards = [content.quickRead, content.attackPlan, content.defensePlan]
+  const sections = lists.every(list => list.length > 0 && list.every(value => value.trim()))
+    && cards.every(list => list.length > 0 && list.every(item => item.title.trim() && item.body.trim()))
+    && content.phases.length >= 3 && content.phases.every(phase => [phase.name, phase.attack, phase.defense, phase.vodReview].every(value => value.trim()))
+    && content.heroPicks.length > 0 && content.heroPicks.every(pick => pick.reason.trim()
+      && COUNTER_HEROES.some(hero => hero.slug === pick.slug && hero.role === pick.role && normalize(hero.name) === normalize(pick.name)))
+    && content.faq.length >= 3 && content.faq.every(item => item.question.trim() && item.answer.trim())
+    && content.relatedLinks.length >= 3 && content.relatedLinks.every(link => link.label.trim() && /^\/(?!\/)/.test(link.href))
+  const teams = content.compositions.length > 0 && content.compositions.every(comp => {
+    const roles = comp.lineup.map(name => COUNTER_HEROES.find(hero => normalize(hero.name) === normalize(name))?.role)
+    return comp.name.trim() && comp.plan.trim() && comp.weakness.trim()
+      && comp.lineup.length === 5 && new Set(comp.lineup.map(normalize)).size === 5
+      && roles.filter(role => role === 'tank').length === 1
+      && roles.filter(role => role === 'dps').length === 2 && roles.filter(role => role === 'support').length === 2
+  })
+  if (!metadata || !dated || !sections || !teams) return blocked('Faltan fechas, decisiones, equipos o enlaces válidos en el mapa', words)
+
+  const paragraphs = [
+    ...content.intro, ...cards.flatMap(list => list.map(item => item.body)),
+    ...content.phases.flatMap(phase => [phase.attack, phase.defense, phase.vodReview]),
+    ...content.heroPicks.map(pick => pick.reason),
+    ...content.compositions.flatMap(comp => [comp.plan, comp.weakness]),
+    ...content.faq.map(item => item.answer), ...(content.conclusion ? [content.conclusion] : []),
+  ].map(value => normalize(value).replace(/\s+/g, ' ').trim())
+  if (new Set(paragraphs).size !== paragraphs.length) return blocked('El mapa repite párrafos', words)
+  if (/\b(?:lorem ipsum|pendiente de completar|texto de ejemplo|title seo|meta description|keywords principales)\b/i.test(JSON.stringify(content))) {
+    return blocked('El mapa contiene texto interno o provisional', words)
+  }
+  return indexNoAds('Mapa revisado individualmente; sin anuncios durante la revisión de AdSense', words)
 }
 
 export function editorialTopicQualityDecision(
-  kind: 'hero' | 'counter' | 'team_comp' | 'map',
+  kind: 'hero' | 'counter' | 'team_comp',
   slug: string,
   content: EditorialTopicLike | null | undefined,
 ): PageQualityDecision {
@@ -421,17 +465,12 @@ export function editorialTopicQualityDecision(
   if ((kind === 'hero' || kind === 'counter') && content.analysisStatus === 'trial') {
     return blocked('Análisis del kit de prueba; lanzamiento y matchups pendientes de comprobar', 0)
   }
-  if (kind === 'hero' || kind === 'counter' || kind === 'team_comp') {
-    const path = `/${kind === 'hero' ? 'heroes' : kind === 'counter' ? 'counters' : 'team-comps'}/${slug}`
-    if (!hasCurrentStaticEditorialReview(path, content)) {
-      return blocked('Esta versión del artículo todavía no tiene una revisión editorial registrada', 0)
-    }
-    const published = kind === 'hero' ? isPillarHeroSlug(slug) : kind === 'counter' ? isPillarCounterSlug(slug) : isPillarTeamCompSlug(slug)
-    if (!published) return blocked('Artículo revisado; indexación y anuncios pendientes de publicación individual', 0)
-  } else {
-    const policy = topicQualityDecision(kind, slug)
-    if (!policy.indexable) return blocked(policy.reason, 0)
+  const path = `/${kind === 'hero' ? 'heroes' : kind === 'counter' ? 'counters' : 'team-comps'}/${slug}`
+  if (!hasCurrentStaticEditorialReview(path, content)) {
+    return blocked('Esta versión del artículo todavía no tiene una revisión editorial registrada', 0)
   }
+  const published = kind === 'hero' ? isPillarHeroSlug(slug) : kind === 'counter' ? isPillarCounterSlug(slug) : isPillarTeamCompSlug(slug)
+  if (!published) return blocked('Artículo revisado; indexación y anuncios pendientes de publicación individual', 0)
 
   const serialized = JSON.stringify(content)
   const words = wordCount(serialized.replace(/[{}\[\]":,]/g, ' '))

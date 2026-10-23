@@ -3,6 +3,7 @@ import { getMapPillar, MAP_PILLARS } from '../../src/lib/overwatch-maps'
 
 test('all maps retain real review dates without invented publication history', async ({ request }) => {
   const xml = await (await request.get('/sitemap.xml')).text()
+  const reviewed = ['blizzard-world', 'dorado', 'kings-row', 'lijiang-tower', 'neon-junction', 'nepal']
   for (const map of MAP_PILLARS) {
     const response = await request.get(`/maps/${map.slug}`)
     expect(response.status()).toBe(200)
@@ -12,9 +13,36 @@ test('all maps retain real review dates without invented publication history', a
     expect(article).not.toHaveProperty('datePublished')
     expect(article.dateModified).toBe(map.updatedAtIso)
     expect(schemas.find(item => item['@type'] === 'WebPage').dateModified).toBe(map.updatedAtIso)
-    expect(xml).toContain(`/maps/${map.slug}</loc>`)
-    expect(xml).toMatch(new RegExp(`/maps/${map.slug}</loc>\\s*<lastmod>${map.updatedAtIso}T00:00:00\\.000Z</lastmod>`))
+    const robots = [...html.matchAll(/<meta name="robots" content="([^"]+)"/g)].map(match => match[1]).join(',')
+    if (reviewed.includes(map.slug)) {
+      expect(robots).not.toMatch(/\bnoindex\b/i)
+      expect(xml).toMatch(new RegExp(`/maps/${map.slug}</loc>\\s*<lastmod>${map.updatedAtIso}T00:00:00\\.000Z</lastmod>`))
+    } else {
+      expect(robots).toMatch(/\bnoindex\b/i)
+      expect(robots).not.toMatch(/\bnofollow\b/i)
+      expect(xml).not.toContain(`/maps/${map.slug}</loc>`)
+    }
   }
+})
+
+test('pending maps keep their hub links, complete articles and navigation without ads', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', error => errors.push(error.message))
+  page.on('console', message => { if (message.type() === 'error') errors.push(message.text()) })
+  await page.goto('/maps')
+  for (const map of MAP_PILLARS) await expect(page.locator(`main .map-hub-card[href="/maps/${map.slug}"]`)).toHaveCount(1)
+  await page.locator('main .map-hub-card[href="/maps/circuit-royal"]').click()
+  const map = getMapPillar('circuit-royal')!
+  await expect(page.locator('h1')).toHaveText(map.name)
+  await expect(page.locator('h1')).toHaveCount(1)
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://www.replaidlab.com/maps/circuit-royal')
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow')
+  await expect(page.locator('main')).toContainText(map.intro[0])
+  for (const phase of map.phases) await expect(page.getByRole('heading', { name: phase.name, exact: true })).toBeVisible()
+  for (const image of await page.locator('main img').all()) await image.evaluate(element => (element as HTMLImageElement).decode())
+  await expect(page.locator('.ad-slot,ins.adsbygoogle,script[src*="adsbygoogle"]')).toHaveCount(0)
+  expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false)
+  expect(errors).toEqual([])
 })
 
 test('Neon Junction presents its revised route, visible FAQ and matching metadata without ads', async ({ page }) => {

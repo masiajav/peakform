@@ -5,7 +5,8 @@ import type { StaticEditorialReview } from '@/lib/static-editorial-review'
 const registry = vi.hoisted(() => ({} as Record<string, StaticEditorialReview>))
 vi.mock('@/lib/static-editorial-reviews', () => ({ STATIC_EDITORIAL_REVIEWS: registry }))
 
-import { editorialTopicQualityDecision, topicQualityDecision } from '@/lib/indexing-policy'
+import { editorialTopicQualityDecision, mapQualityDecision, topicQualityDecision } from '@/lib/indexing-policy'
+import { getMapPillar } from '@/lib/overwatch-maps'
 import { getCounterPillar, getTeamCompPillar } from '@/lib/seo-clusters'
 import { getHeroPillar } from '@/lib/hero-pillars'
 import { staticEditorialContentVersion } from '@/lib/static-editorial-review'
@@ -21,6 +22,47 @@ function approve(path: string, content: unknown) {
 beforeEach(() => { for (const key of Object.keys(registry)) delete registry[key] })
 
 describe('static topic publication checks', () => {
+  it('map catalogue membership does not approve an unreviewed or changed article', () => {
+    const article = getMapPillar('dorado')!
+    expect(topicQualityDecision('map', 'dorado')).toMatchObject({ indexable: false, adsAllowed: false })
+    approve('/maps/dorado', article)
+    expect(topicQualityDecision('map', 'dorado')).toMatchObject({ indexable: true, adsAllowed: false })
+    for (const edit of [
+      { intro: ['A different introduction'] }, { updatedAtIso: '2026-10-23' },
+      { seoDescription: 'Changed description' }, { quickRead: [] },
+    ]) {
+      expect(mapQualityDecision('dorado', { ...article, ...edit })).toMatchObject({ indexable: false, adsAllowed: false })
+    }
+    expect(mapQualityDecision('missing-map', article).indexable).toBe(false)
+    expect(mapQualityDecision('dorado', null).indexable).toBe(false)
+    expect(topicQualityDecision('map', 'missing-map').indexable).toBe(false)
+  })
+
+  it('a map review cannot bypass missing decisions, invalid dates, broken teams or repeated copy', () => {
+    const original = getMapPillar('dorado')!
+    for (const article of [
+      { ...original, name: '' }, { ...original, imageAlt: '' }, { ...original, image: '' },
+      { ...original, updatedAtIso: '2026-02-30' },
+      { ...original, publishedAtIso: '2026-10-24' },
+      { ...original, intro: [' '] }, { ...original, quickRead: [] },
+      { ...original, phases: [{ ...original.phases[0], attack: '' }] },
+      { ...original, attackPlan: [] }, { ...original, defensePlan: [] },
+      { ...original, mistakes: [] }, { ...original, vodChecklist: [] },
+      { ...original, faq: [] }, { ...original, relatedLinks: [] },
+      { ...original, relatedLinks: [{ href: '//external.test', label: 'External' }, ...original.relatedLinks.slice(1)] },
+      { ...original, heroPicks: [{ ...original.heroPicks[0], reason: '' }] },
+      { ...original, compositions: [] },
+      { ...original, compositions: [{ ...original.compositions[0], lineup: ['Winston', 'Ana', 'Ana', 'Genji', 'Tracer'] }] },
+      { ...original, compositions: [{ ...original.compositions[0], lineup: ['Winston', 'D.Va', 'Genji', 'Tracer', 'Ana'] }] },
+      { ...original, compositions: [{ ...original.compositions[0], plan: '' }] },
+      { ...original, intro: [original.intro[0], original.intro[0]] },
+      { ...original, intro: ['TITLE SEO: instrucciones internas'] },
+    ]) {
+      approve('/maps/dorado', article)
+      expect(mapQualityDecision('dorado', article)).toMatchObject({ indexable: false, adsAllowed: false })
+    }
+  })
+
   it('a public hero slug is not approval, and edits invalidate an exact hero review', () => {
     const article = getHeroPillar('ana')!
     expect(topicQualityDecision('hero', 'ana').indexable).toBe(false)

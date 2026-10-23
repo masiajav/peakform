@@ -132,7 +132,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...TRUST_ROUTES,
     ...ROLE_SLUGS.map(role => `/roles/${role}`),
     ...PILLAR_HERO_SLUGS.filter(hero => topicQualityDecision('hero', hero).indexable).map(hero => `/heroes/${hero}`),
-    ...PILLAR_MAP_SLUGS.map(map => `/maps/${map}`),
+    ...PILLAR_MAP_SLUGS.filter(map => topicQualityDecision('map', map).indexable).map(map => `/maps/${map}`),
     ...COUNTER_HEROES.filter(hero => PILLAR_COUNTER_SLUGS.includes(hero.slug) && editorialTopicQualityDecision('counter', hero.slug, getCounterPillar(hero.slug)).indexable).map(hero => `/counters/${hero.slug}`),
     ...TEAM_COMP_HEROES.filter(hero => PILLAR_TEAM_COMP_SLUGS.includes(hero.slug) && editorialTopicQualityDecision('team_comp', hero.slug, getTeamCompPillar(hero.slug)).indexable).map(hero => `/team-comps/${hero.slug}`),
   ].map(path => {

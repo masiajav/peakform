@@ -3,6 +3,27 @@ import type { StaticEditorialReview } from './static-editorial-review'
 // Explicit, version-bound reviews. No build task may populate this registry
 // from slugs or automatically renew approval after an editorial change.
 export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialReview>> = {
+  '/maps/dorado': {
+    path: '/maps/dorado',
+    version: '160b6bf7bf5e0f1dcb5b896d4db5310dc676a60bebb1979cc31fee35b62fb306',
+    reviewedAt: '2026-10-20', reviewer: 'Codex',
+    evidence: 'docs/content-review-dorado-blizzard-nepal-2026-10-20.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/maps/blizzard-world': {
+    path: '/maps/blizzard-world',
+    version: '68e4b8560971e8a5b25d6c9da85ee36c355a5ae4740364b6aa92e04fb9f6dece',
+    reviewedAt: '2026-10-20', reviewer: 'Codex',
+    evidence: 'docs/content-review-dorado-blizzard-nepal-2026-10-20.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/maps/nepal': {
+    path: '/maps/nepal',
+    version: '9632e8ac6186c7f548671d421f752a34bc086a1e5d61a06dafaefcf0add8b6b2',
+    reviewedAt: '2026-10-20', reviewer: 'Codex',
+    evidence: 'docs/content-review-dorado-blizzard-nepal-2026-10-20.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/maps/kings-row': {
     path: '/maps/kings-row',
     version: '0577c69ce0cc354ec9e853b202b447cfd45ac1e1cd42213e15251311c7c50460',

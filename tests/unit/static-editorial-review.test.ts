@@ -45,7 +45,7 @@ describe('version-bound static editorial reviews', () => {
 
   it('pins only individually reviewed article revisions, with existing evidence', () => {
     expect(Object.keys(STATIC_EDITORIAL_REVIEWS).sort()).toEqual([
-      '/maps/kings-row', '/maps/lijiang-tower', '/maps/neon-junction',
+      '/maps/kings-row', '/maps/lijiang-tower', '/maps/neon-junction', '/maps/dorado', '/maps/blizzard-world', '/maps/nepal',
       '/counters/ana', '/counters/shion', '/team-comps/shion', '/counters/reinhardt', '/counters/dva', '/counters/winston', '/counters/cassidy', '/counters/tracer', '/counters/domina', '/counters/zarya',
       '/counters/doomfist', '/counters/dmon', '/team-comps/doomfist', '/team-comps/dmon',
       '/counters/anran', '/counters/baptiste', '/counters/doctrine', '/counters/freja', '/counters/genji', '/counters/hazard', '/counters/illari', '/counters/jetpack-cat', '/counters/junker-queen', '/counters/junkrat', '/counters/juno', '/counters/kiriko', '/counters/lifeweaver', '/counters/lucio', '/counters/mauga', '/counters/mercy', '/counters/mizuki', '/counters/moira', '/counters/orisa', '/counters/pharah', '/counters/ramattra', '/counters/reaper', '/counters/roadhog', '/counters/sigma', '/counters/soldier-76', '/counters/sombra', '/counters/vendetta', '/counters/venture', '/counters/wrecking-ball', '/counters/wuyang', '/counters/zenyatta',

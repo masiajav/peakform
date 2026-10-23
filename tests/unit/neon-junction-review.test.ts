@@ -12,7 +12,7 @@ function schemas(html: string) {
 
 describe('honest map dates and Neon Junction review', () => {
   it('records only the individually read map revision and invalidates changed copy', () => {
-    for (const map of MAP_PILLARS) expect(hasCurrentStaticEditorialReview(`/maps/${map.slug}`, map)).toBe(['neon-junction', 'kings-row', 'lijiang-tower'].includes(map.slug))
+    for (const map of MAP_PILLARS) expect(hasCurrentStaticEditorialReview(`/maps/${map.slug}`, map)).toBe(['neon-junction', 'kings-row', 'lijiang-tower', 'dorado', 'blizzard-world', 'nepal'].includes(map.slug))
     const map = getMapPillar('neon-junction')!
     expect(hasCurrentStaticEditorialReview('/maps/neon-junction', { ...map, conclusion: 'Unreviewed replacement' })).toBe(false)
     expect(hasCurrentStaticEditorialReview('/maps/neon-junction', { ...map, updatedAtIso: '2026-10-20' })).toBe(false)
@@ -35,10 +35,11 @@ describe('honest map dates and Neon Junction review', () => {
     expect(schemas(renderToStaticMarkup(createElement(MapPillarPage, { map: later }))).find(item => item['@type'] === 'Article')).toMatchObject({ datePublished: '2026-07-04', dateModified: '2026-10-20' })
   })
 
-  it('dates only the three individually revised models, preserving other map history', () => {
-    const julyFourth = ['busan', 'nepal', 'oasis', 'circuit-royal', 'rialto', 'route-66', 'watchpoint-gibraltar', 'aatlis', 'new-junk-city', 'dorado']
-    const revised = ['neon-junction', 'kings-row', 'lijiang-tower']
-    for (const map of MAP_PILLARS) expect(map.updatedAtIso).toBe(revised.includes(map.slug) ? '2026-10-19' : julyFourth.includes(map.slug) ? '2026-07-04' : '2026-07-19')
+  it('dates only the individually revised batches, preserving other map history', () => {
+    const julyFourth = ['busan', 'oasis', 'circuit-royal', 'rialto', 'route-66', 'watchpoint-gibraltar', 'aatlis', 'new-junk-city']
+    const octoberNineteenth = ['neon-junction', 'kings-row', 'lijiang-tower']
+    const octoberTwentieth = ['dorado', 'blizzard-world', 'nepal']
+    for (const map of MAP_PILLARS) expect(map.updatedAtIso).toBe(octoberTwentieth.includes(map.slug) ? '2026-10-20' : octoberNineteenth.includes(map.slug) ? '2026-10-19' : julyFourth.includes(map.slug) ? '2026-07-04' : '2026-07-19')
     expect(getMapPillar('neon-junction')!.updatedAt).toBe('19 de octubre de 2026')
   })
 
