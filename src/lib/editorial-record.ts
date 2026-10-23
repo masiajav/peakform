@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto'
+import { isIP } from 'node:net'
 import type { GameId } from './games'
 export type EditorialKind = 'hero' | 'counter' | 'build' | 'guide' | 'news' | 'patch_note' | 'map' | 'team_comp'
 export type EditorialArticle = {
@@ -17,7 +18,7 @@ export function editorialVersion(article: EditorialArticle) {
   return createHash('sha256').update(JSON.stringify(ordered(article))).digest('hex')
 }
 export function safeSourceUrl(value: string) {
-  try { const u = new URL(value); return u.protocol === 'https:' && !u.username && !u.password && !u.port && !/^(localhost|127\.|0\.|10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.|\[)/i.test(u.hostname) && u.hostname.includes('.') } catch { return false }
+  try { const u = new URL(value); return u.protocol === 'https:' && !u.username && !u.password && !u.port && !isIP(u.hostname) && !u.hostname.startsWith('[') && !/\.(local|localhost|internal)$/i.test(u.hostname) && u.hostname.includes('.') } catch { return false }
 }
 export function editorialIssues(input: unknown): string[] {
   if (!input || typeof input !== 'object' || Array.isArray(input)) return ['Artículo no válido']

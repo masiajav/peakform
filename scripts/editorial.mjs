@@ -34,7 +34,7 @@ try{
  else if(command==='seed-publish'){
   const reviews=read('src/lib/deadlock-launch-reviews.json');for(const a of read('src/lib/deadlock-launch.json')){const evidence=reviews[a.path];if(!evidenceMatches(a,evidence))throw Error('Launch review missing');const c=await stage(a);const r=await db.rpc('publish_editorial_revision',{p_page_id:c.id,p_version:c.version,p_evidence:evidence});if(r.error)fail(r.error);console.log('published',a.path)}
  }
- else if(command==='status'){const r=await db.from('editorial_runs').select('*').order('started_at',{ascending:false}).limit(10);if(r.error)fail(r.error);console.log(JSON.stringify(r.data,null,2))}
+ else if(command==='status'){const [r,c]=await Promise.all([db.from('editorial_runs').select('*').order('started_at',{ascending:false}).limit(10),db.from('editorial_runs').select('id,cursor_at').eq('status','complete').order('completed_at',{ascending:false}).limit(1)]);if(r.error)fail(r.error);if(c.error)fail(c.error);console.log(JSON.stringify({recent:r.data,lastComplete:c.data?.[0]??null},null,2))}
  else if(command==='run-start'){const r=await db.from('editorial_runs').insert({summary:{games:['overwatch','deadlock']}}).select('id').single();if(r.error)fail(r.error);console.log(r.data.id)}
  else if(command==='run-finish'){const summary=read(argument);const r=await db.from('editorial_runs').update({status:summary.failed?'failed':'complete',completed_at:new Date().toISOString(),cursor_at:summary.failed?null:new Date().toISOString(),summary}).eq('id',file);if(r.error)fail(r.error);console.log('recorded',file)}
  else throw Error('Use stage FILE | check ID REPORT | publish ID | restore PATH | seed-check REPORT | seed-publish | status | run-start | run-finish ID SUMMARY')

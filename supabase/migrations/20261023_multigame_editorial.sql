@@ -58,7 +58,7 @@ begin
  if p.id is null then
   insert into public.editorial_pages(game,path,kind,payload,version) values(c.game,c.path,c.kind,c.payload,c.version) returning * into p;
  end if;
- select id into revision_id from public.editorial_revisions where page_id=p.id order by created_at desc limit 1;
+ select id into revision_id from public.editorial_revisions where page_id=p.id and version=p.version order by created_at desc limit 1;
  update public.editorial_pages set payload=c.payload,version=c.version,status='published',evidence=p_evidence,previous_revision=revision_id,published_at=coalesce(published_at,now()),updated_at=now() where id=p.id;
  insert into public.editorial_revisions(page_id,payload,version,evidence) values(p.id,c.payload,c.version,p_evidence);
  return p.id;
