@@ -78,6 +78,16 @@ Una interrupción nativa de Node en Windows dejó pendiente la última build. Se
 
 **Pendiente:** 22 conjuntos y auditoría final. Siguiente grupo: Pocket, Espejismo/Mirage, Víbora/Vyper, Sinclair y Mina. Las habilidades están en `next-hero-mechanics-batch-6.txt`, con campos adicionales de Mirage y Mina en `next-hero-extra-batch-6.json`. La descripción de Rasgar/Rake de Mina está vacía en el espejo del cliente: se ha podido leer su tooltip completo en la wiki (`sources/wiki-mina.html`), mientras Deadlock.io devolvió solo una pantalla de carga y no debe figurar como página completamente revisada. Consultas diferenciadas en `mina-rake-sources.json`; contrastar los metadatos originales antes de redactar. Mantener abiertas las exigencias de profundidad, naturalidad, imágenes y cobertura, sin reducir el cierre a la cantidad de páginas.
 
+## Quinto grupo de héroes · 24 de octubre
+
+Publicadas y verificadas las quince páginas de Pocket, Espejismo/Mirage, Víbora/Vyper, Sinclair y Mina. La biblioteca suma **94 páginas: 27 fichas, 27 counters, 27 builds, 10 fundamentos, dos noticias y un parche**. Se conservan las 79 versiones anteriores. El control de campos públicos no encuentra explicaciones de automatización o producción editorial.
+
+Se han vuelto a consultar héroes y objetos en ambos idiomas; los cuatro snapshots actuales coinciden con los utilizados. Las fichas de la wiki completan el tooltip ausente de Rasgar y aclaran que las mejoras de Participación del Público determinan el nivel de la copia y que los imbuidos actúan sobre la habilidad de copiar. No se atribuyen activaciones de objetos a Aflicción ni se describe petrificación como una ventana de daño aliado normal. Las estrategias son condicionales, con límites de visión, alcance y seguimiento, sin resultados estadísticos inventados.
+
+Las quince vistas previas y las quince páginas públicas pasan en escritorio y móvil, con imágenes, cuatro habilidades, tablas, FAQ, índices y sitemap. Pasan los diez recorridos nuevos de alias → ficha → counters → build. Evidencias en `reports/deadlock-parity/batch-6/`, con `data-audit.json`, `manifest.candidates.json` y ambas carpetas de inspección. Estado público en `after-batch-6.json`. Las capturas inspeccionadas incluyen habilidades de Sinclair y compras de Pocket con icono, precio y restricción de activación.
+
+**Pendiente:** 17 conjuntos y auditoría final. Próximo grupo: Vagabundo/Drifter, Venator, Víctor, Paige y El Portero/The Doorman. Datos completos en `reports/deadlock-parity/next-hero-mechanics-batch-7.json`; leer todos los campos de descripción, incluidas pasivas. El usuario ha ampliado el objetivo con un aviso visual de sus directos de Kick: implementación y verificación separadas en `docs/kick-live-notice.md`. La cobertura completa de Deadlock sigue abierta.
+
 ## Límites
 
 Pick Lab, overlays y coaching siguen fuera de esta ampliación editorial. Las fuentes públicas alimentan una síntesis original; no se copian ni traducen artículos o vídeos completos. El código y los cambios de mapas que ya estaban en curso quedan separados de este trabajo.

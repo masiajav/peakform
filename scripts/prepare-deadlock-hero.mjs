@@ -14,7 +14,7 @@ fs.mkdirSync(directory,{recursive:true})
 const sources=[
  {title:'Héroes y localización · Deadlock API',url:'https://api.deadlock-api.com/v1/assets/heroes?language=spanish',accessedAt:now,primary:false},
  {title:'Objetos y habilidades · Deadlock API',url:'https://api.deadlock-api.com/v1/assets/items?language=spanish',accessedAt:now,primary:false},
- ...sourceUrls.map(url=>({title:url.includes('lockcodex')?'Habilidades y compras · LockCodex':url.includes('deadlockbible')?'Ficha y decisiones de juego · Deadlock Bible':'Efectos y mecánicas · Deadlock.io',url,accessedAt:now,primary:false}))
+ ...sourceUrls.map(url=>({title:url.includes('lockcodex')?'Habilidades y compras · LockCodex':url.includes('deadlockbible')?'Ficha y decisiones de juego · Deadlock Bible':url.includes('deadlock.wiki')?'Habilidades y efectos · The Deadlock Wiki':'Efectos y mecánicas · Deadlock.io',url,accessedAt:now,primary:false}))
 ]
 const sectionFor={hero:'heroes',counter:'counters',build:'builds'}
 for(const copy of articles){
