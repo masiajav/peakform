@@ -1,0 +1,8 @@
+.copy { margin: 1.25rem 0; }
+.copy label { display: block; font-size: .8rem; color: #c9c4b3; margin-bottom: .4rem; }
+.row { display: flex; flex-wrap: wrap; gap: .7rem; }
+.row input { min-width: 0; width: 10rem; max-width: 100%; padding: .6rem .8rem; border: 1px solid #89774a; background: #100f0c; color: #f4e4b2; border-radius: .35rem; font: 700 1.65rem ui-monospace, monospace; letter-spacing: .06em; }
+.row button { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .7rem 1rem; border: 1px solid #c3a86a; border-radius: .35rem; background: #ddc187; color: #18160f; font-weight: 700; cursor: pointer; }
+.row button:hover { background: #f2d89f; }
+.row :focus-visible { outline: 2px solid #f8e7bd; outline-offset: 4px; }
+.copy .status { margin: .7rem 0 0; min-height: 1.5rem; font-size: .85rem; line-height: 1.6; color: #c9c4b3; }

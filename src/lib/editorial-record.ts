@@ -7,11 +7,15 @@ export type EditorialSection = {
   table?: { columns: string[]; rows: string[][] }
 }
 export type EditorialAbility = { id: number; slot: number; name: string; englishName: string; icon: string }
+export type DeadlockBuildImport = {
+  code: number; heroId: number; version: number; checkedAt: string; focus: string; coreItems: number[]
+}
 export type EditorialArticle = {
   game: GameId; kind: EditorialKind; slug: string; path: string; title: string; description: string
   hero?: string; aliases?: string[]; image?: string; publishedAt: string; updatedAt: string; patch: string
   intro: string; sections: EditorialSection[]
   abilities?: EditorialAbility[]
+  buildImport?: DeadlockBuildImport
   faq?: { question: string; answer: string }[]
   related?: { href: string; label: string }[]
   checklist: string[]; sources: { title: string; url: string; accessedAt: string; primary?: boolean }[]
@@ -40,6 +44,17 @@ export function editorialIssues(input: unknown): string[] {
   for (const k of ['title','description','intro','patch'] as const) if (typeof a[k] !== 'string' || !a[k].trim()) issues.push(`Falta ${k}`)
   for (const k of ['publishedAt','updatedAt'] as const) if (!Number.isFinite(Date.parse(a[k]))) issues.push(`Fecha ${k} no válida`)
   if (Date.parse(a.updatedAt) < Date.parse(a.publishedAt)) issues.push('La actualización precede a la publicación')
+  if (a.buildImport !== undefined) {
+    const b = a.buildImport
+    if (a.game !== 'deadlock' || a.kind !== 'build' || !a.hero || a.hero !== a.slug
+      || !b || !Number.isSafeInteger(b.code) || b.code <= 0 || b.code > 2147483647
+      || !Number.isSafeInteger(b.heroId) || b.heroId <= 0 || !Number.isSafeInteger(b.version) || b.version <= 0
+      || !Number.isFinite(Date.parse(b.checkedAt)) || Date.parse(b.checkedAt) > Date.parse(a.updatedAt)
+      || typeof b.focus !== 'string' || !b.focus.trim() || b.focus.length > 220
+      || !Array.isArray(b.coreItems) || b.coreItems.length < 3 || b.coreItems.length > 6
+      || b.coreItems.some(id => !Number.isSafeInteger(id) || id <= 0)
+      || new Set(b.coreItems).size !== b.coreItems.length) issues.push('Código de build no válido')
+  }
   if (!Array.isArray(a.sections) || a.sections.length < 3 || a.sections.some(s => typeof s.title !== 'string' || !Array.isArray(s.body) || !s.body.length || s.body.some(p => typeof p !== 'string' || !p.trim()) || (s.bullets && (!Array.isArray(s.bullets) || s.bullets.some(b => typeof b !== 'string'))))) issues.push('Secciones incompletas')
   if (!Array.isArray(a.checklist) || a.checklist.length < 3 || a.checklist.some(c => typeof c !== 'string' || !c.trim())) issues.push('Falta checklist práctica')
   if (a.abilities !== undefined && (a.game !== 'deadlock' || a.kind !== 'hero' || !a.hero

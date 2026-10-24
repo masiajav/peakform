@@ -3,6 +3,7 @@ import Image from 'next/image'
 import PublicNav from '@/components/layout/PublicNav'
 import JsonLd from './JsonLd'
 import DeadlockAbilityKit from './DeadlockAbilityKit'
+import DeadlockBuildImport from './DeadlockBuildImport'
 import { GAMES, gamePath } from '@/lib/games'
 import { SECTION_KIND, editorialVersion, type EditorialArticle } from '@/lib/editorial-record'
 import { publishedEditorial } from '@/lib/editorial-store'
@@ -25,6 +26,7 @@ export default async function GameEditorialArticle({ article: a, preview = false
   const fallbackHero = a.game === 'deadlock' ? getDeadlockHeroMedia(a.hero) : undefined
   const hero = fallbackHero ? { ...fallbackHero, abilities: a.abilities ?? fallbackHero.abilities } : undefined
   const illustrated = a.kind === 'hero' && Boolean(hero)
+  const showReferences = !(a.game === 'deadlock' && a.kind === 'build')
   const title = <>
     <p className="eyebrow">{GAMES[a.game].name} · {sectionLabels[section]}</p>
     <h1>{a.title}</h1><p className="game-lead">{a.description}</p>
@@ -32,7 +34,7 @@ export default async function GameEditorialArticle({ article: a, preview = false
   </>
 
   return <div className={`game-page game-${a.game}`}><PublicNav />
-    {!preview && <JsonLd data={{ '@context': 'https://schema.org', '@type': a.kind === 'news' ? 'NewsArticle' : 'Article', headline: a.title, description: a.description, url: absoluteUrl(a.path), datePublished: a.publishedAt, dateModified: a.updatedAt, inLanguage: 'es', author: { '@type': 'Organization', name: SITE_NAME }, publisher: { '@type': 'Organization', name: SITE_NAME }, citation: a.sources.map(source => source.url) }} />}
+    {!preview && <JsonLd data={{ '@context': 'https://schema.org', '@type': a.kind === 'news' ? 'NewsArticle' : 'Article', headline: a.title, description: a.description, url: absoluteUrl(a.path), datePublished: a.publishedAt, dateModified: a.updatedAt, inLanguage: 'es', author: { '@type': 'Organization', name: SITE_NAME }, publisher: { '@type': 'Organization', name: SITE_NAME }, ...(showReferences ? { citation: a.sources.map(source => source.url) } : {}) }} />}
     <main className={`game-article${illustrated ? ' game-article-illustrated' : ''}`} data-editorial-version={editorialVersion(a)} data-media-version={a.game === 'deadlock' ? DEADLOCK_MEDIA_VERSION : undefined}>
       <nav className="game-breadcrumb" aria-label="Ruta de navegación"><Link href="/">Replaid Lab</Link><span>/</span><Link href={GAMES[a.game].href}>{GAMES[a.game].name}</Link><span>/</span><Link href={gamePath(a.game, section)}>{sectionLabels[section]}</Link></nav>
       {preview && <p role="status">Vista previa de revisión · aún no publicada</p>}
@@ -43,6 +45,7 @@ export default async function GameEditorialArticle({ article: a, preview = false
 
       <div className="game-article-reading">
         <p className="game-article-intro">{a.intro}</p>
+        {a.game === 'deadlock' && a.kind === 'build' && a.buildImport && <DeadlockBuildImport build={a.buildImport} heroName={hero?.name ?? a.aliases?.[0] ?? a.hero ?? a.slug} />}
         {illustrated && hero && <DeadlockAbilityKit hero={hero} sections={a.sections} />}
         <nav aria-label="En este artículo" className="game-toc">{a.sections.map((section, i) => <a key={i} href={`#apartado-${i}`}>{section.title}</a>)}</nav>
         {a.sections.map((section, i) => {
@@ -63,7 +66,7 @@ export default async function GameEditorialArticle({ article: a, preview = false
         {!illustrated && <section className="game-checklist"><h2>Antes de tu próxima partida</h2><ul>{a.checklist.map((tip, i) => <li key={i}>{tip}</li>)}</ul></section>}
         {links.length > 0 && <nav className="game-related" aria-label="Sigue aprendiendo">{links.map(section => <Link key={section} href={gamePath(a.game, section, a.hero)}>{section === 'heroes' ? 'Guía del héroe' : section === 'counters' ? 'Cómo responder a este héroe' : section === 'team-comps' ? 'Composiciones y sinergias' : 'Build y compras'}</Link>)}</nav>}
         {related && related.length > 0 && <nav className="game-related" aria-label="Guías relacionadas">{related.map(link => <Link key={link.href} href={link.href}>{link.label}</Link>)}</nav>}
-        <details className="game-sources"><summary>Referencias</summary><ul>{a.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a></li>)}</ul></details>
+        {showReferences && <details className="game-sources"><summary>Referencias</summary><ul>{a.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a></li>)}</ul></details>}
       </div>
     </main>
   </div>

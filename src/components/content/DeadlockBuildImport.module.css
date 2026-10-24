@@ -1,0 +1,11 @@
+.card { margin: 2rem 0; padding: clamp(1rem, 4vw, 2rem); border: 1px solid #887443; border-radius: .6rem; background: linear-gradient(130deg, #292417, #15140f); }
+.card .eyebrow { margin: 0 0 .7rem; color: #d6bd83; font-size: .75rem; font-weight: 700; letter-spacing: .12em; }
+.card h2 { margin-top: 0; }
+.steps { padding-left: 1.3rem; }
+.steps li { margin: .4rem 0; list-style: decimal; }
+.card .label { font-size: .8rem; margin-top: 1.5rem; color: #d6bd83; }
+.items { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; padding: 0 !important; }
+.items li { display: flex; align-items: center; gap: .65rem; min-width: 0; font-size: .85rem; line-height: 1.4; }
+.items img { flex-shrink: 0; border-radius: .25rem; }
+.card .note { margin: 1.25rem 0 0; color: #c9c4b3; font-size: .85rem; line-height: 1.6; }
+@media(max-width: 420px) { .items { grid-template-columns: 1fr; } }

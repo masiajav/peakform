@@ -1,0 +1,11 @@
+# Builds importables de Deadlock
+
+La ficha de una build puede incorporar un bloque con código seleccionable, copia al portapapeles, instrucciones de uso en el buscador del juego y cuatro compras ilustradas que realmente contiene. El bloque identifica la base como comunitaria. La tabla posterior explica adaptaciones: no promete que todas las alternativas pertenezcan a la selección importada ni que deban comprarse juntas.
+
+`buildImport` forma parte de la versión editorial de Supabase: código, héroe, versión del Game Coordinator, fecha, enfoque y objetos. No se incorpora a una revisión histórica sin comprobarla otra vez. Las revisiones antiguas mantienen su validez; `stage` exige el campo a partir de esta entrega para builds nuevas o actualizadas.
+
+`scripts/check-deadlock-build.mjs` consulta `/v1/builds/{hero_id}/{code}?force_refetch=true` antes de marcar comprobaciones y justo antes de publicar. Rechaza códigos inexistentes, héroes distintos, versiones cambiadas, compras principales ausentes y objetos retirados. Respeta `Retry-After` cuando el servicio devuelve 429; no convierte un bloqueo en aprobación. `deadlock-build-validation.ts` permite reproducir los límites con respuestas controladas.
+
+La selección se revisa por coherencia de compras y enfoque, además de disponibilidad. Un código válido no demuestra por sí solo que la ruta sea apropiada. Las selecciones internas están en `content/deadlock/build-import-selections.mjs`; no contienen las descripciones ni los nombres de los autores. El contenido y las referencias usados para investigar permanecen en los registros editoriales; las builds no muestran enlaces a webs de terceros ni citas en JSON-LD por petición del usuario.
+
+Las primeras 27 propuestas están en `reports/deadlock-build-import/revisions/`. `data-audit.json` registra respuesta, héroe, versión, objetos, fuente privada y conservación de fechas. Las consultas en vivo confirman los 27 códigos. La primera propuesta de Abrams pasa la vista previa local en móvil y escritorio, copia real al portapapeles y selección manual si se deniega el permiso. Pasan 16 pruebas unitarias relevantes, cuatro recorridos de navegador, lint y build. Todavía debe desplegarse el renderizador, comprobar las 27 vistas previas de producción y publicar sus revisiones antes de dar los códigos por disponibles al visitante.

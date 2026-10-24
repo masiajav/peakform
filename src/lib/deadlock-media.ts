@@ -8,6 +8,9 @@ const normalize = (value: string) => value.normalize('NFD').replace(/[\u0300-\u0
 const heroesBySlug = new Map(media.heroes.map(hero => [hero.slug, hero]))
 const heroesByName = new Map(media.heroes.flatMap(hero => hero.aliases.map(alias => [normalize(alias), hero] as const)))
 const itemsByName = new Map(media.items.flatMap(item => item.aliases.map(alias => [normalize(alias), item] as const)))
+const itemsById = new Map(media.items.map(item => [item.id, item]))
+
+export function getDeadlockItemMedia(id: number) { return itemsById.get(id) }
 
 export function getDeadlockHeroMedia(slug: string | undefined) {
   return slug ? heroesBySlug.get(slug) : undefined
