@@ -1,5 +1,6 @@
 // Copy edits only. Mechanics, prices, ability identities and build codes come
 // from the currently published revision, never from an older generated file.
+import { naturalFundamentals } from './fundamentals-copy.mjs'
 export const heroCopy = [
  ['abrams','Carga, golpes y recuperación','Aprende a cargar contra una pared, alternar disparos y golpes y aprovechar la curación sin regalar un contrataque.','Cuerpo a cuerpo y recuperación','Golpes, curación y defensa para aguantar cerca del enemigo.'],
  ['apollo','Estocadas y contrataques','Aprende a medir las estocadas de Apolo, desviar ataques y guardar un desplazamiento para retirarte.','Espíritu y movilidad','Daño espiritual y movilidad para acertar las estocadas y volver a cobertura.'],
@@ -260,7 +261,7 @@ function walk(value) {
 }
 
 export function refreshSpanishCopy(article, heroName) {
-  const a=structuredClone(article)
+  const a=naturalFundamentals(structuredClone(article))
   // Reviewable text fields only: never alter source identity, imported codes,
   // map coordinates, asset paths or validated ability names.
   for(const key of ['title','description','intro','sections','checklist','faq','related'])if(a[key])a[key]=walk(a[key])
