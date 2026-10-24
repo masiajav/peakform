@@ -1,0 +1,76 @@
+.notice {
+  position: fixed;
+  right: 24px;
+  bottom: max(24px, env(safe-area-inset-bottom));
+  width: 300px;
+  max-width: calc(100vw - 32px);
+  z-index: 90;
+  border: 1px solid #53fc1870;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #172712, #10160e 75%);
+  box-shadow: 0 16px 55px #0008;
+  color: #f1f6ed;
+}
+.link {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 46px 20px 20px;
+  color: inherit;
+  text-decoration: none;
+  border-radius: inherit;
+}
+.link:hover { background: #53fc1808; }
+.link:focus-visible, .close:focus-visible { outline: 2px solid #53fc18; outline-offset: 4px; }
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #9bec7e;
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #53fc18;
+  box-shadow: 0 0 0 4px #53fc1818;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+.channel { display: flex; align-items: center; gap: 10px; font-size: 24px; font-weight: 600; line-height: 1.1; }
+.channel svg { color: #53fc18; flex-shrink: 0; }
+.title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  color: #b9c8b2;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.action { display: flex; align-items: center; gap: 5px; color: #53fc18; font-size: 12px; font-weight: 600; }
+.close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  color: #a7b69e;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.close:hover { color: white; background: #ffffff0a; }
+@keyframes pulse { 50% { box-shadow: 0 0 0 7px #53fc1800; } }
+@media (max-width: 600px) {
+  .notice { right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); width: 270px; }
+  .link { padding: 16px 44px 16px 16px; gap: 8px; }
+  .channel { font-size: 21px; }
+}
+@media (prefers-reduced-motion: reduce) { .dot { animation: none; } }

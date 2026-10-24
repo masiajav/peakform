@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { DEADLOCK_SECTIONS, gameForPath } from '@/lib/games'
 import { usePathname } from 'next/navigation'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
+import { KICK_CHANNEL_URL } from '@/lib/kick-status'
 
 const PRIVATE_PREFIXES = [
   '/admin',
@@ -63,6 +64,7 @@ export default function PublicFooter() {
           {game !== 'deadlock' && <Link href="/experts">Expertos de Overwatch</Link>}
           {game && <Link href={game === 'deadlock' ? '/deadlock/news' : '/news'}>Noticias</Link>}
           <a href={REPLAID_DISCORD_URL} target="_blank" rel="noopener noreferrer">Discord</a>
+          <a href={KICK_CHANNEL_URL} target="_blank" rel="noopener noreferrer">Kick · ivajpro</a>
         </div>
       </div>
       <div className="public-footer-bottom">© 2026 Replaid Lab</div>

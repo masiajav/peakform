@@ -3,6 +3,7 @@ import './globals.css'
 import JsonLd from '@/components/content/JsonLd'
 import VercelAnalytics from '@/components/content/VercelAnalytics'
 import PublicFooter from '@/components/layout/PublicFooter'
+import KickLiveNotice from '@/components/layout/KickLiveNotice'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, SITE_NAME, SITE_URL } from '@/lib/seo'
 import { adsenseVerificationAccount } from '@/lib/adsense-policy'
@@ -104,6 +105,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd data={websiteJsonLd} />
         {children}
         <PublicFooter />
+        <KickLiveNotice />
         {process.env.VERCEL === '1' && <VercelAnalytics />}
       </body>
     </html>
