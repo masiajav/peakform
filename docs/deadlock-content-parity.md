@@ -113,6 +113,16 @@ Los 17 conjuntos nuevos también deberán incluir código real: `stage` lo exige
 
 La investigación del mapa conserva ahora sus cuatro capas reales e identifica 51 grupos de campamentos (incluidas 11 bóvedas), 423 cajas, 74 cajas resistentes, 166 contenedores de mejoras, tres campanas, comida, potenciadores, tiendas, transportes, urna, grietas y velos. Fuentes de mecánicas del cliente en `reports/deadlock-map/{generic-data,misc-entities,npc-units,convars}.json`; las convars son valores de fábrica que pueden tener excepciones por modo y no se deben presentar como ensayo de una partida. `objectives_map.css` del repositorio de GameTracking confirma que los iconos usan un contenedor de 10 % y el núcleo de 30 % × 8 %: las posiciones son la esquina del contenedor, no su centro. Sus coordenadas concretas son de otra versión y no se deben copiar sobre el mapa actual; continuar con las coordenadas del API y comprobar la superposición visual. Los archivos se mantienen como investigación, todavía sin publicar un atlas completo.
 
-## Límites
+## Tanda 7 publicada · 24 de octubre
+
+Vagabundo/Drifter, Venator, Víctor, Paige y El Portero/The Doorman ya tienen ficha, counters y build importable. Son quince páginas nuevas de entre 604 y 706 palabras, con veinte habilidades bilingües e ilustradas. Se explican las condiciones de aislamiento de Noche Eterna, los tres tipos de daño de Venator, el coste de vida propio de Víctor, la diferencia entre barrera y curación de Paige y el uso compartido de las puertas y la salida del hotel. No se publican cifras de victoria ni promesas de counters absolutos.
+
+Los cinco códigos se consultaron en vivo antes de preparar, comprobar y publicar: `890434`, `813890`, `894787`, `791704` y `873079`. Se verificaron héroe, versión y compras incluidas; las referencias permanecen privadas en las builds. Los precios de todas las compras se contrastaron con el API actual. Pasan 16 pruebas unitarias relevantes, treinta visitas a vistas previas y treinta visitas públicas, con alias ingleses, encabezados bilingües, carga de iconos, tablas móviles, FAQ, copia real al portapapeles y ausencia de referencias externas en las builds. Se inspeccionaron siete hojas de capturas previas y capturas públicas representativas.
+
+La auditoría `reports/deadlock-parity/batch-7/final-audit.json` confirma 110 páginas, 32 conjuntos completos, quince canonicales, índices, búsquedas por alias y sitemap. Las 95 versiones anteriores se conservan. El atlas del mapa también está publicado y verificado: véase `docs/deadlock-map.md`.
+
+Quedan doce conjuntos: Billy, Graves, Apolo, Danny Difunto, Rem, Silver, Celeste, Rey Rata, Salomón, Violeta, Enfermera Harrow y Yagá. El siguiente grupo tiene las veinte descripciones completas ES/EN en `reports/deadlock-parity/next-hero-mechanics-batch-8.json`, respuestas HTTP 200 de las diez páginas especializadas y búsquedas recientes de builds guardadas. Todavía hay que leer sus fuentes, seleccionar códigos en vivo, redactar y verificar; no son publicaciones terminadas. El objetivo completo sigue abierto.
+
+## Alcance conservado
 
 Pick Lab, overlays y coaching siguen fuera de esta ampliación editorial. Las fuentes públicas alimentan una síntesis original; no se copian ni traducen artículos o vídeos completos. El código y los cambios de mapas que ya estaban en curso quedan separados de este trabajo.

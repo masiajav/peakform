@@ -1,6 +1,11 @@
 // Private editorial selection. Codes remain community builds, not Replaid Lab creations.
 // Recheck live identity, version and item availability before preparing each revision.
 export default [
+  ['drifter',890434,'Cuerpo a cuerpo y espíritu para preparar una entrada corta sobre el blanco marcado.',['Melee Lifesteal','Spirit Strike','Improved Spirit','Point Blank']],
+  ['venator',813890,'Disparos, cargador y movilidad para aprovechar trampas y ventanas de la ballesta.',['Extended Magazine','Rapid Rounds','Fleetfoot','Bullet Lifesteal']],
+  ['victor',894787,'Recuperación y potencia espiritual para sostener el aura con una salida disponible.',['Extra Spirit','Spirit Lifesteal','Healing Booster','Superior Cooldown']],
+  ['paige',791704,'Cargas, alcance y espíritu para repetir el dragón y acompañar la pelea desde cobertura.',['Extra Charge','Mystic Expansion','Rapid Recharge','Improved Spirit']],
+  ['the-doorman',873079,'Campanas, alcance y recarga para preparar el control sin perder una puerta de salida.',['Extra Charge','Mystic Burst','Mystic Expansion','Compress Cooldown']],
   ['abrams',830770,'Cuerpo a cuerpo, recuperación y defensa para sostener el contacto.',['Spirit Strike','Melee Lifesteal','Healing Booster','Reactive Barrier']],
   ['dynamo',919313,'Curación y alcance para ayudar al equipo y preparar Singularidad.',['Extra Charge','Mystic Expansion','Healing Booster','Warp Stone']],
   ['haze',899427,'Disparos sostenidos con movilidad y varias continuaciones de daño.',['Extended Magazine','Swift Striker','Kinetic Dash','Burst Fire']],
