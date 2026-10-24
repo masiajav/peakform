@@ -58,6 +58,16 @@ Desplegado el código visual (`1f39136`) y publicadas las catorce revisiones de 
 
 Las dos noticias se han reescrito después con ejemplos concretos de sus habilidades y menos lenguaje abstracto: daño aplazado y curación de Harrow; pincel, boceto y visión de Violeta. Los ocho efectos se han leído en el snapshot del cliente; se mantienen los anuncios oficiales, fechas originales y retratos. Texto fuente en `content/deadlock/news-launch-copy.mjs`; evidencia de las dos últimas versiones públicas en `reports/deadlock-parity/news-natural-copy/inspection-public/result.json`.
 
+## Tercer grupo de héroes · 24 de octubre
+
+Publicadas y verificadas las quince páginas de Vindicta, Lady Geist, Espectro/Wraith, McGinnis y Paradoja. Las fichas incorporan sus cuatro habilidades ilustradas con enlaces a cada explicación, decisiones de línea y equipo, ejercicio y FAQ. Los counters desarrollan tres interacciones de héroe y cuatro respuestas de objetos con límites; las builds explican nueve compras por fase o situación con nombres y precios del snapshot actual.
+
+La biblioteca suma **64 páginas: 17 fichas, 17 counters, 17 builds, 10 fundamentos, dos noticias y un parche**. Las 49 versiones anteriores se conservan sin cambios. Se han comprobado las quince vistas previas y las quince páginas públicas en escritorio y móvil, además de índices, sitemap, imágenes, tablas y preguntas. Pasan los diez nuevos recorridos de búsqueda por alias → ficha → counters → build en producción y lint.
+
+Evidencia: `reports/deadlock-parity/batch-4/manifest.candidates.json`, `inspection-preview/result.json`, `inspection-public/result.json`, `data-audit.json` y `after-batch-4.json`. El informe reproduce las restricciones que justifican el consejo condicionado: Derribo retardado, silencio no interruptor, límites de purga, inmunidad solo a balas, requisitos de aplicación y precios por ID. No afirma ensayos en partidas, resultados estadísticos ni revisiones de vídeos. La revisión de los textos públicos no encuentra explicaciones de automatización o proceso editorial.
+
+**Pendiente:** 27 conjuntos y auditoría final de paridad. El siguiente grupo es Holliday, Calico, Garra Gris/Grey Talon, El Navajas/Shiv y Yamato. Las veinte habilidades están extraídas en `reports/deadlock-parity/next-hero-mechanics-batch-5.txt`; en Shiv, la definitiva divide su descripción entre los campos `active` y `passive`, que deben leerse además de `desc`. No cerrar la cobertura ni regenerar páginas existentes con copias antiguas.
+
 ## Límites
 
 Pick Lab, overlays y coaching siguen fuera de esta ampliación editorial. Las fuentes públicas alimentan una síntesis original; no se copian ni traducen artículos o vídeos completos. El código y los cambios de mapas que ya estaban en curso quedan separados de este trabajo.
