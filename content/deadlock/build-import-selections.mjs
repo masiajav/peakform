@@ -1,6 +1,11 @@
 // Private editorial selection. Codes remain community builds, not Replaid Lab creations.
 // Recheck live identity, version and item availability before preparing each revision.
 export default [
+  ['billy',904769,'Contactos cercanos con cuerpo a cuerpo y disparos sobre el blanco preparado.',['Melee Lifesteal','Spirit Strike','Melee Charge','Point Blank']],
+  ['graves',805144,'Espíritu, apoyo a las invocaciones y recarga para mantener presión sobre un acceso.',['Extra Spirit','Heroic Aura','Improved Spirit','Compress Cooldown']],
+  ['apollo',854022,'Potencia espiritual y movilidad para acertar las estocadas y conservar una retirada.',['Mystic Burst','Improved Spirit','Extra Stamina','Superior Cooldown']],
+  ['deadman-danny',920272,'Disparos y espíritu para preparar marcas sin perder el control del calor.',['High-Velocity Rounds','Mystic Burst','Mystic Expansion','Compress Cooldown']],
+  ['rem',824370,'Curación y cargas para acompañar al equipo con una almohada disponible.',['Healing Booster','Extra Spirit','Extra Charge','Healing Nova']],
   ['drifter',890434,'Cuerpo a cuerpo y espíritu para preparar una entrada corta sobre el blanco marcado.',['Melee Lifesteal','Spirit Strike','Improved Spirit','Point Blank']],
   ['venator',813890,'Disparos, cargador y movilidad para aprovechar trampas y ventanas de la ballesta.',['Extended Magazine','Rapid Rounds','Fleetfoot','Bullet Lifesteal']],
   ['victor',894787,'Recuperación y potencia espiritual para sostener el aura con una salida disponible.',['Extra Spirit','Spirit Lifesteal','Healing Booster','Superior Cooldown']],

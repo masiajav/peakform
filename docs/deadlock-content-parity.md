@@ -123,6 +123,16 @@ La auditoría `reports/deadlock-parity/batch-7/final-audit.json` confirma 110 p�
 
 Quedan doce conjuntos: Billy, Graves, Apolo, Danny Difunto, Rem, Silver, Celeste, Rey Rata, Salomón, Violeta, Enfermera Harrow y Yagá. El siguiente grupo tiene las veinte descripciones completas ES/EN en `reports/deadlock-parity/next-hero-mechanics-batch-8.json`, respuestas HTTP 200 de las diez páginas especializadas y búsquedas recientes de builds guardadas. Todavía hay que leer sus fuentes, seleccionar códigos en vivo, redactar y verificar; no son publicaciones terminadas. El objetivo completo sigue abierto.
 
-## Alcance conservado
+## Tanda 8 publicada · 24 de octubre
+
+Billy, Graves, Apolo, Danny Difunto y Rem tienen ficha, counters y build importable. Sus quince páginas contienen de 606 a 733 palabras, veinte habilidades con iconos y alias ingleses, tablas con compras actuales y decisiones propias de cada kit. Se distingue la visión que mantiene las cadenas de Billy de la mirada de Rem que atraviesa paredes y suelos; el desvío y la cámara lenta de Apolo; la presión de lápida e invocaciones de Graves; y el calor, la marca y el daño propio de Danny. El texto base de la lápida, omitido en `description`, se contrastó con Wiki y Handbook y posteriormente se confirmó también en `tooltip_details.info_sections` del cliente.
+
+Códigos consultados antes de preparar, comprobar y publicar: Billy `904769` (v1), Graves `805144` (v4), Apolo `854022` (v4), Danny `920272` (v1) y Rem `824370` (v5). El primer código de Danny, `892638`, devolvía 404 y se descartó. La versión cacheada de Apolo era la 2; la revisión usa la 4 devuelta en vivo, con las compras verificadas. Pasan lint y las 16 pruebas unitarias relevantes. Las treinta vistas previas y treinta visitas públicas comprueban versiones, imágenes, encabezados bilingües, tablas, FAQ y copia real, sin referencias externas en las builds. Se revisaron siete hojas de vistas previas y capturas públicas representativas.
+
+`reports/deadlock-parity/batch-8/final-audit.json` confirma 125 páginas, 37 conjuntos completos y las 110 versiones anteriores intactas, además de canonicales, índices, búsquedas y sitemap. Quedan siete conjuntos: Silver, Celeste, Rey Rata, Salomón, Violeta, Enfermera Harrow y Yagá. Hay veintiocho descripciones ES/EN y catorce fuentes accesibles en `next-hero-mechanics-batch-9.json` y `sources/batch-9-responses.json`; los campos omitidos se han extraído de los tooltips y las búsquedas de builds todavía requieren selección y consulta en vivo. Silver necesita comprobar también qué habilidades transformadas están activas.
+
+El catálogo sigue siendo de 44 héroes confirmados. Dos indicadores `in_development` del API permanecen a true para Violeta y Yagá, aunque ambos son seleccionables y tienen estado `release`. Los anuncios oficiales de Valve confirman su disponibilidad: [Violeta, 16 de octubre](https://steamcommunity.com/games/1422450/announcements/detail/669505296465396532) y [Yagá, 6 de octubre](https://steamcommunity.com/games/1422450/announcements/detail/703281025618282872). Se conservaron las respuestas originales en `sources/official-violet-baba-release.json`; no se reduce el alcance por esa bandera aislada.
+
+## Fuera de esta ampliación
 
 Pick Lab, overlays y coaching siguen fuera de esta ampliación editorial. Las fuentes públicas alimentan una síntesis original; no se copian ni traducen artículos o vídeos completos. El código y los cambios de mapas que ya estaban en curso quedan separados de este trabajo.
