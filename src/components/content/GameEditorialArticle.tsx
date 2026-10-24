@@ -6,7 +6,7 @@ import DeadlockAbilityKit from './DeadlockAbilityKit'
 import { GAMES, gamePath } from '@/lib/games'
 import { SECTION_KIND, editorialVersion, type EditorialArticle } from '@/lib/editorial-record'
 import { publishedEditorial } from '@/lib/editorial-store'
-import { DEADLOCK_MEDIA_VERSION, deadlockAbilityForHeading, getDeadlockCellMedia, getDeadlockHeroMedia } from '@/lib/deadlock-media'
+import { DEADLOCK_MEDIA_VERSION, deadlockAbilityForHeading, deadlockAbilityHeadingTitle, getDeadlockCellMedia, getDeadlockHeroMedia } from '@/lib/deadlock-media'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
 
 const sectionLabels: Record<string, string> = { heroes: 'Héroes', counters: 'Counters', builds: 'Builds', guides: 'Guías', news: 'Noticias', 'patch-notes': 'Parches', maps: 'Mapas', 'team-comps': 'Composiciones' }
@@ -48,7 +48,7 @@ export default async function GameEditorialArticle({ article: a, preview = false
         {a.sections.map((section, i) => {
           const ability = illustrated ? deadlockAbilityForHeading(hero, section.title) : undefined
           return <section id={`apartado-${i}`} key={i}>
-            <h2 className={ability ? 'deadlock-ability-heading' : undefined}>{ability && <Image src={ability.icon} alt="" width={52} height={52} unoptimized />}<span>{section.title}</span></h2>
+            <h2 className={ability ? 'deadlock-ability-heading' : undefined}>{ability && <Image src={ability.icon} alt="" width={52} height={52} unoptimized />}<span>{deadlockAbilityHeadingTitle(ability, section.title)}</span></h2>
             {section.body.map((paragraph, j) => <p key={j}>{paragraph}</p>)}
             {section.bullets && <ul>{section.bullets.map((bullet, j) => <li key={j}>{bullet}</li>)}</ul>}
             {section.table && <div className="game-table-scroll" role="region" aria-label={section.title} tabIndex={0}><table className="game-data-table" role="table">

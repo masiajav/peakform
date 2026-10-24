@@ -18,4 +18,6 @@ La web muestra una tarjeta flotante cuando Kick confirma una emisión activa de 
 
 Durante la implementación, el endpoint público confirmó que `ivajpro` estaba desconectado. No se ha observado una emisión real activa del canal: el estado activo se comprueba con fixtures controladas, sin alterar la web pública ni la cuenta de Kick.
 
+Despliegue `35c80f4` comprobado en producción: `/api/community/kick-status` devuelve HTTP 200 y estado `offline` confirmado desde Vercel. Pasan los 26 recorridos de navegador de aviso, selector y recursos visuales en móvil y escritorio, las 33 pruebas unitarias relevantes, lint y build. Las capturas de la tarjeta se han tomado también sobre la web publicada con la respuesta activa simulada; su registro conserva el estado real desconectado.
+
 El endpoint de canal está disponible sin autenticación, pero no forma parte del contrato de la API para desarrolladores. Si deja de estar disponible, el aviso se oculta y el endpoint devuelve `unknown`; investigar el cambio antes de sustituirlo. Kick ofrece una [API oficial con OAuth de aplicación](https://docs.kick.com/getting-started/generating-tokens-oauth2-flow) y [eventos de cambio de directo](https://docs.kick.com/events/event-types) como posible migración futura, que requeriría configurar una aplicación de Kick. Esta entrega no crea aplicaciones ni necesita claves nuevas.

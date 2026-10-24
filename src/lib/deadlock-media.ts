@@ -33,3 +33,9 @@ export function deadlockAbilitySection(ability: DeadlockAbilityMedia, sections: 
 export function deadlockAbilityForHeading(hero: DeadlockHeroMedia | undefined, title: string) {
   return hero?.abilities.find(ability => [ability.name, ability.englishName].some(name => normalize(title).startsWith(normalize(name))))
 }
+
+export function deadlockAbilityHeadingTitle(ability: DeadlockAbilityMedia | undefined, title: string) {
+  if (!ability || normalize(title).includes(`(${normalize(ability.englishName)})`)) return title
+  const colon = title.indexOf(':')
+  return colon < 0 ? `${title} (${ability.englishName})` : `${title.slice(0, colon)} (${ability.englishName})${title.slice(colon)}`
+}
