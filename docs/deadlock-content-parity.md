@@ -54,6 +54,8 @@ Preparadas y comprobadas las introducciones y consejos iniciales de las doce fic
 
 La comprobación local pasa las 19 pruebas unitarias relevantes, 28 recorridos de navegador entre móvil y escritorio, lint y build. Las capturas de habilidades y de compras muestran la carga de las imágenes y sus vínculos a la explicación; muestras en `reports/deadlock-parity/visual-layout/`. La cuenta editorial sigue en 49 páginas y la cobertura pendiente continúa siendo de 32 héroes. Este cambio visual no cierra la paridad.
 
+Desplegado el código visual (`1f39136`) y publicadas las catorce revisiones de contenido (doce fichas y dos noticias). Se han verificado las catorce versiones públicas exactas, sus imágenes y preguntas en ambos tamaños, los 349 ficheros de iconos en producción por SHA y los 28 recorridos de navegador sobre `www.replaidlab.com`. Evidencia en `visual-refresh/inspection-public/result.json` y `visual-news/inspection-public/result.json`; las capturas públicas ya muestran las introducciones revisadas y los iconos. Continuar con el grupo pendiente de IDs 3, 4, 7, 8 y 10 usando el mismo formato visual, cuatro habilidades estructuradas y redacción directa.
+
 ## Límites
 
 Pick Lab, overlays y coaching siguen fuera de esta ampliación editorial. Las fuentes públicas alimentan una síntesis original; no se copian ni traducen artículos o vídeos completos. El código y los cambios de mapas que ya estaban en curso quedan separados de este trabajo.
