@@ -103,9 +103,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body style={{ margin: 0, background: '#0a0a0a', color: '#f5f5f5' }}>
         <JsonLd data={organizationJsonLd} />
         <JsonLd data={websiteJsonLd} />
+        <KickLiveNotice />
         {children}
         <PublicFooter />
-        <KickLiveNotice />
         {process.env.VERCEL === '1' && <VercelAnalytics />}
       </body>
     </html>

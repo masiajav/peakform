@@ -2,23 +2,19 @@
 
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { ArrowUpRight, Radio, X } from 'lucide-react'
-import { KICK_CHANNEL_URL, isKickStatus, showKickNoticeOnPath, type KickStatus } from '@/lib/kick-status'
+import { ArrowUpRight, Radio } from 'lucide-react'
+import { KICK_CHANNEL_URL, isKickStatus, showKickNoticeOnPath, unknownKickStatus, type KickStatus } from '@/lib/kick-status'
 import styles from './KickLiveNotice.module.css'
-
-const DISMISSED_KEY = 'replaid:kick-dismissed:v1'
 
 export default function KickLiveNotice() {
   const pathname = usePathname()
   const enabled = showKickNoticeOnPath(pathname)
   const [status, setStatus] = useState<KickStatus | null>(null)
-  const [dismissedId, setDismissedId] = useState<string | null>(null)
 
   useEffect(() => {
     if (!enabled) return
     let active = true
     let pending: AbortController | null = null
-    try { setDismissedId(sessionStorage.getItem(DISMISSED_KEY)) } catch { /* Storage is optional. */ }
 
     const refresh = async () => {
       if (pending || document.visibilityState !== 'visible') return
@@ -28,9 +24,9 @@ export default function KickLiveNotice() {
       try {
         const response = await fetch('/api/community/kick-status', { signal: controller.signal, cache: 'no-store' })
         const data: unknown = response.ok ? await response.json() : null
-        if (active) setStatus(document.visibilityState === 'visible' && isKickStatus(data) ? data : null)
+        if (active) setStatus(document.visibilityState !== 'visible' ? null : isKickStatus(data) ? data : unknownKickStatus(new Date().toISOString()))
       } catch {
-        if (active) setStatus(null)
+        if (active) setStatus(unknownKickStatus(new Date().toISOString()))
       } finally {
         clearTimeout(timeout)
         pending = null
@@ -51,20 +47,18 @@ export default function KickLiveNotice() {
     }
   }, [enabled])
 
-  if (!enabled || status?.status !== 'live' || status.streamId === dismissedId) return null
+  if (!enabled) return null
+  const online = status?.status === 'live'
+  const label = !status ? 'COMPROBANDO' : status.status === 'unknown' ? 'NO DISPONIBLE' : online ? 'ONLINE' : 'OFFLINE'
 
-  const dismiss = () => {
-    setDismissedId(status.streamId)
-    try { sessionStorage.setItem(DISMISSED_KEY, status.streamId!) } catch { /* Still dismiss for this visit. */ }
-  }
-
-  return <aside className={styles.notice} role="status" aria-label="Directo de ivajpro" aria-live="polite">
+  return <aside className={`${styles.bar}${online ? ` ${styles.online}` : ''}`} role="status" aria-label="Estado de ivajpro en Kick" aria-live="polite">
     <a className={styles.link} href={KICK_CHANNEL_URL} target="_blank" rel="noopener noreferrer">
-      <span className={styles.kicker}><span className={styles.dot} aria-hidden="true" /> En directo · Kick</span>
-      <span className={styles.channel}><Radio size={25} aria-hidden="true" /> ivajpro</span>
-      {status.title && <span className={styles.title}>{status.title}</span>}
-      <span className={styles.action}>Ver directo <ArrowUpRight size={16} aria-hidden="true" /></span>
+      <span className={styles.channel}><Radio size={19} aria-hidden="true" /><span className={styles.kick}>KICK</span><span className={styles.name}>ivajpro</span></span>
+      {online && status.title && <span className={styles.title}>{status.title}</span>}
+      <span className={styles.controls}>
+        <span className={styles.state}><span className={styles.dot} aria-hidden="true" />{label}</span>
+        <span className={styles.action}><span>{online ? 'Ver directo' : 'Ver canal'}</span><ArrowUpRight size={15} aria-hidden="true" /></span>
+      </span>
     </a>
-    <button className={styles.close} type="button" onClick={dismiss} aria-label="Ocultar aviso del directo"><X size={18} aria-hidden="true" /></button>
   </aside>
 }

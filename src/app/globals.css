@@ -2576,4 +2576,5 @@ textarea {
   }
 }
 
+@media(max-width:360px){.public-nav{gap:6px;padding:0 10px}.public-nav-brand{font-size:20px;letter-spacing:1.5px}.game-switch a{padding:5px 6px;font-size:10px}}
 .game-choice-art{position:relative}.game-choice-art img{position:absolute;left:24px;bottom:-20px;height:210px;width:auto;object-fit:contain;filter:drop-shadow(0 0 20px #0008)}.game-article-image{float:right;object-fit:contain;margin:10px 0 22px 24px;max-width:32%;height:auto}.game-catalog{display:flex;gap:10px;flex-wrap:wrap}.game-catalog span{padding:10px 14px;border:1px solid #343c2a;color:#b5bea8;font-size:13px}.game-article section{clear:both}
