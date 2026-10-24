@@ -1,0 +1,34 @@
+.atlas { border: 1px solid #56633d; border-radius: .6rem; padding: clamp(.75rem, 2vw, 1.5rem); background: #131910; }
+.heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.heading .eyebrow { font-size: .7rem; letter-spacing: .12em; color: #bed591; margin: 0 0 .5rem; }
+.heading h2 { margin-bottom: 1rem; }
+.badge { flex-shrink: 0; font-size: .7rem; color: #d0dfa8; border: 1px solid #52613c; border-radius: 2rem; padding: .4rem .6rem; }
+.layers, .tools, .presets, .zoom { display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; }
+.layers { margin-bottom: .65rem; }
+.tools { justify-content: space-between; margin-bottom: .75rem; row-gap: .7rem; }
+.atlas button { min-height: 40px; border: 1px solid #52613c; border-radius: .3rem; padding: .5rem .7rem; background: #1b2415; color: #dce8c5; font-size: .8rem; cursor: pointer; }
+.atlas button[aria-pressed=true] { color: #10180c; background: #c5d99b; border-color: #c5d99b; font-weight: 700; }
+.atlas button:disabled { opacity: .4; cursor: default; }
+.zoom button { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; }
+.zoom output { color: #dce8c5; font-size: .8rem; min-width: 3.5rem; text-align: center; }
+.atlas :is(button, input, select, summary, a, .viewport):focus-visible { outline: 2px solid #d8e8b8; outline-offset: 3px; }
+.viewport { width: 100%; max-width: 720px; aspect-ratio: 1; max-height: 720px; margin-inline: auto; overflow: auto; border: 1px solid #435230; background: radial-gradient(circle, #293122, #151b12); overscroll-behavior: contain; }
+.map { display: block; min-width: 100%; max-width: none; height: auto; aspect-ratio: 1; }
+.floor { filter: brightness(1.65); }
+.atlas .hint { font-size: .75rem; line-height: 1.65; color: #aeb99d; margin: .75rem 0; }
+.laneToggle { display: flex; align-items: center; gap: .6rem; color: #d5dfc5; font-size: .85rem; min-height: 44px; }
+.atlas input { accent-color: #c5d99b; width: 18px; height: 18px; flex-shrink: 0; }
+.legend { border-block: 1px solid #435230; padding: 1rem 0; margin: .5rem 0 1rem; }
+.legend summary { color: #e2edcf; cursor: pointer; font-size: .9rem; }
+.legend summary span { color: #adb99a; margin-left: .5rem; font-size: .75rem; }
+.checks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .2rem 1rem; margin-top: 1rem; }
+.checks label { display: flex; align-items: center; gap: .55rem; min-height: 44px; font-size: .8rem; color: #d5dfc5; }
+.checks small { margin-left: auto; color: #adbd93; }
+.symbol { flex: 0 0 1.2rem; text-align: center; font-weight: 800; }
+.explanation { border-left: 3px solid #a7c375; padding: .25rem 0 .25rem 1rem; }
+.explanation label { display: block; font-size: .8rem; color: #c4d4aa; margin-bottom: .5rem; }
+.explanation select { width: 100%; min-height: 44px; background: #1b2415; border: 1px solid #63764a; color: #e0ebcc; padding: .6rem; border-radius: .25rem; }
+.explanation h3 { font-size: 1.05rem; color: #e0ebcc; margin: 1rem 0 .5rem; }
+.explanation p { margin: 0 0 .75rem; font-size: .9rem; }
+.explanation a { color: #d1e7ae; font-size: .85rem; }
+@media(max-width: 560px) { .heading { display: block; } .badge { display: inline-block; margin-bottom: .75rem; } .checks { grid-template-columns: 1fr; } .atlas button { min-height: 44px; } }

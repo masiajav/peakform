@@ -8,6 +8,7 @@ export const DEADLOCK_SECTIONS = [
   { slug: 'guides', label: 'Guías', description: 'Economía, movimiento, líneas y decisiones de equipo.' },
   { slug: 'counters', label: 'Counters', description: 'Respuestas concretas a las amenazas del equipo rival.' },
   { slug: 'builds', label: 'Builds', description: 'Qué comprar, por qué y cuándo cambiar de plan.' },
+  { slug: 'maps', label: 'Mapa', description: 'Calles, objetivos, recursos y rutas para entender la ciudad.' },
   { slug: 'news', label: 'Noticias', description: 'Novedades confirmadas y contexto para entenderlas.' },
   { slug: 'patch-notes', label: 'Parches', description: 'Cambios oficiales explicados para tu próxima partida.' },
 ] as const

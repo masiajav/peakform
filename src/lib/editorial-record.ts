@@ -1,10 +1,12 @@
 import { createHash } from 'node:crypto'
 import { isIP } from 'node:net'
 import type { GameId } from './games'
+import { deadlockMapIssues, editorialImageValid, type DeadlockMapAtlas, type EditorialImage } from './deadlock-map-contract.ts'
 export type EditorialKind = 'hero' | 'counter' | 'build' | 'guide' | 'news' | 'patch_note' | 'map' | 'team_comp'
 export type EditorialSection = {
   title: string; body: string[]; bullets?: string[]
   table?: { columns: string[]; rows: string[][] }
+  image?: EditorialImage
 }
 export type EditorialAbility = { id: number; slot: number; name: string; englishName: string; icon: string }
 export type DeadlockBuildImport = {
@@ -16,6 +18,7 @@ export type EditorialArticle = {
   intro: string; sections: EditorialSection[]
   abilities?: EditorialAbility[]
   buildImport?: DeadlockBuildImport
+  mapAtlas?: DeadlockMapAtlas
   faq?: { question: string; answer: string }[]
   related?: { href: string; label: string }[]
   checklist: string[]; sources: { title: string; url: string; accessedAt: string; primary?: boolean }[]
@@ -56,6 +59,10 @@ export function editorialIssues(input: unknown): string[] {
       || new Set(b.coreItems).size !== b.coreItems.length) issues.push('Código de build no válido')
   }
   if (!Array.isArray(a.sections) || a.sections.length < 3 || a.sections.some(s => typeof s.title !== 'string' || !Array.isArray(s.body) || !s.body.length || s.body.some(p => typeof p !== 'string' || !p.trim()) || (s.bullets && (!Array.isArray(s.bullets) || s.bullets.some(b => typeof b !== 'string'))))) issues.push('Secciones incompletas')
+  if (a.mapAtlas !== undefined) {
+    if (a.game !== 'deadlock' || a.kind !== 'map') issues.push('Mapa ajeno al juego o plantilla')
+    else issues.push(...deadlockMapIssues(a.mapAtlas, a.sections?.length ?? 0))
+  }
   if (!Array.isArray(a.checklist) || a.checklist.length < 3 || a.checklist.some(c => typeof c !== 'string' || !c.trim())) issues.push('Falta checklist práctica')
   if (a.abilities !== undefined && (a.game !== 'deadlock' || a.kind !== 'hero' || !a.hero
     || !Array.isArray(a.abilities) || a.abilities.length !== 4
@@ -64,6 +71,7 @@ export function editorialIssues(input: unknown): string[] {
       || !['webp', 'png'].some(extension => ability.icon === `/deadlock/abilities/${a.hero}-${ability.slot}.${extension}`))
     || new Set(a.abilities.map(ability => ability.id)).size !== 4)) issues.push('Habilidades visuales no válidas')
   for (const section of a.sections ?? []) {
+    if (section.image !== undefined && (a.game !== 'deadlock' || !editorialImageValid(section.image))) issues.push('Imagen de sección no válida')
     const table = section.table
     if (table && (!Array.isArray(table.columns) || table.columns.length < 2
       || table.columns.some(c => typeof c !== 'string' || !c.trim())

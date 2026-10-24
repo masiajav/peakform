@@ -17,6 +17,7 @@ export default async function Page() {
   const heroes = articles.filter(a => a.kind === 'hero').sort((a, b) => Date.parse(b.updatedAt) - Date.parse(a.updatedAt)).slice(0, 6)
   const basics = ['economia-almas', 'fase-de-lineas', 'movimiento-aguante'].flatMap(slug => articles.filter(a => a.kind === 'guide' && a.slug === slug))
   const news = articles.filter(a => a.kind === 'news' || a.kind === 'patch_note').sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt)).slice(0, 3)
+  const city = articles.find(a => a.kind === 'map' && a.mapAtlas)
 
   return <div className="game-page game-deadlock"><PublicNav />
     <main className="game-hub">
@@ -34,10 +35,15 @@ export default async function Page() {
       <section>
         <p className="eyebrow">Tu siguiente decisión</p>
         <h2 className="game-section-title">Aprende con un propósito</h2>
-        <div className="game-card-grid">{DEADLOCK_SECTIONS.map((section, i) => <Link className="game-content-card" key={section.slug} href={`/deadlock/${section.slug}`}>
+        <div className="game-card-grid">{DEADLOCK_SECTIONS.filter(section => section.slug !== 'maps').map((section, i) => <Link className="game-content-card" key={section.slug} href={`/deadlock/${section.slug}`}>
           <span className="game-card-number">0{i + 1}</span><h3>{section.label}</h3><p>{section.description}</p><span className="game-card-action">Explorar ↗</span>
         </Link>)}</div>
       </section>
+
+      {city && <section className="game-latest game-map-feature">
+        <div><p className="eyebrow">LEE LA CIUDAD</p><h2 className="game-section-title">Cada desvío tiene un coste</h2><p>{city.description}</p><Link className="btn btn-secondary" href={city.path}>Explora el mapa de Deadlock ↗</Link></div>
+        {city.image && <Link href={city.path} aria-label="Abrir el mapa de Deadlock"><Image src={city.image} alt="Las tres calles y los cuatro distritos de Deadlock" width={480} height={480} sizes="(max-width: 680px) 90vw, 480px" /></Link>}
+      </section>}
 
       {basics.length > 0 && <section className="game-latest">
         <p className="eyebrow">Construye una base</p>

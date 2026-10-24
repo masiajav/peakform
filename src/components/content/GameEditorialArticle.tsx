@@ -4,6 +4,7 @@ import PublicNav from '@/components/layout/PublicNav'
 import JsonLd from './JsonLd'
 import DeadlockAbilityKit from './DeadlockAbilityKit'
 import DeadlockBuildImport from './DeadlockBuildImport'
+import DeadlockMapAtlas from './DeadlockMapAtlas'
 import { GAMES, gamePath } from '@/lib/games'
 import { SECTION_KIND, editorialVersion, type EditorialArticle } from '@/lib/editorial-record'
 import { publishedEditorial } from '@/lib/editorial-store'
@@ -27,6 +28,7 @@ export default async function GameEditorialArticle({ article: a, preview = false
   const hero = fallbackHero ? { ...fallbackHero, abilities: a.abilities ?? fallbackHero.abilities } : undefined
   const illustrated = a.kind === 'hero' && Boolean(hero)
   const showReferences = !(a.game === 'deadlock' && a.kind === 'build')
+  const contents = <nav aria-label="En este artículo" className="game-toc">{a.sections.map((section, i) => <a key={i} href={`#apartado-${i}`}>{section.title}</a>)}</nav>
   const title = <>
     <p className="eyebrow">{GAMES[a.game].name} · {sectionLabels[section]}</p>
     <h1>{a.title}</h1><p className="game-lead">{a.description}</p>
@@ -35,23 +37,25 @@ export default async function GameEditorialArticle({ article: a, preview = false
 
   return <div className={`game-page game-${a.game}`}><PublicNav />
     {!preview && <JsonLd data={{ '@context': 'https://schema.org', '@type': a.kind === 'news' ? 'NewsArticle' : 'Article', headline: a.title, description: a.description, url: absoluteUrl(a.path), datePublished: a.publishedAt, dateModified: a.updatedAt, inLanguage: 'es', author: { '@type': 'Organization', name: SITE_NAME }, publisher: { '@type': 'Organization', name: SITE_NAME }, ...(showReferences ? { citation: a.sources.map(source => source.url) } : {}) }} />}
-    <main className={`game-article${illustrated ? ' game-article-illustrated' : ''}`} data-editorial-version={editorialVersion(a)} data-media-version={a.game === 'deadlock' ? DEADLOCK_MEDIA_VERSION : undefined}>
+    <main className={`game-article${illustrated ? ' game-article-illustrated' : ''}${a.mapAtlas ? ' game-article-atlas' : ''}`} data-editorial-version={editorialVersion(a)} data-media-version={a.game === 'deadlock' ? DEADLOCK_MEDIA_VERSION : undefined}>
       <nav className="game-breadcrumb" aria-label="Ruta de navegación"><Link href="/">Replaid Lab</Link><span>/</span><Link href={GAMES[a.game].href}>{GAMES[a.game].name}</Link><span>/</span><Link href={gamePath(a.game, section)}>{sectionLabels[section]}</Link></nav>
       {preview && <p role="status">Vista previa de revisión · aún no publicada</p>}
       {illustrated && hero ? <header className="deadlock-hero-header">
         <div>{title}<ul className="deadlock-hero-tips">{a.checklist.map(tip => <li key={tip}>{tip}</li>)}</ul></div>
         <figure className="deadlock-hero-portrait"><Image src={hero.portrait} alt={hero.name} fill sizes="(max-width: 700px) 280px, 340px" priority /><figcaption>{hero.name}{hero.aliases.filter(alias => alias !== hero.name).length > 0 && <small>{hero.aliases.filter(alias => alias !== hero.name).join(' · ')}</small>}</figcaption></figure>
-      </header> : <>{title}{a.image && <Image className="game-article-image" src={a.image} alt={a.aliases?.[0] ?? a.title} width={200} height={260} />}</>}
+      </header> : <>{title}{a.image && !a.mapAtlas && <Image className="game-article-image" src={a.image} alt={a.aliases?.[0] ?? a.title} width={200} height={260} />}</>}
 
       <div className="game-article-reading">
         <p className="game-article-intro">{a.intro}</p>
+        {a.mapAtlas && <DeadlockMapAtlas atlas={a.mapAtlas} />}
         {a.game === 'deadlock' && a.kind === 'build' && a.buildImport && <DeadlockBuildImport build={a.buildImport} heroName={hero?.name ?? a.aliases?.[0] ?? a.hero ?? a.slug} />}
         {illustrated && hero && <DeadlockAbilityKit hero={hero} sections={a.sections} />}
-        <nav aria-label="En este artículo" className="game-toc">{a.sections.map((section, i) => <a key={i} href={`#apartado-${i}`}>{section.title}</a>)}</nav>
+        {a.mapAtlas ? <details className="game-map-toc"><summary>Índice de la guía · {a.sections.length} apartados</summary>{contents}</details> : contents}
         {a.sections.map((section, i) => {
           const ability = illustrated ? deadlockAbilityForHeading(hero, section.title) : undefined
           return <section id={`apartado-${i}`} key={i}>
             <h2 className={ability ? 'deadlock-ability-heading' : undefined}>{ability && <Image src={ability.icon} alt="" width={52} height={52} unoptimized />}<span>{deadlockAbilityHeadingTitle(ability, section.title)}</span></h2>
+            {section.image && <figure className="deadlock-map-figure"><Image src={section.image.src} alt={section.image.alt} width={section.image.width} height={section.image.height} sizes="(max-width: 840px) 100vw, 840px" />{section.image.caption && <figcaption>{section.image.caption}</figcaption>}</figure>}
             {section.body.map((paragraph, j) => <p key={j}>{paragraph}</p>)}
             {section.bullets && <ul>{section.bullets.map((bullet, j) => <li key={j}>{bullet}</li>)}</ul>}
             {section.table && <div className="game-table-scroll" role="region" aria-label={section.title} tabIndex={0}><table className="game-data-table" role="table">

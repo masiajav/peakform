@@ -1,0 +1,211 @@
+{
+  "checkedAt": "2026-10-24T13:46:12.410Z",
+  "assets": [
+    {
+      "key": "mid",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/maps/minimap_midtown_mid.png",
+      "path": "/deadlock/map/calles-1407c7407837.png",
+      "sha256": "1407c740783776bb52f075e2cc535c4ab7f3f047bb60d339f2277fd627e6fc06",
+      "bytes": 213336,
+      "name": "calles",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "key": "mid_tunnels",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/maps/minimap_midtown_mid_tunnels.png",
+      "path": "/deadlock/map/tuneles-centrales-e4e9370521be.png",
+      "sha256": "e4e9370521be53ee0ce2ad95628f6d6fbefe604e88c0e300c5fd99065608702e",
+      "bytes": 133782,
+      "name": "tuneles-centrales",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "key": "rat_tunnels",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/maps/minimap_midtown_rat_tunnels.png",
+      "path": "/deadlock/map/pasadizos-45a1d7c9bd13.png",
+      "sha256": "45a1d7c9bd132ef8b5741caa45acf7c5f59ada2ab238fd1fb0afa44629a784d5",
+      "bytes": 167643,
+      "name": "pasadizos",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "source": "https://cdn.akamai.steamstatic.com/apps/deadlock/images/react/cityneversleeps/map_blue.webp",
+      "owner": "Valve",
+      "originalSha256": "0b23e51c34d767776139306144179968efe42cc9a49cedb99d6919209ae4459f",
+      "name": "map-blue",
+      "path": "/deadlock/map/map-blue-0bc83f3c4f5f.webp",
+      "sha256": "0bc83f3c4f5f7847b8101bc85e2653cf78840d9f3d777a0b44f392ba44344949",
+      "width": 1107,
+      "height": 1109
+    },
+    {
+      "source": "https://cdn.akamai.steamstatic.com/apps/deadlock/images/react/cityneversleeps/map_green.png",
+      "owner": "Valve",
+      "originalSha256": "11dd4d0dba1d3e6bf826d8d1d2dddec83e2617e0e836919d72a33b95f4f75678",
+      "name": "map-green",
+      "path": "/deadlock/map/map-green-d112dc49986c.webp",
+      "sha256": "d112dc49986cd73e5abafa6f3eef944d6c32228889d9dd50f4cdaff6ff15ae46",
+      "width": 920,
+      "height": 979
+    },
+    {
+      "source": "https://cdn.akamai.steamstatic.com/apps/deadlock/images/react/cityneversleeps/map_yellow.png",
+      "owner": "Valve",
+      "originalSha256": "0e77741f9ed9f570cc031cf75f567eb1d365e7de479b4d8bfa996e10cff9408d",
+      "name": "map-yellow",
+      "path": "/deadlock/map/map-yellow-4257503806a4.webp",
+      "sha256": "4257503806a4dbf8a75bf2b0c57dafbfe4d13f4100d09eda618424ccc1561c30",
+      "width": 1005,
+      "height": 950
+    },
+    {
+      "source": "https://cdn.akamai.steamstatic.com/apps/deadlock/images/react/cityneversleeps/map_neutral.png",
+      "owner": "Valve",
+      "originalSha256": "33e80d5de9bbb040e887a1aba4fc218e3139465f6054dcb371e035764536be63",
+      "name": "map-neutral",
+      "path": "/deadlock/map/map-neutral-8a720083ca08.webp",
+      "sha256": "8a720083ca08d005e35f9f0368cc5a43860bfe39c9e5784c40f7e9ad44b17d1c",
+      "width": 982,
+      "height": 988
+    },
+    {
+      "source": "https://cdn.akamai.steamstatic.com/apps/deadlock/images/react/cityneversleeps/theater_03.jpg",
+      "owner": "Valve",
+      "originalSha256": "552e08af6c03d1d4c076ca9000eb808993383113bcb2a89ff7fef82f3774c24f",
+      "name": "theater-03",
+      "path": "/deadlock/map/theater-03-f679e776cc0f.webp",
+      "sha256": "f679e776cc0f5b77ed8fe6341a3e5f3fbbd2a7e3bbd8b3d96ca176a3ef430101",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "source": "https://cdn.akamai.steamstatic.com/apps/deadlock/images/react/cityneversleeps/chinatown_01.jpg",
+      "owner": "Valve",
+      "originalSha256": "1da937e118ed06ba61c2c6bbb0c4eede2fe771651737df6d07fb218d2ec064e3",
+      "name": "chinatown-01",
+      "path": "/deadlock/map/chinatown-01-fd6baf94a6d7.webp",
+      "sha256": "fd6baf94a6d7179e5dbcad99292f9d24e9e3ff4b5da0d9c92c9c3e6331246cf8",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "source": "https://cdn.akamai.steamstatic.com/apps/deadlock/images/react/cityneversleeps/haunted_slums_01.jpg",
+      "owner": "Valve",
+      "originalSha256": "1242f08c7853cdc584c9b315818cb945db1ae00ee8919810ec39cbe088e603c7",
+      "name": "haunted-slums-01",
+      "path": "/deadlock/map/haunted-slums-01-307310a3eb12.webp",
+      "sha256": "307310a3eb12834330e4b570cbab4e09f3e4003a9290f25ccd7eecce185b4334",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "source": "https://cdn.akamai.steamstatic.com/apps/deadlock/images/react/cityneversleeps/fairfax_plaza_01.jpg",
+      "owner": "Valve",
+      "originalSha256": "42ae17e809c1ab6880dd4eb74f8c99621de655e6c726da5b319832483ead154e",
+      "name": "fairfax-plaza-01",
+      "path": "/deadlock/map/fairfax-plaza-01-b7df91b7601e.webp",
+      "sha256": "b7df91b7601e6462a34a2a8ef2c5617e0c52c1c7892959a9b42ae1620bfd2fb0",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "source": "https://cdn.akamai.steamstatic.com/apps/deadlock/images/react/cityneversleeps/mustdo_pool.webp",
+      "owner": "Valve",
+      "originalSha256": "14e0e547bce5228f37657a033aecef8dcf73f1f580c42ec21e45ebef3cfdfe85",
+      "name": "mustdo-pool",
+      "path": "/deadlock/map/mustdo-pool-d725d57bdf4a.webp",
+      "sha256": "d725d57bdf4a29d655e093c00afc4e46a8d0e28e87beee45ad9a3938ba7031b0",
+      "width": 1280,
+      "height": 820
+    },
+    {
+      "source": "https://cdn.akamai.steamstatic.com/apps/deadlock/images/react/cityneversleeps/mustdo_bell.webp",
+      "owner": "Valve",
+      "originalSha256": "435bbad8dc6bf0d2e051a95ab5dc3a767c0f1d8e39ee7ebe7e6728835d8906ac",
+      "name": "mustdo-bell",
+      "path": "/deadlock/map/mustdo-bell-4b06aa3f0396.webp",
+      "sha256": "4b06aa3f0396b77658628b7dace82d88dc263af44eed3c4084e79309851381f7",
+      "width": 1280,
+      "height": 811
+    },
+    {
+      "source": "https://cdn.akamai.steamstatic.com/apps/deadlock/images/react/cityneversleeps/mustdo_crate.webp",
+      "owner": "Valve",
+      "originalSha256": "20dc2166f1180bf0d3c60f58fd498afda8cf900218443041d7c6154ad1d34c91",
+      "name": "mustdo-crate",
+      "path": "/deadlock/map/mustdo-crate-c61f12993f60.webp",
+      "sha256": "c61f12993f609679ae85f9dbd141ca3dde3cc609093b5b20849a22d708a11052",
+      "width": 782,
+      "height": 773
+    },
+    {
+      "source": "https://cdn.akamai.steamstatic.com/apps/deadlock/images/react/cityneversleeps/mustdo_buffs.webp",
+      "owner": "Valve",
+      "originalSha256": "c13e84f17951883069a2cb77e7037a946603b0e6203f361ec286193b0a2ad1c8",
+      "name": "mustdo-buffs",
+      "path": "/deadlock/map/mustdo-buffs-349c0ff40c41.webp",
+      "sha256": "349c0ff40c416edbcc84117e4bd5e0b7fa485d6a69fd1b6bba9f8c926e418318",
+      "width": 1280,
+      "height": 826
+    },
+    {
+      "source": "https://cdn.akamai.steamstatic.com/apps/deadlock/images/react/cityneversleeps/mustdo_snack.webp",
+      "owner": "Valve",
+      "originalSha256": "cfb5b4fa1051d6e79bdef81a0727d1549dc6a910f25645f0e6620faaa6d6e284",
+      "name": "mustdo-snack",
+      "path": "/deadlock/map/mustdo-snack-6014a479c549.webp",
+      "sha256": "6014a479c549349ca7f4c0a042bb87f33188119bdfc69708bb97a0b509fb88cf",
+      "width": 1226,
+      "height": 929
+    },
+    {
+      "source": "https://cdn.akamai.steamstatic.com/apps/deadlock/images/react/cityneversleeps/mustdo_vents.webp",
+      "owner": "Valve",
+      "originalSha256": "620f8a099a1dca67fc26551c006ee902c0c383696bb152da6cb12bf976412e3c",
+      "name": "mustdo-vents",
+      "path": "/deadlock/map/mustdo-vents-3f5bc0306b17.webp",
+      "sha256": "3f5bc0306b177b0aec34c244fc1b59d4164fa3f3881fe7ab2dea80d93d031a74",
+      "width": 1280,
+      "height": 798
+    },
+    {
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/neutral_small_psd.png",
+      "owner": "Valve",
+      "name": "camp-small",
+      "path": "/deadlock/map/camp-small-ea2e144e6e4a.png",
+      "sha256": "ea2e144e6e4ac4e9760eb5a11bfa4eaf54c3d1bb9f5823f82793c4935e6688d8",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/neutral_medium_psd.png",
+      "owner": "Valve",
+      "name": "camp-medium",
+      "path": "/deadlock/map/camp-medium-2ccb9463a8d6.png",
+      "sha256": "2ccb9463a8d608d77726b2d74161de46b03d058a4c15d459b46b8ae02d9f695c",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/neutral_large_psd.png",
+      "owner": "Valve",
+      "name": "camp-large",
+      "path": "/deadlock/map/camp-large-1cfbd52313af.png",
+      "sha256": "1cfbd52313af82a3faf67684c308921f29677f0218318043d5a963d498b4fc82",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/neutral_vault_psd.png",
+      "owner": "Valve",
+      "name": "camp-vault",
+      "path": "/deadlock/map/camp-vault-a07288a7b722.png",
+      "sha256": "a07288a7b722a65b9ee5f3bd69ae46f2dec236f8d0ef4f7b01d14f1965f98aa7",
+      "width": 64,
+      "height": 64
+    }
+  ]
+}
