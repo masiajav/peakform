@@ -56,6 +56,8 @@ La comprobación local pasa las 19 pruebas unitarias relevantes, 28 recorridos d
 
 Desplegado el código visual (`1f39136`) y publicadas las catorce revisiones de contenido (doce fichas y dos noticias). Se han verificado las catorce versiones públicas exactas, sus imágenes y preguntas en ambos tamaños, los 349 ficheros de iconos en producción por SHA y los 28 recorridos de navegador sobre `www.replaidlab.com`. Evidencia en `visual-refresh/inspection-public/result.json` y `visual-news/inspection-public/result.json`; las capturas públicas ya muestran las introducciones revisadas y los iconos. Continuar con el grupo pendiente de IDs 3, 4, 7, 8 y 10 usando el mismo formato visual, cuatro habilidades estructuradas y redacción directa.
 
+Las dos noticias se han reescrito después con ejemplos concretos de sus habilidades y menos lenguaje abstracto: daño aplazado y curación de Harrow; pincel, boceto y visión de Violeta. Los ocho efectos se han leído en el snapshot del cliente; se mantienen los anuncios oficiales, fechas originales y retratos. Texto fuente en `content/deadlock/news-launch-copy.mjs`; evidencia de las dos últimas versiones públicas en `reports/deadlock-parity/news-natural-copy/inspection-public/result.json`.
+
 ## Límites
 
 Pick Lab, overlays y coaching siguen fuera de esta ampliación editorial. Las fuentes públicas alimentan una síntesis original; no se copian ni traducen artículos o vídeos completos. El código y los cambios de mapas que ya estaban en curso quedan separados de este trabajo.
