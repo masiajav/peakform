@@ -90,7 +90,7 @@ export default function PrivacyPage() {
 
         <div className="trust-links">
           <Link href="/about">Sobre Replaid Lab</Link>
-          <Link href="/editorial-methodology">Metodología editorial</Link>
+          <Link href="/editorial-methodology">Cómo usar las guías</Link>
           <Link href="/legal">Términos</Link>
         </div>
       </main>

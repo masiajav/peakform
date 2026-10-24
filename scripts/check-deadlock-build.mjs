@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import {deadlockBuildSnapshotIssues} from '../src/lib/deadlock-build-validation.ts'
+import selections from '../content/deadlock/build-import-selections.mjs'
 
 export async function fetchLiveBuild(url) {
   for(let attempt=0;attempt<3;attempt++){
@@ -25,4 +26,24 @@ export async function checkDeadlockBuild(article) {
   const issues=deadlockBuildSnapshotIssues(build,hero.id,data,active)
   if(issues.length)throw Error(issues.join('; '))
   return `Build ${build.code} / hero ${hero.id} / version ${build.version}: Game Coordinator HTTP 200, exact hero/version and current items confirmed at ${new Date().toISOString()}. Private provenance: ${url}.`
+}
+
+export async function prepareDeadlockBuildImport(slug) {
+  const selection=selections.find(([hero])=>hero===slug)
+  if(!selection)throw Error(`Select and review a real community build code for ${slug} first`)
+  const [,code,focus,names]=selection
+  const hero=JSON.parse(fs.readFileSync('src/lib/deadlock-catalog.json','utf8')).find(h=>h.slug===slug)
+  if(!hero)throw Error('Build hero is not in the verified catalog')
+  const items=JSON.parse(fs.readFileSync('src/lib/deadlock-media.json','utf8')).items
+  const response=await fetchLiveBuild(`https://api.deadlock-api.com/v1/builds/${hero.id}/${code}?force_refetch=true`)
+  if(!response.ok)throw Error(`Build unavailable: ${response.status}`)
+  const data=await response.json()
+  const build={code,heroId:hero.id,version:data.hero_build?.version,checkedAt:new Date().toISOString(),focus,coreItems:names.map(name=>{
+    const item=items.find(item=>item.englishName===name)
+    if(!item)throw Error(`Unknown item ${name}`)
+    return item.id
+  })}
+  const issues=deadlockBuildSnapshotIssues(build,hero.id,data,new Set(items.map(item=>item.id)))
+  if(issues.length)throw Error(issues.join('; '))
+  return build
 }

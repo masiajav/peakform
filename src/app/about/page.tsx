@@ -39,19 +39,19 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2>Cómo tratamos Overwatch</h2>
+          <h2>Un plan para cada juego</h2>
           <p>
-            Usamos el vocabulario habitual de la comunidad cuando resulta más claro: ranked, peel, dive, poke, timing o cooldown. También distinguimos entre una regla general y algo que depende del parche. Si un cambio de balance altera un matchup o una composición, revisamos la explicación y dejamos visible la fecha de actualización.
+            En Overwatch puedes preparar un enfrentamiento, elegir un acceso en el mapa y reconocer cuándo necesita ayuda tu equipo. En Deadlock puedes estudiar habilidades, comparar compras y decidir cómo repartir tu tiempo entre almas, rotaciones y objetivos.
           </p>
           <p>
-            Replaid Lab no está afiliada a Blizzard Entertainment. Overwatch, sus héroes y sus materiales pertenecen a sus respectivos propietarios. El contenido de esta web es análisis independiente para jugadores.
+            Replaid Lab no está afiliada a Blizzard Entertainment ni a Valve. Overwatch, Deadlock, sus héroes y sus materiales pertenecen a sus respectivos propietarios. El contenido de esta web es análisis independiente para jugadores.
           </p>
         </section>
 
         <section>
           <h2>Correcciones y responsabilidad</h2>
           <p>
-            Una guía puede quedarse atrás después de un parche o no cubrir una situación concreta. Si detectas un dato incorrecto, indícanos la URL y el punto exacto. Revisamos las correcciones antes de actualizar el texto y no cambiamos fechas si el contenido no ha cambiado de verdad.
+            Una guía puede quedarse atrás después de un parche o no cubrir una situación concreta. Si detectas un dato incorrecto, indícanos la URL y el punto exacto desde la página de contacto.
           </p>
         </section>
 
@@ -63,7 +63,7 @@ export default function AboutPage() {
         </section>
 
         <div className="trust-links">
-          <Link href="/editorial-methodology">Metodología editorial</Link>
+          <Link href="/editorial-methodology">Cómo usar las guías</Link>
           <Link href="/privacy">Privacidad y cookies</Link>
           <Link href="/legal">Términos</Link>
         </div>

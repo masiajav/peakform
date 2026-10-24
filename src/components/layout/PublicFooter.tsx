@@ -30,7 +30,7 @@ const CONTENT_LINKS = [
 const TRUST_LINKS = [
   { href: '/about', label: 'Sobre Replaid Lab' },
   { href: '/contact', label: 'Contacto' },
-  { href: '/editorial-methodology', label: 'Metodología editorial' },
+  { href: '/editorial-methodology', label: 'Cómo usar las guías' },
   { href: '/privacy', label: 'Privacidad' },
   { href: '/legal', label: 'Legal' },
 ]

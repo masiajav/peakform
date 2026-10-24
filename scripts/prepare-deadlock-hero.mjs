@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import { editorialIssues } from '../src/lib/editorial-record.ts'
+import { prepareDeadlockBuildImport } from './check-deadlock-build.mjs'
 const slug=process.argv[2]
 if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug??''))throw Error('Use a verified catalog slug')
 const catalog=JSON.parse(fs.readFileSync('src/lib/deadlock-catalog.json','utf8'))
@@ -24,6 +25,7 @@ for(const copy of articles){
   return {...s,table:{columns:['Momento','Objeto','Almas','Cuándo ayuda','Límite'],rows:shopping.map(([phase,name,reason,limit])=>{const i=items.get(name);if(!i)throw Error(`Not purchasable: ${name}`);const local=es.get(i.id)?.name??name;return [phase,local===name?name:`${local} (${name})`,String(i.cost),reason,limit]})}}
  })
  const article={...copy,game:'deadlock',hero:slug,slug,path:`/deadlock/${section}/${slug}`,aliases:hero.aliases,image:`/deadlock/${slug}.webp`,...(copy.kind==='hero'&&visualHero?{abilities:visualHero.abilities}:{}),patch:'Deadlock · octubre de 2026',publishedAt:now,updatedAt:now,sections,faq:copy.faq.map(([question,answer])=>({question,answer})),related:[{href:'/deadlock/guides/economia-almas',label:'Economía y decisiones de compra'},{href:'/deadlock/guides/rotaciones-objetivos',label:'Rotaciones y objetivos'}],sources}
+ if(copy.kind==='build'){article.buildImport=await prepareDeadlockBuildImport(slug);article.updatedAt=article.buildImport.checkedAt}
  const issues=editorialIssues(article);if(issues.length)throw Error(`${article.path}: ${issues}`)
  const file=`${directory}/${copy.kind}.json`;fs.writeFileSync(file,JSON.stringify(article,null,2)+'\n');manifest.push({file,path:article.path})
 }

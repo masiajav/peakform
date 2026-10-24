@@ -54,7 +54,7 @@ export default function ContactPage() {
 
         <div className="trust-links">
           <Link href="/about">Sobre Replaid Lab</Link>
-          <Link href="/editorial-methodology">Metodología editorial</Link>
+          <Link href="/editorial-methodology">Cómo usar las guías</Link>
           <Link href="/privacy">Privacidad</Link>
           <Link href="/legal">Legal</Link>
         </div>

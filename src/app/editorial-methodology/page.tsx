@@ -4,8 +4,8 @@ import PublicNav from '@/components/layout/PublicNav'
 import { buildMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Cómo revisamos las guías de Overwatch y Deadlock',
-  description: 'Así preparamos y actualizamos las guías de Replaid Lab: utilidad en partida, lenguaje claro, comprobación de cambios y corrección de errores.',
+  title: 'Cómo usar las guías de Overwatch y Deadlock',
+  description: 'Encuentra tu héroe, prepara un matchup y adapta tus compras. Un punto de partida para aprovechar las guías de Overwatch y Deadlock.',
   path: '/editorial-methodology',
 })
 
@@ -14,44 +14,44 @@ export default function EditorialMethodologyPage() {
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <PublicNav />
       <main className="trust-page">
-        <div className="eyebrow">CÓMO TRABAJAMOS</div>
-        <h1>Cómo revisamos las guías</h1>
+        <div className="eyebrow">TU PRÓXIMA PARTIDA</div>
+        <h1>Cómo usar las guías</h1>
         <p className="trust-lead">
-          Una guía de Replaid Lab debe ayudarte a reconocer una situación dentro de la partida y decidir qué hacer. Si un texto solo repite la descripción de una habilidad o enumera héroes sin explicar el matchup, todavía no está terminado.
+          Empieza por una situación que quieras resolver: sobrevivir a una entrada, aprovechar mejor una habilidad o llegar a un objetivo con recursos. Elige una decisión para practicar y comprueba después si te ayudó en partida.
         </p>
 
         <section>
-          <h2>Empezamos por una pregunta concreta</h2>
+          <h2>Elige tu juego y tu héroe</h2>
           <p>
-            Cada artículo intenta resolver un problema reconocible: cuándo entrar con Winston, cómo guardar Suzu contra una ultimate, por qué una composición de poke no cruza un espacio cerrado o qué ruta permite atacar un high ground. La respuesta importante aparece al principio y después se desarrolla con ejemplos.
+            Entra en <Link href="/overwatch">Overwatch</Link> o <Link href="/deadlock">Deadlock</Link> desde la portada o el selector superior. En el catálogo puedes buscar el nombre del héroe o su alias en inglés. Abre su ficha para repasar habilidades y reconocer qué quieres conseguir con ellas.
           </p>
         </section>
 
         <section>
-          <h2>Comprobamos nombres, fechas y cambios</h2>
+          <h2>Prepara una respuesta al rival</h2>
           <p>
-            Para noticias y cambios de balance comprobamos la información oficial antes de presentarla como confirmada. Cuando todavía faltan datos, lo decimos. No convertimos rumores en hechos ni actualizamos una fecha para que una guía parezca más reciente.
+            Desde una ficha puedes pasar a sus counters. Fíjate en la amenaza, el momento de responder y el límite de esa respuesta. Si necesitas guardar una habilidad defensiva, decide también qué cobertura usarás mientras esperas. Elegir un héroe favorable no garantiza ganar el duelo.
           </p>
         </section>
 
         <section>
-          <h2>Tono de las guías</h2>
+          <h2>Importa una build de Deadlock y adáptala</h2>
           <p>
-            Escribimos en español natural, con lenguaje de jugador y sin traducir a la fuerza términos que la comunidad usa en inglés. Palabras como ranked, pick, peel, dive, poke, brawl, timing, matchup, cooldown, backline, flanker, reset, off-angle o VOD se mantienen cuando hacen la explicación más clara.
+            En las <Link href="/deadlock/builds">builds de Deadlock</Link> encontrarás un código que puedes copiar y buscar entre las builds públicas de la tienda del juego. Los objetos ilustrados te ayudan a reconocer su enfoque. Usa después la tabla de compras para decidir qué adelantar según el daño, el control o la recuperación del rival; no compres todas las alternativas a la vez.
           </p>
         </section>
 
         <section>
-          <h2>Revisamos si el consejo sigue funcionando</h2>
+          <h2>Une tus decisiones con el mapa</h2>
           <p>
-            Un cambio de daño, alcance o cooldown puede alterar un duelo completo. Revisamos las páginas afectadas cuando cambia el juego y también cuando encontramos una explicación más precisa. La fecha visible corresponde a una revisión real del contenido.
+            En Overwatch, consulta <Link href="/maps">el mapa</Link> y la <Link href="/team-comps">composición</Link> para elegir un acceso y reconocer dónde necesita ayuda tu equipo. En Deadlock, combina las guías de <Link href="/deadlock/guides/economia-almas">economía</Link> y <Link href="/deadlock/guides/rotaciones-objetivos">rotaciones y objetivos</Link> para decidir cuándo seguir consiguiendo almas y cuándo reunirte.
           </p>
         </section>
 
         <section>
-          <h2>Corregimos lo que no esté claro</h2>
+          <h2>Practica un cambio y vuelve a mirar</h2>
           <p>
-            Buscamos frases que suenen traducidas, consejos que podrían servir para cualquier héroe y explicaciones que no indiquen cuándo actuar. También comprobamos que los enlaces funcionen y que la página se pueda leer bien en móvil. Puedes comunicar cualquier error desde la página de contacto.
+            Prueba una pauta concreta durante varias situaciones comparables: conservar una salida, esperar un control enemigo o llegar con una compra útil. Al revisar la partida, mira qué ocurrió antes de la pelea, además de su resultado. Consulta también la fecha y el parche que figuran en la guía si ha cambiado una habilidad.
           </p>
         </section>
 
