@@ -1,0 +1,3475 @@
+{
+  "version": "7b21348e5c5a6069eba2536d2728bffafa1e6bcb4516137de0e786188905c75e",
+  "heroes": [
+    {
+      "id": 1,
+      "slug": "infernus",
+      "name": "Infernus",
+      "aliases": [
+        "Infernus"
+      ],
+      "portrait": "/deadlock/infernus.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Napalm",
+          "englishName": "Napalm",
+          "icon": "/deadlock/abilities/infernus-1.webp",
+          "id": 491391007
+        },
+        {
+          "slot": 2,
+          "name": "Impulso Llameante",
+          "englishName": "Flame Dash",
+          "icon": "/deadlock/abilities/infernus-2.webp",
+          "id": 3516947824
+        },
+        {
+          "slot": 3,
+          "name": "Poscombustión",
+          "englishName": "Afterburn",
+          "icon": "/deadlock/abilities/infernus-3.webp",
+          "id": 1593133799
+        },
+        {
+          "slot": 4,
+          "name": "Combustión Conmocionadora",
+          "englishName": "Concussive Combustion",
+          "icon": "/deadlock/abilities/infernus-4.webp",
+          "id": 1142270357
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "slug": "seven",
+      "name": "Siete",
+      "aliases": [
+        "Siete",
+        "Seven"
+      ],
+      "portrait": "/deadlock/seven.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Esfera Eléctrica",
+          "englishName": "Lightning Ball",
+          "icon": "/deadlock/abilities/seven-1.webp",
+          "id": 1065103387
+        },
+        {
+          "slot": 2,
+          "name": "Carga Estática",
+          "englishName": "Static Charge",
+          "icon": "/deadlock/abilities/seven-2.webp",
+          "id": 1074714947
+        },
+        {
+          "slot": 3,
+          "name": "Sobretensión",
+          "englishName": "Power Surge",
+          "icon": "/deadlock/abilities/seven-3.webp",
+          "id": 539192269
+        },
+        {
+          "slot": 4,
+          "name": "Nube de Tormenta",
+          "englishName": "Storm Cloud",
+          "icon": "/deadlock/abilities/seven-4.webp",
+          "id": 2061574352
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "slug": "vindicta",
+      "name": "Vindicta",
+      "aliases": [
+        "Vindicta"
+      ],
+      "portrait": "/deadlock/vindicta.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Estaca",
+          "englishName": "Stake",
+          "icon": "/deadlock/abilities/vindicta-1.webp",
+          "id": 537527508
+        },
+        {
+          "slot": 2,
+          "name": "Vuelo",
+          "englishName": "Flight",
+          "icon": "/deadlock/abilities/vindicta-2.webp",
+          "id": 1796564033
+        },
+        {
+          "slot": 3,
+          "name": "Familiar Cuervo",
+          "englishName": "Crow Familiar",
+          "icon": "/deadlock/abilities/vindicta-3.webp",
+          "id": 2048438176
+        },
+        {
+          "slot": 4,
+          "name": "Asesinar",
+          "englishName": "Assassinate",
+          "icon": "/deadlock/abilities/vindicta-4.webp",
+          "id": 775377419
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "slug": "lady-geist",
+      "name": "Lady Geist",
+      "aliases": [
+        "Lady Geist"
+      ],
+      "portrait": "/deadlock/lady-geist.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Bomba de Esencia",
+          "englishName": "Essence Bomb",
+          "icon": "/deadlock/abilities/lady-geist-1.webp",
+          "id": 715325746
+        },
+        {
+          "slot": 2,
+          "name": "Succión Vital",
+          "englishName": "Life Drain",
+          "icon": "/deadlock/abilities/lady-geist-2.webp",
+          "id": 218284420
+        },
+        {
+          "slot": 3,
+          "name": "Malicia",
+          "englishName": "Malice",
+          "icon": "/deadlock/abilities/lady-geist-3.webp",
+          "id": 3230530872
+        },
+        {
+          "slot": 4,
+          "name": "Intercambio de Almas",
+          "englishName": "Soul Exchange",
+          "icon": "/deadlock/abilities/lady-geist-4.webp",
+          "id": 1307289689
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "slug": "abrams",
+      "name": "Abrams",
+      "aliases": [
+        "Abrams"
+      ],
+      "portrait": "/deadlock/abrams.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Extracción de Vida",
+          "englishName": "Siphon Life",
+          "icon": "/deadlock/abilities/abrams-1.webp",
+          "id": 4072270083
+        },
+        {
+          "slot": 2,
+          "name": "Embestida de Hombro",
+          "englishName": "Shoulder Charge",
+          "icon": "/deadlock/abilities/abrams-2.webp",
+          "id": 2824119765
+        },
+        {
+          "slot": 3,
+          "name": "Resiliencia Infernal",
+          "englishName": "Infernal Resilience",
+          "icon": "/deadlock/abilities/abrams-3.webp",
+          "id": 715762406
+        },
+        {
+          "slot": 4,
+          "name": "Impacto Sísmico",
+          "englishName": "Seismic Impact",
+          "icon": "/deadlock/abilities/abrams-4.webp",
+          "id": 509856396
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "slug": "wraith",
+      "name": "Espectro",
+      "aliases": [
+        "Espectro",
+        "Wraith"
+      ],
+      "portrait": "/deadlock/wraith.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Truco de Cartas",
+          "englishName": "Card Trick",
+          "icon": "/deadlock/abilities/wraith-1.webp",
+          "id": 1999680326
+        },
+        {
+          "slot": 2,
+          "name": "Proyección Mental",
+          "englishName": "Project Mind",
+          "icon": "/deadlock/abilities/wraith-2.webp",
+          "id": 4147641675
+        },
+        {
+          "slot": 3,
+          "name": "Totalmente Automático",
+          "englishName": "Full Auto",
+          "icon": "/deadlock/abilities/wraith-3.webp",
+          "id": 1842576017
+        },
+        {
+          "slot": 4,
+          "name": "Telequinesis",
+          "englishName": "Telekinesis",
+          "icon": "/deadlock/abilities/wraith-4.webp",
+          "id": 2981692841
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "slug": "mcginnis",
+      "name": "McGinnis",
+      "aliases": [
+        "McGinnis"
+      ],
+      "portrait": "/deadlock/mcginnis.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Minitorreta",
+          "englishName": "Mini Turret",
+          "icon": "/deadlock/abilities/mcginnis-1.webp",
+          "id": 3133377790
+        },
+        {
+          "slot": 2,
+          "name": "Espectro Medicinal",
+          "englishName": "Medicinal Specter",
+          "icon": "/deadlock/abilities/mcginnis-2.webp",
+          "id": 2142734020
+        },
+        {
+          "slot": 3,
+          "name": "Muro Espectral",
+          "englishName": "Spectral Wall",
+          "icon": "/deadlock/abilities/mcginnis-3.webp",
+          "id": 1725685134
+        },
+        {
+          "slot": 4,
+          "name": "Bombardeo Intenso",
+          "englishName": "Heavy Barrage",
+          "icon": "/deadlock/abilities/mcginnis-4.webp",
+          "id": 3503044146
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "slug": "paradox",
+      "name": "Paradoja",
+      "aliases": [
+        "Paradoja",
+        "Paradox"
+      ],
+      "portrait": "/deadlock/paradox.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Granada de Pulsaciones",
+          "englishName": "Pulse Grenade",
+          "icon": "/deadlock/abilities/paradox-1.webp",
+          "id": 58655583
+        },
+        {
+          "slot": 2,
+          "name": "Muro Temporal",
+          "englishName": "Time Wall",
+          "icon": "/deadlock/abilities/paradox-2.webp",
+          "id": 1366719170
+        },
+        {
+          "slot": 3,
+          "name": "Carabina Cinética",
+          "englishName": "Kinetic Carbine",
+          "icon": "/deadlock/abilities/paradox-3.webp",
+          "id": 1128670012
+        },
+        {
+          "slot": 4,
+          "name": "Intercambio Paradójico",
+          "englishName": "Paradoxical Swap",
+          "icon": "/deadlock/abilities/paradox-4.webp",
+          "id": 2917891787
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "slug": "dynamo",
+      "name": "Dínamo",
+      "aliases": [
+        "Dínamo",
+        "Dynamo"
+      ],
+      "portrait": "/deadlock/dynamo.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Pulsación Cinética",
+          "englishName": "Kinetic Pulse",
+          "icon": "/deadlock/abilities/dynamo-1.webp",
+          "id": 3760705623
+        },
+        {
+          "slot": 2,
+          "name": "Entrelazamiento Cuántico",
+          "englishName": "Quantum Entanglement",
+          "icon": "/deadlock/abilities/dynamo-2.webp",
+          "id": 2031714424
+        },
+        {
+          "slot": 3,
+          "name": "Aurora Rejuvenecedora",
+          "englishName": "Rejuvenating Aurora",
+          "icon": "/deadlock/abilities/dynamo-3.webp",
+          "id": 492030745
+        },
+        {
+          "slot": 4,
+          "name": "Singularidad",
+          "englishName": "Singularity",
+          "icon": "/deadlock/abilities/dynamo-4.webp",
+          "id": 249410288
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "slug": "kelvin",
+      "name": "Kelvin",
+      "aliases": [
+        "Kelvin"
+      ],
+      "portrait": "/deadlock/kelvin.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Granada de Escarcha",
+          "englishName": "Frost Grenade",
+          "icon": "/deadlock/abilities/kelvin-1.webp",
+          "id": 18921423
+        },
+        {
+          "slot": 2,
+          "name": "Senda Helada",
+          "englishName": "Ice Path",
+          "icon": "/deadlock/abilities/kelvin-2.webp",
+          "id": 1963397252
+        },
+        {
+          "slot": 3,
+          "name": "Rayo Ártico",
+          "englishName": "Arctic Beam",
+          "icon": "/deadlock/abilities/kelvin-3.webp",
+          "id": 2351041382
+        },
+        {
+          "slot": 4,
+          "name": "Refugio Congelado",
+          "englishName": "Frozen Shelter",
+          "icon": "/deadlock/abilities/kelvin-4.webp",
+          "id": 3826390464
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "slug": "haze",
+      "name": "Bruma",
+      "aliases": [
+        "Bruma",
+        "Haze"
+      ],
+      "portrait": "/deadlock/haze.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Daga Adormecedora",
+          "englishName": "Sleep Dagger",
+          "icon": "/deadlock/abilities/haze-1.webp",
+          "id": 2948410412
+        },
+        {
+          "slot": 2,
+          "name": "Bomba de Humo",
+          "englishName": "Smoke Bomb",
+          "icon": "/deadlock/abilities/haze-2.webp",
+          "id": 2414191464
+        },
+        {
+          "slot": 3,
+          "name": "Obsesión",
+          "englishName": "Fixation",
+          "icon": "/deadlock/abilities/haze-3.webp",
+          "id": 1080948381
+        },
+        {
+          "slot": 4,
+          "name": "Baile de Balas",
+          "englishName": "Bullet Dance",
+          "icon": "/deadlock/abilities/haze-4.webp",
+          "id": 731943444
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "slug": "holliday",
+      "name": "Holliday",
+      "aliases": [
+        "Holliday"
+      ],
+      "portrait": "/deadlock/holliday.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Barril de Pólvora",
+          "englishName": "Powder Keg",
+          "icon": "/deadlock/abilities/holliday-1.webp",
+          "id": 1235098866
+        },
+        {
+          "slot": 2,
+          "name": "Plataforma de Rebote",
+          "englishName": "Bounce Pad",
+          "icon": "/deadlock/abilities/holliday-2.webp",
+          "id": 2240607294
+        },
+        {
+          "slot": 3,
+          "name": "Disparo Preciso",
+          "englishName": "Crackshot",
+          "icon": "/deadlock/abilities/holliday-3.webp",
+          "id": 4179229681
+        },
+        {
+          "slot": 4,
+          "name": "Lazo Espiritual",
+          "englishName": "Spirit Lasso",
+          "icon": "/deadlock/abilities/holliday-4.webp",
+          "id": 3190606822
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "slug": "bebop",
+      "name": "Bebop",
+      "aliases": [
+        "Bebop"
+      ],
+      "portrait": "/deadlock/bebop.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Gancho Explosivo",
+          "englishName": "Exploding Uppercut",
+          "icon": "/deadlock/abilities/bebop-1.webp",
+          "id": 3089858203
+        },
+        {
+          "slot": 2,
+          "name": "Bomba Lapa",
+          "englishName": "Sticky Bomb",
+          "icon": "/deadlock/abilities/bebop-2.webp",
+          "id": 2521902222
+        },
+        {
+          "slot": 3,
+          "name": "Brazo Mecánico",
+          "englishName": "Grapple Arm",
+          "icon": "/deadlock/abilities/bebop-3.webp",
+          "id": 1928108461
+        },
+        {
+          "slot": 4,
+          "name": "Hiperrayo",
+          "englishName": "Hyper Beam",
+          "icon": "/deadlock/abilities/bebop-4.webp",
+          "id": 3832675871
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "slug": "calico",
+      "name": "Calico",
+      "aliases": [
+        "Calico"
+      ],
+      "portrait": "/deadlock/calico.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Bombas Sombrías",
+          "englishName": "Gloom Bombs",
+          "icon": "/deadlock/abilities/calico-1.webp",
+          "id": 4131517918
+        },
+        {
+          "slot": 2,
+          "name": "Salto Cortante",
+          "englishName": "Leaping Slash",
+          "icon": "/deadlock/abilities/calico-2.webp",
+          "id": 1426567660
+        },
+        {
+          "slot": 3,
+          "name": "Ava",
+          "englishName": "Ava",
+          "icon": "/deadlock/abilities/calico-3.webp",
+          "id": 1009029159
+        },
+        {
+          "slot": 4,
+          "name": "Regresar a las Sombras",
+          "englishName": "Return to Shadows",
+          "icon": "/deadlock/abilities/calico-4.webp",
+          "id": 2054144742
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "slug": "grey-talon",
+      "name": "Garra Gris",
+      "aliases": [
+        "Garra Gris",
+        "Grey Talon"
+      ],
+      "portrait": "/deadlock/grey-talon.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Disparo Potenciado",
+          "englishName": "Charged Shot",
+          "icon": "/deadlock/abilities/grey-talon-1.webp",
+          "id": 548943648
+        },
+        {
+          "slot": 2,
+          "name": "Lluvia de Flechas",
+          "englishName": "Rain of Arrows",
+          "icon": "/deadlock/abilities/grey-talon-2.webp",
+          "id": 3452399392
+        },
+        {
+          "slot": 3,
+          "name": "Trampa Espiritual",
+          "englishName": "Spirit Snare",
+          "icon": "/deadlock/abilities/grey-talon-3.webp",
+          "id": 512733154
+        },
+        {
+          "slot": 4,
+          "name": "Búho Guiado",
+          "englishName": "Guided Owl",
+          "icon": "/deadlock/abilities/grey-talon-4.webp",
+          "id": 3242902780
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "slug": "mo-krill",
+      "name": "Mo y Krill",
+      "aliases": [
+        "Mo y Krill",
+        "Mo & Krill"
+      ],
+      "portrait": "/deadlock/mo-krill.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Desdén",
+          "englishName": "Scorn",
+          "icon": "/deadlock/abilities/mo-krill-1.webp",
+          "id": 1454278799
+        },
+        {
+          "slot": 2,
+          "name": "Excavar",
+          "englishName": "Burrow",
+          "icon": "/deadlock/abilities/mo-krill-2.webp",
+          "id": 2406758797
+        },
+        {
+          "slot": 3,
+          "name": "Explosión de Arena",
+          "englishName": "Sand Blast",
+          "icon": "/deadlock/abilities/mo-krill-3.webp",
+          "id": 1914797280
+        },
+        {
+          "slot": 4,
+          "name": "Combo",
+          "englishName": "Combo",
+          "icon": "/deadlock/abilities/mo-krill-4.webp",
+          "id": 1917840730
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "slug": "shiv",
+      "name": "El Navajas",
+      "aliases": [
+        "El Navajas",
+        "Shiv"
+      ],
+      "portrait": "/deadlock/shiv.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Cuchillos Dentados",
+          "englishName": "Serrated Knives",
+          "icon": "/deadlock/abilities/shiv-1.webp",
+          "id": 2460791803
+        },
+        {
+          "slot": 2,
+          "name": "Cortar y Trocear",
+          "englishName": "Slice and Dice",
+          "icon": "/deadlock/abilities/shiv-2.webp",
+          "id": 1458044103
+        },
+        {
+          "slot": 3,
+          "name": "Baño de Sangre",
+          "englishName": "Bloodletting",
+          "icon": "/deadlock/abilities/shiv-3.webp",
+          "id": 1537272748
+        },
+        {
+          "slot": 4,
+          "name": "Tajo Mortal",
+          "englishName": "Killing Blow",
+          "icon": "/deadlock/abilities/shiv-4.webp",
+          "id": 1835738020
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "slug": "ivy",
+      "name": "Hiedra",
+      "aliases": [
+        "Hiedra",
+        "Ivy"
+      ],
+      "portrait": "/deadlock/ivy.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Espinas Enredadoras",
+          "englishName": "Entangling Thorns",
+          "icon": "/deadlock/abilities/ivy-1.webp",
+          "id": 4111222521
+        },
+        {
+          "slot": 2,
+          "name": "Conexión Kudzu",
+          "englishName": "Kudzu Connection",
+          "icon": "/deadlock/abilities/ivy-2.webp",
+          "id": 1531378655
+        },
+        {
+          "slot": 3,
+          "name": "Forma Pétrea",
+          "englishName": "Stone Form",
+          "icon": "/deadlock/abilities/ivy-3.webp",
+          "id": 3642273386
+        },
+        {
+          "slot": 4,
+          "name": "Transporte Aéreo",
+          "englishName": "Air Drop",
+          "icon": "/deadlock/abilities/ivy-4.webp",
+          "id": 1247583368
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "slug": "warden",
+      "name": "Guardia",
+      "aliases": [
+        "Guardia",
+        "Warden"
+      ],
+      "portrait": "/deadlock/warden.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Frasco Alquímico",
+          "englishName": "Alchemical Flask",
+          "icon": "/deadlock/abilities/warden-1.webp",
+          "id": 2656490109
+        },
+        {
+          "slot": 2,
+          "name": "Fuerza de Voluntad",
+          "englishName": "Willpower",
+          "icon": "/deadlock/abilities/warden-2.webp",
+          "id": 2751689917
+        },
+        {
+          "slot": 3,
+          "name": "Palabra Vinculante",
+          "englishName": "Binding Word",
+          "icon": "/deadlock/abilities/warden-3.webp",
+          "id": 1656913918
+        },
+        {
+          "slot": 4,
+          "name": "Última Defensa",
+          "englishName": "Last Stand",
+          "icon": "/deadlock/abilities/warden-4.webp",
+          "id": 2702908623
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "slug": "yamato",
+      "name": "Yamato",
+      "aliases": [
+        "Yamato"
+      ],
+      "portrait": "/deadlock/yamato.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Corte Poderoso",
+          "englishName": "Power Slash",
+          "icon": "/deadlock/abilities/yamato-1.webp",
+          "id": 3255651252
+        },
+        {
+          "slot": 2,
+          "name": "Corte Volador",
+          "englishName": "Flying Slash",
+          "icon": "/deadlock/abilities/yamato-2.webp",
+          "id": 2566573207
+        },
+        {
+          "slot": 3,
+          "name": "Corte Carmesí",
+          "englishName": "Crimson Slash",
+          "icon": "/deadlock/abilities/yamato-3.webp",
+          "id": 2366960452
+        },
+        {
+          "slot": 4,
+          "name": "Transformación Sombría",
+          "englishName": "Shadow Transformation",
+          "icon": "/deadlock/abilities/yamato-4.webp",
+          "id": 3319782965
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "slug": "lash",
+      "name": "Lash",
+      "aliases": [
+        "Lash"
+      ],
+      "portrait": "/deadlock/lash.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Ataque Terrestre",
+          "englishName": "Ground Strike",
+          "icon": "/deadlock/abilities/lash-1.webp",
+          "id": 3561817145
+        },
+        {
+          "slot": 2,
+          "name": "Pértiga",
+          "englishName": "Grapple",
+          "icon": "/deadlock/abilities/lash-2.webp",
+          "id": 2670099061
+        },
+        {
+          "slot": 3,
+          "name": "Azotar",
+          "englishName": "Flog",
+          "icon": "/deadlock/abilities/lash-3.webp",
+          "id": 519124136
+        },
+        {
+          "slot": 4,
+          "name": "Trompazo Mortal",
+          "englishName": "Death Slam",
+          "icon": "/deadlock/abilities/lash-4.webp",
+          "id": 397010810
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "slug": "viscous",
+      "name": "Viscoso",
+      "aliases": [
+        "Viscoso",
+        "Viscous"
+      ],
+      "portrait": "/deadlock/viscous.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Salpicar",
+          "englishName": "Splatter",
+          "icon": "/deadlock/abilities/viscous-1.webp",
+          "id": 3247040238
+        },
+        {
+          "slot": 2,
+          "name": "El Cubo",
+          "englishName": "The Cube",
+          "icon": "/deadlock/abilities/viscous-2.webp",
+          "id": 3788152387
+        },
+        {
+          "slot": 3,
+          "name": "Puñetazo Viscoso",
+          "englishName": "Puddle Punch",
+          "icon": "/deadlock/abilities/viscous-3.webp",
+          "id": 1020817390
+        },
+        {
+          "slot": 4,
+          "name": "Bola Pegajosa",
+          "englishName": "Goo Ball",
+          "icon": "/deadlock/abilities/viscous-4.webp",
+          "id": 4206531918
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "slug": "pocket",
+      "name": "Pocket",
+      "aliases": [
+        "Pocket"
+      ],
+      "portrait": "/deadlock/pocket.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Aluvión",
+          "englishName": "Barrage",
+          "icon": "/deadlock/abilities/pocket-1.webp",
+          "id": 938149308
+        },
+        {
+          "slot": 2,
+          "name": "Capa Voladora",
+          "englishName": "Flying Cloak",
+          "icon": "/deadlock/abilities/pocket-2.webp",
+          "id": 1976701714
+        },
+        {
+          "slot": 3,
+          "name": "Maleta Encantada",
+          "englishName": "Enchanter's Satchel",
+          "icon": "/deadlock/abilities/pocket-3.webp",
+          "id": 3747867012
+        },
+        {
+          "slot": 4,
+          "name": "Aflicción",
+          "englishName": "Affliction",
+          "icon": "/deadlock/abilities/pocket-4.webp",
+          "id": 2954330093
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "slug": "mirage",
+      "name": "Espejismo",
+      "aliases": [
+        "Espejismo",
+        "Mirage"
+      ],
+      "portrait": "/deadlock/mirage.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Escarabajos de Fuego",
+          "englishName": "Fire Scarabs",
+          "icon": "/deadlock/abilities/mirage-1.webp",
+          "id": 3733594387
+        },
+        {
+          "slot": 2,
+          "name": "Torbellino",
+          "englishName": "Dust Devil",
+          "icon": "/deadlock/abilities/mirage-2.webp",
+          "id": 1336069669
+        },
+        {
+          "slot": 3,
+          "name": "Marca del Genio",
+          "englishName": "Djinn's Mark",
+          "icon": "/deadlock/abilities/mirage-3.webp",
+          "id": 2221949202
+        },
+        {
+          "slot": 4,
+          "name": "Viajero",
+          "englishName": "Traveler",
+          "icon": "/deadlock/abilities/mirage-4.webp",
+          "id": 2604653402
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "slug": "vyper",
+      "name": "Víbora",
+      "aliases": [
+        "Víbora",
+        "Vyper"
+      ],
+      "portrait": "/deadlock/vyper.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Daga Aletargante",
+          "englishName": "Screwjab Dagger",
+          "icon": "/deadlock/abilities/vyper-1.webp",
+          "id": 645773760
+        },
+        {
+          "slot": 2,
+          "name": "Veneno Letal",
+          "englishName": "Lethal Venom",
+          "icon": "/deadlock/abilities/vyper-2.webp",
+          "id": 3428732129
+        },
+        {
+          "slot": 3,
+          "name": "Serpenteo",
+          "englishName": "Slither",
+          "icon": "/deadlock/abilities/vyper-3.webp",
+          "id": 1469918191
+        },
+        {
+          "slot": 4,
+          "name": "Boleadora Petrificante",
+          "englishName": "Petrifying Bola",
+          "icon": "/deadlock/abilities/vyper-4.webp",
+          "id": 1594727071
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "slug": "sinclair",
+      "name": "Sinclair",
+      "aliases": [
+        "Sinclair"
+      ],
+      "portrait": "/deadlock/sinclair.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Rayo Persecutorio",
+          "englishName": "Vexing Bolt",
+          "icon": "/deadlock/abilities/sinclair-1.webp",
+          "id": 3156905386
+        },
+        {
+          "slot": 2,
+          "name": "Ayudante Espectral",
+          "englishName": "Spectral Assistant",
+          "icon": "/deadlock/abilities/sinclair-2.webp",
+          "id": 12456023
+        },
+        {
+          "slot": 3,
+          "name": "Hechizo del Conejo",
+          "englishName": "Rabbit Hex",
+          "icon": "/deadlock/abilities/sinclair-3.webp",
+          "id": 2142213586
+        },
+        {
+          "slot": 4,
+          "name": "Participación del Público",
+          "englishName": "Audience Participation",
+          "icon": "/deadlock/abilities/sinclair-4.webp",
+          "id": 191022746
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "slug": "mina",
+      "name": "Mina",
+      "aliases": [
+        "Mina"
+      ],
+      "portrait": "/deadlock/mina.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Rasgar",
+          "englishName": "Rake",
+          "icon": "/deadlock/abilities/mina-1.webp",
+          "id": 193508101
+        },
+        {
+          "slot": 2,
+          "name": "Retirada Sanguínea",
+          "englishName": "Sanguine Retreat",
+          "icon": "/deadlock/abilities/mina-2.webp",
+          "id": 2398133749
+        },
+        {
+          "slot": 3,
+          "name": "Mordeduras Cariñosas",
+          "englishName": "Love Bites",
+          "icon": "/deadlock/abilities/mina-3.webp",
+          "id": 1233782561
+        },
+        {
+          "slot": 4,
+          "name": "Nox Nostra",
+          "englishName": "Nox Nostra",
+          "icon": "/deadlock/abilities/mina-4.webp",
+          "id": 3379486147
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "slug": "drifter",
+      "name": "Vagabundo",
+      "aliases": [
+        "Vagabundo",
+        "Drifter"
+      ],
+      "portrait": "/deadlock/drifter.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Desgarrar",
+          "englishName": "Rend",
+          "icon": "/deadlock/abilities/drifter-1.webp",
+          "id": 3120550633
+        },
+        {
+          "slot": 2,
+          "name": "Marca del Acechador",
+          "englishName": "Stalker's Mark",
+          "icon": "/deadlock/abilities/drifter-2.webp",
+          "id": 1264175662
+        },
+        {
+          "slot": 3,
+          "name": "Esencia de Sangre",
+          "englishName": "Bloodscent",
+          "icon": "/deadlock/abilities/drifter-3.webp",
+          "id": 1033019133
+        },
+        {
+          "slot": 4,
+          "name": "Noche Eterna",
+          "englishName": "Eternal Night",
+          "icon": "/deadlock/abilities/drifter-4.webp",
+          "id": 1168182161
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "slug": "venator",
+      "name": "Venator",
+      "aliases": [
+        "Venator"
+      ],
+      "portrait": "/deadlock/venator.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Granada Consagradora",
+          "englishName": "Consecrating Grenade",
+          "icon": "/deadlock/abilities/venator-1.webp",
+          "id": 911307831
+        },
+        {
+          "slot": 2,
+          "name": "Disparo a Bocajarro",
+          "englishName": "Gutshot",
+          "icon": "/deadlock/abilities/venator-2.webp",
+          "id": 1764146857
+        },
+        {
+          "slot": 3,
+          "name": "Trampa Sacra",
+          "englishName": "Hex-Lined Snap Trap",
+          "icon": "/deadlock/abilities/venator-3.webp",
+          "id": 11154161
+        },
+        {
+          "slot": 4,
+          "name": "Ira Domini",
+          "englishName": "Ira Domini",
+          "icon": "/deadlock/abilities/venator-4.webp",
+          "id": 2918874166
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "slug": "victor",
+      "name": "Víctor",
+      "aliases": [
+        "Víctor",
+        "Victor"
+      ],
+      "portrait": "/deadlock/victor.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Batería de Dolor",
+          "englishName": "Pain Battery",
+          "icon": "/deadlock/abilities/victor-1.webp",
+          "id": 2043074967
+        },
+        {
+          "slot": 2,
+          "name": "Arranque Súbito",
+          "englishName": "Jumpstart",
+          "icon": "/deadlock/abilities/victor-2.webp",
+          "id": 3727084744
+        },
+        {
+          "slot": 3,
+          "name": "Aura de Sufrimiento",
+          "englishName": "Aura of Suffering",
+          "icon": "/deadlock/abilities/victor-3.webp",
+          "id": 1472593493
+        },
+        {
+          "slot": 4,
+          "name": "Reanimación Electrizante",
+          "englishName": "Shocking Reanimation",
+          "icon": "/deadlock/abilities/victor-4.webp",
+          "id": 3493884851
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "slug": "paige",
+      "name": "Paige",
+      "aliases": [
+        "Paige"
+      ],
+      "portrait": "/deadlock/paige.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Dragón Erudito",
+          "englishName": "Bookwyrm",
+          "icon": "/deadlock/abilities/paige-1.webp",
+          "id": 604448162
+        },
+        {
+          "slot": 2,
+          "name": "Coraza Narrativa",
+          "englishName": "Plot Armor",
+          "icon": "/deadlock/abilities/paige-2.webp",
+          "id": 3553292912
+        },
+        {
+          "slot": 3,
+          "name": "Lectura Cautivadora",
+          "englishName": "Captivating Read",
+          "icon": "/deadlock/abilities/paige-3.webp",
+          "id": 3054993162
+        },
+        {
+          "slot": 4,
+          "name": "Carga Victoriosa",
+          "englishName": "Rallying Charge",
+          "icon": "/deadlock/abilities/paige-4.webp",
+          "id": 1841901343
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "slug": "the-doorman",
+      "name": "El Portero",
+      "aliases": [
+        "El Portero",
+        "The Doorman"
+      ],
+      "portrait": "/deadlock/the-doorman.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Campana",
+          "englishName": "Call Bell",
+          "icon": "/deadlock/abilities/the-doorman-1.webp",
+          "id": 103496908
+        },
+        {
+          "slot": 2,
+          "name": "Puerta de Entrada",
+          "englishName": "Doorway",
+          "icon": "/deadlock/abilities/the-doorman-2.webp",
+          "id": 109766091
+        },
+        {
+          "slot": 3,
+          "name": "Carrito de Equipaje",
+          "englishName": "Luggage Cart",
+          "icon": "/deadlock/abilities/the-doorman-3.webp",
+          "id": 1719512318
+        },
+        {
+          "slot": 4,
+          "name": "Huésped del Hotel",
+          "englishName": "Hotel Guest",
+          "icon": "/deadlock/abilities/the-doorman-4.webp",
+          "id": 1703045691
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "slug": "billy",
+      "name": "Billy",
+      "aliases": [
+        "Billy"
+      ],
+      "portrait": "/deadlock/billy.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Batazo",
+          "englishName": "Bashdown",
+          "icon": "/deadlock/abilities/billy-1.webp",
+          "id": 1841661392
+        },
+        {
+          "slot": 2,
+          "name": "Embestida Ascendente",
+          "englishName": "Rising Ram",
+          "icon": "/deadlock/abilities/billy-2.webp",
+          "id": 1792773251
+        },
+        {
+          "slot": 3,
+          "name": "Botellazo",
+          "englishName": "Blasted",
+          "icon": "/deadlock/abilities/billy-3.webp",
+          "id": 3296031213
+        },
+        {
+          "slot": 4,
+          "name": "Pandilla Encadenada",
+          "englishName": "Chain Gang",
+          "icon": "/deadlock/abilities/billy-4.webp",
+          "id": 3762861984
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "slug": "graves",
+      "name": "Graves",
+      "aliases": [
+        "Graves"
+      ],
+      "portrait": "/deadlock/graves.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Tarro de los Muertos",
+          "englishName": "Jar of Dead",
+          "icon": "/deadlock/abilities/graves-1.webp",
+          "id": 3214055642
+        },
+        {
+          "slot": 2,
+          "name": "Manos Agarradoras",
+          "englishName": "Grasping Hands",
+          "icon": "/deadlock/abilities/graves-2.webp",
+          "id": 2001589780
+        },
+        {
+          "slot": 3,
+          "name": "Robo de Esencia",
+          "englishName": "Essence Theft",
+          "icon": "/deadlock/abilities/graves-3.webp",
+          "id": 629925354
+        },
+        {
+          "slot": 4,
+          "name": "Decreto Prestado",
+          "englishName": "Borrowed Decree",
+          "icon": "/deadlock/abilities/graves-4.webp",
+          "id": 4110547059
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "slug": "apollo",
+      "name": "Apolo",
+      "aliases": [
+        "Apolo",
+        "Apollo"
+      ],
+      "portrait": "/deadlock/apollo.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Emblema Evasivo",
+          "englishName": "Disengaging Sigil",
+          "icon": "/deadlock/abilities/apollo-1.webp",
+          "id": 725153709
+        },
+        {
+          "slot": 2,
+          "name": "Contrataque",
+          "englishName": "Riposte",
+          "icon": "/deadlock/abilities/apollo-2.webp",
+          "id": 2006773718
+        },
+        {
+          "slot": 3,
+          "name": "Avance Impecable",
+          "englishName": "Flawless Advance",
+          "icon": "/deadlock/abilities/apollo-3.webp",
+          "id": 147493976
+        },
+        {
+          "slot": 4,
+          "name": "Itani Lo Sahn",
+          "englishName": "Itani Lo Sahn",
+          "icon": "/deadlock/abilities/apollo-4.webp",
+          "id": 494112189
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "slug": "deadman-danny",
+      "name": "Danny Difunto",
+      "aliases": [
+        "Danny Difunto",
+        "Deadman Danny"
+      ],
+      "portrait": "/deadlock/deadman-danny.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Andanada de Strix",
+          "englishName": "Strix Salvo",
+          "icon": "/deadlock/abilities/deadman-danny-1.webp",
+          "id": 2603013853
+        },
+        {
+          "slot": 2,
+          "name": "Quimera Mk1",
+          "englishName": "Chimera Mk1",
+          "icon": "/deadlock/abilities/deadman-danny-2.webp",
+          "id": 1904698842
+        },
+        {
+          "slot": 3,
+          "name": "Vaciado de Combustible",
+          "englishName": "Jettison Fuel",
+          "icon": "/deadlock/abilities/deadman-danny-3.webp",
+          "id": 374042410
+        },
+        {
+          "slot": 4,
+          "name": "Cerrar el Trato",
+          "englishName": "Close The Deal",
+          "icon": "/deadlock/abilities/deadman-danny-4.webp",
+          "id": 1026127931
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "slug": "rem",
+      "name": "Rem",
+      "aliases": [
+        "Rem"
+      ],
+      "portrait": "/deadlock/rem.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Lanzamiento de Almohada",
+          "englishName": "Pillow Toss",
+          "icon": "/deadlock/abilities/rem-1.webp",
+          "id": 3692321247
+        },
+        {
+          "slot": 2,
+          "name": "Ir a Cuestas",
+          "englishName": "Tag Along",
+          "icon": "/deadlock/abilities/rem-2.webp",
+          "id": 1568845221
+        },
+        {
+          "slot": 3,
+          "name": "Pequeños Ayudantes",
+          "englishName": "Lil Helpers",
+          "icon": "/deadlock/abilities/rem-3.webp",
+          "id": 536278136
+        },
+        {
+          "slot": 4,
+          "name": "Hora de la Siesta",
+          "englishName": "Naptime",
+          "icon": "/deadlock/abilities/rem-4.webp",
+          "id": 2396527575
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "slug": "silver",
+      "name": "Silver",
+      "aliases": [
+        "Silver"
+      ],
+      "portrait": "/deadlock/silver.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Disparo Instantáneo",
+          "englishName": "Slam Fire",
+          "icon": "/deadlock/abilities/silver-1.webp",
+          "id": 1385849824
+        },
+        {
+          "slot": 2,
+          "name": "Patadón",
+          "englishName": "Boot Kick",
+          "icon": "/deadlock/abilities/silver-2.webp",
+          "id": 2717130900
+        },
+        {
+          "slot": 3,
+          "name": "Boleadora Enredadora",
+          "englishName": "Entangling Bola",
+          "icon": "/deadlock/abilities/silver-3.webp",
+          "id": 3983754897
+        },
+        {
+          "slot": 4,
+          "name": "Maldición Licántropa",
+          "englishName": "Lycan Curse",
+          "icon": "/deadlock/abilities/silver-4.webp",
+          "id": 515791019
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "slug": "celeste",
+      "name": "Celeste",
+      "aliases": [
+        "Celeste"
+      ],
+      "portrait": "/deadlock/celeste.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Devoradora de Luz",
+          "englishName": "Light Eater",
+          "icon": "/deadlock/abilities/celeste-1.webp",
+          "id": 3443575800
+        },
+        {
+          "slot": 2,
+          "name": "Truco Deslumbrante",
+          "englishName": "Dazzling Trick",
+          "icon": "/deadlock/abilities/celeste-2.webp",
+          "id": 1950738949
+        },
+        {
+          "slot": 3,
+          "name": "Dagas Radiantes",
+          "englishName": "Radiant Daggers",
+          "icon": "/deadlock/abilities/celeste-3.webp",
+          "id": 1011349580
+        },
+        {
+          "slot": 4,
+          "name": "Maravilla Resplandeciente",
+          "englishName": "Shining Wonder",
+          "icon": "/deadlock/abilities/celeste-4.webp",
+          "id": 2590796390
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "slug": "rat-king",
+      "name": "Rey Rata",
+      "aliases": [
+        "Rey Rata",
+        "Rat King"
+      ],
+      "portrait": "/deadlock/rat-king.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Granada de Chatarra",
+          "englishName": "Scrap Grenade",
+          "icon": "/deadlock/abilities/rat-king-1.webp",
+          "id": 3002308408
+        },
+        {
+          "slot": 2,
+          "name": "Plaga de Ratas",
+          "englishName": "Rat Swarm",
+          "icon": "/deadlock/abilities/rat-king-2.webp",
+          "id": 3681399397
+        },
+        {
+          "slot": 3,
+          "name": "Pestes Reales",
+          "englishName": "Royal Pestments",
+          "icon": "/deadlock/abilities/rat-king-3.webp",
+          "id": 690412829
+        },
+        {
+          "slot": 4,
+          "name": "¡Por Ratannia!",
+          "englishName": "Rule, Ratannia!",
+          "icon": "/deadlock/abilities/rat-king-4.webp",
+          "id": 1627989937
+        }
+      ]
+    },
+    {
+      "id": 85,
+      "slug": "solomon",
+      "name": "Salomón",
+      "aliases": [
+        "Salomón",
+        "Solomon"
+      ],
+      "portrait": "/deadlock/solomon.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Colocación del Alfil",
+          "englishName": "Setup Bishop",
+          "icon": "/deadlock/abilities/solomon-1.webp",
+          "id": 4011110259
+        },
+        {
+          "slot": 2,
+          "name": "Caballo del Rey",
+          "englishName": "Kingside Knight",
+          "icon": "/deadlock/abilities/solomon-2.webp",
+          "id": 4180486641
+        },
+        {
+          "slot": 3,
+          "name": "Batería de Torres",
+          "englishName": "Rook Battery",
+          "icon": "/deadlock/abilities/solomon-3.webp",
+          "id": 2424652896
+        },
+        {
+          "slot": 4,
+          "name": "Reina en Desarrollo",
+          "englishName": "Develop Queen",
+          "icon": "/deadlock/abilities/solomon-4.webp",
+          "id": 1389230689
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "slug": "violet",
+      "name": "Violeta",
+      "aliases": [
+        "Violeta",
+        "Violet"
+      ],
+      "portrait": "/deadlock/violet.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Tinta Viva",
+          "englishName": "Living Ink",
+          "icon": "/deadlock/abilities/violet-1.webp",
+          "id": 836615329
+        },
+        {
+          "slot": 2,
+          "name": "Estado de Flujo",
+          "englishName": "Flow State",
+          "icon": "/deadlock/abilities/violet-2.webp",
+          "id": 3389503777
+        },
+        {
+          "slot": 3,
+          "name": "Naturaleza Muerta",
+          "englishName": "Still Life",
+          "icon": "/deadlock/abilities/violet-3.webp",
+          "id": 3612874202
+        },
+        {
+          "slot": 4,
+          "name": "Paisaje Abstracto",
+          "englishName": "Abstract Landscape",
+          "icon": "/deadlock/abilities/violet-4.webp",
+          "id": 2516700978
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "slug": "nurse-harrow",
+      "name": "Enfermera Harrow",
+      "aliases": [
+        "Enfermera Harrow",
+        "Nurse Harrow"
+      ],
+      "portrait": "/deadlock/nurse-harrow.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Terapia de Sanguijuelas",
+          "englishName": "Leech Therapy",
+          "icon": "/deadlock/abilities/nurse-harrow-1.webp",
+          "id": 267712790
+        },
+        {
+          "slot": 2,
+          "name": "Vapores Repugnantes",
+          "englishName": "Wretched Vapors",
+          "icon": "/deadlock/abilities/nurse-harrow-2.webp",
+          "id": 3621314027
+        },
+        {
+          "slot": 3,
+          "name": "Agujas Curativas",
+          "englishName": "Healing Needles",
+          "icon": "/deadlock/abilities/nurse-harrow-3.webp",
+          "id": 683490631
+        },
+        {
+          "slot": 4,
+          "name": "Terrores Ocultos",
+          "englishName": "Lurking Terrors",
+          "icon": "/deadlock/abilities/nurse-harrow-4.webp",
+          "id": 3427093887
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "slug": "baba",
+      "name": "Yagá",
+      "aliases": [
+        "Yagá",
+        "Baba"
+      ],
+      "portrait": "/deadlock/baba.webp",
+      "abilities": [
+        {
+          "slot": 1,
+          "name": "Hilo Drenante",
+          "englishName": "Threadsap",
+          "icon": "/deadlock/abilities/baba-1.webp",
+          "id": 1282689113
+        },
+        {
+          "slot": 2,
+          "name": "Abuelita Patas Largas",
+          "englishName": "Granny Long Legs",
+          "icon": "/deadlock/abilities/baba-2.webp",
+          "id": 3122124161
+        },
+        {
+          "slot": 3,
+          "name": "Brebaje de Yagá",
+          "englishName": "Baba's Brew",
+          "icon": "/deadlock/abilities/baba-3.webp",
+          "id": 2003165630
+        },
+        {
+          "slot": 4,
+          "name": "Alimentar a las Aves",
+          "englishName": "Feed The Birds",
+          "icon": "/deadlock/abilities/baba-4.webp",
+          "id": 299875845
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": 1548066885,
+      "name": "Cargador Ampliado",
+      "englishName": "Extended Magazine",
+      "aliases": [
+        "Cargador Ampliado",
+        "Extended Magazine"
+      ],
+      "icon": "/deadlock/items/1548066885.webp"
+    },
+    {
+      "id": 1009965641,
+      "name": "Cartuchos Monstruosos",
+      "englishName": "Monster Rounds",
+      "aliases": [
+        "Cartuchos Monstruosos",
+        "Monster Rounds"
+      ],
+      "icon": "/deadlock/items/1009965641.webp"
+    },
+    {
+      "id": 709540378,
+      "name": "Sacrificio Sectario",
+      "englishName": "Cultist Sacrifice",
+      "aliases": [
+        "Sacrificio Sectario",
+        "Cultist Sacrifice"
+      ],
+      "icon": "/deadlock/items/709540378.webp"
+    },
+    {
+      "id": 811521119,
+      "name": "Balas de Tesla",
+      "englishName": "Tesla Bullets",
+      "aliases": [
+        "Balas de Tesla",
+        "Tesla Bullets"
+      ],
+      "icon": "/deadlock/items/811521119.webp"
+    },
+    {
+      "id": 710436191,
+      "name": "Condensador",
+      "englishName": "Capacitor",
+      "aliases": [
+        "Condensador",
+        "Capacitor"
+      ],
+      "icon": "/deadlock/items/710436191.webp"
+    },
+    {
+      "id": 2678489038,
+      "name": "Punta Hueca",
+      "englishName": "Hollow Point",
+      "aliases": [
+        "Punta Hueca",
+        "Hollow Point"
+      ],
+      "icon": "/deadlock/items/2678489038.webp"
+    },
+    {
+      "id": 2064029594,
+      "name": "Cartuchos Irruptores",
+      "englishName": "Opening Rounds",
+      "aliases": [
+        "Cartuchos Irruptores",
+        "Opening Rounds"
+      ],
+      "icon": "/deadlock/items/2064029594.webp"
+    },
+    {
+      "id": 3077079169,
+      "name": "Cartuchos de Alta Velocidad",
+      "englishName": "High-Velocity Rounds",
+      "aliases": [
+        "Cartuchos de Alta Velocidad",
+        "High-Velocity Rounds"
+      ],
+      "icon": "/deadlock/items/3077079169.webp"
+    },
+    {
+      "id": 1437614329,
+      "name": "Robo de Vida Cuerpo a Cuerpo",
+      "englishName": "Melee Lifesteal",
+      "aliases": [
+        "Robo de Vida Cuerpo a Cuerpo",
+        "Melee Lifesteal"
+      ],
+      "icon": "/deadlock/items/1437614329.webp"
+    },
+    {
+      "id": 4204808176,
+      "name": "Refutación",
+      "englishName": "Rebuttal",
+      "aliases": [
+        "Refutación",
+        "Rebuttal"
+      ],
+      "icon": "/deadlock/items/4204808176.webp"
+    },
+    {
+      "id": 1414025773,
+      "name": "Contrahechizo",
+      "englishName": "Counterspell",
+      "aliases": [
+        "Contrahechizo",
+        "Counterspell"
+      ],
+      "icon": "/deadlock/items/1414025773.webp"
+    },
+    {
+      "id": 3791587546,
+      "name": "Balas Lastradas",
+      "englishName": "Weighted Shots",
+      "aliases": [
+        "Balas Lastradas",
+        "Weighted Shots"
+      ],
+      "icon": "/deadlock/items/3791587546.webp"
+    },
+    {
+      "id": 1342610602,
+      "name": "A Bocajarro",
+      "englishName": "Close Quarters",
+      "aliases": [
+        "A Bocajarro",
+        "Close Quarters"
+      ],
+      "icon": "/deadlock/items/1342610602.webp"
+    },
+    {
+      "id": 3331811235,
+      "name": "Largo Alcance",
+      "englishName": "Long Range",
+      "aliases": [
+        "Largo Alcance",
+        "Long Range"
+      ],
+      "icon": "/deadlock/items/3331811235.webp"
+    },
+    {
+      "id": 393974127,
+      "name": "Balas Ralentizantes",
+      "englishName": "Slowing Bullets",
+      "aliases": [
+        "Balas Ralentizantes",
+        "Slowing Bullets"
+      ],
+      "icon": "/deadlock/items/393974127.webp"
+    },
+    {
+      "id": 2037039379,
+      "name": "Inhibidor",
+      "englishName": "Inhibitor",
+      "aliases": [
+        "Inhibidor",
+        "Inhibitor"
+      ],
+      "icon": "/deadlock/items/2037039379.webp"
+    },
+    {
+      "id": 1144549437,
+      "name": "Destructor Espiritual",
+      "englishName": "Spirit Shredder",
+      "aliases": [
+        "Destructor Espiritual",
+        "Spirit Shredder"
+      ],
+      "icon": "/deadlock/items/1144549437.webp"
+    },
+    {
+      "id": 2108215830,
+      "name": "Aura Heroica",
+      "englishName": "Heroic Aura",
+      "aliases": [
+        "Aura Heroica",
+        "Heroic Aura"
+      ],
+      "icon": "/deadlock/items/2108215830.webp"
+    },
+    {
+      "id": 619484391,
+      "name": "Ola de Silencio",
+      "englishName": "Silence Wave",
+      "aliases": [
+        "Ola de Silencio",
+        "Silence Wave"
+      ],
+      "icon": "/deadlock/items/619484391.webp"
+    },
+    {
+      "id": 1113837674,
+      "name": "Silenciador",
+      "englishName": "Silencer",
+      "aliases": [
+        "Silenciador",
+        "Silencer"
+      ],
+      "icon": "/deadlock/items/1113837674.webp"
+    },
+    {
+      "id": 1414319208,
+      "name": "Berserker",
+      "englishName": "Berserker",
+      "aliases": [
+        "Berserker"
+      ],
+      "icon": "/deadlock/items/1414319208.webp"
+    },
+    {
+      "id": 339443430,
+      "name": "Frenesí",
+      "englishName": "Frenzy",
+      "aliases": [
+        "Frenesí",
+        "Frenzy"
+      ],
+      "icon": "/deadlock/items/339443430.webp"
+    },
+    {
+      "id": 1282141666,
+      "name": "Balas Drenantes",
+      "englishName": "Siphon Bullets",
+      "aliases": [
+        "Balas Drenantes",
+        "Siphon Bullets"
+      ],
+      "icon": "/deadlock/items/1282141666.webp"
+    },
+    {
+      "id": 2010028405,
+      "name": "Revientacráneos",
+      "englishName": "Headshot Booster",
+      "aliases": [
+        "Revientacráneos",
+        "Headshot Booster"
+      ],
+      "icon": "/deadlock/items/2010028405.webp"
+    },
+    {
+      "id": 1770441818,
+      "name": "Disparo Debilitante a la Cabeza",
+      "englishName": "Weakening Headshot",
+      "aliases": [
+        "Disparo Debilitante a la Cabeza",
+        "Weakening Headshot"
+      ],
+      "icon": "/deadlock/items/1770441818.webp"
+    },
+    {
+      "id": 2152872419,
+      "name": "Tiro Certero",
+      "englishName": "Sharpshooter",
+      "aliases": [
+        "Tiro Certero",
+        "Sharpshooter"
+      ],
+      "icon": "/deadlock/items/2152872419.webp"
+    },
+    {
+      "id": 4053935515,
+      "name": "Cazacabezas",
+      "englishName": "Headhunter",
+      "aliases": [
+        "Cazacabezas",
+        "Headhunter"
+      ],
+      "icon": "/deadlock/items/4053935515.webp"
+    },
+    {
+      "id": 4075861416,
+      "name": "Desgarro Espiritual",
+      "englishName": "Spirit Rend",
+      "aliases": [
+        "Desgarro Espiritual",
+        "Spirit Rend"
+      ],
+      "icon": "/deadlock/items/4075861416.webp"
+    },
+    {
+      "id": 3884003354,
+      "name": "Disparo Paralizante a la Cabeza",
+      "englishName": "Crippling Headshot",
+      "aliases": [
+        "Disparo Paralizante a la Cabeza",
+        "Crippling Headshot"
+      ],
+      "icon": "/deadlock/items/3884003354.webp"
+    },
+    {
+      "id": 395867183,
+      "name": "Disparo Místico",
+      "englishName": "Mystic Shot",
+      "aliases": [
+        "Disparo Místico",
+        "Mystic Shot"
+      ],
+      "icon": "/deadlock/items/395867183.webp"
+    },
+    {
+      "id": 1396247347,
+      "name": "Chiripa",
+      "englishName": "Lucky Shot",
+      "aliases": [
+        "Chiripa",
+        "Lucky Shot"
+      ],
+      "icon": "/deadlock/items/1396247347.webp"
+    },
+    {
+      "id": 2095565695,
+      "name": "A Quemarropa",
+      "englishName": "Point Blank",
+      "aliases": [
+        "A Quemarropa",
+        "Point Blank"
+      ],
+      "icon": "/deadlock/items/2095565695.webp"
+    },
+    {
+      "id": 3696726732,
+      "name": "Balas Tóxicas",
+      "englishName": "Toxic Bullets",
+      "aliases": [
+        "Balas Tóxicas",
+        "Toxic Bullets"
+      ],
+      "icon": "/deadlock/items/3696726732.webp"
+    },
+    {
+      "id": 2480592370,
+      "name": "Rebote",
+      "englishName": "Ricochet",
+      "aliases": [
+        "Rebote",
+        "Ricochet"
+      ],
+      "icon": "/deadlock/items/2480592370.webp"
+    },
+    {
+      "id": 3633614685,
+      "name": "Vida Adicional",
+      "englishName": "Extra Health",
+      "aliases": [
+        "Vida Adicional",
+        "Extra Health"
+      ],
+      "icon": "/deadlock/items/3633614685.webp"
+    },
+    {
+      "id": 499683006,
+      "name": "Robo de Vida Balístico",
+      "englishName": "Bullet Lifesteal",
+      "aliases": [
+        "Robo de Vida Balístico",
+        "Bullet Lifesteal"
+      ],
+      "icon": "/deadlock/items/499683006.webp"
+    },
+    {
+      "id": 1047818222,
+      "name": "Reductor de Desventajas",
+      "englishName": "Debuff Reducer",
+      "aliases": [
+        "Reductor de Desventajas",
+        "Debuff Reducer"
+      ],
+      "icon": "/deadlock/items/1047818222.webp"
+    },
+    {
+      "id": 3731635960,
+      "name": "Disipador de Magia",
+      "englishName": "Dispel Magic",
+      "aliases": [
+        "Disipador de Magia",
+        "Dispel Magic"
+      ],
+      "icon": "/deadlock/items/3731635960.webp"
+    },
+    {
+      "id": 2163598980,
+      "name": "Resiliencia Espiritual",
+      "englishName": "Spirit Resilience",
+      "aliases": [
+        "Resiliencia Espiritual",
+        "Spirit Resilience"
+      ],
+      "icon": "/deadlock/items/2163598980.webp"
+    },
+    {
+      "id": 3140772621,
+      "name": "Resiliencia Balística",
+      "englishName": "Bullet Resilience",
+      "aliases": [
+        "Resiliencia Balística",
+        "Bullet Resilience"
+      ],
+      "icon": "/deadlock/items/3140772621.webp"
+    },
+    {
+      "id": 1378931225,
+      "name": "Piel de Metal",
+      "englishName": "Metal Skin",
+      "aliases": [
+        "Piel de Metal",
+        "Metal Skin"
+      ],
+      "icon": "/deadlock/items/1378931225.webp"
+    },
+    {
+      "id": 2566692615,
+      "name": "Potenciador de Curación",
+      "englishName": "Healing Booster",
+      "aliases": [
+        "Potenciador de Curación",
+        "Healing Booster"
+      ],
+      "icon": "/deadlock/items/2566692615.webp"
+    },
+    {
+      "id": 3585132399,
+      "name": "Fortaleza",
+      "englishName": "Fortitude",
+      "aliases": [
+        "Fortaleza",
+        "Fortitude"
+      ],
+      "icon": "/deadlock/items/3585132399.webp"
+    },
+    {
+      "id": 865846625,
+      "name": "Sanguijuela",
+      "englishName": "Leech",
+      "aliases": [
+        "Sanguijuela",
+        "Leech"
+      ],
+      "icon": "/deadlock/items/865846625.webp"
+    },
+    {
+      "id": 3399065363,
+      "name": "Botas de Esprintar",
+      "englishName": "Sprint Boots",
+      "aliases": [
+        "Botas de Esprintar",
+        "Sprint Boots"
+      ],
+      "icon": "/deadlock/items/3399065363.webp"
+    },
+    {
+      "id": 3074274290,
+      "name": "Coleccionista de Trofeos",
+      "englishName": "Trophy Collector",
+      "aliases": [
+        "Coleccionista de Trofeos",
+        "Trophy Collector"
+      ],
+      "icon": "/deadlock/items/3074274290.webp"
+    },
+    {
+      "id": 2447176615,
+      "name": "Velocidad Persistente",
+      "englishName": "Enduring Speed",
+      "aliases": [
+        "Velocidad Persistente",
+        "Enduring Speed"
+      ],
+      "icon": "/deadlock/items/2447176615.webp"
+    },
+    {
+      "id": 334300056,
+      "name": "Maestría en Aguante",
+      "englishName": "Stamina Mastery",
+      "aliases": [
+        "Maestría en Aguante",
+        "Stamina Mastery"
+      ],
+      "icon": "/deadlock/items/334300056.webp"
+    },
+    {
+      "id": 668299740,
+      "name": "Cartuchos Rápidos",
+      "englishName": "Rapid Rounds",
+      "aliases": [
+        "Cartuchos Rápidos",
+        "Rapid Rounds"
+      ],
+      "icon": "/deadlock/items/668299740.webp"
+    },
+    {
+      "id": 4139877411,
+      "name": "Aguante Adicional",
+      "englishName": "Extra Stamina",
+      "aliases": [
+        "Aguante Adicional",
+        "Extra Stamina"
+      ],
+      "icon": "/deadlock/items/4139877411.webp"
+    },
+    {
+      "id": 2481177645,
+      "name": "Aura de Cazador",
+      "englishName": "Hunter's Aura",
+      "aliases": [
+        "Aura de Cazador",
+        "Hunter's Aura"
+      ],
+      "icon": "/deadlock/items/2481177645.webp"
+    },
+    {
+      "id": 1672893796,
+      "name": "Templanza",
+      "englishName": "Grit",
+      "aliases": [
+        "Templanza",
+        "Grit"
+      ],
+      "icon": "/deadlock/items/1672893796.webp"
+    },
+    {
+      "id": 805079544,
+      "name": "Protección Balística",
+      "englishName": "Weapon Shielding",
+      "aliases": [
+        "Protección Balística",
+        "Weapon Shielding"
+      ],
+      "icon": "/deadlock/items/805079544.webp"
+    },
+    {
+      "id": 112198670,
+      "name": "Protección Espiritual",
+      "englishName": "Spirit Shielding",
+      "aliases": [
+        "Protección Espiritual",
+        "Spirit Shielding"
+      ],
+      "icon": "/deadlock/items/112198670.webp"
+    },
+    {
+      "id": 1235347618,
+      "name": "Chaleco de Batalla",
+      "englishName": "Battle Vest",
+      "aliases": [
+        "Chaleco de Batalla",
+        "Battle Vest"
+      ],
+      "icon": "/deadlock/items/1235347618.webp"
+    },
+    {
+      "id": 3970837787,
+      "name": "Emblema del Hechicero",
+      "englishName": "Enchanter's Emblem",
+      "aliases": [
+        "Emblema del Hechicero",
+        "Enchanter's Emblem"
+      ],
+      "icon": "/deadlock/items/3970837787.webp"
+    },
+    {
+      "id": 968099481,
+      "name": "Espíritu Adicional",
+      "englishName": "Extra Spirit",
+      "aliases": [
+        "Espíritu Adicional",
+        "Extra Spirit"
+      ],
+      "icon": "/deadlock/items/968099481.webp"
+    },
+    {
+      "id": 1439347412,
+      "name": "Regeneración Mística",
+      "englishName": "Mystic Regeneration",
+      "aliases": [
+        "Regeneración Mística",
+        "Mystic Regeneration"
+      ],
+      "icon": "/deadlock/items/1439347412.webp"
+    },
+    {
+      "id": 7409189,
+      "name": "Espíritu Mejorado",
+      "englishName": "Improved Spirit",
+      "aliases": [
+        "Espíritu Mejorado",
+        "Improved Spirit"
+      ],
+      "icon": "/deadlock/items/7409189.webp"
+    },
+    {
+      "id": 2226497419,
+      "name": "Desbordamiento Espiritual",
+      "englishName": "Spiritual Overflow",
+      "aliases": [
+        "Desbordamiento Espiritual",
+        "Spiritual Overflow"
+      ],
+      "icon": "/deadlock/items/2226497419.webp"
+    },
+    {
+      "id": 3361075077,
+      "name": "Fuego Devuelto",
+      "englishName": "Return Fire",
+      "aliases": [
+        "Fuego Devuelto",
+        "Return Fire"
+      ],
+      "icon": "/deadlock/items/3361075077.webp"
+    },
+    {
+      "id": 1193964439,
+      "name": "Expansión Superior",
+      "englishName": "Greater Expansion",
+      "aliases": [
+        "Expansión Superior",
+        "Greater Expansion"
+      ],
+      "icon": "/deadlock/items/1193964439.webp"
+    },
+    {
+      "id": 754480263,
+      "name": "Expansión Mística",
+      "englishName": "Mystic Expansion",
+      "aliases": [
+        "Expansión Mística",
+        "Mystic Expansion"
+      ],
+      "icon": "/deadlock/items/754480263.webp"
+    },
+    {
+      "id": 3776945997,
+      "name": "Carga Adicional",
+      "englishName": "Extra Charge",
+      "aliases": [
+        "Carga Adicional",
+        "Extra Charge"
+      ],
+      "icon": "/deadlock/items/3776945997.webp"
+    },
+    {
+      "id": 876563814,
+      "name": "Robo de Vida Espiritual",
+      "englishName": "Spirit Lifesteal",
+      "aliases": [
+        "Robo de Vida Espiritual",
+        "Spirit Lifesteal"
+      ],
+      "icon": "/deadlock/items/876563814.webp"
+    },
+    {
+      "id": 2971868509,
+      "name": "Destructor de Resistencia a Balas",
+      "englishName": "Bullet Resist Shredder",
+      "aliases": [
+        "Destructor de Resistencia a Balas",
+        "Bullet Resist Shredder"
+      ],
+      "icon": "/deadlock/items/2971868509.webp"
+    },
+    {
+      "id": 3577481646,
+      "name": "Reverberación Mística",
+      "englishName": "Mystic Reverb",
+      "aliases": [
+        "Reverberación Mística",
+        "Mystic Reverb"
+      ],
+      "icon": "/deadlock/items/3577481646.webp"
+    },
+    {
+      "id": 1998374645,
+      "name": "Explosión Mística",
+      "englishName": "Mystic Burst",
+      "aliases": [
+        "Explosión Mística",
+        "Mystic Burst"
+      ],
+      "icon": "/deadlock/items/1998374645.webp"
+    },
+    {
+      "id": 2121044373,
+      "name": "Revientatanques",
+      "englishName": "Tankbuster",
+      "aliases": [
+        "Revientatanques",
+        "Tankbuster"
+      ],
+      "icon": "/deadlock/items/2121044373.webp"
+    },
+    {
+      "id": 2081037738,
+      "name": "Vulnerabilidad Mística",
+      "englishName": "Mystic Vulnerability",
+      "aliases": [
+        "Vulnerabilidad Mística",
+        "Mystic Vulnerability"
+      ],
+      "icon": "/deadlock/items/2081037738.webp"
+    },
+    {
+      "id": 2603935618,
+      "name": "Maleficio Anticuración",
+      "englishName": "Healbane",
+      "aliases": [
+        "Maleficio Anticuración",
+        "Healbane"
+      ],
+      "icon": "/deadlock/items/2603935618.webp"
+    },
+    {
+      "id": 1102081447,
+      "name": "Ralentización Mística",
+      "englishName": "Mystic Slow",
+      "aliases": [
+        "Ralentización Mística",
+        "Mystic Slow"
+      ],
+      "icon": "/deadlock/items/1102081447.webp"
+    },
+    {
+      "id": 3005970438,
+      "name": "Exposición Creciente",
+      "englishName": "Escalating Exposure",
+      "aliases": [
+        "Exposición Creciente",
+        "Escalating Exposure"
+      ],
+      "icon": "/deadlock/items/3005970438.webp"
+    },
+    {
+      "id": 787198704,
+      "name": "Recarga Rápida",
+      "englishName": "Rapid Recharge",
+      "aliases": [
+        "Recarga Rápida",
+        "Rapid Recharge"
+      ],
+      "icon": "/deadlock/items/787198704.webp"
+    },
+    {
+      "id": 424779525,
+      "name": "Sello de Omnicarga",
+      "englishName": "Omnicharge Signet",
+      "aliases": [
+        "Sello de Omnicarga",
+        "Omnicharge Signet"
+      ],
+      "icon": "/deadlock/items/424779525.webp"
+    },
+    {
+      "id": 380806748,
+      "name": "Compresión de Recarga",
+      "englishName": "Compress Cooldown",
+      "aliases": [
+        "Compresión de Recarga",
+        "Compress Cooldown"
+      ],
+      "icon": "/deadlock/items/380806748.webp"
+    },
+    {
+      "id": 3261353684,
+      "name": "Tiempo de Recarga Superior",
+      "englishName": "Superior Cooldown",
+      "aliases": [
+        "Tiempo de Recarga Superior",
+        "Superior Cooldown"
+      ],
+      "icon": "/deadlock/items/3261353684.webp"
+    },
+    {
+      "id": 915014646,
+      "name": "Tiempo de Recarga Trascendente",
+      "englishName": "Transcendent Cooldown",
+      "aliases": [
+        "Tiempo de Recarga Trascendente",
+        "Transcendent Cooldown"
+      ],
+      "icon": "/deadlock/items/915014646.webp"
+    },
+    {
+      "id": 1813726886,
+      "name": "Hechizo Ralentizante",
+      "englishName": "Slowing Hex",
+      "aliases": [
+        "Hechizo Ralentizante",
+        "Slowing Hex"
+      ],
+      "icon": "/deadlock/items/1813726886.webp"
+    },
+    {
+      "id": 1219329868,
+      "name": "Savia Espiritual",
+      "englishName": "Spirit Sap",
+      "aliases": [
+        "Savia Espiritual",
+        "Spirit Sap"
+      ],
+      "icon": "/deadlock/items/1219329868.webp"
+    },
+    {
+      "id": 2142980412,
+      "name": "Lente de Enfoque",
+      "englishName": "Focus Lens",
+      "aliases": [
+        "Lente de Enfoque",
+        "Focus Lens"
+      ],
+      "icon": "/deadlock/items/2142980412.webp"
+    },
+    {
+      "id": 2922054143,
+      "name": "Cañón Oxidado",
+      "englishName": "Rusted Barrel",
+      "aliases": [
+        "Cañón Oxidado",
+        "Rusted Barrel"
+      ],
+      "icon": "/deadlock/items/2922054143.webp"
+    },
+    {
+      "id": 2061878743,
+      "name": "Maldición Desarmante",
+      "englishName": "Disarming Hex",
+      "aliases": [
+        "Maldición Desarmante",
+        "Disarming Hex"
+      ],
+      "icon": "/deadlock/items/2061878743.webp"
+    },
+    {
+      "id": 1804594021,
+      "name": "Rayo de Rescate",
+      "englishName": "Rescue Beam",
+      "aliases": [
+        "Rayo de Rescate",
+        "Rescue Beam"
+      ],
+      "icon": "/deadlock/items/1804594021.webp"
+    },
+    {
+      "id": 3144988365,
+      "name": "Declive",
+      "englishName": "Decay",
+      "aliases": [
+        "Declive",
+        "Decay"
+      ],
+      "icon": "/deadlock/items/3144988365.webp"
+    },
+    {
+      "id": 2417568017,
+      "name": "Azote",
+      "englishName": "Scourge",
+      "aliases": [
+        "Azote",
+        "Scourge"
+      ],
+      "icon": "/deadlock/items/2417568017.webp"
+    },
+    {
+      "id": 1254091416,
+      "name": "Derribo",
+      "englishName": "Knockdown",
+      "aliases": [
+        "Derribo",
+        "Knockdown"
+      ],
+      "icon": "/deadlock/items/1254091416.webp"
+    },
+    {
+      "id": 1371725689,
+      "name": "Golpe Fantasmal",
+      "englishName": "Phantom Strike",
+      "aliases": [
+        "Golpe Fantasmal",
+        "Phantom Strike"
+      ],
+      "icon": "/deadlock/items/1371725689.webp"
+    },
+    {
+      "id": 3270001687,
+      "name": "Piedra de Teletransporte",
+      "englishName": "Warp Stone",
+      "aliases": [
+        "Piedra de Teletransporte",
+        "Warp Stone"
+      ],
+      "icon": "/deadlock/items/3270001687.webp"
+    },
+    {
+      "id": 1152158042,
+      "name": "Red de Vórtices",
+      "englishName": "Vortex Web",
+      "aliases": [
+        "Red de Vórtices",
+        "Vortex Web"
+      ],
+      "icon": "/deadlock/items/1152158042.webp"
+    },
+    {
+      "id": 677738769,
+      "name": "Restaurador",
+      "englishName": "Refresher",
+      "aliases": [
+        "Restaurador",
+        "Refresher"
+      ],
+      "icon": "/deadlock/items/677738769.webp"
+    },
+    {
+      "id": 630839635,
+      "name": "Esquirla Reverberante",
+      "englishName": "Echo Shard",
+      "aliases": [
+        "Esquirla Reverberante",
+        "Echo Shard"
+      ],
+      "icon": "/deadlock/items/630839635.webp"
+    },
+    {
+      "id": 395944548,
+      "name": "Pulsación de Tormento",
+      "englishName": "Torment Pulse",
+      "aliases": [
+        "Pulsación de Tormento",
+        "Torment Pulse"
+      ],
+      "icon": "/deadlock/items/395944548.webp"
+    },
+    {
+      "id": 3361811174,
+      "name": "Burlar a la Muerte",
+      "englishName": "Cheat Death",
+      "aliases": [
+        "Burlar a la Muerte",
+        "Cheat Death"
+      ],
+      "icon": "/deadlock/items/3361811174.webp"
+    },
+    {
+      "id": 1798666702,
+      "name": "Tejido de Sombras",
+      "englishName": "Shadow Weave",
+      "aliases": [
+        "Tejido de Sombras",
+        "Shadow Weave"
+      ],
+      "icon": "/deadlock/items/1798666702.webp"
+    },
+    {
+      "id": 600033864,
+      "name": "Salto Majestuoso",
+      "englishName": "Majestic Leap",
+      "aliases": [
+        "Salto Majestuoso",
+        "Majestic Leap"
+      ],
+      "icon": "/deadlock/items/600033864.webp"
+    },
+    {
+      "id": 2956256701,
+      "name": "Nova Curativa",
+      "englishName": "Healing Nova",
+      "aliases": [
+        "Nova Curativa",
+        "Healing Nova"
+      ],
+      "icon": "/deadlock/items/2956256701.webp"
+    },
+    {
+      "id": 2059712766,
+      "name": "Amuleto Reparador",
+      "englishName": "Restorative Locket",
+      "aliases": [
+        "Amuleto Reparador",
+        "Restorative Locket"
+      ],
+      "icon": "/deadlock/items/2059712766.webp"
+    },
+    {
+      "id": 1710079648,
+      "name": "Rito Curativo",
+      "englishName": "Healing Rite",
+      "aliases": [
+        "Rito Curativo",
+        "Healing Rite"
+      ],
+      "icon": "/deadlock/items/1710079648.webp"
+    },
+    {
+      "id": 4121584236,
+      "name": "Rayo Encogedor",
+      "englishName": "Shrink Ray",
+      "aliases": [
+        "Rayo Encogedor",
+        "Shrink Ray"
+      ],
+      "icon": "/deadlock/items/4121584236.webp"
+    },
+    {
+      "id": 1797283378,
+      "name": "Infusor",
+      "englishName": "Infuser",
+      "aliases": [
+        "Infusor",
+        "Infuser"
+      ],
+      "icon": "/deadlock/items/1797283378.webp"
+    },
+    {
+      "id": 857669956,
+      "name": "Guardián Centinela",
+      "englishName": "Guardian Ward",
+      "aliases": [
+        "Guardián Centinela",
+        "Guardian Ward"
+      ],
+      "icon": "/deadlock/items/857669956.webp"
+    },
+    {
+      "id": 1662311306,
+      "name": "Barrera Divina",
+      "englishName": "Divine Barrier",
+      "aliases": [
+        "Barrera Divina",
+        "Divine Barrier"
+      ],
+      "icon": "/deadlock/items/1662311306.webp"
+    },
+    {
+      "id": 1932939246,
+      "name": "Fuego Alquímico",
+      "englishName": "Alchemical Fire",
+      "aliases": [
+        "Fuego Alquímico",
+        "Alchemical Fire"
+      ],
+      "icon": "/deadlock/items/1932939246.webp"
+    },
+    {
+      "id": 989206714,
+      "name": "Tributo de Sangre",
+      "englishName": "Blood Tribute",
+      "aliases": [
+        "Tributo de Sangre",
+        "Blood Tribute"
+      ],
+      "icon": "/deadlock/items/989206714.webp"
+    },
+    {
+      "id": 3403085434,
+      "name": "Pies Ligeros",
+      "englishName": "Fleetfoot",
+      "aliases": [
+        "Pies Ligeros",
+        "Fleetfoot"
+      ],
+      "icon": "/deadlock/items/3403085434.webp"
+    },
+    {
+      "id": 3977876567,
+      "name": "Impulso Cinético",
+      "englishName": "Kinetic Dash",
+      "aliases": [
+        "Impulso Cinético",
+        "Kinetic Dash"
+      ],
+      "icon": "/deadlock/items/3977876567.webp"
+    },
+    {
+      "id": 1150006784,
+      "name": "Subidón Arcano",
+      "englishName": "Arcane Surge",
+      "aliases": [
+        "Subidón Arcano",
+        "Arcane Surge"
+      ],
+      "icon": "/deadlock/items/1150006784.webp"
+    },
+    {
+      "id": 3357231760,
+      "name": "Imparable",
+      "englishName": "Unstoppable",
+      "aliases": [
+        "Imparable",
+        "Unstoppable"
+      ],
+      "icon": "/deadlock/items/3357231760.webp"
+    },
+    {
+      "id": 2407781327,
+      "name": "Coloso",
+      "englishName": "Colossus",
+      "aliases": [
+        "Coloso",
+        "Colossus"
+      ],
+      "icon": "/deadlock/items/2407781327.webp"
+    },
+    {
+      "id": 1976391348,
+      "name": "Frente Frío",
+      "englishName": "Cold Front",
+      "aliases": [
+        "Frente Frío",
+        "Cold Front"
+      ],
+      "icon": "/deadlock/items/1976391348.webp"
+    },
+    {
+      "id": 3812615317,
+      "name": "Explosión Ártica",
+      "englishName": "Arctic Blast",
+      "aliases": [
+        "Explosión Ártica",
+        "Arctic Blast"
+      ],
+      "icon": "/deadlock/items/3812615317.webp"
+    },
+    {
+      "id": 2533252781,
+      "name": "Transformación Etérea",
+      "englishName": "Ethereal Shift",
+      "aliases": [
+        "Transformación Etérea",
+        "Ethereal Shift"
+      ],
+      "icon": "/deadlock/items/2533252781.webp"
+    },
+    {
+      "id": 2617435668,
+      "name": "Reliquia Maldita",
+      "englishName": "Cursed Relic",
+      "aliases": [
+        "Reliquia Maldita",
+        "Cursed Relic"
+      ],
+      "icon": "/deadlock/items/2617435668.webp"
+    },
+    {
+      "id": 2951612397,
+      "name": "Ampliador de Duración",
+      "englishName": "Duration Extender",
+      "aliases": [
+        "Ampliador de Duración",
+        "Duration Extender"
+      ],
+      "icon": "/deadlock/items/2951612397.webp"
+    },
+    {
+      "id": 2717651715,
+      "name": "Duración Superior",
+      "englishName": "Superior Duration",
+      "aliases": [
+        "Duración Superior",
+        "Superior Duration"
+      ],
+      "icon": "/deadlock/items/2717651715.webp"
+    },
+    {
+      "id": 365620721,
+      "name": "Cañón de Cristal",
+      "englishName": "Glass Cannon",
+      "aliases": [
+        "Cañón de Cristal",
+        "Glass Cannon"
+      ],
+      "icon": "/deadlock/items/365620721.webp"
+    },
+    {
+      "id": 1409190604,
+      "name": "Trance de Furia",
+      "englishName": "Fury Trance",
+      "aliases": [
+        "Trance de Furia",
+        "Fury Trance"
+      ],
+      "icon": "/deadlock/items/1409190604.webp"
+    },
+    {
+      "id": 1055679805,
+      "name": "Ráfaga Vampírica",
+      "englishName": "Vampiric Burst",
+      "aliases": [
+        "Ráfaga Vampírica",
+        "Vampiric Burst"
+      ],
+      "icon": "/deadlock/items/1055679805.webp"
+    },
+    {
+      "id": 1252627263,
+      "name": "Golpe Vital",
+      "englishName": "Lifestrike",
+      "aliases": [
+        "Golpe Vital",
+        "Lifestrike"
+      ],
+      "icon": "/deadlock/items/1252627263.webp"
+    },
+    {
+      "id": 465043967,
+      "name": "Golpe Espiritual",
+      "englishName": "Spirit Strike",
+      "aliases": [
+        "Golpe Espiritual",
+        "Spirit Strike"
+      ],
+      "icon": "/deadlock/items/465043967.webp"
+    },
+    {
+      "id": 3190916303,
+      "name": "Robo de Espíritu",
+      "englishName": "Spirit Snatch",
+      "aliases": [
+        "Robo de Espíritu",
+        "Spirit Snatch"
+      ],
+      "icon": "/deadlock/items/3190916303.webp"
+    },
+    {
+      "id": 26002154,
+      "name": "Carga Cuerpo a Cuerpo",
+      "englishName": "Melee Charge",
+      "aliases": [
+        "Carga Cuerpo a Cuerpo",
+        "Melee Charge"
+      ],
+      "icon": "/deadlock/items/26002154.webp"
+    },
+    {
+      "id": 800008313,
+      "name": "Puños Aplastantes",
+      "englishName": "Crushing Fists",
+      "aliases": [
+        "Puños Aplastantes",
+        "Crushing Fists"
+      ],
+      "icon": "/deadlock/items/800008313.webp"
+    },
+    {
+      "id": 2820116164,
+      "name": "Protección de Vidente",
+      "englishName": "Diviner's Kevlar",
+      "aliases": [
+        "Protección de Vidente",
+        "Diviner's Kevlar"
+      ],
+      "icon": "/deadlock/items/2820116164.webp"
+    },
+    {
+      "id": 2947183272,
+      "name": "Regeneración Radiante",
+      "englishName": "Radiant Regeneration",
+      "aliases": [
+        "Regeneración Radiante",
+        "Radiant Regeneration"
+      ],
+      "icon": "/deadlock/items/2947183272.webp"
+    },
+    {
+      "id": 2519598785,
+      "name": "Espíritu Ilimitado",
+      "englishName": "Boundless Spirit",
+      "aliases": [
+        "Espíritu Ilimitado",
+        "Boundless Spirit"
+      ],
+      "icon": "/deadlock/items/2519598785.webp"
+    },
+    {
+      "id": 2739107182,
+      "name": "Fuego a Discreción",
+      "englishName": "Burst Fire",
+      "aliases": [
+        "Fuego a Discreción",
+        "Burst Fire"
+      ],
+      "icon": "/deadlock/items/2739107182.webp"
+    },
+    {
+      "id": 2829638276,
+      "name": "Regeneración Adicional",
+      "englishName": "Extra Regen",
+      "aliases": [
+        "Regeneración Adicional",
+        "Extra Regen"
+      ],
+      "icon": "/deadlock/items/2829638276.webp"
+    },
+    {
+      "id": 1292979587,
+      "name": "Subidón de Poder",
+      "englishName": "Surge of Power",
+      "aliases": [
+        "Subidón de Poder",
+        "Surge of Power"
+      ],
+      "icon": "/deadlock/items/1292979587.webp"
+    },
+    {
+      "id": 1925087134,
+      "name": "Supresor",
+      "englishName": "Suppressor",
+      "aliases": [
+        "Supresor",
+        "Suppressor"
+      ],
+      "icon": "/deadlock/items/1925087134.webp"
+    },
+    {
+      "id": 84321454,
+      "name": "Recarga Repentina",
+      "englishName": "Quicksilver Reload",
+      "aliases": [
+        "Recarga Repentina",
+        "Quicksilver Reload"
+      ],
+      "icon": "/deadlock/items/84321454.webp"
+    },
+    {
+      "id": 3919289022,
+      "name": "Magnum Mercurial",
+      "englishName": "Mercurial Magnum",
+      "aliases": [
+        "Magnum Mercurial",
+        "Mercurial Magnum"
+      ],
+      "icon": "/deadlock/items/3919289022.webp"
+    },
+    {
+      "id": 2407033488,
+      "name": "Cargador Progresivo",
+      "englishName": "Intensifying Magazine",
+      "aliases": [
+        "Cargador Progresivo",
+        "Intensifying Magazine"
+      ],
+      "icon": "/deadlock/items/2407033488.webp"
+    },
+    {
+      "id": 2463960640,
+      "name": "Resiliencia Creciente",
+      "englishName": "Escalating Resilience",
+      "aliases": [
+        "Resiliencia Creciente",
+        "Escalating Resilience"
+      ],
+      "icon": "/deadlock/items/2463960640.webp"
+    },
+    {
+      "id": 4104549924,
+      "name": "Ataque Veloz",
+      "englishName": "Swift Striker",
+      "aliases": [
+        "Ataque Veloz",
+        "Swift Striker"
+      ],
+      "icon": "/deadlock/items/4104549924.webp"
+    },
+    {
+      "id": 865958998,
+      "name": "Caminante del Velo",
+      "englishName": "Veil Walker",
+      "aliases": [
+        "Caminante del Velo",
+        "Veil Walker"
+      ],
+      "icon": "/deadlock/items/865958998.webp"
+    },
+    {
+      "id": 1644605047,
+      "name": "Barrera Reactiva",
+      "englishName": "Reactive Barrier",
+      "aliases": [
+        "Barrera Reactiva",
+        "Reactive Barrier"
+      ],
+      "icon": "/deadlock/items/1644605047.webp"
+    },
+    {
+      "id": 951866250,
+      "name": "Indomable",
+      "englishName": "Indomitable",
+      "aliases": [
+        "Indomable",
+        "Indomitable"
+      ],
+      "icon": "/deadlock/items/951866250.webp"
+    },
+    {
+      "id": 3862866912,
+      "name": "Disparo Reparador",
+      "englishName": "Restorative Shot",
+      "aliases": [
+        "Disparo Reparador",
+        "Restorative Shot"
+      ],
+      "icon": "/deadlock/items/3862866912.webp"
+    },
+    {
+      "id": 2356412290,
+      "name": "Cargador Monumental",
+      "englishName": "Titanic Magazine",
+      "aliases": [
+        "Cargador Monumental",
+        "Titanic Magazine"
+      ],
+      "icon": "/deadlock/items/2356412290.webp"
+    },
+    {
+      "id": 3647584222,
+      "name": "Disparo Dividido",
+      "englishName": "Split Shot",
+      "aliases": [
+        "Disparo Dividido",
+        "Split Shot"
+      ],
+      "icon": "/deadlock/items/3647584222.webp"
+    },
+    {
+      "id": 381961617,
+      "name": "Recarga Activa",
+      "englishName": "Active Reload",
+      "aliases": [
+        "Recarga Activa",
+        "Active Reload"
+      ],
+      "icon": "/deadlock/items/381961617.webp"
+    },
+    {
+      "id": 2800629741,
+      "name": "Alfombra Mágica",
+      "englishName": "Magic Carpet",
+      "aliases": [
+        "Alfombra Mágica",
+        "Magic Carpet"
+      ],
+      "icon": "/deadlock/items/2800629741.webp"
+    },
+    {
+      "id": 343572757,
+      "name": "Quemadura Espiritual",
+      "englishName": "Spirit Burn",
+      "aliases": [
+        "Quemadura Espiritual",
+        "Spirit Burn"
+      ],
+      "icon": "/deadlock/items/343572757.webp"
+    },
+    {
+      "id": 493591231,
+      "name": "Pergamino de Tormenta",
+      "englishName": "Lightning Scroll",
+      "aliases": [
+        "Pergamino de Tormenta",
+        "Lightning Scroll"
+      ],
+      "icon": "/deadlock/items/493591231.webp"
+    },
+    {
+      "id": 3028234315,
+      "name": "Cota de Bruja",
+      "englishName": "Witchmail",
+      "aliases": [
+        "Cota de Bruja",
+        "Witchmail"
+      ],
+      "icon": "/deadlock/items/3028234315.webp"
+    },
+    {
+      "id": 1427630806,
+      "name": "Tempo Curativo",
+      "englishName": "Healing Tempo",
+      "aliases": [
+        "Tempo Curativo",
+        "Healing Tempo"
+      ],
+      "icon": "/deadlock/items/1427630806.webp"
+    },
+    {
+      "id": 673001892,
+      "name": "Perforador de Armadura",
+      "englishName": "Armor Piercer",
+      "aliases": [
+        "Perforador de Armadura",
+        "Armor Piercer"
+      ],
+      "icon": "/deadlock/items/673001892.webp"
+    },
+    {
+      "id": 3269957497,
+      "name": "Cartuchos Infinitos",
+      "englishName": "Infinite Rounds",
+      "aliases": [
+        "Cartuchos Infinitos",
+        "Infinite Rounds"
+      ],
+      "icon": "/deadlock/items/3269957497.webp"
+    },
+    {
+      "id": 3491236900,
+      "name": "Coraza Reforzada",
+      "englishName": "Plated Armor",
+      "aliases": [
+        "Coraza Reforzada",
+        "Plated Armor"
+      ],
+      "icon": "/deadlock/items/3491236900.webp"
+    },
+    {
+      "id": 1955841979,
+      "name": "Rompehechizos",
+      "englishName": "Spellbreaker",
+      "aliases": [
+        "Rompehechizos",
+        "Spellbreaker"
+      ],
+      "icon": "/deadlock/items/1955841979.webp"
+    },
+    {
+      "id": 1250307611,
+      "name": "Gigante",
+      "englishName": "Juggernaut",
+      "aliases": [
+        "Gigante",
+        "Juggernaut"
+      ],
+      "icon": "/deadlock/items/1250307611.webp"
+    },
+    {
+      "id": 2221211450,
+      "name": "Lanzahechizos",
+      "englishName": "Spellslinger",
+      "aliases": [
+        "Lanzahechizos",
+        "Spellslinger"
+      ],
+      "icon": "/deadlock/items/2221211450.webp"
+    },
+    {
+      "id": 98582110,
+      "name": "Acechador",
+      "englishName": "Stalker",
+      "aliases": [
+        "Acechador",
+        "Stalker"
+      ],
+      "icon": "/deadlock/items/98582110.webp"
+    },
+    {
+      "id": 690458959,
+      "name": "Disparo Exprés",
+      "englishName": "Express Shot",
+      "aliases": [
+        "Disparo Exprés",
+        "Express Shot"
+      ],
+      "icon": "/deadlock/items/690458959.webp"
+    },
+    {
+      "id": 1736094134,
+      "name": "Alas de Serafín",
+      "englishName": "Seraphim Wings",
+      "aliases": [
+        "Alas de Serafín",
+        "Seraphim Wings"
+      ],
+      "icon": "/deadlock/items/1736094134.webp"
+    },
+    {
+      "id": 2054088113,
+      "name": "Piano Místico",
+      "englishName": "Mystical Piano",
+      "aliases": [
+        "Piano Místico",
+        "Mystical Piano"
+      ],
+      "icon": "/deadlock/items/2054088113.webp"
+    },
+    {
+      "id": 3949773228,
+      "name": "Ráfaga de Anulación",
+      "englishName": "Nullification Burst",
+      "aliases": [
+        "Ráfaga de Anulación",
+        "Nullification Burst"
+      ],
+      "icon": "/deadlock/items/3949773228.webp"
+    },
+    {
+      "id": 3729138568,
+      "name": "Bendición Celestial",
+      "englishName": "Celestial Blessing",
+      "aliases": [
+        "Bendición Celestial",
+        "Celestial Blessing"
+      ],
+      "icon": "/deadlock/items/3729138568.webp"
+    },
+    {
+      "id": 230297145,
+      "name": "Regalo Eterno",
+      "englishName": "Eternal Gift",
+      "aliases": [
+        "Regalo Eterno",
+        "Eternal Gift"
+      ],
+      "icon": "/deadlock/items/230297145.webp"
+    },
+    {
+      "id": 4050602737,
+      "name": "Conducto Místico",
+      "englishName": "Mystic Conduit",
+      "aliases": [
+        "Conducto Místico",
+        "Mystic Conduit"
+      ],
+      "icon": "/deadlock/items/4050602737.webp"
+    },
+    {
+      "id": 3568217437,
+      "name": "Disparo Aterrador",
+      "englishName": "Haunting Shot",
+      "aliases": [
+        "Disparo Aterrador",
+        "Haunting Shot"
+      ],
+      "icon": "/deadlock/items/3568217437.webp"
+    },
+    {
+      "id": 3523480953,
+      "name": "Capa de Oportunidad",
+      "englishName": "Cloak of Opportunity",
+      "aliases": [
+        "Capa de Oportunidad",
+        "Cloak of Opportunity"
+      ],
+      "icon": "/deadlock/items/3523480953.webp"
+    },
+    {
+      "id": 64550694,
+      "name": "Guanteletes Rúnicos",
+      "englishName": "Runed Gauntlets",
+      "aliases": [
+        "Guanteletes Rúnicos",
+        "Runed Gauntlets"
+      ],
+      "icon": "/deadlock/items/64550694.webp"
+    },
+    {
+      "id": 1825399334,
+      "name": "Zapatillas Eléctricas",
+      "englishName": "Electric Slippers",
+      "aliases": [
+        "Zapatillas Eléctricas",
+        "Electric Slippers"
+      ],
+      "icon": "/deadlock/items/1825399334.webp"
+    },
+    {
+      "id": 1132564516,
+      "name": "Explosión Prismática",
+      "englishName": "Prism Blast",
+      "aliases": [
+        "Explosión Prismática",
+        "Prism Blast"
+      ],
+      "icon": "/deadlock/items/1132564516.webp"
+    },
+    {
+      "id": 1558545403,
+      "name": "Mezcla Inestable",
+      "englishName": "Unstable Concoction",
+      "aliases": [
+        "Mezcla Inestable",
+        "Unstable Concoction"
+      ],
+      "icon": "/deadlock/items/1558545403.webp"
+    },
+    {
+      "id": 2068250483,
+      "name": "Amuleto de Congelación",
+      "englishName": "Frostbite Charm",
+      "aliases": [
+        "Amuleto de Congelación",
+        "Frostbite Charm"
+      ],
+      "icon": "/deadlock/items/2068250483.webp"
+    },
+    {
+      "id": 2319629810,
+      "name": "Golpe Sombrío",
+      "englishName": "Shadow Strike",
+      "aliases": [
+        "Golpe Sombrío",
+        "Shadow Strike"
+      ],
+      "icon": "/deadlock/items/2319629810.webp"
+    },
+    {
+      "id": 3294954488,
+      "name": "Encantamiento Balístico",
+      "englishName": "Ballistic Enchantment",
+      "aliases": [
+        "Encantamiento Balístico",
+        "Ballistic Enchantment"
+      ],
+      "icon": "/deadlock/items/3294954488.webp"
+    },
+    {
+      "id": 1763073141,
+      "name": "Aceleración de Recarga",
+      "englishName": "Recharging Rush",
+      "aliases": [
+        "Aceleración de Recarga",
+        "Recharging Rush"
+      ],
+      "icon": "/deadlock/items/1763073141.webp"
+    },
+    {
+      "id": 2462046703,
+      "name": "Huevo de Oro",
+      "englishName": "Golden Goose Egg",
+      "aliases": [
+        "Huevo de Oro",
+        "Golden Goose Egg"
+      ],
+      "icon": "/deadlock/items/2462046703.webp"
+    }
+  ]
+}

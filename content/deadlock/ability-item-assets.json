@@ -1,0 +1,2798 @@
+{
+  "retrievedAt": "2026-10-24T07:46:23.313Z",
+  "version": "7b21348e5c5a6069eba2536d2728bffafa1e6bcb4516137de0e786188905c75e",
+  "files": [
+    {
+      "kind": "ability",
+      "id": 4072270083,
+      "key": "abrams-1",
+      "path": "/deadlock/abilities/abrams-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp",
+      "sha256": "8577b7c864658e0d4dc1638c88757480a8b9e8d19b5451c39292212020b1def2"
+    },
+    {
+      "kind": "ability",
+      "id": 2824119765,
+      "key": "abrams-2",
+      "path": "/deadlock/abilities/abrams-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp",
+      "sha256": "3e121a1d51bbe971df13d01e8177c1bd59f473f00b70090fc9d8ab3eca6690d7"
+    },
+    {
+      "kind": "ability",
+      "id": 715762406,
+      "key": "abrams-3",
+      "path": "/deadlock/abilities/abrams-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp",
+      "sha256": "2959f245de88b73523deaec6eee78a87a9872f352af789755ea86369e89e5f2f"
+    },
+    {
+      "kind": "ability",
+      "id": 509856396,
+      "key": "abrams-4",
+      "path": "/deadlock/abilities/abrams-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp",
+      "sha256": "b15dbcbaa2de7cdcd31df0cf0f864fa1ad5d1edff41bf40d1121b4c6d8d0599d"
+    },
+    {
+      "kind": "ability",
+      "id": 725153709,
+      "key": "apollo-1",
+      "path": "/deadlock/abilities/apollo-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_sigil.webp",
+      "sha256": "218a1b699ade8b905c857e6bdcc993e2d2d75ca0c7df89194e19649a77c2607f"
+    },
+    {
+      "kind": "ability",
+      "id": 2006773718,
+      "key": "apollo-2",
+      "path": "/deadlock/abilities/apollo-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_riposte.webp",
+      "sha256": "3c3e8b16f3452ca9a0b1b3dde473f1b47c08f8bad67b8085c32ad7d9b01ac65f"
+    },
+    {
+      "kind": "ability",
+      "id": 147493976,
+      "key": "apollo-3",
+      "path": "/deadlock/abilities/apollo-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_lungingstab.webp",
+      "sha256": "039961dc6c83f209807504bf153acd39e10a93f88f3ae11e894ea1d33104b9e6"
+    },
+    {
+      "kind": "ability",
+      "id": 494112189,
+      "key": "apollo-4",
+      "path": "/deadlock/abilities/apollo-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_ult.webp",
+      "sha256": "25e712c64d906a78b89da2b0334d51760e6c09f56a9aa410d4aa864d9e9a8e29"
+    },
+    {
+      "kind": "ability",
+      "id": 1282689113,
+      "key": "baba-1",
+      "path": "/deadlock/abilities/baba-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/baba/threadsap.webp",
+      "sha256": "b43741241b7b436e009dc744c94af4ca0bf1fdcef6f5f008661e5d6699c46a26"
+    },
+    {
+      "kind": "ability",
+      "id": 3122124161,
+      "key": "baba-2",
+      "path": "/deadlock/abilities/baba-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/baba/strafing_run.webp",
+      "sha256": "b6e3818ba1a8b41cabae660f0dd9c0dba29051da2061a486ec809c3b7f0a5c52"
+    },
+    {
+      "kind": "ability",
+      "id": 2003165630,
+      "key": "baba-3",
+      "path": "/deadlock/abilities/baba-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/baba/teapot_brew.webp",
+      "sha256": "c810e00ac02d32c907289cad10733678c381a2c7a7cc9a353d0844ece7734b42"
+    },
+    {
+      "kind": "ability",
+      "id": 299875845,
+      "key": "baba-4",
+      "path": "/deadlock/abilities/baba-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/baba/pigeon_launcher.webp",
+      "sha256": "6819a1425256905a17452799275b042d7aa26453af987cd7699f51564797107a"
+    },
+    {
+      "kind": "ability",
+      "id": 3089858203,
+      "key": "bebop-1",
+      "path": "/deadlock/abilities/bebop-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_uppercut.webp",
+      "sha256": "656b027f7645eda1d9181b7f25b2ab9df1456e1d91553b044c158581dc0af582"
+    },
+    {
+      "kind": "ability",
+      "id": 2521902222,
+      "key": "bebop-2",
+      "path": "/deadlock/abilities/bebop-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_sticky_bomb.webp",
+      "sha256": "abb834207f31e2856c02faf89ac00a6335ac1a849c093aff8c8092e970c8d1cd"
+    },
+    {
+      "kind": "ability",
+      "id": 1928108461,
+      "key": "bebop-3",
+      "path": "/deadlock/abilities/bebop-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp",
+      "sha256": "4c8e89bebb9b1062ac27b7ab28cb717b51ccb6dacfea166e1e7a1bace01574b8"
+    },
+    {
+      "kind": "ability",
+      "id": 3832675871,
+      "key": "bebop-4",
+      "path": "/deadlock/abilities/bebop-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp",
+      "sha256": "18c0ebc99b37c4b04f41471cdfaf799d7cff90d9824c1d5016a647b199889fe9"
+    },
+    {
+      "kind": "ability",
+      "id": 1841661392,
+      "key": "billy-1",
+      "path": "/deadlock/abilities/billy-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_sigilslam.webp",
+      "sha256": "9c58b0816f7b45c6d629830827f28e3d03452022686711af32e1dc913dc5cbf6"
+    },
+    {
+      "kind": "ability",
+      "id": 1792773251,
+      "key": "billy-2",
+      "path": "/deadlock/abilities/billy-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_risingram.webp",
+      "sha256": "31ba8c348139b84afe82162fa91c2e4c3eb70b82911635d1bc6f1dd6fa5d6454"
+    },
+    {
+      "kind": "ability",
+      "id": 3296031213,
+      "key": "billy-3",
+      "path": "/deadlock/abilities/billy-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_blasted.webp",
+      "sha256": "0f64d7b9d9a3279dac180e07708808645ecb64df51d1ebc510eb01df22926ff1"
+    },
+    {
+      "kind": "ability",
+      "id": 3762861984,
+      "key": "billy-4",
+      "path": "/deadlock/abilities/billy-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_chaingang.webp",
+      "sha256": "15c89f8a5e37ccc68fc4604afb37df21ca61eaaa28842384d13ca92d5bf924c1"
+    },
+    {
+      "kind": "ability",
+      "id": 4131517918,
+      "key": "calico-1",
+      "path": "/deadlock/abilities/calico-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_clustergrenade.webp",
+      "sha256": "e684acc7db566d4747ecef0dd807279eb568d396b414992bfd0c40f76f628e40"
+    },
+    {
+      "kind": "ability",
+      "id": 1426567660,
+      "key": "calico-2",
+      "path": "/deadlock/abilities/calico-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_dash.webp",
+      "sha256": "69921c2e06081aee2d0c88b227467cda047f55eb68ff1026f38c9f2fc00b5c13"
+    },
+    {
+      "kind": "ability",
+      "id": 1009029159,
+      "key": "calico-3",
+      "path": "/deadlock/abilities/calico-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_catform.webp",
+      "sha256": "c8159e32d7036d9a09750e3bbe4d5e5fb310bf3ef5b268b1b1035ff93ae38918"
+    },
+    {
+      "kind": "ability",
+      "id": 2054144742,
+      "key": "calico-4",
+      "path": "/deadlock/abilities/calico-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_shadow_pulse.webp",
+      "sha256": "683b52eb44c0aa15404e6caf21592135b7869876c15a37ddd2d0a92ba9bed943"
+    },
+    {
+      "kind": "ability",
+      "id": 3443575800,
+      "key": "celeste-1",
+      "path": "/deadlock/abilities/celeste-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_flare.webp",
+      "sha256": "9f9e56daaf1f205e10b274da001500cfcdb4d33b618c382d3fc7bad0d6bf9895"
+    },
+    {
+      "kind": "ability",
+      "id": 1950738949,
+      "key": "celeste-2",
+      "path": "/deadlock/abilities/celeste-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_shield.webp",
+      "sha256": "11c22074e59e24d4f6582b3773f5c17d9a0fdd5ffea1ea3e6f5c9e685073cfde"
+    },
+    {
+      "kind": "ability",
+      "id": 1011349580,
+      "key": "celeste-3",
+      "path": "/deadlock/abilities/celeste-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_luminousflux.webp",
+      "sha256": "fa2a92506e684f9aa330707b89c985a76c9b5c78839fcee52b82650f017c8a55"
+    },
+    {
+      "kind": "ability",
+      "id": 2590796390,
+      "key": "celeste-4",
+      "path": "/deadlock/abilities/celeste-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_orb.webp",
+      "sha256": "08020d93d74733f4e14444fd58c353da799bb87f136205d09fa7d00fdf3598a6"
+    },
+    {
+      "kind": "ability",
+      "id": 2603013853,
+      "key": "deadman-danny-1",
+      "path": "/deadlock/abilities/deadman-danny-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/deadpack/deadpack_salvo.webp",
+      "sha256": "85280e3df451e79d34b9c8c4d8069f174a7ddf65187f26dc31e53f1fd9409fec"
+    },
+    {
+      "kind": "ability",
+      "id": 1904698842,
+      "key": "deadman-danny-2",
+      "path": "/deadlock/abilities/deadman-danny-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/deadpack/deadpack_chimera.webp",
+      "sha256": "8d5add42fb703557f7f905483e959541dbf186765a93bc45cce2da3e4f6700b7"
+    },
+    {
+      "kind": "ability",
+      "id": 374042410,
+      "key": "deadman-danny-3",
+      "path": "/deadlock/abilities/deadman-danny-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/deadpack/deadpack_thermalmass.webp",
+      "sha256": "f6fa74ef88b446669aff2cb3b781fa8324595226ce278f20435923e7fb676e52"
+    },
+    {
+      "kind": "ability",
+      "id": 1026127931,
+      "key": "deadman-danny-4",
+      "path": "/deadlock/abilities/deadman-danny-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/deadpack/deadpack_flight.webp",
+      "sha256": "645dc0980fc412b2dbe79a2fcb5f29263b66206a67d67c4f72c2dc548058d996"
+    },
+    {
+      "kind": "ability",
+      "id": 3120550633,
+      "key": "drifter-1",
+      "path": "/deadlock/abilities/drifter-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_claw.webp",
+      "sha256": "a126e399ce203fb608a73bc58d04fff1852254f344e8495b58b45d18640c26a4"
+    },
+    {
+      "kind": "ability",
+      "id": 1264175662,
+      "key": "drifter-2",
+      "path": "/deadlock/abilities/drifter-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_stalkersmark.webp",
+      "sha256": "84b483c046ceb56121d7bb880d2622f49176ae48d55a934160574e6f52bdc67a"
+    },
+    {
+      "kind": "ability",
+      "id": 1033019133,
+      "key": "drifter-3",
+      "path": "/deadlock/abilities/drifter-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_thehunger.webp",
+      "sha256": "c6954d4577ff57316a3106a7b831fe65004aeb8741dcedccfff9d7373ae77194"
+    },
+    {
+      "kind": "ability",
+      "id": 1168182161,
+      "key": "drifter-4",
+      "path": "/deadlock/abilities/drifter-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/darkness.webp",
+      "sha256": "ab592ae3ed10b7a10db1e1995a88607be7b6cffefc47e4f1b4f8df6154891a94"
+    },
+    {
+      "kind": "ability",
+      "id": 3760705623,
+      "key": "dynamo-1",
+      "path": "/deadlock/abilities/dynamo-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp",
+      "sha256": "c67609415935f929ede72365c8a3dd22fdfc15925989bcaf6a4f9407b3a874a5"
+    },
+    {
+      "kind": "ability",
+      "id": 2031714424,
+      "key": "dynamo-2",
+      "path": "/deadlock/abilities/dynamo-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp",
+      "sha256": "461429b5e84c33af46bb6dd90bdc13251610e44954244cd03143da6778fbf7bf"
+    },
+    {
+      "kind": "ability",
+      "id": 492030745,
+      "key": "dynamo-3",
+      "path": "/deadlock/abilities/dynamo-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_pork_bun.webp",
+      "sha256": "c9f71ba6eee9ac4fa983576ace9faf315bab3cd4aa42bc47b03cc1a6d86a1f14"
+    },
+    {
+      "kind": "ability",
+      "id": 249410288,
+      "key": "dynamo-4",
+      "path": "/deadlock/abilities/dynamo-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp",
+      "sha256": "ef59d6f14ce0ca364683fc1bb3901065404089e30fe55e48264740aa5c2e87f0"
+    },
+    {
+      "kind": "ability",
+      "id": 3214055642,
+      "key": "graves-1",
+      "path": "/deadlock/abilities/graves-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_skull.webp",
+      "sha256": "8d03e6ac2f808f8f39e50469954b3ebddbe82b220edfaec8daaecfe01860ad07"
+    },
+    {
+      "kind": "ability",
+      "id": 2001589780,
+      "key": "graves-2",
+      "path": "/deadlock/abilities/graves-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_hands.webp",
+      "sha256": "d53ad60eedfa0a51136dcc6be1939958885a95199568cb37c746730b2d0ff2ab"
+    },
+    {
+      "kind": "ability",
+      "id": 629925354,
+      "key": "graves-3",
+      "path": "/deadlock/abilities/graves-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_siphon.webp",
+      "sha256": "1c23ce44510bd947633f7f8dea4f7a2ad0fbc9f62d59bcd02fb09fbcc9155394"
+    },
+    {
+      "kind": "ability",
+      "id": 4110547059,
+      "key": "graves-4",
+      "path": "/deadlock/abilities/graves-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_gravestone.webp",
+      "sha256": "4245689e1d212667c8e7729d898c4b614ee6b2834fbe18329d482259fc7cc138"
+    },
+    {
+      "kind": "ability",
+      "id": 548943648,
+      "key": "grey-talon-1",
+      "path": "/deadlock/abilities/grey-talon-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_charged_shot.webp",
+      "sha256": "c05f2693bba531096dd8577748d6f0036718b80f37ec9ba420ed3d9c1fa62938"
+    },
+    {
+      "kind": "ability",
+      "id": 3452399392,
+      "key": "grey-talon-2",
+      "path": "/deadlock/abilities/grey-talon-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_power_jump.webp",
+      "sha256": "1ce33dd4bce69305dd5b84928f690b04a500939c46f7c0eae2cd2fcb8315bc74"
+    },
+    {
+      "kind": "ability",
+      "id": 512733154,
+      "key": "grey-talon-3",
+      "path": "/deadlock/abilities/grey-talon-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/imobolize_trap.webp",
+      "sha256": "0e07732d157d69272578e327db18423f980ab4fe156c8d52fb9d46fa9e9d9a68"
+    },
+    {
+      "kind": "ability",
+      "id": 3242902780,
+      "key": "grey-talon-4",
+      "path": "/deadlock/abilities/grey-talon-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp",
+      "sha256": "c04ad79d4cc43dd7133c9a901350025fefe851758391f5844a2655f0b4039a59"
+    },
+    {
+      "kind": "ability",
+      "id": 2948410412,
+      "key": "haze-1",
+      "path": "/deadlock/abilities/haze-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp",
+      "sha256": "1ebff451b59bc99e46e431f3bd4207b4a5abdede703f1bf2bdda6441d7c92d52"
+    },
+    {
+      "kind": "ability",
+      "id": 2414191464,
+      "key": "haze-2",
+      "path": "/deadlock/abilities/haze-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_smoke_bomb.webp",
+      "sha256": "790cac599649f86f6fbd58cba06ea00697c37c404e8a006873ecd4b128d08e5e"
+    },
+    {
+      "kind": "ability",
+      "id": 1080948381,
+      "key": "haze-3",
+      "path": "/deadlock/abilities/haze-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_fixation.webp",
+      "sha256": "5856b645d41ec4734d620b82709adbc40b667ec3f4eb0310bc440e806a8b9bbc"
+    },
+    {
+      "kind": "ability",
+      "id": 731943444,
+      "key": "haze-4",
+      "path": "/deadlock/abilities/haze-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp",
+      "sha256": "9735b5d3aa1360311e1e04543359345fb188f5f8a0ef3e9ce6449d799a064e93"
+    },
+    {
+      "kind": "ability",
+      "id": 1235098866,
+      "key": "holliday-1",
+      "path": "/deadlock/abilities/holliday-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp",
+      "sha256": "f8f949fe3fd5a123041e6ee2d3cf33f2e826fc014f849aa96cbea4de3cf239f7"
+    },
+    {
+      "kind": "ability",
+      "id": 2240607294,
+      "key": "holliday-2",
+      "path": "/deadlock/abilities/holliday-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp",
+      "sha256": "6f3619eb9b69fc70ec9d8c49734a264f695ca165b95509888da2bc5fe04066e5"
+    },
+    {
+      "kind": "ability",
+      "id": 4179229681,
+      "key": "holliday-3",
+      "path": "/deadlock/abilities/holliday-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_crackshot.webp",
+      "sha256": "246101f305337e373a89d9d58c366f65263a56d9fcee14191a548ce056bb5356"
+    },
+    {
+      "kind": "ability",
+      "id": 3190606822,
+      "key": "holliday-4",
+      "path": "/deadlock/abilities/holliday-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_spirit_lasso.webp",
+      "sha256": "423d95185cc279d9a716108dbe837a1f1aa59698b63bb5847481e664ced0c88f"
+    },
+    {
+      "kind": "ability",
+      "id": 491391007,
+      "key": "infernus-1",
+      "path": "/deadlock/abilities/infernus-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_molotov.webp",
+      "sha256": "438d9b29f8d19b9d1d6959a7c9a6db1a4a8a9da214486ef2045bfba034c62351"
+    },
+    {
+      "kind": "ability",
+      "id": 3516947824,
+      "key": "infernus-2",
+      "path": "/deadlock/abilities/infernus-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_dash.webp",
+      "sha256": "c4510b6ef3409c267c71a6fb6eb5c5544f8b939185c7916166b0d7d63b247b5b"
+    },
+    {
+      "kind": "ability",
+      "id": 1593133799,
+      "key": "infernus-3",
+      "path": "/deadlock/abilities/infernus-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_deflect.webp",
+      "sha256": "165133270eabc4790fa850be1fe6e84c85ab6f8ba8527e84a3b5af8242427420"
+    },
+    {
+      "kind": "ability",
+      "id": 1142270357,
+      "key": "infernus-4",
+      "path": "/deadlock/abilities/infernus-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_bomb.webp",
+      "sha256": "c6426b7c9aef2f1421b10674cf20a6b597dce2bb5e33c77d9a354999d9f62f77"
+    },
+    {
+      "kind": "ability",
+      "id": 4111222521,
+      "key": "ivy-1",
+      "path": "/deadlock/abilities/ivy-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp",
+      "sha256": "e969f4a93e2d4ea54887072305ac12a96d6987b5c879c6b8080e73525ee77a58"
+    },
+    {
+      "kind": "ability",
+      "id": 1531378655,
+      "key": "ivy-2",
+      "path": "/deadlock/abilities/ivy-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp",
+      "sha256": "e997cb596e1292cbe61335b94ba897660ac2f0b258d011c45a407b555f2e3a8c"
+    },
+    {
+      "kind": "ability",
+      "id": 3642273386,
+      "key": "ivy-3",
+      "path": "/deadlock/abilities/ivy-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_stone_form.webp",
+      "sha256": "246ac8079063f0b27650a567058d0d0aca57ae5af45ea73b42b2fe12a1d924cf"
+    },
+    {
+      "kind": "ability",
+      "id": 1247583368,
+      "key": "ivy-4",
+      "path": "/deadlock/abilities/ivy-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp",
+      "sha256": "77c860e8a774462717a268e8167a966b70c83932c5a9531ba594ccecb7ec0edb"
+    },
+    {
+      "kind": "ability",
+      "id": 18921423,
+      "key": "kelvin-1",
+      "path": "/deadlock/abilities/kelvin-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp",
+      "sha256": "e9e486a8fd66b993efd1ecd24ae17f19ba0dcecc25d06a6b066c9bc3cdb2aa58"
+    },
+    {
+      "kind": "ability",
+      "id": 1963397252,
+      "key": "kelvin-2",
+      "path": "/deadlock/abilities/kelvin-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_path.webp",
+      "sha256": "06dfc01501fdb0d6bd97130d4c34f3643b25b7dc7ed8675f5e8ce1d6633c40e8"
+    },
+    {
+      "kind": "ability",
+      "id": 2351041382,
+      "key": "kelvin-3",
+      "path": "/deadlock/abilities/kelvin-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp",
+      "sha256": "1cbf7037890b78edf2a3f5ce6e8ee0149b217634c89d053797f26c495293b8ed"
+    },
+    {
+      "kind": "ability",
+      "id": 3826390464,
+      "key": "kelvin-4",
+      "path": "/deadlock/abilities/kelvin-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/frozen_shelter.webp",
+      "sha256": "621da1a0835e2b4c258a5252921845254abf1a8584573816504369c11dbc1519"
+    },
+    {
+      "kind": "ability",
+      "id": 715325746,
+      "key": "lady-geist-1",
+      "path": "/deadlock/abilities/lady-geist-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_bomb.webp",
+      "sha256": "ed4e62357aa1204c94ce09cafeed846cf5678b459aa153522009fe8ed5309fe7"
+    },
+    {
+      "kind": "ability",
+      "id": 218284420,
+      "key": "lady-geist-2",
+      "path": "/deadlock/abilities/lady-geist-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp",
+      "sha256": "0ef8eb05162abf0b3e7b96e40f82a5e47aec430726c73cf96824aaf9fcb27156"
+    },
+    {
+      "kind": "ability",
+      "id": 3230530872,
+      "key": "lady-geist-3",
+      "path": "/deadlock/abilities/lady-geist-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp",
+      "sha256": "71b38b92a7f1f00c2acb8b5c14db50dca85e14f9dc9bdbb30613ec317d5e5863"
+    },
+    {
+      "kind": "ability",
+      "id": 1307289689,
+      "key": "lady-geist-4",
+      "path": "/deadlock/abilities/lady-geist-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_exchange.webp",
+      "sha256": "b1306c81ade125b9588fdbcb06e6a1b8afd977cd63ab8dcf85f252e681f48f15"
+    },
+    {
+      "kind": "ability",
+      "id": 3561817145,
+      "key": "lash-1",
+      "path": "/deadlock/abilities/lash-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp",
+      "sha256": "e9eb22fd1c8ff5f007d3558bf486317555038e474a69a32e7c4180bafa21e2b2"
+    },
+    {
+      "kind": "ability",
+      "id": 2670099061,
+      "key": "lash-2",
+      "path": "/deadlock/abilities/lash-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_lash.webp",
+      "sha256": "fec0808ed6cf5b77535920870c075b589732d960f06ff42da93ce46ae5b469d6"
+    },
+    {
+      "kind": "ability",
+      "id": 519124136,
+      "key": "lash-3",
+      "path": "/deadlock/abilities/lash-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_flog.webp",
+      "sha256": "759f3a4f31e1735b7d0c5b0728e2bb16e82d8ab4dd6b3456334747f8dda8a518"
+    },
+    {
+      "kind": "ability",
+      "id": 397010810,
+      "key": "lash-4",
+      "path": "/deadlock/abilities/lash-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp",
+      "sha256": "ee8b1607bdbd5d691eb2074455cf5e25a51873d45571e0b85770143566fc5039"
+    },
+    {
+      "kind": "ability",
+      "id": 3133377790,
+      "key": "mcginnis-1",
+      "path": "/deadlock/abilities/mcginnis-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp",
+      "sha256": "b6ba6253c51d373a580ef876f1b22ab70bad074295e68badae022c791705bd63"
+    },
+    {
+      "kind": "ability",
+      "id": 2142734020,
+      "key": "mcginnis-2",
+      "path": "/deadlock/abilities/mcginnis-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_resupply.webp",
+      "sha256": "4216a704bec0a2326e5d817442429387c2e22e8b0b5490f36b08e5ba5963db57"
+    },
+    {
+      "kind": "ability",
+      "id": 1725685134,
+      "key": "mcginnis-3",
+      "path": "/deadlock/abilities/mcginnis-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp",
+      "sha256": "286bb73fa392ebd3688b429738edf91239eccb350fc869462270c8c696a0a8b3"
+    },
+    {
+      "kind": "ability",
+      "id": 3503044146,
+      "key": "mcginnis-4",
+      "path": "/deadlock/abilities/mcginnis-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_rockets.webp",
+      "sha256": "144dda9dfec8aaf2dc948c0db6bb623da12a0659f77316f61698ad628324bb9c"
+    },
+    {
+      "kind": "ability",
+      "id": 193508101,
+      "key": "mina-1",
+      "path": "/deadlock/abilities/mina-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_rake.webp",
+      "sha256": "e675e53a07eeb2c89f3464a6a5f9c8846e69e7514f445dfe5b461a1609123136"
+    },
+    {
+      "kind": "ability",
+      "id": 2398133749,
+      "key": "mina-2",
+      "path": "/deadlock/abilities/mina-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_sanguine_retreat.webp",
+      "sha256": "38d35603e9092d01c0154a425c0ed6d484d84df9b0309579665023c8ce059a12"
+    },
+    {
+      "kind": "ability",
+      "id": 1233782561,
+      "key": "mina-3",
+      "path": "/deadlock/abilities/mina-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_love_bites.webp",
+      "sha256": "aace9649cc26a39c36e7e3503241f87ed4bb61a756d014a78e021de00a93734d"
+    },
+    {
+      "kind": "ability",
+      "id": 3379486147,
+      "key": "mina-4",
+      "path": "/deadlock/abilities/mina-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_nox_nostra.webp",
+      "sha256": "38ce3197e57278c7b4c4771e33e44ac454b3608a3ef87be12fe3b4be6a9ece0f"
+    },
+    {
+      "kind": "ability",
+      "id": 3733594387,
+      "key": "mirage-1",
+      "path": "/deadlock/abilities/mirage-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp",
+      "sha256": "af01d4ce2f7c606dafd472882619e664ea9ee0eec4d15a95e5d9dae178f623f7"
+    },
+    {
+      "kind": "ability",
+      "id": 1336069669,
+      "key": "mirage-2",
+      "path": "/deadlock/abilities/mirage-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_tornado.webp",
+      "sha256": "9375485b1cfe6edc3b18c73f8a276ce35e6da26199057a300b972193f3353880"
+    },
+    {
+      "kind": "ability",
+      "id": 2221949202,
+      "key": "mirage-3",
+      "path": "/deadlock/abilities/mirage-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp",
+      "sha256": "d7fb717ffe9aca1e346523dcc90eadc4ed78cab3db773ebb6758d86023a91700"
+    },
+    {
+      "kind": "ability",
+      "id": 2604653402,
+      "key": "mirage-4",
+      "path": "/deadlock/abilities/mirage-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_teleport.webp",
+      "sha256": "e12746745a277b11fcafbd85cfe5188aad0c58df4daa84c04ccaad08355722cd"
+    },
+    {
+      "kind": "ability",
+      "id": 1454278799,
+      "key": "mo-krill-1",
+      "path": "/deadlock/abilities/mo-krill-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp",
+      "sha256": "c2a89cb48bd473f30b9d877c19d1ffd96b0582c536b518752cf8431ca0448362"
+    },
+    {
+      "kind": "ability",
+      "id": 2406758797,
+      "key": "mo-krill-2",
+      "path": "/deadlock/abilities/mo-krill-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_spin.webp",
+      "sha256": "513e12ca6633551a204fcc1f53b829f4d87f03e6bfcd72b6045156613df23848"
+    },
+    {
+      "kind": "ability",
+      "id": 1914797280,
+      "key": "mo-krill-3",
+      "path": "/deadlock/abilities/mo-krill-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_throw_sand.webp",
+      "sha256": "9684b4eac771c10395031e5c83bdf59f05706aab5d970c5e0c8a391aa29d5784"
+    },
+    {
+      "kind": "ability",
+      "id": 1917840730,
+      "key": "mo-krill-4",
+      "path": "/deadlock/abilities/mo-krill-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp",
+      "sha256": "026a4e994e1b270beef16f28b138932284ef9fd4a6e2b2b8f9b8dc9e2fe4af48"
+    },
+    {
+      "kind": "ability",
+      "id": 267712790,
+      "key": "nurse-harrow-1",
+      "path": "/deadlock/abilities/nurse-harrow-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nurse/leech.webp",
+      "sha256": "5cb192f051f43af3c898fa195ea503c4d98da9abe467a4b7b84bbbfa9906ffbf"
+    },
+    {
+      "kind": "ability",
+      "id": 3621314027,
+      "key": "nurse-harrow-2",
+      "path": "/deadlock/abilities/nurse-harrow-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nurse/nurse_vapors.webp",
+      "sha256": "0629b18711e0be80de6f135eb79b7e14a0a42f8ac8cea1d7957b0f7f08a691ef"
+    },
+    {
+      "kind": "ability",
+      "id": 683490631,
+      "key": "nurse-harrow-3",
+      "path": "/deadlock/abilities/nurse-harrow-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nurse/needle.webp",
+      "sha256": "767aa21cfecdaa4d14e1d7ecc1365ae3a0a3b2228d8fd922817405f3f96539ff"
+    },
+    {
+      "kind": "ability",
+      "id": 3427093887,
+      "key": "nurse-harrow-4",
+      "path": "/deadlock/abilities/nurse-harrow-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nurse/medicine_bag.webp",
+      "sha256": "675d90a4fdced39d09868083678686070d80ea7d57511c3e10adeb414b0163be"
+    },
+    {
+      "kind": "ability",
+      "id": 604448162,
+      "key": "paige-1",
+      "path": "/deadlock/abilities/paige-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_dragon.webp",
+      "sha256": "7f41de6c49c784bba9072e58dbd5f4c32175eff9c0423a307432a99415ad9995"
+    },
+    {
+      "kind": "ability",
+      "id": 3553292912,
+      "key": "paige-2",
+      "path": "/deadlock/abilities/paige-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_defendandfight.webp",
+      "sha256": "53f9f0b742ff7d9dfeaa6ac918bc126f4aec2e0cc5c33552d7a47895d4b4c55d"
+    },
+    {
+      "kind": "ability",
+      "id": 3054993162,
+      "key": "paige-3",
+      "path": "/deadlock/abilities/paige-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_blindinglight.webp",
+      "sha256": "166b35f57b2a99ce4450947f3d4b6170c57d0584ec844b6105622a5f51f51752"
+    },
+    {
+      "kind": "ability",
+      "id": 1841901343,
+      "key": "paige-4",
+      "path": "/deadlock/abilities/paige-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_charge.webp",
+      "sha256": "96ba5cdfbb853ba4e666001b04c22f45321899440e9863bbf56646b851de413f"
+    },
+    {
+      "kind": "ability",
+      "id": 58655583,
+      "key": "paradox-1",
+      "path": "/deadlock/abilities/paradox-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp",
+      "sha256": "3dc4317100ce797452e99c150c1032c969766d08234665cf33f2e24d2c350854"
+    },
+    {
+      "kind": "ability",
+      "id": 1366719170,
+      "key": "paradox-2",
+      "path": "/deadlock/abilities/paradox-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp",
+      "sha256": "9f4c053269a91ef17f11d2056ab0460a687b8e021ad65da8f24fa041a645e396"
+    },
+    {
+      "kind": "ability",
+      "id": 1128670012,
+      "key": "paradox-3",
+      "path": "/deadlock/abilities/paradox-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp",
+      "sha256": "f5656f4d3740981891eca35d9c8f81200ff8927ec5859fe8bd15e7039f0f68de"
+    },
+    {
+      "kind": "ability",
+      "id": 2917891787,
+      "key": "paradox-4",
+      "path": "/deadlock/abilities/paradox-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_swap.webp",
+      "sha256": "2883c5b0cd0063732c934f1c67a06a32dae8cb4b25730cabd73a28480dadf141"
+    },
+    {
+      "kind": "ability",
+      "id": 938149308,
+      "key": "pocket-1",
+      "path": "/deadlock/abilities/pocket-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_barrage.webp",
+      "sha256": "c1960c71b3ae97b010d42bd6524b86037a7c57b8493d11833f0b889cbcaa0933"
+    },
+    {
+      "kind": "ability",
+      "id": 1976701714,
+      "key": "pocket-2",
+      "path": "/deadlock/abilities/pocket-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_plasma_flux.webp",
+      "sha256": "cb07efd344b887c2f0645f816798fc6c1297811a6ddbbae6956a410ec0a3aa84"
+    },
+    {
+      "kind": "ability",
+      "id": 3747867012,
+      "key": "pocket-3",
+      "path": "/deadlock/abilities/pocket-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_pulse.webp",
+      "sha256": "5f3ebd1684ee3a995ce554fc643135c09a35881fa42c7770e186515f9cb473ca"
+    },
+    {
+      "kind": "ability",
+      "id": 2954330093,
+      "key": "pocket-4",
+      "path": "/deadlock/abilities/pocket-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp",
+      "sha256": "5cdeadda35736bf36c81e0256579c504c6d51002a7e28f3af27de832ec575b06"
+    },
+    {
+      "kind": "ability",
+      "id": 3002308408,
+      "key": "rat-king-1",
+      "path": "/deadlock/abilities/rat-king-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/ratking/ratking_grenade.webp",
+      "sha256": "25792443dead29230cf581f13cb1e09758310ec2f3c9bb29dfaa876b2fd19bd9"
+    },
+    {
+      "kind": "ability",
+      "id": 3681399397,
+      "key": "rat-king-2",
+      "path": "/deadlock/abilities/rat-king-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/ratking/ratking_swarm.webp",
+      "sha256": "3f56811969f047fa47c0aa395f22be63bfe8b783a4a6f3fcf9a7858ed081c64a"
+    },
+    {
+      "kind": "ability",
+      "id": 690412829,
+      "key": "rat-king-3",
+      "path": "/deadlock/abilities/rat-king-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/ratking/ratking_shield.webp",
+      "sha256": "4382c415a1bc478e0a91d00fb1d63b8c10207065018582e3742472897221d811"
+    },
+    {
+      "kind": "ability",
+      "id": 1627989937,
+      "key": "rat-king-4",
+      "path": "/deadlock/abilities/rat-king-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/ratking/ratking_flag.webp",
+      "sha256": "75bd97912365e6667f471aeaa212b2c72cb7ea9486e9352582093a1262cc42bd"
+    },
+    {
+      "kind": "ability",
+      "id": 3692321247,
+      "key": "rem-1",
+      "path": "/deadlock/abilities/rem-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_pillow.webp",
+      "sha256": "f02bb47bf2e437556abe9b3d5109092df008895e0b151d81156e743e4977b803"
+    },
+    {
+      "kind": "ability",
+      "id": 1568845221,
+      "key": "rem-2",
+      "path": "/deadlock/abilities/rem-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_tag_along.webp",
+      "sha256": "e31e0a6c6e5e6388ad4ab7e10200d2d97f346bc4679742883c989201ae1cea2d"
+    },
+    {
+      "kind": "ability",
+      "id": 536278136,
+      "key": "rem-3",
+      "path": "/deadlock/abilities/rem-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_helpers.webp",
+      "sha256": "dcea2814fb1974e79d0fd4e1c9514ef90746a54c5508daf307d0ad25506c2be2"
+    },
+    {
+      "kind": "ability",
+      "id": 2396527575,
+      "key": "rem-4",
+      "path": "/deadlock/abilities/rem-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_sleep.webp",
+      "sha256": "7ee21c0ec474c34ee3e631890a1e3816ebf1c4301c5260e2cc05e175d0ab9957"
+    },
+    {
+      "kind": "ability",
+      "id": 1065103387,
+      "key": "seven-1",
+      "path": "/deadlock/abilities/seven-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_ball.webp",
+      "sha256": "d6c413e75ab4bceb9000d992d020cd9910542175161202af6c4ce61a05537a9b"
+    },
+    {
+      "kind": "ability",
+      "id": 1074714947,
+      "key": "seven-2",
+      "path": "/deadlock/abilities/seven-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_static.webp",
+      "sha256": "325b6fcdbaca91ac3bd4ceb132a7e6dd44e594da60031c866fd4fb66cde3f28c"
+    },
+    {
+      "kind": "ability",
+      "id": 539192269,
+      "key": "seven-3",
+      "path": "/deadlock/abilities/seven-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_chain.webp",
+      "sha256": "11c9c6c5fcf02d8b4b9e20a3912c82268a705ae5f8b3046884aefa2790c01ffd"
+    },
+    {
+      "kind": "ability",
+      "id": 2061574352,
+      "key": "seven-4",
+      "path": "/deadlock/abilities/seven-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp",
+      "sha256": "e7e66efd34e755d35749df28fb2cc1c783748fdfa45dac7f565f75835967222a"
+    },
+    {
+      "kind": "ability",
+      "id": 2460791803,
+      "key": "shiv-1",
+      "path": "/deadlock/abilities/shiv-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp",
+      "sha256": "7f8080cae17e988086d7c2b2dc770c83b3e0a33cb553b9cb3683b54f58b61b14"
+    },
+    {
+      "kind": "ability",
+      "id": 1458044103,
+      "key": "shiv-2",
+      "path": "/deadlock/abilities/shiv-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_flash.webp",
+      "sha256": "94b37396c1f975461f7ca60f947b3bc6be03a05577bfc84adaca7005577cdad7"
+    },
+    {
+      "kind": "ability",
+      "id": 1537272748,
+      "key": "shiv-3",
+      "path": "/deadlock/abilities/shiv-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp",
+      "sha256": "a74f5a3aad0f53d19ee19ab083dd34a63bd7783d45e50db4bb3e743e350c599e"
+    },
+    {
+      "kind": "ability",
+      "id": 1835738020,
+      "key": "shiv-4",
+      "path": "/deadlock/abilities/shiv-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp",
+      "sha256": "688ac3b40bef388bea431aebb7b4068c47dffdf520678008e456b4bb9a7c6d06"
+    },
+    {
+      "kind": "ability",
+      "id": 1385849824,
+      "key": "silver-1",
+      "path": "/deadlock/abilities/silver-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_slamfire.webp",
+      "sha256": "5ab3d8e4498221127041e6d2a54c4b6d6ac389ccaa4b4316842d8bdcb7fba1af"
+    },
+    {
+      "kind": "ability",
+      "id": 2717130900,
+      "key": "silver-2",
+      "path": "/deadlock/abilities/silver-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_jumpback.webp",
+      "sha256": "48ea65f3f3e925e4cdf515bf39db123db110ab7aa47cca4f1f9def48afbde866"
+    },
+    {
+      "kind": "ability",
+      "id": 3983754897,
+      "key": "silver-3",
+      "path": "/deadlock/abilities/silver-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_bola.webp",
+      "sha256": "6234cd885b78afaafd005228d47e274bbdf413491816b45fc8899e288d4b4f93"
+    },
+    {
+      "kind": "ability",
+      "id": 515791019,
+      "key": "silver-4",
+      "path": "/deadlock/abilities/silver-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_lycancurse.webp",
+      "sha256": "504c6d115eb7d5bd5847099bf7983ef4ba1ef8aebfa7e2f5a6ce5348c0ba3153"
+    },
+    {
+      "kind": "ability",
+      "id": 3156905386,
+      "key": "sinclair-1",
+      "path": "/deadlock/abilities/sinclair-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_magicbolt.webp",
+      "sha256": "88898c573a36982ff7d6d6f33539308285e90a267719861050c45d084eab7ca4"
+    },
+    {
+      "kind": "ability",
+      "id": 12456023,
+      "key": "sinclair-2",
+      "path": "/deadlock/abilities/sinclair-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_cloneturret.webp",
+      "sha256": "ea4c44513d34394f5a118b8573224988b0b1005dc9c5d67f8977e4601a77cee0"
+    },
+    {
+      "kind": "ability",
+      "id": 2142213586,
+      "key": "sinclair-3",
+      "path": "/deadlock/abilities/sinclair-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp",
+      "sha256": "ab919a827c24734e55012f78dc78a681894a80d7c0f7b65e818fec1fe49c019c"
+    },
+    {
+      "kind": "ability",
+      "id": 191022746,
+      "key": "sinclair-4",
+      "path": "/deadlock/abilities/sinclair-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_copyult.webp",
+      "sha256": "1309c4b30f47161dc2062fb03215529d2e1bffaf8074e2748dddf84b588c9aee"
+    },
+    {
+      "kind": "ability",
+      "id": 4011110259,
+      "key": "solomon-1",
+      "path": "/deadlock/abilities/solomon-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chess/chessmaster_bishop.webp",
+      "sha256": "eece427311ca62d7d604f34d54c1e66a096914f30cdf7506b9923fa560e42bb9"
+    },
+    {
+      "kind": "ability",
+      "id": 4180486641,
+      "key": "solomon-2",
+      "path": "/deadlock/abilities/solomon-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chess/chessmaster_knight.webp",
+      "sha256": "46bfcd8a677d97460448db6e8ad9a5346c125e7a2fb20b34cd21101ac6e942df"
+    },
+    {
+      "kind": "ability",
+      "id": 2424652896,
+      "key": "solomon-3",
+      "path": "/deadlock/abilities/solomon-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chess/chessmaster_rook.webp",
+      "sha256": "3c023cd9816b24e5bf17d19c8bb32ac0c1223e2e5c93c5dda2dd6e836728f500"
+    },
+    {
+      "kind": "ability",
+      "id": 1389230689,
+      "key": "solomon-4",
+      "path": "/deadlock/abilities/solomon-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chess/chessmaster_queen.webp",
+      "sha256": "2c6b63c86e96a84ba76408d969a6dabbfad21ced786ace45e9aa56a95e6cdc7a"
+    },
+    {
+      "kind": "ability",
+      "id": 103496908,
+      "key": "the-doorman-1",
+      "path": "/deadlock/abilities/the-doorman-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_bell.webp",
+      "sha256": "510f1187b4d5c9e127428c8601e661df132a807af87c8cbb07fb9f559a91d101"
+    },
+    {
+      "kind": "ability",
+      "id": 109766091,
+      "key": "the-doorman-2",
+      "path": "/deadlock/abilities/the-doorman-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_doorway.webp",
+      "sha256": "027d764cb08b8fdc104833a6dd7408febbf83ca5b5303082c263e5ee0e560a51"
+    },
+    {
+      "kind": "ability",
+      "id": 1719512318,
+      "key": "the-doorman-3",
+      "path": "/deadlock/abilities/the-doorman-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_luggagetrolley.webp",
+      "sha256": "c82dc85394306c10fae8c8ca3fe1cd47e94b87dd42b6e99a5a0bc5c3ca046ad9"
+    },
+    {
+      "kind": "ability",
+      "id": 1703045691,
+      "key": "the-doorman-4",
+      "path": "/deadlock/abilities/the-doorman-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_elevator.webp",
+      "sha256": "1b31591325bae911a9f17f11e35845fdf2a8e3b2234dc064bab7e37fa9ef2d6c"
+    },
+    {
+      "kind": "ability",
+      "id": 911307831,
+      "key": "venator-1",
+      "path": "/deadlock/abilities/venator-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/priest/priest_grenade.webp",
+      "sha256": "09b86bb13eeb679941cddd20cfdef0f7736e333f434f40fa349a869159c99a41"
+    },
+    {
+      "kind": "ability",
+      "id": 1764146857,
+      "key": "venator-2",
+      "path": "/deadlock/abilities/venator-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/priest/priest_shotgun.webp",
+      "sha256": "07febb193af5873a24f51c2dcdcd3dac4890c1abf2e2de486d59899104191898"
+    },
+    {
+      "kind": "ability",
+      "id": 11154161,
+      "key": "venator-3",
+      "path": "/deadlock/abilities/venator-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/priest/priest_trap.webp",
+      "sha256": "9dbf2b6ebe9f5267a47e907b8e7467979a13e916f6f81a861bb693a6f8cf9e48"
+    },
+    {
+      "kind": "ability",
+      "id": 2918874166,
+      "key": "venator-4",
+      "path": "/deadlock/abilities/venator-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/priest/priest_crossbow.webp",
+      "sha256": "1700026b6fd19d57e47ee8e7504739f99a3249dd24f90afc2e14fa90bf1641c6"
+    },
+    {
+      "kind": "ability",
+      "id": 2043074967,
+      "key": "victor-1",
+      "path": "/deadlock/abilities/victor-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_pain_battery.webp",
+      "sha256": "97dd9c599111df4b25af9f1e85883fbf1353b0352f1d4dd02d38e26c9b411282"
+    },
+    {
+      "kind": "ability",
+      "id": 3727084744,
+      "key": "victor-2",
+      "path": "/deadlock/abilities/victor-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_jump_start.webp",
+      "sha256": "36399422e4ed694afb58f459613a3f8826b34816b0c332f0ca7790f9cb2d0b0f"
+    },
+    {
+      "kind": "ability",
+      "id": 1472593493,
+      "key": "victor-3",
+      "path": "/deadlock/abilities/victor-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_aura_of_suffering.webp",
+      "sha256": "b6c4d2c0b8ec73470cc481ccf02150f73db84cbc65d41fd2d2d17ef34f65c20d"
+    },
+    {
+      "kind": "ability",
+      "id": 3493884851,
+      "key": "victor-4",
+      "path": "/deadlock/abilities/victor-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_shocking_reanimation.webp",
+      "sha256": "ba4f7e1c409943675c0d3bc4d76cb62583c2f4c131364b7d4c826d10de2c0c2e"
+    },
+    {
+      "kind": "ability",
+      "id": 537527508,
+      "key": "vindicta-1",
+      "path": "/deadlock/abilities/vindicta-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp",
+      "sha256": "68784331db1887dfdb55fac0f13a7b00b508ca9907fac530b70f8fea43545ccc"
+    },
+    {
+      "kind": "ability",
+      "id": 1796564033,
+      "key": "vindicta-2",
+      "path": "/deadlock/abilities/vindicta-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp",
+      "sha256": "e84f73a69b1d69703acccf827bed081fa3bc042db22ab3d149f2d05482f439f1"
+    },
+    {
+      "kind": "ability",
+      "id": 2048438176,
+      "key": "vindicta-3",
+      "path": "/deadlock/abilities/vindicta-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp",
+      "sha256": "15d22397dfa53933c961063f9b6493e65279724a6f807d9947e25cf63fe5f387"
+    },
+    {
+      "kind": "ability",
+      "id": 775377419,
+      "key": "vindicta-4",
+      "path": "/deadlock/abilities/vindicta-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp",
+      "sha256": "eec727521f55a339ee7d16a89168aea0b7f1b657577617d0e31ab3922296c146"
+    },
+    {
+      "kind": "ability",
+      "id": 836615329,
+      "key": "violet-1",
+      "path": "/deadlock/abilities/violet-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/artist/artist_livingink.webp",
+      "sha256": "b9b9ed975a391fee8c428e16c8bf53b36b89061e5610e0bdf14dfc401fdd8abc"
+    },
+    {
+      "kind": "ability",
+      "id": 3389503777,
+      "key": "violet-2",
+      "path": "/deadlock/abilities/violet-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/artist/artist_brush.webp",
+      "sha256": "0701f74b749f354293836dd6a44dc079d0e9b5c09a2979d25746ba27ecc13907"
+    },
+    {
+      "kind": "ability",
+      "id": 3612874202,
+      "key": "violet-3",
+      "path": "/deadlock/abilities/violet-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/artist/artist_portrait.webp",
+      "sha256": "40c45846f3dd465c19cffb2fc8667a314392b706dcef31022bb4994b3a36f0ac"
+    },
+    {
+      "kind": "ability",
+      "id": 2516700978,
+      "key": "violet-4",
+      "path": "/deadlock/abilities/violet-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/artist/artist_landscape.webp",
+      "sha256": "0c9289109fbf640f97bb1153ac142cc491d8d0003a60e75d638e4974e0d9b479"
+    },
+    {
+      "kind": "ability",
+      "id": 3247040238,
+      "key": "viscous-1",
+      "path": "/deadlock/abilities/viscous-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp",
+      "sha256": "abb2c1b93c887c745cd142694d28551a1537c352e34c608ba3aa3f30ab46cfe6"
+    },
+    {
+      "kind": "ability",
+      "id": 3788152387,
+      "key": "viscous-2",
+      "path": "/deadlock/abilities/viscous-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_restorative_goo.webp",
+      "sha256": "765f30c750ce184773a12c7b1e0fb87da9d0868c1b67fc8ea59841a777ece76f"
+    },
+    {
+      "kind": "ability",
+      "id": 1020817390,
+      "key": "viscous-3",
+      "path": "/deadlock/abilities/viscous-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp",
+      "sha256": "72405897b93e3d02feed23e1536c7448dfce34a805d9024e6e364af8f89919c0"
+    },
+    {
+      "kind": "ability",
+      "id": 4206531918,
+      "key": "viscous-4",
+      "path": "/deadlock/abilities/viscous-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp",
+      "sha256": "1be4b9a21f0e58493348b7bb281320ced471ca5652aded598ed6030ccd1f11c2"
+    },
+    {
+      "kind": "ability",
+      "id": 645773760,
+      "key": "vyper-1",
+      "path": "/deadlock/abilities/vyper-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_debuffdagger.webp",
+      "sha256": "1d2c69616fbc6ca48f429851f20889a560320e08eb84493298d613e34156f4d4"
+    },
+    {
+      "kind": "ability",
+      "id": 3428732129,
+      "key": "vyper-2",
+      "path": "/deadlock/abilities/vyper-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_venom.webp",
+      "sha256": "2fee785a616e890b3bdcd391d755b070d5d5dc7be6e3190c7ed4671f81a1b8da"
+    },
+    {
+      "kind": "ability",
+      "id": 1469918191,
+      "key": "vyper-3",
+      "path": "/deadlock/abilities/vyper-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_snakedash.webp",
+      "sha256": "0f333921a7559ae2bf965e9c5d56a25478863b2e4b66449a069fc559fcd7db34"
+    },
+    {
+      "kind": "ability",
+      "id": 1594727071,
+      "key": "vyper-4",
+      "path": "/deadlock/abilities/vyper-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_petrifybola.webp",
+      "sha256": "102809ff46914a0f523aeabf1f2307a579981399d25f35adbb9e42d1cf17625f"
+    },
+    {
+      "kind": "ability",
+      "id": 2656490109,
+      "key": "warden-1",
+      "path": "/deadlock/abilities/warden-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_crowd_control.webp",
+      "sha256": "b618d1c19ff3c20ece9756c13c1ef1210d41087fc8e817bbf7085aeebc94c3ed"
+    },
+    {
+      "kind": "ability",
+      "id": 2751689917,
+      "key": "warden-2",
+      "path": "/deadlock/abilities/warden-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_high_alert.webp",
+      "sha256": "550bb7ad988c2aa8c5a316dcfd6a576b1cad6de4df0265f7d09ef6e40a38b0a2"
+    },
+    {
+      "kind": "ability",
+      "id": 1656913918,
+      "key": "warden-3",
+      "path": "/deadlock/abilities/warden-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_lock_down.webp",
+      "sha256": "ad429329ceeba970f90261defb573144ab950735db21289e15e8ffb7f4fdda06"
+    },
+    {
+      "kind": "ability",
+      "id": 2702908623,
+      "key": "warden-4",
+      "path": "/deadlock/abilities/warden-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp",
+      "sha256": "8dc2c43702ae1cb8fc7600b6240bafdc16a869c3957a839d1fb7557e08a34e22"
+    },
+    {
+      "kind": "ability",
+      "id": 1999680326,
+      "key": "wraith-1",
+      "path": "/deadlock/abilities/wraith-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp",
+      "sha256": "7b55db78a103c1beddc8f4ff252fc05fa9c82bb1ff89c3ac97d1a7874a4613de"
+    },
+    {
+      "kind": "ability",
+      "id": 4147641675,
+      "key": "wraith-2",
+      "path": "/deadlock/abilities/wraith-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_teleport.webp",
+      "sha256": "1855c79d42db45e8bc4af1390d39f69407f3614b05105c569a4f4bb9d26c377b"
+    },
+    {
+      "kind": "ability",
+      "id": 1842576017,
+      "key": "wraith-3",
+      "path": "/deadlock/abilities/wraith-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_aura.webp",
+      "sha256": "efa58b3be2d2f99e811cb373e32bfef13ca7937dd88e492edf9760a9ec43fd71"
+    },
+    {
+      "kind": "ability",
+      "id": 2981692841,
+      "key": "wraith-4",
+      "path": "/deadlock/abilities/wraith-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp",
+      "sha256": "237d7022b49e27e1ad9a7a354a1736b4fb1395c274f6cc37c5d2652472167419"
+    },
+    {
+      "kind": "ability",
+      "id": 3255651252,
+      "key": "yamato-1",
+      "path": "/deadlock/abilities/yamato-1.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp",
+      "sha256": "fb865854c2a5a4b116c16ed10d2af051c7c7757b16f80d04fec364e431bdfa61"
+    },
+    {
+      "kind": "ability",
+      "id": 2566573207,
+      "key": "yamato-2",
+      "path": "/deadlock/abilities/yamato-2.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_flying_strike.webp",
+      "sha256": "33ad332f4becc9326b9c7303ebddec06c8a8bacf093118308c57674ec03a16af"
+    },
+    {
+      "kind": "ability",
+      "id": 2366960452,
+      "key": "yamato-3",
+      "path": "/deadlock/abilities/yamato-3.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_crimson_slash.webp",
+      "sha256": "ab491e6e08a3ab26c0a405fe6b49fe05ba9b4e2c1f886e7d206a89f8ad8a0ccd"
+    },
+    {
+      "kind": "ability",
+      "id": 3319782965,
+      "key": "yamato-4",
+      "path": "/deadlock/abilities/yamato-4.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp",
+      "sha256": "8cdb84be6f15d5fc43b79f3fd2077f7598190384aae695a38f50d165ae5cc740"
+    },
+    {
+      "kind": "item",
+      "id": 1009965641,
+      "key": "1009965641",
+      "path": "/deadlock/items/1009965641.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/monster_rounds.webp",
+      "sha256": "ce46a101746408fcf523fa4ffbb9815bb91a1e623a9a86a7ccb8aa9608a84ba4"
+    },
+    {
+      "kind": "item",
+      "id": 1047818222,
+      "key": "1047818222",
+      "path": "/deadlock/items/1047818222.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/debuff_reducer.webp",
+      "sha256": "6e5a23fb0bf6892c531a957060f5f47b4d253f6113a4a1a7d1c71a1b6768fccf"
+    },
+    {
+      "kind": "item",
+      "id": 1055679805,
+      "key": "1055679805",
+      "path": "/deadlock/items/1055679805.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/vampiric_burst.webp",
+      "sha256": "63c23eae38ad30fe42123b70cfb231adb5d4e22ffeb84aeab43362ba235febc0"
+    },
+    {
+      "kind": "item",
+      "id": 1102081447,
+      "key": "1102081447",
+      "path": "/deadlock/items/1102081447.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_slow.webp",
+      "sha256": "3af992ded0fe8b6b7087f4768329d70ad00c704b805d13fc553e79d71eeeb7db"
+    },
+    {
+      "kind": "item",
+      "id": 1113837674,
+      "key": "1113837674",
+      "path": "/deadlock/items/1113837674.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/silencer.webp",
+      "sha256": "7f308829948c086c003bc2d9fe6328a2e9af826e0651587d7c3905191dafc30e"
+    },
+    {
+      "kind": "item",
+      "id": 112198670,
+      "key": "112198670",
+      "path": "/deadlock/items/112198670.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spirit_shielding.webp",
+      "sha256": "9f15c3fcdafa0f07e55eeef1a728533e051a58c2e2b4ca3c33675e47f2c86162"
+    },
+    {
+      "kind": "item",
+      "id": 1132564516,
+      "key": "1132564516",
+      "path": "/deadlock/items/1132564516.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/brawl/prism_blast.webp",
+      "sha256": "ee23764df4af798fe29bf00ea954843bce1d59c8d200377d94755efb06c8c658"
+    },
+    {
+      "kind": "item",
+      "id": 1144549437,
+      "key": "1144549437",
+      "path": "/deadlock/items/1144549437.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spirit_shredder_bullets.webp",
+      "sha256": "fddc0ff2fab4de3a6784f973833b0cbc08d2fa62ac6c9602987536b0964bb57e"
+    },
+    {
+      "kind": "item",
+      "id": 1150006784,
+      "key": "1150006784",
+      "path": "/deadlock/items/1150006784.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/arcane_surge.webp",
+      "sha256": "12ce3a3e58db4ee9d10000a9e19ebf745680feac498564f2151ec6af03b7d286"
+    },
+    {
+      "kind": "item",
+      "id": 1152158042,
+      "key": "1152158042",
+      "path": "/deadlock/items/1152158042.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/vortex_web.webp",
+      "sha256": "562e9f7eed826e493093f909bd4b4b0b4526bf251c4420bb8c112e0b3987e30a"
+    },
+    {
+      "kind": "item",
+      "id": 1193964439,
+      "key": "1193964439",
+      "path": "/deadlock/items/1193964439.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/greater_expansion.webp",
+      "sha256": "458c9d25dde4d891566d6266c3995c681c7a5bad50e1a4e7836712e7d41ee6c3"
+    },
+    {
+      "kind": "item",
+      "id": 1219329868,
+      "key": "1219329868",
+      "path": "/deadlock/items/1219329868.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_sap.webp",
+      "sha256": "3dcd42d55d4dfcc5b1800242e3cd00095aa39b6acea8408da6141de850b0ffa6"
+    },
+    {
+      "kind": "item",
+      "id": 1235347618,
+      "key": "1235347618",
+      "path": "/deadlock/items/1235347618.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/battle_vest.webp",
+      "sha256": "df6f5f1506f2f7afc9bb2dafea05d098d17b1ec2dee91109a66c2a29a89eec17"
+    },
+    {
+      "kind": "item",
+      "id": 1250307611,
+      "key": "1250307611",
+      "path": "/deadlock/items/1250307611.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/juggernaut.webp",
+      "sha256": "77962424e3d1f7c2ed337c9762e5abde6db5413ea95d2e4763e31c12af6fc565"
+    },
+    {
+      "kind": "item",
+      "id": 1252627263,
+      "key": "1252627263",
+      "path": "/deadlock/items/1252627263.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/lifestrike.webp",
+      "sha256": "13a7ff87e17b29bc287ce7c59f4da955c116aee195f700b8b49148846e158597"
+    },
+    {
+      "kind": "item",
+      "id": 1254091416,
+      "key": "1254091416",
+      "path": "/deadlock/items/1254091416.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/knockdown.webp",
+      "sha256": "f820b2e0379d89a082f9e0e770133fb362674af08e688a5d8204c930fa77a68b"
+    },
+    {
+      "kind": "item",
+      "id": 1282141666,
+      "key": "1282141666",
+      "path": "/deadlock/items/1282141666.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/siphon_bullets.webp",
+      "sha256": "d37d4f0d3183af3957970e9f40f2fb36b24fc7cf8b6a3ff54909f5209e7f22bd"
+    },
+    {
+      "kind": "item",
+      "id": 1292979587,
+      "key": "1292979587",
+      "path": "/deadlock/items/1292979587.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/surge_of_power.webp",
+      "sha256": "4c1a9c73d10330fa604bcd1304c393e61db17c6cebb7e334aa8a416e745b597c"
+    },
+    {
+      "kind": "item",
+      "id": 1342610602,
+      "key": "1342610602",
+      "path": "/deadlock/items/1342610602.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/close_quarters.webp",
+      "sha256": "3f8cffc12ce10b1785a789f058f4b89db5343a03ad9f17ff3a70b0e8f4537bd2"
+    },
+    {
+      "kind": "item",
+      "id": 1371725689,
+      "key": "1371725689",
+      "path": "/deadlock/items/1371725689.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/phantom_strike.webp",
+      "sha256": "9ba5c304832485508daaf61ee4c94e8f03246957d598324d79ce0ba48f6cb5f0"
+    },
+    {
+      "kind": "item",
+      "id": 1378931225,
+      "key": "1378931225",
+      "path": "/deadlock/items/1378931225.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/metal_skin.webp",
+      "sha256": "7243b4a76b6fa6165498f4da232a7b11c3164d698b847d0d5edcabccfb4caf2a"
+    },
+    {
+      "kind": "item",
+      "id": 1396247347,
+      "key": "1396247347",
+      "path": "/deadlock/items/1396247347.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/lucky_shot.webp",
+      "sha256": "680fb505e1b51ec7f5ea4a68dbdbc3e1e52018e972003c075979778d87219012"
+    },
+    {
+      "kind": "item",
+      "id": 1409190604,
+      "key": "1409190604",
+      "path": "/deadlock/items/1409190604.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fury_trance.webp",
+      "sha256": "37a443882812942ab046c347bcdc08075eaf46ac5e0bf3dc545d5546e99af491"
+    },
+    {
+      "kind": "item",
+      "id": 1414025773,
+      "key": "1414025773",
+      "path": "/deadlock/items/1414025773.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/counterspell.webp",
+      "sha256": "f72d7be424a90f92397b57406dded2c82e66ec0b1ceae69dea2c62b81169861e"
+    },
+    {
+      "kind": "item",
+      "id": 1414319208,
+      "key": "1414319208",
+      "path": "/deadlock/items/1414319208.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/berserker.webp",
+      "sha256": "3fbcee8833d9d7bb45f703ac804dbd09b7935c390f955f7b030b2212cff1a269"
+    },
+    {
+      "kind": "item",
+      "id": 1427630806,
+      "key": "1427630806",
+      "path": "/deadlock/items/1427630806.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_tempo.webp",
+      "sha256": "f812a35f2138cc43a3fd31ed936250145d99140eb383e078598ed22b80a0e42c"
+    },
+    {
+      "kind": "item",
+      "id": 1437614329,
+      "key": "1437614329",
+      "path": "/deadlock/items/1437614329.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/melee_lifesteal.webp",
+      "sha256": "a0cdb6ea7ae665796a382194ba092537b1dbe61bbd472b3bc8cb5aeab5ced92a"
+    },
+    {
+      "kind": "item",
+      "id": 1439347412,
+      "key": "1439347412",
+      "path": "/deadlock/items/1439347412.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_regen.webp",
+      "sha256": "287585fc4fc3a53994d6062dd81bd4c7c497e43e638bfad44154d9f83a3de99d"
+    },
+    {
+      "kind": "item",
+      "id": 1548066885,
+      "key": "1548066885",
+      "path": "/deadlock/items/1548066885.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/basic_magazine.webp",
+      "sha256": "7413f8f816d58043c561d24ceee683a4de19901f149e0a466e62b747a077ad54"
+    },
+    {
+      "kind": "item",
+      "id": 1558545403,
+      "key": "1558545403",
+      "path": "/deadlock/items/1558545403.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/brawl/unstable_concoction.webp",
+      "sha256": "a73b3028704d82f446e7c183f91740ee684a4a44b1af482f129adb1d990143c9"
+    },
+    {
+      "kind": "item",
+      "id": 1644605047,
+      "key": "1644605047",
+      "path": "/deadlock/items/1644605047.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/reactive_barrier.webp",
+      "sha256": "876843d1c862a8d6daaae66648e464480284544cb26bf93a11b5e23de72c8170"
+    },
+    {
+      "kind": "item",
+      "id": 1662311306,
+      "key": "1662311306",
+      "path": "/deadlock/items/1662311306.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/divine_barrier.webp",
+      "sha256": "72b4c87273175c8c63c9fb9382349cc31ec5237d7aaaef0ead61e6deb8dddcef"
+    },
+    {
+      "kind": "item",
+      "id": 1672893796,
+      "key": "1672893796",
+      "path": "/deadlock/items/1672893796.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/grit.webp",
+      "sha256": "972bc7c88de63f23ecbcf26900fc20976624bd70d62a5b98b41f0d39d500ccc9"
+    },
+    {
+      "kind": "item",
+      "id": 1710079648,
+      "key": "1710079648",
+      "path": "/deadlock/items/1710079648.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_rite.webp",
+      "sha256": "7beea1cbbef536ee2daae73b30bc7b93e1e4809d8bf02ad9a228fd88c04eec77"
+    },
+    {
+      "kind": "item",
+      "id": 1736094134,
+      "key": "1736094134",
+      "path": "/deadlock/items/1736094134.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/brawl/icarus_wings.webp",
+      "sha256": "0223a735c27da22c1f590846f24a4c230d2cd43d43b82b07b7c8b66e37e6212e"
+    },
+    {
+      "kind": "item",
+      "id": 1763073141,
+      "key": "1763073141",
+      "path": "/deadlock/items/1763073141.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/recharging_rounds.webp",
+      "sha256": "7f7af5548129aa9d651aef17f395b32eaf9127da1663f263f640935cb988e34f"
+    },
+    {
+      "kind": "item",
+      "id": 1770441818,
+      "key": "1770441818",
+      "path": "/deadlock/items/1770441818.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/weakening_headshot.webp",
+      "sha256": "1285806b474b1701feec8348a2ab1f21d9abcf0859b51512f4b0cfec295019f7"
+    },
+    {
+      "kind": "item",
+      "id": 1797283378,
+      "key": "1797283378",
+      "path": "/deadlock/items/1797283378.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/infuser.webp",
+      "sha256": "4fac877b8540d48d92384d528ea47e439ff50493d6c657d6590b61445df2837e"
+    },
+    {
+      "kind": "item",
+      "id": 1798666702,
+      "key": "1798666702",
+      "path": "/deadlock/items/1798666702.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/shadow_weave.webp",
+      "sha256": "6a054612423385775661b0ede4c43f2a203bdec5a292445af09601927a53e512"
+    },
+    {
+      "kind": "item",
+      "id": 1804594021,
+      "key": "1804594021",
+      "path": "/deadlock/items/1804594021.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/rescue_beam.webp",
+      "sha256": "cdcb6332c67180852ddf9db766e4090ce37a4d29e9a6ac0a84d06dcc0c83cad4"
+    },
+    {
+      "kind": "item",
+      "id": 1813726886,
+      "key": "1813726886",
+      "path": "/deadlock/items/1813726886.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/slowing_hex.webp",
+      "sha256": "f7c1389fcbd72e5d7ee247c412463098d769c830031a11a5446d79b3d25e0b7f"
+    },
+    {
+      "kind": "item",
+      "id": 1825399334,
+      "key": "1825399334",
+      "path": "/deadlock/items/1825399334.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/brawl/electric_slippers.webp",
+      "sha256": "50c69272213249c72781a75b2b131f57d5593a322f64e3c63a5c725cbcb5eaf4"
+    },
+    {
+      "kind": "item",
+      "id": 1925087134,
+      "key": "1925087134",
+      "path": "/deadlock/items/1925087134.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/suppressor.webp",
+      "sha256": "edc94faf12ad586f58589355abe18397110497a44fbb25735c3759be4de07c62"
+    },
+    {
+      "kind": "item",
+      "id": 1932939246,
+      "key": "1932939246",
+      "path": "/deadlock/items/1932939246.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp",
+      "sha256": "2f6eaeea2a876673b3c93b0b857dbe7818033e9d39c00360efc4bc8852b5dfc0"
+    },
+    {
+      "kind": "item",
+      "id": 1955841979,
+      "key": "1955841979",
+      "path": "/deadlock/items/1955841979.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spellbreaker.webp",
+      "sha256": "10dafe597eea1c4d5bbe9053183e71b0267e0b1556aebbedaa493ead7c5c13f2"
+    },
+    {
+      "kind": "item",
+      "id": 1976391348,
+      "key": "1976391348",
+      "path": "/deadlock/items/1976391348.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp",
+      "sha256": "cb396d11b7f4a6d0c19855e9004b727e49337c3d0fc1e87a2f658056484cdff1"
+    },
+    {
+      "kind": "item",
+      "id": 1998374645,
+      "key": "1998374645",
+      "path": "/deadlock/items/1998374645.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_burst.webp",
+      "sha256": "ab1093fcbcab3a03b25977d55e27da70496bdd2bc8dbbe1a326bb713cde3e8d9"
+    },
+    {
+      "kind": "item",
+      "id": 2010028405,
+      "key": "2010028405",
+      "path": "/deadlock/items/2010028405.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headshot_booster.webp",
+      "sha256": "1473702f38f369c53cc0af9be357db28a0bbcead3d25dfe348968faed35fbd53"
+    },
+    {
+      "kind": "item",
+      "id": 2037039379,
+      "key": "2037039379",
+      "path": "/deadlock/items/2037039379.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/inhibitor.webp",
+      "sha256": "ee2b82e02b625716a5180f7d658ba407d1c6209fbb1830af543ac796f7ad58e6"
+    },
+    {
+      "kind": "item",
+      "id": 2054088113,
+      "key": "2054088113",
+      "path": "/deadlock/items/2054088113.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/brawl/mystical_piano.webp",
+      "sha256": "3c9ac3dbe947310b1c0402a43db2a734acc733d10934c0dd8e9a876ab6bd9721"
+    },
+    {
+      "kind": "item",
+      "id": 2059712766,
+      "key": "2059712766",
+      "path": "/deadlock/items/2059712766.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp",
+      "sha256": "2602aad3858a86d56920c247e2cc5ec0f6f3d76f2e08bf18dd409fa4b1b9f92c"
+    },
+    {
+      "kind": "item",
+      "id": 2061878743,
+      "key": "2061878743",
+      "path": "/deadlock/items/2061878743.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/disarming_hex.webp",
+      "sha256": "d7641c5acb30f332239c9167d23b39cceeee32f33a922182559acc34a813bcc8"
+    },
+    {
+      "kind": "item",
+      "id": 2064029594,
+      "key": "2064029594",
+      "path": "/deadlock/items/2064029594.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/opening_rounds.webp",
+      "sha256": "27600f9e66e651fd13bec5008150b97e1802ea03c43bb7bf2633a65f14a78e57"
+    },
+    {
+      "kind": "item",
+      "id": 2068250483,
+      "key": "2068250483",
+      "path": "/deadlock/items/2068250483.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/brawl/frostbite.webp",
+      "sha256": "631926f7b6fbb79ed177da2002cae3e85a06d03198a71c355d212d8bc2a8ed97"
+    },
+    {
+      "kind": "item",
+      "id": 2081037738,
+      "key": "2081037738",
+      "path": "/deadlock/items/2081037738.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_vulnerability.webp",
+      "sha256": "c21524a4d541ec290747bc7be597a01c909dc9b6ffb012ed17b1ad6849ccfc8a"
+    },
+    {
+      "kind": "item",
+      "id": 2095565695,
+      "key": "2095565695",
+      "path": "/deadlock/items/2095565695.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/point_blank.webp",
+      "sha256": "1d5c778c2d3ce504402b24be5ebc5cbed1262cf3f4ff4bb93a41c720bc92013f"
+    },
+    {
+      "kind": "item",
+      "id": 2108215830,
+      "key": "2108215830",
+      "path": "/deadlock/items/2108215830.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/heroic_aura.webp",
+      "sha256": "f1ba6ca00f7d9b96e877f8329b02cc3dc18fe3292f520b7d12b8a92bcad8d534"
+    },
+    {
+      "kind": "item",
+      "id": 2121044373,
+      "key": "2121044373",
+      "path": "/deadlock/items/2121044373.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/tankbuster.webp",
+      "sha256": "bbaed0cb9b0eebfc9d747c508046aebe25dd5cb16ad39f5e1c4a35bf0373c173"
+    },
+    {
+      "kind": "item",
+      "id": 2142980412,
+      "key": "2142980412",
+      "path": "/deadlock/items/2142980412.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/focus_lens.webp",
+      "sha256": "a471b42203a307a4227c0d732ed4e62947d01938e06601269790693a75cea186"
+    },
+    {
+      "kind": "item",
+      "id": 2152872419,
+      "key": "2152872419",
+      "path": "/deadlock/items/2152872419.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/sharp_shooter.webp",
+      "sha256": "c6cbb8f1e5ff1760e676176f8f98fbcd2d44ed0c5d4777d7028e1cae6f46e4d1"
+    },
+    {
+      "kind": "item",
+      "id": 2163598980,
+      "key": "2163598980",
+      "path": "/deadlock/items/2163598980.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spirit_resilience.webp",
+      "sha256": "25ef9efd38f349c3a80c8427b34a1225674c52266bc959127d088d2be97ee05f"
+    },
+    {
+      "kind": "item",
+      "id": 2221211450,
+      "key": "2221211450",
+      "path": "/deadlock/items/2221211450.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spell_slinger.webp",
+      "sha256": "a32faa848856d675904442b56245a4806e424735b3778517836f9e1a78115079"
+    },
+    {
+      "kind": "item",
+      "id": 2226497419,
+      "key": "2226497419",
+      "path": "/deadlock/items/2226497419.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spiritual_overflow.webp",
+      "sha256": "412b9b8bbaad9f4a1979864cc897594fd19cdefe9d37e865886f349c2e7f1db9"
+    },
+    {
+      "kind": "item",
+      "id": 230297145,
+      "key": "230297145",
+      "path": "/deadlock/items/230297145.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/brawl/eternal_gift.webp",
+      "sha256": "24c0d2ad7f3fdfd95283da9b1cc317fd04e15259c73b5005ffea3d8f16b12b92"
+    },
+    {
+      "kind": "item",
+      "id": 2319629810,
+      "key": "2319629810",
+      "path": "/deadlock/items/2319629810.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/brawl/shadow_strike.webp",
+      "sha256": "3129d7a488f65e21bd723e002d8b0b6a98c24dd81693e123b6f125cc154c5a56"
+    },
+    {
+      "kind": "item",
+      "id": 2356412290,
+      "key": "2356412290",
+      "path": "/deadlock/items/2356412290.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/titanic_magazine.webp",
+      "sha256": "f5c4c9ce0802433723acd2fef526b7b461925254f84404f7f72c464f01c36ffa"
+    },
+    {
+      "kind": "item",
+      "id": 2407033488,
+      "key": "2407033488",
+      "path": "/deadlock/items/2407033488.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/intensifying_magazine.webp",
+      "sha256": "5f7d080c893db57eee08992bc3495cb6f40b2ad63a27dcf439f4bea0ea702f59"
+    },
+    {
+      "kind": "item",
+      "id": 2407781327,
+      "key": "2407781327",
+      "path": "/deadlock/items/2407781327.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/colossus.webp",
+      "sha256": "09091807af1e0b23ff0aa9f571d84ac6fa82cdfcf9d1c7d412593247b531d8e0"
+    },
+    {
+      "kind": "item",
+      "id": 2417568017,
+      "key": "2417568017",
+      "path": "/deadlock/items/2417568017.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/scourge.webp",
+      "sha256": "6eb9ca55db9664e06d1fcbc686d8f90d72a4b6a23005aa9c7b50411fd64c8801"
+    },
+    {
+      "kind": "item",
+      "id": 2447176615,
+      "key": "2447176615",
+      "path": "/deadlock/items/2447176615.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/enduring_speed.webp",
+      "sha256": "0d766fac8e36e50710bcbf3a8a0ef81ac0b2f659934b0b00b2d39409d10d8ee0"
+    },
+    {
+      "kind": "item",
+      "id": 2462046703,
+      "key": "2462046703",
+      "path": "/deadlock/items/2462046703.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/goose_egg.webp",
+      "sha256": "80ff6b02e09013941448d4a4ae0b9463117da0b3b096208dbb7b28517497c348"
+    },
+    {
+      "kind": "item",
+      "id": 2463960640,
+      "key": "2463960640",
+      "path": "/deadlock/items/2463960640.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/escalating_resilience.webp",
+      "sha256": "dc0a56f420a9b6e96cdff519d7f028b08ea7ae993191e0329a0c4a14f5e4c7a9"
+    },
+    {
+      "kind": "item",
+      "id": 2480592370,
+      "key": "2480592370",
+      "path": "/deadlock/items/2480592370.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/ricochet.webp",
+      "sha256": "48c64e689af767a2dcc1aded47e6636b47e9cf7984ce5c2731b14236489e7eac"
+    },
+    {
+      "kind": "item",
+      "id": 2481177645,
+      "key": "2481177645",
+      "path": "/deadlock/items/2481177645.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/hunters_aura.webp",
+      "sha256": "5ad9409ab7974d3809c15a40dad8d64ceccdb680276ebe8980656c84628ddfd9"
+    },
+    {
+      "kind": "item",
+      "id": 2519598785,
+      "key": "2519598785",
+      "path": "/deadlock/items/2519598785.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/boundless_spirit.webp",
+      "sha256": "ead471bee3a761a3648c7112862bc15558348a4e9c46584ce505a1a7bc3699d4"
+    },
+    {
+      "kind": "item",
+      "id": 2533252781,
+      "key": "2533252781",
+      "path": "/deadlock/items/2533252781.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/ethereal_shift.webp",
+      "sha256": "917677297c02ab3b347cfcaa7f84f50ae5062f89a0c14afaf6850c34ed00b459"
+    },
+    {
+      "kind": "item",
+      "id": 2566692615,
+      "key": "2566692615",
+      "path": "/deadlock/items/2566692615.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_booster.webp",
+      "sha256": "9afb5eba91591ecae3325da5999291c2541c17b123746ab1e21f8179702a7523"
+    },
+    {
+      "kind": "item",
+      "id": 26002154,
+      "key": "26002154",
+      "path": "/deadlock/items/26002154.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/melee_charge.webp",
+      "sha256": "878e809d18e255ea362efae251234acc68aa80cf5a81523efbcc84a580f92bdf"
+    },
+    {
+      "kind": "item",
+      "id": 2603935618,
+      "key": "2603935618",
+      "path": "/deadlock/items/2603935618.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healbane.webp",
+      "sha256": "bc5fba8ce515ecbde0908ad3e9f3f254658681295cd8198b6dd2d97e0435a4ae"
+    },
+    {
+      "kind": "item",
+      "id": 2617435668,
+      "key": "2617435668",
+      "path": "/deadlock/items/2617435668.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/curse.webp",
+      "sha256": "6babe0d6ced4fef96b867f62a112b6eb995d301758224979c8de9de4e157f09f"
+    },
+    {
+      "kind": "item",
+      "id": 2678489038,
+      "key": "2678489038",
+      "path": "/deadlock/items/2678489038.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/hollow_point.webp",
+      "sha256": "4cce597c1143b9010e7e8b5a5e4095b22f910629eb1642b421de3d8b4c170b0c"
+    },
+    {
+      "kind": "item",
+      "id": 2717651715,
+      "key": "2717651715",
+      "path": "/deadlock/items/2717651715.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_duration.webp",
+      "sha256": "9cc7947dbca6893a8d663b301714fd2185c6fe2e18d922d8fcc5849f35aa3456"
+    },
+    {
+      "kind": "item",
+      "id": 2739107182,
+      "key": "2739107182",
+      "path": "/deadlock/items/2739107182.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/burst_fire.webp",
+      "sha256": "9e1ba2d5435e11645c4d42e44859953354d347e3a9a0002d3e977caa8d4b8443"
+    },
+    {
+      "kind": "item",
+      "id": 2800629741,
+      "key": "2800629741",
+      "path": "/deadlock/items/2800629741.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/magic_carpet.webp",
+      "sha256": "7b70c7ea7fd629d5259b72f59634bd81f7a2cb1cc6087e87393f2c6e4c68ec5a"
+    },
+    {
+      "kind": "item",
+      "id": 2820116164,
+      "key": "2820116164",
+      "path": "/deadlock/items/2820116164.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/diviners_kevlar.webp",
+      "sha256": "a8481d236208810936344949f9169087d616e0937ee204f28ff4bd3bb1e20487"
+    },
+    {
+      "kind": "item",
+      "id": 2829638276,
+      "key": "2829638276",
+      "path": "/deadlock/items/2829638276.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_regen.webp",
+      "sha256": "912122190aa6d51d678da7c04778ce83f10047db0b95be01cc94a54c85bb3edf"
+    },
+    {
+      "kind": "item",
+      "id": 2922054143,
+      "key": "2922054143",
+      "path": "/deadlock/items/2922054143.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/rusted_barrel.webp",
+      "sha256": "d7164c7ac86f52d0479c86870fad6aa1dbffa8be40aba8744d3520d171ae2763"
+    },
+    {
+      "kind": "item",
+      "id": 2947183272,
+      "key": "2947183272",
+      "path": "/deadlock/items/2947183272.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/radiant_regeneration.webp",
+      "sha256": "1527a1cf30dd0d7d5289d9101d14d21adc4a7ef2d3c158f8c8c45d90f21d53d3"
+    },
+    {
+      "kind": "item",
+      "id": 2951612397,
+      "key": "2951612397",
+      "path": "/deadlock/items/2951612397.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/duration_extender.webp",
+      "sha256": "9fd2d59b6c38cd625c7ba11dcb355f724eec5d8c0a1d331f6b684bc095706f18"
+    },
+    {
+      "kind": "item",
+      "id": 2956256701,
+      "key": "2956256701",
+      "path": "/deadlock/items/2956256701.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_nova.webp",
+      "sha256": "1ebf42b2b3e5d13f5a624e7eef883c85e24748100b7da3fe26c2bbac1f771c08"
+    },
+    {
+      "kind": "item",
+      "id": 2971868509,
+      "key": "2971868509",
+      "path": "/deadlock/items/2971868509.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/bullet_resist_shredder.webp",
+      "sha256": "548e3a0ceac41bc7aa9e6d54f56b33a4630522afb80da02d5dd17c91061e1fd4"
+    },
+    {
+      "kind": "item",
+      "id": 3005970438,
+      "key": "3005970438",
+      "path": "/deadlock/items/3005970438.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/escalating_exposure.webp",
+      "sha256": "971af1cef70e915d268d09f20dedca900e4eda7e426a8c5a8107c4e2f70cdf6f"
+    },
+    {
+      "kind": "item",
+      "id": 3028234315,
+      "key": "3028234315",
+      "path": "/deadlock/items/3028234315.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/witchmail.webp",
+      "sha256": "588ea7711427d9ceda3c0d386b7b83179138a397ccfd2afe106d3830c917c204"
+    },
+    {
+      "kind": "item",
+      "id": 3074274290,
+      "key": "3074274290",
+      "path": "/deadlock/items/3074274290.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/trophy_collector.webp",
+      "sha256": "32233640a4ad6296fe35ac24ab1b42a2418af4f4b8d09213e6691e9fc0364818"
+    },
+    {
+      "kind": "item",
+      "id": 3077079169,
+      "key": "3077079169",
+      "path": "/deadlock/items/3077079169.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/high_velocity_rounds.webp",
+      "sha256": "b7d14951a63f0350ba5e45095de20b325e568581c3bcedc80674c13889ed7983"
+    },
+    {
+      "kind": "item",
+      "id": 3140772621,
+      "key": "3140772621",
+      "path": "/deadlock/items/3140772621.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_resilience.webp",
+      "sha256": "611b0ab09d0819caaa06c776d9a09e75829fd4c92db53ebf795b126ba75c6521"
+    },
+    {
+      "kind": "item",
+      "id": 3144988365,
+      "key": "3144988365",
+      "path": "/deadlock/items/3144988365.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp",
+      "sha256": "df5dcf4f0d07c2a5562446de079ac71653a730113c19b645cbcc4651507067ed"
+    },
+    {
+      "kind": "item",
+      "id": 3190916303,
+      "key": "3190916303",
+      "path": "/deadlock/items/3190916303.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_snatch.webp",
+      "sha256": "4b79c265d3e6fa0311fe4d65262aebcd8bad18334109356e150d18bcc604ed19"
+    },
+    {
+      "kind": "item",
+      "id": 3261353684,
+      "key": "3261353684",
+      "path": "/deadlock/items/3261353684.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_cooldown.webp",
+      "sha256": "cc3d67bfd66d21c615412b891843654d584028cbedb991be0f7ac13e91c05275"
+    },
+    {
+      "kind": "item",
+      "id": 3269957497,
+      "key": "3269957497",
+      "path": "/deadlock/items/3269957497.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/brawl/infinite_rounds.webp",
+      "sha256": "1ad17b8126f554d98a70efa0bcb39f70151ad0f94f52572df7aa814cf9227155"
+    },
+    {
+      "kind": "item",
+      "id": 3270001687,
+      "key": "3270001687",
+      "path": "/deadlock/items/3270001687.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/warp_stone.webp",
+      "sha256": "d2e514e4b39dfdfa9f398bd8f92b66bae8d04a1c5b590b060f8336eff19b8600"
+    },
+    {
+      "kind": "item",
+      "id": 3294954488,
+      "key": "3294954488",
+      "path": "/deadlock/items/3294954488.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_seal.webp",
+      "sha256": "a175beaefd11fe72a4ebe9dbb91c75221718de692f93e9c7863bc97041d1d303"
+    },
+    {
+      "kind": "item",
+      "id": 3331811235,
+      "key": "3331811235",
+      "path": "/deadlock/items/3331811235.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/long_range.webp",
+      "sha256": "275bc6ebf5f75513bad2c0fcf8d5dacbed0fdc122e7d0738e064a4330d166fc3"
+    },
+    {
+      "kind": "item",
+      "id": 334300056,
+      "key": "334300056",
+      "path": "/deadlock/items/334300056.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/stamina_mastery.webp",
+      "sha256": "7fe8b046b242262fa8e02276e883b0f4a2f0e0fd86a9342f021e5c8386529831"
+    },
+    {
+      "kind": "item",
+      "id": 3357231760,
+      "key": "3357231760",
+      "path": "/deadlock/items/3357231760.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/unstoppable.webp",
+      "sha256": "929ca220631a462ed3f0b34acf8bc298f12a348a529cea67518c6e09726b1d85"
+    },
+    {
+      "kind": "item",
+      "id": 3361075077,
+      "key": "3361075077",
+      "path": "/deadlock/items/3361075077.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp",
+      "sha256": "f3cc7866eab25c461c2992b596e8c70a0f6c52756d908560e94a233b2012a629"
+    },
+    {
+      "kind": "item",
+      "id": 3361811174,
+      "key": "3361811174",
+      "path": "/deadlock/items/3361811174.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/cheat_death.webp",
+      "sha256": "b0907684618d29b35354cc8149f94b90309eacf0cbc2e58763d5999a69b5ab4b"
+    },
+    {
+      "kind": "item",
+      "id": 339443430,
+      "key": "339443430",
+      "path": "/deadlock/items/339443430.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/frenzy.webp",
+      "sha256": "65ecab7f6b4cfe390469909a0d3ebaa5088c00ab203a20b09ed7ef965de71242"
+    },
+    {
+      "kind": "item",
+      "id": 3399065363,
+      "key": "3399065363",
+      "path": "/deadlock/items/3399065363.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/sprint_boots.webp",
+      "sha256": "cbcdeaf680e8a521ae23b55f4ba2ebcae38c228cf1c9d093f657addbfaff5959"
+    },
+    {
+      "kind": "item",
+      "id": 3403085434,
+      "key": "3403085434",
+      "path": "/deadlock/items/3403085434.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/fleetfoot.webp",
+      "sha256": "6170a01e5a7ccd8db5dd9c1b2d5161eafb8e73ef4117188421fda41a6eba3314"
+    },
+    {
+      "kind": "item",
+      "id": 343572757,
+      "key": "343572757",
+      "path": "/deadlock/items/343572757.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_burn.webp",
+      "sha256": "5ca4775827886a509b986d345b36af680c3aa1af61692ef4b02e1945f8a10f34"
+    },
+    {
+      "kind": "item",
+      "id": 3491236900,
+      "key": "3491236900",
+      "path": "/deadlock/items/3491236900.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/plated_armor.webp",
+      "sha256": "8cd2f7540d5b94b2754a772335f81d39cab83297fe6e80ab09478f3840a8c923"
+    },
+    {
+      "kind": "item",
+      "id": 3523480953,
+      "key": "3523480953",
+      "path": "/deadlock/items/3523480953.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/brawl/cloak_of_opportunity.webp",
+      "sha256": "1e59ce3d79b854a59703a9607356ffb86ec1ccccd70f2ca79f097361ec252b3b"
+    },
+    {
+      "kind": "item",
+      "id": 3568217437,
+      "key": "3568217437",
+      "path": "/deadlock/items/3568217437.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/brawl/eldritch_shot.webp",
+      "sha256": "2305c7550813d48bedeca932af7cd4217ae4ee4f39eae02359ff76a5b7593020"
+    },
+    {
+      "kind": "item",
+      "id": 3577481646,
+      "key": "3577481646",
+      "path": "/deadlock/items/3577481646.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_reverb.webp",
+      "sha256": "e74bf964f7dbfd972d501074ec901dde33a565be9cf55a268468ce0377d0dcf7"
+    },
+    {
+      "kind": "item",
+      "id": 3585132399,
+      "key": "3585132399",
+      "path": "/deadlock/items/3585132399.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp",
+      "sha256": "680c161b0ed1a82c44ee8d6ab4025d0b7f61aa111878a4ac6a4c60c0e9220558"
+    },
+    {
+      "kind": "item",
+      "id": 3633614685,
+      "key": "3633614685",
+      "path": "/deadlock/items/3633614685.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_health.webp",
+      "sha256": "9d4a43e954499394d22ab37e4ecd70f47261f88679d9eef9278fcfffb5fc48d2"
+    },
+    {
+      "kind": "item",
+      "id": 3647584222,
+      "key": "3647584222",
+      "path": "/deadlock/items/3647584222.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/split_shot.webp",
+      "sha256": "d1562a45a77f9f36e924161bfb432cc401dc9f8b6809971a650ebf36241c45a0"
+    },
+    {
+      "kind": "item",
+      "id": 365620721,
+      "key": "365620721",
+      "path": "/deadlock/items/365620721.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/glass_cannon.webp",
+      "sha256": "bbb5a3dd86872831b18c52cfa9a66725a964a36d08010ba0ddf0f26350cddc5e"
+    },
+    {
+      "kind": "item",
+      "id": 3696726732,
+      "key": "3696726732",
+      "path": "/deadlock/items/3696726732.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/toxic_bullets.webp",
+      "sha256": "cae7428c6dc2d40f1c6642c45ee40de55153e642373ac1d90c5217084cce6e97"
+    },
+    {
+      "kind": "item",
+      "id": 3729138568,
+      "key": "3729138568",
+      "path": "/deadlock/items/3729138568.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/brawl/celestial_guidance.webp",
+      "sha256": "c04715d4aea4d71c1dd1e5f07a53b673275aefecd249e35c464dd2b92b7e6e83"
+    },
+    {
+      "kind": "item",
+      "id": 3731635960,
+      "key": "3731635960",
+      "path": "/deadlock/items/3731635960.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/debuff_remover.webp",
+      "sha256": "685d397e28280a9758c88abf8fa5c7c67cba1fbf28e82f477d8a90eaf912116a"
+    },
+    {
+      "kind": "item",
+      "id": 3776945997,
+      "key": "3776945997",
+      "path": "/deadlock/items/3776945997.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/extra_charge.webp",
+      "sha256": "ea6ecf288a19e082293f46e72591c0bedcb0a57f8dadd78141e739dcfb3d70fb"
+    },
+    {
+      "kind": "item",
+      "id": 3791587546,
+      "key": "3791587546",
+      "path": "/deadlock/items/3791587546.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/weighted_shots.webp",
+      "sha256": "d991c6079d88d70b8a8c9a8a3113ea2ced6a7862d41591e3a6c269dba7437456"
+    },
+    {
+      "kind": "item",
+      "id": 380806748,
+      "key": "380806748",
+      "path": "/deadlock/items/380806748.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/improved_cooldown.webp",
+      "sha256": "8c9e8c0290517f5d0be74aac8cf301d50c15f2c5ecef5dda992e53c6fc7731bb"
+    },
+    {
+      "kind": "item",
+      "id": 3812615317,
+      "key": "3812615317",
+      "path": "/deadlock/items/3812615317.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/arctic_blast.webp",
+      "sha256": "8f97e1b3342d85ad0f2e41dd9de9a8672bbc09ac85eea4af9ccfe4cf7a7f5543"
+    },
+    {
+      "kind": "item",
+      "id": 381961617,
+      "key": "381961617",
+      "path": "/deadlock/items/381961617.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp",
+      "sha256": "731dda4fb80131affcbf5936d2702588422a95179a20e1e6b7f3d6d7f30c61e1"
+    },
+    {
+      "kind": "item",
+      "id": 3862866912,
+      "key": "3862866912",
+      "path": "/deadlock/items/3862866912.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp",
+      "sha256": "03ff6437255f2466ba93e683a04013edb5c8f85a5de2bba3fb7760ff119fa72a"
+    },
+    {
+      "kind": "item",
+      "id": 3884003354,
+      "key": "3884003354",
+      "path": "/deadlock/items/3884003354.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crippling_headshot.webp",
+      "sha256": "59deab267ccdbe71e0c2bec5fbb2d41032b90d807f77f686d190a3a3727edb76"
+    },
+    {
+      "kind": "item",
+      "id": 3919289022,
+      "key": "3919289022",
+      "path": "/deadlock/items/3919289022.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mercurial_magnum.webp",
+      "sha256": "1fb3113a100900bb223370b8ab56f4c275e4f6889b2adae55178af71d7d62ea5"
+    },
+    {
+      "kind": "item",
+      "id": 393974127,
+      "key": "393974127",
+      "path": "/deadlock/items/393974127.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/slowing_bullets.webp",
+      "sha256": "4953eeac7f763c3eb609126753ac93aa21d75bded232db0da927e0d621021fb1"
+    },
+    {
+      "kind": "item",
+      "id": 3949773228,
+      "key": "3949773228",
+      "path": "/deadlock/items/3949773228.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/brawl/nullification_aura.webp",
+      "sha256": "cea8f6a164c6ad1ade0a0a94ef7123ba0262b1de4ed04600e1b90513f374122f"
+    },
+    {
+      "kind": "item",
+      "id": 395867183,
+      "key": "395867183",
+      "path": "/deadlock/items/395867183.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/mystic_shot.webp",
+      "sha256": "d422748ca0065dc0e8667b08b03760db81e6330554d21aac505385023ee91c49"
+    },
+    {
+      "kind": "item",
+      "id": 395944548,
+      "key": "395944548",
+      "path": "/deadlock/items/395944548.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/torment_pulse.webp",
+      "sha256": "0e884db2f34e5e7787b879a03e084bf62cf2bc208d0f0ac22c2be645727e6bcc"
+    },
+    {
+      "kind": "item",
+      "id": 3970837787,
+      "key": "3970837787",
+      "path": "/deadlock/items/3970837787.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/enchanters_emblem.webp",
+      "sha256": "f5bd5fb5275d797fc56b1bd82d2ce18b2342c6952130a9c9f53c2be9d7b43cc7"
+    },
+    {
+      "kind": "item",
+      "id": 3977876567,
+      "key": "3977876567",
+      "path": "/deadlock/items/3977876567.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/kinetic_dash.webp",
+      "sha256": "3aba4dca78af9f2c5e7d4cf3aeaabda688c2fd4de04b05afd6d1dd3496c0bc52"
+    },
+    {
+      "kind": "item",
+      "id": 4050602737,
+      "key": "4050602737",
+      "path": "/deadlock/items/4050602737.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/brawl/patrons_blessing.webp",
+      "sha256": "186112a4ae25491a405c2b2318c0a9680855fc2ca9a593473edbb43b94a096f8"
+    },
+    {
+      "kind": "item",
+      "id": 4053935515,
+      "key": "4053935515",
+      "path": "/deadlock/items/4053935515.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headhunter.webp",
+      "sha256": "8ea99e5a75b30e3a3a9d6e564c39c16e3d6f77d4b46aff902f49a5d5fbf9599f"
+    },
+    {
+      "kind": "item",
+      "id": 4075861416,
+      "key": "4075861416",
+      "path": "/deadlock/items/4075861416.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spellslinger_headshots.webp",
+      "sha256": "11fe0f356b6c686058bc8020a06be14a43b618bce921e55cff7516463266ae58"
+    },
+    {
+      "kind": "item",
+      "id": 4104549924,
+      "key": "4104549924",
+      "path": "/deadlock/items/4104549924.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/swift_striker.webp",
+      "sha256": "81f46dc0f04de110a67390e0a456d8aa08c197853ba3eefc54b0080e6ba17adb"
+    },
+    {
+      "kind": "item",
+      "id": 4121584236,
+      "key": "4121584236",
+      "path": "/deadlock/items/4121584236.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/brawl/shrink_ray.webp",
+      "sha256": "9c2d82bf81c4102a0ed52873ac4f92c28f72c810b019c1317da49292461433cc"
+    },
+    {
+      "kind": "item",
+      "id": 4139877411,
+      "key": "4139877411",
+      "path": "/deadlock/items/4139877411.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_stamina.webp",
+      "sha256": "735a9978f946c700377dd2708d5737ce3528b782f3be9de67882927db083d81d"
+    },
+    {
+      "kind": "item",
+      "id": 4204808176,
+      "key": "4204808176",
+      "path": "/deadlock/items/4204808176.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/rebuttal.webp",
+      "sha256": "00935e006ea0e34c622815b131ba4ce60ff8850bafa2a2fa7ffda0bfdb9c7624"
+    },
+    {
+      "kind": "item",
+      "id": 424779525,
+      "key": "424779525",
+      "path": "/deadlock/items/424779525.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/brawl/omnicharge_pendant.webp",
+      "sha256": "1611d8967bf8a8ab7ba90a8d8b4cbc96b5c82390d7418e873a022b3befe4f294"
+    },
+    {
+      "kind": "item",
+      "id": 465043967,
+      "key": "465043967",
+      "path": "/deadlock/items/465043967.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_strike.webp",
+      "sha256": "327e3842eaf2e2fca698dd286e04cc3b4d027e073ea7aabfd7020d218e3bd5f1"
+    },
+    {
+      "kind": "item",
+      "id": 493591231,
+      "key": "493591231",
+      "path": "/deadlock/items/493591231.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/lightning_scroll.webp",
+      "sha256": "ed7c77429575ad011d57f633fdaf11c17a304749f09ee49334d8d4e2f13b74a5"
+    },
+    {
+      "kind": "item",
+      "id": 499683006,
+      "key": "499683006",
+      "path": "/deadlock/items/499683006.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_lifesteal.webp",
+      "sha256": "9afaadcb34e73099f392f7dad5314511f30967e3732c832bbd2fc4ea7cc94663"
+    },
+    {
+      "kind": "item",
+      "id": 600033864,
+      "key": "600033864",
+      "path": "/deadlock/items/600033864.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp",
+      "sha256": "6f3c531e1369afa0d870292a605097dcf3363fae3bfd8c33b4cde250e7d30780"
+    },
+    {
+      "kind": "item",
+      "id": 619484391,
+      "key": "619484391",
+      "path": "/deadlock/items/619484391.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/silence_glyph.webp",
+      "sha256": "566b6091485c6b79233f7b1e22f2cc3d84fff1cd893b2a5945b0f6f017b67d2a"
+    },
+    {
+      "kind": "item",
+      "id": 630839635,
+      "key": "630839635",
+      "path": "/deadlock/items/630839635.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/echo_shard.webp",
+      "sha256": "7374ca3eaf1754f03b696d4b68c110ccd8d41c36cee1caaa4ffcf389863f290b"
+    },
+    {
+      "kind": "item",
+      "id": 64550694,
+      "key": "64550694",
+      "path": "/deadlock/items/64550694.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/brawl/runed_gauntlets.webp",
+      "sha256": "291f9b17f515331ebd8ca9a1f1f02798366dfc8bb0fe6d85fe1ea1144a9f12ad"
+    },
+    {
+      "kind": "item",
+      "id": 668299740,
+      "key": "668299740",
+      "path": "/deadlock/items/668299740.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/rapid_rounds.webp",
+      "sha256": "571afdee7709863eca2dd9974c8808d855d9eeb7f96f0d7ae57d6aeb6fd2fb50"
+    },
+    {
+      "kind": "item",
+      "id": 673001892,
+      "key": "673001892",
+      "path": "/deadlock/items/673001892.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/armor_piercing_rounds.webp",
+      "sha256": "4e7bc14cbaab315c2bd695e689f64597d7b4922915d6355dad191cc47e722122"
+    },
+    {
+      "kind": "item",
+      "id": 677738769,
+      "key": "677738769",
+      "path": "/deadlock/items/677738769.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/refresher.webp",
+      "sha256": "3497c8440ff3e39937ce93bfd80d2dd5a7f6ed88e01013c843eb3d618ce57659"
+    },
+    {
+      "kind": "item",
+      "id": 690458959,
+      "key": "690458959",
+      "path": "/deadlock/items/690458959.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/express_shot.webp",
+      "sha256": "13a8f209d4851fd99fb29e579f7eab5665e568446e149b1193141f12333661ef"
+    },
+    {
+      "kind": "item",
+      "id": 709540378,
+      "key": "709540378",
+      "path": "/deadlock/items/709540378.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/cultist_sacrifice.webp",
+      "sha256": "7bc8391e6be6ffe7d2093fb0e93d46e1688c6a3dc8c3b77d6ed00bc3e8e07074"
+    },
+    {
+      "kind": "item",
+      "id": 710436191,
+      "key": "710436191",
+      "path": "/deadlock/items/710436191.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/capacitor.webp",
+      "sha256": "b4f6df3468940c9418949ede89fea5f9cb27da9cf390e67fedbecdcc3da3e916"
+    },
+    {
+      "kind": "item",
+      "id": 7409189,
+      "key": "7409189",
+      "path": "/deadlock/items/7409189.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/improved_spirit.webp",
+      "sha256": "00c7316d0267dd2199d3469ca4a44a3cf2029b8307b44f8150fd8b3809f7bdf9"
+    },
+    {
+      "kind": "item",
+      "id": 754480263,
+      "key": "754480263",
+      "path": "/deadlock/items/754480263.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_reach.webp",
+      "sha256": "ab35cfded06f4d461df7f5eeefc524b5ba351904c6409e11adef68fc9ea36805"
+    },
+    {
+      "kind": "item",
+      "id": 787198704,
+      "key": "787198704",
+      "path": "/deadlock/items/787198704.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/rapid_recharge.webp",
+      "sha256": "98805dc0caca930e61bf7a0194d5e71177926c22e3d57013de9f9dd4ccad7f25"
+    },
+    {
+      "kind": "item",
+      "id": 800008313,
+      "key": "800008313",
+      "path": "/deadlock/items/800008313.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crushing_fists.webp",
+      "sha256": "d7da21f452dc2835461b6794a4f0ccb2a30e6de53a1062782496722486ae7ff3"
+    },
+    {
+      "kind": "item",
+      "id": 805079544,
+      "key": "805079544",
+      "path": "/deadlock/items/805079544.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/weapon_shielding.webp",
+      "sha256": "026cc5fca6de2eea4f4ad6ec729f4ab065fe729bb022fc9fedc4f187c77e3ee7"
+    },
+    {
+      "kind": "item",
+      "id": 811521119,
+      "key": "811521119",
+      "path": "/deadlock/items/811521119.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/tesla_bullets.webp",
+      "sha256": "b6a33356229275454771b562544858402fc68cfad8ff4f340803c961a229b041"
+    },
+    {
+      "kind": "item",
+      "id": 84321454,
+      "key": "84321454",
+      "path": "/deadlock/items/84321454.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/quicksilver_reload.webp",
+      "sha256": "71501f737b64e0ecd7b89051703b0d3ea94c6ac106912e6314cd5da50debc543"
+    },
+    {
+      "kind": "item",
+      "id": 857669956,
+      "key": "857669956",
+      "path": "/deadlock/items/857669956.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/guardian_ward.webp",
+      "sha256": "05675ccc14d1531b26ace968448cae9212dcfdfeaaf64449bda70844bb35e1c3"
+    },
+    {
+      "kind": "item",
+      "id": 865846625,
+      "key": "865846625",
+      "path": "/deadlock/items/865846625.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/leech.webp",
+      "sha256": "b914d0b6886193565981c111ab0481d6095312ed528f7036abd25ae6246d4c15"
+    },
+    {
+      "kind": "item",
+      "id": 865958998,
+      "key": "865958998",
+      "path": "/deadlock/items/865958998.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp",
+      "sha256": "99c52453d54b1bd3d642052a0a8a4e6ed1f35e0106b9f421039182b7da9259d9"
+    },
+    {
+      "kind": "item",
+      "id": 876563814,
+      "key": "876563814",
+      "path": "/deadlock/items/876563814.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spirit_lifesteal.webp",
+      "sha256": "9b51146447c470893b41a8b38088aaf062a59223f8ab8a1973f6f7f7a119748d"
+    },
+    {
+      "kind": "item",
+      "id": 915014646,
+      "key": "915014646",
+      "path": "/deadlock/items/915014646.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/transcendent_cooldown.webp",
+      "sha256": "ecd00213366fbdc0f0f87ca5acd6b207b5eccf4222266b84fd38eca6fab59c28"
+    },
+    {
+      "kind": "item",
+      "id": 951866250,
+      "key": "951866250",
+      "path": "/deadlock/items/951866250.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/indomitable.webp",
+      "sha256": "fb6a030d96735d5fbe70a1bc11f7be7a11eb9e513ca686548529d04304f8744b"
+    },
+    {
+      "kind": "item",
+      "id": 968099481,
+      "key": "968099481",
+      "path": "/deadlock/items/968099481.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/extra_spirit.webp",
+      "sha256": "980e052a18257b01e8042d5b0f135e75d1475631b1bd59250c59f131a0ea2232"
+    },
+    {
+      "kind": "item",
+      "id": 98582110,
+      "key": "98582110",
+      "path": "/deadlock/items/98582110.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/backstabber.webp",
+      "sha256": "16e2e652c993b631ec83a5f68d6c0f1b166422d069727fa227fd2fa2c849d6cc"
+    },
+    {
+      "kind": "item",
+      "id": 989206714,
+      "key": "989206714",
+      "path": "/deadlock/items/989206714.webp",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/blood_tribute.webp",
+      "sha256": "f8d43d1347e6aed930826710d9b1c0d56223fa771c70fbd46c934fb2513222d7"
+    }
+  ]
+}

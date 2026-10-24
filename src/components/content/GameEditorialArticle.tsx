@@ -2,28 +2,69 @@ import Link from 'next/link'
 import Image from 'next/image'
 import PublicNav from '@/components/layout/PublicNav'
 import JsonLd from './JsonLd'
+import DeadlockAbilityKit from './DeadlockAbilityKit'
 import { GAMES, gamePath } from '@/lib/games'
 import { SECTION_KIND, editorialVersion, type EditorialArticle } from '@/lib/editorial-record'
 import { publishedEditorial } from '@/lib/editorial-store'
+import { DEADLOCK_MEDIA_VERSION, deadlockAbilityForHeading, getDeadlockCellMedia, getDeadlockHeroMedia } from '@/lib/deadlock-media'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
+
 const sectionLabels: Record<string, string> = { heroes: 'Héroes', counters: 'Counters', builds: 'Builds', guides: 'Guías', news: 'Noticias', 'patch-notes': 'Parches', maps: 'Mapas', 'team-comps': 'Composiciones' }
+
+function TableCellContent({ text, game }: { text: string; game: EditorialArticle['game'] }) {
+  const media = game === 'deadlock' ? getDeadlockCellMedia(text) : undefined
+  return media ? <span className={`deadlock-cell-media deadlock-cell-${media.type}`}><Image src={media.icon} alt="" width={40} height={40} unoptimized /><span>{text}</span></span> : <>{text}</>
+}
+
 export default async function GameEditorialArticle({ article: a, preview = false }: { article: EditorialArticle; preview?: boolean }) {
-  const section = Object.keys(SECTION_KIND).find(s => SECTION_KIND[s] === a.kind)!
+  const section = Object.keys(SECTION_KIND).find(section => SECTION_KIND[section] === a.kind)!
   const publishedPaths = a.game === 'deadlock' ? new Set((await publishedEditorial('deadlock')).map(article => article.path)) : null
-  const heroSections = a.game === 'deadlock' ? ['heroes','counters','builds'] : ['heroes','counters','team-comps']
-  const links = a.hero ? heroSections.filter(s => s !== section && (!publishedPaths || publishedPaths.has(gamePath(a.game,s,a.hero)))) : []
+  const heroSections = a.game === 'deadlock' ? ['heroes', 'counters', 'builds'] : ['heroes', 'counters', 'team-comps']
+  const links = a.hero ? heroSections.filter(item => item !== section && (!publishedPaths || publishedPaths.has(gamePath(a.game, item, a.hero)))) : []
   const related = a.related?.filter(link => !publishedPaths || publishedPaths.has(link.href))
+  const fallbackHero = a.game === 'deadlock' ? getDeadlockHeroMedia(a.hero) : undefined
+  const hero = fallbackHero ? { ...fallbackHero, abilities: a.abilities ?? fallbackHero.abilities } : undefined
+  const illustrated = a.kind === 'hero' && Boolean(hero)
+  const title = <>
+    <p className="eyebrow">{GAMES[a.game].name} · {sectionLabels[section]}</p>
+    <h1>{a.title}</h1><p className="game-lead">{a.description}</p>
+    <p className="game-meta">Actualizado el {new Date(a.updatedAt).toLocaleDateString('es-ES', { timeZone: 'Europe/Madrid' })} · {a.patch}</p>
+  </>
+
   return <div className={`game-page game-${a.game}`}><PublicNav />
-    {!preview && <JsonLd data={{'@context':'https://schema.org','@type':a.kind === 'news' ? 'NewsArticle' : 'Article',headline:a.title,description:a.description,url:absoluteUrl(a.path),datePublished:a.publishedAt,dateModified:a.updatedAt,inLanguage:'es',author:{'@type':'Organization',name:SITE_NAME},publisher:{'@type':'Organization',name:SITE_NAME},citation:a.sources.map(s=>s.url)}} />}
-    <main className="game-article" data-editorial-version={editorialVersion(a)}><nav className="game-breadcrumb" aria-label="Ruta de navegación"><Link href="/">Replaid Lab</Link><span>/</span><Link href={GAMES[a.game].href}>{GAMES[a.game].name}</Link><span>/</span><Link href={gamePath(a.game,section)}>Explorar sección</Link></nav>
+    {!preview && <JsonLd data={{ '@context': 'https://schema.org', '@type': a.kind === 'news' ? 'NewsArticle' : 'Article', headline: a.title, description: a.description, url: absoluteUrl(a.path), datePublished: a.publishedAt, dateModified: a.updatedAt, inLanguage: 'es', author: { '@type': 'Organization', name: SITE_NAME }, publisher: { '@type': 'Organization', name: SITE_NAME }, citation: a.sources.map(source => source.url) }} />}
+    <main className={`game-article${illustrated ? ' game-article-illustrated' : ''}`} data-editorial-version={editorialVersion(a)} data-media-version={a.game === 'deadlock' ? DEADLOCK_MEDIA_VERSION : undefined}>
+      <nav className="game-breadcrumb" aria-label="Ruta de navegación"><Link href="/">Replaid Lab</Link><span>/</span><Link href={GAMES[a.game].href}>{GAMES[a.game].name}</Link><span>/</span><Link href={gamePath(a.game, section)}>{sectionLabels[section]}</Link></nav>
       {preview && <p role="status">Vista previa de revisión · aún no publicada</p>}
-      <p className="eyebrow">{GAMES[a.game].name} · {sectionLabels[section]}</p><h1>{a.title}</h1><p className="game-lead">{a.description}</p><p className="game-meta">Actualizado el {new Date(a.updatedAt).toLocaleDateString('es-ES',{timeZone:'Europe/Madrid'})} · {a.patch}</p>{a.image && <Image className="game-article-image" src={a.image} alt={a.aliases?.[0]??a.title} width={200} height={260}/>}<p>{a.intro}</p>
-      <nav aria-label="En este artículo" className="game-toc">{a.sections.map((s,i)=><a key={i} href={`#apartado-${i}`}>{s.title}</a>)}</nav>
-      {a.sections.map((s,i)=><section id={`apartado-${i}`} key={i}><h2>{s.title}</h2>{s.body.map((p,j)=><p key={j}>{p}</p>)}{s.bullets && <ul>{s.bullets.map((p,j)=><li key={j}>{p}</li>)}</ul>}{s.table && <div className="game-table-scroll" role="region" aria-label={s.title} tabIndex={0}><table className="game-data-table"><thead><tr>{s.table.columns.map(c=><th scope="col" key={c}>{c}</th>)}</tr></thead><tbody>{s.table.rows.map((r,j)=><tr key={j}>{r.map((c,k)=>k===0?<th scope="row" key={k}>{c}</th>:<td key={k}>{c}</td>)}</tr>)}</tbody></table></div>}</section>)}
-      {a.faq && a.faq.length>0 && <section><h2>Preguntas frecuentes</h2>{a.faq.map(f=><details className="game-faq" key={f.question}><summary>{f.question}</summary><p>{f.answer}</p></details>)}</section>}
-      <section className="game-checklist"><h2>Antes de tu próxima partida</h2><ul>{a.checklist.map((c,i)=><li key={i}>{c}</li>)}</ul></section>
-      {links.length > 0 && <nav className="game-related" aria-label="Sigue aprendiendo">{links.map(s=><Link key={s} href={gamePath(a.game,s,a.hero)}>{s === 'heroes' ? 'Guía del héroe' : s === 'counters' ? 'Cómo responder a este héroe' : s === 'team-comps' ? 'Composiciones y sinergias' : 'Build y compras'}</Link>)}</nav>}
-      {related && related.length > 0 && <nav className="game-related" aria-label="Guías relacionadas">{related.map(l=><Link key={l.href} href={l.href}>{l.label}</Link>)}</nav>}
-      <details className="game-sources"><summary>Referencias</summary><ul>{a.sources.map(s=><li key={s.url}><a href={s.url} target="_blank" rel="noopener noreferrer">{s.title}</a></li>)}</ul></details>
-    </main></div>
+      {illustrated && hero ? <header className="deadlock-hero-header">
+        <div>{title}<ul className="deadlock-hero-tips">{a.checklist.map(tip => <li key={tip}>{tip}</li>)}</ul></div>
+        <figure className="deadlock-hero-portrait"><Image src={hero.portrait} alt={hero.name} fill sizes="(max-width: 700px) 280px, 340px" priority /><figcaption>{hero.name}{hero.aliases.filter(alias => alias !== hero.name).length > 0 && <small>{hero.aliases.filter(alias => alias !== hero.name).join(' · ')}</small>}</figcaption></figure>
+      </header> : <>{title}{a.image && <Image className="game-article-image" src={a.image} alt={a.aliases?.[0] ?? a.title} width={200} height={260} />}</>}
+
+      <div className="game-article-reading">
+        <p className="game-article-intro">{a.intro}</p>
+        {illustrated && hero && <DeadlockAbilityKit hero={hero} sections={a.sections} />}
+        <nav aria-label="En este artículo" className="game-toc">{a.sections.map((section, i) => <a key={i} href={`#apartado-${i}`}>{section.title}</a>)}</nav>
+        {a.sections.map((section, i) => {
+          const ability = illustrated ? deadlockAbilityForHeading(hero, section.title) : undefined
+          return <section id={`apartado-${i}`} key={i}>
+            <h2 className={ability ? 'deadlock-ability-heading' : undefined}>{ability && <Image src={ability.icon} alt="" width={52} height={52} unoptimized />}<span>{section.title}</span></h2>
+            {section.body.map((paragraph, j) => <p key={j}>{paragraph}</p>)}
+            {section.bullets && <ul>{section.bullets.map((bullet, j) => <li key={j}>{bullet}</li>)}</ul>}
+            {section.table && <div className="game-table-scroll" role="region" aria-label={section.title} tabIndex={0}><table className="game-data-table" role="table">
+              <thead><tr>{section.table.columns.map(column => <th scope="col" key={column}>{column}</th>)}</tr></thead>
+              <tbody>{section.table.rows.map((row, j) => <tr key={j}>{row.map((cell, k) => k === 0
+                ? <th scope="row" key={k} data-label={section.table!.columns[k]}><TableCellContent text={cell} game={a.game} /></th>
+                : <td key={k} data-label={section.table!.columns[k]}><TableCellContent text={cell} game={a.game} /></td>)}</tr>)}</tbody>
+            </table></div>}
+          </section>
+        })}
+        {a.faq && a.faq.length > 0 && <section><h2>Preguntas frecuentes</h2>{a.faq.map(faq => <details className="game-faq" key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>}
+        {!illustrated && <section className="game-checklist"><h2>Antes de tu próxima partida</h2><ul>{a.checklist.map((tip, i) => <li key={i}>{tip}</li>)}</ul></section>}
+        {links.length > 0 && <nav className="game-related" aria-label="Sigue aprendiendo">{links.map(section => <Link key={section} href={gamePath(a.game, section, a.hero)}>{section === 'heroes' ? 'Guía del héroe' : section === 'counters' ? 'Cómo responder a este héroe' : section === 'team-comps' ? 'Composiciones y sinergias' : 'Build y compras'}</Link>)}</nav>}
+        {related && related.length > 0 && <nav className="game-related" aria-label="Guías relacionadas">{related.map(link => <Link key={link.href} href={link.href}>{link.label}</Link>)}</nav>}
+        <details className="game-sources"><summary>Referencias</summary><ul>{a.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a></li>)}</ul></details>
+      </div>
+    </main>
+  </div>
 }

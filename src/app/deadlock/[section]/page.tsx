@@ -1,5 +1,6 @@
 import catalog from '@/lib/deadlock-catalog.json'
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import PublicNav from '@/components/layout/PublicNav'
 import { DEADLOCK_SECTIONS } from '@/lib/games'
@@ -42,11 +43,12 @@ export default async function Page({ params, searchParams }: PageProps) {
       </form>
       <p className="game-meta">{articles.length} {articles.length === 1 ? 'artículo disponible' : 'artículos disponibles'}</p>
       <div className="game-card-grid">{articles.map(a => <Link key={a.path} className="game-content-card" href={a.path}>
+        {a.image && <div className="game-card-portrait"><Image src={a.image} alt={a.aliases?.[0] ?? a.title} fill sizes="(max-width: 680px) 100vw, (max-width: 980px) 50vw, 360px" /></div>}
         <span className="eyebrow">{a.patch}</span><h2>{a.title}</h2><p>{a.description}</p><span className="game-card-action">Leer artículo ↗</span>
       </Link>)}</div>
       {otherHeroes.length > 0 && <section className="game-latest">
         <h2 className="game-section-title">Más héroes de Deadlock</h2>
-        <div className="game-catalog">{otherHeroes.map(h => <span key={h.id}>{h.name}</span>)}</div>
+        <div className="game-catalog game-visual-catalog">{otherHeroes.map(hero => <figure key={hero.id}><Image src={`/deadlock/${hero.slug}.webp`} alt="" width={140} height={190} /><figcaption>{hero.name}</figcaption></figure>)}</div>
       </section>}
       {articles.length === 0 && otherHeroes.length === 0 && <p>No hay artículos que coincidan. Prueba con otro nombre.</p>}
     </main>

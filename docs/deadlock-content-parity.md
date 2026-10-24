@@ -44,6 +44,16 @@ Se han descargado y verificado los retratos de los 44 héroes seleccionables y n
 
 **Pendiente:** conjuntos editoriales de los otros 32 héroes y auditoría final de profundidad, cobertura, navegación y presentación. Próximo grupo recomendado: Vindicta, Lady Geist, Wraith, McGinnis y Paradoja (IDs 3, 4, 7, 8 y 10). Todos los datos de habilidades en ambos idiomas están en el snapshot actual; contrastar las guías y las compras antes de redactar. La paridad sigue abierta.
 
+## Imagen y tono natural · 24 de octubre
+
+La ampliación visual utiliza retratos grandes en las fichas, tarjetas de las cuatro habilidades y sus iconos reales, retratos en el catálogo, e iconos de héroes y objetos en los matchups y compras. En móvil, las tablas de Deadlock se leen como tarjetas con etiquetas y precio visible. Se conserva la semántica de tabla, el acceso por teclado y el texto de cada celda.
+
+Los 176 iconos de habilidades y 173 de objetos proceden de los assets del cliente: `content/deadlock/ability-item-assets.json` registra identidad, URL y SHA; `src/lib/deadlock-media.json` publica el registro local. La versión de medios cubre nombres, ID y bytes y aparece en `data-media-version`. Las fichas pueden guardar sus cuatro `abilities` dentro de la revisión de Supabase; cambiar un nombre o un icono exige otra comprobación de la versión exacta. El validador impide usar iconos de otro héroe o alterar el orden de las cuatro posiciones.
+
+Preparadas y comprobadas las introducciones y consejos iniciales de las doce fichas con frases más directas y acciones concretas. Se conservan fechas originales y el resto del contenido. Las noticias de Violeta y Enfermera Harrow incorporan su retrato. Propuestas y evidencias: `reports/deadlock-parity/visual-refresh/` y `visual-news/`.
+
+La comprobación local pasa las 19 pruebas unitarias relevantes, 28 recorridos de navegador entre móvil y escritorio, lint y build. Las capturas de habilidades y de compras muestran la carga de las imágenes y sus vínculos a la explicación; muestras en `reports/deadlock-parity/visual-layout/`. La cuenta editorial sigue en 49 páginas y la cobertura pendiente continúa siendo de 32 héroes. Este cambio visual no cierra la paridad.
+
 ## Límites
 
 Pick Lab, overlays y coaching siguen fuera de esta ampliación editorial. Las fuentes públicas alimentan una síntesis original; no se copian ni traducen artículos o vídeos completos. El código y los cambios de mapas que ya estaban en curso quedan separados de este trabajo.

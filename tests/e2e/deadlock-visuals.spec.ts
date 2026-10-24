@@ -1,0 +1,41 @@
+import { test, expect } from '@playwright/test'
+
+test('hero portraits and four ability icons lead to the matching explanation', async ({ page }) => {
+  await page.goto('/deadlock/heroes/kelvin')
+  const portrait = page.locator('.deadlock-hero-portrait img')
+  await expect(portrait).toHaveAttribute('alt', 'Kelvin')
+  await expect.poll(() => portrait.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0)
+  const kit = page.getByRole('region', { name: 'Habilidades de Kelvin', exact: true })
+  await kit.scrollIntoViewIfNeeded()
+  await expect(kit.locator('.deadlock-ability-card')).toHaveCount(4)
+  const icons = kit.locator('img')
+  for (let i = 0; i < 4; i++) await expect.poll(() => icons.nth(i).evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0)
+  await kit.getByRole('link', { name: '3. Rayo Ártico: ver explicación', exact: true }).click()
+  await expect(page).toHaveURL(/#apartado-2$/)
+  await expect(page.locator('#apartado-2 h2')).toContainText('Rayo Ártico')
+  await expect(page.locator('#apartado-2 h2')).toBeInViewport()
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true)
+})
+
+test('purchases have item pictures and stay readable at the current viewport', async ({ page, isMobile }) => {
+  await page.goto('/deadlock/builds/kelvin')
+  const table = page.getByRole('table')
+  await table.scrollIntoViewIfNeeded()
+  expect(await table.locator('tbody img').count()).toBeGreaterThan(5)
+  const row = table.locator('tbody tr').first()
+  await expect(row).toContainText('Extra Charge')
+  await expect(row).toContainText('800')
+  if (isMobile) expect(await row.evaluate(element => getComputedStyle(element).display)).toBe('grid')
+  else expect(await row.evaluate(element => getComputedStyle(element).display)).toBe('table-row')
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true)
+})
+
+test('the unpublished roster has portraits without links to empty articles', async ({ page }) => {
+  await page.goto('/deadlock/heroes?q=Violet')
+  const catalog = page.locator('.game-visual-catalog')
+  await expect(catalog.locator('figure')).toHaveCount(1)
+  await expect(catalog.locator('figcaption')).toHaveText('Violeta')
+  await expect(catalog.locator('img')).toHaveAttribute('src', /violet/)
+  await expect(catalog.getByRole('link')).toHaveCount(0)
+  await expect(page.locator('main a[href="/deadlock/heroes/violet"]')).toHaveCount(0)
+})

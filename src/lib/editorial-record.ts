@@ -6,10 +6,12 @@ export type EditorialSection = {
   title: string; body: string[]; bullets?: string[]
   table?: { columns: string[]; rows: string[][] }
 }
+export type EditorialAbility = { id: number; slot: number; name: string; englishName: string; icon: string }
 export type EditorialArticle = {
   game: GameId; kind: EditorialKind; slug: string; path: string; title: string; description: string
   hero?: string; aliases?: string[]; image?: string; publishedAt: string; updatedAt: string; patch: string
   intro: string; sections: EditorialSection[]
+  abilities?: EditorialAbility[]
   faq?: { question: string; answer: string }[]
   related?: { href: string; label: string }[]
   checklist: string[]; sources: { title: string; url: string; accessedAt: string; primary?: boolean }[]
@@ -40,6 +42,12 @@ export function editorialIssues(input: unknown): string[] {
   if (Date.parse(a.updatedAt) < Date.parse(a.publishedAt)) issues.push('La actualización precede a la publicación')
   if (!Array.isArray(a.sections) || a.sections.length < 3 || a.sections.some(s => typeof s.title !== 'string' || !Array.isArray(s.body) || !s.body.length || s.body.some(p => typeof p !== 'string' || !p.trim()) || (s.bullets && (!Array.isArray(s.bullets) || s.bullets.some(b => typeof b !== 'string'))))) issues.push('Secciones incompletas')
   if (!Array.isArray(a.checklist) || a.checklist.length < 3 || a.checklist.some(c => typeof c !== 'string' || !c.trim())) issues.push('Falta checklist práctica')
+  if (a.abilities !== undefined && (a.game !== 'deadlock' || a.kind !== 'hero' || !a.hero
+    || !Array.isArray(a.abilities) || a.abilities.length !== 4
+    || a.abilities.some((ability, i) => ability.slot !== i + 1 || !Number.isInteger(ability.id) || ability.id <= 0
+      || typeof ability.name !== 'string' || !ability.name.trim() || typeof ability.englishName !== 'string' || !ability.englishName.trim()
+      || !['webp', 'png'].some(extension => ability.icon === `/deadlock/abilities/${a.hero}-${ability.slot}.${extension}`))
+    || new Set(a.abilities.map(ability => ability.id)).size !== 4)) issues.push('Habilidades visuales no válidas')
   for (const section of a.sections ?? []) {
     const table = section.table
     if (table && (!Array.isArray(table.columns) || table.columns.length < 2

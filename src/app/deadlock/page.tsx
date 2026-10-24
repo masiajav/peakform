@@ -60,6 +60,7 @@ export default async function Page() {
         <p className="eyebrow">La ciudad sigue cambiando</p>
         <div className="game-section-heading"><h2 className="game-section-title">Noticias y parches</h2><Link href="/deadlock/news">Todas las noticias ↗</Link></div>
         <div className="game-card-grid">{news.map(a => <Link className="game-content-card" key={a.path} href={a.path}>
+          {a.image && <div className="game-card-portrait"><Image src={a.image} alt={a.aliases?.[0] ?? a.title} fill sizes="(max-width: 680px) 100vw, (max-width: 980px) 50vw, 360px" /></div>}
           <span className="game-meta">{new Date(a.publishedAt).toLocaleDateString('es-ES', { timeZone: 'Europe/Madrid' })}</span><h3>{a.title}</h3><p>{a.description}</p><span className="game-card-action">Leer artículo ↗</span>
         </Link>)}</div>
       </section>}
