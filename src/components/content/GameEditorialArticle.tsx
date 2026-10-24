@@ -10,6 +10,7 @@ import { SECTION_KIND, editorialVersion, type EditorialArticle } from '@/lib/edi
 import { publishedEditorial } from '@/lib/editorial-store'
 import { DEADLOCK_MEDIA_VERSION, deadlockAbilityForHeading, deadlockAbilityHeadingTitle, getDeadlockCellMedia, getDeadlockHeroMedia } from '@/lib/deadlock-media'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
+import { deadlockBreadcrumbs, deadlockHeroLabel } from '@/lib/deadlock-seo'
 
 const sectionLabels: Record<string, string> = { heroes: 'Héroes', counters: 'Counters', builds: 'Builds', guides: 'Guías', news: 'Noticias', 'patch-notes': 'Parches', maps: 'Mapas', 'team-comps': 'Composiciones' }
 
@@ -36,7 +37,8 @@ export default async function GameEditorialArticle({ article: a, preview = false
   </>
 
   return <div className={`game-page game-${a.game}`}><PublicNav />
-    {!preview && <JsonLd data={{ '@context': 'https://schema.org', '@type': a.kind === 'news' ? 'NewsArticle' : 'Article', headline: a.title, description: a.description, url: absoluteUrl(a.path), datePublished: a.publishedAt, dateModified: a.updatedAt, inLanguage: 'es', author: { '@type': 'Organization', name: SITE_NAME }, publisher: { '@type': 'Organization', name: SITE_NAME }, ...(showReferences ? { citation: a.sources.map(source => source.url) } : {}) }} />}
+    {!preview && a.game === 'deadlock' && <JsonLd data={deadlockBreadcrumbs([{ name: SITE_NAME, path: '/' }, { name: 'Deadlock', path: '/deadlock' }, { name: sectionLabels[section], path: gamePath(a.game, section) }, { name: a.title, path: a.path }])} />}
+    {!preview && <JsonLd data={{ '@context': 'https://schema.org', '@type': a.kind === 'news' ? 'NewsArticle' : 'Article', headline: a.title, description: a.description, url: absoluteUrl(a.path), mainEntityOfPage: absoluteUrl(a.path), ...(a.image ? { image: [absoluteUrl(a.image)] } : {}), datePublished: a.publishedAt, dateModified: a.updatedAt, inLanguage: 'es', author: { '@type': 'Organization', name: SITE_NAME }, publisher: { '@type': 'Organization', name: SITE_NAME }, ...(showReferences ? { citation: a.sources.map(source => source.url) } : {}) }} />}
     <main className={`game-article${illustrated ? ' game-article-illustrated' : ''}${a.mapAtlas ? ' game-article-atlas' : ''}`} data-editorial-version={editorialVersion(a)} data-media-version={a.game === 'deadlock' ? DEADLOCK_MEDIA_VERSION : undefined}>
       <nav className="game-breadcrumb" aria-label="Ruta de navegación"><Link href="/">Replaid Lab</Link><span>/</span><Link href={GAMES[a.game].href}>{GAMES[a.game].name}</Link><span>/</span><Link href={gamePath(a.game, section)}>{sectionLabels[section]}</Link></nav>
       {preview && <p role="status">Vista previa de revisión · aún no publicada</p>}
@@ -68,7 +70,7 @@ export default async function GameEditorialArticle({ article: a, preview = false
         })}
         {a.faq && a.faq.length > 0 && <section><h2>Preguntas frecuentes</h2>{a.faq.map(faq => <details className="game-faq" key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>}
         {!illustrated && <section className="game-checklist"><h2>Antes de tu próxima partida</h2><ul>{a.checklist.map((tip, i) => <li key={i}>{tip}</li>)}</ul></section>}
-        {links.length > 0 && <nav className="game-related" aria-label="Sigue aprendiendo">{links.map(section => <Link key={section} href={gamePath(a.game, section, a.hero)}>{section === 'heroes' ? 'Guía del héroe' : section === 'counters' ? 'Cómo responder a este héroe' : section === 'team-comps' ? 'Composiciones y sinergias' : 'Build y compras'}</Link>)}</nav>}
+        {links.length > 0 && <nav className="game-related" aria-label="Sigue aprendiendo">{links.map(section => <Link key={section} href={gamePath(a.game, section, a.hero)}>{a.game === 'deadlock' ? `${section === 'heroes' ? 'Guía de' : section === 'counters' ? 'Counters de' : 'Build de'} ${deadlockHeroLabel(a.hero)}` : section === 'heroes' ? 'Guía del héroe' : section === 'counters' ? 'Cómo responder a este héroe' : section === 'team-comps' ? 'Composiciones y sinergias' : 'Build y compras'}</Link>)}</nav>}
         {related && related.length > 0 && <nav className="game-related" aria-label="Guías relacionadas">{related.map(link => <Link key={link.href} href={link.href}>{link.label}</Link>)}</nav>}
         {showReferences && <details className="game-sources"><summary>Referencias</summary><ul>{a.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a></li>)}</ul></details>}
       </div>

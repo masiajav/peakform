@@ -32,12 +32,13 @@ test('purchases have item pictures and stay readable at the current viewport', a
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true)
 })
 
-test('the unpublished roster has portraits without links to empty articles', async ({ page }) => {
+test('the published roster finds a localized hero from its English alias', async ({ page }) => {
   await page.goto('/deadlock/heroes?q=Violet')
-  const catalog = page.locator('.game-visual-catalog')
-  await expect(catalog.locator('figure')).toHaveCount(1)
-  await expect(catalog.locator('figcaption')).toHaveText('Violeta')
+  const catalog = page.locator('.dl-roster-card')
+  await expect(catalog).toHaveCount(1)
+  await expect(catalog).toContainText('Violeta')
   await expect(catalog.locator('img')).toHaveAttribute('src', /violet/)
-  await expect(catalog.getByRole('link')).toHaveCount(0)
-  await expect(page.locator('main a[href="/deadlock/heroes/violet"]')).toHaveCount(0)
+  await expect(catalog).toHaveAttribute('href', '/deadlock/heroes/violet')
+  await catalog.click()
+  await expect(page.getByRole('heading', {level:1})).toContainText('Violeta')
 })

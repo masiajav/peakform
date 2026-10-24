@@ -1,7 +1,7 @@
 export type GameId = 'overwatch' | 'deadlock'
 export const GAMES = {
   overwatch: { name: 'Overwatch', href: '/overwatch', accent: '#ff6b2b', description: 'Héroes, mapas y decisiones para mejorar en cada partida.' },
-  deadlock: { name: 'Deadlock', href: '/deadlock', accent: '#c5d99b', description: 'Domina la línea, entiende tus compras y transforma almas en objetivos.' },
+  deadlock: { name: 'Deadlock', href: '/deadlock', accent: '#c5d99b', description: 'Guías de héroes, builds para importar y el mapa de la ciudad.' },
 } as const
 export const DEADLOCK_SECTIONS = [
   { slug: 'heroes', label: 'Héroes', description: 'Habilidades, planes de partida y errores que puedes corregir.' },

@@ -25,6 +25,7 @@ import {
 } from '@/lib/indexing-policy'
 import { evergreenGuides } from '@/lib/evergreen-guides'
 import { absoluteUrl } from '@/lib/seo'
+import { deadlockHubModified } from '@/lib/deadlock-seo'
 import { getCounterPillar, getTeamCompPillar } from '@/lib/seo-clusters'
 import { getHeroPillar } from '@/lib/hero-pillars'
 import { getRankedHeroGuide } from '@/lib/ranked-hero-guides'
@@ -112,6 +113,7 @@ const MAP_LAST_MODIFIED = Object.fromEntries(
 )
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [overwatchEditorial, deadlockEditorial] = await Promise.all([publishedEditorial('overwatch'), publishedEditorial('deadlock')])
   const staticRoutes: MetadataRoute.Sitemap = [
     '',
     '/overwatch',
@@ -151,7 +153,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const guideSlug = normalizedPath.match(/^\/guides\/([^/]+)$/)?.[1]
     const reviewedRankedDate = guideSlug ? getRankedHeroGuide(guideSlug)?.modifiedAt : undefined
     const reviewedEvergreenDate = guideSlug && Object.hasOwn(evergreenGuides, guideSlug) ? evergreenGuides[guideSlug].modifiedAtIso : undefined
-    const lastModified = reviewedEvergreenDate ?? reviewedRankedDate ?? reviewedHeroDate ?? reviewedCounterDate ?? reviewedCompositionDate ?? MAP_LAST_MODIFIED[normalizedPath] ?? STATIC_LAST_MODIFIED[normalizedPath]
+    const lastModified = deadlockHubModified(normalizedPath, deadlockEditorial) ?? reviewedEvergreenDate ?? reviewedRankedDate ?? reviewedHeroDate ?? reviewedCounterDate ?? reviewedCompositionDate ?? MAP_LAST_MODIFIED[normalizedPath] ?? STATIC_LAST_MODIFIED[normalizedPath]
     return {
       url: absoluteUrl(normalizedPath),
       ...(lastModified ? { lastModified: new Date(lastModified) } : {}),
@@ -194,7 +196,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     }))
 
-  const editorial = (await Promise.all([publishedEditorial('overwatch'),publishedEditorial('deadlock')])).flat().map(a=>({url:absoluteUrl(a.path),lastModified:new Date(a.updatedAt),changeFrequency:'weekly' as const,priority:0.75}))
+  const editorial = [...overwatchEditorial, ...deadlockEditorial].map(a=>({url:absoluteUrl(a.path),lastModified:new Date(a.updatedAt),changeFrequency:'weekly' as const,priority:0.75}))
   const routes = [...staticRoutes, ...guideRoutes, ...announcementRoutes, ...expertRoutes, ...editorial]
   return Array.from(new Map(routes.map(route => [route.url, route])).values())
 }

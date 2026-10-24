@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import './deadlock.css'
 import JsonLd from '@/components/content/JsonLd'
 import VercelAnalytics from '@/components/content/VercelAnalytics'
 import PublicFooter from '@/components/layout/PublicFooter'

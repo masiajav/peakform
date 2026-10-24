@@ -46,7 +46,7 @@ export default function PublicFooter() {
       <div className="public-footer-inner">
         <div className="public-footer-brand">
           <Link href="/">REPLAID LAB</Link>
-          <p>Guías prácticas de Overwatch y Deadlock en español para entender el juego y tomar mejores decisiones.</p>
+          <p>Guías de Overwatch y Deadlock en español. Héroes, mapas y consejos para tus partidas.</p>
         </div>
 
         <nav className="public-footer-column" aria-label="Contenido de Replaid Lab">
