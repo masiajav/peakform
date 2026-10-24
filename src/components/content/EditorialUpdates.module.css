@@ -1,0 +1,141 @@
+.root {
+  --updates-muted: #aaa9a3;
+  margin: 0 0 40px;
+  min-width: 0;
+}
+
+.landing {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 12px 24px 32px;
+}
+
+.heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.heading h2 {
+  margin: 0;
+  color: var(--text);
+  font: 28px/1.1 'Bebas Neue', sans-serif;
+  letter-spacing: .6px;
+}
+
+.heading > span {
+  color: var(--updates-muted);
+  font-size: 11px;
+}
+
+.list {
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 125px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 28px;
+  padding: 26px 28px;
+  border-left: 3px solid var(--accent);
+  color: var(--text);
+  text-decoration: none;
+  transition: background .15s;
+}
+
+.card + .card {
+  border-top: 1px solid var(--border);
+}
+
+.card:hover {
+  background: var(--surface2);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 11px;
+  color: var(--updates-muted);
+}
+
+.kind {
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+  padding: 5px 9px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.copy {
+  min-width: 0;
+}
+
+.copy h3 {
+  margin: 0 0 8px;
+  font: 28px/1.12 'Bebas Neue', sans-serif;
+  letter-spacing: .4px;
+  overflow-wrap: anywhere;
+}
+
+.copy p {
+  margin: 0;
+  max-width: 680px;
+  color: var(--updates-muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent);
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+@media (max-width: 760px) {
+  .card {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 16px;
+    padding: 22px;
+  }
+
+  .meta {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .copy h3 {
+    font-size: 26px;
+  }
+
+  .action {
+    grid-column: 1 / -1;
+    justify-content: space-between;
+  }
+
+  .copy {
+    grid-column: 1 / -1;
+  }
+
+  .heading > span {
+    display: none;
+  }
+}

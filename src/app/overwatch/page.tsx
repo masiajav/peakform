@@ -127,7 +127,6 @@ export default async function RootPage() {
       />
 
       <main>
-        <EditorialUpdates game="overwatch" kinds={["guide","news","patch_note"]}/>
         <section style={{ maxWidth: 1120, margin: '0 auto', padding: '72px 24px 36px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.15fr) minmax(280px, 0.85fr)', gap: 32, alignItems: 'center' }} className="home-hero-grid">
             <div>
@@ -165,6 +164,8 @@ export default async function RootPage() {
             </div>
           </div>
         </section>
+
+        <EditorialUpdates game="overwatch" kinds={['guide', 'news', 'patch_note']} limit={3} variant="landing" />
 
         <section style={{ maxWidth: 1120, margin: '0 auto', padding: '20px 24px 44px' }}>
           <Link href="/doctrine-support-sombra-roadhog-rework-overwatch" style={{ textDecoration: 'none' }}>
