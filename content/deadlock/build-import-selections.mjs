@@ -1,6 +1,9 @@
 // Private editorial selection. Codes remain community builds, not Replaid Lab creations.
 // Recheck live identity, version and item availability before preparing each revision.
 export default [
+  ['silver',853681,'Espíritu, cuerpo a cuerpo y recuperación para alternar las dos formas sin perder la salida.',['Spirit Strike','Improved Spirit','Healing Booster','Superior Duration']],
+  ['celeste',907631,'Potencia espiritual, alcance y recarga para mantener presión sobre un blanco preparado.',['Extra Spirit','Mystic Expansion','Compress Cooldown','Superior Cooldown']],
+  ['rat-king',895760,'Arma, movimiento al disparar y vida para acompañar la presión de ratas y bandera.',['High-Velocity Rounds','Swift Striker','Fleetfoot','Fortitude']],
   ['billy',904769,'Contactos cercanos con cuerpo a cuerpo y disparos sobre el blanco preparado.',['Melee Lifesteal','Spirit Strike','Melee Charge','Point Blank']],
   ['graves',805144,'Espíritu, apoyo a las invocaciones y recarga para mantener presión sobre un acceso.',['Extra Spirit','Heroic Aura','Improved Spirit','Compress Cooldown']],
   ['apollo',854022,'Potencia espiritual y movilidad para acertar las estocadas y conservar una retirada.',['Mystic Burst','Improved Spirit','Extra Stamina','Superior Cooldown']],

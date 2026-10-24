@@ -133,6 +133,14 @@ Códigos consultados antes de preparar, comprobar y publicar: Billy `904769` (v1
 
 El catálogo sigue siendo de 44 héroes confirmados. Dos indicadores `in_development` del API permanecen a true para Violeta y Yagá, aunque ambos son seleccionables y tienen estado `release`. Los anuncios oficiales de Valve confirman su disponibilidad: [Violeta, 16 de octubre](https://steamcommunity.com/games/1422450/announcements/detail/669505296465396532) y [Yagá, 6 de octubre](https://steamcommunity.com/games/1422450/announcements/detail/703281025618282872). Se conservaron las respuestas originales en `sources/official-violet-baba-release.json`; no se reduce el alcance por esa bandera aislada.
 
+## Tanda 9 publicada · 24 de octubre
+
+Silver, Celeste y Rey Rata completan otros tres conjuntos: nueve páginas de entre 604 y 877 palabras. La ficha de Silver explica también A por la Yugular, Salto Despedazador, Coletazo y la vuelta a humana con nombres ingleses. Se comprobó la vinculación actual mediante `dependent_abilities`; no se usaron habilidades antiguas que aún figuran en el API. Las otras fichas distinguen la condición de destrucción del prisma de Celeste, el retraso de sus zonas y los rebotes, y las interacciones de granada apartable, rata individual sacudida por impulso, barrera sin resistencias y bandera de Rey Rata.
+
+Los códigos `853681`, `907631` y `895760` respondieron con versión 1 y sus cuatro compras principales confirmadas antes de preparar, comprobar y publicar. Los precios y la presentación se verificaron con dieciocho vistas previas y dieciocho visitas públicas, incluida copia real, iconos, tablas móviles, FAQ, nombres bilingües y ausencia de referencias externas en las builds. Se inspeccionaron cinco hojas previas y capturas públicas representativas. `reports/deadlock-parity/batch-9/final-audit.json` confirma 134 páginas, 40 conjuntos, nueve canonicales, índices, alias y sitemap, con las 125 versiones anteriores intactas.
+
+Quedan Salomón, Violeta, Enfermera Harrow y Yagá, más la auditoría global. Las descripciones completas y los campos de tooltip que faltaban están guardados; sus ocho fuentes especializadas se han leído y las builds candidatas requieren consulta en vivo. Notas de interacciones y procedimiento en `reports/deadlock-parity/final-four-notes.md`. El objetivo sigue abierto.
+
 ## Fuera de esta ampliación
 
 Pick Lab, overlays y coaching siguen fuera de esta ampliación editorial. Las fuentes públicas alimentan una síntesis original; no se copian ni traducen artículos o vídeos completos. El código y los cambios de mapas que ya estaban en curso quedan separados de este trabajo.
