@@ -1,6 +1,10 @@
 // Private editorial selection. Codes remain community builds, not Replaid Lab creations.
 // Recheck live identity, version and item availability before preparing each revision.
 export default [
+  ['solomon',878952,'Espíritu, alcance y recarga para preparar piezas y conservar una posición defendible.',['Mystic Expansion','Improved Spirit','Superior Cooldown','Spirit Resilience']],
+  ['violet',894210,'Tinta y espíritu con cargas para preparar trazos, bocetos y una salida.',['Extra Charge','Extra Spirit','Superior Duration','Rapid Recharge']],
+  ['nurse-harrow',920720,'Curación y disponibilidad para sostener aliados y gestionar el daño aplazado de los vapores.',['Healing Booster','Extra Spirit','Superior Cooldown','Superior Duration']],
+  ['baba',873985,'Espíritu y recuperación para combinar hilo, brebajes y contactos con el banco.',['Extra Charge','Extra Spirit','Improved Spirit','Healing Booster']],
   ['silver',853681,'Espíritu, cuerpo a cuerpo y recuperación para alternar las dos formas sin perder la salida.',['Spirit Strike','Improved Spirit','Healing Booster','Superior Duration']],
   ['celeste',907631,'Potencia espiritual, alcance y recarga para mantener presión sobre un blanco preparado.',['Extra Spirit','Mystic Expansion','Compress Cooldown','Superior Cooldown']],
   ['rat-king',895760,'Arma, movimiento al disparar y vida para acompañar la presión de ratas y bandera.',['High-Velocity Rounds','Swift Striker','Fleetfoot','Fortitude']],

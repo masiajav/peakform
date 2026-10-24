@@ -11,9 +11,14 @@ test('Deadlock sections and sitemap contain the reviewed launch',async({request}
  const bad=await request.get('/deadlock/heroes/ana');expect(bad.status()).toBe(404);const preview=await request.get('/editorial-preview/seed-0');expect(preview.status()).toBe(404)
 })
 
-test('find a released hero without inventing a guide',async({page})=>{
+test('find a released hero by English alias and open its published guide',async({page})=>{
  await page.goto('/deadlock/heroes?q=Violet')
- await expect(page.locator('.game-catalog')).toContainText('Violeta')
- await expect(page.locator('main a[href="/deadlock/heroes/violet"]')).toHaveCount(0)
+ const guide = page.locator('.game-content-card[href="/deadlock/heroes/violet"]')
+ await expect(guide).toHaveCount(1)
+ await expect(guide).toContainText('Violeta')
  await expect(page.getByText('No hay artículos que coincidan.',{exact:false})).toHaveCount(0)
+ await guide.click()
+ await expect(page.getByRole('heading',{level:1})).toContainText('Violeta')
+ await expect(page.locator('main[data-editorial-version]')).toBeVisible()
+ await expect(page.locator('.deadlock-ability-card')).toHaveCount(4)
 })

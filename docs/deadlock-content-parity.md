@@ -2,6 +2,20 @@
 
 Objetivo: que Deadlock tenga una biblioteca y profundidad comparables a las páginas de Overwatch, manteniendo sus mecánicas propias. No se considera terminada por tener los mismos nombres de secciones ni por pasar un test de longitud.
 
+## Estado de cierre · 24 de octubre de 2026
+
+La ampliación está publicada: 44 conjuntos de ficha, counters y build importable, diez fundamentos, dos noticias, un análisis de parche y el atlas detallado de la ciudad. Los apartados de cada tanda que siguen documentan su estado histórico; no representan cobertura pendiente actual.
+
+La auditoría transversal de `reports/deadlock-parity/completion/` comprueba las **146 versiones publicadas** contra sus evidencias exactas, canonicales y sitemap. Las fichas desarrollan habilidades, línea, combate de equipo y errores mediante casos y FAQ; los counters distinguen amenazas, respuestas y límites; las builds explican compras por fase y situación. Los diez fundamentos cubren economía, líneas, movimiento, rotaciones, compras, daño/resistencias, selección de héroe, coordinación, revisión de partidas y estrategia del mapa. Se revisaron los capítulos y las decisiones de estas guías, además del contrato de datos; el cierre no depende de un umbral de palabras.
+
+El recorrido final visita las 44 fichas en móvil y las 44 builds en escritorio: confirma **176 tarjetas de habilidad con inglés entre paréntesis**, todas las imágenes del artículo, FAQ, ausencia de desbordamiento y copia real de cada código. Cada conjunto también conserva sus comprobaciones individuales de vistas previas y producción en ambos tamaños. Los **44 códigos se consultaron otra vez en vivo**, comprobando identidad del héroe, disponibilidad de todas las compras y pertenencia de los objetos principales; sus versiones actuales coinciden con las publicadas en esta consulta. No se muestran referencias externas ni citas JSON-LD en las builds. Las fuentes y la revisión automatizada permanecen registradas de forma privada; no se simula revisión humana.
+
+El atlas mantiene 32 capítulos, 11 ilustraciones y tres plantas con filtros, orientación y zoom. Los seis recorridos de mapa pasan en producción. La franja permanente de Kick ocupa la parte superior de las páginas públicas: los estados ONLINE y OFFLINE, cambios sin recarga, errores y pausa al ocultar la pestaña están comprobados. Las simulaciones de navegador se distinguen de las respuestas reales del canal. La portada de Overwatch integra ahora «Al día en Overwatch» debajo de su cabecera, a todo el ancho útil y con su acento naranja; las capturas de 320, 390, 1070 y 1440 px no muestran desbordamiento ni el espacio vacío señalado por el usuario.
+
+Verificación final: lint, compilación y 60 pruebas unitarias relevantes pasan. Los treinta recorridos afectados de producción pasan: 28 en la ejecución conjunta y los dos de búsqueda de Violeta tras actualizar su expectativa histórica de ficha aún no publicada. La búsqueda por alias ahora abre la guía publicada y comprueba sus cuatro tarjetas; se mantienen las pruebas de rutas inexistentes y de vistas previas inaccesibles. No se modificaron los cambios de mapas de Overwatch que ya estaban en el directorio.
+
+La automatización editorial existente continúa activa a las 09:00 Europe/Madrid, con el modelo y la suscripción de Codex. La ejecución real del 24 de octubre publicó y verificó el parche de Overwatch del día 20 y registró su resultado en `editorial_runs`. Los cambios de Deadlock del 21 y 22 atribuidos a mensajes de Discord siguen aplazados porque no se pudo consultar su fuente original; no se presentan como notas oficiales verificadas. El parche publicado del 14 de octubre conserva su fecha y alcance. El mantenimiento posterior parte del estado de Supabase y no vuelve a importar estas tandas ni modifica código de aplicación.
+
 ## Estado inicial comprobado
 
 El 23 de octubre había 25 artículos publicados: seis fichas de héroes, seis counters, seis builds, cuatro fundamentos, dos noticias y un parche. Las secciones de desarrollo tenían entre 140 y 260 palabras por artículo: son una primera introducción, no equivalen todavía a las guías de Overwatch. El catálogo mostraba 42 héroes, pero solo seis tenían guía.
@@ -140,6 +154,14 @@ Silver, Celeste y Rey Rata completan otros tres conjuntos: nueve páginas de ent
 Los códigos `853681`, `907631` y `895760` respondieron con versión 1 y sus cuatro compras principales confirmadas antes de preparar, comprobar y publicar. Los precios y la presentación se verificaron con dieciocho vistas previas y dieciocho visitas públicas, incluida copia real, iconos, tablas móviles, FAQ, nombres bilingües y ausencia de referencias externas en las builds. Se inspeccionaron cinco hojas previas y capturas públicas representativas. `reports/deadlock-parity/batch-9/final-audit.json` confirma 134 páginas, 40 conjuntos, nueve canonicales, índices, alias y sitemap, con las 125 versiones anteriores intactas.
 
 Quedan Salomón, Violeta, Enfermera Harrow y Yagá, más la auditoría global. Las descripciones completas y los campos de tooltip que faltaban están guardados; sus ocho fuentes especializadas se han leído y las builds candidatas requieren consulta en vivo. Notas de interacciones y procedimiento en `reports/deadlock-parity/final-four-notes.md`. El objetivo sigue abierto.
+
+## Tanda 10 publicada · 24 de octubre
+
+Salomón, Violeta, Enfermera Harrow y Yagá completan el catálogo confirmado: doce páginas nuevas, con cuatro habilidades bilingües por ficha, decisiones de línea y equipo, respuestas de héroes y objetos con límites, compras concretas y FAQ. Se contrastaron también los campos de tooltip omitidos en las descripciones: los dos modos de Tinta Viva, recoger el boceto, la curación que absorbe primero la deuda de Harrow, la mirada en su definitiva y los modos distintos del brebaje de Yagá. No se presenta un silencio preventivo como interrupción de una canalización ya activa.
+
+Las cuatro builds tienen códigos consultados en vivo: Salomón `878952` (v4), Violeta `894210` (v19), Enfermera Harrow `920720` (v1) y Yagá `873985` (v1). La búsqueda cacheada de Violeta mostraba v5; la selección se corrigió a la v19 real y se retiró una compra que ya no contenía. Se verificaron de nuevo identidad, versión y compras antes de comprobar y publicar.
+
+Las veinticuatro visitas a vistas previas y las veinticuatro visitas públicas comprueban las doce versiones exactas, iconos, títulos bilingües, tablas, FAQ y copia real de códigos, sin referencias externas en las builds. Se inspeccionaron seis hojas previas y capturas públicas representativas. `reports/deadlock-parity/batch-10/final-audit.json` confirma **146 páginas: 44 fichas, 44 counters, 44 builds, 10 fundamentos, dos noticias, un parche y un atlas del mapa**, con las 134 versiones anteriores intactas. Los índices, alias, canonicales y sitemap coinciden; no quedan conjuntos pendientes. La auditoría de conjunto se registra por separado antes del cierre.
 
 ## Fuera de esta ampliación
 
