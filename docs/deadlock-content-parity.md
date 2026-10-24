@@ -68,6 +68,16 @@ Evidencia: `reports/deadlock-parity/batch-4/manifest.candidates.json`, `inspecti
 
 **Pendiente:** 27 conjuntos y auditoría final de paridad. El siguiente grupo es Holliday, Calico, Garra Gris/Grey Talon, El Navajas/Shiv y Yamato. Las veinte habilidades están extraídas en `reports/deadlock-parity/next-hero-mechanics-batch-5.txt`; en Shiv, la definitiva divide su descripción entre los campos `active` y `passive`, que deben leerse además de `desc`. No cerrar la cobertura ni regenerar páginas existentes con copias antiguas.
 
+## Cuarto grupo de héroes · 24 de octubre
+
+Publicadas las quince páginas de Holliday, Calico, Garra Gris/Grey Talon, El Navajas/Shiv y Yamato. La biblioteca suma **79 páginas: 22 fichas, 22 counters, 22 builds, 10 fundamentos, dos noticias y un parche**. Se mantienen sin cambios las 64 versiones anteriores y no se detecta texto de automatización o producción editorial en los campos públicos.
+
+Las quince vistas previas y las quince páginas públicas pasan la comprobación en escritorio y móvil, con imágenes, habilidades, tablas, FAQ, índices y sitemap. Pasan los diez nuevos recorridos por alias y páginas relacionadas y lint. Las capturas inspeccionadas muestran las cuatro habilidades de Yamato, la compra de cargas de Holliday y el matchup de Kelvin frente a Shiv con sus imágenes y límites legibles. Fuentes y restricciones reproducibles en `reports/deadlock-parity/batch-5/data-audit.json`; evidencias exactas en sus dos carpetas `inspection-*` y en `manifest.candidates.json`; estado publicado en `after-batch-5.json`.
+
+Una interrupción nativa de Node en Windows dejó pendiente la última build. Se consultó el estado real antes de reanudar: catorce versiones estaban publicadas y la de Yamato/build no. La reanudación idempotente con los mismos candidatos completó la publicación sin regenerar contenido ni sobrescribir las versiones anteriores. No hubo fallo de la verificación pública ni necesidad de restauración.
+
+**Pendiente:** 22 conjuntos y auditoría final. Siguiente grupo: Pocket, Espejismo/Mirage, Víbora/Vyper, Sinclair y Mina. Las habilidades están en `next-hero-mechanics-batch-6.txt`, con campos adicionales de Mirage y Mina en `next-hero-extra-batch-6.json`. La descripción de Rasgar/Rake de Mina está vacía en el espejo del cliente: se ha podido leer su tooltip completo en la wiki (`sources/wiki-mina.html`), mientras Deadlock.io devolvió solo una pantalla de carga y no debe figurar como página completamente revisada. Consultas diferenciadas en `mina-rake-sources.json`; contrastar los metadatos originales antes de redactar. Mantener abiertas las exigencias de profundidad, naturalidad, imágenes y cobertura, sin reducir el cierre a la cantidad de páginas.
+
 ## Límites
 
 Pick Lab, overlays y coaching siguen fuera de esta ampliación editorial. Las fuentes públicas alimentan una síntesis original; no se copian ni traducen artículos o vídeos completos. El código y los cambios de mapas que ya estaban en curso quedan separados de este trabajo.

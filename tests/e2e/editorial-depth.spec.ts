@@ -43,6 +43,8 @@ for (const [alias, name, slug] of [
   ['Warden', 'Guardia', 'warden'], ['Viscous', 'Viscoso', 'viscous'],
   ['Vindicta', 'Vindicta', 'vindicta'], ['Lady Geist', 'Lady Geist', 'lady-geist'],
   ['Wraith', 'Espectro', 'wraith'], ['McGinnis', 'McGinnis', 'mcginnis'], ['Paradox', 'Paradoja', 'paradox'],
+  ['Holliday', 'Holliday', 'holliday'], ['Calico', 'Calico', 'calico'],
+  ['Grey Talon', 'Garra Gris', 'grey-talon'], ['Shiv', 'El Navajas', 'shiv'], ['Yamato', 'Yamato', 'yamato'],
 ]) {
   test(`${alias} is searchable and has connected hero, counter and build pages`, async ({ page }) => {
     await page.goto(`/deadlock/heroes?q=${encodeURIComponent(alias)}`)
