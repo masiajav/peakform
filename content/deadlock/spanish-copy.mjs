@@ -248,6 +248,7 @@ const plainPhrases = [
 
 function rewriteText(value) {
   if(value==='Disponibilidad')return 'Recarga'
+  if(value==='Ventana útil')return 'Cuándo actuar'
   let text=value
   for(const [before,after] of orderedPhrases)text=text.replaceAll(before,after)
   return text
