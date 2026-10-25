@@ -58,6 +58,12 @@ export function humanCopy(article) {
     a.sections[6].body=['Si estás acertando muchos disparos en línea, mejorar Obsesión te ayuda a aprovecharlos. Si no consigues acercarte o escapar, revisa antes cómo usas el humo y la daga. Elige una mejora que puedas usar ahora, sin depender de objetos que todavía no tienes.']
     a.faq[0].answer='Cuando puedas llegar a tiempo y disparar junto a tus compañeros. Mira qué objetivo van a disputar y cuánto tardarás en alcanzarlos. No hay una cantidad de almas que sirva como permiso para pelear en todas las partidas.'
   }
+  if(a.hero==='graves'&&a.kind==='hero'){
+    a.intro='Graves combina el arma con calaveras y necrófagos. Protege la lápida y coloca las manos en el camino que quieras dificultar. Busca una posición desde la que puedas seguir disparando mientras atacan tus criaturas.'
+    a.sections[0].title='Tarro de los Muertos: dirige las calaveras con el arma'
+    a.sections[1].title='Manos Agarradoras: elige dónde poner la grieta'
+    a.sections[2].body=['El arma va robando daño de arma y resistencia espiritual mientras atacas, hasta un máximo por objetivo. Acertar un momento no basta para acumularlo todo. Dispara desde una cobertura que te permita aguantar el intercambio.', 'Con la mejora final, las invocaciones también aplican el robo de esencia. Hasta que la tengas, no cuentes con que tus criaturas roben esos atributos. Puedes cambiar de blanco si la pelea lo exige, pero repartir los disparos sin amenazar a nadie dificulta aprovechar la habilidad.']
+  }
   if(a.hero==='viscous'&&a.kind==='build'){
     a.intro='Esta build reduce las recargas de Viscoso para usar más veces el charco, el cubo y los puños. Antes de comprar más daño o alcance, comprueba si estás acertando y llegas a tiempo para ayudar. Si te eliminan después de la primera habilidad, adelanta una defensa o cambia por dónde entras.'
     a.sections[1].title='Acierta el charco antes de comprar más daño'
@@ -66,6 +72,10 @@ export function humanCopy(article) {
     a.sections[2].body=['Elige la habilidad que más está ayudando en esa partida. Puede que necesites volver a cerrar un acceso o tener el cubo listo para salvar a alguien. Mira su recarga antes de imbuir por costumbre otra habilidad.', 'Prueba el alcance desde el mismo punto del escenario para ver hasta dónde llegas. Debería permitirte alcanzar a un aliado o enemigo al que antes no llegabas. Reducir una recarga tampoco obliga a lanzar la habilidad en cuanto vuelve.']
     a.sections[3].body=['Antes de usar el cubo, compara el daño que recibirá el aliado con lo que iba a hacer. Durante la protección deja de iniciar ataques: si ya estaba ganando el duelo, puedes darle al enemigo tiempo para escapar.', 'Prepara también cómo saldrá del cubo. Si el rival sigue apuntando al mismo lugar, curarlo más puede no ser suficiente. Ayúdalo desde cobertura y guarda otra habilidad si la tienes disponible.']
     a.sections[4].body=['La bola aporta resistencia, pero necesitas conocer el recorrido y los rebotes. Practica entrar, golpear la zona que quieres y volver cerca del equipo. Comprar más defensa no arregla terminar rodeado y lejos de ayuda.', 'Si sobrevives a las entradas, reducir la recarga puede ayudarte a repetirlas. Si te eliminan al acabar la bola, cambia dónde terminas y adelanta defensa frente a ese daño. Mira qué habilidades tendrás listas al volver a tu forma normal.']
+    a.faq[0].question='¿Necesito objetos de cuerpo a cuerpo para los puños?'
+    a.faq[0].answer='Esta build prioriza daño espiritual y reducción de recarga. No des por hecho que todos los objetos de cuerpo a cuerpo funcionan igual con el puño: comprueba el efecto del que quieras añadir antes de cambiar las compras.'
+    a.faq[1].question='¿Conviene usar el cubo en cuanto se recarga?'
+    a.faq[1].answer='Úsalo cuando proteger al aliado sea más útil que dejarle seguir atacando. Reducir la recarga te permite volver a ayudar, pero sigue importando cuándo y dónde usas el cubo.'
   }
   return a
 }

@@ -165,7 +165,7 @@
     "path": "/deadlock/counters/abrams",
     "slug": "abrams",
     "image": "/deadlock/abrams.webp",
-    "intro": "Abrams necesita llegar al contacto, aprovechar una pared y permanecer cerca durante la recuperación. La respuesta empieza al elegir dónde aceptas el intercambio: una esquina con salida lateral te da más opciones que un pasillo donde su embestida termina junto a tu equipo.",
+    "intro": "Si peleas pegado a una pared, le pones fácil la embestida a Abrams. Busca una esquina con salida lateral y evita que llegue hasta tus compañeros. Cuando falle la entrada, aprovechad para atacarle antes de que vuelva a acercarse.",
     "patch": "Deadlock · octubre de 2026",
     "title": "Counters de Abrams: héroes y objetos",
     "aliases": [
@@ -323,8 +323,8 @@
       "Identifica qué aliado conserva una respuesta y desde dónde puede usarla.",
       "Elige el objeto por su efecto y respeta su límite durante la activación."
     ],
-    "updatedAt": "2026-10-24T20:58:57.340Z",
-    "description": "Respeta las paredes y castiga la entrada fallida",
+    "updatedAt": "2026-10-25T09:01:50.060Z",
+    "description": "Cómo frenar a Abrams en Deadlock: evita las paredes, deja una salida al equipo y castiga una embestida fallida. Héroes y objetos que ayudan.",
     "publishedAt": "2026-10-23T09:00:00Z"
   },
   {
@@ -690,7 +690,7 @@
     "path": "/deadlock/counters/dynamo",
     "slug": "dynamo",
     "image": "/deadlock/dynamo.webp",
-    "intro": "Dínamo gana valor cuando varios enemigos comparten la misma entrada y sus aliados pueden seguir el control. Distribuye las posiciones y reconoce quién conserva una respuesta desde fuera. El objetivo es que una captura no decida también el destino de todo el equipo.",
+    "intro": "No entréis todos por el mismo sitio contra Dínamo. Si os captura juntos, sus aliados pueden rematar la pelea. Dejad a alguien fuera del alcance de su control para ayudar al compañero atrapado y comprobad quién puede intervenir antes de avanzar.",
     "patch": "Deadlock · octubre de 2026",
     "title": "Counters de Dínamo: héroes y objetos",
     "aliases": [
@@ -848,8 +848,8 @@
       "Identifica qué aliado conserva una respuesta y desde dónde puede usarla.",
       "Elige el objeto por su efecto y respeta su límite durante la activación."
     ],
-    "updatedAt": "2026-10-24T20:58:57.347Z",
-    "description": "Separa a Dínamo de quienes aprovechan su control",
+    "updatedAt": "2026-10-25T09:01:58.031Z",
+    "description": "Cómo jugar contra Dínamo: separa al equipo, conserva una respuesta fuera de su control y evita que una captura arrastre a todos.",
     "publishedAt": "2026-10-23T09:00:00Z"
   },
   {
@@ -1052,7 +1052,7 @@
   {
     "faq": [
       {
-        "answer": "Cuando puedes llegar a una acción donde tu daño sea aplicable y tus compañeros todavía conserven recursos. La decisión depende del objetivo y del tiempo de llegada, no de una cantidad única de almas para todas las partidas.",
+        "answer": "Cuando puedas llegar a tiempo y disparar junto a tus compañeros. Mira qué objetivo van a disputar y cuánto tardarás en alcanzarlos. No hay una cantidad de almas que sirva como permiso para pelear en todas las partidas.",
         "question": "¿Cuándo puedo dejar de farmear para entrar?"
       },
       {
@@ -1066,7 +1066,7 @@
     "path": "/deadlock/heroes/haze",
     "slug": "haze",
     "image": "/deadlock/haze.webp",
-    "intro": "Bruma necesita tiempo para mantener impactos sobre un blanco. Busca un ángulo junto a una cobertura, observa quién puede detenerte y entra cuando esa respuesta ya esté ocupada. La invisibilidad te ayuda a cambiar de lado; Obsesión recompensa acertar y Baile de Balas necesita una llegada donde puedas seguir disparando.",
+    "intro": "Bruma hace más daño si aciertas varios disparos al mismo enemigo. Usa la invisibilidad para buscar otro ángulo y la daga para acercarte o escapar. Antes de entrar con Baile de Balas, comprueba quién puede detenerte y espera a que gaste esa habilidad.",
     "patch": "Deadlock · octubre de 2026",
     "title": "Bruma: daga, invisibilidad y disparos",
     "aliases": [
@@ -1112,51 +1112,50 @@
     "sections": [
       {
         "body": [
-          "Daga Adormecedora prepara un intervalo para recolocarte o acercarte a un objetivo. El daño puede despertar al enemigo, así que decide antes si la quieres para salir, apuntar un intercambio o preparar el ataque de un compañero. No la uses como interrupción de canalizaciones: ese efecto no forma parte de la habilidad.",
-          "Bomba de Humo permite cambiar la aproximación, pero los enemigos cercanos pueden verte. Usa calles y coberturas para alcanzar otro ángulo sin cruzar junto al rival que guarda control. Lanzar la daga no rompe la invisibilidad; atacar con el arma sí la termina.",
-          "Obsesión recompensa mantener impactos sobre el mismo objetivo. En vez de repartir cada ráfaga entre varios enemigos, elige a quién puedes seguir viendo sin abandonar la cobertura. Si el blanco deja de ser accesible, conserva la posición antes de perseguir sus acumulaciones hasta otra esquina.",
-          "Baile de Balas necesita una entrada en la que puedas permanecer disparando. Localiza al enemigo con una respuesta de control y observa si ya la ha gastado. Si un rival activa protección frente a balas, no des por hecho que seguir la misma secuencia producirá el mismo daño."
+          "Daga Adormecedora duerme al enemigo y te da tiempo para recolocarte, acercarte o ayudar a un compañero a preparar el ataque. El daño puede despertarlo. No la uses para intentar cortar una canalización: la daga no la interrumpe.",
+          "Bomba de Humo te ayuda a cambiar de ángulo, pero los enemigos cercanos pueden verte. Rodea por una calle o una cobertura en vez de pasar junto a quien guarda el control. Lanzar la daga no rompe la invisibilidad; disparar con el arma sí.",
+          "Obsesión recompensa acertar varios disparos al mismo objetivo. Elige a alguien que puedas mantener a tiro sin salir de cobertura. Si se esconde, no lo persigas hasta otra esquina solo para conservar las acumulaciones.",
+          "Baile de Balas necesita tiempo para hacer daño. Mira quién puede detenerte y si ya ha gastado el control. Si un rival activa una protección frente a balas, tenlo en cuenta antes de seguir disparando como si no la tuviera."
         ],
         "title": "Cuatro habilidades y cómo aprovecharlas"
       },
       {
         "body": [
-          "Disputa los recursos de la oleada antes de buscar una persecución larga. Si el enemigo usa su movilidad para atacar, observa si puedes responder desde cobertura. Cambiar de blanco continuamente reduce el valor de una secuencia preparada sobre un objetivo."
+          "Asegura las almas de la oleada antes de perseguir al rival. Si gasta su movilidad para atacarte, comprueba si puedes responder desde cobertura. Disparar cada ráfaga a un enemigo distinto dificulta aprovechar Obsesión."
         ],
         "title": "Cómo disputar la línea"
       },
       {
         "body": [
-          "Bomba de Humo facilita un acercamiento, pero no elimina la necesidad de elegir una ruta. Evita pasar junto a enemigos que pueden detectarte cerca. Antes de Baile de Balas, cuenta las herramientas de control visibles y procura entrar cuando un compañero ya haya obligado a gastar alguna.",
-          "Daga Adormecedora no debe tratarse como una interrupción universal de canalizaciones. Su utilidad para preparar un intercambio no implica que vaya a detener cualquier definitiva. Comprueba esa interacción antes de arriesgar una entrada para salvar a todo el equipo."
+          "Busca un lateral con Bomba de Humo y espera a que tus compañeros obliguen al rival a gastar alguna habilidad de control. Después puedes entrar con Baile de Balas. No cruces junto a un enemigo que pueda detectarte de cerca."
         ],
         "title": "Tu papel en la pelea"
       },
       {
         "body": [
-          "Caso de práctica: ves a un enemigo alejado y a otro guardando control junto a él. Entrar sobre el primero sin localizar al segundo convierte tu ventaja de sorpresa en una trampa. Puedes amenazar desde un lateral, forzar una respuesta y cambiar el momento de entrada."
+          "Imagina que ves a un enemigo separado y a su compañero esperando con un aturdimiento. Si solo miras al primero, pueden pararte nada más entrar. Asómate desde otro ángulo y espera a ver si gastan esa habilidad antes de usar la definitiva."
         ],
         "title": "Pruébalo en tu próxima partida"
       },
       {
         "body": [
-          "Mira primero quién puede detenerte y desde qué lado entrarás. Busca una ruta que te deje junto a una cobertura y al alcance de un objetivo expuesto. Puedes abrir un intercambio con disparos normales y reservar la definitiva para cuando el enemigo ya haya usado una respuesta contra el frente.",
-          "Si la primera entrada no consigue espacio, corta el contacto antes de gastar todas las herramientas detrás del objetivo. Recupera una oleada o una cobertura cercana y vuelve a mirar los ángulos. La invisibilidad sirve para cambiar lo que ve el rival; no borra el daño que ya te está alcanzando."
+          "Busca una ruta que te deje a tiro de un enemigo y cerca de una cobertura. Puedes empezar disparando y guardar la definitiva hasta que el rival gaste el control contra tus compañeros.",
+          "Si la entrada falla, retírate antes de gastar todas las habilidades persiguiendo. Vuelve a una cobertura o a la oleada y busca otro ángulo. Hacerte invisible no detiene el daño que ya te está alcanzando."
         ],
-        "title": "La secuencia empieza antes de hacerte invisible"
+        "title": "Elige por dónde entrar antes de hacerte invisible"
       },
       {
         "body": [
-          "Antes de empezar otro recurso, comprueba si tus compañeros van a disputar una estructura. Llegar después de que hayan muerto puede dejarte con más economía y sin la pelea donde necesitabas usarla. Acerca tu ruta de recursos al lugar donde podrás acompañar la siguiente presión.",
-          "Con ventaja, intenta que el rival tenga que responder a una oleada mientras tú amenazas un lateral próximo. Mantener un objetivo bajo fuego desde dos ángulos puede producir una oportunidad sin depender de aparecer en medio del equipo enemigo con Baile de Balas."
+          "Antes de empezar otro campamento, mira si tus compañeros van a atacar o defender una estructura. Si llegas después de que mueran, las almas que has ganado no les habrán servido. Intenta farmear cerca del lugar donde se preparan para pelear.",
+          "Si llevas ventaja, empuja una oleada y amenaza un lateral cercano. El rival tendrá que atender ambos sitios y puedes encontrar un buen ángulo sin aparecer en medio de todo el equipo enemigo."
         ],
-        "title": "Cómo convertir el farmeo en una pelea útil"
+        "title": "Cuándo dejar de farmear para ayudar al equipo"
       },
       {
         "body": [
-          "Si puedes sostener disparos durante la línea, reforzar Obsesión acompaña ese patrón. Si tu problema consiste en llegar o salir, revisa el uso de humo y daga antes de subir daño esperando que cambie el recorrido. Elige una mejora que puedas utilizar en la siguiente acción, no una secuencia que exige recursos que todavía no tienes."
+          "Si estás acertando muchos disparos en línea, mejorar Obsesión te ayuda a aprovecharlos. Si no consigues acercarte o escapar, revisa antes cómo usas el humo y la daga. Elige una mejora que puedas usar ahora, sin depender de objetos que todavía no tienes."
         ],
-        "title": "Puntos de habilidad y un objetivo reconocible"
+        "title": "En qué habilidad gastar los puntos"
       }
     ],
     "abilities": [
@@ -1194,7 +1193,7 @@
       "Localiza el control que puede detener tu entrada.",
       "Conserva una cobertura para cortar el intercambio si aparece ayuda."
     ],
-    "updatedAt": "2026-10-24T20:58:57.330Z",
+    "updatedAt": "2026-10-25T09:01:58.028Z",
     "description": "Aprende a jugar a Bruma: duerme con la daga, cambia de ángulo y elige cuándo entrar con Baile de Balas.",
     "publishedAt": "2026-10-23T09:00:00Z"
   },
@@ -1215,7 +1214,7 @@
     "path": "/deadlock/counters/haze",
     "slug": "haze",
     "image": "/deadlock/haze.webp",
-    "intro": "Bruma aumenta su presión cuando mantiene impactos sobre el mismo blanco y encuentra una entrada donde nadie conserva respuesta. Corta su continuidad con cobertura, evita compartir todo el espacio con tus aliados y decide antes de la pelea quién puede intervenir cuando se comprometa.",
+    "intro": "Bruma hace más daño si puede seguir acertando al mismo enemigo. Corta sus disparos con una esquina y evita quedarte pegado a tus compañeros. Antes de la pelea, acordad quién guarda una habilidad para responder a Baile de Balas.",
     "patch": "Deadlock · octubre de 2026",
     "title": "Counters de Bruma: héroes y objetos",
     "aliases": [
@@ -1265,7 +1264,7 @@
     "sections": [
       {
         "body": [
-          "No regales un intercambio estático mientras Bruma mantiene el mismo blanco. Usa esquinas para cortar la secuencia y cambia la pelea de lugar. Si ya está cerca, correr por un pasillo abierto puede ser peor que alcanzar una cobertura lateral."
+          "No te quedes quieto mientras Bruma te dispara. Busca una esquina y obliga a que cambie de posición para seguir acertándote. Si ya está cerca, una cobertura lateral puede protegerte mejor que correr por un pasillo abierto."
         ],
         "title": "Evita la situación que busca"
       },
@@ -1373,8 +1372,8 @@
       "Identifica qué aliado conserva una respuesta y desde dónde puede usarla.",
       "Elige el objeto por su efecto y respeta su límite durante la activación."
     ],
-    "updatedAt": "2026-10-24T20:59:08.865Z",
-    "description": "Interrumpe la secuencia de disparo y conserva una salida",
+    "updatedAt": "2026-10-25T09:01:51.445Z",
+    "description": "Cómo frenar a Bruma (Haze): corta sus disparos con cobertura, guarda una respuesta para Baile de Balas y compara héroes y objetos defensivos.",
     "publishedAt": "2026-10-23T09:00:00Z"
   },
   {
@@ -1394,7 +1393,7 @@
     "path": "/deadlock/builds/haze",
     "slug": "haze",
     "image": "/deadlock/haze.webp",
-    "intro": "La ruta refuerza el arma y la continuidad del duelo. Necesitas mantener al enemigo a tiro y conservar una salida; una compra de daño no resuelve por sí sola una entrada contra controles preparados.",
+    "intro": "Esta build mejora los disparos de Bruma. Para aprovecharla, mantén al enemigo a tiro y guarda una salida. Antes de usar la definitiva, mira quién puede detenerte: comprar más daño no evita un aturdimiento.",
     "patch": "Deadlock · octubre de 2026",
     "title": "Build de Bruma: disparos y movilidad",
     "aliases": [
@@ -1530,7 +1529,7 @@
       },
       {
         "body": [
-          "Destructor de Resistencia a Balas acompaña el daño sostenido. Su valor depende de mantener impactos: no soluciona entrar fuera de alcance o perder el objetivo al primer giro. Busca una mejora funcional antes de guardar todos los recursos para un objeto caro."
+          "Destructor de Resistencia a Balas acompaña el daño sostenido. Su valor depende de seguir acertando: no soluciona entrar fuera de alcance o perder el objetivo al primer giro. Busca una mejora funcional antes de guardar todos los recursos para un objeto caro."
         ],
         "title": "Media partida: tus objetos principales"
       },
@@ -1564,13 +1563,13 @@
       "Comprueba el daño recibido antes de comprar resistencia.",
       "Practica una secuencia con los objetos que ya tienes."
     ],
-    "updatedAt": "2026-10-24T20:59:16.845Z",
+    "updatedAt": "2026-10-25T09:01:51.935Z",
     "buildImport": {
       "code": 899427,
       "focus": "Daño sostenido con el arma y movilidad para mantener al enemigo a tiro.",
       "heroId": 13,
       "version": 1,
-      "checkedAt": "2026-10-24T20:59:13.638Z",
+      "checkedAt": "2026-10-25T09:01:51.934Z",
       "coreItems": [
         1548066885,
         4104549924,
@@ -1672,7 +1671,7 @@
       },
       {
         "body": [
-          "Empieza con un ángulo desde el que puedas mantener impactos y aplicar la quemadura. Si el rival utiliza su salida, observa dónde queda antes de gastar tu movilidad. Cuando desaparece detrás de una cobertura con ayuda posible, conserva la presión de la oleada en vez de convertir el intercambio en una persecución sin visión.",
+          "Empieza con un ángulo desde el que puedas seguir acertando y aplicar la quemadura. Si el rival utiliza su salida, observa dónde queda antes de gastar tu movilidad. Cuando desaparece detrás de una cobertura con ayuda posible, conserva la presión de la oleada en vez de convertir el intercambio en una persecución sin visión.",
           "En la pelea de equipo, combina la amenaza de detonación con una ruta de salida. Si otro aliado ya ha iniciado, puedes acercarte al espacio que el rival necesita usar para retirarse. Si eres tú quien va delante, comprueba que el equipo pueda llegar antes de activar una secuencia que te compromete."
         ],
         "title": "Presiona primero, persigue después"
@@ -1680,7 +1679,7 @@
       {
         "body": [
           "Tus disparos ayudan a aplicar un efecto espiritual. Comprar solo según el aspecto del arma puede dejar sin atender la fuente de daño que estás pudiendo sostener. Mira si el rival te corta los impactos, si aguanta la quemadura o si te elimina antes de completarla: son tres problemas distintos.",
-          "Cuando has perdido la posibilidad de disparar con seguridad, una nueva mejora de daño no sustituye el ángulo. Usa una cobertura lateral y vuelve a entrar cuando el equipo haya forzado una respuesta. La continuidad de la presión se construye sobreviviendo a más de un contacto."
+          "Si no puedes disparar sin exponerte, comprar más daño no resuelve el problema. Busca una cobertura lateral y vuelve a atacar cuando tus compañeros hayan obligado al rival a gastar alguna habilidad. Sobrevivir te permite volver a pelear."
         ],
         "title": "Decide qué parte de tu daño vas a reforzar"
       },
@@ -1726,7 +1725,7 @@
       "Prepara dónde estarás cuando detone la definitiva.",
       "Distingue el daño de arma del espiritual al elegir tus compras."
     ],
-    "updatedAt": "2026-10-24T20:59:52.279Z",
+    "updatedAt": "2026-10-25T09:01:58.041Z",
     "description": "Aprende a aplicar las quemaduras de Infernus, usar Impulso Llameante y retirarte antes de que te rodeen.",
     "publishedAt": "2026-10-23T09:00:00Z"
   },
@@ -1747,7 +1746,7 @@
     "path": "/deadlock/counters/infernus",
     "slug": "infernus",
     "image": "/deadlock/infernus.webp",
-    "intro": "Infernus convierte los impactos continuos en presión de quemadura y puede acercar una detonación a varios enemigos. Acorta los intercambios, cambia de línea de tiro y separa las retiradas cuando prepara la definitiva. Tu compra defensiva debe distinguir el arma de sus efectos espirituales.",
+    "intro": "No alargues el intercambio de disparos con Infernus: sus impactos preparan la quemadura. Corta la línea de tiro y vuelve a asomarte desde otra posición. Si prepara la definitiva, separaos al retiraros para que no alcance a varios a la vez.",
     "patch": "Deadlock · octubre de 2026",
     "title": "Counters de Infernus: héroes y objetos",
     "aliases": [
@@ -1868,7 +1867,7 @@
             [
               "Balas Tóxicas (Toxic Bullets)",
               "3200",
-              "Añade reducción de curación a una ruta de arma que ya puede mantener impactos sobre Infernus.",
+              "Añade reducción de curación a una ruta de arma que ya puede seguir acertando sobre Infernus.",
               "Forzar una exposición larga para acumular el efecto puede favorecer al rival. Aplícalo desde una cobertura que puedas abandonar."
             ],
             [
@@ -1901,12 +1900,12 @@
       }
     ],
     "checklist": [
-      "Corta la continuidad de la quemadura",
+      "Corta los disparos que preparan la quemadura",
       "Identifica qué aliado conserva una respuesta y desde dónde puede usarla.",
       "Elige el objeto por su efecto y respeta su límite durante la activación."
     ],
-    "updatedAt": "2026-10-24T20:59:24.738Z",
-    "description": "Corta la continuidad de la quemadura",
+    "updatedAt": "2026-10-25T09:01:51.936Z",
+    "description": "Cómo jugar contra Infernus: corta sus disparos, evita que mantenga la quemadura y separa al equipo cuando prepare la definitiva.",
     "publishedAt": "2026-10-23T09:00:00Z"
   },
   {
@@ -1984,7 +1983,7 @@
               "Línea",
               "Cargador Ampliado (Extended Magazine)",
               "800",
-              "Facilita mantener impactos antes de recargar.",
+              "Facilita seguir acertando antes de recargar.",
               "No abandones la cobertura para agotar el cargador sobre un blanco inaccesible."
             ],
             [
@@ -2056,7 +2055,7 @@
       },
       {
         "body": [
-          "Una mejora de manejo o cadencia puede facilitar mantener impactos, pero no justifica perder cada intercambio de vida. Compara si necesitas disparar mejor, recuperar vida entre oleadas o conservar aguante para evitar la respuesta."
+          "Una mejora de manejo o cadencia puede facilitar seguir acertando, pero no justifica perder cada intercambio de vida. Compara si necesitas disparar mejor, recuperar vida entre oleadas o conservar aguante para evitar la respuesta."
         ],
         "title": "Inicio: aguanta la línea"
       },
@@ -2096,13 +2095,13 @@
       "Comprueba el daño recibido antes de comprar resistencia.",
       "Practica una secuencia con los objetos que ya tienes."
     ],
-    "updatedAt": "2026-10-24T20:59:08.860Z",
+    "updatedAt": "2026-10-25T09:01:51.444Z",
     "buildImport": {
       "code": 850922,
       "focus": "Cadencia y curación para aplicar quemaduras y volver a pelear desde cobertura.",
       "heroId": 1,
       "version": 1,
-      "checkedAt": "2026-10-24T20:59:05.646Z",
+      "checkedAt": "2026-10-25T09:01:51.443Z",
       "coreItems": [
         1548066885,
         4104549924,
@@ -2279,7 +2278,7 @@
     "path": "/deadlock/counters/lash",
     "slug": "lash",
     "image": "/deadlock/lash.webp",
-    "intro": "Lash necesita una trayectoria de entrada y una zona de llegada que le permita continuar. Mira también tejados y laterales, conserva una salida de la caída y evita que todo el equipo quede disponible para el mismo lanzamiento. La respuesta debe empezar antes de que toque el suelo.",
+    "intro": "Mira los tejados y los laterales antes de que Lash salte sobre ti. Guarda una salida de su aterrizaje y evita quedarte junto a todos tus compañeros. Si esperáis a que toque el suelo para reaccionar, puede tener preparado el siguiente golpe.",
     "patch": "Deadlock · octubre de 2026",
     "title": "Counters de Lash: héroes y objetos",
     "aliases": [
@@ -2437,8 +2436,8 @@
       "Identifica qué aliado conserva una respuesta y desde dónde puede usarla.",
       "Elige el objeto por su efecto y respeta su límite durante la activación."
     ],
-    "updatedAt": "2026-10-24T20:59:08.869Z",
-    "description": "Niega el aterrizaje cómodo y separa los ángulos",
+    "updatedAt": "2026-10-25T09:01:58.034Z",
+    "description": "Cómo frenar a Lash: vigila las alturas, sal de su aterrizaje y evita que un mismo lanzamiento alcance a todo el equipo. Héroes y objetos útiles.",
     "publishedAt": "2026-10-23T09:00:00Z"
   },
   {
@@ -2804,7 +2803,7 @@
     "path": "/deadlock/counters/seven",
     "slug": "seven",
     "image": "/deadlock/seven.webp",
-    "intro": "Siete controla recorridos con esferas y castiga a un grupo que permanece visible durante Nube de Tormenta. Conserva cobertura, separa a quien recibe Carga Estática y decide si necesitas interrumpir la canalización o si basta con ceder ese espacio temporalmente.",
+    "intro": "Evita las esferas de Siete y no te quedes junto al aliado que recibe Carga Estática. Durante Nube de Tormenta, busca cobertura antes de seguir disparando. Decidid si podéis interrumpirlo o si os conviene dejarle ese espacio hasta que termine.",
     "patch": "Deadlock · octubre de 2026",
     "title": "Counters de Siete: héroes y objetos",
     "aliases": [
@@ -2962,8 +2961,8 @@
       "Identifica qué aliado conserva una respuesta y desde dónde puede usarla.",
       "Elige el objeto por su efecto y respeta su límite durante la activación."
     ],
-    "updatedAt": "2026-10-24T20:59:24.742Z",
-    "description": "Usa las coberturas y evita regalar daño en grupo",
+    "updatedAt": "2026-10-25T09:01:58.033Z",
+    "description": "Cómo responder a Siete (Seven): evita las esferas, separa al aliado con Carga Estática y decide si interrumpir Nube de Tormenta o buscar cobertura.",
     "publishedAt": "2026-10-23T09:00:00Z"
   },
   {
