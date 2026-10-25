@@ -57,6 +57,7 @@ export function humanCopy(article) {
     a.sections[6].title='En qué habilidad gastar los puntos'
     a.sections[6].body=['Si estás acertando muchos disparos en línea, mejorar Obsesión te ayuda a aprovecharlos. Si no consigues acercarte o escapar, revisa antes cómo usas el humo y la daga. Elige una mejora que puedas usar ahora, sin depender de objetos que todavía no tienes.']
     a.faq[0].answer='Cuando puedas llegar a tiempo y disparar junto a tus compañeros. Mira qué objetivo van a disputar y cuánto tardarás en alcanzarlos. No hay una cantidad de almas que sirva como permiso para pelear en todas las partidas.'
+    a.checklist=['Dispara a quien puedas mantener a tiro sin salir de cobertura.', 'Mira quién puede detener Baile de Balas.', 'Busca una cobertura por si llega otro rival.']
   }
   if(a.hero==='graves'&&a.kind==='hero'){
     a.intro='Graves combina el arma con calaveras y necrófagos. Protege la lápida y coloca las manos en el camino que quieras dificultar. Busca una posición desde la que puedas seguir disparando mientras atacan tus criaturas.'
@@ -76,6 +77,7 @@ export function humanCopy(article) {
     a.faq[0].answer='Esta build prioriza daño espiritual y reducción de recarga. No des por hecho que todos los objetos de cuerpo a cuerpo funcionan igual con el puño: comprueba el efecto del que quieras añadir antes de cambiar las compras.'
     a.faq[1].question='¿Conviene usar el cubo en cuanto se recarga?'
     a.faq[1].answer='Úsalo cuando proteger al aliado sea más útil que dejarle seguir atacando. Reducir la recarga te permite volver a ayudar, pero sigue importando cuándo y dónde usas el cubo.'
+    a.checklist=['Mejora la habilidad con la que estás ayudando al equipo.', 'Elige qué habilidad imbuir antes de comprar el objeto.', 'Deja una salida para cuando termine el cubo o la bola.']
   }
   return a
 }

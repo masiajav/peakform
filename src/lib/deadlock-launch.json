@@ -1189,11 +1189,11 @@
       }
     ],
     "checklist": [
-      "Elige un blanco que puedas mantener a la vista.",
-      "Localiza el control que puede detener tu entrada.",
-      "Conserva una cobertura para cortar el intercambio si aparece ayuda."
+      "Dispara a quien puedas mantener a tiro sin salir de cobertura.",
+      "Mira quién puede detener Baile de Balas.",
+      "Busca una cobertura por si llega otro rival."
     ],
-    "updatedAt": "2026-10-25T09:01:58.028Z",
+    "updatedAt": "2026-10-25T09:33:53.136Z",
     "description": "Aprende a jugar a Bruma: duerme con la daga, cambia de ángulo y elige cuándo entrar con Baile de Balas.",
     "publishedAt": "2026-10-23T09:00:00Z"
   },
