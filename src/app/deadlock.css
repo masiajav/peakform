@@ -1,4 +1,8 @@
 /* Deadlock shares Overwatch's type, grid and sharp cards; sage marks the game. */
+.game-selector .game-choice { display: flex; flex-direction: column; }
+.game-selector .game-choice-art { flex-shrink: 0; }
+.game-selector .game-choice-copy { display: flex; flex-direction: column; flex: 1; }
+.game-selector .game-choice-copy p { flex: 1; }
 .game-deadlock {
   --accent: #c5d99b;
   --accent-hov: #deedc4;

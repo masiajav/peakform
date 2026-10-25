@@ -3,7 +3,7 @@ import {editorialIssues,editorialVersion,evidenceMatches,type EditorialArticle,t
 import {deadlockMapIssues,type DeadlockMapAtlas} from '@/lib/deadlock-map-contract'
 import launch from '@/lib/deadlock-launch.json'
 const atlas:DeadlockMapAtlas={name:'La ciudad',layers:['streets','tunnels','passages'].map(id=>({id,label:id,image:`/deadlock/map/${id}-abcdef123456.png`})),groups:[{id:'guardians',label:'Guardianes',symbol:'G',color:'#b9d29b',category:'objectives',section:0,description:'Protegen la calle.',points:[{x:.5,y:.4,team:'amber'}]}],lanes:['York','Broadway','Greenwich'].map(name=>({name,color:'#abc123',points:[{x:0,y:0},{x:1,y:1}]}))}
-const article:EditorialArticle={...launch[0] as EditorialArticle,kind:'map',slug:'la-ciudad',path:'/deadlock/maps/la-ciudad',hero:undefined,mapAtlas:atlas,sections:(launch[0] as EditorialArticle).sections.map(s=>({...s}))}
+const article:EditorialArticle={...launch[0] as EditorialArticle,kind:'map',slug:'la-ciudad',path:'/deadlock/maps/la-ciudad',hero:undefined,abilities:undefined,mapAtlas:atlas,sections:(launch[0] as EditorialArticle).sections.map(s=>({...s}))}
 describe('Deadlock map revisions',()=>{
  it('binds positions, layers and photographs to the exact editorial review',()=>{
   expect(editorialIssues(article)).toEqual([])
