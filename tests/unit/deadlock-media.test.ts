@@ -35,6 +35,7 @@ describe('Deadlock media identity and local assets', () => {
     expect(getDeadlockCellMedia('Maleficio Anticuración (Healbane)')?.icon).toBe('/deadlock/items/2603935618.webp')
     expect(getDeadlockCellMedia('Hiedra')?.icon).toBe('/deadlock/ivy.webp')
     expect(getDeadlockCellMedia('Ivy')?.icon).toBe('/deadlock/ivy.webp')
+    expect(getDeadlockCellMedia('Hiedra (Ivy)')).toMatchObject({ type: 'hero', slug: 'ivy', icon: '/deadlock/ivy.webp' })
     expect(getDeadlockCellMedia('Apply Healbane before the next fight')).toBeUndefined()
   })
   it('links ability cards to their explanation across localized whitespace', () => {

@@ -14,9 +14,14 @@ import { deadlockBreadcrumbs, deadlockHeroLabel } from '@/lib/deadlock-seo'
 
 const sectionLabels: Record<string, string> = { heroes: 'Héroes', counters: 'Counters', builds: 'Builds', guides: 'Guías', news: 'Noticias', 'patch-notes': 'Parches', maps: 'Mapas', 'team-comps': 'Composiciones' }
 
-function TableCellContent({ text, game }: { text: string; game: EditorialArticle['game'] }) {
+function TableCellContent({ text, game, publishedPaths }: { text: string; game: EditorialArticle['game']; publishedPaths: ReadonlySet<string> | null }) {
   const media = game === 'deadlock' ? getDeadlockCellMedia(text) : undefined
-  return media ? <span className={`deadlock-cell-media deadlock-cell-${media.type}`}><Image src={media.icon} alt="" width={40} height={40} unoptimized /><span>{text}</span></span> : <>{text}</>
+  if (!media) return <>{text}</>
+  const content = <><Image src={media.icon} alt="" width={40} height={40} unoptimized /><span>{text}</span></>
+  const href = media.type === 'hero' ? gamePath('deadlock', 'heroes', media.slug) : null
+  return href && publishedPaths?.has(href)
+    ? <Link className="deadlock-cell-media deadlock-cell-hero deadlock-cell-link" href={href}>{content}</Link>
+    : <span className={`deadlock-cell-media deadlock-cell-${media.type}`}>{content}</span>
 }
 
 export default async function GameEditorialArticle({ article: a, preview = false }: { article: EditorialArticle; preview?: boolean }) {
@@ -25,6 +30,7 @@ export default async function GameEditorialArticle({ article: a, preview = false
   const heroSections = a.game === 'deadlock' ? ['heroes', 'counters', 'builds'] : ['heroes', 'counters', 'team-comps']
   const links = a.hero ? heroSections.filter(item => item !== section && (!publishedPaths || publishedPaths.has(gamePath(a.game, item, a.hero)))) : []
   const related = a.related?.filter(link => !publishedPaths || publishedPaths.has(link.href))
+  const heroLinks = links.length > 0 && <nav className={`game-related${a.game === 'deadlock' ? ' game-hero-resources' : ''}`} aria-label="Sigue aprendiendo">{links.map(section => <Link key={section} href={gamePath(a.game, section, a.hero)}>{a.game === 'deadlock' ? `${section === 'heroes' ? 'Guía de' : section === 'counters' ? 'Counters de' : 'Build de'} ${deadlockHeroLabel(a.hero)}` : section === 'heroes' ? 'Guía del héroe' : section === 'counters' ? 'Cómo responder a este héroe' : section === 'team-comps' ? 'Composiciones y sinergias' : 'Build y compras'}</Link>)}</nav>
   const fallbackHero = a.game === 'deadlock' ? getDeadlockHeroMedia(a.hero) : undefined
   const hero = fallbackHero ? { ...fallbackHero, abilities: a.abilities ?? fallbackHero.abilities } : undefined
   const illustrated = a.kind === 'hero' && Boolean(hero)
@@ -49,6 +55,7 @@ export default async function GameEditorialArticle({ article: a, preview = false
 
       <div className="game-article-reading">
         <p className="game-article-intro">{a.intro}</p>
+        {a.game === 'deadlock' && heroLinks}
         {a.mapAtlas && <DeadlockMapAtlas atlas={a.mapAtlas} />}
         {a.game === 'deadlock' && a.kind === 'build' && a.buildImport && <DeadlockBuildImport build={a.buildImport} heroName={hero?.name ?? a.aliases?.[0] ?? a.hero ?? a.slug} />}
         {illustrated && hero && <DeadlockAbilityKit hero={hero} sections={a.sections} />}
@@ -63,14 +70,14 @@ export default async function GameEditorialArticle({ article: a, preview = false
             {section.table && <div className="game-table-scroll" role="region" aria-label={section.title} tabIndex={0}><table className="game-data-table" role="table">
               <thead><tr>{section.table.columns.map(column => <th scope="col" key={column}>{column}</th>)}</tr></thead>
               <tbody>{section.table.rows.map((row, j) => <tr key={j}>{row.map((cell, k) => k === 0
-                ? <th scope="row" key={k} data-label={section.table!.columns[k]}><TableCellContent text={cell} game={a.game} /></th>
-                : <td key={k} data-label={section.table!.columns[k]}><TableCellContent text={cell} game={a.game} /></td>)}</tr>)}</tbody>
+                ? <th scope="row" key={k} data-label={section.table!.columns[k]}><TableCellContent text={cell} game={a.game} publishedPaths={publishedPaths} /></th>
+                : <td key={k} data-label={section.table!.columns[k]}><TableCellContent text={cell} game={a.game} publishedPaths={publishedPaths} /></td>)}</tr>)}</tbody>
             </table></div>}
           </section>
         })}
         {a.faq && a.faq.length > 0 && <section><h2>Preguntas frecuentes</h2>{a.faq.map(faq => <details className="game-faq" key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>}
         {!illustrated && <section className="game-checklist"><h2>Antes de tu próxima partida</h2><ul>{a.checklist.map((tip, i) => <li key={i}>{tip}</li>)}</ul></section>}
-        {links.length > 0 && <nav className="game-related" aria-label="Sigue aprendiendo">{links.map(section => <Link key={section} href={gamePath(a.game, section, a.hero)}>{a.game === 'deadlock' ? `${section === 'heroes' ? 'Guía de' : section === 'counters' ? 'Counters de' : 'Build de'} ${deadlockHeroLabel(a.hero)}` : section === 'heroes' ? 'Guía del héroe' : section === 'counters' ? 'Cómo responder a este héroe' : section === 'team-comps' ? 'Composiciones y sinergias' : 'Build y compras'}</Link>)}</nav>}
+        {a.game !== 'deadlock' && heroLinks}
         {related && related.length > 0 && <nav className="game-related" aria-label="Guías relacionadas">{related.map(link => <Link key={link.href} href={link.href}>{link.label}</Link>)}</nav>}
         {showReferences && <details className="game-sources"><summary>Referencias</summary><ul>{a.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a></li>)}</ul></details>}
       </div>

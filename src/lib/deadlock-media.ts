@@ -20,8 +20,8 @@ export function getDeadlockCellMedia(label: string) {
   const englishAlias = label.match(/\(([^()]+)\)\s*$/)?.[1]
   const item = itemsByName.get(normalize(englishAlias ?? label))
   if (item) return { type: 'item' as const, icon: item.icon }
-  const hero = heroesByName.get(normalize(label))
-  if (hero) return { type: 'hero' as const, icon: hero.portrait }
+  const hero = heroesByName.get(normalize(englishAlias ?? label))
+  if (hero) return { type: 'hero' as const, icon: hero.portrait, slug: hero.slug }
   return undefined
 }
 
