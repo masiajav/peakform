@@ -7,6 +7,7 @@ import { getHeroPillar } from '@/lib/hero-pillars'
 import { getMapPillar } from '@/lib/overwatch-maps'
 import { getRankedHeroGuide } from '@/lib/ranked-hero-guides'
 import { evergreenGuides } from '@/lib/evergreen-guides'
+import { reviewedGuideRevisions } from '@/lib/reviewed-guide-revisions'
 import { hasCurrentStaticEditorialReview, matchesStaticEditorialReview, staticEditorialContentVersion } from '@/lib/static-editorial-review'
 
 const path = '/counters/example'
@@ -52,11 +53,12 @@ describe('version-bound static editorial reviews', () => {
       '/guides/como-jugar-ana-ranked-overwatch', '/guides/como-jugar-cassidy-ranked-overwatch', '/guides/como-jugar-dva-ranked-overwatch', '/guides/como-jugar-genji-ranked-overwatch', '/guides/como-jugar-kiriko-ranked-overwatch', '/guides/como-jugar-reinhardt-ranked-overwatch', '/guides/como-jugar-winston-ranked-overwatch',
       '/guides/como-mejorar-en-overwatch', '/guides/como-subir-de-rango-overwatch', '/guides/como-revisar-cooldowns-overwatch', '/guides/composiciones-overwatch-5v5-6v6', '/guides/counters-overwatch-guia-completa', '/guides/mejores-heroes-overwatch', '/guides/review-vod-overwatch-espanol',
       '/guides/como-mejorar-como-tank-overwatch', '/guides/como-usar-ultimates-overwatch', '/guides/cuando-cambiar-de-heroe-overwatch',
+      '/guides/como-mejorar-como-dps-overwatch', '/guides/como-mejorar-como-support-overwatch',
       '/heroes/ana', '/heroes/cassidy', '/heroes/dmon', '/heroes/doctrine', '/heroes/dva', '/heroes/genji', '/heroes/kiriko', '/heroes/reinhardt', '/heroes/shion', '/heroes/tracer', '/heroes/winston', '/heroes/zarya', '/roles/flex',
       '/team-comps/ana', '/team-comps/cassidy', '/team-comps/doctrine', '/team-comps/domina', '/team-comps/dva', '/team-comps/genji', '/team-comps/jetpack-cat', '/team-comps/kiriko', '/team-comps/reinhardt', '/team-comps/roadhog', '/team-comps/sombra', '/team-comps/tracer', '/team-comps/winston', '/team-comps/wuyang', '/team-comps/zarya',
     ].sort())
     for (const [articlePath, record] of Object.entries(STATIC_EDITORIAL_REVIEWS)) {
-      const article = articlePath === '/roles/flex' ? flexRoleGuide : articlePath.startsWith('/maps/') ? getMapPillar(articlePath.split('/')[2]) : articlePath.startsWith('/guides/') ? getRankedHeroGuide(articlePath.split('/')[2]) ?? evergreenGuides[articlePath.split('/')[2]] : articlePath.startsWith('/heroes/') ? getHeroPillar(articlePath.split('/')[2]) : articlePath.startsWith('/team-comps/') ? getTeamCompPillar(articlePath.split('/')[2]) : getCounterPillar(articlePath.split('/')[2])
+      const article = articlePath === '/roles/flex' ? flexRoleGuide : articlePath.startsWith('/maps/') ? getMapPillar(articlePath.split('/')[2]) : articlePath.startsWith('/guides/') ? getRankedHeroGuide(articlePath.split('/')[2]) ?? evergreenGuides[articlePath.split('/')[2]] ?? reviewedGuideRevisions[articlePath.split('/')[2]] : articlePath.startsWith('/heroes/') ? getHeroPillar(articlePath.split('/')[2]) : articlePath.startsWith('/team-comps/') ? getTeamCompPillar(articlePath.split('/')[2]) : getCounterPillar(articlePath.split('/')[2])
       expect(hasCurrentStaticEditorialReview(articlePath, article), articlePath).toBe(true)
       expect(existsSync(record.evidence), record.evidence).toBe(true)
       expect(matchesStaticEditorialReview(articlePath, { ...article, h1: 'Una edición no revisada' }, record)).toBe(false)

@@ -3,6 +3,20 @@ import type { StaticEditorialReview } from './static-editorial-review'
 // Explicit, version-bound reviews. No build task may populate this registry
 // from slugs or automatically renew approval after an editorial change.
 export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialReview>> = {
+  '/guides/como-mejorar-como-dps-overwatch': {
+    path: '/guides/como-mejorar-como-dps-overwatch',
+    version: '873f2be8f4e7b16461312a6dcc3db077f0c1ce58d88e28bb2e1723c587865a42',
+    reviewedAt: '2026-10-27', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-dps-support-2026-10-27.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/guides/como-mejorar-como-support-overwatch': {
+    path: '/guides/como-mejorar-como-support-overwatch',
+    version: '55bd803a79a37909107bac3a1d747e228af16fa075e4c685634456a9df1d8168',
+    reviewedAt: '2026-10-27', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-dps-support-2026-10-27.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/maps/dorado': {
     path: '/maps/dorado',
     version: '160b6bf7bf5e0f1dcb5b896d4db5310dc676a60bebb1979cc31fee35b62fb306',

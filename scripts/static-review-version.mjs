@@ -12,9 +12,10 @@ try {
   const { getHeroPillar } = await server.ssrLoadModule('/src/lib/hero-pillars.ts')
   const { getRankedHeroGuide } = await server.ssrLoadModule('/src/lib/ranked-hero-guides.ts')
   const { evergreenGuides } = await server.ssrLoadModule('/src/lib/evergreen-guides.ts')
+  const { reviewedGuideRevisions } = await server.ssrLoadModule('/src/lib/reviewed-guide-revisions.ts')
   for (const path of requests) {
     const [, kind, slug] = path.split('/')
-    const content = path === '/roles/flex' ? flexRoleGuide : kind === 'guides' ? getRankedHeroGuide(slug) ?? (Object.hasOwn(evergreenGuides, slug) ? evergreenGuides[slug] : null) : kind === 'heroes' ? getHeroPillar(slug) : kind === 'counters' ? getCounterPillar(slug) : getTeamCompPillar(slug)
+    const content = path === '/roles/flex' ? flexRoleGuide : kind === 'guides' ? getRankedHeroGuide(slug) ?? (Object.hasOwn(evergreenGuides, slug) ? evergreenGuides[slug] : Object.hasOwn(reviewedGuideRevisions, slug) ? reviewedGuideRevisions[slug] : null) : kind === 'heroes' ? getHeroPillar(slug) : kind === 'counters' ? getCounterPillar(slug) : getTeamCompPillar(slug)
     if (!content) throw new Error(`No editorial model for ${path}`)
     console.log(JSON.stringify({ path, version: staticEditorialContentVersion(path, content) }))
   }

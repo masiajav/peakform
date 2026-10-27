@@ -89,7 +89,7 @@ describe('reviewed guide batch', () => {
     expect(revised).toMatchObject({ id: original.id, slug: source.slug, hero: null, role: 'dps', category: 'Fundamentos', created_at: original.created_at, updated_at: '2026-10-18' })
     expect(reviewedGuideVideoSource(source.slug)).toBeUndefined()
     expect(revised.body).toContain('off-angle')
-    expect(guideQualityDecision(revised)).toMatchObject({ indexable: false, adsAllowed: false })
+    expect(guideQualityDecision(revised)).toMatchObject({ indexable: true, adsAllowed: false })
   })
 
   it('uses the actual ranked article title and answer on related cards', () => {
@@ -115,7 +115,7 @@ describe('reviewed guide batch', () => {
     expect(guideEditorial(revised)).toMatchObject({ title: revised.title, seoTitle: revised.seo_title, description: revised.seo_description })
   })
 
-  it('keeps every revision and its old URL out of the sitemap and ad inventory', () => {
+  it('requires individual publication reviews and keeps every revision out of the ad inventory', () => {
     expect(Object.keys(reviewedGuideRevisions)).toHaveLength(47)
     for (const [slug, revision] of Object.entries(reviewedGuideRevisions)) {
       const guide = applyReviewedGuideRevision({ ...original, slug })
@@ -126,9 +126,10 @@ describe('reviewed guide batch', () => {
         expect(reviewedGuideTarget(revision.videoSlug)).toBe(slug)
         expect(reviewedGuideVideoSource(slug)).toBe(revision.videoSlug)
       }
-      expect(isGuideSitemapEligible(guide)).toBe(false)
-      expect(guideQualityDecision(guide)).toMatchObject({ indexable: false, adsAllowed: false })
-      expect(guideQualityDecision({ ...guide, slug: revision.videoSlug })).toMatchObject({ indexable: false, adsAllowed: false })
+      const individuallyPublished = ['como-mejorar-como-dps-overwatch', 'como-mejorar-como-support-overwatch'].includes(slug)
+      expect(isGuideSitemapEligible(guide)).toBe(individuallyPublished)
+      expect(guideQualityDecision(guide)).toMatchObject({ indexable: individuallyPublished, adsAllowed: false })
+      expect(guideQualityDecision({ ...guide, slug: revision.videoSlug })).toMatchObject({ indexable: individuallyPublished && revision.videoSlug === slug, adsAllowed: false })
       expect(revision.body).not.toMatch(/Title SEO|Meta description|keywords principales|plan de juego: qué pelea busca/i)
       expect(revision.body).toContain('## FAQ')
       expect(guide.updated_at).toBe(revision.revisedAt || GUIDE_REVISION_DATE)

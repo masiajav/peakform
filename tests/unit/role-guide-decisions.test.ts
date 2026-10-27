@@ -22,8 +22,8 @@ describe('conditional DPS and Support advice', () => {
       expect(guide.body).toContain('/guides/review-vod-overwatch-espanol#cuaderno-vod')
       expect([...guide.body.matchAll(/^### /gm)]).toHaveLength(5)
       expect(guide.body).not.toMatch(/TITLE SEO|META DESCRIPTION|^## (CTA|Enlaces internos)$/m)
-      expect(guideQualityDecision(revised)).toMatchObject({ indexable: false, adsAllowed: false })
-      expect(isGuideSitemapEligible(revised)).toBe(false)
+      expect(guideQualityDecision(revised)).toMatchObject({ indexable: true, adsAllowed: false })
+      expect(isGuideSitemapEligible(revised)).toBe(true)
     })
   }
   it('distinguishes DPS mechanics, accessible angles, Recall destinations and objective contests', () => {

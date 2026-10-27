@@ -2,6 +2,7 @@ import { stripMarkdown } from './seo'
 import { getMapPillar, MAP_PILLAR_SLUGS, type MapPillar } from './overwatch-maps'
 import { PUBLIC_HERO_PAGE_SLUGS } from './topic-links'
 import { hasReviewedGuideRevision, reviewedGuideTarget } from './reviewed-guide-policy'
+import { applyReviewedGuideRevision, reviewedGuideRevisions } from './reviewed-guide-revisions'
 export { PILLAR_COUNTER_SLUGS, PILLAR_TEAM_COMP_SLUGS } from './public-topic-policy'
 import { PILLAR_COUNTER_SLUGS, PILLAR_TEAM_COMP_SLUGS } from './public-topic-policy'
 import { hasCurrentEditorialReview, type EditorialReviewContent } from './editorial-review'
@@ -240,7 +241,8 @@ export function isGuideSitemapEligible(guide: GuideLike) {
   if (evergreen) return evergreenGuideQualityDecision(evergreen).indexable
   const ranked = getRankedHeroGuide(guide.slug)
   if (ranked) return rankedGuideQualityDecision(ranked).indexable
-  if (hasReviewedGuideRevision(guide.slug) || reviewedGuideTarget(guide.slug)) return false
+  if (reviewedGuideTarget(guide.slug)) return false
+  if (hasReviewedGuideRevision(guide.slug)) return reviewedGuideIndexDecision(applyReviewedGuideRevision({ ...guide, slug: guide.slug })).indexable
   if (EXCLUDED_GUIDE_SLUGS.includes(guide.slug)) return false
   return hasCurrentEditorialReview(guide) && !isVideoOnlyGuide(guide) && guidePublicationIssues(guide).length === 0
 }
@@ -276,6 +278,7 @@ export function isGuideAdEligible(guide: GuideLike) {
   if (!guide.slug) return false
   if (Object.hasOwn(evergreenGuides, guide.slug)) return false
   if (getRankedHeroGuide(guide.slug)) return false
+  if (hasReviewedGuideRevision(guide.slug)) return false
   return isGuideSitemapEligible(guide) && wordCount(guide.body) >= QUALITY_MINIMUMS.guideAdsWords
 }
 
@@ -296,9 +299,8 @@ export function guideQualityDecision(guide: GuideLike): PageQualityDecision {
     ? blocked('Registro no publicado; la ruta editorial se evalúa por separado', words)
     : evergreenGuideQualityDecision(evergreen)
 
-  if (hasReviewedGuideRevision(guide.slug) || reviewedGuideTarget(guide.slug)) {
-    return blocked('Lote revisado accesible para lectores; indexación y anuncios aún desactivados', words)
-  }
+  if (reviewedGuideTarget(guide.slug)) return blocked('Alias de una guía con URL canónica propia', words)
+  if (hasReviewedGuideRevision(guide.slug)) return reviewedGuideIndexDecision(guide)
 
   if (isGuideAdEligible(guide)) {
     return allowedWithAds('Guía pilar o contenido editorial suficiente', words)
@@ -314,6 +316,24 @@ export function guideQualityDecision(guide: GuideLike): PageQualityDecision {
 
   if (!hasCurrentEditorialReview(guide)) return blocked('Esta versión de la guía todavía no tiene una revisión editorial aprobada', words)
   return blocked(guidePublicationIssues(guide).join('; ') || 'Contenido pendiente de revisión', words)
+}
+
+function reviewedGuideIndexDecision(guide: GuideLike): PageQualityDecision {
+  const revision = guide.slug ? reviewedGuideRevisions[guide.slug] : undefined
+  const words = wordCount(guide.body)
+  if (!revision || !hasCurrentStaticEditorialReview(`/guides/${guide.slug}`, revision)) {
+    return blocked('La revisión de esta guía todavía no autoriza indexar su versión actual', words)
+  }
+  // Review the repository-owned text, and also require that the caller renders
+  // precisely that text. Database originals and redirect aliases are retained.
+  if (guide.title !== revision.title || guide.seo_title !== revision.title
+    || guide.seo_description !== revision.description || guide.excerpt !== revision.quickAnswer
+    || guide.body !== revision.body || guide.author !== 'Replaid Lab') {
+    return blocked('La guía renderizada no coincide con la revisión editorial', words)
+  }
+  const issues = guidePublicationIssues(guide)
+  return issues.length ? blocked(issues.join('; '), words)
+    : indexNoAds('Guía revisada individualmente para indexación; publicidad desactivada', words)
 }
 
 export function isAnnouncementSitemapEligible(item: AnnouncementLike) {
