@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { ArrowUpRight, Radio } from 'lucide-react'
+import { ArrowUpRight, Radio, Youtube } from 'lucide-react'
 import { KICK_CHANNEL_URL, isKickStatus, showKickNoticeOnPath, unknownKickStatus, type KickStatus } from '@/lib/kick-status'
 import styles from './KickLiveNotice.module.css'
+
+const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@Ivajpro'
 
 export default function KickLiveNotice() {
   const pathname = usePathname()
@@ -51,14 +53,20 @@ export default function KickLiveNotice() {
   const online = status?.status === 'live'
   const label = !status ? 'COMPROBANDO' : status.status === 'unknown' ? 'NO DISPONIBLE' : online ? 'ONLINE' : 'OFFLINE'
 
-  return <aside className={`${styles.bar}${online ? ` ${styles.online}` : ''}`} role="status" aria-label="Estado de ivajpro en Kick" aria-live="polite">
-    <a className={styles.link} href={KICK_CHANNEL_URL} target="_blank" rel="noopener noreferrer">
-      <span className={styles.channel}><Radio size={19} aria-hidden="true" /><span className={styles.kick}>KICK</span><span className={styles.name}>ivajpro</span></span>
-      {online && status.title && <span className={styles.title}>{status.title}</span>}
-      <span className={styles.controls}>
-        <span className={styles.state}><span className={styles.dot} aria-hidden="true" />{label}</span>
-        <span className={styles.action}><span>{online ? 'Ver directo' : 'Ver canal'}</span><ArrowUpRight size={15} aria-hidden="true" /></span>
-      </span>
+  return <aside className={styles.bar} aria-label="Canales de Ivajpro">
+    <div className={online ? `${styles.kickNotice} ${styles.online}` : styles.kickNotice} role="status" aria-label="Estado de ivajpro en Kick" aria-live="polite">
+      <a className={styles.link} href={KICK_CHANNEL_URL} target="_blank" rel="noopener noreferrer">
+        <span className={styles.channel}><Radio size={19} aria-hidden="true" /><span className={styles.kick}>KICK</span><span className={styles.name}>ivajpro</span></span>
+        {online && status.title && <span className={styles.title}>{status.title}</span>}
+        <span className={styles.controls}>
+          <span className={styles.state}><span className={styles.dot} aria-hidden="true" />{label}</span>
+          <span className={styles.action}><span>{online ? 'Ver directo' : 'Ver canal'}</span><ArrowUpRight size={15} aria-hidden="true" /></span>
+        </span>
+      </a>
+    </div>
+    <a className={styles.youtubeLink} href={YOUTUBE_CHANNEL_URL} target="_blank" rel="noopener noreferrer" aria-label="Canal de Ivajpro en YouTube (abre en otra pestaña)">
+      <span className={styles.youtubeChannel}><Youtube size={20} aria-hidden="true" /><span>YOUTUBE</span></span>
+      <span className={styles.youtubeAction}>Ver vídeos<ArrowUpRight size={15} aria-hidden="true" /></span>
     </a>
   </aside>
 }

@@ -17,6 +17,13 @@ for (const state of ['live', 'offline'] as const) {
       await expect(bar).toBeVisible()
       await expect(bar.getByText(state === 'live' ? 'ONLINE' : 'OFFLINE', { exact: true })).toBeVisible()
       await expect(bar.getByRole('link')).toHaveAttribute('href', 'https://kick.com/ivajpro')
+      const youtube = page.getByRole('link', { name: 'Canal de Ivajpro en YouTube (abre en otra pestaña)' })
+      await expect(youtube).toBeVisible()
+      await expect(youtube).toHaveAttribute('href', 'https://www.youtube.com/@Ivajpro')
+      await expect(youtube).toHaveAttribute('target', '_blank')
+      await expect(youtube).toHaveAttribute('rel', 'noopener noreferrer')
+      await expect(youtube).toContainText('Ver vídeos')
+      await expect(youtube).not.toContainText(/ONLINE|OFFLINE|COMPROBANDO|NO DISPONIBLE/)
       expect((await bar.boundingBox())?.y).toBeLessThan(2)
       const navBox = await page.getByRole('navigation', { name: 'Navegación pública', exact: true }).boundingBox()
       expect(navBox?.y).toBeGreaterThanOrEqual((await bar.boundingBox())!.height)
@@ -56,6 +63,7 @@ test('a failed check never leaves ONLINE or invents OFFLINE', async ({ page }) =
   failing = true
   await page.clock.fastForward(61_000)
   await expect(bar.getByText('NO DISPONIBLE', { exact: true })).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Canal de Ivajpro en YouTube (abre en otra pestaña)' })).toBeVisible()
   await expect(bar.getByText('ONLINE', { exact: true })).toHaveCount(0)
   await expect(bar.getByText('OFFLINE', { exact: true })).toHaveCount(0)
 })
@@ -89,7 +97,20 @@ test('private pages do not show or poll the public channel status', async ({ pag
   await page.goto('/login')
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   await expect(page.getByRole('status', { name: label })).toHaveCount(0)
+  await expect(page.getByRole('link', { name: 'Canal de Ivajpro en YouTube (abre en otra pestaña)' })).toHaveCount(0)
   expect(calls).toBe(0)
+})
+
+test('YouTube opens the channel in a separate tab even when Kick cannot be checked', async ({page,context}) => {
+  await page.route(endpoint, route => route.fulfill({json:status('unknown')}))
+  await context.route('https://www.youtube.com/@Ivajpro', route => route.fulfill({status:200,body:'Channel link destination'}))
+  await page.goto('/overwatch')
+  const nextTab=context.waitForEvent('page')
+  await page.getByRole('link',{name:'Canal de Ivajpro en YouTube (abre en otra pestaña)'}).click()
+  const youtube=await nextTab
+  await expect(youtube).toHaveURL('https://www.youtube.com/@Ivajpro')
+  await expect(page).toHaveURL(/\/overwatch$/)
+  await youtube.close()
 })
 
 test('production status endpoint can confirm the real Kick channel', async ({ request }) => {

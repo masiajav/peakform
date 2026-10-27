@@ -2,6 +2,8 @@
 
 La web muestra una franja visual en la parte superior de las páginas públicas: `ONLINE` en verde cuando Kick confirma una emisión activa y `OFFLINE` en gris cuando confirma desconexión. Incluye el canal `ivajpro`, indicador de estado y enlace a `https://kick.com/ivajpro`. El título del directo aparece en escritorio cuando está online. Funciona en la entrada, Overwatch, Deadlock y el resto de páginas públicas; no se muestra ni consulta en zonas privadas, vistas previas editoriales o Arcade. El pie público incluye también el enlace al canal.
 
+La franja incluye también un acceso permanente a [YouTube · Ivajpro](https://www.youtube.com/@Ivajpro), con icono y acento rojo, separado del estado de Kick. El enlace abre el canal en otra pestaña y sigue disponible cuando Kick está desconectado o su estado no se puede consultar. El aviso dinámico accesible contiene únicamente el estado de Kick; YouTube no se presenta como un directo confirmado. En móvil ambos canales comparten la fila, con el estado de Kick ajustándose al espacio disponible.
+
 ## Detección y comportamiento
 
 - El navegador consulta `/api/community/kick-status` cada 60 segundos mientras la pestaña está visible y vuelve a consultar al regresar a ella. No consulta Kick directamente ni carga un reproductor.
