@@ -1444,9 +1444,22 @@
       "sourceVersion": "873f2be8f4e7b16461312a6dcc3db077f0c1ce58d88e28bb2e1723c587865a42",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La familia de guías revisadas estaba bloqueada incondicionalmente; faltaba el registro individual de indexación.",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-dps-support-2026-10-27.md",
-      "publicVerification": null
+      "publicVerification": {
+        "path": "/guides/como-mejorar-como-dps-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "valid": true,
+        "checkedAt": "2026-10-27T22:29:32.806Z",
+        "commit": "c08cc7c666784fff970b8c188da9712eb3e36c10",
+        "browserChecks": "4 production cases passed: desktop/mobile, metadata, FAQ, links, sitemap, expert workflow, notebook navigation and no ad slots."
+      }
     },
     {
       "path": "/guides/como-mejorar-como-support-overwatch",
@@ -1459,9 +1472,22 @@
       "sourceVersion": "55bd803a79a37909107bac3a1d747e228af16fa075e4c685634456a9df1d8168",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La familia de guías revisadas estaba bloqueada incondicionalmente; faltaba el registro individual de indexación.",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-dps-support-2026-10-27.md",
-      "publicVerification": null
+      "publicVerification": {
+        "path": "/guides/como-mejorar-como-support-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "valid": true,
+        "checkedAt": "2026-10-27T22:29:32.806Z",
+        "commit": "c08cc7c666784fff970b8c188da9712eb3e36c10",
+        "browserChecks": "4 production cases passed: desktop/mobile, metadata, FAQ, links, sitemap, expert workflow, notebook navigation and no ad slots."
+      }
     },
     {
       "path": "/guides/composiciones-dive-brawl-poke-overwatch",
@@ -3548,5 +3574,10 @@
       "evidence": null,
       "publicVerification": null
     }
-  ]
+  ],
+  "progress": {
+    "reviewed": 2,
+    "publishedAndVerified": 2,
+    "pending": 138
+  }
 }

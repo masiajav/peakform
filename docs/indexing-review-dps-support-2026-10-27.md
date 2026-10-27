@@ -45,10 +45,16 @@ Las cuatro comprobaciones de navegador previas al desbloqueo pasaron en escritor
 
 La regla que bloqueaba todas las guías revisadas se sustituye por una comprobación de versión exacta y de coincidencia del texto renderizado. Solo estas dos revisiones reciben registro. Las guías sin revisión vigente y sus alias no se incorporan automáticamente al sitemap. Se mantiene `adsAllowed: false` en esta familia, incluso después de permitir indexación.
 
-Evidencia local: `reports/indexing-review-2026-10-27/release/role-review-before.log` y `release/reports/role-guide-decisions/`. La validación posterior de robots/sitemap y la comprobación pública después del despliegue se registrarán al completarse; este documento no las da por realizadas anticipadamente.
+Evidencia local previa al desbloqueo: `reports/indexing-review-2026-10-27/release/role-review-before.log` y `release/reports/role-guide-decisions/`. La validación local final y la comprobación pública posterior se detallan a continuación.
 
 ## Validación final local
 
 La copia aislada del lote pasa lint, las 700 pruebas unitarias y 18 casos de navegador en escritorio y móvil, incluidos robots, sitemap, FAQ, navegación, recomendaciones de expertos y bloqueo de anuncios. La compilación de producción usada por esos casos también termina correctamente. Una primera ejecución esperaba una etiqueta explícita `index, follow`; el comportamiento válido de esta ruta es retirar la restricción. Se comprobó por tanto que ni las metaetiquetas robots/googlebot ni la cabecera X-Robots-Tag contengan noindex/none, además de exigir las dos URLs en sitemap. Se conserva el resultado fallido de esa expectativa inicial en `role-review-after.log`; la ejecución corregida está en `role-review-final.log`.
 
 Las pruebas de versión comprueban que editar el cuerpo del modelo, el texto renderizado o el título invalida el permiso; otra guía o un alias no reciben aprobación. Las fechas de edición y la elegibilidad de anuncios no cambian por este desbloqueo.
+
+## Despliegue y comprobación pública
+
+El commit `c08cc7c` se publicó en `main` y Vercel confirmó su despliegue correcto. Se verificaron ambas URLs públicas con HTTP 200, sin restricciones noindex en HTML ni cabeceras, con pertenencia al sitemap y sin slots ni script de anuncios. Como controles negativos, la guía de Mauga, el filtro de Ana y el counter de Moira conservaron noindex y quedaron fuera del sitemap.
+
+Se repitieron contra producción los cuatro recorridos completos de DPS y Support en escritorio y móvil; todos pasaron. Incluyen canonical, fechas, cinco FAQ y sus datos estructurados, lectura de los apartados, enlaces internos, condiciones de expertos y navegación al cuaderno. Evidencia: `first-batch-production.json` y `release/role-review-production.log` en `reports/indexing-review-2026-10-27/`. El registro por URL marca estas dos revisiones como habilitadas y verificadas; no afirma que Google ya las haya incorporado a su índice.

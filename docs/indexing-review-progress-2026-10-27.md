@@ -20,3 +20,9 @@ Se releen y contrastan individualmente las guías existentes de DPS y Support. S
 Evidencia: [revisión de DPS y Support](indexing-review-dps-support-2026-10-27.md).
 
 El resto de artículos sigue pendiente de su propia lectura y comprobaciones. No se han aprobado en bloque ni se ha sustituido el trabajo editorial por una comprobación de longitud. El objetivo global sigue activo.
+
+## Resultado publicado del primer lote
+
+Las dos guías están desplegadas y comprobadas en producción: HTTP 200, sin noindex, incluidas en sitemap, mismas fechas del contenido y anuncios bloqueados. Pasan lint, 700 pruebas unitarias, 18 comprobaciones locales de navegador y cuatro comprobaciones adicionales contra producción en móvil y escritorio. El registro queda en **2 artículos habilitados y verificados de 140; 138 pendientes**.
+
+Siguiente prioridad: releer y verificar `/roles/flex`, `/counters/moira` y `/counters/reaper`, que conservan revisiones históricas pero tienen un bloqueo explícito de publicación. Su revisión antigua por sí sola no autoriza habilitarlos ahora. Después continúan las guías de héroes, composiciones, counters restantes y mapas, con una decisión por URL y versión.
