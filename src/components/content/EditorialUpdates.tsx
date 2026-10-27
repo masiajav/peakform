@@ -19,26 +19,30 @@ export default async function EditorialUpdates({
   game: GameId; kinds: EditorialKind[]; q?: string; hero?: string;
   limit?: number; variant?: 'inline' | 'landing';
 }) {
+  const newsOnly = variant === 'landing'
+  const gameName = game === 'overwatch' ? 'Overwatch' : 'Deadlock'
+  const newsHref = game === 'overwatch' ? '/news' : '/deadlock/news'
+  const displayDate = (article: { publishedAt: string; updatedAt: string }) => newsOnly ? article.publishedAt : article.updatedAt
   const normalize = (s: string) => s.toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   const items = (await publishedEditorial(game))
-    .filter(a => kinds.includes(a.kind) && (!hero || a.hero === hero)
+    .filter(a => kinds.includes(a.kind) && (!newsOnly || a.kind === 'news' || a.kind === 'patch_note') && (!hero || a.hero === hero)
       && normalize(`${a.title} ${a.description}`).includes(normalize(q)))
-    .sort((a, b) => Date.parse(b.updatedAt) - Date.parse(a.updatedAt))
+    .sort((a, b) => Date.parse(displayDate(b)) - Date.parse(displayDate(a)))
     .slice(0, limit)
   if (!items.length) return null
 
   return (
-    <section className={`${styles.root} ${variant === 'landing' ? styles.landing : ''}`} aria-label="Publicaciones actualizadas">
+    <section className={`${styles.root} ${newsOnly ? styles.landing : ''}`} aria-label={newsOnly ? `Últimas noticias de ${gameName}` : 'Publicaciones actualizadas'}>
       <header className={styles.heading}>
-        <h2>Al día en {game === 'overwatch' ? 'Overwatch' : 'Deadlock'}</h2>
-        <span>{items.length === 1 ? 'La última lectura' : 'Últimas lecturas'}</span>
+        <h2>{newsOnly ? `Últimas noticias de ${gameName}` : `Al día en ${gameName}`}</h2>
+        {newsOnly ? <Link href={newsHref}>Ver noticias <ArrowUpRight size={16} aria-hidden="true" /></Link> : <span>{items.length === 1 ? 'La última lectura' : 'Últimas lecturas'}</span>}
       </header>
       <div className={styles.list}>
         {items.map(a => (
           <Link className={styles.card} key={a.path} href={a.path}>
             <div className={styles.meta}>
               <span className={styles.kind}>{labels[a.kind]}</span>
-              <time dateTime={a.updatedAt} title="Fecha de actualización">{dateFormat.format(new Date(a.updatedAt))}</time>
+              <time dateTime={displayDate(a)} title={newsOnly ? 'Fecha de publicación' : 'Fecha de actualización'}>{dateFormat.format(new Date(displayDate(a)))}</time>
             </div>
             <div className={styles.copy}>
               <h3>{a.title}</h3>

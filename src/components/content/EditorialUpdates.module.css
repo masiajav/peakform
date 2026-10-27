@@ -14,6 +14,7 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 16px;
   margin-bottom: 14px;
 }
@@ -28,6 +29,25 @@
 .heading > span {
   color: var(--updates-muted);
   font-size: 11px;
+}
+
+.heading > a {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 6px;
+  color: var(--accent);
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.heading > a:hover {
+  text-decoration: underline;
+}
+
+.heading > a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 .list {

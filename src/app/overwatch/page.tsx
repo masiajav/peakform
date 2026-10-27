@@ -165,19 +165,19 @@ export default async function RootPage() {
           </div>
         </section>
 
-        <EditorialUpdates game="overwatch" kinds={['guide', 'news', 'patch_note']} limit={3} variant="landing" />
+        <EditorialUpdates game="overwatch" kinds={['news', 'patch_note']} limit={3} variant="landing" />
 
         <section style={{ maxWidth: 1120, margin: '0 auto', padding: '20px 24px 44px' }}>
           <Link href="/doctrine-support-sombra-roadhog-rework-overwatch" style={{ textDecoration: 'none' }}>
             <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 24 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16, alignItems: 'start', marginBottom: 18, flexWrap: 'wrap' }}>
                 <div>
-                  <div className="eyebrow">ÚLTIMAS NOVEDADES</div>
+                  <div className="eyebrow">TEMPORADA ACTUAL</div>
                   <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(32px, 5vw, 48px)', letterSpacing: 1, lineHeight: 1, margin: '0 0 8px' }}>
                     SEASON 5 YA DISPONIBLE: A GRIM DOCTRINE
                   </h2>
                   <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0, maxWidth: 760 }}>
-                    La temporada arrancó el 6 de octubre y ya tiene otro ajuste de balance: nerfs de Doctrine y Sombra y mejoras para Roadhog. Repasa el hotfix del 13 de octubre, Grímsvötn y las fechas de los eventos.
+                    Doctrine llega como Support, Sombra cambia de rol y Roadhog recibe un rework. Repasa sus habilidades, Grímsvötn y los eventos de A Grim Doctrine.
                   </p>
                 </div>
                 <span className="btn btn-primary btn-sm">VER TODO</span>
