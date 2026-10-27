@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-for (const path of ['/', '/news', '/heroes', '/heroes/doctrine', '/doctrine-support-sombra-roadhog-rework-overwatch', '/blizzcon-2026-overwatch-horarios-espana']) {
+for (const path of ['/overwatch', '/news', '/heroes', '/heroes/doctrine', '/doctrine-support-sombra-roadhog-rework-overwatch', '/blizzcon-2026-overwatch-horarios-espana']) {
   test(`${path} does not advertise the expired Doctrine trial`, async ({ page }) => {
     await page.goto(path, { waitUntil: 'networkidle' })
     const text = await page.locator('main').innerText()

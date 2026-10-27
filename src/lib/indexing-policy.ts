@@ -560,7 +560,7 @@ export function evergreenGuideQualityDecision(content: EvergreenGuide | null): P
     || [content.h1, content.kicker, ...content.sections.map(section => section.title), ...content.faqs.map(faq => faq.question)].some(title => /^(?:cta|enlaces internos)$/i.test(title.trim()))) {
     return blocked('La guía contiene texto interno o provisional', 0)
   }
-  return indexNoAds('Guía revisada individualmente; sin publicidad durante la revisión de AdSense', wordCount(paragraphs.join(' ')))
+  return allowedWithAds('Guía revisada; servir anuncios requiere aprobación de AdSense y consentimiento', wordCount(paragraphs.join(' ')))
 }
 
 // The repository article is rendered before the database guide. Review that
@@ -597,7 +597,7 @@ export function rankedGuideQualityDecision(content: RankedHeroGuide | null): Pag
   if (/\b(?:lorem ipsum|pendiente de completar|texto de ejemplo|title seo|meta description|keywords principales)\b/i.test(serialized)) {
     return blocked('La guía ranked contiene texto interno o provisional', 0)
   }
-  return indexNoAds('Guía ranked revisada individualmente; sin anuncios durante la revisión de AdSense', wordCount(paragraphs.join(' ')))
+  return allowedWithAds('Guía ranked revisada; servir anuncios requiere aprobación de AdSense y consentimiento', wordCount(paragraphs.join(' ')))
 }
 
 function validEditorialDate(value?: string | null) {

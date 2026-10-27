@@ -46,10 +46,10 @@ describe('evergreen article advertising review', () => {
     })
   }
 
-  it('keeps advertising disabled even for the current reviewed version', () => {
+  it('passes editorial eligibility for the current version to the global serving gate', () => {
     approve()
     renderToStaticMarkup(createElement(EvergreenGuideArticle, { guide }))
-    expect(fixtures.slot).toHaveBeenCalledExactlyOnceWith(false)
+    expect(fixtures.slot).toHaveBeenCalledExactlyOnceWith(true)
   })
 
   it('invalidates advertising approval when article text changes', () => {

@@ -1,0 +1,8 @@
+.single { display: block; }
+.content { min-width: 0; }
+.withSidebar { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 32px; align-items: start; width: min(1120px, calc(100vw - 48px)); position: relative; left: 50%; transform: translateX(-50%); }
+.sidebar { min-width: 0; position: sticky; top: 76px; }
+@media (max-width: 1100px) {
+  .withSidebar { display: block; width: auto; left: auto; transform: none; }
+  .sidebar { display: none; }
+}

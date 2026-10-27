@@ -10,7 +10,8 @@ import AppNav from '@/components/layout/AppNav'
 import PublicNav from '@/components/layout/PublicNav'
 import Link from 'next/link'
 import JsonLd from '@/components/content/JsonLd'
-import AdSlot from '@/components/content/AdSlot'
+import ArticleAd from '@/components/content/ArticleAd'
+import ArticleAdLayout from '@/components/content/ArticleAdLayout'
 import SponsoredBlock from '@/components/content/SponsoredBlock'
 import ArticleCta from '@/components/content/ArticleCta'
 import GuideMarkdown from '@/components/content/GuideMarkdown'
@@ -27,7 +28,6 @@ import ExpertPriceSummary from '@/components/content/ExpertPriceSummary'
 import { EXPERT_PUBLIC_PRICE_COLUMNS } from '@/lib/expert-public-pricing'
 import RankedHeroGuideArticle from '@/components/content/RankedHeroGuideArticle'
 import { getRankedHeroGuide } from '@/lib/ranked-hero-guides'
-import { canLoadAdSense } from '@/lib/adsense-policy'
 import { GUIDE_REVIEW_COLUMNS } from '@/lib/editorial-review'
 
 const GUIDE_DETAIL_COLUMNS = `
@@ -178,12 +178,6 @@ export default async function GuideDetailPage(props: { params: Promise<{ slug: s
   const quality = guideQualityDecision(guide)
   const relatedGuides = discoverableGuides(related ?? []).slice(0, 3)
   const allowAds = quality.adsAllowed
-  const showSidebarAd = allowAds && /^\d+$/.test(process.env.NEXT_PUBLIC_ADSENSE_SLOT_GUIDE_SIDEBAR || '') && canLoadAdSense({
-    clientId: process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID,
-    approved: process.env.NEXT_PUBLIC_ADSENSE_APPROVED,
-    cmpReady: process.env.NEXT_PUBLIC_ADSENSE_CMP_READY,
-    reviewMode: process.env.NEXT_PUBLIC_ADSENSE_REVIEW_MODE,
-  }, guidePath(guide.slug), allowAds)
   const faqEntries = extractFaqEntries(guide.body)
 
   const articleJsonLd = {
@@ -269,7 +263,8 @@ export default async function GuideDetailPage(props: { params: Promise<{ slug: s
         </nav>
       ))}
 
-      <main className={`guide-detail-layout${showSidebarAd ? '' : ' guide-detail-layout-no-ads'}`}>
+      <main className="guide-detail-layout guide-detail-layout-no-ads">
+      <ArticleAdLayout allowAds={allowAds}>
       <article className="guide-detail-main">
         <div style={{ fontSize: 12, color: 'var(--text3)', marginBottom: 32, display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
           <Link href="/guides" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Guías</Link>
@@ -307,7 +302,7 @@ export default async function GuideDetailPage(props: { params: Promise<{ slug: s
           </section>
         )}
 
-        <AdSlot variant="inline" slot="guide-after-summary" allowAds={allowAds} />
+        <ArticleAd position="summary" allowAds={allowAds} />
 
         {guide.video_id && (
           <>
@@ -322,7 +317,7 @@ export default async function GuideDetailPage(props: { params: Promise<{ slug: s
           </>
         )}
 
-        <AdSlot variant="inline" slot="guide-after-video" allowAds={allowAds} />
+        <ArticleAd position="video" hasVideo={Boolean(guide.video_id)} allowAds={allowAds} />
 
         <GuideMarkdown>{guide.body}</GuideMarkdown>
 
@@ -368,11 +363,7 @@ export default async function GuideDetailPage(props: { params: Promise<{ slug: s
           </section>
         )}
       </article>
-      {showSidebarAd && (
-        <aside className="guide-detail-sidebar">
-          <AdSlot variant="sidebar" slot="guide-sidebar-rectangle" allowAds={allowAds} />
-        </aside>
-      )}
+      </ArticleAdLayout>
       </main>
     </div>
   )

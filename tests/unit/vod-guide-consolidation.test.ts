@@ -38,7 +38,7 @@ describe('VOD guide consolidation', () => {
     expect(reviewedGuideTarget('toString')).toBeUndefined()
     expect(reviewedGuideTarget('como-mejorar-en-overwatch-revisando-vod-extra')).toBeUndefined()
     expect(hasReviewedGuideRevision(oldSlug)).toBe(false)
-    expect(guideQualityDecision({ slug: target })).toMatchObject({ indexable: true, adsAllowed: false })
+    expect(guideQualityDecision({ slug: target })).toMatchObject({ indexable: true, adsAllowed: true })
   })
 
   it('preserves the stored record and dates instead of presenting a fake fresh revision', () => {
@@ -77,7 +77,7 @@ describe('VOD guide consolidation', () => {
     expect(isGuideSitemapEligible(stored)).toBe(false)
     expect(guideQualityDecision(stored)).toMatchObject({ indexable: false, adsAllowed: false })
     expect(evergreenGuides[destination]).toMatchObject({ publishedAtIso: '2026-08-29', modifiedAtIso: '2026-10-10' })
-    expect(guideQualityDecision({ slug: destination })).toMatchObject({ indexable: true, adsAllowed: false })
+    expect(guideQualityDecision({ slug: destination })).toMatchObject({ indexable: true, adsAllowed: true })
   })
 
   it('gives curated search cards specific categories without republishing a consolidated slug', () => {

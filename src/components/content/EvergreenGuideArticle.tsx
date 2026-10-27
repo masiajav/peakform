@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { ReactNode } from 'react'
-import AdSlot from './AdSlot'
+import ArticleAd from './ArticleAd'
+import ArticleAdLayout from './ArticleAdLayout'
 import ArticleCta from './ArticleCta'
 import JsonLd from './JsonLd'
 import SeoFaq from './SeoFaq'
@@ -72,9 +73,10 @@ export default function EvergreenGuideArticle({ guide, children }: EvergreenGuid
           </div>
         </header>
 
+        <ArticleAdLayout allowAds={allowAds}>
         {children}
 
-        <AdSlot variant="inline" slot="guide-after-summary" allowAds={allowAds} />
+        <ArticleAd position="summary" allowAds={allowAds} />
 
         <article className="guide-body">
           {guide.sections.map(section => (
@@ -113,6 +115,7 @@ export default function EvergreenGuideArticle({ guide, children }: EvergreenGuid
 
         <SeoFaq items={guide.faqs} title="Preguntas frecuentes" />
         <ArticleCta />
+        </ArticleAdLayout>
       </main>
     </div>
   )

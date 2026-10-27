@@ -1,9 +1,10 @@
 'use client'
 
 import type { CSSProperties } from 'react'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { canLoadAdSense } from '@/lib/adsense-policy'
+import { configuredAdSlots, resolveAdSlot } from '@/lib/adsense-slots'
 import AdSenseScript from './AdSenseScript'
 
 type AdSlotVariant = 'leaderboard' | 'inline' | 'sidebar' | 'mobile'
@@ -24,15 +25,6 @@ const CONFIG: Record<AdSlotVariant, { minHeight: number; format: string }> = {
   mobile: { minHeight: 112, format: 'auto' },
 }
 
-const NAMED_SLOTS: Record<string, string | undefined> = {
-  'home-top-leaderboard': process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME_TOP,
-  'home-mid-leaderboard': process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME_MID,
-  'guides-top-leaderboard': process.env.NEXT_PUBLIC_ADSENSE_SLOT_GUIDES_TOP,
-  'guide-after-summary': process.env.NEXT_PUBLIC_ADSENSE_SLOT_GUIDE_AFTER_SUMMARY,
-  'guide-after-video': process.env.NEXT_PUBLIC_ADSENSE_SLOT_GUIDE_AFTER_VIDEO,
-  'guide-sidebar-rectangle': process.env.NEXT_PUBLIC_ADSENSE_SLOT_GUIDE_SIDEBAR,
-}
-
 export default function AdSlot({
   variant = 'inline',
   slot,
@@ -44,7 +36,9 @@ export default function AdSlot({
   const clientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID
   const pathname = usePathname()
   const config = CONFIG[variant]
-  const resolvedSlot = resolveSlot(slot)
+  const resolvedSlot = resolveAdSlot(slot, clientId, configuredAdSlots())
+  const element = useRef<HTMLModElement>(null)
+  const requestedElement = useRef<HTMLModElement | null>(null)
   const canServeAd = Boolean(resolvedSlot) && canLoadAdSense({
     clientId,
     approved: process.env.NEXT_PUBLIC_ADSENSE_APPROVED,
@@ -53,12 +47,13 @@ export default function AdSlot({
   }, pathname, allowAds)
 
   useEffect(() => {
-    if (!allowAds || !canServeAd) return
+    if (!allowAds || !canServeAd || !element.current || requestedElement.current === element.current) return
 
     const adsWindow = window as typeof window & { adsbygoogle?: unknown[] }
     adsWindow.adsbygoogle = adsWindow.adsbygoogle || []
     adsWindow.adsbygoogle.push({})
-  }, [allowAds, canServeAd])
+    requestedElement.current = element.current
+  }, [allowAds, canServeAd, pathname, resolvedSlot])
 
   if (!allowAds || !canServeAd) return null
 
@@ -74,6 +69,8 @@ export default function AdSlot({
       >
         <div className="ad-slot-label">{label}</div>
         <ins
+          key={`${pathname}:${resolvedSlot}`}
+          ref={element}
           className="adsbygoogle"
           style={{ display: 'block' }}
           data-ad-client={clientId}
@@ -84,12 +81,4 @@ export default function AdSlot({
       </aside>
     </>
   )
-}
-
-function resolveSlot(slot?: string) {
-  if (!slot) return null
-  if (/^\d+$/.test(slot)) return slot
-  if (slot.startsWith('guides-grid-')) return process.env.NEXT_PUBLIC_ADSENSE_SLOT_GUIDES_INLINE || null
-  const namedSlot = NAMED_SLOTS[slot]
-  return namedSlot && /^\d+$/.test(namedSlot) ? namedSlot : null
 }

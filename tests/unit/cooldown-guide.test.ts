@@ -62,8 +62,8 @@ describe('individual cooldown review guide', () => {
     expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'BlogPosting', datePublished: guide.publishedAtIso, dateModified: guide.modifiedAtIso, headline: guide.seoTitle, author: { '@type': 'Organization', name: 'Replaid Lab' } }))
     expect(schemas.find(item => item['@type'] === 'FAQPage').mainEntity).toEqual(guide.faqs.map(faq => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })))
   })
-  it('indexes only the individually reviewed version and never approves an edited version or adverts', () => {
-    expect(evergreenGuideQualityDecision(guide)).toMatchObject({ indexable: true, adsAllowed: false })
+  it('indexes only the individually reviewed version and never approves an edited version', () => {
+    expect(evergreenGuideQualityDecision(guide)).toMatchObject({ indexable: true, adsAllowed: true })
     for (const changed of [{ ...guide, quickAnswer: 'Unreviewed answer' }, { ...guide, modifiedAtIso: '2026-10-19' }]) expect(evergreenGuideQualityDecision(changed)).toMatchObject({ indexable: false, adsAllowed: false })
   })
 })

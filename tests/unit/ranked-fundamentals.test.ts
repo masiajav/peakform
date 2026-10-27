@@ -37,7 +37,7 @@ describe('individual Tank, ultimate and swap revisions', () => {
       expect(guideEditorial(stored)).toEqual({ title: guide.title, seoTitle: guide.seoTitle, description: guide.seoDescription })
       expect(stored).toEqual(before)
       expect(discoverableGuides([{ ...stored, published: false }])).toEqual([])
-      expect(evergreenGuideQualityDecision(guide)).toMatchObject({ indexable: hasCurrentStaticEditorialReview(`/guides/${guide.slug}`, guide), adsAllowed: false })
+      expect(evergreenGuideQualityDecision(guide)).toMatchObject({ indexable: hasCurrentStaticEditorialReview(`/guides/${guide.slug}`, guide), adsAllowed: hasCurrentStaticEditorialReview(`/guides/${guide.slug}`, guide) })
       expect(evergreenGuideQualityDecision({ ...guide, quickAnswer: 'Texto no revisado' })).toMatchObject({ indexable: false, adsAllowed: false })
     })
   }

@@ -153,10 +153,6 @@
       {
         "answer": "Su protección es contra balas. No cubre los ataques cuerpo a cuerpo ni el daño espiritual. Contra Abrams importa reconocer qué parte de su secuencia te está matando y evitar regalar el contrataque; comprar protección contra disparos no responde por sí sola al duelo cercano.",
         "question": "¿Piel de Metal evita los golpes de Abrams?"
-      },
-      {
-        "answer": "Después de una embestida que no consigue aislarte, toma distancia mientras le disparas con apoyo. Si persigues hasta su alcance de curación, devuelves la pelea al terreno que le interesa. Separa el momento de sobrevivir al contacto del momento de volver a presionar.",
-        "question": "¿Cuándo vuelvo a presionar después de defender la entrada?"
       }
     ],
     "game": "deadlock",
@@ -323,19 +319,19 @@
       "Identifica qué aliado conserva una respuesta y desde dónde puede usarla.",
       "Elige el objeto por su efecto y respeta su límite durante la activación."
     ],
-    "updatedAt": "2026-10-25T09:01:50.060Z",
+    "updatedAt": "2026-10-26",
     "description": "Cómo frenar a Abrams en Deadlock: evita las paredes, deja una salida al equipo y castiga una embestida fallida. Héroes y objetos que ayudan.",
     "publishedAt": "2026-10-23T09:00:00Z"
   },
   {
     "faq": [
       {
-        "answer": "Contra una línea que te dispara desde lejos, empezar por recuperación o aguante puede darte más oleadas jugables que adelantar daño de un golpe que no llegas a conectar. Si el rival te permite pelear junto a cobertura, el robo de vida cuerpo a cuerpo gana sentido. Cambia el primer paso según el intercambio que realmente puedas tomar.",
-        "question": "¿Sigo la tabla en el mismo orden todas las partidas?"
+        "answer": "No. El objeto activa una curación en el siguiente ataque cuerpo a cuerpo cuando está disponible y después entra en recarga. Encadenar golpes durante esa recarga no repite su curación; tampoco la activa disparar la escopeta.",
+        "question": "¿Robo de Vida Cuerpo a Cuerpo cura a Abrams con cada golpe?"
       },
       {
-        "answer": "Si mueres antes de disparar o lanzar tus habilidades, compra primero una defensa que te permita pelear. Si ya aguantas, ahorra para mejorar el daño o recargar antes la habilidad que más uses.",
-        "question": "¿Qué compruebo antes de ahorrar para una pieza cara?"
+        "answer": "No. La barrera absorbe daño cuando recibes uno de los controles que activan el objeto, pero no te libera del control. Si aparece la barrera mientras estás aturdido, todavía tienes que esperar a poder moverte o atacar.",
+        "question": "¿Barrera Reactiva elimina el aturdimiento de Abrams?"
       }
     ],
     "game": "deadlock",
@@ -376,7 +372,7 @@
         "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
         "title": "Objetos y habilidades · Deadlock API",
         "primary": false,
-        "accessedAt": "2026-10-23T20:20:58.476Z"
+        "accessedAt": "2026-10-27T17:09:44.223Z"
       },
       {
         "url": "https://deadlockbible.com/heroes/abrams/",
@@ -389,6 +385,12 @@
         "title": "Builds y contexto de partidas",
         "primary": false,
         "accessedAt": "2026-10-23T20:20:58.476Z"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/SteamDatabase/GameTracking-Deadlock/d251cf9d9a796061c90f58724230b7e17b97121b/game/citadel/pak01_dir/scripts/abilities.vdata",
+        "title": "Datos de objetos del cliente · Valve / SteamDB",
+        "primary": true,
+        "accessedAt": "2026-10-27T17:09:44.223Z"
       }
     ],
     "sections": [
@@ -507,7 +509,7 @@
       "Comprueba el daño recibido antes de comprar resistencia.",
       "Practica una secuencia con los objetos que ya tienes."
     ],
-    "updatedAt": "2026-10-24T20:59:01.188Z",
+    "updatedAt": "2026-10-27T17:09:44.223Z",
     "buildImport": {
       "code": 830770,
       "focus": "Golpes, curación y defensa para aguantar cerca del enemigo.",
@@ -678,10 +680,6 @@
       {
         "answer": "Daga Adormecedora no interrumpe las habilidades canalizadas. Bruma puede aportar presión desde otro ángulo, pero ese botón no debe ser la única respuesta que el equipo conserve contra la definitiva de Dínamo.",
         "question": "¿La daga de Bruma interrumpe Singularidad?"
-      },
-      {
-        "answer": "Cuando Singularidad termina o una entrada fracasa, busca al equipo que había avanzado para seguirla. Gastar todos los recursos sobre Dínamo puede dejar libre al verdadero daño rival. Comprueba primero si puedes presionar sin acercarte de nuevo a su control corto.",
-        "question": "¿Cuándo vuelvo a presionar después de defender la entrada?"
       }
     ],
     "game": "deadlock",
@@ -848,19 +846,19 @@
       "Identifica qué aliado conserva una respuesta y desde dónde puede usarla.",
       "Elige el objeto por su efecto y respeta su límite durante la activación."
     ],
-    "updatedAt": "2026-10-25T09:01:58.031Z",
+    "updatedAt": "2026-10-26",
     "description": "Cómo jugar contra Dínamo: separa al equipo, conserva una respuesta fuera de su control y evita que una captura arrastre a todos.",
     "publishedAt": "2026-10-23T09:00:00Z"
   },
   {
     "faq": [
       {
-        "answer": "Si vuestra presión depende de recuperarse entre escaramuzas, curación o reducción de recarga puede aportar antes que ahorrar exclusivamente para una entrada cara. Si ya habéis preparado una captura con seguimiento, entonces una compra de llegada o protección puede completar esa jugada. Cambia el gasto con la tarea del equipo.",
-        "question": "¿Sigo la tabla en el mismo orden todas las partidas?"
+        "answer": "No. La reducción del objeto corresponde a la habilidad elegida. Al imbuir Pulsación Cinética la recuperas antes; Singularidad conserva su propia recarga. Revisa la habilidad seleccionada en la tienda antes de planificar la siguiente pelea.",
+        "question": "¿Compresión de Recarga reduce también Singularidad si imbuyo Pulsación Cinética?"
       },
       {
-        "answer": "Si mueres antes de disparar o lanzar tus habilidades, compra primero una defensa que te permita pelear. Si ya aguantas, ahorra para mejorar el daño o recargar antes la habilidad que más uses.",
-        "question": "¿Qué compruebo antes de ahorrar para una pieza cara?"
+        "answer": "No. Mejora la curación que otorgas, pero no añade alcance a Aurora Rejuvenecedora. Si un compañero está fuera del área, no empieza a recibirla por comprar este objeto; comprueba su posición en vez de contar con una curación que no le llega.",
+        "question": "¿Potenciador de Curación amplía el radio de Aurora Rejuvenecedora?"
       }
     ],
     "game": "deadlock",
@@ -901,7 +899,7 @@
         "url": "https://api.deadlock-api.com/v1/assets/items?language=spanish",
         "title": "Objetos y habilidades · Deadlock API",
         "primary": false,
-        "accessedAt": "2026-10-23T20:20:58.476Z"
+        "accessedAt": "2026-10-27T17:09:44.223Z"
       },
       {
         "url": "https://deadlockbible.com/heroes/dynamo/",
@@ -914,6 +912,12 @@
         "title": "Builds y contexto de partidas",
         "primary": false,
         "accessedAt": "2026-10-23T20:20:58.476Z"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/SteamDatabase/GameTracking-Deadlock/d251cf9d9a796061c90f58724230b7e17b97121b/game/citadel/pak01_dir/scripts/abilities.vdata",
+        "title": "Datos de objetos del cliente · Valve / SteamDB",
+        "primary": true,
+        "accessedAt": "2026-10-27T17:09:44.223Z"
       }
     ],
     "sections": [
@@ -1032,7 +1036,7 @@
       "Comprueba el daño recibido antes de comprar resistencia.",
       "Practica una secuencia con los objetos que ya tienes."
     ],
-    "updatedAt": "2026-10-24T20:59:05.164Z",
+    "updatedAt": "2026-10-27T17:09:44.223Z",
     "buildImport": {
       "code": 919313,
       "focus": "Curación y alcance para ayudar al equipo y preparar Singularidad.",
@@ -1202,10 +1206,6 @@
       {
         "answer": "La resistencia acompaña los intercambios repetidos; la protección activa puede darte una ventana concreta frente a balas. Decide si necesitas soportar varias exposiciones cortas o escapar de una entrada concentrada. En ambos casos debes seguir usando cobertura y comprobar el daño espiritual que aporta el resto de enemigos.",
         "question": "¿Compro resistencia o Piel de Metal?"
-      },
-      {
-        "answer": "Guarda control o desplazamiento para el momento en que Bruma se compromete. Gastarlo sobre un objetivo secundario antes de su entrada permite que use Baile de Balas sin presión. Coordina quién conserva la respuesta y quién sigue haciendo daño.",
-        "question": "¿Cuándo vuelvo a presionar después de defender la entrada?"
       }
     ],
     "game": "deadlock",
@@ -1372,21 +1372,12 @@
       "Identifica qué aliado conserva una respuesta y desde dónde puede usarla.",
       "Elige el objeto por su efecto y respeta su límite durante la activación."
     ],
-    "updatedAt": "2026-10-25T09:01:51.445Z",
+    "updatedAt": "2026-10-26",
     "description": "Cómo frenar a Bruma (Haze): corta sus disparos con cobertura, guarda una respuesta para Baile de Balas y compara héroes y objetos defensivos.",
     "publishedAt": "2026-10-23T09:00:00Z"
   },
   {
-    "faq": [
-      {
-        "answer": "Empieza por resolver cargador y acceso al intercambio. Cuando ya consigues disparar, añade una pieza que refuerce la ventana de daño y otra que te permita mantener la posición. Si la pelea cambia y el rival guarda control para ti, adelanta la protección necesaria antes de continuar hacia objetos caros de daño.",
-        "question": "¿Sigo la tabla en el mismo orden todas las partidas?"
-      },
-      {
-        "answer": "Si mueres antes de disparar o lanzar tus habilidades, compra primero una defensa que te permita pelear. Si ya aguantas, ahorra para mejorar el daño o recargar antes la habilidad que más uses.",
-        "question": "¿Qué compruebo antes de ahorrar para una pieza cara?"
-      }
-    ],
+    "faq": [],
     "game": "deadlock",
     "hero": "haze",
     "kind": "build",
@@ -1563,22 +1554,14 @@
       "Comprueba el daño recibido antes de comprar resistencia.",
       "Practica una secuencia con los objetos que ya tienes."
     ],
-    "updatedAt": "2026-10-25T09:01:51.935Z",
-    "buildImport": {
+    "updatedAt": "2026-10-27",
+    "description": "Guía de compras de Bruma: daño con el arma, movilidad, respuestas a Piel de Metal y cuándo elegir defensa antes de seguir comprando daño.",
+    "publishedAt": "2026-10-23T09:00:00Z",
+    "buildImportUnavailable": {
       "code": 899427,
-      "focus": "Daño sostenido con el arma y movilidad para mantener al enemigo a tiro.",
       "heroId": 13,
-      "version": 1,
-      "checkedAt": "2026-10-25T09:01:51.934Z",
-      "coreItems": [
-        1548066885,
-        4104549924,
-        3977876567,
-        2739107182
-      ]
-    },
-    "description": "Código 899427 para importar la build de Bruma. Daño sostenido con el arma y movilidad para mantener al enemigo a tiro.",
-    "publishedAt": "2026-10-23T09:00:00Z"
+      "checkedAt": "2026-10-26T07:59:58.785Z"
+    }
   },
   {
     "faq": [
@@ -1734,10 +1717,6 @@
       {
         "answer": "Una vez lanzada Combustión Conmocionadora, no se interrumpe su detonación. El control puede ayudar a mantenerlo lejos y a separar al equipo de su recorrido, pero la respuesta debe seguir contando con la explosión pendiente.",
         "question": "¿Aturdir a Infernus cancela su definitiva?"
-      },
-      {
-        "answer": "Cuando activa su definitiva, evita que el equipo se retire unido por la misma salida estrecha. Divide las trayectorias posibles y utiliza el espacio antes de la detonación. La respuesta correcta depende de dónde esté el resto de su equipo, no solo de la distancia a Infernus.",
-        "question": "¿Cuándo vuelvo a presionar después de defender la entrada?"
       }
     ],
     "game": "deadlock",
@@ -1904,21 +1883,12 @@
       "Identifica qué aliado conserva una respuesta y desde dónde puede usarla.",
       "Elige el objeto por su efecto y respeta su límite durante la activación."
     ],
-    "updatedAt": "2026-10-25T09:01:51.936Z",
+    "updatedAt": "2026-10-26",
     "description": "Cómo jugar contra Infernus: corta sus disparos, evita que mantenga la quemadura y separa al equipo cuando prepare la definitiva.",
     "publishedAt": "2026-10-23T09:00:00Z"
   },
   {
-    "faq": [
-      {
-        "answer": "Si puedes seguir aplicando daño pero pierdes por desgaste, el robo de vida puede ayudar a prolongar la presión. Si mueres dentro de un control antes de volver a atacar, una compra de resistencia o una mejor aproximación tiene prioridad. La curación depende de que llegues a producir el daño que la alimenta.",
-        "question": "¿Sigo la tabla en el mismo orden todas las partidas?"
-      },
-      {
-        "answer": "Si mueres antes de disparar o lanzar tus habilidades, compra primero una defensa que te permita pelear. Si ya aguantas, ahorra para mejorar el daño o recargar antes la habilidad que más uses.",
-        "question": "¿Qué compruebo antes de ahorrar para una pieza cara?"
-      }
-    ],
+    "faq": [],
     "game": "deadlock",
     "hero": "infernus",
     "kind": "build",
@@ -2095,7 +2065,7 @@
       "Comprueba el daño recibido antes de comprar resistencia.",
       "Practica una secuencia con los objetos que ya tienes."
     ],
-    "updatedAt": "2026-10-25T09:01:51.444Z",
+    "updatedAt": "2026-10-27",
     "buildImport": {
       "code": 850922,
       "focus": "Cadencia y curación para aplicar quemaduras y volver a pelear desde cobertura.",
@@ -2266,10 +2236,6 @@
       {
         "answer": "El aturdimiento tiene retraso. Sirve para amenazarlo después de que aterrice si puedes seleccionarlo y sobrevivir hasta que se resuelva, pero no sustituye esquivar la zona de llegada de un Lash que ya está cayendo.",
         "question": "¿Derribo detiene inmediatamente su salto?"
-      },
-      {
-        "answer": "Después de que gaste movilidad para entrar, identifica si conserva un punto de escape. Presionarlo desde dos ángulos puede impedir que vuelva a elevarse cómodamente. Una persecución individual por terreno abierto le permite elegir otra secuencia aérea.",
-        "question": "¿Cuándo vuelvo a presionar después de defender la entrada?"
       }
     ],
     "game": "deadlock",
@@ -2436,21 +2402,12 @@
       "Identifica qué aliado conserva una respuesta y desde dónde puede usarla.",
       "Elige el objeto por su efecto y respeta su límite durante la activación."
     ],
-    "updatedAt": "2026-10-25T09:01:58.034Z",
+    "updatedAt": "2026-10-26",
     "description": "Cómo frenar a Lash: vigila las alturas, sal de su aterrizaje y evita que un mismo lanzamiento alcance a todo el equipo. Héroes y objetos útiles.",
     "publishedAt": "2026-10-23T09:00:00Z"
   },
   {
-    "faq": [
-      {
-        "answer": "Empieza por hacer que tu caída alcance el lugar que has elegido. Cuando el recorrido ya funciona, añade una compra que aumente el valor del impacto. Si el equipo rival guarda el control para el aterrizaje, adelanta protección o cambia el momento de llegada: añadir más daño no elimina esa respuesta.",
-        "question": "¿Sigo la tabla en el mismo orden todas las partidas?"
-      },
-      {
-        "answer": "Si mueres antes de disparar o lanzar tus habilidades, compra primero una defensa que te permita pelear. Si ya aguantas, ahorra para mejorar el daño o recargar antes la habilidad que más uses.",
-        "question": "¿Qué compruebo antes de ahorrar para una pieza cara?"
-      }
-    ],
+    "faq": [],
     "game": "deadlock",
     "hero": "lash",
     "kind": "build",
@@ -2620,7 +2577,7 @@
       "Comprueba el daño recibido antes de comprar resistencia.",
       "Practica una secuencia con los objetos que ya tienes."
     ],
-    "updatedAt": "2026-10-24T20:59:20.806Z",
+    "updatedAt": "2026-10-27",
     "buildImport": {
       "code": 822192,
       "focus": "Daño espiritual, alcance y aguante para caer desde altura y cambiar de posición.",
@@ -2791,10 +2748,6 @@
       {
         "answer": "Primero mira las respuestas del equipo y la cobertura disponible. Si podéis salir de la visión de la definitiva sin perder una acción decisiva, ceder unos segundos puede bastar. Cuando necesitáis disputar durante la canalización y nadie puede intervenir, una herramienta de control añade una opción que debéis preparar antes.",
         "question": "¿Necesito comprar una interrupción en todas las partidas?"
-      },
-      {
-        "answer": "Nube de Tormenta pierde presión sobre quienes salen de su línea de visión. Decide si basta con cubrirte hasta que termine o si vuestro equipo necesita interrumpirla para disputar el objetivo. Asomarte repetidamente sin un plan solo prolonga el daño recibido.",
-        "question": "¿Cuándo vuelvo a presionar después de defender la entrada?"
       }
     ],
     "game": "deadlock",
@@ -2961,21 +2914,12 @@
       "Identifica qué aliado conserva una respuesta y desde dónde puede usarla.",
       "Elige el objeto por su efecto y respeta su límite durante la activación."
     ],
-    "updatedAt": "2026-10-25T09:01:58.033Z",
+    "updatedAt": "2026-10-26",
     "description": "Cómo responder a Siete (Seven): evita las esferas, separa al aliado con Carga Estática y decide si interrumpir Nube de Tormenta o buscar cobertura.",
     "publishedAt": "2026-10-23T09:00:00Z"
   },
   {
-    "faq": [
-      {
-        "answer": "Una ruta orientada a ocupar zonas necesita que el enemigo tenga motivos para quedarse en ellas. Una ruta que refuerza disparos exige que puedas mantener el objetivo delante. Antes de mezclar compras, identifica cuál de las dos situaciones estás encontrando en las peleas por estructuras.",
-        "question": "¿Sigo la tabla en el mismo orden todas las partidas?"
-      },
-      {
-        "answer": "Si mueres antes de disparar o lanzar tus habilidades, compra primero una defensa que te permita pelear. Si ya aguantas, ahorra para mejorar el daño o recargar antes la habilidad que más uses.",
-        "question": "¿Qué compruebo antes de ahorrar para una pieza cara?"
-      }
-    ],
+    "faq": [],
     "game": "deadlock",
     "hero": "seven",
     "kind": "build",
@@ -3146,7 +3090,7 @@
       "Comprueba el daño recibido antes de comprar resistencia.",
       "Practica una secuencia con los objetos que ya tienes."
     ],
-    "updatedAt": "2026-10-24T20:59:28.865Z",
+    "updatedAt": "2026-10-27",
     "buildImport": {
       "code": 879524,
       "focus": "Cargas y daño espiritual para usar las habilidades más a menudo y defender zonas.",

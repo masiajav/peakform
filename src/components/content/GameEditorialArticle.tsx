@@ -11,6 +11,9 @@ import { publishedEditorial } from '@/lib/editorial-store'
 import { DEADLOCK_MEDIA_VERSION, deadlockAbilityForHeading, deadlockAbilityHeadingTitle, getDeadlockCellMedia, getDeadlockHeroMedia } from '@/lib/deadlock-media'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
 import { deadlockBreadcrumbs, deadlockHeroLabel } from '@/lib/deadlock-seo'
+import ArticleAd from './ArticleAd'
+import ArticleAdLayout from './ArticleAdLayout'
+import { isReviewedGameArticleAdEligible } from '@/lib/game-article-ad-policy'
 
 const sectionLabels: Record<string, string> = { heroes: 'Héroes', counters: 'Counters', builds: 'Builds', guides: 'Guías', news: 'Noticias', 'patch-notes': 'Parches', maps: 'Mapas', 'team-comps': 'Composiciones' }
 
@@ -26,7 +29,9 @@ function TableCellContent({ text, game, publishedPaths }: { text: string; game: 
 
 export default async function GameEditorialArticle({ article: a, preview = false }: { article: EditorialArticle; preview?: boolean }) {
   const section = Object.keys(SECTION_KIND).find(section => SECTION_KIND[section] === a.kind)!
-  const publishedPaths = a.game === 'deadlock' ? new Set((await publishedEditorial('deadlock')).map(article => article.path)) : null
+  const published = await publishedEditorial(a.game)
+  const publishedPaths = a.game === 'deadlock' ? new Set(published.map(article => article.path)) : null
+  const allowAds = isReviewedGameArticleAdEligible(a, published, preview)
   const heroSections = a.game === 'deadlock' ? ['heroes', 'counters', 'builds'] : ['heroes', 'counters', 'team-comps']
   const links = a.hero ? heroSections.filter(item => item !== section && (!publishedPaths || publishedPaths.has(gamePath(a.game, item, a.hero)))) : []
   const related = a.related?.filter(link => !publishedPaths || publishedPaths.has(link.href))
@@ -53,11 +58,14 @@ export default async function GameEditorialArticle({ article: a, preview = false
         <figure className="deadlock-hero-portrait"><Image src={hero.portrait} alt={hero.name} fill sizes="(max-width: 700px) 280px, 340px" priority /><figcaption>{hero.name}{hero.aliases.filter(alias => alias !== hero.name).length > 0 && <small>{hero.aliases.filter(alias => alias !== hero.name).join(' · ')}</small>}</figcaption></figure>
       </header> : <>{title}{a.image && !a.mapAtlas && <Image className="game-article-image" src={a.image} alt={a.aliases?.[0] ?? a.title} width={200} height={260} />}</>}
 
+      <ArticleAdLayout allowAds={allowAds}>
       <div className="game-article-reading">
         <p className="game-article-intro">{a.intro}</p>
         {a.game === 'deadlock' && heroLinks}
+        <ArticleAd position="summary" allowAds={allowAds} />
         {a.mapAtlas && <DeadlockMapAtlas atlas={a.mapAtlas} />}
         {a.game === 'deadlock' && a.kind === 'build' && a.buildImport && <DeadlockBuildImport build={a.buildImport} heroName={hero?.name ?? a.aliases?.[0] ?? a.hero ?? a.slug} />}
+        {a.buildImportUnavailable && <p role="note">El código de importación anterior ya no estaba disponible al comprobarlo el {new Date(a.buildImportUnavailable.checkedAt).toLocaleDateString('es-ES', { timeZone: 'UTC' })}. Puedes seguir la guía de compras de abajo y adaptar los objetos a tu partida.</p>}
         {illustrated && hero && <DeadlockAbilityKit hero={hero} sections={a.sections} />}
         {a.mapAtlas ? <details className="game-map-toc"><summary>Índice de la guía · {a.sections.length} apartados</summary>{contents}</details> : contents}
         {a.sections.map((section, i) => {
@@ -81,6 +89,7 @@ export default async function GameEditorialArticle({ article: a, preview = false
         {related && related.length > 0 && <nav className="game-related" aria-label="Guías relacionadas">{related.map(link => <Link key={link.href} href={link.href}>{link.label}</Link>)}</nav>}
         {showReferences && <details className="game-sources"><summary>Referencias</summary><ul>{a.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a></li>)}</ul></details>}
       </div>
+      </ArticleAdLayout>
     </main>
   </div>
 }

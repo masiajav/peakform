@@ -9,6 +9,9 @@ import { absoluteUrl, readingTime, SITE_NAME } from '@/lib/seo'
 import { heroTopicHref } from '@/lib/topic-links'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
+import ArticleAd from './ArticleAd'
+import ArticleAdLayout from './ArticleAdLayout'
+import { announcementQualityDecision } from '@/lib/indexing-policy'
 
 // The page header owns the H1, including when legacy Markdown has a title.
 const ARTICLE_MARKDOWN_COMPONENTS = { h1: 'h2' } as const
@@ -38,6 +41,7 @@ export default async function AnnouncementArticlePage({
   const author = article.author || SITE_NAME
   const path = announcementPath(article)
   const readMinutes = readingTime(article.body)
+  const allowAds = announcementQualityDecision(article).adsAllowed
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -114,12 +118,15 @@ export default async function AnnouncementArticlePage({
           </div>
         </header>
 
+        <ArticleAdLayout allowAds={allowAds}>
+        <ArticleAd position="summary" allowAds={allowAds} />
         <div className="guide-body">
           <ReactMarkdown components={ARTICLE_MARKDOWN_COMPONENTS}>{article.body}</ReactMarkdown>
         </div>
 
         <SponsoredBlock item={article} />
         <ArticleCta role={article.role} hero={article.hero ? topicLabel(article.hero) : null} />
+        </ArticleAdLayout>
       </article>
     </div>
   )

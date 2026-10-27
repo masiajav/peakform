@@ -18,6 +18,7 @@ export type EditorialArticle = {
   intro: string; sections: EditorialSection[]
   abilities?: EditorialAbility[]
   buildImport?: DeadlockBuildImport
+  buildImportUnavailable?: { code: number; heroId: number; checkedAt: string }
   mapAtlas?: DeadlockMapAtlas
   faq?: { question: string; answer: string }[]
   related?: { href: string; label: string }[]
@@ -57,6 +58,13 @@ export function editorialIssues(input: unknown): string[] {
       || !Array.isArray(b.coreItems) || b.coreItems.length < 3 || b.coreItems.length > 6
       || b.coreItems.some(id => !Number.isSafeInteger(id) || id <= 0)
       || new Set(b.coreItems).size !== b.coreItems.length) issues.push('Código de build no válido')
+  }
+  if (a.buildImportUnavailable !== undefined) {
+    const b = a.buildImportUnavailable
+    if (a.game !== 'deadlock' || a.kind !== 'build' || a.buildImport || !a.hero || a.hero !== a.slug
+      || !b || !Number.isSafeInteger(b.code) || b.code <= 0 || b.code > 2147483647
+      || !Number.isSafeInteger(b.heroId) || b.heroId <= 0
+      || !Number.isFinite(Date.parse(b.checkedAt)) || Date.parse(b.checkedAt) > Date.parse(a.updatedAt)) issues.push('Aviso de build no disponible no válido')
   }
   if (!Array.isArray(a.sections) || a.sections.length < 3 || a.sections.some(s => typeof s.title !== 'string' || !Array.isArray(s.body) || !s.body.length || s.body.some(p => typeof p !== 'string' || !p.trim()) || (s.bullets && (!Array.isArray(s.bullets) || s.bullets.some(b => typeof b !== 'string'))))) issues.push('Secciones incompletas')
   if (a.mapAtlas !== undefined) {

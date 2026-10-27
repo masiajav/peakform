@@ -20,7 +20,7 @@ const seedPaths = seedEntries.map(entry => typeof entry === 'string' ? entry : e
   .filter(path => typeof path === 'string' && path.startsWith('/') && !path.startsWith('//'))
   .map(path => path.split('#')[0])
 
-const sitemapResponse = await fetch(`${baseUrl}/sitemap.xml`)
+const sitemapResponse = await fetch(`${baseUrl}/sitemap.xml`, { signal: AbortSignal.timeout(30000) })
 if (!sitemapResponse.ok) throw new Error(`No se pudo leer el sitemap: ${sitemapResponse.status}`)
 
 const sitemapXml = await sitemapResponse.text()
@@ -39,7 +39,7 @@ while (queue.length && pages.length + resources.length < maximumPages) {
   if (!path || seen.has(path) || isPrivatePath(path)) continue
   seen.add(path)
 
-  const response = await fetch(`${baseUrl}${path}`, { redirect: 'follow' })
+  const response = await fetch(`${baseUrl}${path}`, { redirect: 'follow', signal: AbortSignal.timeout(30000) })
   const contentType = (response.headers.get('content-type') || '').split(';')[0].trim().toLowerCase()
   if (contentType && !['text/html', 'application/xhtml+xml'].includes(contentType)) {
     const inSitemap = sitemapPaths.includes(path)
@@ -178,12 +178,12 @@ if (pages.some(page => page.inSitemap && page.issues.some(issue => ['Sin title',
 if (resources.some(resource => resource.issues.length)) process.exitCode = 1
 
 function classify({ path, response, robots, words, issues }) {
-  if (!response.ok || !issues.length && words.length < 80) return 'incompleta'
+  if (!response.ok) return 'error HTTP'
   if (issues.includes('Texto interno visible') || issues.includes('Posible mojibake')) return 'necesita revisión de lenguaje'
   if (pageKind(path) === 'filter') return issues.length ? 'filtro con incidencias' : 'filtro pendiente de revisión funcional'
   if (pageKind(path) === 'profile') return 'perfil pendiente de revisión'
-  if (robots.includes('noindex')) return words.length >= 650 ? 'pendiente de revisión' : 'demasiado genérica'
-  if (words.length < minimumUsefulWords(path)) return 'incompleta'
+  if (robots.includes('noindex')) return 'noindex; pendiente de revisión editorial'
+  if (words.length < minimumUsefulWords(path)) return 'texto breve; revisar utilidad manualmente'
   return issues.length ? 'necesita revisión' : 'requiere revisión editorial'
 }
 

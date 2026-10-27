@@ -14,6 +14,15 @@ export async function fetchLiveBuild(url) {
 }
 
 export async function checkDeadlockBuild(article) {
+  if(article.buildImportUnavailable){
+    const unavailable=article.buildImportUnavailable
+    const hero=JSON.parse(fs.readFileSync('src/lib/deadlock-catalog.json','utf8')).find(h=>h.slug===article.hero)
+    if(!hero||hero.id!==unavailable.heroId)throw Error('Unavailable build hero mismatch')
+    const response=await fetchLiveBuild(`https://api.deadlock-api.com/v1/builds/${hero.id}/${unavailable.code}?force_refetch=true`)
+    await response.body?.cancel()
+    if(response.status!==404)throw Error(`Build unavailability changed (${response.status}); review the import again`)
+    return `Previously listed build ${unavailable.code}: HTTP 404 confirmed at ${new Date().toISOString()}; import control removed, shopping guidance retained.`
+  }
   if(!article.buildImport)return ''
   const hero=JSON.parse(fs.readFileSync('src/lib/deadlock-catalog.json','utf8')).find(h=>h.slug===article.hero)
   if(!hero)throw Error('Build hero is not in the verified catalog')

@@ -23,7 +23,7 @@ test('cooldown review keeps its history and explains conditional decisions with 
   const schemas = (await page.locator('script[type="application/ld+json"]').allTextContents()).flatMap(text => JSON.parse(text))
   expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'BlogPosting', datePublished: '2026-06-21', dateModified: '2026-10-18', author: { name: 'Replaid Lab', '@type': 'Organization' } }))
   const visible = await page.locator('main').innerText()
-  const faqSection = page.locator('main > section').filter({ has: page.getByRole('heading', { name: 'Preguntas frecuentes', exact: true }) })
+  const faqSection = page.locator('main section').filter({ has: page.getByRole('heading', { name: 'Preguntas frecuentes', exact: true }) })
   await expect(faqSection.locator('article')).toHaveCount(6)
   for (const item of schemas.find(schema => schema['@type'] === 'FAQPage').mainEntity) {
     expect(visible).toContain(item.name)

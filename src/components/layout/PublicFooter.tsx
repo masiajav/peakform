@@ -5,6 +5,7 @@ import { DEADLOCK_SECTIONS, gameForPath } from '@/lib/games'
 import { usePathname } from 'next/navigation'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { KICK_CHANNEL_URL } from '@/lib/kick-status'
+import PrivacyChoices from '@/components/content/PrivacyChoices'
 
 const PRIVATE_PREFIXES = [
   '/admin',
@@ -57,6 +58,7 @@ export default function PublicFooter() {
         <nav className="public-footer-column" aria-label="Confianza y contacto">
           <strong>Replaid Lab</strong>
           {TRUST_LINKS.map(link => <Link key={link.href} href={link.href}>{link.label}</Link>)}
+          <PrivacyChoices />
         </nav>
 
         <div className="public-footer-column">

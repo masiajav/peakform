@@ -108,7 +108,7 @@ test('build inventory finds unlinked articles, excludes private routes and repor
     const report = JSON.parse(await readFile(output, 'utf8'))
     expect(report.pages).toHaveLength(5)
     expect(report.coverage).toMatchObject({ buildRoutes: 2, remainingPaths: [], dynamicRoutes: ['/guides/[slug]'] })
-    expect(report.pages.find((page: { path: string }) => page.path === '/counters/unlinked')).toMatchObject({ fromBuildManifest: true, inSitemap: false, kind: 'article', classification: 'demasiado genérica' })
+    expect(report.pages.find((page: { path: string }) => page.path === '/counters/unlinked')).toMatchObject({ fromBuildManifest: true, inSitemap: false, kind: 'article', classification: 'noindex; pendiente de revisión editorial' })
     expect(report.pages.find((page: { path: string }) => page.path === '/guides?hero=ana')).toMatchObject({ kind: 'filter', classification: 'filtro pendiente de revisión funcional' })
     expect(report.pages.find((page: { path: string }) => page.path === '/experts/complete-profile')).toMatchObject({ kind: 'profile', classification: 'perfil pendiente de revisión' })
     expect(requests).not.toContain('/dashboard')

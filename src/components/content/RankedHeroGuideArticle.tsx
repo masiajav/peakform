@@ -6,10 +6,14 @@ import type { RankedHeroGuide } from '@/lib/ranked-hero-guides'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
 import styles from './RankedHeroGuideArticle.module.css'
 import GuideVideo from './GuideVideo'
+import ArticleAd from './ArticleAd'
+import ArticleAdLayout from './ArticleAdLayout'
+import { rankedGuideQualityDecision } from '@/lib/indexing-policy'
 
 export default function RankedHeroGuideArticle({ guide }: { guide: RankedHeroGuide }) {
   const path = `/guides/${guide.slug}`
   const pageUrl = absoluteUrl(path)
+  const allowAds = rankedGuideQualityDecision(guide).adsAllowed
   const jsonLd = [
     {
       '@context': 'https://schema.org',
@@ -79,12 +83,14 @@ export default function RankedHeroGuideArticle({ guide }: { guide: RankedHeroGui
           </div>
         </header>
 
+        <ArticleAdLayout allowAds={allowAds}>
         <section className="seo-pillar-section">
           <div className="eyebrow">PLAN DE PARTIDA</div>
           <h2>Cómo organizar tus peleas con {guide.heroName}</h2>
           <div className="seo-pillar-intro">{guide.intro.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>
         </section>
 
+        <ArticleAd position="summary" allowAds={allowAds} />
         {guide.sections.map((section, index) => (
           <section className="seo-pillar-section" key={section.title}>
             <div className="eyebrow">{String(index + 1).padStart(2, '0')} · FUNDAMENTO</div>
@@ -117,6 +123,8 @@ export default function RankedHeroGuideArticle({ guide }: { guide: RankedHeroGui
           </div>)}
         </section>}
 
+        <ArticleAd position="video" hasVideo={Boolean(guide.video)} allowAds={allowAds} />
+
         <section className="seo-pillar-section">
           <div className="eyebrow">DUDAS HABITUALES</div>
           <h2>Preguntas sobre {guide.heroName}</h2>
@@ -131,6 +139,7 @@ export default function RankedHeroGuideArticle({ guide }: { guide: RankedHeroGui
           </div>
           <div className="seo-pillar-related-links">{guide.links.map(link => <Link key={link.href} href={link.href}>{link.label}</Link>)}</div>
         </section>
+        </ArticleAdLayout>
       </main>
     </div>
   )

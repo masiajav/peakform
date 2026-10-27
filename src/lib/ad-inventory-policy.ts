@@ -2,5 +2,5 @@
 // server must explicitly pass its version-checked quality decision to a slot.
 export function isPathAdEligible(path: string, editorialApproval = false) {
   if (!editorialApproval || path.includes('?') || path.includes('#')) return false
-  return /^\/(?:guides|news|patch-notes)\/[a-z0-9-]+$/.test(path)
+  return /^(?:\/(?:guides|news|patch-notes)|\/deadlock\/(?:guides|builds|news|patch-notes))\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(path)
 }
