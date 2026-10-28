@@ -193,8 +193,10 @@ export default async function GuideDetailPage(props: { params: Promise<{ slug: s
     mainEntityOfPage: absoluteUrl(guidePath(guide.slug)),
   }
 
-  const videoDescription = hasReviewedGuideRevision(guide.slug) ? reviewedGuideRevisions[guide.slug].videoDescription : undefined
-  const videoJsonLd = guide.video_id && guide.video_published_at ? {
+  const guideRevision = hasReviewedGuideRevision(guide.slug) ? reviewedGuideRevisions[guide.slug] : undefined
+  const videoDescription = guideRevision?.videoDescription
+  const externalVideo = guideRevision?.videoPresentation === 'external'
+  const videoJsonLd = !externalVideo && guide.video_id && guide.video_published_at ? {
     '@context': 'https://schema.org',
     '@type': 'VideoObject',
     name: guide.video_title || displayTitle,
@@ -288,7 +290,7 @@ export default async function GuideDetailPage(props: { params: Promise<{ slug: s
           <div style={{ fontSize: 12, color: 'var(--text3)', display: 'flex', gap: 16, flexWrap: 'wrap' }}>
             <span>Publicado: {new Date(guide.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
             <span>Última revisión: {new Date(updatedDate).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
-            <span>{readMinutes} min de lectura{guide.video_id ? ' · Con vídeo' : ''}</span>
+            <span>{readMinutes} min de lectura{guide.video_id ? externalVideo ? ' · Vídeo de referencia' : ' · Con vídeo' : ''}</span>
             <span>{author}</span>
             <Link href="/contact" style={{ color: 'var(--text3)', textDecoration: 'none' }}>Comunicar una corrección</Link>
           </div>
@@ -313,6 +315,7 @@ export default async function GuideDetailPage(props: { params: Promise<{ slug: s
               channel={guide.video_channel}
               language={guide.video_language}
               url={guide.video_url}
+              externalOnly={externalVideo}
             />
           </>
         )}

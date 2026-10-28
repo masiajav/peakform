@@ -773,6 +773,27 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-ashe-2026-10-28.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/hanzo-guia-video-overwatch': {
+    path: '/guides/hanzo-guia-video-overwatch',
+    version: 'f64bf7da1d80fc6448dfea88f1529b839f07e52c41a4bfd00ad9f16bcc634aea',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-hanzo-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/counters/hanzo': {
+    path: '/counters/hanzo',
+    version: 'dd69754d66c76e8d3c61a7fc486c00d47d793d5a56002c2e8f1a9f0050a1ac32',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-hanzo-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/hanzo': {
+    path: '/team-comps/hanzo',
+    version: '62e86e30c8f8c1408b4ce0287bae848f86fae647a8e4c2236b49b744b7d5ee7f',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-hanzo-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/zarya': {
     path: '/team-comps/zarya',
     version: '40de9429f726f9396cb6d2c3aa44d8eca29c9b77c5b7eeac49598631fa1b35a6',

@@ -18,6 +18,7 @@ export type GuideRevision = {
   quickAnswer: string
   videoSlug: string
   videoDescription?: string
+  videoPresentation?: 'external'
   reviewedVideo?: Pick<GuideContent, 'video_id' | 'video_url' | 'video_platform' | 'video_title' | 'video_channel' | 'video_language' | 'video_published_at'>
   renderedContentVersion?: string
   body: string

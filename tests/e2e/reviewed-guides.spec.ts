@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 import { GUIDE_REVISION_DATE, reviewedGuideRevisions } from '../../src/lib/reviewed-guide-revisions'
 
-const PUBLISHED_REVISIONS = ['como-mejorar-como-dps-overwatch', 'como-mejorar-como-support-overwatch', 'moira-guia-overwatch-recursos-supervivencia', 'reaper-guia-video-overwatch', 'brigitte-guia-overwatch-peel-anti-dive', 'echo-guia-overwatch-burst-vertical', 'ashe-guia-overwatch-angulos-dinamita']
+const PUBLISHED_REVISIONS = ['como-mejorar-como-dps-overwatch', 'como-mejorar-como-support-overwatch', 'moira-guia-overwatch-recursos-supervivencia', 'reaper-guia-video-overwatch', 'brigitte-guia-overwatch-peel-anti-dive', 'echo-guia-overwatch-burst-vertical', 'ashe-guia-overwatch-angulos-dinamita', 'hanzo-guia-video-overwatch']
 
 for (const [slug, revision] of Object.entries(reviewedGuideRevisions)) {
   test(`${slug} has one complete article and preserves its original URL`, async ({ page, request }) => {
@@ -25,7 +25,8 @@ for (const [slug, revision] of Object.entries(reviewedGuideRevisions)) {
     await expect(page.locator('.guide-body')).toContainText(revision.body.match(/^## (.+)/)?.[1] || '')
     await expect(page.locator('.guide-body')).toContainText('FAQ')
     await expect(page.locator('.guide-video-summary')).toContainText(revision.quickAnswer)
-    await expect(page.locator('iframe')).toHaveCount(revision.hero ? 1 : 0)
+    const externalVideo = revision.videoPresentation === 'external'
+    await expect(page.locator('iframe')).toHaveCount(revision.hero && !externalVideo ? 1 : 0)
     if (revision.reviewedVideo) {
       const video = revision.reviewedVideo
       for (const paragraph of revision.body.split(/\n\s*\n/)) {
@@ -34,11 +35,19 @@ for (const [slug, revision] of Object.entries(reviewedGuideRevisions)) {
       }
       await expect(page).toHaveTitle(new RegExp(revision.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))
       await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', revision.description)
-      await expect(page.locator('iframe')).toHaveAttribute('src', `https://www.youtube-nocookie.com/embed/${video.video_id}`)
-      await expect(page.locator('iframe')).toHaveAttribute('title', video.video_title!)
       await expect(page.locator('.guide-video-meta')).toContainText(video.video_channel!)
-      await page.locator('iframe').scrollIntoViewIfNeeded()
-      await expect(page.frameLocator('iframe').getByRole('button', { name: /^(?:Reproducir vídeo|Play(?: video)?)$/i })).toBeVisible({ timeout: 20000 })
+      if (externalVideo) {
+        const source = page.locator('.guide-video-source')
+        await expect(source).toHaveAttribute('href', video.video_url!)
+        await expect(source).toHaveAttribute('target', '_blank')
+        await expect(source).toContainText(video.video_title!)
+        await expect(page.locator('.guide-detail-main header')).toContainText('Vídeo de referencia')
+      } else {
+        await expect(page.locator('iframe')).toHaveAttribute('src', `https://www.youtube-nocookie.com/embed/${video.video_id}`)
+        await expect(page.locator('iframe')).toHaveAttribute('title', video.video_title!)
+        await page.locator('iframe').scrollIntoViewIfNeeded()
+        await expect(page.frameLocator('iframe').getByRole('button', { name: /^(?:Reproducir vídeo|Play(?: video)?)$/i })).toBeVisible({ timeout: 20000 })
+      }
     }
     await expect(page.locator('.ad-slot, ins.adsbygoogle')).toHaveCount(0)
     await expect(page.locator('.guide-detail-sidebar')).toHaveCount(0)
@@ -46,17 +55,20 @@ for (const [slug, revision] of Object.entries(reviewedGuideRevisions)) {
     expect(articleText).not.toMatch(/Ã|Â|â€|ï¿½|Title SEO|Meta description|Mira primero el vídeo/)
     const jsonLd = await page.locator('script[type="application/ld+json"]').allTextContents()
     const schemas = jsonLd.map(block => JSON.parse(block))
-    if (revision.reviewedVideo) expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'VideoObject', name: revision.reviewedVideo.video_title, uploadDate: revision.reviewedVideo.video_published_at }))
+    if (externalVideo) expect(schemas.some(schema => schema['@type'] === 'VideoObject')).toBe(false)
+    else if (revision.reviewedVideo) expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'VideoObject', name: revision.reviewedVideo.video_title, uploadDate: revision.reviewedVideo.video_published_at }))
     if (revision.videoDescription) {
-      expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'VideoObject', description: revision.videoDescription }))
-      expect(schemas.find(item => item['@type'] === 'VideoObject')).not.toHaveProperty('contentUrl')
+      if (!externalVideo) {
+        expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'VideoObject', description: revision.videoDescription }))
+        expect(schemas.find(item => item['@type'] === 'VideoObject')).not.toHaveProperty('contentUrl')
+      }
       await expect(page.locator('.guide-video-context')).toBeVisible()
       await expect(page.locator('.guide-video-context')).toHaveText(revision.videoDescription)
       await page.evaluate(() => document.fonts.ready)
       // Read both elements in one layout snapshot, after the web fonts settle.
       const videoLayout = await page.evaluate(() => {
         const context = document.querySelector('.guide-video-context')?.getBoundingClientRect()
-        const video = document.querySelector('.guide-video-frame')?.getBoundingClientRect()
+        const video = document.querySelector('.guide-video')?.getBoundingClientRect()
         return context && video ? { contextBottom: context.bottom, videoTop: video.top } : null
       })
       expect(videoLayout).not.toBeNull()

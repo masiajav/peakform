@@ -287,7 +287,14 @@ No necesariamente. Puede negar una zona o forzar una salida que tu equipo castig
     description: 'Mejora tus decisiones con Hanzo: coloca Sonic donde aporte información, reserva Storm Arrows para amenazas reales y prepara Dragonstrike sin depender de un combo.',
     quickAnswer: 'Hanzo necesita una línea de tiro que pueda cambiar cuando el rival lo presione. Usa Sonic antes de un cruce importante y guarda Storm Arrows si un dive está cerca. Dragonstrike funciona mejor sobre una ruta que el enemigo tenga que recorrer que sobre un grupo libre para apartarse.',
     videoSlug: 'hanzo-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-28',
+    reviewedVideo: {
+      video_id: 'Dgry7Q8AtSk', video_url: 'https://www.youtube.com/watch?v=Dgry7Q8AtSk', video_platform: 'youtube',
+      video_title: 'Can Hanzo EVER Be Meta? | #1 Hanzo Guide', video_channel: 'Kajor', video_language: 'en', video_published_at: '2025-12-14',
+    },
+    renderedContentVersion: 'fdbef921f883303f8b525e795c654c7ae9aa1d4e82aaba9ef127b85e85a05254',
+    videoPresentation: 'external',
+    videoDescription: 'Guía de Kajor publicada el 14 de diciembre de 2025, con capítulos sobre Sonic Arrow, Wall Climb y preparación de la posición. Es una referencia para observar decisiones, no una prueba de que Hanzo sea la elección dominante hoy. El análisis escrito se contrasta por separado con el kit actual; los cambios de perks requieren comprobar qué opciones tienes en tu partida.',
     body: `## La información cambia el siguiente disparo
 
 Hanzo puede disparar desde lejos, pero quedarse mirando una sola puerta toda la partida limita sus oportunidades. Sonic Arrow ayuda a saber si el rival sigue ahí, si está preparando una entrada lateral o si la línea que vigilas se ha quedado vacía.
@@ -308,7 +315,7 @@ Lunge sirve para ajustar distancia o salir de una línea, pero no te lleva a cua
 
 Si disparas al Tank, comprueba qué consigues. Romper su protección puede permitir que el equipo avance; hacer daño que se recupera sin mover a nadie quizá no justifique gastar el cooldown. Antes de usarlo, mira también si un DPS enemigo está cruzando sin ayuda.
 
-El funcionamiento de tus flechas puede variar con los perks elegidos. No bases toda la pelea en un rebote difícil de reproducir. Primero asegúrate de que puedes mantener una línea útil y sobrevivir cuando se acerquen; después aprovecha las posibilidades adicionales del perk.
+Storm Arrows ya rebota en el kit base. Scatter Arrows es un perk opcional que divide los disparos en su primer rebote y les añade otro; Frost Arrow es una opción distinta, no una ralentización de todas tus flechas. No bases toda la pelea en un rebote difícil de reproducir. Primero asegura una línea útil y una salida al llegar el rival; después aprovecha la opción que hayas elegido.
 
 ## Contra Genji o Winston, prepara la respuesta antes del contacto
 
