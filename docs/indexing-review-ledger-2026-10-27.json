@@ -124,12 +124,28 @@
       "sourceVersion": "4c93354f8fe655924fc207425833081b4dc63c77a3dec79485bd498085d061cd",
       "initialReviewState": "current-static-review",
       "initialBlocker": "Artículo revisado; indexación y anuncios pendientes de publicación individual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-flex-moira-reaper-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/counters/moira",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "5ba165fbd42f2bad42034fa6f4eb3822e8ebd86987c818cd13774e73b060ba4b",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-28T17:46:48.499Z",
+        "commit": "1ae0f46eafec2dde0ec5fafb2b971b1ddea6f285",
+        "browserChecks": "6 production cases passed: three articles on desktop/mobile, complete visible text, metadata, dates, FAQ, links, images, sitemap and absence of ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "4c93354f8fe655924fc207425833081b4dc63c77a3dec79485bd498085d061cd",
-      "correction": "Texto y fecha 2026-10-02 conservados después de releer y contrastar fuentes; habilitación individual pendiente de despliegue."
+      "correction": "Texto y fecha 2026-10-02 conservados después de releer y contrastar fuentes; habilitación individual desplegada y verificada."
     },
     {
       "path": "/counters/reaper",
@@ -142,12 +158,28 @@
       "sourceVersion": "fd28d5dabb92746683d18ffe3440b622c6ef910bfc16c9e2c2516151a32a1860",
       "initialReviewState": "current-static-review",
       "initialBlocker": "Artículo revisado; indexación y anuncios pendientes de publicación individual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-flex-moira-reaper-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/counters/reaper",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "425644ea3fca5aa73a3a80c5d03db71c4dd925be741e4f42bb3223873a65ff9f",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-28T17:46:48.499Z",
+        "commit": "1ae0f46eafec2dde0ec5fafb2b971b1ddea6f285",
+        "browserChecks": "6 production cases passed: three articles on desktop/mobile, complete visible text, metadata, dates, FAQ, links, images, sitemap and absence of ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "fd28d5dabb92746683d18ffe3440b622c6ef910bfc16c9e2c2516151a32a1860",
-      "correction": "Texto y fecha 2026-10-02 conservados después de releer y contrastar fuentes; habilitación individual pendiente de despliegue."
+      "correction": "Texto y fecha 2026-10-02 conservados después de releer y contrastar fuentes; habilitación individual desplegada y verificada."
     },
     {
       "path": "/counters/sierra",
@@ -1928,7 +1960,12 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "3639400988bad3ad9d9ee2729e4761167f5dd5759e2dc3b5eb9185368d2dc534",
+        "note": "Lectura inicial completa del texto y metadatos del modelo; no aprobada. Falta contrastar la integración real del vídeo, enlaces y presentación final en ambos formatos. La guía de Moira puede incorporar el vídeo del alias mediante mergeReviewedGuideVideo, aunque su modelo inicial no tenga video_id."
+      }
     },
     {
       "path": "/guides/moira-guia-video-overwatch",
@@ -2048,7 +2085,12 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "3863bd408543b49d1826ebb1dbe9d6c9b8d8142e2a0ebd22799bcda5013fe9fe",
+        "note": "Lectura inicial completa del texto y metadatos del modelo; no aprobada. Falta contrastar la integración real del vídeo, enlaces y presentación final en ambos formatos. La guía de Moira puede incorporar el vídeo del alias mediante mergeReviewedGuideVideo, aunque su modelo inicial no tenga video_id."
+      }
     },
     {
       "path": "/guides/roadhog-guia-video-overwatch",
@@ -3036,9 +3078,25 @@
       "sourceVersion": "7acd8531df8f814f0272e7206c8bac30ef08886d5ca3b98218c017743ab78d78",
       "initialReviewState": "current-static-review",
       "initialBlocker": "Guía de selección flexible; publicación individual pendiente",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-flex-moira-reaper-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/roles/flex",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "92c90a299b3af50eadca8d908f90bd386bce990ebc6996dcafa838e0aa640f33",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-28T17:46:48.499Z",
+        "commit": "1ae0f46eafec2dde0ec5fafb2b971b1ddea6f285",
+        "browserChecks": "6 production cases passed: three articles on desktop/mobile, complete visible text, metadata, dates, FAQ, links, images, sitemap and absence of ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "41f1fa6fb679925e67f2a9dc8f5c27973ecfad3e7ac60a9691166304932a8892",
       "correction": "Sustituida la referencia a cinco compañeros por todo el grupo; enlace VOD directo al canonical; fecha de contenido 2026-10-28."
@@ -3586,7 +3644,7 @@
   ],
   "progress": {
     "reviewed": 5,
-    "publishedAndVerified": 2,
+    "publishedAndVerified": 5,
     "pending": 135
   }
 }
