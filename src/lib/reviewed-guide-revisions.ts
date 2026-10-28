@@ -239,6 +239,13 @@ Para trabajar el recorrido entre coberturas, consulta [Circuit Royal](/maps/circ
     description: 'Mejora con Ashe eligiendo líneas de tiro seguras, detonando dinamita en cruces útiles y colocando B.O.B. donde el rival no pueda ignorarlo.',
     quickAnswer: 'Busca con Ashe una línea de tiro que termine en cobertura y una salida para Coach Gun. La dinamita debe presionar a enemigos que tu equipo pueda castigar, no solo sumar daño. Usa B.O.B. para disputar un espacio o crear otro ángulo, comprobando antes dónde se detendrá y quién puede neutralizarlo.',
     videoSlug: 'ashe-guia-video-overwatch',
+    revisedAt: '2026-10-28',
+    reviewedVideo: {
+      video_id: 'HF-fyYaGKIA', video_url: 'https://www.youtube.com/watch?v=HF-fyYaGKIA', video_platform: 'youtube',
+      video_title: 'ASHE Unranked to Champion (Educational) - Ep. 1', video_channel: 'qrxu', video_language: 'en', video_published_at: '2025-12-28',
+    },
+    renderedContentVersion: '19504d8f82ed7633ca88b1e59e543e0b363b671a535bdbbe2cdf093ab72f05a5',
+    videoDescription: 'Partidas comentadas de Ashe por qrxu, publicadas el 28 de diciembre de 2025. Sirven como material para observar decisiones de posición y selección de objetivos; el título de la serie no garantiza un resultado de rango. El análisis escrito de esta guía se ha revisado por separado: comprueba el kit y los perks de tu partida antes de copiar una jugada.',
     body: `## Una buena línea de tiro también tiene una salida
 
 Ashe quiere ver a enemigos que cruzan, no quedarse visible para todo el equipo rival. Juega junto a una esquina y asoma lo suficiente para disparar. Si necesitas permanecer en medio de una ventana para mantener el ángulo, una Widowmaker puede obligarte a abandonarlo o matarte antes de que aportes presión.
@@ -285,7 +292,7 @@ Si el rival te expulsa constantemente y nadie puede ayudarte, valora un cambio d
 - ¿Dónde se detuvo B.O.B. y quién pudo ignorarlo o dormirlo?
 - ¿Cambiaste de ángulo después de que el rival identificara tu posición?
 
-Revisa primero las muertes con Coach Gun fuera de cooldown. Si la salida seguía disponible, quizá el problema no fuera la habilidad, sino una dirección de escape sin cobertura o no haber visto venir al atacante.
+Revisa primero las muertes con Coach Gun disponible. Si aún podías usarlo, quizá el problema no fuera la habilidad, sino una dirección de escape sin cobertura o no haber visto venir al atacante.
 
 ## FAQ
 

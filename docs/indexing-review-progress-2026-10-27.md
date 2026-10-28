@@ -66,3 +66,9 @@ Evidencia: [revisión de Echo](indexing-review-echo-2026-10-28.md). Pasan lint, 
 Despliegue `1dcdc7e` completado y comprobado: diecinueve respuestas públicas y el alias 308 correctos, más seis casos de navegador contra producción. Estado: **15 artículos revisados, habilitados y verificados públicamente de 140; 125 pendientes**.
 
 Siguiente revisión iniciada: guía, counter y composiciones de Ashe. Se leen completos y sus versiones actuales coinciden con las del inventario. La ficha oficial y su atributo de tooltip confirman que los críticos de Sharpshooter reducen recargas de movilidad. Antes de aprobar, se precisarán la disponibilidad de Boosters de D.Va, la explicación de Coach Gun y la expresión «fuera de cooldown». Quedan pendientes vídeo incorporado, demás fuentes, enlaces y presentación final. Estas lecturas se anotan sin conceder aprobación. El objetivo global sigue activo.
+
+## Sexto lote: Ashe
+
+Se completa la revisión individual de guía, counter y composiciones. El counter corrige Boosters de D.Va y precisa Double-Barreled y Sharpshooter. La guía aclara la disponibilidad de Coach Gun y contextualiza el vídeo de qrxu del 28 de diciembre de 2025, con sus medios y metadatos exactos. Las composiciones conservan contenido y fecha tras contrastar los equipos y decisiones.
+
+Evidencia: [revisión de Ashe](indexing-review-ashe-2026-10-28.md). Pasan lint, 704 pruebas unitarias, build y 16 casos finales de navegador, además de seis casos previos sobre las versiones aún excluidas. Se mantienen controles negativos en otros artículos pendientes y la activación de anuncios no cambia. Estado provisional: **18 artículos revisados de 140; 15 ya publicados y verificados; 3 pendientes de comprobar en producción; 122 pendientes de revisión**.

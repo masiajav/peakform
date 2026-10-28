@@ -4,7 +4,7 @@ import { getCounterPillar } from '../../src/lib/seo-clusters'
 import { PILLAR_COUNTER_SLUGS } from '../../src/lib/public-topic-policy'
 
 // Independent expectations, not derived from the approval registry under test.
-const RESTORED_COUNTERS = ['tracer', 'domina', 'zarya', 'reinhardt', 'dva', 'winston', 'cassidy', 'ana', 'shion', 'genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine', 'sombra', 'roadhog', 'doomfist', 'dmon', 'moira', 'reaper', 'brigitte', 'echo']
+const RESTORED_COUNTERS = ['tracer', 'domina', 'zarya', 'reinhardt', 'dva', 'winston', 'cassidy', 'ana', 'shion', 'genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine', 'sombra', 'roadhog', 'doomfist', 'dmon', 'moira', 'reaper', 'brigitte', 'echo', 'ashe']
 
 test('counter hub shows its actual catalogue without a blanket review claim', async ({ page, request }) => {
   const errors: string[] = []
@@ -50,7 +50,7 @@ for (const [slug, article] of Object.entries(reviewedCounters)) {
     for (const window of article.cooldownWindows) {
       await expect(page.locator('main')).toContainText(window.body)
     }
-    if (['moira', 'reaper', 'brigitte', 'echo'].includes(slug)) {
+    if (['moira', 'reaper', 'brigitte', 'echo', 'ashe'].includes(slug)) {
       const paragraphs = [...article.intro, ...article.summary, ...article.adaptations, ...article.mistakes, ...article.checklist,
         ...article.threats.flatMap(threat => [threat.danger, threat.signal, threat.response]), ...article.examples.map(item => item.body)]
       for (const paragraph of paragraphs) await expect(page.locator('main')).toContainText(paragraph)
@@ -99,7 +99,8 @@ for (const [slug, article] of Object.entries(reviewedCounters)) {
     if (RESTORED_COUNTERS.includes(slug)) expect(sitemap).toContain(`/counters/${slug}</loc>`)
     else expect(sitemap).not.toContain(`/counters/${slug}</loc>`)
     await page.screenshot({ path: `reports/reviewed-counters/${slug}-${test.info().project.name}.png`, fullPage: true })
-    await page.evaluate(() => window.scrollTo(0, 0))
+    await page.evaluate(() => { document.documentElement.style.scrollBehavior = 'auto'; window.scrollTo(0, 0) })
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0)
     await page.screenshot({ path: `reports/reviewed-counters/${slug}-${test.info().project.name}-viewport.png` })
   })
 }

@@ -16,7 +16,7 @@ test('only individually approved compositions enter sitemap and retain honest da
     expect(articleSchema.dateModified).toBe(article.schemaDate)
     expect(articleSchema.datePublished).toBe(article.publishedDate)
     expect(html).toContain(`<time dateTime="${article.schemaDate}">${article.updatedAt}</time>`)
-    const approved = ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'tracer', 'zarya', 'sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon', 'domina', 'jetpack-cat', 'wuyang', 'moira', 'reaper', 'brigitte', 'echo'].includes(slug)
+    const approved = ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'tracer', 'zarya', 'sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon', 'domina', 'jetpack-cat', 'wuyang', 'moira', 'reaper', 'brigitte', 'echo', 'ashe'].includes(slug)
     expect(html).toContain(`name="robots" content="${approved ? 'index' : 'noindex'}, follow"`)
     expect(sitemap.includes(`/team-comps/${slug}</loc>`)).toBe(approved)
   }
@@ -36,7 +36,7 @@ for (const [slug, article] of Object.entries(reviewedTeamCompositions)) {
     await expect(page).toHaveTitle(`${article.seoTitle} - Replaid Lab`)
     await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', article.seoDescription)
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://www.replaidlab.com/team-comps/${slug}`)
-    const approved = ['sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon', 'domina', 'jetpack-cat', 'wuyang', 'moira', 'reaper', 'brigitte', 'echo'].includes(slug)
+    const approved = ['sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon', 'domina', 'jetpack-cat', 'wuyang', 'moira', 'reaper', 'brigitte', 'echo', 'ashe'].includes(slug)
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', `${approved ? 'index' : 'noindex'}, follow`)
     await expect(page.locator('.seo-composition-card')).toHaveCount(3)
     await expect(page.locator('main')).not.toContainText('Mejores composiciones 5v5')
@@ -54,7 +54,7 @@ for (const [slug, article] of Object.entries(reviewedTeamCompositions)) {
         await expect(card).toContainText(comp[field])
       }
     }
-    if (['moira', 'reaper', 'brigitte', 'echo'].includes(slug)) {
+    if (['moira', 'reaper', 'brigitte', 'echo', 'ashe'].includes(slug)) {
       const paragraphs = [...article.intro, ...article.summary, ...article.rotationPlan, ...article.weaknesses, ...article.checklist,
         ...article.responsibilities.map(item => item.body), ...article.examples.map(item => item.body)]
       for (const paragraph of paragraphs) await expect(page.locator('main')).toContainText(paragraph)
@@ -101,7 +101,8 @@ for (const [slug, article] of Object.entries(reviewedTeamCompositions)) {
     expect(errors).toEqual([])
     const sitemap = await (await request.get('/sitemap.xml')).text()
     expect(sitemap.includes(`/team-comps/${slug}</loc>`)).toBe(approved)
-    await page.locator('h1').scrollIntoViewIfNeeded()
+    await page.evaluate(() => { document.documentElement.style.scrollBehavior = 'auto'; window.scrollTo(0, 0) })
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0)
     await page.screenshot({ path: `reports/reviewed-compositions/${slug}-${test.info().project.name}-viewport.png` })
     await page.screenshot({ path: `reports/reviewed-compositions/${slug}-${test.info().project.name}.png`, fullPage: true })
   })

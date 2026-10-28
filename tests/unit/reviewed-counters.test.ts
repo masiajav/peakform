@@ -8,13 +8,13 @@ import { MAP_PILLAR_SLUGS } from '@/lib/overwatch-maps'
 test('reviewed counters only restore individually approved publication candidates, never ads', () => {
   for (const [slug, article] of Object.entries(reviewedCounters)) {
     expect(getCounterPillar(slug)).toBe(article)
-    const revisionDate = slug === 'brigitte' ? '2026-10-28' : ['doomfist', 'dmon'].includes(slug) ? '2026-10-11' : ['sombra', 'roadhog', 'doctrine'].includes(slug) ? '2026-10-10' : ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki'].includes(slug) ? '2026-10-03' : '2026-10-02'
+    const revisionDate = ['brigitte', 'ashe'].includes(slug) ? '2026-10-28' : ['doomfist', 'dmon'].includes(slug) ? '2026-10-11' : ['sombra', 'roadhog', 'doctrine'].includes(slug) ? '2026-10-10' : ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki'].includes(slug) ? '2026-10-03' : '2026-10-02'
     expect(article.schemaDate).toBe(revisionDate)
     expect(wordCount(JSON.stringify(article))).toBeGreaterThan(1100)
     expect(article.threats).toHaveLength(['genji', 'kiriko'].includes(slug) ? 6 : 4)
     expect(article.examples).toHaveLength(3)
     expect(article.faqs).toHaveLength(['doomfist', 'dmon'].includes(slug) ? 5 : 3)
-    expect(editorialTopicQualityDecision('counter', slug, article)).toMatchObject({ indexable: ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine', 'sombra', 'roadhog', 'doomfist', 'dmon', 'moira', 'reaper', 'brigitte', 'echo'].includes(slug), adsAllowed: false })
+    expect(editorialTopicQualityDecision('counter', slug, article)).toMatchObject({ indexable: ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine', 'sombra', 'roadhog', 'doomfist', 'dmon', 'moira', 'reaper', 'brigitte', 'echo', 'ashe'].includes(slug), adsAllowed: false })
     for (const threat of article.threats) {
       const normalizeName = (name: string) => name.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
       expect(normalizeName(getCounterHero(threat.href.slice('/heroes/'.length))?.name ?? '')).toBe(normalizeName(threat.name))
@@ -44,7 +44,7 @@ test('Moira and Reaper publication rejects later changes and preserves other pen
       expect(editorialTopicQualityDecision('counter', slug, { ...article, ...edit })).toMatchObject({ indexable: false, adsAllowed: false })
     }
   }
-  for (const slug of ['ashe', 'hanzo', 'mei', 'torbjorn']) {
+  for (const slug of ['bastion', 'hanzo', 'mei', 'torbjorn']) {
     expect(editorialTopicQualityDecision('counter', slug, getCounterPillar(slug))).toMatchObject({ indexable: false, adsAllowed: false })
   }
 })
@@ -489,7 +489,8 @@ test('Echo and Sierra counters separate current perks from temporary mode change
 test('ranked counters account for perks without importing temporary Arcade changes', () => {
   const ashe = JSON.stringify(reviewedCounters.ashe)
   expect(ashe).toContain('otra activación')
-  expect(ashe).toContain('reducción de cooldown de su subrol')
+  expect(ashe).toContain('los críticos reducen la recarga de movilidad por el subrol Sharpshooter')
+  expect(ashe).toContain('permite otro uso breve si Coach Gun ha empujado a un enemigo')
   const bastion = JSON.stringify(reviewedCounters.bastion)
   expect(bastion).toContain('Artillery')
   expect(bastion).not.toContain('Tuned Treads')

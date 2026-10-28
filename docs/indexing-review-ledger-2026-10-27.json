@@ -19,10 +19,13 @@
       "sourceVersion": "ff447bb08d90aeac9226f9a5dcfb9368a6fe2b4791cb803fccfc946f124eaac5",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-ashe-2026-10-28.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "183ce0d850add405b5e653b27660cf162fcc27e5cd4c2fcb90efcc5d958345d0",
+      "correction": "Boosters de D.Va disponible en lugar de combustible; condición de Double-Barreled y reducción de recarga por críticos de Sharpshooter precisadas. Revisión del contenido 2026-10-28.",
+      "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "ff447bb08d90aeac9226f9a5dcfb9368a6fe2b4791cb803fccfc946f124eaac5",
         "note": "Lectura inicial completa de texto y metadatos; las versiones actuales coinciden con el inventario. La ficha oficial de Ashe (source-ashe.html) confirma habilidades/perks y, en sus atributos descriptiontext/blz-tooltip, que Sharpshooter reduce recargas de movilidad con críticos; también lo confirma la publicación oficial /en-gb/news/24243646/. En el counter conviene sustituir combustible de D.Va por disponibilidad de Boosters, y precisar la relación entre críticos, Coach Gun y Double-Barreled. En la guía conviene aclarar la expresión fuera de cooldown. Falta comprobar el vídeo incorporado desde el alias, otras fuentes, enlaces y presentación final en móvil/escritorio. No aprobada."
@@ -1417,14 +1420,18 @@
       "sourceVersion": "e87529a84ae4978d33dbc6ef5040295cc25eaa66133d3d54d716dae608f40c56",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-ashe-2026-10-28.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "e163f24e20afa5a3f005f6eaff77c8cd2e840e5076070da752ab86f2b69d2b7f",
+      "correction": "Expresión de Coach Gun aclarada; vídeo original de qrxu contrastado y contexto de diciembre de 2025 añadido. Medios y metadatos renderizados vinculados. Primera publicación conservada, revisión del contenido 2026-10-28.",
+      "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "e87529a84ae4978d33dbc6ef5040295cc25eaa66133d3d54d716dae608f40c56",
         "note": "Lectura inicial completa de texto y metadatos; las versiones actuales coinciden con el inventario. La ficha oficial de Ashe (source-ashe.html) confirma habilidades/perks y, en sus atributos descriptiontext/blz-tooltip, que Sharpshooter reduce recargas de movilidad con críticos; también lo confirma la publicación oficial /en-gb/news/24243646/. En el counter conviene sustituir combustible de D.Va por disponibilidad de Boosters, y precisar la relación entre críticos, Coach Gun y Double-Barreled. En la guía conviene aclarar la expresión fuera de cooldown. Falta comprobar el vídeo incorporado desde el alias, otras fuentes, enlaces y presentación final en móvil/escritorio. No aprobada."
-      }
+      },
+      "reviewedRenderedVersion": "19504d8f82ed7633ca88b1e59e543e0b363b671a535bdbbe2cdf093ab72f05a5"
     },
     {
       "path": "/guides/ashe-guia-video-overwatch",
@@ -3285,10 +3292,13 @@
       "sourceVersion": "733cf4efd94845652203b50a1eb231bbab7d6a953c2fbd784595fbd06276ff0a",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-ashe-2026-10-28.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "733cf4efd94845652203b50a1eb231bbab7d6a953c2fbd784595fbd06276ff0a",
+      "correction": "Texto y fecha 2026-10-02 conservados tras revisar equipos, decisiones, FAQ y fuentes.",
+      "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "733cf4efd94845652203b50a1eb231bbab7d6a953c2fbd784595fbd06276ff0a",
         "note": "Lectura inicial completa de texto y metadatos; las versiones actuales coinciden con el inventario. La ficha oficial de Ashe (source-ashe.html) confirma habilidades/perks y, en sus atributos descriptiontext/blz-tooltip, que Sharpshooter reduce recargas de movilidad con críticos; también lo confirma la publicación oficial /en-gb/news/24243646/. En el counter conviene sustituir combustible de D.Va por disponibilidad de Boosters, y precisar la relación entre críticos, Coach Gun y Double-Barreled. En la guía conviene aclarar la expresión fuera de cooldown. Falta comprobar el vídeo incorporado desde el alias, otras fuentes, enlaces y presentación final en móvil/escritorio. No aprobada."
@@ -3892,8 +3902,8 @@
     }
   ],
   "progress": {
-    "reviewed": 15,
+    "reviewed": 18,
     "publishedAndVerified": 15,
-    "pending": 125
+    "pending": 122
   }
 }

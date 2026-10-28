@@ -2589,7 +2589,7 @@ export const reviewedCounters: Record<string, CounterPillar> = {
   },
   ashe: {
     slug: 'ashe', name: 'Ashe', role: 'DPS',
-    updatedAt: '2 de octubre de 2026', schemaDate: '2026-10-02',
+    updatedAt: '28 de octubre de 2026', schemaDate: '2026-10-28',
     reviewedPatch: 'Kit de ranked; Coach Gun, dinamita y B.O.B.',
     seoTitle: 'Counters de Ashe: quitarle la altura y responder a B.O.B.',
     seoDescription: 'Juega contra Ashe sin regalarle la calle: cuándo usar D.Va, Genji, Widowmaker o Ana, cómo forzar Coach Gun y qué hacer frente a la dinamita y B.O.B.',
@@ -2603,7 +2603,7 @@ export const reviewedCounters: Record<string, CounterPillar> = {
       {
         name: 'D.Va', href: '/heroes/dva',
         danger: 'Puede alcanzar la altura y usar Matrix para limitar el daño durante la aproximación. El resultado depende del recorrido y de la ayuda que tenga Ashe: subir cuando tus supports no pueden verte puede costarte el MEKA sin conseguir que ella abandone la posición.',
-        signal: 'Ashe está mirando el avance de tus compañeros y puedes llegar desde cobertura con combustible y Matrix. Antes de usar Boosters, mira si un segundo enemigo controla el aterrizaje o si Mercy tiene una salida hacia otro aliado.',
+        signal: 'Ashe está mirando el avance de tus compañeros y puedes llegar desde cobertura con Boosters disponible y recursos de Matrix. Antes de subir, mira si un segundo enemigo controla el aterrizaje o si Mercy tiene una salida hacia otro aliado.',
         response: 'Coordina el salto con el cruce del equipo. Usa Matrix sobre la amenaza que necesitas negar y busca expulsarla de la altura, no quedarte allí gastando todos los recursos. Si retrocede a otra plataforma protegida, conservar su posición anterior puede resolver la pelea.',
       },
       {
@@ -2626,7 +2626,7 @@ export const reviewedCounters: Record<string, CounterPillar> = {
       },
     ],
     cooldownWindows: [
-      { title: 'Coach Gun usado para subir', body: 'Puede dejar una oportunidad de presión sobre su nueva altura, pero primero necesitas un recorrido para llegar. No confundas haber visto el cooldown con poder aprovecharlo desde el otro extremo del mapa. Además, los perks y la reducción de cooldown de su subrol pueden cambiar cuánto tarda en recuperar movilidad: sigue la acción real, no una cuenta memorizada.' },
+      { title: 'Coach Gun usado para subir', body: 'Puede dejar una oportunidad de presión sobre su nueva altura, pero primero necesitas un recorrido para llegar. No confundas haber visto el cooldown con poder aprovecharlo desde el otro extremo del mapa. Double-Barreled es un perk opcional: permite otro uso breve si Coach Gun ha empujado a un enemigo, no por subir sin golpear a nadie. Además, los críticos reducen la recarga de movilidad por el subrol Sharpshooter. Sigue la acción real, no una cuenta memorizada.' },
       { title: 'Dinamita sobre el cruce del equipo', body: 'Evita amontonaros en el lugar donde va a detonar y no sigas avanzando a poca vida por orgullo. Si tienes una respuesta de absorción y puedes interceptarla antes de la explosión, úsala donde proteja el cruce. Después identifica quién conserva vida y recursos para seguir; gastar todas las defensas sobre la quemadura puede dejar libre el siguiente dive.' },
       { title: 'Una recarga sin presión cercana', body: 'Ashe necesita gestionar la munición, pero no todas las pausas de disparo significan que esté indefensa. Puedes aprovechar para moverte entre coberturas mientras tu compañero mantiene presión. Correr solo hasta ella durante una recarga puede llevarte a su Coach Gun o al compañero que sigue disparando desde el mismo balcón.' },
       { title: 'B.O.B. crea una segunda línea', body: 'Mira dónde termina y qué espacio controla antes de decidir si lo destruyes, lo duermes o juegas fuera de su visión. Ocultarte de B.O.B. en una esquina desde la que Ashe te ve no arregla el problema. Cerca de overtime quizá haya que quitarlo del objetivo; con tiempo disponible, una rotación cubierta puede ahorrar recursos.' },

@@ -752,6 +752,27 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-echo-2026-10-28.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/ashe-guia-overwatch-angulos-dinamita': {
+    path: '/guides/ashe-guia-overwatch-angulos-dinamita',
+    version: 'e163f24e20afa5a3f005f6eaff77c8cd2e840e5076070da752ab86f2b69d2b7f',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-ashe-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/counters/ashe': {
+    path: '/counters/ashe',
+    version: '183ce0d850add405b5e653b27660cf162fcc27e5cd4c2fcb90efcc5d958345d0',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-ashe-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/ashe': {
+    path: '/team-comps/ashe',
+    version: '733cf4efd94845652203b50a1eb231bbab7d6a953c2fbd784595fbd06276ff0a',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-ashe-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/zarya': {
     path: '/team-comps/zarya',
     version: '40de9429f726f9396cb6d2c3aa44d8eca29c9b77c5b7eeac49598631fa1b35a6',
