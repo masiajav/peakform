@@ -63,4 +63,6 @@ Se completa la revisión individual de los tres artículos. La guía conserva el
 
 Evidencia: [revisión de Echo](indexing-review-echo-2026-10-28.md). Pasan lint, 704 pruebas unitarias, build y 16 casos finales de navegador, además de seis casos previos sobre las páginas aún excluidas. No cambia la activación de anuncios.
 
-Antes del despliegue: **15 artículos revisados, 12 habilitados y verificados públicamente; tres esperando comprobación pública; 125 pendientes de revisión**. El objetivo global sigue activo.
+Despliegue `1dcdc7e` completado y comprobado: diecinueve respuestas públicas y el alias 308 correctos, más seis casos de navegador contra producción. Estado: **15 artículos revisados, habilitados y verificados públicamente de 140; 125 pendientes**.
+
+Siguiente revisión iniciada: guía, counter y composiciones de Ashe. Se leen completos y sus versiones actuales coinciden con las del inventario. La ficha oficial y su atributo de tooltip confirman que los críticos de Sharpshooter reducen recargas de movilidad. Antes de aprobar, se precisarán la disponibilidad de Boosters de D.Va, la explicación de Coach Gun y la expresión «fuera de cooldown». Quedan pendientes vídeo incorporado, demás fuentes, enlaces y presentación final. Estas lecturas se anotan sin conceder aprobación. El objetivo global sigue activo.

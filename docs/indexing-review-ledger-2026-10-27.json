@@ -21,7 +21,12 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "ff447bb08d90aeac9226f9a5dcfb9368a6fe2b4791cb803fccfc946f124eaac5",
+        "note": "Lectura inicial completa de texto y metadatos; las versiones actuales coinciden con el inventario. La ficha oficial de Ashe (source-ashe.html) confirma habilidades/perks y, en sus atributos descriptiontext/blz-tooltip, que Sharpshooter reduce recargas de movilidad con críticos; también lo confirma la publicación oficial /en-gb/news/24243646/. En el counter conviene sustituir combustible de D.Va por disponibilidad de Boosters, y precisar la relación entre críticos, Coach Gun y Double-Barreled. En la guía conviene aclarar la expresión fuera de cooldown. Falta comprobar el vídeo incorporado desde el alias, otras fuentes, enlaces y presentación final en móvil/escritorio. No aprobada."
+      }
     },
     {
       "path": "/counters/bastion",
@@ -89,9 +94,26 @@
       "sourceVersion": "82fd8599e2991b0ab26c3145738fc8915d9974868b77875b6d4d980b2eb2d03a",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-echo-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/counters/echo",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "362b4e7846a147ce3cd24f231b15d0bcda0ddccf31b66af229675310cb914ff3",
+        "valid": true,
+        "expectedDatePresent": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-28T18:39:50.166Z",
+        "commit": "1dcdc7e514c30851ce508288e05251acbb60169e",
+        "browserChecks": "6 production cases passed: three Echo articles on desktop/mobile, complete visible text, video context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "2eda6ca41a2666e1f17868317ed9b056011c4de644c63bd9c2266118ea8ab0cc",
       "correction": "Enlace a la guía corregido al destino canónico; texto y fecha editorial 2026-10-02 conservados tras contrastar kit y perks.",
@@ -1397,7 +1419,12 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "e87529a84ae4978d33dbc6ef5040295cc25eaa66133d3d54d716dae608f40c56",
+        "note": "Lectura inicial completa de texto y metadatos; las versiones actuales coinciden con el inventario. La ficha oficial de Ashe (source-ashe.html) confirma habilidades/perks y, en sus atributos descriptiontext/blz-tooltip, que Sharpshooter reduce recargas de movilidad con críticos; también lo confirma la publicación oficial /en-gb/news/24243646/. En el counter conviene sustituir combustible de D.Va por disponibilidad de Boosters, y precisar la relación entre críticos, Coach Gun y Double-Barreled. En la guía conviene aclarar la expresión fuera de cooldown. Falta comprobar el vídeo incorporado desde el alias, otras fuentes, enlaces y presentación final en móvil/escritorio. No aprobada."
+      }
     },
     {
       "path": "/guides/ashe-guia-video-overwatch",
@@ -1673,9 +1700,27 @@
       "sourceVersion": "ee5d3714c86d51ffa034b65d6c263fecf1aca9a06ee5b8113d65b8aff768e177",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-echo-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/echo-guia-overwatch-burst-vertical",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "f39c681b89418f01bda4993e2b18a7a0daf5b2297fbbdf1e84e31214b78cbf7d",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "checkedAt": "2026-10-28T18:39:50.166Z",
+        "commit": "1dcdc7e514c30851ce508288e05251acbb60169e",
+        "browserChecks": "6 production cases passed: three Echo articles on desktop/mobile, complete visible text, video context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "2a3e65473e610e900fca380194cd743c41cbf05cf5b5ee6f95a130f1dd2d72d5",
       "correction": "Vídeo original de Samito contrastado; añadido contexto de marzo de 2026 y huella del contenido incorporado. Primera publicación conservada; revisión del contenido 2026-10-28.",
@@ -3242,7 +3287,12 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "733cf4efd94845652203b50a1eb231bbab7d6a953c2fbd784595fbd06276ff0a",
+        "note": "Lectura inicial completa de texto y metadatos; las versiones actuales coinciden con el inventario. La ficha oficial de Ashe (source-ashe.html) confirma habilidades/perks y, en sus atributos descriptiontext/blz-tooltip, que Sharpshooter reduce recargas de movilidad con críticos; también lo confirma la publicación oficial /en-gb/news/24243646/. En el counter conviene sustituir combustible de D.Va por disponibilidad de Boosters, y precisar la relación entre críticos, Coach Gun y Double-Barreled. En la guía conviene aclarar la expresión fuera de cooldown. Falta comprobar el vídeo incorporado desde el alias, otras fuentes, enlaces y presentación final en móvil/escritorio. No aprobada."
+      }
     },
     {
       "path": "/team-comps/baptiste",
@@ -3324,9 +3374,25 @@
       "sourceVersion": "d90f4724ef3477ec3765390dec36e4410a41ce72eec7a5c335437e60bf979654",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-echo-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/echo",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "0ff952c549b6cbe138772a8242d4cfd43a6239a6e1be617f40dcd2368d7c21b5",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-28T18:39:50.166Z",
+        "commit": "1dcdc7e514c30851ce508288e05251acbb60169e",
+        "browserChecks": "6 production cases passed: three Echo articles on desktop/mobile, complete visible text, video context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "d90f4724ef3477ec3765390dec36e4410a41ce72eec7a5c335437e60bf979654",
       "correction": "Texto y fecha 2026-10-02 conservados tras revisar equipos, decisiones, FAQ y fuentes.",
@@ -3827,7 +3893,7 @@
   ],
   "progress": {
     "reviewed": 15,
-    "publishedAndVerified": 12,
+    "publishedAndVerified": 15,
     "pending": 125
   }
 }
