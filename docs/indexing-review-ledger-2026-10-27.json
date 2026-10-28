@@ -208,10 +208,13 @@
       "sourceVersion": "8494fbe30b2c0c628d006bc35dddf905707a6d56826b9c2aa665c4f19df75bba",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-mei-2026-10-28.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "2112c0076f314703403c23da13d926e1df15349cfe8937f7a6352b326921d1a0",
+      "correction": "Advertencia sobre Cryo-Storm opcional: no preparar la salida pegado al bloque que puede dañar alrededor. Título de la ventana precisado. Revisión del contenido 2026-10-28.",
+      "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "8494fbe30b2c0c628d006bc35dddf905707a6d56826b9c2aa665c4f19df75bba",
         "note": "Lectura completa de introducción, resumen, matchups Pharah/Echo/Orisa/Kiriko, cuatro ventanas, adaptaciones, errores, ejemplos, checklist, FAQ y enlaces. La ficha oficial actual confirma muro, invulnerabilidad/curación de Cryo y Blizzard. Conviene advertir que Cryo-Storm es un perk opcional que puede dañar alrededor del bloque: no esperar pegado mientras preparas su salida. Faltan corrección, enlaces y presentación final antes de aprobar.",
@@ -2118,10 +2121,13 @@
       "sourceVersion": "fe92495a27e137acdabbf9633ed4c8573a4f92e900e186e6e9fea24b6ce30570",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-mei-2026-10-28.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "360bc8a114c1a36e34a0a76da6de210c6c8a2fdea3bc65458c6b8a115a43fe30",
+      "correction": "Vídeo original de qrxu verificado en móvil y escritorio; contexto del 2 de marzo de 2026 y medios/metadatos renderizados vinculados. Primera publicación conservada, revisión del contenido 2026-10-28.",
+      "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "fe92495a27e137acdabbf9633ed4c8573a4f92e900e186e6e9fea24b6ce30570",
         "note": "Lectura completa de muro, cancelación, spray/icicles, Cryo, Blizzard, adaptación, VOD y tres FAQ; el modelo público actual coincide íntegramente con el leído. La fuente oficial confirma que el spray base ralentiza y Deep Freeze añade congelación como perk opcional. YouTube y oEmbed confirman GAUa8H5aQSQ, qrxu, título almacenado y fecha 2026-03-02, playability OK; se leen descripción y capítulos de la serie. Falta contexto del material, versión exacta con medios y presentación final. No aprobada.",
@@ -2132,7 +2138,8 @@
           "screenshots": "reports/indexing-review-2026-10-27/release-batch-eight/reports/",
           "note": "Las tres páginas todavía excluidas pasan en escritorio y móvil; el vídeo muestra el botón de reproducción en ambos. Se inspeccionan las tres capturas completas de escritorio y las tres cabeceras móviles. Falta corregir el counter, contextualizar el vídeo y validar las versiones finales; no aprobadas."
         }
-      }
+      },
+      "reviewedRenderedVersion": "84fd4c1ba30b10f2fce25f1c1c8c4e7496b16de935d7031ef5ed2df3efc9909a"
     },
     {
       "path": "/guides/mercy-guia-overwatch-pocket-resurrect",
@@ -3739,10 +3746,13 @@
       "sourceVersion": "851fc831383ff9cfa3f9ace102131f3f88bf9e1939511f42e446f699e8d72192",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-mei-2026-10-28.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "851fc831383ff9cfa3f9ace102131f3f88bf9e1939511f42e446f699e8d72192",
+      "correction": "Texto y fecha 2026-10-02 conservados tras revisar equipos, decisiones, FAQ y fuentes.",
+      "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "851fc831383ff9cfa3f9ace102131f3f88bf9e1939511f42e446f699e8d72192",
         "note": "Lectura completa de introducción, resumen, equipos Reinhardt/Cassidy, Sigma/Ashe y Reinhardt/D.Va/Reaper/Moira/Lúcio en 6v6, todos sus argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, FAQ y enlaces. Los roles y formatos son coherentes y Deep Freeze se distingue del spray base. Faltan enlaces y presentación final antes de aprobar.",
@@ -4065,8 +4075,8 @@
     }
   ],
   "progress": {
-    "reviewed": 21,
+    "reviewed": 24,
     "publishedAndVerified": 21,
-    "pending": 119
+    "pending": 116
   }
 }

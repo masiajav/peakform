@@ -794,6 +794,27 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-hanzo-2026-10-28.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/mei-guia-video-overwatch': {
+    path: '/guides/mei-guia-video-overwatch',
+    version: '360bc8a114c1a36e34a0a76da6de210c6c8a2fdea3bc65458c6b8a115a43fe30',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-mei-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/counters/mei': {
+    path: '/counters/mei',
+    version: '2112c0076f314703403c23da13d926e1df15349cfe8937f7a6352b326921d1a0',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-mei-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/mei': {
+    path: '/team-comps/mei',
+    version: '851fc831383ff9cfa3f9ace102131f3f88bf9e1939511f42e446f699e8d72192',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-mei-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/zarya': {
     path: '/team-comps/zarya',
     version: '40de9429f726f9396cb6d2c3aa44d8eca29c9b77c5b7eeac49598631fa1b35a6',

@@ -88,3 +88,9 @@ Evidencia: [revisión de Hanzo](indexing-review-hanzo-2026-10-28.md). Pasan lint
 Despliegue `48e8983` terminado y comprobado: veinticinco respuestas públicas correctas, regresión del alias 308 de Ashe y otros seis casos de navegador contra producción. Estado: **21 artículos revisados, habilitados y verificados públicamente de 140; 119 pendientes**.
 
 La siguiente revisión iniciada incluye guía, counter y composiciones de Mei. Se leen completos y sus versiones actuales coinciden con el inventario; la fila pública de la guía coincide íntegramente con el modelo leído. La ficha oficial confirma spray básico que ralentiza, Deep Freeze y Cryo-Storm como perks opcionales. El counter debe advertir del daño alrededor de Cryo cuando se elige Cryo-Storm. YouTube y oEmbed confirman título, qrxu y fecha del vídeo del 2 de marzo de 2026; se leen descripción y capítulos. Pasan ocho comprobaciones iniciales en la copia aislada, incluidas reproducción visible en ambos dispositivos y las tres páginas aún excluidas. Falta la corrección, contexto, revisión final de versiones y publicación. No se conceden aprobaciones a Mei y el objetivo global sigue activo.
+
+## Octavo lote: Mei
+
+Se completa la revisión individual de las tres páginas. El counter precisa que Cryo protege a Mei y advierte del daño cercano de Cryo-Storm como perk opcional. La guía contextualiza la serie de qrxu del 2 de marzo de 2026 y vincula sus medios y metadatos reales a la revisión. Las composiciones conservan texto y fecha después del contraste.
+
+Evidencia: [revisión de Mei](indexing-review-mei-2026-10-28.md). Pasan lint, 704 pruebas unitarias, build y 16 casos finales de navegador, además de ocho iniciales. Se mantienen las exclusiones de otros artículos pendientes y la activación de anuncios no cambia. Estado provisional: **24 artículos revisados de 140; 21 ya publicados y verificados; 3 pendientes de comprobar en producción; 116 pendientes de revisión**.

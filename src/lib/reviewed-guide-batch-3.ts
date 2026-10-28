@@ -364,7 +364,13 @@ No. Un combo puede ayudar, pero una puerta, una retirada limitada o el seguimien
     description: 'Coloca muros útiles con Mei sin cortar a tu propio equipo. Aprende a aislar objetivos, salir de Cryo con seguridad y preparar Blizzard contra movilidad y defensas.',
     quickAnswer: 'Con Mei, espera a que un enemigo cruce antes de levantar el muro y comprueba que tus compañeros pueden dispararle. Rompe el muro si está bloqueando una jugada aliada. Cryo te compra tiempo para recuperar vida; antes de entrar, decide cómo saldrás. Blizzard necesita seguimiento y enemigos sin una salida fácil.',
     videoSlug: 'mei-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-28',
+    reviewedVideo: {
+      video_id: 'GAUa8H5aQSQ', video_url: 'https://www.youtube.com/watch?v=GAUa8H5aQSQ', video_platform: 'youtube',
+      video_title: 'Mei Unranked to Champion (Full Series)', video_channel: 'qrxu', video_language: 'en', video_published_at: '2026-03-02',
+    },
+    renderedContentVersion: '84fd4c1ba30b10f2fce25f1c1c8c4e7496b16de935d7031ef5ed2df3efc9909a',
+    videoDescription: 'Serie de partidas de Mei por qrxu, publicada el 2 de marzo de 2026 y organizada en capítulos por etapas de rango. Úsala para observar decisiones de muro, posición y recursos; el recorrido del autor y las cifras de la miniatura no garantizan tu resultado. El análisis escrito de esta guía se contrasta por separado con el kit actual, distinguiendo el spray básico de los perks opcionales.',
     body: `## El muro se evalúa desde el lado de tus compañeros
 
 Un Tank aislado parece una baja fácil, pero solo lo es si tu equipo puede verlo y alcanzarlo. Si levantas el muro antes de que cruce o separas también a tu Reinhardt de sus supports, puedes ayudar más al rival que a tus aliados.

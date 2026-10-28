@@ -2717,7 +2717,7 @@ export const reviewedCounters: Record<string, CounterPillar> = {
   },
   mei: {
     slug: 'mei', name: 'Mei', role: 'DPS',
-    updatedAt: '2 de octubre de 2026', schemaDate: '2026-10-02',
+    updatedAt: '28 de octubre de 2026', schemaDate: '2026-10-28',
     reviewedPatch: 'Kit de ranked; Ice Wall, Cryo-Freeze y Blizzard',
     seoTitle: 'Counters de Mei: evitar el aislamiento y castigar Ice Wall',
     seoDescription: 'Cómo jugar contra Mei con Pharah, Echo, Orisa o Kiriko: cruza sin quedar aislado por el muro, prepara la salida de Cryo-Freeze y responde a Blizzard.',
@@ -2756,7 +2756,7 @@ export const reviewedCounters: Record<string, CounterPillar> = {
     cooldownWindows: [
       { title: 'El muro corta la curación', body: 'Elige una columna que abra la línea del Support o la retirada del Tank y comunica el foco. Repartir daño por todo el muro puede alargar el aislamiento. Tampoco pongas a varios compañeros delante de otra entrada para ayudar: recupera el contacto desde una posición que no ofrezca al rival dos bajas más cuando se abra el hueco.' },
       { title: 'Wall gastado sin separar a nadie', body: 'Puedes preparar un cruce durante ese intervalo si el resto del equipo está a tiempo. No hace falta entrar antes de que caiga el muro por cualquier lateral que encuentres. Espera a tus compañeros, comprueba dónde están los DPS rivales y usa la siguiente oportunidad para pasar juntos sin detener al Tank solo en la puerta.' },
-      { title: 'Cryo-Freeze detiene el daño', body: 'Deja de invertir ofensivas contra el bloque y mira qué puedes preparar para la salida. Una posición con tiro sobre el punto donde reaparece suele aportar más que rodearla sin cobertura. Mei puede cancelar la habilidad y tener ayuda cerca: conserva la atención sobre el resto de la pelea y no presupongas una duración fija que te garantice la baja.' },
+      { title: 'Cryo-Freeze protege a Mei', body: 'Deja de invertir ofensivas contra el bloque y mira qué puedes preparar para la salida. Una posición con tiro sobre el punto donde reaparece suele aportar más que rodearla sin cobertura. Cryo-Storm es un perk opcional que daña a enemigos cercanos durante Cryo: prepara la respuesta desde fuera de esa zona, no pegado al bloque. Mei puede cancelar la habilidad y tener ayuda cerca: conserva la atención sobre el resto de la pelea y no presupongas una duración fija que te garantice la baja.' },
       { title: 'Blizzard limita vuestro recorrido', body: 'Mira hacia qué cobertura podéis salir antes de que termine el control. Una limpieza da margen, pero no convierte toda el área en una zona segura para quedarse. Si hay que disputar el objetivo en overtime, acordad quién entra y qué defensa conserva; que todos os agrupéis dentro por miedo a perder puede facilitar el seguimiento rival.' },
     ],
     adaptations: [
