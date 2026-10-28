@@ -1,0 +1,29 @@
+# Revisión individual de Sojourn: guía, counters y composiciones
+
+Revisión del 28 de octubre de 2026 por Codex. Se leen completos los tres artículos. Sus versiones actuales coinciden con el inventario; los modelos del counter y las composiciones son idénticos a las instantáneas leídas y el cuerpo de la guía también coincide. No se aprueba otra URL.
+
+| URL | Lectura y utilidad | Corrección y fechas | Versión revisada |
+| --- | --- | --- | --- |
+| `/guides/sojourn-guia-overwatch-railgun-presion` | Energía y selección de objetivo, off-angle cercano, destino de Power Slide, uso de Disruptor, posición para Overclock, VOD, tres FAQ y enlaces. Se comprueba el vídeo incorporado desde el alias. | Corrige el título de la fuente a «Guía básica: Sojourn \| Overwatch 2» y contextualiza el vídeo del 12 de octubre de 2022 como material histórico. Cuerpo y primera publicación del 5 de mayo de 2026 conservados; revisión del contenido: 28 de octubre. | `f3a19c76404f94b00b346e5a94936e3e554f861dbf730220f998a23c45bb0af1` |
+| `/counters/sojourn` | Introducción, resumen, D.Va/Sigma/Tracer/Kiriko con señal y respuesta, cuatro ventanas, adaptaciones, errores, tres ejemplos, checklist, tres FAQ y enlaces. Separa recursos de movilidad y respuesta al ángulo. | Texto y fecha del 2 de octubre conservados tras contrastar habilidades, subrol y elecciones de perks. No atribuye slow al Disruptor base ni ambos perks major simultáneamente. | `31442838b79c5518709ad3de4b7ba184ce8763a3d432671e6e319da3a54b3532` |
+| `/team-comps/sojourn` | Cinco argumentos de cada equipo, responsabilidades, rotación, debilidades, ejemplos, checklist y tres FAQ. Winston/Genji, Ramattra/Mei y Reinhardt/D.Va/Cassidy en 6v6 con seguimiento desde una línea real. | Texto y fecha del 2 de octubre conservados. Las propuestas condicionan el engage a munición, energía, visión y ayuda; no exigen acompañar cada salto ni prometen meta o resultados. | `6c7170e1c1abe7ae3c23b0e9b0ca8f5a6aa0b37f1908eeabacf96289d04772f2` |
+
+## Exactitud y fuentes
+
+Se descarga y lee la ficha actual de [Sojourn](https://overwatch.blizzard.com/en-gb/heroes/sojourn/). Confirma generación de energía con el primario, disparo secundario, Power Slide, Disruptor sin slow base y energía automática de Overclock. Se distinguen los minor Overcharged y Deceleration Field de las alternativas major Friction Generators y Dual Thrusters. El tooltip de Sharpshooter confirma la reducción de recargas de movilidad con críticos. No se trasladan Powers de Stadium al kit de ranked. Las fichas de D.Va, Sigma, Tracer, Kiriko, Winston, Genji, Ana, Brigitte, Ramattra, Mei, Lúcio, Reinhardt, Cassidy, Baptiste y Ashe se contrastaron en lotes anteriores.
+
+El [vídeo original de LeonDrummer](https://www.youtube.com/watch?v=tGRzoJi7LnI) y oEmbed devuelven HTTP 200 y playability `OK`. Coinciden identidad, canal, idioma y fecha del 12 de octubre de 2022. Se lee la descripción, sin índice de capítulos sobre habilidades. El título real es «Guía básica: Sojourn | Overwatch 2», frente a la transcripción almacenada «Guia basica: Sojourn | Overwatch». No se afirma haber visto íntegros sus 287 segundos ni haber validado cada afirmación del vídeo. El contexto lo identifica expresamente como material histórico de lanzamiento y aclara el Disruptor actual; el análisis escrito se contrasta por separado con el kit vigente.
+
+La corrección de título se aplica al renderizar únicamente cuando coinciden el ID del vídeo revisado y la transcripción antigua exacta. Se preservan las filas originales y los otros metadatos. La aprobación sigue exigiendo los medios y la versión completa renderizada: cambiar el título a otro, el vídeo, el autor o los metadatos relevantes invalida la indexación. Una prueba comprueba esa corrección acotada y que el dato de entrada no se modifica. La huella renderizada corregida es `0767beadfb928f6250109e441a4758b3f795632fea1ee93b86320a19f189a33e`.
+
+La página incorpora el vídeo de `sojourn-guia-video-overwatch`, que debe conservar su 308 a la guía canónica y quedar fuera del sitemap. El diagnóstico y sitemap evalúan el mismo contenido combinado que la página.
+
+## Presentación y publicación
+
+La copia aislada parte de `77f298c`, sin cambios locales ajenos de mapas, Deadlock o tsconfig. Pasan ocho comprobaciones previas sobre las páginas todavía excluidas: las tres páginas en escritorio y móvil y el botón del reproductor en ambos. Se inspeccionan tres capturas completas de escritorio y tres cabeceras móviles. Texto, enlaces, fechas, FAQ, metadatos, imágenes y ausencia de overflow y anuncios son correctos en esa versión. Falta comprobar el título y contexto finales, la publicación y el despliegue.
+
+Solo Sojourn se añade a las listas explícitas de publicación, con revisión exacta para cada URL y medios comprobados en la guía. Se mantienen controles negativos en otros artículos pendientes y `adsAllowed: false`, sin activar anuncios. La prueba de filtros distingue ahora las guías canónicas aprobadas de sus alias: no exige que todas las guías sigan excluidas cuando ya hay publicaciones individuales válidas.
+
+Fuentes y modelos: `reports/indexing-review-2026-10-27/batch-nine/`. Capturas y logs: `reports/indexing-review-2026-10-27/release-batch-nine/`.
+
+Validación local final: lint sin errores, 705 pruebas unitarias y build correctos. Pasan doce casos de navegador para los tres artículos, ambos catálogos y los filtros en escritorio y móvil; otros seis comprueban las guías anteriores de Mei y Hanzo y la supresión de anuncios en ambos juegos. Se verifica texto completo, título corregido, contexto histórico y botón de reproducción, fechas, autoría, FAQ, enlaces, imágenes, metadatos, sitemap y ausencia de overflow y slots. Se inspeccionan las capturas finales de la guía y su cabecera móvil. Quedan pendientes despliegue y verificación pública.

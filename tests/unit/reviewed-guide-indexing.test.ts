@@ -44,6 +44,7 @@ describe('individual publication of repository-owned guide revisions', () => {
       ['ashe-guia-overwatch-angulos-dinamita', 'ashe', 'dps', ['ashe', 'dps', 'hitscan', 'dinamita', '6v6']],
       ['hanzo-guia-video-overwatch', 'hanzo', 'dps', ['hanzo', 'dps', 'video', 'youtube', '6v6', 'overwatch']],
       ['mei-guia-video-overwatch', 'mei', 'dps', ['mei', 'dps', 'video', 'youtube', '6v6', 'overwatch']],
+      ['sojourn-guia-overwatch-railgun-presion', 'sojourn', 'dps', ['sojourn', 'dps', 'railgun', 'hitscan', '6v6']],
     ] as const) {
       const revision = reviewedGuideRevisions[slug]
       const raw = { slug, hero, role, tags: [...tags], published: true, created_at: '2026-05-05' }
@@ -63,5 +64,21 @@ describe('individual publication of repository-owned guide revisions', () => {
       }
     }
     expect(guideQualityDecision({ ...applyReviewedGuideRevision(stored), video_id: 'unreviewed-video' }).indexable).toBe(false)
+  })
+
+  it('corrects only the reviewed source video title without changing its input or masking later edits', () => {
+    const slug = 'sojourn-guia-overwatch-railgun-presion'
+    const revision = reviewedGuideRevisions[slug]
+    const source = { slug, hero: 'sojourn', role: 'dps' as const, tags: ['sojourn', 'dps', 'railgun', 'hitscan', '6v6'], published: true, created_at: '2026-05-05', ...revision.reviewedVideo, video_title: revision.sourceVideoTitle }
+    const before = structuredClone(source)
+    const corrected = applyReviewedGuideRevision(source)
+    expect(corrected.video_title).toBe('Guía básica: Sojourn | Overwatch 2')
+    expect(source).toEqual(before)
+    expect(guideQualityDecision(corrected)).toMatchObject({ indexable: true, adsAllowed: false })
+    for (const edit of [{ video_title: 'Unreviewed title' }, { video_id: 'another-video' }, { video_channel: 'Unreviewed author' }]) {
+      expect(guideQualityDecision(applyReviewedGuideRevision({ ...source, ...edit })).indexable).toBe(false)
+    }
+    const differentVideo = applyReviewedGuideRevision({ ...source, video_id: 'another-video' })
+    expect(differentVideo.video_title).toBe(source.video_title)
   })
 })

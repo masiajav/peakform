@@ -338,10 +338,13 @@
       "sourceVersion": "31442838b79c5518709ad3de4b7ba184ce8763a3d432671e6e319da3a54b3532",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-sojourn-2026-10-28.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "31442838b79c5518709ad3de4b7ba184ce8763a3d432671e6e319da3a54b3532",
+      "correction": "Texto y fecha 2026-10-02 conservados tras contrastar kit, subrol, perks y decisiones con la fuente oficial.",
+      "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "31442838b79c5518709ad3de4b7ba184ce8763a3d432671e6e319da3a54b3532",
         "note": "Lectura completa: ángulo y cruce, D.Va/Sigma/Tracer/Kiriko con señal y respuesta, cuatro ventanas, adaptaciones, errores, ejemplos, checklist, FAQ y enlaces. Modelo actual idéntico al leído. La ficha oficial confirma Disruptor sin slow base, Deceleration Field minor, Friction Generators y Dual Thrusters como alternativas major, energía automática de Overclock y Sharpshooter con críticos. Faltan enlaces y presentación final; no aprobado.",
@@ -2509,10 +2512,13 @@
       "sourceVersion": "834ab027427eab762f8062a3b2634c5a64054899cfaf909d0566dbddcd1ca89f",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-sojourn-2026-10-28.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "f3a19c76404f94b00b346e5a94936e3e554f861dbf730220f998a23c45bb0af1",
+      "correction": "Título de la fuente corregido de forma acotada al ID y transcripción originales, sin mutar las filas. Contexto del vídeo de LeonDrummer de 2022 como material histórico y distinción explícita de Disruptor actual. Medios y metadatos renderizados vinculados. Primera publicación conservada, revisión del contenido 2026-10-28.",
+      "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "834ab027427eab762f8062a3b2634c5a64054899cfaf909d0566dbddcd1ca89f",
         "note": "Lectura completa: generación de energía y selección de objetivo, off-angle, destino del slide, Disruptor, Overclock, VOD y tres FAQ. El cuerpo actual coincide con el inventario. La página incorpora el vídeo del alias sojourn-guia-video-overwatch. Watch y oEmbed confirman tGRzoJi7LnI, LeonDrummer, 2022-10-12 y playability OK; se lee descripción. El título real es «Guía básica: Sojourn | Overwatch 2», distinto del almacenado «Guia basica: Sojourn | Overwatch». Debe corregirse la atribución del título y contextualizarse como fuente de 2022 antes de aprobar. Huella renderizada actual sin corregir: 4248549e21e99795417c5e9c4d477cd8feb92929f41b8b74af48fecd49b7d240. Faltan versión final, medios vinculados, enlaces y presentación. No aprobada.",
@@ -2523,7 +2529,8 @@
           "screenshots": "reports/indexing-review-2026-10-27/release-batch-nine/reports/",
           "note": "Las tres páginas aún excluidas pasan en escritorio y móvil, incluido el botón de reproducción del vídeo incorporado. Se inspeccionan las tres capturas completas de escritorio y las tres cabeceras móviles. Falta corregir el título de la fuente de vídeo, contextualizar su fecha de 2022 y validar las versiones finales. No aprobadas."
         }
-      }
+      },
+      "reviewedRenderedVersion": "0767beadfb928f6250109e441a4758b3f795632fea1ee93b86320a19f189a33e"
     },
     {
       "path": "/guides/sojourn-guia-video-overwatch",
@@ -4025,10 +4032,13 @@
       "sourceVersion": "6c7170e1c1abe7ae3c23b0e9b0ca8f5a6aa0b37f1908eeabacf96289d04772f2",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-sojourn-2026-10-28.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "6c7170e1c1abe7ae3c23b0e9b0ca8f5a6aa0b37f1908eeabacf96289d04772f2",
+      "correction": "Texto y fecha 2026-10-02 conservados tras revisar equipos, decisiones, FAQ y fuentes.",
+      "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "6c7170e1c1abe7ae3c23b0e9b0ca8f5a6aa0b37f1908eeabacf96289d04772f2",
         "note": "Lectura completa: equipos Winston/Genji, Ramattra/Mei y Reinhardt/D.Va/Cassidy en 6v6, todos sus argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, FAQ y enlaces. Modelo actual idéntico al leído. Distingue Deceleration Field del área básica y condiciona el engage a munición, energía y tiro real. Faltan enlaces y presentación final; no aprobada.",
@@ -4163,8 +4173,8 @@
     }
   ],
   "progress": {
-    "reviewed": 24,
+    "reviewed": 27,
     "publishedAndVerified": 24,
-    "pending": 116
+    "pending": 113
   }
 }

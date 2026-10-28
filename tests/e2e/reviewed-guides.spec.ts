@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 import { GUIDE_REVISION_DATE, reviewedGuideRevisions } from '../../src/lib/reviewed-guide-revisions'
 
-const PUBLISHED_REVISIONS = ['como-mejorar-como-dps-overwatch', 'como-mejorar-como-support-overwatch', 'moira-guia-overwatch-recursos-supervivencia', 'reaper-guia-video-overwatch', 'brigitte-guia-overwatch-peel-anti-dive', 'echo-guia-overwatch-burst-vertical', 'ashe-guia-overwatch-angulos-dinamita', 'hanzo-guia-video-overwatch', 'mei-guia-video-overwatch']
+const PUBLISHED_REVISIONS = ['como-mejorar-como-dps-overwatch', 'como-mejorar-como-support-overwatch', 'moira-guia-overwatch-recursos-supervivencia', 'reaper-guia-video-overwatch', 'brigitte-guia-overwatch-peel-anti-dive', 'echo-guia-overwatch-burst-vertical', 'ashe-guia-overwatch-angulos-dinamita', 'hanzo-guia-video-overwatch', 'mei-guia-video-overwatch', 'sojourn-guia-overwatch-railgun-presion']
 
 for (const [slug, revision] of Object.entries(reviewedGuideRevisions)) {
   test(`${slug} has one complete article and preserves its original URL`, async ({ page, request }) => {
@@ -123,7 +123,7 @@ test('hero filters do not bring back unreviewed templates', async ({ page, reque
   await expect(page.locator('a[href="/guides/mauga-guia-video-overwatch"]')).toContainText(reviewedGuideRevisions['mauga-guia-video-overwatch'].title)
   const sitemap = await (await request.get('/sitemap.xml')).text()
   for (const [slug, revision] of Object.entries(reviewedGuideRevisions)) {
-    expect(sitemap).not.toContain(`/guides/${slug}`)
-    expect(sitemap).not.toContain(`/guides/${revision.videoSlug}`)
+    expect(sitemap.includes(`/guides/${slug}</loc>`)).toBe(PUBLISHED_REVISIONS.includes(slug))
+    if (revision.videoSlug !== slug) expect(sitemap).not.toContain(`/guides/${revision.videoSlug}</loc>`)
   }
 })

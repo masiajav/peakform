@@ -815,6 +815,27 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-mei-2026-10-28.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/sojourn-guia-overwatch-railgun-presion': {
+    path: '/guides/sojourn-guia-overwatch-railgun-presion',
+    version: 'f3a19c76404f94b00b346e5a94936e3e554f861dbf730220f998a23c45bb0af1',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-sojourn-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/counters/sojourn': {
+    path: '/counters/sojourn',
+    version: '31442838b79c5518709ad3de4b7ba184ce8763a3d432671e6e319da3a54b3532',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-sojourn-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/sojourn': {
+    path: '/team-comps/sojourn',
+    version: '6c7170e1c1abe7ae3c23b0e9b0ca8f5a6aa0b37f1908eeabacf96289d04772f2',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-sojourn-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/zarya': {
     path: '/team-comps/zarya',
     version: '40de9429f726f9396cb6d2c3aa44d8eca29c9b77c5b7eeac49598631fa1b35a6',

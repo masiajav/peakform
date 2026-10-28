@@ -19,6 +19,7 @@ export type GuideRevision = {
   videoSlug: string
   videoDescription?: string
   videoPresentation?: 'external'
+  sourceVideoTitle?: string
   reviewedVideo?: Pick<GuideContent, 'video_id' | 'video_url' | 'video_platform' | 'video_title' | 'video_channel' | 'video_language' | 'video_published_at'>
   renderedContentVersion?: string
   body: string
@@ -315,6 +316,14 @@ Si te cuesta sostener un ángulo, continúa con [los fundamentos de DPS](/roles/
     description: 'Aprende con Sojourn a convertir energía en presión: selecciona objetivos para la railgun, conserva Power Slide y usa Overclock desde un ángulo útil.',
     quickAnswer: 'Con Sojourn, usa el disparo principal para preparar energía sin abandonar cobertura y reserva el tiro cargado para un objetivo que puedas castigar. Power Slide debe tener un destino seguro. Antes de Overclock, busca una línea donde el enemigo necesite cruzar o abandonar una posición; activar la ultimate no crea esa línea por sí solo.',
     videoSlug: 'sojourn-guia-video-overwatch',
+    revisedAt: '2026-10-28',
+    sourceVideoTitle: 'Guia basica: Sojourn | Overwatch',
+    reviewedVideo: {
+      video_id: 'tGRzoJi7LnI', video_url: 'https://www.youtube.com/watch?v=tGRzoJi7LnI', video_platform: 'youtube',
+      video_title: 'Guía básica: Sojourn | Overwatch 2', video_channel: 'LeonDrummer', video_language: 'es', video_published_at: '2022-10-12',
+    },
+    renderedContentVersion: '0767beadfb928f6250109e441a4758b3f795632fea1ee93b86320a19f189a33e',
+    videoDescription: 'Introducción de LeonDrummer publicada el 12 de octubre de 2022, en la versión de lanzamiento de Overwatch 2. Se incluye como material histórico; sus cifras y efectos no describen necesariamente el balance actual. En el kit actual, Disruptor Shot no ralentiza por defecto: ese efecto depende del perk Deceleration Field. El análisis escrito de esta guía se contrasta por separado con las habilidades y los perks actuales.',
     body: `## Cargar energía y elegir objetivo son dos decisiones distintas
 
 Disparar a un Tank visible puede ayudarte a preparar la railgun, pero no obliga a gastar el tiro cargado en ese mismo Tank. Comprueba si aparece un DPS o Support expuesto y si puedes alcanzarlo sin salir de tu esquina. Ahí es donde tu presión puede convertirse en una oportunidad de baja.
@@ -626,8 +635,15 @@ export function reviewedGuideVideoSource(slug: string) {
 export function applyReviewedGuideRevision<T extends Pick<GuideContent, 'slug'>>(guide: T): T {
   if (!hasReviewedGuideRevision(guide.slug)) return guide
   const revision = reviewedGuideRevisions[guide.slug]
+  const sourceVideo = guide as T & Partial<GuideContent>
+  const reviewedVideo = revision.reviewedVideo
+  const correctedVideoTitle = revision.sourceVideoTitle && reviewedVideo
+    && sourceVideo.video_id === reviewedVideo.video_id
+    && sourceVideo.video_title === revision.sourceVideoTitle
+    ? reviewedVideo.video_title : undefined
   return {
     ...guide,
+    ...(correctedVideoTitle ? { video_title: correctedVideoTitle } : {}),
     ...(revision.role ? { role: revision.role } : {}),
     title: revision.title,
     seo_title: revision.title,

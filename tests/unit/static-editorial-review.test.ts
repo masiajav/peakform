@@ -60,6 +60,7 @@ describe('version-bound static editorial reviews', () => {
       '/guides/ashe-guia-overwatch-angulos-dinamita', '/counters/ashe', '/team-comps/ashe',
       '/guides/hanzo-guia-video-overwatch', '/counters/hanzo', '/team-comps/hanzo',
       '/guides/mei-guia-video-overwatch', '/counters/mei', '/team-comps/mei',
+      '/guides/sojourn-guia-overwatch-railgun-presion', '/counters/sojourn', '/team-comps/sojourn',
       '/heroes/ana', '/heroes/cassidy', '/heroes/dmon', '/heroes/doctrine', '/heroes/dva', '/heroes/genji', '/heroes/kiriko', '/heroes/reinhardt', '/heroes/shion', '/heroes/tracer', '/heroes/winston', '/heroes/zarya', '/roles/flex',
       '/team-comps/ana', '/team-comps/cassidy', '/team-comps/doctrine', '/team-comps/domina', '/team-comps/dva', '/team-comps/genji', '/team-comps/jetpack-cat', '/team-comps/kiriko', '/team-comps/reinhardt', '/team-comps/roadhog', '/team-comps/sombra', '/team-comps/tracer', '/team-comps/winston', '/team-comps/wuyang', '/team-comps/zarya',
     ].sort())
