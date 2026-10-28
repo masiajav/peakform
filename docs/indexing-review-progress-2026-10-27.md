@@ -53,4 +53,6 @@ Se completa la revisión individual de guía, counter y composiciones. El counte
 
 Evidencia: [revisión de Brigitte](indexing-review-brigitte-2026-10-28.md). Pasan lint, 704 pruebas unitarias, build y 16 casos finales de navegador, además de seis casos previos sobre las páginas aún excluidas. Los controles negativos se conservan en otras URLs pendientes y no cambia la activación de anuncios.
 
-Antes del despliegue: **12 artículos revisados, nueve habilitados y verificados públicamente; tres esperando comprobación pública; 128 pendientes de revisión**. Continúan los demás artículos del inventario. El objetivo global sigue activo.
+Despliegue `e3bfce0` completado y comprobado: dieciséis respuestas públicas y el alias 308 correctos, más seis casos de navegador contra producción. Estado: **12 artículos revisados, habilitados y verificados públicamente de 140; 128 pendientes**.
+
+Siguiente revisión iniciada: counter, guía canónica y composiciones de Echo. Se leen completos sus textos y se comprueba que las versiones actuales coinciden con las del inventario. Las habilidades y perks de la ficha oficial actual concuerdan con sus decisiones. Siguen pendientes de comprobar el vídeo incorporado, las demás fuentes, enlaces y presentación final. La guía canónica es `/guides/echo-guia-overwatch-burst-vertical`; la URL de vídeo es un alias. El registro conserva esas lecturas sin conceder aprobación. El objetivo global sigue activo.

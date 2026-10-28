@@ -49,9 +49,26 @@
       "sourceVersion": "104127ea8e01da12f056f5a103a20257dd70d627f4d078e0cc8bc5d0befc873f",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-brigitte-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/counters/brigitte",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "5559571f424a77b05da8a3f96b063ffa5408d7727ffb51fd50a9fda6b478dc91",
+        "valid": true,
+        "expectedDatePresent": true,
+        "expectedCorrectionPresent": true,
+        "checkedAt": "2026-10-28T18:22:57.344Z",
+        "commit": "e3bfce062cd4fc9891d9caade2f980249349e9cb",
+        "browserChecks": "6 production cases passed: three Brigitte articles on desktop/mobile, complete visible text, current correction, video context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "9d15ec323e4d60a69270c7ef2578aad5fd2900bc3d7cb7614fa28a9bdba91cf6",
       "correction": "Precisados los efectos de Inspiring Strike sobre velocidad e Inspire, sin insinuar reducción del cooldown de Bash; fecha de contenido 2026-10-28.",
@@ -74,7 +91,12 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "82fd8599e2991b0ab26c3145738fc8915d9974868b77875b6d4d980b2eb2d03a",
+        "note": "Lectura inicial completa del texto y metadatos del modelo; la versión actual coincide con la inicial. Leídas habilidades y perks de la ficha oficial actual (batch-four/source-echo.html): Full Salvo, Focused Rush, Aerial Munitions y Partial Scan concuerdan con el counter y la composición. La guía canónica es echo-guia-overwatch-burst-vertical; echo-guia-video-overwatch es un alias. Falta comprobar la integración del vídeo y sus fuentes, los demás héroes citados, enlaces y presentación final en móvil/escritorio. No aprobada."
+      }
     },
     {
       "path": "/counters/emre",
@@ -1445,9 +1467,27 @@
       "sourceVersion": "999054566142f82dc3bfbdcccadfd622db36e42bcd76e1a1bd8e3e3d4355679c",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-brigitte-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/brigitte-guia-overwatch-peel-anti-dive",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "d073c11abc447ae764cdff5104fbce0b83309739a0472a8992b85fc57c67cd5f",
+        "valid": true,
+        "expectedDatePresent": true,
+        "videoMatches": true,
+        "originalPublicationPresent": true,
+        "checkedAt": "2026-10-28T18:22:57.344Z",
+        "commit": "e3bfce062cd4fc9891d9caade2f980249349e9cb",
+        "browserChecks": "6 production cases passed: three Brigitte articles on desktop/mobile, complete visible text, current correction, video context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "98b8fda4f41302c5b81cc7403947e71886f1e853a0a16a820908e6af89f3ce4e",
       "correction": "Vídeo original conservado y contrastado; añadido contexto de 2025 y huella del contenido incorporado. Primera publicación conservada; revisión de contenido 2026-10-28.",
@@ -1632,7 +1672,12 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "ee5d3714c86d51ffa034b65d6c263fecf1aca9a06ee5b8113d65b8aff768e177",
+        "note": "Lectura inicial completa del texto y metadatos del modelo; la versión actual coincide con la inicial. Leídas habilidades y perks de la ficha oficial actual (batch-four/source-echo.html): Full Salvo, Focused Rush, Aerial Munitions y Partial Scan concuerdan con el counter y la composición. La guía canónica es echo-guia-overwatch-burst-vertical; echo-guia-video-overwatch es un alias. Falta comprobar la integración del vídeo y sus fuentes, los demás héroes citados, enlaces y presentación final en móvil/escritorio. No aprobada."
+      }
     },
     {
       "path": "/guides/echo-guia-video-overwatch",
@@ -3233,9 +3278,25 @@
       "sourceVersion": "184d026ebabdd86591916a8c8faff1db9798ee4856fc7b5883c28f3373a713a7",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-brigitte-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/brigitte",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "fd48233e739729dbc6f3503d7a12b372d8873c1d32b1656cced6fd933e8c3574",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-28T18:22:57.344Z",
+        "commit": "e3bfce062cd4fc9891d9caade2f980249349e9cb",
+        "browserChecks": "6 production cases passed: three Brigitte articles on desktop/mobile, complete visible text, current correction, video context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "184d026ebabdd86591916a8c8faff1db9798ee4856fc7b5883c28f3373a713a7",
       "correction": "Texto y fecha 2026-10-02 conservados tras revisar equipos, decisiones, FAQ y fuentes.",
@@ -3258,7 +3319,12 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "d90f4724ef3477ec3765390dec36e4410a41ce72eec7a5c335437e60bf979654",
+        "note": "Lectura inicial completa del texto y metadatos del modelo; la versión actual coincide con la inicial. Leídas habilidades y perks de la ficha oficial actual (batch-four/source-echo.html): Full Salvo, Focused Rush, Aerial Munitions y Partial Scan concuerdan con el counter y la composición. La guía canónica es echo-guia-overwatch-burst-vertical; echo-guia-video-overwatch es un alias. Falta comprobar la integración del vídeo y sus fuentes, los demás héroes citados, enlaces y presentación final en móvil/escritorio. No aprobada."
+      }
     },
     {
       "path": "/team-comps/emre",
@@ -3751,7 +3817,7 @@
   ],
   "progress": {
     "reviewed": 12,
-    "publishedAndVerified": 9,
+    "publishedAndVerified": 12,
     "pending": 128
   }
 }
