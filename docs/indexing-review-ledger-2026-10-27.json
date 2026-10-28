@@ -19,9 +19,26 @@
       "sourceVersion": "ff447bb08d90aeac9226f9a5dcfb9368a6fe2b4791cb803fccfc946f124eaac5",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-ashe-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/counters/ashe",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "88a2cbfe5ff9bcddf2758aa814d33ffb3520f8d5d250942f1ca75b8309ce44d3",
+        "valid": true,
+        "expectedDatePresent": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-28T18:55:56.419Z",
+        "commit": "259750286e45dfd05121c5742761facaabe99621",
+        "browserChecks": "6 production cases passed: three Ashe articles on desktop/mobile, complete visible text, video context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "183ce0d850add405b5e653b27660cf162fcc27e5cd4c2fcb90efcc5d958345d0",
       "correction": "Boosters de D.Va disponible en lugar de combustible; condición de Double-Barreled y reducción de recarga por críticos de Sharpshooter precisadas. Revisión del contenido 2026-10-28.",
@@ -154,7 +171,12 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "dd69754d66c76e8d3c61a7fc486c00d47d793d5a56002c2e8f1a9f0050a1ac32",
+        "note": "Lectura completa: Sonic antes del peek, presión de D.Va/Winston/Genji/Pharah, Storm Arrows, Lunge, Dragonstrike, adaptaciones, errores, ejemplos, checklist, FAQ y enlaces. La ficha oficial actual confirma rebote base, Scatter Arrows y Frost Arrow opcionales, y subrol Sharpshooter con críticos. Faltan enlaces y presentación final antes de aprobar."
+      }
     },
     {
       "path": "/counters/mei",
@@ -1420,9 +1442,27 @@
       "sourceVersion": "e87529a84ae4978d33dbc6ef5040295cc25eaa66133d3d54d716dae608f40c56",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-ashe-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/ashe-guia-overwatch-angulos-dinamita",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "fb6f251640a90146bee5f35fd0d50b60276d5e316748e0c05596cc53c7ae01f1",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "checkedAt": "2026-10-28T18:55:56.419Z",
+        "commit": "259750286e45dfd05121c5742761facaabe99621",
+        "browserChecks": "6 production cases passed: three Ashe articles on desktop/mobile, complete visible text, video context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "e163f24e20afa5a3f005f6eaff77c8cd2e840e5076070da752ab86f2b69d2b7f",
       "correction": "Expresión de Coach Gun aclarada; vídeo original de qrxu contrastado y contexto de diciembre de 2025 añadido. Medios y metadatos renderizados vinculados. Primera publicación conservada, revisión del contenido 2026-10-28.",
@@ -1826,7 +1866,12 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "f2955dbae8ed0e1637f457760c4080046401e25b005605c5cf32cdb62ac83bca",
+        "note": "Lectura completa de secciones, VOD y tres FAQ. El modelo publicado actual coincide íntegramente con el leído. YouTube y oEmbed confirman vídeo Dgry7Q8AtSk, Kajor, título almacenado, fecha 2025-12-14 y playability OK; se leen descripción y capítulos. Conviene precisar rebote base frente a Scatter Arrows opcional y contextualizar el material de 2025. Faltan versión final, medios vinculados, enlaces y presentación; no aprobada."
+      }
     },
     {
       "path": "/guides/hazard-guia-video-overwatch",
@@ -3292,9 +3337,25 @@
       "sourceVersion": "733cf4efd94845652203b50a1eb231bbab7d6a953c2fbd784595fbd06276ff0a",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-ashe-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/ashe",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "1047678d693f53c8cc86f42e1556c099fb7f82e05923721be7f15de1f55cc08e",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-28T18:55:56.419Z",
+        "commit": "259750286e45dfd05121c5742761facaabe99621",
+        "browserChecks": "6 production cases passed: three Ashe articles on desktop/mobile, complete visible text, video context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "733cf4efd94845652203b50a1eb231bbab7d6a953c2fbd784595fbd06276ff0a",
       "correction": "Texto y fecha 2026-10-02 conservados tras revisar equipos, decisiones, FAQ y fuentes.",
@@ -3455,7 +3516,12 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "62e86e30c8f8c1408b4ce0287bae848f86fae647a8e4c2236b49b744b7d5ee7f",
+        "note": "Lectura completa: equipos de Zarya/Mei, Sigma/Tracer y Winston/D.Va/Echo en 6v6, los cinco argumentos de cada equipo, responsabilidades, rotación, debilidades, ejemplos, checklist, FAQ y enlaces. Equipos y decisiones condicionales, sin exigir Graviton en cada dragón. Faltan enlaces y presentación final antes de aprobar."
+      }
     },
     {
       "path": "/team-comps/hazard",
@@ -3903,7 +3969,7 @@
   ],
   "progress": {
     "reviewed": 18,
-    "publishedAndVerified": 15,
+    "publishedAndVerified": 18,
     "pending": 122
   }
 }
