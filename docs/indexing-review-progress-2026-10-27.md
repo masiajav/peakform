@@ -2,6 +2,8 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
+Estado comprobado al 28 de octubre: **21 de 140 artículos revisados, habilitados y verificados en producción; 119 pendientes**. Último lote completado: Hanzo. Siguiente revisión en curso: Mei. Los anuncios mantienen su configuración previa.
+
 ## Inventario y alcance
 
 El diagnóstico del 27 de octubre consultó el contenido publicado actual de la base de datos y comprobó 499 rutas, uniendo el inventario previo con las URLs actuales de guías y artículos editoriales de ambos juegos. No se detectaron errores de inspección.
@@ -82,3 +84,7 @@ La siguiente revisión iniciada incluye counter, guía y composiciones de Hanzo.
 Se completa la revisión individual de las tres páginas. La guía precisa el rebote base y los perks y contextualiza el vídeo de Kajor del 14 de diciembre de 2025. La captura y las pruebas específicas detectan que el reproductor incrustado falla en móvil y escritorio pese a que la página original está disponible. Se conserva esa fuente como referencia externa con título, autor e idioma, sin iframe fallido ni anuncio de vídeo incrustado en datos estructurados. Counter y composiciones conservan texto y fechas tras contrastar las decisiones y fuentes.
 
 Evidencia: [revisión de Hanzo](indexing-review-hanzo-2026-10-28.md). Pasan lint, 704 pruebas unitarias, build y 16 casos finales de navegador. También pasan seis casos iniciales y otros seis sobre la presentación corregida aún sin publicar. Las tres aprobaciones están vinculadas a su versión exacta; otros artículos pendientes siguen excluidos y los anuncios no cambian. Estado provisional: **21 artículos revisados de 140; 18 ya publicados y verificados; 3 pendientes de comprobar en producción; 119 pendientes de revisión**.
+
+Despliegue `48e8983` terminado y comprobado: veinticinco respuestas públicas correctas, regresión del alias 308 de Ashe y otros seis casos de navegador contra producción. Estado: **21 artículos revisados, habilitados y verificados públicamente de 140; 119 pendientes**.
+
+La siguiente revisión iniciada incluye guía, counter y composiciones de Mei. Se leen completos y sus versiones actuales coinciden con el inventario; la fila pública de la guía coincide íntegramente con el modelo leído. La ficha oficial confirma spray básico que ralentiza, Deep Freeze y Cryo-Storm como perks opcionales. El counter debe advertir del daño alrededor de Cryo cuando se elige Cryo-Storm. YouTube y oEmbed confirman título, qrxu y fecha del vídeo del 2 de marzo de 2026; se leen descripción y capítulos. Pasan ocho comprobaciones iniciales en la copia aislada, incluidas reproducción visible en ambos dispositivos y las tres páginas aún excluidas. Falta la corrección, contexto, revisión final de versiones y publicación. No se conceden aprobaciones a Mei y el objetivo global sigue activo.

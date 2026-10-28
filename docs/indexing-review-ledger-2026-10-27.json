@@ -169,9 +169,25 @@
       "sourceVersion": "dd69754d66c76e8d3c61a7fc486c00d47d793d5a56002c2e8f1a9f0050a1ac32",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-hanzo-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/counters/hanzo",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "96b2fbeb8777f50d205e149e92201b5baa134a89c7aa4918f4e52f2cc49509bd",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-28T21:50:39.706Z",
+        "commit": "48e8983fd62775f96a9e65a00f9dbc0e47e8ae8a",
+        "browserChecks": "6 production cases passed: three Hanzo articles on desktop/mobile, complete visible text, external video reference with attribution/context and no iframe or VideoObject, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "dd69754d66c76e8d3c61a7fc486c00d47d793d5a56002c2e8f1a9f0050a1ac32",
       "correction": "Texto y fecha 2026-10-02 conservados tras contrastar kit, subrol, perks y decisiones con la fuente oficial.",
@@ -194,7 +210,19 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "8494fbe30b2c0c628d006bc35dddf905707a6d56826b9c2aa665c4f19df75bba",
+        "note": "Lectura completa de introducción, resumen, matchups Pharah/Echo/Orisa/Kiriko, cuatro ventanas, adaptaciones, errores, ejemplos, checklist, FAQ y enlaces. La ficha oficial actual confirma muro, invulnerabilidad/curación de Cryo y Blizzard. Conviene advertir que Cryo-Storm es un perk opcional que puede dañar alrededor del bloque: no esperar pegado mientras preparas su salida. Faltan corrección, enlaces y presentación final antes de aprobar.",
+        "baseline": {
+          "checkedAt": "2026-10-28",
+          "cases": 8,
+          "log": "reports/indexing-review-2026-10-27/release-batch-eight/baseline-eight.log",
+          "screenshots": "reports/indexing-review-2026-10-27/release-batch-eight/reports/",
+          "note": "Las tres páginas todavía excluidas pasan en escritorio y móvil; el vídeo muestra el botón de reproducción en ambos. Se inspeccionan las tres capturas completas de escritorio y las tres cabeceras móviles. Falta corregir el counter, contextualizar el vídeo y validar las versiones finales; no aprobadas."
+        }
+      }
     },
     {
       "path": "/counters/moira",
@@ -1867,9 +1895,28 @@
       "sourceVersion": "f2955dbae8ed0e1637f457760c4080046401e25b005605c5cf32cdb62ac83bca",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-hanzo-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/hanzo-guia-video-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "8b28fe598cf5bcae01f5c5b2fb5d9a4e5866dae286acfe465c7b008bb5189e7b",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "externalVideoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-28T21:50:39.706Z",
+        "commit": "48e8983fd62775f96a9e65a00f9dbc0e47e8ae8a",
+        "browserChecks": "6 production cases passed: three Hanzo articles on desktop/mobile, complete visible text, external video reference with attribution/context and no iframe or VideoObject, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "f64bf7da1d80fc6448dfea88f1529b839f07e52c41a4bfd00ad9f16bcc634aea",
       "correction": "Rebote base y perks precisados. El reproductor incrustado falla en móvil y escritorio: se conserva la fuente original de Kajor como referencia externa con título, autor, idioma y contexto de diciembre de 2025. No se anuncia vídeo incrustado en datos estructurados. Primera publicación conservada, revisión del contenido 2026-10-28.",
@@ -2073,7 +2120,19 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "fe92495a27e137acdabbf9633ed4c8573a4f92e900e186e6e9fea24b6ce30570",
+        "note": "Lectura completa de muro, cancelación, spray/icicles, Cryo, Blizzard, adaptación, VOD y tres FAQ; el modelo público actual coincide íntegramente con el leído. La fuente oficial confirma que el spray base ralentiza y Deep Freeze añade congelación como perk opcional. YouTube y oEmbed confirman GAUa8H5aQSQ, qrxu, título almacenado y fecha 2026-03-02, playability OK; se leen descripción y capítulos de la serie. Falta contexto del material, versión exacta con medios y presentación final. No aprobada.",
+        "baseline": {
+          "checkedAt": "2026-10-28",
+          "cases": 8,
+          "log": "reports/indexing-review-2026-10-27/release-batch-eight/baseline-eight.log",
+          "screenshots": "reports/indexing-review-2026-10-27/release-batch-eight/reports/",
+          "note": "Las tres páginas todavía excluidas pasan en escritorio y móvil; el vídeo muestra el botón de reproducción en ambos. Se inspeccionan las tres capturas completas de escritorio y las tres cabeceras móviles. Falta corregir el counter, contextualizar el vídeo y validar las versiones finales; no aprobadas."
+        }
+      }
     },
     {
       "path": "/guides/mercy-guia-overwatch-pocket-resurrect",
@@ -3521,9 +3580,25 @@
       "sourceVersion": "62e86e30c8f8c1408b4ce0287bae848f86fae647a8e4c2236b49b744b7d5ee7f",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-hanzo-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/hanzo",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "799d332f6e6fba0cba3b065ce7ed974490988da4399c3ad71ba2747ea3b78e3e",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-28T21:50:39.706Z",
+        "commit": "48e8983fd62775f96a9e65a00f9dbc0e47e8ae8a",
+        "browserChecks": "6 production cases passed: three Hanzo articles on desktop/mobile, complete visible text, external video reference with attribution/context and no iframe or VideoObject, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "62e86e30c8f8c1408b4ce0287bae848f86fae647a8e4c2236b49b744b7d5ee7f",
       "correction": "Texto y fecha 2026-10-02 conservados tras revisar equipos, decisiones, FAQ y fuentes.",
@@ -3666,7 +3741,19 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "851fc831383ff9cfa3f9ace102131f3f88bf9e1939511f42e446f699e8d72192",
+        "note": "Lectura completa de introducción, resumen, equipos Reinhardt/Cassidy, Sigma/Ashe y Reinhardt/D.Va/Reaper/Moira/Lúcio en 6v6, todos sus argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, FAQ y enlaces. Los roles y formatos son coherentes y Deep Freeze se distingue del spray base. Faltan enlaces y presentación final antes de aprobar.",
+        "baseline": {
+          "checkedAt": "2026-10-28",
+          "cases": 8,
+          "log": "reports/indexing-review-2026-10-27/release-batch-eight/baseline-eight.log",
+          "screenshots": "reports/indexing-review-2026-10-27/release-batch-eight/reports/",
+          "note": "Las tres páginas todavía excluidas pasan en escritorio y móvil; el vídeo muestra el botón de reproducción en ambos. Se inspeccionan las tres capturas completas de escritorio y las tres cabeceras móviles. Falta corregir el counter, contextualizar el vídeo y validar las versiones finales; no aprobadas."
+        }
+      }
     },
     {
       "path": "/team-comps/mercy",
@@ -3979,7 +4066,7 @@
   ],
   "progress": {
     "reviewed": 21,
-    "publishedAndVerified": 18,
+    "publishedAndVerified": 21,
     "pending": 119
   }
 }
