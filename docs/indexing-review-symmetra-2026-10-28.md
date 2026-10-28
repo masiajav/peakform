@@ -1,0 +1,27 @@
+# Revisión individual de Symmetra: guía, counters y composiciones
+
+Revisión del 28 de octubre de 2026 por Codex. Se leen completos los tres artículos; las versiones actuales coinciden con el inventario y la fila publicada de la guía coincide íntegramente con el modelo leído. No se aprueba otra URL.
+
+| URL | Lectura y utilidad | Corrección y fechas | Versión revisada |
+| --- | --- | --- | --- |
+| `/guides/symmetra-guia-video-overwatch` | TP con llegada y retirada, beam sin persecución, orbes, torretas, Photon Barrier, VOD, tres FAQ y enlaces. La nueva sección aplica los cuatro perks a distancia, colocación, recuperación y elección de barrera. | Corrige el título de Levin añadiendo el «2» final comprobado y contextualiza su guía de perks de febrero de 2025. Distingue minor y major actuales, escudos propios y las dos barreras. Primera publicación del 6 de mayo de 2026 conservada; revisión del contenido: 28 de octubre. | `79ad90c43c4894274596780896cd5b691e2daf8b6dfd12a5bf827454686bea0b` |
+| `/counters/symmetra` | Introducción, resumen, Winston/Pharah/Echo/Junkrat con señal y respuesta, cuatro ventanas, adaptaciones, errores, tres ejemplos, checklist, tres FAQ y enlaces. Prioriza limpiar el cruce y responder a quienes ya han usado el TP. | Precisa Shield Battery como regeneración de escudos de la propia Symmetra y Hovering Barrier como opción al usar la habilidad del TP, sin afirmar que elegir el perk elimina el portal. Revisión del contenido: 28 de octubre. | `eee06988d97ab09e4434ca0a22940cc0cfde027028575b9f270f85efbc11362a` |
+| `/team-comps/symmetra` | Cinco argumentos de cada equipo, responsabilidades, rotación, debilidades, ejemplos, checklist y FAQ. Reinhardt/Mei, Sigma/Ashe y Reinhardt/D.Va/Cassidy en 6v6, con llegada, curación y reparto de tareas explícitos. | Texto y fecha del 2 de octubre conservados tras el contraste. El TP aporta una posición utilizable; no garantiza una llegada segura ni obliga a que crucen todos. Equipos y roles válidos, ejemplos condicionados. | `32a0d54008439bc479de3db92833751e060f81a66d677b194344e19e6039d316` |
+
+## Exactitud y fuentes
+
+Se descarga y lee la ficha actual de [Symmetra](https://overwatch.blizzard.com/en-gb/heroes/symmetra/): haz con daño creciente, orbe cargado, torretas que dañan y ralentizan, portales temporales y gran Photon Barrier. Sentry Capacity añade una carga y Perfect Alignment aumenta alcance como alternativas minor. Shield Battery regenera escudos de Symmetra cerca del TP; Hovering Barrier añade la opción de crear una barrera que avanza y se ralentiza con otra pulsación. Son alternativas major. Se distinguen de la ultimate y de una curación a todos los usuarios del portal. No se trasladan reglas de Stadium a ranked.
+
+Las fichas de Winston, Pharah, Echo, Junkrat, Reinhardt, Mei, Baptiste, Lúcio, Sigma, Ashe, Kiriko, D.Va, Cassidy y Zarya se contrastaron en lotes anteriores. El texto condiciona entradas y cambios de posición a cobertura y seguimiento, sin prometer que un counter gane solo ni que Photon Barrier detenga el movimiento de héroes.
+
+El [vídeo original de Levin](https://www.youtube.com/watch?v=a-DofsY2tHg) y oEmbed devuelven HTTP 200 y playability `OK`. Coinciden canal, idioma y fecha del 27 de febrero de 2025. El título real es «SYMMETRA PERKS GUIDE! | Overwatch 2», distinto del almacenado sin el «2». Se leen descripción y capítulos de guía de perks y gameplay. No se afirma haber visto sus 947 segundos íntegros ni comprobado todas sus decisiones. El contexto identifica la versión de 2025 y dirige a las opciones actuales contrastadas en el artículo.
+
+La corrección de título utiliza el mecanismo acotado ya probado en Sojourn: solo actúa con el ID y la transcripción antigua revisados, conserva la entrada original y no oculta cambios posteriores de medio o atribución. La huella renderizada del cuerpo y título corregidos es `0722fec4aac79fba015079027f94d3ce7730332673826f1fbe42bf3fb324e0e4`. Cambios posteriores requieren nueva revisión. El slug de vídeo es la URL canónica y no se crea un alias.
+
+## Presentación y publicación
+
+La copia aislada parte de `05d0ec0`, sin incorporar cambios locales ajenos de mapas, Deadlock o tsconfig. Pasan ocho comprobaciones iniciales de las tres páginas todavía excluidas y el botón de reproducción en ambos dispositivos. Se inspeccionan las tres capturas completas de escritorio y tres cabeceras móviles. Tras las correcciones pasan lint, 705 pruebas unitarias, build y doce casos finales de navegador: los tres artículos, sus catálogos y los filtros, en móvil y escritorio. Otros seis casos comprueban las guías de Bastion y Sojourn y el bloqueo de anuncios. Se inspeccionan además las capturas finales de guía y counter. Enlaces, metadatos, imágenes, fechas, FAQ, estructura y ausencia de overflow y anuncios son correctos. Falta desplegar y verificar las respuestas públicas.
+
+Solo Symmetra se añade a las listas explícitas de publicación, con revisión exacta y medios comprobados. Se mantienen controles negativos en otros artículos pendientes y `adsAllowed: false`, sin activar anuncios. Fuentes y modelos: `reports/indexing-review-2026-10-27/batch-eleven/`; capturas y logs: `reports/indexing-review-2026-10-27/release-batch-eleven/`.
+
+El acceso API al equipo de Vercel devuelve 403 y requiere el consentimiento solicitado al usuario. No se presume que exista un despliegue en marcha: GitHub no mostraba despliegue ni estado de Vercel para el commit de Bastion. Esta revisión local no equivale a publicación comprobada.

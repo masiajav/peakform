@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 import { GUIDE_REVISION_DATE, reviewedGuideRevisions } from '../../src/lib/reviewed-guide-revisions'
 
-const PUBLISHED_REVISIONS = ['como-mejorar-como-dps-overwatch', 'como-mejorar-como-support-overwatch', 'moira-guia-overwatch-recursos-supervivencia', 'reaper-guia-video-overwatch', 'brigitte-guia-overwatch-peel-anti-dive', 'echo-guia-overwatch-burst-vertical', 'ashe-guia-overwatch-angulos-dinamita', 'hanzo-guia-video-overwatch', 'mei-guia-video-overwatch', 'sojourn-guia-overwatch-railgun-presion', 'bastion-guia-video-overwatch']
+const PUBLISHED_REVISIONS = ['como-mejorar-como-dps-overwatch', 'como-mejorar-como-support-overwatch', 'moira-guia-overwatch-recursos-supervivencia', 'reaper-guia-video-overwatch', 'brigitte-guia-overwatch-peel-anti-dive', 'echo-guia-overwatch-burst-vertical', 'ashe-guia-overwatch-angulos-dinamita', 'hanzo-guia-video-overwatch', 'mei-guia-video-overwatch', 'sojourn-guia-overwatch-railgun-presion', 'bastion-guia-video-overwatch', 'symmetra-guia-video-overwatch']
 
 for (const [slug, revision] of Object.entries(reviewedGuideRevisions)) {
   test(`${slug} has one complete article and preserves its original URL`, async ({ page, request }) => {

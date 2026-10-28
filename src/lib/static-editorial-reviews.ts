@@ -857,6 +857,27 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-bastion-2026-10-28.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/symmetra-guia-video-overwatch': {
+    path: '/guides/symmetra-guia-video-overwatch',
+    version: '79ad90c43c4894274596780896cd5b691e2daf8b6dfd12a5bf827454686bea0b',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-symmetra-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/counters/symmetra': {
+    path: '/counters/symmetra',
+    version: 'eee06988d97ab09e4434ca0a22940cc0cfde027028575b9f270f85efbc11362a',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-symmetra-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/symmetra': {
+    path: '/team-comps/symmetra',
+    version: '32a0d54008439bc479de3db92833751e060f81a66d677b194344e19e6039d316',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-symmetra-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/zarya': {
     path: '/team-comps/zarya',
     version: '40de9429f726f9396cb6d2c3aa44d8eca29c9b77c5b7eeac49598631fa1b35a6',

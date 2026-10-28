@@ -12,7 +12,7 @@ describe('composition metadata follows the publication decision', () => {
   })
 
   it('does not index an existing composition without an exact review', async () => {
-    for (const hero of ['symmetra', 'torbjorn']) {
+    for (const hero of ['orisa', 'torbjorn']) {
       const metadata = await generateMetadata({ params: Promise.resolve({ hero }) })
       expect(metadata.robots).toEqual({ index: false, follow: true })
       expect(metadata.alternates?.canonical).toBe(absoluteUrl(`/team-comps/${hero}`))

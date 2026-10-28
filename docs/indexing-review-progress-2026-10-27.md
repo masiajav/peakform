@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 28 de octubre: **27 de 140 artículos revisados, habilitados y verificados en producción; 113 pendientes**. Último lote completado: Sojourn. Siguiente revisión en curso: Bastion. Los anuncios mantienen su configuración previa.
+Estado comprobado al 28 de octubre: **33 de 140 artículos revisados; 27 habilitados y verificados en producción, seis pendientes de despliegue y comprobación pública; 107 pendientes de revisión**. Último lote verificado públicamente: Sojourn. Bastion y Symmetra superan la revisión local. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 
@@ -114,3 +114,11 @@ Siguiente revisión iniciada: guía, counter y composiciones de Bastion. Se leen
 Se completa la revisión individual de las tres páginas. La guía concreta Lindholm Explosives y Self-Repair como alternativas major y contextualiza el vídeo de Kajor del 31 de marzo de 2025. Vincula el cuerpo corregido y los medios reales a su revisión exacta. Counter y composiciones conservan texto y fecha tras el contraste.
 
 Evidencia: [revisión de Bastion](indexing-review-bastion-2026-10-28.md). Pasan lint, 705 pruebas unitarias, build y 18 casos finales de navegador, además de ocho iniciales. Los controles negativos se mantienen en otros artículos pendientes y los anuncios no cambian. Estado provisional: **30 artículos revisados de 140; 27 ya publicados y verificados; 3 pendientes de comprobar en producción; 110 pendientes de revisión**.
+
+## Undécimo lote: Symmetra
+
+Se completa la revisión individual de las tres páginas. La guía corrige el título del vídeo de Levin para la identidad comprobada, contextualiza su publicación del 27 de febrero de 2025 y aplica los cuatro perks actuales a decisiones de partida. El counter precisa los escudos propios de Shield Battery y la elección de barrera móvil de Hovering Barrier. Las composiciones conservan texto y fecha tras el contraste. Las tres revisiones registran la versión exacta; la guía incluye los medios renderizados.
+
+Evidencia: [revisión de Symmetra](indexing-review-symmetra-2026-10-28.md). Pasan lint, 705 pruebas unitarias, build, doce casos finales de navegador y seis de regresión, además de ocho iniciales. Se inspeccionan móvil y escritorio y se mantienen otros artículos excluidos y los anuncios bloqueados. Estado: **33 artículos revisados de 140; 27 publicados y verificados; seis pendientes de despliegue y comprobación pública; 107 pendientes de revisión**.
+
+El despliegue de Bastion no tiene aún un trabajo confirmado en GitHub y su respuesta pública conserva noindex. La API de Vercel deniega con 403 el acceso al equipo y se ha solicitado al usuario el consentimiento específico. No se registran Bastion ni Symmetra como publicados ni se interpreta el tiempo transcurrido como autorización o como un despliegue activo.

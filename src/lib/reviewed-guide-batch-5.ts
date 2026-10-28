@@ -7,7 +7,14 @@ export const fifthGuideReviewBatch: Record<string, GuideRevision> = {
     description: 'Prepara un teleport que el equipo pueda usar, carga el haz sin regalarte y coloca Photon Barrier para disputar el objetivo con Symmetra.',
     quickAnswer: 'Symmetra funciona mejor cuando el equipo puede pelear cerca de una cobertura y aprovechar su teleport. Elige una salida segura, avisa antes de colocarlo y conserva una forma de volver. Usa los orbes si aún no puedes acercarte; tener el haz cargado no justifica perseguir a un enemigo fuera de la ayuda de tus supports. Las torretas deben vigilar accesos, no quedarse en el tramo que ya habéis abandonado.',
     videoSlug: 'symmetra-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-28',
+    sourceVideoTitle: 'SYMMETRA PERKS GUIDE! | Overwatch',
+    reviewedVideo: {
+      video_id: 'a-DofsY2tHg', video_url: 'https://www.youtube.com/watch?v=a-DofsY2tHg', video_platform: 'youtube',
+      video_title: 'SYMMETRA PERKS GUIDE! | Overwatch 2', video_channel: 'Levin', video_language: 'en', video_published_at: '2025-02-27',
+    },
+    renderedContentVersion: '0722fec4aac79fba015079027f94d3ce7730332673826f1fbe42bf3fb324e0e4',
+    videoDescription: 'Guía de perks y partidas de Levin publicada el 27 de febrero de 2025. La grabación corresponde a aquella versión del juego; consulta las opciones actuales descritas en el artículo antes de aplicar sus cifras o elecciones. El texto escrito se contrasta por separado con el kit actual, incluida la recuperación de escudos de Shield Battery y la opción de barrera móvil de Hovering Barrier.',
     body: `## Un teleport útil empieza por mirar la salida
 
 Antes de colocar el teleport, comprueba quién controla su destino. Llegar a una altura no sirve de mucho si el equipo aparece delante de dos DPS que ya están esperando. Busca una salida junto a cobertura y una entrada a la que tus compañeros puedan llegar sin atravesar primero todo el fuego enemigo.
@@ -41,6 +48,14 @@ Juntar todas las torretas puede castigar a quien cruce una puerta concreta, pero
 En Lijiang Tower, una torreta cerca de una entrada lateral puede avisarte de un flanker mientras tú disputas el punto. Colócala de forma que el rival tenga que entrar o girarse para destruirla; una torreta visible desde la otra punta del pasillo dura poco. Si se activa, comprueba qué amenaza ha aparecido antes de abandonar tu duelo.
 
 Cuando cambie el lugar de la pelea, revisa sus posiciones. Tres torretas intactas en una sala vacía no ayudan a sostener la siguiente esquina. Tampoco hace falta salir a colocarlas mientras tus compañeros necesitan daño o mientras te están esperando desde el otro lado.
+
+## Ajusta la pelea a los perks que has elegido
+
+Sentry Capacity añade una carga de torreta y Perfect Alignment amplía el alcance del haz. Son alternativas minor: prepara la colocación o la distancia según la opción elegida. Tener más alcance puede ayudarte a sostener el contacto desde otra cobertura, pero sigue haciendo falta una salida si el rival se gira.
+
+Entre los major, Shield Battery recupera escudos de la propia Symmetra cuando permanece cerca de su TP. Hovering Barrier añade a Teleporter la opción de desplegar una barrera que avanza; puedes ralentizar su movimiento al pulsar de nuevo la habilidad. Elige qué necesitas para la jugada y comunica si vas a colocar un portal o esa barrera móvil.
+
+Photon Barrier sigue siendo la ultimate y tiene otra función. No confundas su gran división del campo de batalla con la colocación de Hovering Barrier: revisa qué recurso conservas antes de pedir al equipo que cruce.
 
 ## Photon Barrier debe separar amenazas reales
 

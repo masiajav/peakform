@@ -46,6 +46,7 @@ describe('individual publication of repository-owned guide revisions', () => {
       ['mei-guia-video-overwatch', 'mei', 'dps', ['mei', 'dps', 'video', 'youtube', '6v6', 'overwatch']],
       ['sojourn-guia-overwatch-railgun-presion', 'sojourn', 'dps', ['sojourn', 'dps', 'railgun', 'hitscan', '6v6']],
       ['bastion-guia-video-overwatch', 'bastion', 'dps', ['bastion', 'dps', 'video', 'youtube', '6v6', 'overwatch']],
+      ['symmetra-guia-video-overwatch', 'symmetra', 'dps', ['symmetra', 'dps', 'video', 'youtube', '6v6', 'overwatch']],
     ] as const) {
       const revision = reviewedGuideRevisions[slug]
       const raw = { slug, hero, role, tags: [...tags], published: true, created_at: '2026-05-05' }

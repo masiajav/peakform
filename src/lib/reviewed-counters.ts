@@ -2077,7 +2077,7 @@ export const reviewedCounters: Record<string, CounterPillar> = {
   },
   symmetra: {
     slug: 'symmetra', name: 'Symmetra', role: 'DPS',
-    updatedAt: '2 de octubre de 2026', schemaDate: '2026-10-02',
+    updatedAt: '28 de octubre de 2026', schemaDate: '2026-10-28',
     reviewedPatch: 'Kit de ranked; Photon Projector, Teleporter y Photon Barrier',
     seoTitle: 'Counters de Symmetra: despejar torretas y responder al teleport',
     seoDescription: 'Cómo jugar contra Symmetra: limpiar accesos, controlar el destino del TP y evitar el haz cargado. Respuestas con Winston, Pharah, Echo y Junkrat en ranked.',
@@ -2116,8 +2116,8 @@ export const reviewedCounters: Record<string, CounterPillar> = {
     cooldownWindows: [
       { title: 'El cruce deja de tener torretas', body: 'Confirma que habéis despejado la ruta real, no solo la primera pared visible. Symmetra puede colocar dispositivos en otros puntos del recorrido. Sentry Capacity es un perk opcional que añade una carga: no bases la entrada en dar por seguro que nunca habrá otra torreta después de destruir las primeras.' },
       { title: 'El haz ya mantiene contacto', body: 'Si no puedes terminar el duelo con ayuda, corta visión y cambia la entrada antes de que el intercambio se alargue. No presupongas un alcance idéntico en todas las partidas: Perfect Alignment es la opción de perk que amplía el rango del disparo principal. La esquina y la distancia sirven juntas; retroceder en línea abierta puede seguir dejando un objetivo cómodo.' },
-      { title: 'TP recién colocado', body: 'Mira el destino y cuántos enemigos lo han usado antes de decidir dónde enfocar. Romperlo puede separar a quien ha cruzado del resto o quitar una retirada, pero no deshace el movimiento. Shield Battery puede darle recuperación cerca del TP como perk opcional; no supongas ese efecto en cada Symmetra ni confundas el portal con una cobertura que bloquee disparos.' },
-      { title: 'Photon Barrier divide la pelea', body: 'Revisa qué tiros ha cortado y si hay una ruta segura para cambiar de lado. Atravesar la barrera es posible, pero hacerlo todos por la misma puerta puede dejaros delante del haz y las torretas. Hovering Barrier es una elección de perk que ofrece una barrera móvil en lugar del TP; no es lo mismo que la gran barrera de la ultimate.' },
+      { title: 'TP recién colocado', body: 'Mira el destino y cuántos enemigos lo han usado antes de decidir dónde enfocar. Romperlo puede separar a quien ha cruzado del resto o quitar una retirada, pero no deshace el movimiento. Shield Battery es un perk opcional que regenera los escudos de la propia Symmetra cerca de su TP. Cuenta con esa recuperación solo si lo ha elegido y no confundas el portal con una cobertura que bloquee disparos.' },
+      { title: 'Photon Barrier divide la pelea', body: 'Revisa qué tiros ha cortado y si hay una ruta segura para cambiar de lado. Atravesar la barrera es posible, pero hacerlo todos por la misma puerta puede dejaros delante del haz y las torretas. Hovering Barrier permite elegir una barrera móvil al usar la habilidad del TP; no equivale a la gran barrera de la ultimate ni elimina la opción de colocar el portal por haber elegido ese perk.' },
     ],
     adaptations: [
       'Como Tank, pide que despejen el acceso antes de comprometer la entrada. No es razonable esperar que los DPS limpien una torreta cuando ya estás atrapado dentro. Si Symmetra juega con un Tank que sostiene la puerta, busca una rotación que permita atacar desde dos direcciones o sacar a ese frente del rincón preparado.',

@@ -399,9 +399,12 @@
       "sourceVersion": "5b373db516712fa851aa96a4ff74756d3a4c1240099fbb63947829a63b0e9945",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-symmetra-2026-10-28.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "eee06988d97ab09e4434ca0a22940cc0cfde027028575b9f270f85efbc11362a",
+      "correction": "Shield Battery recupera escudos de la propia Symmetra; Hovering Barrier ofrece una barrera móvil al usar la habilidad sin eliminar permanentemente la opción de portal. Revisión del contenido 2026-10-28."
     },
     {
       "path": "/counters/torbjorn",
@@ -2684,9 +2687,13 @@
       "sourceVersion": "3081c6a5d67db946a729d4a36501981da3811cf4ee21ab315a06a4652db3ffc7",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-symmetra-2026-10-28.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "79ad90c43c4894274596780896cd5b691e2daf8b6dfd12a5bf827454686bea0b",
+      "correction": "Título real de Levin corregido únicamente para el vídeo y transcripción conocidos. Contexto de febrero de 2025 y sección actual de perks: alternativas minor/major, escudos propios y distinción entre Hovering Barrier y ultimate. Primera publicación conservada; revisión del contenido 2026-10-28.",
+      "reviewedRenderedVersion": "0722fec4aac79fba015079027f94d3ce7730332673826f1fbe42bf3fb324e0e4"
     },
     {
       "path": "/guides/tank-crear-espacio-sin-regalar-vida",
@@ -4174,9 +4181,12 @@
       "sourceVersion": "32a0d54008439bc479de3db92833751e060f81a66d677b194344e19e6039d316",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-symmetra-2026-10-28.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "32a0d54008439bc479de3db92833751e060f81a66d677b194344e19e6039d316",
+      "correction": "Texto y fecha 2026-10-02 conservados tras contrastar equipos, responsabilidades, rotaciones, FAQ y fuentes."
     },
     {
       "path": "/team-comps/torbjorn",
@@ -4270,8 +4280,8 @@
     }
   ],
   "progress": {
-    "reviewed": 30,
+    "reviewed": 33,
     "publishedAndVerified": 27,
-    "pending": 110
+    "pending": 107
   }
 }
