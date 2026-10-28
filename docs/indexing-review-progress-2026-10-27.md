@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 28 de octubre: **24 de 140 artículos revisados, habilitados y verificados en producción; 116 pendientes**. Último lote completado: Mei. Siguiente revisión en curso: Sojourn. Los anuncios mantienen su configuración previa.
+Estado comprobado al 28 de octubre: **27 de 140 artículos revisados, habilitados y verificados en producción; 113 pendientes**. Último lote completado: Sojourn. Siguiente revisión en curso: Bastion. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 
@@ -104,3 +104,7 @@ Siguiente revisión iniciada: guía, counter y composiciones de Sojourn. Se leen
 Se completa la revisión individual de las tres páginas. La guía corrige el título de LeonDrummer únicamente para el vídeo y transcripción comprobados, preservando la entrada original. Contextualiza el vídeo del 12 de octubre de 2022 como material histórico y aclara el Disruptor actual. Counter y composiciones conservan texto y fechas tras el contraste. Las tres revisiones incluyen la versión exacta y la guía vincula sus medios renderizados.
 
 Evidencia: [revisión de Sojourn](indexing-review-sojourn-2026-10-28.md). Pasan lint, 705 pruebas unitarias, build y 18 casos finales de navegador, además de ocho iniciales. La prueba de filtros comprueba las publicaciones canónicas individuales y mantiene excluidos alias y filtros. Los anuncios no cambian. Estado provisional: **27 artículos revisados de 140; 24 ya publicados y verificados; 3 pendientes de comprobar en producción; 113 pendientes de revisión**.
+
+Despliegue `8a1e97c` terminado y comprobado: treinta y una respuestas públicas y el alias 308 de Sojourn correctos, más seis casos de navegador contra producción. Estado: **27 artículos revisados, habilitados y verificados públicamente de 140; 113 pendientes**.
+
+Siguiente revisión iniciada: guía, counter y composiciones de Bastion. Se leen completos y sus versiones actuales coinciden con el inventario; la fila pública de la guía coincide íntegramente con el modelo leído. La ficha oficial confirma Assault móvil, Recon, granada y Artillery inmóvil, y Lindholm Explosives y Self-Repair como alternativas major. La guía debe concretar el párrafo genérico de perks antes de aprobarse. YouTube y oEmbed confirman Kajor, título, fecha del 31 de marzo de 2025 y disponibilidad; se leen descripción y capítulos. Pasan ocho casos iniciales sobre las tres páginas aún excluidas y el botón de reproducción en ambos dispositivos. Faltan contexto, corrección, versiones finales y publicación. No se concede aprobación a Bastion y el objetivo global sigue activo.

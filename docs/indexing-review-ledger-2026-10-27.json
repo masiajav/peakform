@@ -61,7 +61,19 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "8d42df4639730f346c12167b58bfcbfe1280e110878179a7d277d5d10b42d787",
+        "note": "Lectura completa: preparación y pausa de Assault, Sigma/D.Va/Hanzo/Ana con señal y respuesta, cuatro ventanas, adaptaciones, errores, tres ejemplos, checklist, tres FAQ y enlaces. La versión actual coincide con el inventario. La fuente oficial confirma Assault móvil y Recon, granada y Artillery inmóvil. Faltan enlaces y presentación final; no aprobado.",
+        "baseline": {
+          "checkedAt": "2026-10-28",
+          "cases": 8,
+          "log": "reports/indexing-review-2026-10-27/release-batch-ten/baseline-ten.log",
+          "screenshots": "reports/indexing-review-2026-10-27/release-batch-ten/reports/",
+          "note": "Las tres páginas aún excluidas pasan en escritorio y móvil, incluido el botón de reproducción. Se inspeccionan las tres capturas completas de escritorio y las tres cabeceras móviles. Falta concretar los perks de la guía, contextualizar el vídeo de 2025 y validar las versiones finales. No aprobadas."
+        }
+      }
     },
     {
       "path": "/counters/brigitte",
@@ -338,9 +350,25 @@
       "sourceVersion": "31442838b79c5518709ad3de4b7ba184ce8763a3d432671e6e319da3a54b3532",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-sojourn-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/counters/sojourn",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "7d05cd28c2805eaff52b723e0c77d4bc33e7b5f51be0669bb3219af2e4eddb3a",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-28T22:11:12.876Z",
+        "commit": "8a1e97c985fcec28ddd80247ba98cffdebb019f3",
+        "browserChecks": "6 production cases passed: three Sojourn articles on desktop/mobile, complete visible text, corrected video title, historical context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "31442838b79c5518709ad3de4b7ba184ce8763a3d432671e6e319da3a54b3532",
       "correction": "Texto y fecha 2026-10-02 conservados tras contrastar kit, subrol, perks y decisiones con la fuente oficial.",
@@ -1597,7 +1625,19 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "ee4cdd8c6ab632a1a1219e999bce0d55b019cc93273c9df35a93700a687738cb",
+        "note": "Lectura completa de timing y posición para Assault, Matrix/Grasp, Recon/granada, perks, Artillery, adaptación, VOD y tres FAQ. La fila pública actual coincide íntegramente con el modelo leído. Conviene concretar el párrafo de perks con los nombres Lindholm Explosives y Self-Repair como alternativas major. Watch y oEmbed confirman RccPsvYJiCU, Kajor, título almacenado y fecha local del editor 2025-03-31, playability OK; se leen descripción y capítulos. Faltan contexto, versión final con medios, enlaces y presentación. No aprobada.",
+        "baseline": {
+          "checkedAt": "2026-10-28",
+          "cases": 8,
+          "log": "reports/indexing-review-2026-10-27/release-batch-ten/baseline-ten.log",
+          "screenshots": "reports/indexing-review-2026-10-27/release-batch-ten/reports/",
+          "note": "Las tres páginas aún excluidas pasan en escritorio y móvil, incluido el botón de reproducción. Se inspeccionan las tres capturas completas de escritorio y las tres cabeceras móviles. Falta concretar los perks de la guía, contextualizar el vídeo de 2025 y validar las versiones finales. No aprobadas."
+        }
+      }
     },
     {
       "path": "/guides/brigitte-guia-overwatch-peel-anti-dive",
@@ -2512,9 +2552,28 @@
       "sourceVersion": "834ab027427eab762f8062a3b2634c5a64054899cfaf909d0566dbddcd1ca89f",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-sojourn-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/sojourn-guia-overwatch-railgun-presion",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "8f68a15d458d2d0002fb8d57e237e3e73825951227a108995c35699aa2216251",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-28T22:11:12.876Z",
+        "commit": "8a1e97c985fcec28ddd80247ba98cffdebb019f3",
+        "browserChecks": "6 production cases passed: three Sojourn articles on desktop/mobile, complete visible text, corrected video title, historical context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "f3a19c76404f94b00b346e5a94936e3e554f861dbf730220f998a23c45bb0af1",
       "correction": "Título de la fuente corregido de forma acotada al ID y transcripción originales, sin mutar las filas. Contexto del vídeo de LeonDrummer de 2022 como material histórico y distinción explícita de Disruptor actual. Medios y metadatos renderizados vinculados. Primera publicación conservada, revisión del contenido 2026-10-28.",
@@ -3533,7 +3592,19 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "37346b7c904454e7a41a99580b2bbe2d0b1c95ad587591ab6a68afe8e17656d4",
+        "note": "Lectura completa de equipos Sigma/Tracer, Reinhardt/Mei y Reinhardt/D.Va/Ashe/Baptiste/Lifeweaver en 6v6, todos sus argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, FAQ y enlaces. Roles y formatos coherentes; distingue Lindholm Explosives y Self-Repair como elecciones alternativas, confirmadas por la ficha oficial. Faltan enlaces y presentación final; no aprobada.",
+        "baseline": {
+          "checkedAt": "2026-10-28",
+          "cases": 8,
+          "log": "reports/indexing-review-2026-10-27/release-batch-ten/baseline-ten.log",
+          "screenshots": "reports/indexing-review-2026-10-27/release-batch-ten/reports/",
+          "note": "Las tres páginas aún excluidas pasan en escritorio y móvil, incluido el botón de reproducción. Se inspeccionan las tres capturas completas de escritorio y las tres cabeceras móviles. Falta concretar los perks de la guía, contextualizar el vídeo de 2025 y validar las versiones finales. No aprobadas."
+        }
+      }
     },
     {
       "path": "/team-comps/brigitte",
@@ -4032,9 +4103,25 @@
       "sourceVersion": "6c7170e1c1abe7ae3c23b0e9b0ca8f5a6aa0b37f1908eeabacf96289d04772f2",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-sojourn-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/sojourn",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "0d8a7fa2db312e039533acaad7849c20ffcecc3956bd89e49ef9dcdd8bf06a25",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-28T22:11:12.876Z",
+        "commit": "8a1e97c985fcec28ddd80247ba98cffdebb019f3",
+        "browserChecks": "6 production cases passed: three Sojourn articles on desktop/mobile, complete visible text, corrected video title, historical context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "6c7170e1c1abe7ae3c23b0e9b0ca8f5a6aa0b37f1908eeabacf96289d04772f2",
       "correction": "Texto y fecha 2026-10-02 conservados tras revisar equipos, decisiones, FAQ y fuentes.",
@@ -4174,7 +4261,7 @@
   ],
   "progress": {
     "reviewed": 27,
-    "publishedAndVerified": 24,
+    "publishedAndVerified": 27,
     "pending": 113
   }
 }
