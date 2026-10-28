@@ -55,4 +55,12 @@ Evidencia: [revisión de Brigitte](indexing-review-brigitte-2026-10-28.md). Pasa
 
 Despliegue `e3bfce0` completado y comprobado: dieciséis respuestas públicas y el alias 308 correctos, más seis casos de navegador contra producción. Estado: **12 artículos revisados, habilitados y verificados públicamente de 140; 128 pendientes**.
 
-Siguiente revisión iniciada: counter, guía canónica y composiciones de Echo. Se leen completos sus textos y se comprueba que las versiones actuales coinciden con las del inventario. Las habilidades y perks de la ficha oficial actual concuerdan con sus decisiones. Siguen pendientes de comprobar el vídeo incorporado, las demás fuentes, enlaces y presentación final. La guía canónica es `/guides/echo-guia-overwatch-burst-vertical`; la URL de vídeo es un alias. El registro conserva esas lecturas sin conceder aprobación. El objetivo global sigue activo.
+La siguiente revisión iniciada fue la lectura completa del counter, guía canónica y composiciones de Echo. Se comprobaron sus versiones y habilidades actuales para continuar en el lote siguiente.
+
+## Quinto lote: Echo
+
+Se completa la revisión individual de los tres artículos. La guía conserva el vídeo de Samito, comprueba su identidad y fecha del 1 de marzo de 2026 y añade contexto visible. El counter enlaza directamente a la guía canónica; su texto y fecha se mantienen, igual que en las composiciones. Se vincula la aprobación a las versiones y medios exactos, sin extenderla a otros artículos.
+
+Evidencia: [revisión de Echo](indexing-review-echo-2026-10-28.md). Pasan lint, 704 pruebas unitarias, build y 16 casos finales de navegador, además de seis casos previos sobre las páginas aún excluidas. No cambia la activación de anuncios.
+
+Antes del despliegue: **15 artículos revisados, 12 habilitados y verificados públicamente; tres esperando comprobación pública; 125 pendientes de revisión**. El objetivo global sigue activo.

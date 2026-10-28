@@ -2265,7 +2265,7 @@ export const reviewedCounters: Record<string, CounterPillar> = {
       { question: '¿Cómo sobrevivo al combo de Sticky Bombs y Beam?', answer: 'No esperes a la explosión para preparar la salida. Avisa de las bombas pegadas y corta el ángulo de Echo, manteniendo ayuda cerca. La cobertura no elimina esas bombas, pero puede impedir el remate. Si puedes curar al objetivo, atender su vida cambia la oportunidad que Beam está buscando.' },
       { question: '¿Hay que gastar todas las ultimates contra Duplicate?', answer: 'No. Responde a la copia y a lo que está haciendo su equipo, no únicamente al sonido de la transformación. A veces basta con ceder una esquina; otras necesitas una defensa para sobrevivir al engage. Guarda una respuesta útil y vuelve a valorar la pelea cuando la copia termine.' },
     ],
-    links: [{ href: '/guides/echo-guia-video-overwatch', label: 'Cómo prepara Echo el combo' }, { href: '/team-comps/echo', label: 'Seguimiento del equipo de Echo' }, { href: '/maps/watchpoint-gibraltar', label: 'Coberturas del hangar de Gibraltar' }, { href: '/maps/numbani', label: 'Disputar las alturas de Numbani' }, { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Revisar bombas, vuelo y remates en una VOD' }],
+    links: [{ href: '/guides/echo-guia-overwatch-burst-vertical', label: 'Cómo prepara Echo el combo' }, { href: '/team-comps/echo', label: 'Seguimiento del equipo de Echo' }, { href: '/maps/watchpoint-gibraltar', label: 'Coberturas del hangar de Gibraltar' }, { href: '/maps/numbani', label: 'Disputar las alturas de Numbani' }, { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Revisar bombas, vuelo y remates en una VOD' }],
   },
   sierra: {
     slug: 'sierra', name: 'Sierra', role: 'DPS',

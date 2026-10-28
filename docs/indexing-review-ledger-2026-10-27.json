@@ -89,10 +89,13 @@
       "sourceVersion": "82fd8599e2991b0ab26c3145738fc8915d9974868b77875b6d4d980b2eb2d03a",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-echo-2026-10-28.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "2eda6ca41a2666e1f17868317ed9b056011c4de644c63bd9c2266118ea8ab0cc",
+      "correction": "Enlace a la guía corregido al destino canónico; texto y fecha editorial 2026-10-02 conservados tras contrastar kit y perks.",
+      "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "82fd8599e2991b0ab26c3145738fc8915d9974868b77875b6d4d980b2eb2d03a",
         "note": "Lectura inicial completa del texto y metadatos del modelo; la versión actual coincide con la inicial. Leídas habilidades y perks de la ficha oficial actual (batch-four/source-echo.html): Full Salvo, Focused Rush, Aerial Munitions y Partial Scan concuerdan con el counter y la composición. La guía canónica es echo-guia-overwatch-burst-vertical; echo-guia-video-overwatch es un alias. Falta comprobar la integración del vídeo y sus fuentes, los demás héroes citados, enlaces y presentación final en móvil/escritorio. No aprobada."
@@ -1670,14 +1673,18 @@
       "sourceVersion": "ee5d3714c86d51ffa034b65d6c263fecf1aca9a06ee5b8113d65b8aff768e177",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-echo-2026-10-28.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "2a3e65473e610e900fca380194cd743c41cbf05cf5b5ee6f95a130f1dd2d72d5",
+      "correction": "Vídeo original de Samito contrastado; añadido contexto de marzo de 2026 y huella del contenido incorporado. Primera publicación conservada; revisión del contenido 2026-10-28.",
+      "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "ee5d3714c86d51ffa034b65d6c263fecf1aca9a06ee5b8113d65b8aff768e177",
         "note": "Lectura inicial completa del texto y metadatos del modelo; la versión actual coincide con la inicial. Leídas habilidades y perks de la ficha oficial actual (batch-four/source-echo.html): Full Salvo, Focused Rush, Aerial Munitions y Partial Scan concuerdan con el counter y la composición. La guía canónica es echo-guia-overwatch-burst-vertical; echo-guia-video-overwatch es un alias. Falta comprobar la integración del vídeo y sus fuentes, los demás héroes citados, enlaces y presentación final en móvil/escritorio. No aprobada."
-      }
+      },
+      "reviewedRenderedVersion": "9ba7efd66c98771ebc9a2047071ccc25c79825d42fd6f6dfbc19af748bcadb8f"
     },
     {
       "path": "/guides/echo-guia-video-overwatch",
@@ -3317,10 +3324,13 @@
       "sourceVersion": "d90f4724ef3477ec3765390dec36e4410a41ce72eec7a5c335437e60bf979654",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-echo-2026-10-28.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "d90f4724ef3477ec3765390dec36e4410a41ce72eec7a5c335437e60bf979654",
+      "correction": "Texto y fecha 2026-10-02 conservados tras revisar equipos, decisiones, FAQ y fuentes.",
+      "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "d90f4724ef3477ec3765390dec36e4410a41ce72eec7a5c335437e60bf979654",
         "note": "Lectura inicial completa del texto y metadatos del modelo; la versión actual coincide con la inicial. Leídas habilidades y perks de la ficha oficial actual (batch-four/source-echo.html): Full Salvo, Focused Rush, Aerial Munitions y Partial Scan concuerdan con el counter y la composición. La guía canónica es echo-guia-overwatch-burst-vertical; echo-guia-video-overwatch es un alias. Falta comprobar la integración del vídeo y sus fuentes, los demás héroes citados, enlaces y presentación final en móvil/escritorio. No aprobada."
@@ -3816,8 +3826,8 @@
     }
   ],
   "progress": {
-    "reviewed": 12,
+    "reviewed": 15,
     "publishedAndVerified": 12,
-    "pending": 128
+    "pending": 125
   }
 }

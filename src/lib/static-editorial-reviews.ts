@@ -731,6 +731,27 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-brigitte-2026-10-28.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/echo-guia-overwatch-burst-vertical': {
+    path: '/guides/echo-guia-overwatch-burst-vertical',
+    version: '2a3e65473e610e900fca380194cd743c41cbf05cf5b5ee6f95a130f1dd2d72d5',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-echo-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/counters/echo': {
+    path: '/counters/echo',
+    version: '2eda6ca41a2666e1f17868317ed9b056011c4de644c63bd9c2266118ea8ab0cc',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-echo-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/echo': {
+    path: '/team-comps/echo',
+    version: 'd90f4724ef3477ec3765390dec36e4410a41ce72eec7a5c335437e60bf979654',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-echo-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/zarya': {
     path: '/team-comps/zarya',
     version: '40de9429f726f9396cb6d2c3aa44d8eca29c9b77c5b7eeac49598631fa1b35a6',

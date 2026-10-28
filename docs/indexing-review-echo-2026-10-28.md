@@ -1,0 +1,31 @@
+# Revisión individual de Echo: guía, counters y composiciones
+
+Revisión del 28 de octubre de 2026, por Codex. Las tres URLs pertenecen al inventario original de 140 artículos canónicos excluidos. Se retoma la lectura completa del lote anterior, comprobando que los cuerpos actuales coinciden con los modelos leídos. Ninguna otra URL recibe aprobación.
+
+| URL | Lectura y utilidad | Corrección y fechas | Versión revisada |
+| --- | --- | --- | --- |
+| `/guides/echo-guia-overwatch-burst-vertical` | Texto completo sobre ángulos y exposición, resultado de las bombas, oportunidad de Beam, destino de Flight, elección y final de Duplicate, adaptación frente a hitscan, VOD y tres FAQ. Se comprueba el vídeo incorporado desde el alias. | Contexto visible para el vídeo de Samito del 1 de marzo de 2026, sin asumir su título promocional como garantía. Vídeo y metadatos originales conservados. Primera publicación: 5 de mayo de 2026; revisión del contenido: 28 de octubre. | `2a3e65473e610e900fca380194cd743c41cbf05cf5b5ee6f95a130f1dd2d72d5` |
+| `/counters/echo` | Se leen introducción, resumen, cuatro matchups y ventanas, adaptaciones, errores, tres ejemplos, checklist y tres FAQ. Prioriza cortar el ángulo y ayudar al objetivo herido, distinguiendo el kit copiado por Duplicate. | El enlace a la guía apunta directamente a su ruta canónica. El texto y la fecha editorial del 2 de octubre se mantienen: el mantenimiento de un enlace no se presenta como una nueva edición del análisis. | `2eda6ca41a2666e1f17868317ed9b056011c4de644c63bd9c2266118ea8ab0cc` |
+| `/team-comps/echo` | Se leen todas las secciones y los cinco argumentos de cada equipo. Explica burst con seguimiento, apoyo dentro de visión, presión lateral, dos tareas de Tank en 6v6 y una copia que aporte una respuesta posible. | Texto y fecha del 2 de octubre conservados tras el contraste. Los equipos son ejemplos condicionados por ayudas, mapa y recursos, no una promesa de meta o resultados. | `d90f4724ef3477ec3765390dec36e4410a41ce72eec7a5c335437e60bf979654` |
+
+## Exactitud y fuentes
+
+La ficha oficial actual de [Echo](https://overwatch.blizzard.com/en-gb/heroes/echo/) se descargó completa en el lote anterior. Se leen habilidades y perks antes de Story: bombas con explosión retrasada, Flight y Glide, mayor daño de Beam por debajo de media vida y copia de un héroe. Se contrastan Full Salvo, Focused Rush, Aerial Munitions y Partial Scan como elecciones opcionales; las guías no atribuyen sus mejoras al kit disponible al inicio. Duplicate no se describe como una ultimate de la copia ya lista.
+
+Se descargan y leen las habilidades oficiales actuales de [Soldier: 76](https://overwatch.blizzard.com/en-us/heroes/soldier-76/), [Mercy](https://overwatch.blizzard.com/en-us/heroes/mercy/) y [Zarya](https://overwatch.blizzard.com/en-us/heroes/zarya/). Se comprueban presión y movimiento, curación de Biotic Field, apoyo de Mercy y barrera sobre un aliado como funciones, sin inventar cifras. Las fichas de Ana, Ashe, Cassidy, Winston, D.Va, Tracer, Genji, Kiriko y Brigitte ya se leyeron en los lotes del 27 y 28 de octubre. No se trasladan reglas de Classic, Community Crafted, experimental o Stadium a ranked. Los equipos respetan el formato y roles, sin duplicados.
+
+El [vídeo de Samito](https://www.youtube.com/watch?v=W_OiDdCV3c8) y su respuesta oficial oEmbed devuelven HTTP 200; el reproductor informa `playability: OK`. Título, canal y publicación del 1 de marzo de 2026 coinciden. Se lee la descripción del autor, que no ofrece un índice de capítulos. No se afirma haber visto íntegramente la grabación ni haber comprobado todas sus afirmaciones: el artículo español desarrolla sus propias decisiones y las contrasta con el kit actual. El nuevo contexto identifica la fecha y separa la fuente de las promesas de su título.
+
+La revisión incluye el vídeo de `echo-guia-video-overwatch` que la página incorpora en la guía canónica. Se conserva la huella de ese artículo renderizado: `9ba7efd66c98771ebc9a2047071ccc25c79825d42fd6f6dfbc19af748bcadb8f`. Sustituir vídeo, atribución, imagen u otros metadatos relevantes exige revisar de nuevo. El alias debe conservar su redirección y quedar fuera del sitemap.
+
+## Enlaces, presentación y publicación
+
+La copia aislada parte de `37b1083`, sin los cambios locales ajenos de mapas, Deadlock o tsconfig. Pasan seis casos previos de navegador, tres páginas por dos dispositivos, comprobando enlaces, metadatos, fechas, imágenes, FAQ, datos estructurados y ausencia de overflow y anuncios. Se inspeccionan capturas completas de escritorio y cabeceras móviles. La versión final comprobará todo el texto y la disponibilidad visible del reproductor.
+
+Solo Echo se incorpora a las listas explícitas de counters y composiciones. La guía necesita la revisión exacta nueva y el vídeo comprobado. Los controles negativos pasan a otros artículos aún pendientes, como Ashe y Hanzo, sin eliminar esa cobertura. Las tres decisiones mantienen `adsAllowed: false` y no se cambia la activación de anuncios.
+
+Fuentes y modelos públicos: `reports/indexing-review-2026-10-27/batch-five/` y `batch-four/source-echo.html`. Capturas y logs: `reports/indexing-review-2026-10-27/release-batch-five/`.
+
+Validación local final: lint, 704 pruebas unitarias y build correctos. Pasan diez casos de navegador para los tres artículos y ambos catálogos; otros seis comprueban las guías de Brigitte y Moira y la supresión de anuncios de ambos juegos. Se verifica el texto completo, vídeo y botón de reproducción, contexto, enlaces, fechas, imágenes, metadatos, FAQ y sitemap. Se inspecciona la captura final de la guía con su nuevo contexto y reproductor cargado.
+
+Despliegue y comprobación pública pendientes al preparar este registro. Estado del objetivo: 15 revisados, 12 verificados públicamente y tres esperando despliegue; 125 pendientes de revisión.

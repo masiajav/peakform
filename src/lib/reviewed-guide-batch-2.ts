@@ -70,7 +70,13 @@ Para preparar las entradas del equipo, consulta [dive, poke y brawl](/guides/com
   },
   'echo-guia-overwatch-burst-vertical': {
     hero: 'echo',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-28',
+    renderedContentVersion: '9ba7efd66c98771ebc9a2047071ccc25c79825d42fd6f6dfbc19af748bcadb8f',
+    reviewedVideo: {
+      video_id: 'W_OiDdCV3c8', video_url: 'https://www.youtube.com/watch?v=W_OiDdCV3c8', video_platform: 'youtube',
+      video_title: 'RANK UP EASY! FULL 2026 ECHO MASTERY GUIDE - Secrets Revealed', video_channel: 'Samito', video_language: 'en', video_published_at: '2026-03-01',
+    },
+    videoDescription: 'Vídeo en inglés de Samito, publicado el 1 de marzo de 2026. Úsalo como material complementario para comparar tus posiciones, objetivos y uso de recursos con el texto de esta guía. Los valores y perks de esa fecha pueden diferir de los actuales; el título del vídeo no es una promesa de resultados.',
     videoSlug: 'echo-guia-video-overwatch',
     title: 'Cómo jugar Echo: ángulos, Sticky Bombs y decisiones de Duplicate',
     description: 'Aprende a preparar el burst de Echo, usar Flight sin regalarte y elegir una copia útil con Duplicate. Prioridades contra hitscan y errores de ranked.',

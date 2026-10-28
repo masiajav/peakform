@@ -56,6 +56,7 @@ describe('version-bound static editorial reviews', () => {
       '/guides/como-mejorar-como-dps-overwatch', '/guides/como-mejorar-como-support-overwatch',
       '/guides/moira-guia-overwatch-recursos-supervivencia', '/guides/reaper-guia-video-overwatch', '/team-comps/moira', '/team-comps/reaper',
       '/guides/brigitte-guia-overwatch-peel-anti-dive', '/counters/brigitte', '/team-comps/brigitte',
+      '/guides/echo-guia-overwatch-burst-vertical', '/counters/echo', '/team-comps/echo',
       '/heroes/ana', '/heroes/cassidy', '/heroes/dmon', '/heroes/doctrine', '/heroes/dva', '/heroes/genji', '/heroes/kiriko', '/heroes/reinhardt', '/heroes/shion', '/heroes/tracer', '/heroes/winston', '/heroes/zarya', '/roles/flex',
       '/team-comps/ana', '/team-comps/cassidy', '/team-comps/doctrine', '/team-comps/domina', '/team-comps/dva', '/team-comps/genji', '/team-comps/jetpack-cat', '/team-comps/kiriko', '/team-comps/reinhardt', '/team-comps/roadhog', '/team-comps/sombra', '/team-comps/tracer', '/team-comps/winston', '/team-comps/wuyang', '/team-comps/zarya',
     ].sort())
