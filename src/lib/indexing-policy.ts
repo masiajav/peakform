@@ -5,7 +5,7 @@ import { hasReviewedGuideRevision, reviewedGuideTarget } from './reviewed-guide-
 import { applyReviewedGuideRevision, reviewedGuideRevisions } from './reviewed-guide-revisions'
 export { PILLAR_COUNTER_SLUGS, PILLAR_TEAM_COMP_SLUGS } from './public-topic-policy'
 import { PILLAR_COUNTER_SLUGS, PILLAR_TEAM_COMP_SLUGS } from './public-topic-policy'
-import { hasCurrentEditorialReview, type EditorialReviewContent } from './editorial-review'
+import { editorialContentVersion, hasCurrentEditorialReview, type EditorialReviewContent } from './editorial-review'
 import { hasCurrentStaticEditorialReview } from './static-editorial-review'
 import { getCounterPillar, getTeamCompPillar, type TeamComposition } from './seo-clusters'
 import { COUNTER_HEROES } from './overwatch-counters'
@@ -331,6 +331,18 @@ function reviewedGuideIndexDecision(guide: GuideLike): PageQualityDecision {
     || guide.seo_description !== revision.description || guide.excerpt !== revision.quickAnswer
     || guide.body !== revision.body || guide.author !== 'Replaid Lab') {
     return blocked('La guía renderizada no coincide con la revisión editorial', words)
+  }
+  if (guide.video_id || revision.reviewedVideo) {
+    const fields = ['video_id', 'video_url', 'video_platform', 'video_title', 'video_channel', 'video_language', 'video_published_at'] as const
+    const matches = revision.reviewedVideo && fields.every(field => {
+      const expected = revision.reviewedVideo![field]
+      if (!expected?.trim() || !guide[field]?.trim()) return false
+      return field === 'video_published_at' ? Date.parse(guide[field]!) === Date.parse(expected) : guide[field] === expected
+    })
+    if (!matches) return blocked('El vídeo incorporado no coincide con la fuente revisada', words)
+  }
+  if (revision.renderedContentVersion && editorialContentVersion(guide) !== revision.renderedContentVersion) {
+    return blocked('Los metadatos o medios del artículo han cambiado desde su revisión', words)
   }
   const issues = guidePublicationIssues(guide)
   return issues.length ? blocked(issues.join('; '), words)

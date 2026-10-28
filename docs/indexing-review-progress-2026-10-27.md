@@ -35,4 +35,12 @@ Evidencia: [revisión de Flex, Moira y Reaper](indexing-review-flex-moira-reaper
 
 Despliegue y comprobación pública terminados para las tres páginas. Vercel confirma el commit `1ae0f46`; las ocho respuestas HTTP de verificación son correctas y pasan otros seis casos de navegador contra producción. Estado: **5 artículos revisados, habilitados y verificados públicamente de 140; 135 pendientes**.
 
-Continúan las guías de Moira y Reaper, sus composiciones, los counters restantes y los mapas, con una decisión por URL y versión. Se ha hecho una primera lectura completa del texto de esas dos guías, sin aprobarlas: falta comprobar su integración real de vídeo, fuentes, enlaces y presentación en ambos formatos. En Moira, la página puede incorporar el vídeo de su alias mediante `mergeReviewedGuideVideo`, aunque el modelo inicial de la guía canónica no lo incluya. Las próximas revisiones deben comprobar también esa combinación antes de registrar su versión. El objetivo global sigue activo.
+La lectura inicial de las guías de Moira y Reaper detectó que había que comprobar también su integración de vídeo. En Moira, la página incorpora el vídeo de su alias mediante `mergeReviewedGuideVideo`, aunque el modelo inicial de la guía canónica no lo incluía. Ese trabajo continúa en el siguiente lote. El objetivo global sigue activo.
+
+## Tercer lote: guías y composiciones de Moira y Reaper
+
+Se completa la revisión de las cuatro URLs, incluidos texto, fuentes, equipos, vídeos, enlaces y presentación. Las guías añaden contexto sobre sus vídeos de 2025 y preservan autoría y fecha de la fuente; las composiciones mantienen su contenido y fechas. Las nuevas revisiones vinculan también los metadatos y el vídeo realmente incorporado a la versión revisada. Se corrigen el modelo del diagnóstico y la combinación del sitemap para que evalúen el mismo resultado que la página.
+
+Evidencia: [guías y composiciones de Moira y Reaper](indexing-review-moira-reaper-guides-comps-2026-10-28.md). Pasan lint, 704 pruebas unitarias, build y 22 casos finales de navegador, además de ocho casos previos sobre las páginas aún excluidas. Los anuncios no cambian.
+
+Antes del despliegue: **9 artículos revisados, 5 habilitados y verificados públicamente; 4 pendientes de comprobación pública; 131 pendientes de revisión**. Continúan los demás counters, composiciones, guías y mapas, con una decisión individual. El objetivo global sigue activo.

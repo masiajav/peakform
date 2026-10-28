@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { applyReviewedGuideRevision, reviewedGuideRevisions } from '@/lib/reviewed-guide-revisions'
+import { applyReviewedGuideRevision, mergeReviewedGuideVideo, reviewedGuideRevisions } from '@/lib/reviewed-guide-revisions'
 import { guideQualityDecision, isGuideAdEligible, isGuideSitemapEligible } from '@/lib/indexing-policy'
 
 const slug = 'como-mejorar-como-dps-overwatch'
@@ -33,5 +33,30 @@ describe('individual publication of repository-owned guide revisions', () => {
     expect(isGuideSitemapEligible({ ...stored, slug: 'mauga-guia-video-overwatch' })).toBe(false)
     expect(isGuideSitemapEligible({ ...stored, slug: 'orisa-guia-video-overwatch' })).toBe(false)
     expect(isGuideSitemapEligible({ ...stored, created_at: undefined })).toBe(false)
+  })
+
+  it('requires the reviewed video and full rendered version, including a companion video row', () => {
+    for (const [slug, hero, role, tags] of [
+      ['moira-guia-overwatch-recursos-supervivencia', 'moira', 'support', ['moira', 'support', 'recursos', 'supervivencia', '6v6']],
+      ['reaper-guia-video-overwatch', 'reaper', 'dps', ['reaper', 'dps', 'video', 'youtube', '6v6', 'overwatch']],
+    ] as const) {
+      const revision = reviewedGuideRevisions[slug]
+      const raw = { slug, hero, role, tags: [...tags], published: true, created_at: '2026-05-05' }
+      const video = { hero, ...revision.reviewedVideo }
+      const merged = mergeReviewedGuideVideo(raw, video)
+      const rendered = applyReviewedGuideRevision(merged)
+      expect(guideQualityDecision(rendered)).toMatchObject({ indexable: true, adsAllowed: false })
+      expect(isGuideSitemapEligible(merged)).toBe(true)
+      expect(guideQualityDecision(applyReviewedGuideRevision(raw)).indexable).toBe(false)
+      expect(isGuideSitemapEligible(raw)).toBe(false)
+      for (const edit of [
+        { video_id: 'unreviewed-video' }, { video_title: 'Other title' }, { video_channel: 'Other channel' },
+        { video_published_at: '2026-10-28' }, { cover_image: '/unreviewed.png' }, { role: 'tank' }, { tags: ['new-tag'] },
+      ]) {
+        expect(guideQualityDecision({ ...rendered, ...edit }).indexable).toBe(false)
+        expect(isGuideSitemapEligible({ ...merged, ...edit })).toBe(false)
+      }
+    }
+    expect(guideQualityDecision({ ...applyReviewedGuideRevision(stored), video_id: 'unreviewed-video' }).indexable).toBe(false)
   })
 })

@@ -82,7 +82,13 @@ Puedes preparar los cruces con [la guía de Eichenwalde](/maps/eichenwalde) y re
     description: 'Juega Reaper con mejores entradas: prepara un lateral con Shadow Step, conserva Wraith para volver y no regales Death Blossom al primer cooldown.',
     quickAnswer: 'Reaper necesita llegar a una distancia útil sin perder toda la vida por el camino. Prepara un lateral desde cobertura y entra cuando tus compañeros también estén presionando. Conserva Wraith para escapar o negar una amenaza concreta. Death Blossom funciona mejor después de forzar las defensas que pueden cortarla, no como una apuesta al caer en medio de cinco enemigos.',
     videoSlug: 'reaper-guia-video-overwatch',
-    revisedAt: '2026-10-02',
+    revisedAt: '2026-10-28',
+    renderedContentVersion: '29139a03cb4f41ebfdf72d1e16a537e6488f49b9ac56e11caf67a140ad73841c',
+    videoDescription: 'Vídeo en inglés de ChoiceOW del 27 de julio de 2025, con una introducción al héroe y una sesión larga de partidas. Úsalo para comparar entradas y ayuda al Tank, sin trasladar sus tier lists ni las mejoras de 2025 al kit actual. Dire Triggers ya es una habilidad básica en el texto revisado de esta guía.',
+    reviewedVideo: {
+      video_id: 'FkN1shWryWI', video_url: 'https://www.youtube.com/watch?v=FkN1shWryWI', video_platform: 'youtube',
+      video_title: 'Reaper GUIDE to climb the ranks', video_channel: 'ChoiceOW', video_language: 'en', video_published_at: '2025-07-27',
+    },
     body: `## El problema suele estar antes del primer disparo
 
 Si recorres una línea abierta disparando desde lejos, llegas al duelo con menos vida y el enemigo sabe por dónde entrarás. Aunque luego aciertes las escopetas, has empezado con una desventaja que podrías haber evitado. Busca una puerta, una esquina o una altura desde la que puedas acercarte sin recibir atención constante.

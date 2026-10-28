@@ -1958,14 +1958,18 @@
       "sourceVersion": "3639400988bad3ad9d9ee2729e4761167f5dd5759e2dc3b5eb9185368d2dc534",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-moira-reaper-guides-comps-2026-10-28.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "a63050b34a4fcf1c4ac8daf43cf3e4aa20249ab2708c325ffcd8317272d46117",
+      "correction": "Añadido contexto del vídeo de 2025 y revisión de su integración y metadatos; fechas originales conservadas.",
+      "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "3639400988bad3ad9d9ee2729e4761167f5dd5759e2dc3b5eb9185368d2dc534",
         "note": "Lectura inicial completa del texto y metadatos del modelo; no aprobada. Falta contrastar la integración real del vídeo, enlaces y presentación final en ambos formatos. La guía de Moira puede incorporar el vídeo del alias mediante mergeReviewedGuideVideo, aunque su modelo inicial no tenga video_id."
-      }
+      },
+      "reviewedRenderedVersion": "587c62607157b5e82f177bf45fd09e4e1264c2d9588246f67facdf3c78a9d2bc"
     },
     {
       "path": "/guides/moira-guia-video-overwatch",
@@ -2083,14 +2087,18 @@
       "sourceVersion": "3863bd408543b49d1826ebb1dbe9d6c9b8d8142e2a0ebd22799bcda5013fe9fe",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-moira-reaper-guides-comps-2026-10-28.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "4749717014f6f6f7468bf04440fa48fa122de8ee163486e53cf41745b7ede540",
+      "correction": "Añadido contexto del vídeo de 2025 y revisión de su integración y metadatos; fechas originales conservadas.",
+      "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "3863bd408543b49d1826ebb1dbe9d6c9b8d8142e2a0ebd22799bcda5013fe9fe",
         "note": "Lectura inicial completa del texto y metadatos del modelo; no aprobada. Falta contrastar la integración real del vídeo, enlaces y presentación final en ambos formatos. La guía de Moira puede incorporar el vídeo del alias mediante mergeReviewedGuideVideo, aunque su modelo inicial no tenga video_id."
-      }
+      },
+      "reviewedRenderedVersion": "29139a03cb4f41ebfdf72d1e16a537e6488f49b9ac56e11caf67a140ad73841c"
     },
     {
       "path": "/guides/roadhog-guia-video-overwatch",
@@ -3412,9 +3420,12 @@
       "sourceVersion": "4f390b42c8d7c0e9f7ba37c17e93425d7039c4c51e402aeb937df335ae7554e4",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-moira-reaper-guides-comps-2026-10-28.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "4f390b42c8d7c0e9f7ba37c17e93425d7039c4c51e402aeb937df335ae7554e4",
+      "correction": "Texto y fecha conservados tras la revisión individual; habilitación explícita de esta composición."
     },
     {
       "path": "/team-comps/orisa",
@@ -3472,9 +3483,12 @@
       "sourceVersion": "97dc02bae9e1a90402b364e1652930ad4b7532efca82cd1f899b9d25505de0a4",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-moira-reaper-guides-comps-2026-10-28.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "97dc02bae9e1a90402b364e1652930ad4b7532efca82cd1f899b9d25505de0a4",
+      "correction": "Texto y fecha conservados tras la revisión individual; habilitación explícita de esta composición."
     },
     {
       "path": "/team-comps/sierra",
@@ -3643,8 +3657,8 @@
     }
   ],
   "progress": {
-    "reviewed": 5,
+    "reviewed": 9,
     "publishedAndVerified": 5,
-    "pending": 135
+    "pending": 131
   }
 }

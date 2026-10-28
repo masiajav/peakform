@@ -43,7 +43,7 @@ describe('reviewed guide batch', () => {
   })
   it('keeps the Reaper kit correction on its original route and publication date', () => {
     const revised = applyReviewedGuideRevision({ ...original, slug: 'reaper-guia-video-overwatch', hero: 'reaper' })
-    expect(revised).toMatchObject({ slug: 'reaper-guia-video-overwatch', hero: 'reaper', created_at: original.created_at, updated_at: '2026-10-02', author: 'Replaid Lab' })
+    expect(revised).toMatchObject({ slug: 'reaper-guia-video-overwatch', hero: 'reaper', created_at: original.created_at, updated_at: '2026-10-28', author: 'Replaid Lab' })
     expect(revised.body).toContain('Dire Triggers forma parte del kit básico')
     expect(revised.body).toContain('El perk Trigger Finger modifica')
     expect(guideQualityDecision(revised)).toMatchObject({ indexable: false, adsAllowed: false })

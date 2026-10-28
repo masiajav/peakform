@@ -68,7 +68,9 @@ try {
           model = staticGuide
           decision = getRankedHeroGuide(slug) ? policy.rankedGuideQualityDecision(model) : policy.evergreenGuideQualityDecision(model)
         } else if (stored) {
-          model = guideRevisions.hasReviewedGuideRevision(slug) ? guideRevisions.applyReviewedGuideRevision(stored) : stored
+          const videoSource = guideRevisions.reviewedGuideVideoSource(slug)
+          const video = videoSource ? guides.data.find(source => source.slug === videoSource) ?? null : null
+          model = guideRevisions.hasReviewedGuideRevision(slug) ? guideRevisions.applyReviewedGuideRevision(guideRevisions.mergeReviewedGuideVideo(stored, video)) : stored
           decision = policy.guideQualityDecision(model)
           version = rowReview.editorialContentVersion(model)
           const tags = model.tags ?? []
@@ -77,7 +79,9 @@ try {
           if (revision) {
             row.reviewedTextVersion = review.staticEditorialContentVersion(url.pathname, revision)
             previousReview = STATIC_EDITORIAL_REVIEWS[url.pathname] ?? null
-            row.reviewState = review.hasCurrentStaticEditorialReview(url.pathname, revision) ? 'current-static-review' : previousReview ? 'stale-static-review' : 'missing-static-review'
+            row.reviewState = review.hasCurrentStaticEditorialReview(url.pathname, revision)
+              ? revision.renderedContentVersion && revision.renderedContentVersion !== version ? 'stale-rendered-review' : 'current-static-review'
+              : previousReview ? 'stale-static-review' : 'missing-static-review'
           } else row.reviewState = rowReview.hasCurrentEditorialReview(model) ? 'current-row-review' : previousReview ? 'stale-row-review' : 'missing-row-review'
         }
       } else if (['news', 'patch-notes'].includes(kind)) {

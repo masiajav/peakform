@@ -3,7 +3,7 @@ import { DEADLOCK_SECTIONS } from '@/lib/games'
 import type { MetadataRoute } from 'next'
 import { ANNOUNCEMENT_REVIEW_COLUMNS, GUIDE_REVIEW_COLUMNS } from '@/lib/editorial-review'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { announcementPath, ROLE_SLUGS } from '@/lib/content'
+import { announcementPath, ROLE_SLUGS, type GuideContent } from '@/lib/content'
 import { COUNTER_HEROES } from '@/lib/overwatch-counters'
 import { MAP_PILLARS } from '@/lib/overwatch-maps'
 import { TEAM_COMP_HEROES } from '@/lib/overwatch-team-comps'
@@ -31,6 +31,7 @@ import { getHeroPillar } from '@/lib/hero-pillars'
 import { getRankedHeroGuide } from '@/lib/ranked-hero-guides'
 import { PRIVACY_REVIEW_DATE, TRUST_REVIEW_DATE } from '@/lib/site-operator'
 import { flexRoleGuide } from '@/lib/flex-role-guide'
+import { mergeReviewedGuideVideo, reviewedGuideVideoSource } from '@/lib/reviewed-guide-revisions'
 
 export const dynamic = 'force-dynamic'
 
@@ -171,9 +172,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     admin.from('experts').select('id, slug, display_name, bio, specialties, avatar_url, peak_rank, main_role, status, tier_starter_enabled, tier_pro_enabled, tier_deep_dive_enabled, updated_at, created_at').eq('status', 'active'),
   ])
 
-  const guideRoutes = (guides ?? [])
-    .filter((guide: any) => !Object.hasOwn(evergreenGuides, guide.slug) && !getRankedHeroGuide(guide.slug) && isGuideSitemapEligible(guide))
-    .map((guide: any) => ({
+  // Supabase cannot infer the exported, dynamically joined column projection.
+  const guideRows = (guides ?? []) as unknown as GuideContent[]
+  const guideBySlug = new Map(guideRows.map(guide => [guide.slug, guide]))
+  const guideRoutes = guideRows
+    .filter(guide => !Object.hasOwn(evergreenGuides, guide.slug) && !getRankedHeroGuide(guide.slug)
+      && isGuideSitemapEligible(mergeReviewedGuideVideo(guide, guideBySlug.get(reviewedGuideVideoSource(guide.slug) ?? '') ?? null)))
+    .map(guide => ({
       url: absoluteUrl(`/guides/${guide.slug}`),
       lastModified: new Date(guide.updated_at || guide.created_at),
       changeFrequency: 'weekly' as const,

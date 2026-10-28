@@ -18,6 +18,8 @@ export type GuideRevision = {
   quickAnswer: string
   videoSlug: string
   videoDescription?: string
+  reviewedVideo?: Pick<GuideContent, 'video_id' | 'video_url' | 'video_platform' | 'video_title' | 'video_channel' | 'video_language' | 'video_published_at'>
+  renderedContentVersion?: string
   body: string
   revisedAt?: string
   category?: string
@@ -517,6 +519,13 @@ Para comparar tus prioridades con las de tu compañero, consulta [Ana en ranked]
     description: 'Guía de Moira para gestionar el recurso de curación, elegir orbes según la pelea, reservar Fade y usar Coalescence con una línea útil.',
     quickAnswer: 'Con Moira, evita gastar toda la curación antes del engage y recupera recurso haciendo daño cuando el equipo esté estable. Elige el orbe por lo que necesita la pelea y apunta su recorrido. Fade debe terminar en una posición que puedas sostener: entrar con él a perseguir una baja puede dejarte sin salida cuando el rival se gira.',
     videoSlug: 'moira-guia-video-overwatch',
+    revisedAt: '2026-10-28',
+    renderedContentVersion: '587c62607157b5e82f177bf45fd09e4e1264c2d9588246f67facdf3c78a9d2bc',
+    videoDescription: 'Vídeo en inglés de Kajor, publicado el 7 de mayo de 2025. Sus capítulos permiten comparar duelos, elección de orbe y salidas; el texto de esta página explica las decisiones para el kit revisado. El título del vídeo refleja su contexto de 2025, no una garantía de rendimiento en el parche actual.',
+    reviewedVideo: {
+      video_id: 'v8vc9-ZHD5E', video_url: 'https://www.youtube.com/watch?v=v8vc9-ZHD5E', video_platform: 'youtube',
+      video_title: 'Why Moira Is SECRETLY Busted...| #1 Moira Guide', video_channel: 'Kajor', video_language: 'en', video_published_at: '2025-05-07',
+    },
     body: `## La barra de curación condiciona la siguiente pelea
 
 No mantengas el spray sobre aliados que apenas han recibido daño solo para ver subir la curación. Mira cuánto recurso te queda antes de que el equipo cruce. Si llegas vacía a la presión importante, tendrás que buscar daño en un momento en el que los demás necesitan que cures.
@@ -625,7 +634,7 @@ export function applyReviewedGuideRevision<T extends Pick<GuideContent, 'slug'>>
   }
 }
 
-export function mergeReviewedGuideVideo(guide: GuideContent, video: GuideContent | null): GuideContent {
+export function mergeReviewedGuideVideo<T extends Partial<GuideContent>>(guide: T, video: Partial<GuideContent> | null): T {
   if (!video?.video_id || guide.video_id || video.hero !== guide.hero) return guide
   return {
     ...guide,
