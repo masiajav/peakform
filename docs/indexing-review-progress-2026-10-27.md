@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 28 de octubre: **21 de 140 artículos revisados, habilitados y verificados en producción; 119 pendientes**. Último lote completado: Hanzo. Siguiente revisión en curso: Mei. Los anuncios mantienen su configuración previa.
+Estado comprobado al 28 de octubre: **24 de 140 artículos revisados, habilitados y verificados en producción; 116 pendientes**. Último lote completado: Mei. Siguiente revisión en curso: Sojourn. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 
@@ -94,3 +94,7 @@ La siguiente revisión iniciada incluye guía, counter y composiciones de Mei. S
 Se completa la revisión individual de las tres páginas. El counter precisa que Cryo protege a Mei y advierte del daño cercano de Cryo-Storm como perk opcional. La guía contextualiza la serie de qrxu del 2 de marzo de 2026 y vincula sus medios y metadatos reales a la revisión. Las composiciones conservan texto y fecha después del contraste.
 
 Evidencia: [revisión de Mei](indexing-review-mei-2026-10-28.md). Pasan lint, 704 pruebas unitarias, build y 16 casos finales de navegador, además de ocho iniciales. Se mantienen las exclusiones de otros artículos pendientes y la activación de anuncios no cambia. Estado provisional: **24 artículos revisados de 140; 21 ya publicados y verificados; 3 pendientes de comprobar en producción; 116 pendientes de revisión**.
+
+Despliegue `77f298c` terminado y comprobado: veintiocho respuestas públicas correctas, regresión del alias 308 de Ashe y otros seis casos de navegador contra producción. Estado: **24 artículos revisados, habilitados y verificados públicamente de 140; 116 pendientes**.
+
+Siguiente revisión iniciada: guía, counter y composiciones de Sojourn. Se leen completos y sus versiones actuales coinciden con el inventario. La fuente oficial confirma Disruptor sin slow base, Deceleration Field y las alternativas de movilidad. Se comprueban las dos filas públicas que se combinan en la guía, el vídeo de LeonDrummer del 12 de octubre de 2022 y su descripción. El título almacenado difiere del real («Guía básica: Sojourn | Overwatch 2»): falta corregirlo y contextualizar esta fuente antigua. Pasan ocho casos iniciales sobre las páginas aún excluidas y la disponibilidad visible del reproductor en ambos dispositivos. No se conceden aprobaciones a Sojourn; faltan correcciones, versión final y publicación. El objetivo global sigue activo.

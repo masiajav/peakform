@@ -208,9 +208,26 @@
       "sourceVersion": "8494fbe30b2c0c628d006bc35dddf905707a6d56826b9c2aa665c4f19df75bba",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-mei-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/counters/mei",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "6f34d599a2926de66ff4105193a877ecabd1ecaecb2e7aceae55c5916c1a13b0",
+        "valid": true,
+        "expectedDatePresent": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-28T22:00:27.992Z",
+        "commit": "77f298c269dc9f4dbc55ce9140b9035258dbf133",
+        "browserChecks": "6 production cases passed: three Mei articles on desktop/mobile, complete visible text, Cryo-Storm clarification, video context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "2112c0076f314703403c23da13d926e1df15349cfe8937f7a6352b326921d1a0",
       "correction": "Advertencia sobre Cryo-Storm opcional: no preparar la salida pegado al bloque que puede dañar alrededor. Título de la ventana precisado. Revisión del contenido 2026-10-28.",
@@ -323,7 +340,19 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "31442838b79c5518709ad3de4b7ba184ce8763a3d432671e6e319da3a54b3532",
+        "note": "Lectura completa: ángulo y cruce, D.Va/Sigma/Tracer/Kiriko con señal y respuesta, cuatro ventanas, adaptaciones, errores, ejemplos, checklist, FAQ y enlaces. Modelo actual idéntico al leído. La ficha oficial confirma Disruptor sin slow base, Deceleration Field minor, Friction Generators y Dual Thrusters como alternativas major, energía automática de Overclock y Sharpshooter con críticos. Faltan enlaces y presentación final; no aprobado.",
+        "baseline": {
+          "checkedAt": "2026-10-28",
+          "cases": 8,
+          "log": "reports/indexing-review-2026-10-27/release-batch-nine/baseline-nine.log",
+          "screenshots": "reports/indexing-review-2026-10-27/release-batch-nine/reports/",
+          "note": "Las tres páginas aún excluidas pasan en escritorio y móvil, incluido el botón de reproducción del vídeo incorporado. Se inspeccionan las tres capturas completas de escritorio y las tres cabeceras móviles. Falta corregir el título de la fuente de vídeo, contextualizar su fecha de 2022 y validar las versiones finales. No aprobadas."
+        }
+      }
     },
     {
       "path": "/counters/symmetra",
@@ -2121,9 +2150,28 @@
       "sourceVersion": "fe92495a27e137acdabbf9633ed4c8573a4f92e900e186e6e9fea24b6ce30570",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-mei-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/mei-guia-video-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "db829a3ea3ead8fe96d70e88e76711fdb21ab70077137e6df07bbec1d89fba53",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-28T22:00:27.992Z",
+        "commit": "77f298c269dc9f4dbc55ce9140b9035258dbf133",
+        "browserChecks": "6 production cases passed: three Mei articles on desktop/mobile, complete visible text, Cryo-Storm clarification, video context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "360bc8a114c1a36e34a0a76da6de210c6c8a2fdea3bc65458c6b8a115a43fe30",
       "correction": "Vídeo original de qrxu verificado en móvil y escritorio; contexto del 2 de marzo de 2026 y medios/metadatos renderizados vinculados. Primera publicación conservada, revisión del contenido 2026-10-28.",
@@ -2463,7 +2511,19 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "834ab027427eab762f8062a3b2634c5a64054899cfaf909d0566dbddcd1ca89f",
+        "note": "Lectura completa: generación de energía y selección de objetivo, off-angle, destino del slide, Disruptor, Overclock, VOD y tres FAQ. El cuerpo actual coincide con el inventario. La página incorpora el vídeo del alias sojourn-guia-video-overwatch. Watch y oEmbed confirman tGRzoJi7LnI, LeonDrummer, 2022-10-12 y playability OK; se lee descripción. El título real es «Guía básica: Sojourn | Overwatch 2», distinto del almacenado «Guia basica: Sojourn | Overwatch». Debe corregirse la atribución del título y contextualizarse como fuente de 2022 antes de aprobar. Huella renderizada actual sin corregir: 4248549e21e99795417c5e9c4d477cd8feb92929f41b8b74af48fecd49b7d240. Faltan versión final, medios vinculados, enlaces y presentación. No aprobada.",
+        "baseline": {
+          "checkedAt": "2026-10-28",
+          "cases": 8,
+          "log": "reports/indexing-review-2026-10-27/release-batch-nine/baseline-nine.log",
+          "screenshots": "reports/indexing-review-2026-10-27/release-batch-nine/reports/",
+          "note": "Las tres páginas aún excluidas pasan en escritorio y móvil, incluido el botón de reproducción del vídeo incorporado. Se inspeccionan las tres capturas completas de escritorio y las tres cabeceras móviles. Falta corregir el título de la fuente de vídeo, contextualizar su fecha de 2022 y validar las versiones finales. No aprobadas."
+        }
+      }
     },
     {
       "path": "/guides/sojourn-guia-video-overwatch",
@@ -3746,9 +3806,25 @@
       "sourceVersion": "851fc831383ff9cfa3f9ace102131f3f88bf9e1939511f42e446f699e8d72192",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-mei-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/mei",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "f6603eaaf172875ca2751951e8ed0c36770d130c8d75be8f54065af75edf274b",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-28T22:00:27.992Z",
+        "commit": "77f298c269dc9f4dbc55ce9140b9035258dbf133",
+        "browserChecks": "6 production cases passed: three Mei articles on desktop/mobile, complete visible text, Cryo-Storm clarification, video context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "851fc831383ff9cfa3f9ace102131f3f88bf9e1939511f42e446f699e8d72192",
       "correction": "Texto y fecha 2026-10-02 conservados tras revisar equipos, decisiones, FAQ y fuentes.",
@@ -3951,7 +4027,19 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "6c7170e1c1abe7ae3c23b0e9b0ca8f5a6aa0b37f1908eeabacf96289d04772f2",
+        "note": "Lectura completa: equipos Winston/Genji, Ramattra/Mei y Reinhardt/D.Va/Cassidy en 6v6, todos sus argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, FAQ y enlaces. Modelo actual idéntico al leído. Distingue Deceleration Field del área básica y condiciona el engage a munición, energía y tiro real. Faltan enlaces y presentación final; no aprobada.",
+        "baseline": {
+          "checkedAt": "2026-10-28",
+          "cases": 8,
+          "log": "reports/indexing-review-2026-10-27/release-batch-nine/baseline-nine.log",
+          "screenshots": "reports/indexing-review-2026-10-27/release-batch-nine/reports/",
+          "note": "Las tres páginas aún excluidas pasan en escritorio y móvil, incluido el botón de reproducción del vídeo incorporado. Se inspeccionan las tres capturas completas de escritorio y las tres cabeceras móviles. Falta corregir el título de la fuente de vídeo, contextualizar su fecha de 2022 y validar las versiones finales. No aprobadas."
+        }
+      }
     },
     {
       "path": "/team-comps/soldier-76",
@@ -4076,7 +4164,7 @@
   ],
   "progress": {
     "reviewed": 24,
-    "publishedAndVerified": 21,
+    "publishedAndVerified": 24,
     "pending": 116
   }
 }
