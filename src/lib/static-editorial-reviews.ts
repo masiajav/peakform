@@ -836,6 +836,27 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-sojourn-2026-10-28.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/bastion-guia-video-overwatch': {
+    path: '/guides/bastion-guia-video-overwatch',
+    version: '69cf2c234b8694961764375f730d1e9fc9cb54fa08a26a38df2f41c3b73c6921',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-bastion-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/counters/bastion': {
+    path: '/counters/bastion',
+    version: '8d42df4639730f346c12167b58bfcbfe1280e110878179a7d277d5d10b42d787',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-bastion-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/bastion': {
+    path: '/team-comps/bastion',
+    version: '37346b7c904454e7a41a99580b2bbe2d0b1c95ad587591ab6a68afe8e17656d4',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-bastion-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/zarya': {
     path: '/team-comps/zarya',
     version: '40de9429f726f9396cb6d2c3aa44d8eca29c9b77c5b7eeac49598631fa1b35a6',

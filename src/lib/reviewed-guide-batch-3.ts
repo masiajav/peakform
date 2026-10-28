@@ -217,7 +217,13 @@ Cambia el ángulo, amenaza una entrada sin completarla y espera a que gasten el 
     description: 'Saca más partido a Bastion sin depender de una pocket: prepara Assault, respeta Matrix y Grasp, cambia de ángulo y protege tu posición durante Artillery.',
     quickAnswer: 'Transforma a Bastion cuando el rival tenga que cruzar una línea que puedas controlar. Mantén una cobertura cercana y conserva un recorrido para cuando termine Assault. Contra Matrix o Grasp, busca otra amenaza alcanzable o espera desde la esquina; no sigas avanzando solo para prolongar el intercambio.',
     videoSlug: 'bastion-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-28',
+    reviewedVideo: {
+      video_id: 'RccPsvYJiCU', video_url: 'https://www.youtube.com/watch?v=RccPsvYJiCU', video_platform: 'youtube',
+      video_title: 'How THIS 16 Year Old DOMINATES On Bastion | #1 Bastion Guide', video_channel: 'Kajor', video_language: 'en', video_published_at: '2025-03-31',
+    },
+    renderedContentVersion: '238de3fe298ac9ade0d07d3218738f2ac48f9d8811960fca8e1b70000a3dbb5f',
+    videoDescription: 'Análisis de Kajor publicado el 31 de marzo de 2025, con capítulos sobre Artillery, la granada y la gestión de la distancia. Su título promocional no garantiza un resultado de rango. El artículo escrito desarrolla sus propias decisiones y se contrasta por separado con el kit actual, incluidos los perks alternativos que cambian Assault o permiten usar Self-Repair.',
     body: `## Assault debe coincidir con una exposición rival
 
 Bastion castiga a quien no puede abandonar su línea de tiro. Si te transformas antes de que el enemigo cruce, puede esconderse, esperar y entrar cuando vuelves a Recon. Has gastado tu amenaza sin obligarlo a tomar una decisión difícil.
@@ -246,7 +252,7 @@ Fuera de Assault, puedes observar, disparar desde una línea segura y reposicion
 
 La granada puede presionar a alguien detrás de un borde, aprovechar un rebote o ayudarte a completar un desplazamiento. Antes de usarla para subir a una posición, comprueba el aterrizaje. Alcanzar una altura sin salida ni ayuda no resuelve tu vulnerabilidad frente al dive.
 
-Los perks pueden modificar tu forma de hacer daño o darte otra herramienta de supervivencia. Si has cambiado el funcionamiento de Assault, adapta la puntería y los objetivos; no juegues como si todas las variantes exigieran mantener el mismo seguimiento continuo.
+Lindholm Explosives es un perk major que cambia el cañón rotatorio de Assault por disparos explosivos más lentos. Ajusta el tiro y el objetivo a esa cadencia en lugar de mantener el mismo seguimiento continuo. Self-Repair es la alternativa major que permite curarte: no cuentes con ella si has seleccionado Lindholm Explosives, ni la trates como parte automática del kit básico.
 
 ## Artillery necesita una posición segura y objetivos comprometidos
 

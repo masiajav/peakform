@@ -108,3 +108,9 @@ Evidencia: [revisión de Sojourn](indexing-review-sojourn-2026-10-28.md). Pasan 
 Despliegue `8a1e97c` terminado y comprobado: treinta y una respuestas públicas y el alias 308 de Sojourn correctos, más seis casos de navegador contra producción. Estado: **27 artículos revisados, habilitados y verificados públicamente de 140; 113 pendientes**.
 
 Siguiente revisión iniciada: guía, counter y composiciones de Bastion. Se leen completos y sus versiones actuales coinciden con el inventario; la fila pública de la guía coincide íntegramente con el modelo leído. La ficha oficial confirma Assault móvil, Recon, granada y Artillery inmóvil, y Lindholm Explosives y Self-Repair como alternativas major. La guía debe concretar el párrafo genérico de perks antes de aprobarse. YouTube y oEmbed confirman Kajor, título, fecha del 31 de marzo de 2025 y disponibilidad; se leen descripción y capítulos. Pasan ocho casos iniciales sobre las tres páginas aún excluidas y el botón de reproducción en ambos dispositivos. Faltan contexto, corrección, versiones finales y publicación. No se concede aprobación a Bastion y el objetivo global sigue activo.
+
+## Décimo lote: Bastion
+
+Se completa la revisión individual de las tres páginas. La guía concreta Lindholm Explosives y Self-Repair como alternativas major y contextualiza el vídeo de Kajor del 31 de marzo de 2025. Vincula el cuerpo corregido y los medios reales a su revisión exacta. Counter y composiciones conservan texto y fecha tras el contraste.
+
+Evidencia: [revisión de Bastion](indexing-review-bastion-2026-10-28.md). Pasan lint, 705 pruebas unitarias, build y 18 casos finales de navegador, además de ocho iniciales. Los controles negativos se mantienen en otros artículos pendientes y los anuncios no cambian. Estado provisional: **30 artículos revisados de 140; 27 ya publicados y verificados; 3 pendientes de comprobar en producción; 110 pendientes de revisión**.

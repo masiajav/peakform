@@ -59,10 +59,13 @@
       "sourceVersion": "8d42df4639730f346c12167b58bfcbfe1280e110878179a7d277d5d10b42d787",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-bastion-2026-10-28.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "8d42df4639730f346c12167b58bfcbfe1280e110878179a7d277d5d10b42d787",
+      "correction": "Texto y fecha 2026-10-02 conservados tras contrastar habilidades, decisiones y fuentes.",
+      "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "8d42df4639730f346c12167b58bfcbfe1280e110878179a7d277d5d10b42d787",
         "note": "Lectura completa: preparación y pausa de Assault, Sigma/D.Va/Hanzo/Ana con señal y respuesta, cuatro ventanas, adaptaciones, errores, tres ejemplos, checklist, tres FAQ y enlaces. La versión actual coincide con el inventario. La fuente oficial confirma Assault móvil y Recon, granada y Artillery inmóvil. Faltan enlaces y presentación final; no aprobado.",
@@ -1623,10 +1626,13 @@
       "sourceVersion": "ee4cdd8c6ab632a1a1219e999bce0d55b019cc93273c9df35a93700a687738cb",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-bastion-2026-10-28.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "69cf2c234b8694961764375f730d1e9fc9cb54fa08a26a38df2f41c3b73c6921",
+      "correction": "Párrafo de perks concretado: Lindholm Explosives y Self-Repair como alternativas major. Vídeo de Kajor del 31 de marzo de 2025 contextualizado, con medios y metadatos renderizados vinculados. Primera publicación conservada, revisión del contenido 2026-10-28.",
+      "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "ee4cdd8c6ab632a1a1219e999bce0d55b019cc93273c9df35a93700a687738cb",
         "note": "Lectura completa de timing y posición para Assault, Matrix/Grasp, Recon/granada, perks, Artillery, adaptación, VOD y tres FAQ. La fila pública actual coincide íntegramente con el modelo leído. Conviene concretar el párrafo de perks con los nombres Lindholm Explosives y Self-Repair como alternativas major. Watch y oEmbed confirman RccPsvYJiCU, Kajor, título almacenado y fecha local del editor 2025-03-31, playability OK; se leen descripción y capítulos. Faltan contexto, versión final con medios, enlaces y presentación. No aprobada.",
@@ -1637,7 +1643,8 @@
           "screenshots": "reports/indexing-review-2026-10-27/release-batch-ten/reports/",
           "note": "Las tres páginas aún excluidas pasan en escritorio y móvil, incluido el botón de reproducción. Se inspeccionan las tres capturas completas de escritorio y las tres cabeceras móviles. Falta concretar los perks de la guía, contextualizar el vídeo de 2025 y validar las versiones finales. No aprobadas."
         }
-      }
+      },
+      "reviewedRenderedVersion": "238de3fe298ac9ade0d07d3218738f2ac48f9d8811960fca8e1b70000a3dbb5f"
     },
     {
       "path": "/guides/brigitte-guia-overwatch-peel-anti-dive",
@@ -3590,10 +3597,13 @@
       "sourceVersion": "37346b7c904454e7a41a99580b2bbe2d0b1c95ad587591ab6a68afe8e17656d4",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-bastion-2026-10-28.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "37346b7c904454e7a41a99580b2bbe2d0b1c95ad587591ab6a68afe8e17656d4",
+      "correction": "Texto y fecha 2026-10-02 conservados tras revisar equipos, perks, decisiones, FAQ y fuentes.",
+      "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "37346b7c904454e7a41a99580b2bbe2d0b1c95ad587591ab6a68afe8e17656d4",
         "note": "Lectura completa de equipos Sigma/Tracer, Reinhardt/Mei y Reinhardt/D.Va/Ashe/Baptiste/Lifeweaver en 6v6, todos sus argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, FAQ y enlaces. Roles y formatos coherentes; distingue Lindholm Explosives y Self-Repair como elecciones alternativas, confirmadas por la ficha oficial. Faltan enlaces y presentación final; no aprobada.",
@@ -4260,8 +4270,8 @@
     }
   ],
   "progress": {
-    "reviewed": 27,
+    "reviewed": 30,
     "publishedAndVerified": 27,
-    "pending": 113
+    "pending": 110
   }
 }
