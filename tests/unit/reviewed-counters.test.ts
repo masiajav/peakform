@@ -14,7 +14,7 @@ test('reviewed counters only restore individually approved publication candidate
     expect(article.threats).toHaveLength(['genji', 'kiriko'].includes(slug) ? 6 : 4)
     expect(article.examples).toHaveLength(3)
     expect(article.faqs).toHaveLength(['doomfist', 'dmon'].includes(slug) ? 5 : 3)
-    expect(editorialTopicQualityDecision('counter', slug, article)).toMatchObject({ indexable: ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine', 'sombra', 'roadhog', 'doomfist', 'dmon', 'moira', 'reaper', 'brigitte', 'echo', 'ashe', 'hanzo', 'mei', 'sojourn', 'bastion', 'symmetra'].includes(slug), adsAllowed: false })
+    expect(editorialTopicQualityDecision('counter', slug, article)).toMatchObject({ indexable: ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine', 'sombra', 'roadhog', 'doomfist', 'dmon', 'moira', 'reaper', 'brigitte', 'echo', 'ashe', 'hanzo', 'mei', 'sojourn', 'bastion', 'symmetra', 'torbjorn'].includes(slug), adsAllowed: false })
     for (const threat of article.threats) {
       const normalizeName = (name: string) => name.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
       expect(normalizeName(getCounterHero(threat.href.slice('/heroes/'.length))?.name ?? '')).toBe(normalizeName(threat.name))
@@ -36,7 +36,7 @@ test('counter revisions have distinct arguments, examples and metadata', () => {
   expect(new Set(Object.values(reviewedCounters).map(article => article.seoDescription)).size).toBe(Object.keys(reviewedCounters).length)
 })
 
-test('Moira and Reaper publication rejects later changes and preserves other pending counters', () => {
+test('Moira and Reaper publication rejects later changes and unknown counters', () => {
   for (const slug of ['moira', 'reaper'] as const) {
     const article = reviewedCounters[slug]
     expect(editorialTopicQualityDecision('counter', slug, article)).toMatchObject({ indexable: true, adsAllowed: false })
@@ -44,7 +44,7 @@ test('Moira and Reaper publication rejects later changes and preserves other pen
       expect(editorialTopicQualityDecision('counter', slug, { ...article, ...edit })).toMatchObject({ indexable: false, adsAllowed: false })
     }
   }
-  for (const slug of ['torbjorn']) {
+  for (const slug of ['unknown-hero']) {
     expect(editorialTopicQualityDecision('counter', slug, getCounterPillar(slug))).toMatchObject({ indexable: false, adsAllowed: false })
   }
 })

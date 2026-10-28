@@ -878,6 +878,27 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-symmetra-2026-10-28.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/torbjorn-guia-video-overwatch': {
+    path: '/guides/torbjorn-guia-video-overwatch',
+    version: '3572d9b08525c409a7efb07bf2a16720e7c20612c8b464ac8e8bd1462376b2bc',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-torbjorn-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/counters/torbjorn': {
+    path: '/counters/torbjorn',
+    version: 'a433c6d3f668dd8b917c596fb9710066be03d678ba712cd711743ffdf430ef1d',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-torbjorn-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/torbjorn': {
+    path: '/team-comps/torbjorn',
+    version: 'ba03d7d326aa67a8440b869e6dc7cb799a9193689c4becba7ecf61d60a852b7b',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-torbjorn-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/zarya': {
     path: '/team-comps/zarya',
     version: '40de9429f726f9396cb6d2c3aa44d8eca29c9b77c5b7eeac49598631fa1b35a6',

@@ -175,7 +175,14 @@ Para mejorar el timing, revisa [las composiciones de dive, poke y brawl](/guides
     description: 'Aprende a defender ángulos con Torbjörn: una torreta útil contra flancos, disparos con Rivet Gun y Molten Core para cortar rutas de verdad.',
     quickAnswer: 'Coloca la torreta donde cubra una entrada útil sin recibir fuego de todo el equipo enemigo. Tú debes presionar desde otro ángulo cercano, no pasar la pelea reparándola. Conserva Overload para un intercambio que puedas sostener y reparte Molten Core por las rutas que el rival necesita cruzar, en lugar de vaciarlo todo bajo el Tank.',
     videoSlug: 'torbjorn-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-28',
+    sourceVideoTitle: 'Guia basica: Torbjorn | Overwatch',
+    reviewedVideo: {
+      video_id: 'skWtpVhwlUA', video_url: 'https://www.youtube.com/watch?v=skWtpVhwlUA', video_platform: 'youtube',
+      video_title: 'Guía básica: Torbjörn | Overwatch 2', video_channel: 'LeonDrummer', video_language: 'es', video_published_at: '2022-10-12',
+    },
+    renderedContentVersion: '1c4b92103027d813444078c165dd5821b20b6ba3ba27485b35ecfd7491b52336',
+    videoDescription: 'Introducción de LeonDrummer publicada el 12 de octubre de 2022, al comienzo de Overwatch 2. Sirve como referencia histórica del héroe; aquella versión no incluía el sistema actual de perks. El análisis escrito se contrasta por separado con el kit actual y explica cómo elegir la colocación, Overload y las mejoras de torreta sin trasladar automáticamente cifras o reglas de la grabación.',
     body: `## La torreta debe obligar a tomar una decisión
 
 Una torreta con visión de toda la calle también puede ser destruida desde toda la calle. Antes de colocarla, piensa qué enemigo quieres detectar o molestar. Si cubre un flanco, puede hacer que quien lo use gaste tiempo disparándole o llegue a vuestra zona con menos libertad.
@@ -205,6 +212,14 @@ Overload te ayuda a sostener una ventana de combate. Si lo gastas mucho antes de
 Contra Tracer, una esquina y la torreta pueden reducir las rutas desde las que te ataca. Eso no elimina la necesidad de apuntar ni de seguir sus cambios de posición. Si usa Recall y vuelve a cobertura, no la persigas hasta otra habitación solo porque todavía tengas Overload activo.
 
 Contra un dive conjunto, mira si el problema está en tu propia supervivencia o en la de un support cercano. Presionar a quien lo amenaza puede ser más útil que buscar un duelo aparte. La torreta es una ayuda, no una garantía de que la backline estará protegida sin intervención.
+
+## Los perks cambian lo que preparas antes del contacto
+
+Hammer Time permite moverte más rápido con el martillo equipado y Pre-Heated activa Overload al usar Molten Core. Son alternativas minor. No saques el martillo para cruzar sin mirar el daño que recibirás, ni cuentes con Overload automático durante la ultimate si has elegido la otra opción.
+
+Entre los major, Anchor Bolts amplía el lanzamiento y permite fijar la torreta a paredes y techos. Busca un acceso útil y comprueba desde dónde puede destruirla el rival: una colocación alta también puede quedar expuesta. Overloaded Turret es la alternativa que mejora temporalmente la salud y el daño de la torreta al activar Overload; sincronízalo con una posición desde la que el dispositivo pueda intervenir.
+
+Ninguna de estas mejoras convierte la torreta en una defensa independiente del equipo. Antes del intercambio, revisa qué perk has elegido, dónde está el dispositivo y si puedes ayudar desde tu propia cobertura.
 
 ## Molten Core se coloca donde el rival quiere pasar
 

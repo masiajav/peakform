@@ -155,9 +155,9 @@ describe('static topic publication checks', () => {
       expect(topicQualityDecision(kind, 'ana')).toMatchObject({ indexable: true, adsAllowed: false })
       expect(editorialTopicQualityDecision(kind, 'ana', { ...article, h1: 'Changed' }).indexable).toBe(false)
       expect(editorialTopicQualityDecision(kind, 'ana', { ...article, links: [] }).indexable).toBe(false)
-      const unlisted = getArticle('torbjorn')!
-      approve(`/${prefix}/torbjorn`, unlisted)
-      expect(editorialTopicQualityDecision(kind, 'torbjorn', unlisted).indexable).toBe(false)
+      const unlisted = { ...article, slug: 'unlisted-hero' }
+      approve(`/${prefix}/unlisted-hero`, unlisted)
+      expect(editorialTopicQualityDecision(kind, 'unlisted-hero', unlisted).indexable).toBe(false)
     })
     it(`${kind} still rejects incomplete or internal text even with a matching test review`, () => {
       for (const article of [

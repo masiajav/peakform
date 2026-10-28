@@ -147,14 +147,14 @@ describe('individual team composition revisions', () => {
         expect(editorialTopicQualityDecision('team_comp', slug, { ...article, ...edit })).toMatchObject({ indexable: false, adsAllowed: false })
       }
     }
-    expect(editorialTopicQualityDecision('team_comp', 'torbjorn', getTeamCompPillar('torbjorn')).indexable).toBe(false)
+    expect(editorialTopicQualityDecision('team_comp', 'orisa', getTeamCompPillar('orisa')).indexable).toBe(false)
   })
   it('publishes only individually approved revisions with valid role-queue lineups', () => {
     for (const [slug, article] of Object.entries(reviewedTeamCompositions)) {
       expect(getTeamCompPillar(slug)).toBe(article)
       expect(article.compositions).toHaveLength(3)
       expect(article.schemaDate).toBe(reviewDates[slug])
-      expect(editorialTopicQualityDecision('team_comp', slug, article)).toMatchObject({ indexable: ['sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon', 'domina', 'jetpack-cat', 'wuyang', 'moira', 'reaper', 'brigitte', 'echo', 'ashe', 'hanzo', 'mei', 'sojourn', 'bastion', 'symmetra'].includes(slug), adsAllowed: false })
+      expect(editorialTopicQualityDecision('team_comp', slug, article)).toMatchObject({ indexable: ['sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon', 'domina', 'jetpack-cat', 'wuyang', 'moira', 'reaper', 'brigitte', 'echo', 'ashe', 'hanzo', 'mei', 'sojourn', 'bastion', 'symmetra', 'torbjorn'].includes(slug), adsAllowed: false })
       for (const comp of article.compositions) {
         expect(comp.lineup).toContain(article.name)
         expect(comp.lineup).toHaveLength(comp.format === '5v5' ? 5 : 6)

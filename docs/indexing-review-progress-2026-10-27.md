@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 28 de octubre: **33 de 140 artículos revisados; 27 habilitados y verificados en producción, seis pendientes de despliegue y comprobación pública; 107 pendientes de revisión**. Último lote verificado públicamente: Sojourn. Bastion y Symmetra superan la revisión local. Los anuncios mantienen su configuración previa.
+Estado comprobado al 28 de octubre: **36 de 140 artículos revisados; 33 habilitados y verificados en producción, tres pendientes de despliegue y comprobación pública; 104 pendientes de revisión**. Últimos lotes verificados públicamente: Bastion y Symmetra. Torbjörn supera la revisión local. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 
@@ -121,4 +121,12 @@ Se completa la revisión individual de las tres páginas. La guía corrige el t�
 
 Evidencia: [revisión de Symmetra](indexing-review-symmetra-2026-10-28.md). Pasan lint, 705 pruebas unitarias, build, doce casos finales de navegador y seis de regresión, además de ocho iniciales. Se inspeccionan móvil y escritorio y se mantienen otros artículos excluidos y los anuncios bloqueados. Estado: **33 artículos revisados de 140; 27 publicados y verificados; seis pendientes de despliegue y comprobación pública; 107 pendientes de revisión**.
 
-El despliegue de Bastion no tiene aún un trabajo confirmado en GitHub y su respuesta pública conserva noindex. La API de Vercel deniega con 403 el acceso al equipo y se ha solicitado al usuario el consentimiento específico. No se registran Bastion ni Symmetra como publicados ni se interpreta el tiempo transcurrido como autorización o como un despliegue activo.
+El despliegue de Bastion no tenía aún un trabajo confirmado en GitHub y su respuesta pública conservaba noindex. La API de Vercel denegaba con 403 el acceso al equipo y se solicitó al usuario el consentimiento específico. No se registraron Bastion ni Symmetra como publicados ni se interpretó el tiempo transcurrido como autorización o como un despliegue activo.
+
+El envío funcional de Symmetra `6a2e8a6` inicia y completa un despliegue que incluye los cambios de Bastion de `05d0ec0`. GitHub confirma éxito de Vercel con el identificador `BZF7hbmqXTiofTMpGKqQA7i1fTKg`. Pasan 37 respuestas públicas: seis artículos nuevos, regresión de los 27 anteriores y cuatro controles negativos; también el alias 308 de Sojourn y doce casos de navegador público en escritorio y móvil. El registro vincula las seis publicaciones al commit realmente desplegado, `6a2e8a6`. Estado: **33 artículos revisados, habilitados y verificados públicamente de 140; 107 pendientes**. La falta de acceso directo a la API del equipo no impide esta comprobación pública y deja de bloquear la publicación.
+
+## Duodécimo lote: Torbjörn
+
+Se completa la revisión individual de guía, counter y composiciones. La guía corrige el título del vídeo de LeonDrummer de forma acotada, contextualiza su fecha del 12 de octubre de 2022 y explica las alternativas actuales de perks con decisiones de colocación y timing. Counter y composiciones conservan texto y fecha tras el contraste. Las tres revisiones registran la versión exacta; la guía incluye los medios renderizados.
+
+Evidencia: [revisión de Torbjörn](indexing-review-torbjorn-2026-10-28.md). Pasan lint, 705 pruebas unitarias, build, doce casos finales de navegador y seis de regresión, además de ocho iniciales. Se inspeccionan escritorio y móvil; se conservan las exclusiones de otros artículos y no cambia la activación de anuncios. Estado provisional: **36 artículos revisados de 140; 33 publicados y verificados; tres pendientes de comprobar en producción; 104 pendientes de revisión**.
