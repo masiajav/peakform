@@ -30,6 +30,7 @@ import { getCounterPillar, getTeamCompPillar } from '@/lib/seo-clusters'
 import { getHeroPillar } from '@/lib/hero-pillars'
 import { getRankedHeroGuide } from '@/lib/ranked-hero-guides'
 import { PRIVACY_REVIEW_DATE, TRUST_REVIEW_DATE } from '@/lib/site-operator'
+import { flexRoleGuide } from '@/lib/flex-role-guide'
 
 export const dynamic = 'force-dynamic'
 
@@ -73,6 +74,7 @@ const STATIC_LAST_MODIFIED: Record<string, string> = {
   '/roles/tank': '2026-09-05',
   '/roles/dps': '2026-09-05',
   '/roles/support': '2026-09-05',
+  '/roles/flex': flexRoleGuide.schemaDate,
   '/counters/zarya': '2026-07-12',
   '/counters/tracer': '2026-07-12',
   '/counters/domina': '2026-07-12',
@@ -137,7 +139,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...STATIC_EDITORIAL_GUIDE_SLUGS.filter(slug => evergreenGuideQualityDecision(evergreenGuides[slug] ?? null).indexable).map(slug => `/guides/${slug}`),
     ...RANKED_EDITORIAL_GUIDE_SLUGS.filter(slug => rankedGuideQualityDecision(getRankedHeroGuide(slug)).indexable).map(slug => `/guides/${slug}`),
     ...TRUST_ROUTES,
-    ...ROLE_SLUGS.map(role => `/roles/${role}`),
+    ...[...ROLE_SLUGS, 'flex'].filter(role => topicQualityDecision('role', role).indexable).map(role => `/roles/${role}`),
     ...PILLAR_HERO_SLUGS.filter(hero => topicQualityDecision('hero', hero).indexable).map(hero => `/heroes/${hero}`),
     ...PILLAR_MAP_SLUGS.filter(map => topicQualityDecision('map', map).indexable).map(map => `/maps/${map}`),
     ...COUNTER_HEROES.filter(hero => PILLAR_COUNTER_SLUGS.includes(hero.slug) && editorialTopicQualityDecision('counter', hero.slug, getCounterPillar(hero.slug)).indexable).map(hero => `/counters/${hero.slug}`),

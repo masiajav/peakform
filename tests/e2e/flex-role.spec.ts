@@ -5,18 +5,23 @@ test('flex offers a specific guide, usable pools and matching metadata without a
   const errors: string[] = []
   page.on('pageerror', error => errors.push(error.message))
   page.on('console', message => { if (message.type() === 'error') errors.push(message.text()) })
-  expect((await page.goto(guide.path))?.status()).toBe(200)
+  const response = await page.goto(guide.path)
+  expect(response?.status()).toBe(200)
   await expect(page.locator('h1')).toHaveCount(1)
   await expect(page.locator('h1')).toHaveText(guide.h1)
   await expect(page).toHaveTitle(new RegExp(guide.seoTitle))
   await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', guide.seoDescription)
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://www.replaidlab.com${guide.path}`)
-  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow')
+  const robots = await page.locator('meta[name="robots"], meta[name="googlebot"]').evaluateAll(tags => tags.map(tag => tag.getAttribute('content') ?? '').join(','))
+  expect(`${robots},${response?.headers()['x-robots-tag'] ?? ''}`).not.toMatch(/\b(?:noindex|nofollow|none)\b/i)
   await expect(page.locator('.seo-pillar-meta time')).toHaveAttribute('datetime', guide.schemaDate)
   await expect(page.locator('.seo-pillar-meta time')).toHaveText(guide.updatedAt)
   for (const section of guide.sections) {
     await expect(page.locator(`#${section.id} h2`)).toHaveText(section.title)
     for (const paragraph of section.paragraphs) await expect(page.locator(`#${section.id}`)).toContainText(paragraph)
+  }
+  for (const paragraph of [...guide.intro, ...guide.summary, ...guide.checklist, ...guide.pools.flatMap(pool => [pool.body, pool.question])]) {
+    await expect(page.locator('main')).toContainText(paragraph)
   }
   await expect(page.locator('main')).not.toContainText('Todavía no hemos publicado')
   await expect(page.locator('main')).not.toContainText('No hay noticias etiquetadas')
@@ -40,7 +45,7 @@ test('flex offers a specific guide, usable pools and matching metadata without a
   }
   await expect(page.locator('ins.adsbygoogle, .ad-slot, #adsense-script')).toHaveCount(0)
   expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false)
-  expect(await (await request.get('/sitemap.xml')).text()).not.toContain('/roles/flex</loc>')
+  expect(await (await request.get('/sitemap.xml')).text()).toContain('/roles/flex</loc>')
   expect(errors).toEqual([])
   await page.screenshot({ path: `reports/flex-role/flex-${test.info().project.name}.png`, fullPage: true })
   await page.evaluate(() => window.scrollTo(0, 0))

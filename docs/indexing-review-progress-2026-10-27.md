@@ -25,4 +25,12 @@ El resto de artículos sigue pendiente de su propia lectura y comprobaciones. No
 
 Las dos guías están desplegadas y comprobadas en producción: HTTP 200, sin noindex, incluidas en sitemap, mismas fechas del contenido y anuncios bloqueados. Pasan lint, 700 pruebas unitarias, 18 comprobaciones locales de navegador y cuatro comprobaciones adicionales contra producción en móvil y escritorio. El registro queda en **2 artículos habilitados y verificados de 140; 138 pendientes**.
 
-Siguiente prioridad: releer y verificar `/roles/flex`, `/counters/moira` y `/counters/reaper`, que conservan revisiones históricas pero tienen un bloqueo explícito de publicación. Su revisión antigua por sí sola no autoriza habilitarlos ahora. Después continúan las guías de héroes, composiciones, counters restantes y mapas, con una decisión por URL y versión.
+Prioridad fijada tras el primer lote: releer y verificar `/roles/flex`, `/counters/moira` y `/counters/reaper`, que conservan revisiones históricas pero tienen un bloqueo explícito de publicación. Su revisión antigua por sí sola no autoriza habilitarlos ahora.
+
+## Segundo lote: 28 de octubre
+
+Se leen y verifican individualmente Flex, counters de Moira y counters de Reaper. Flex corrige una referencia al número de compañeros y enlaza directamente la guía canónica de VOD. Los dos counters mantienen su contenido y fechas después de contrastar las habilidades y los perks con fuentes oficiales. Se elimina el bloqueo incondicional de Flex mediante una decisión que exige su revisión exacta; solo Moira y Reaper se añaden a la lista explícita de publicación de counters.
+
+Evidencia: [revisión de Flex, Moira y Reaper](indexing-review-flex-moira-reaper-2026-10-28.md). Lint, 702 pruebas unitarias, build y 14 comprobaciones finales de navegador correctos, además de seis casos previos sobre las versiones aún excluidas. Se conserva el estado de los anuncios y de las demás URLs pendientes.
+
+Estado antes del despliegue: **5 artículos revisados, 2 habilitados y verificados públicamente; 3 esperando comprobación pública; 135 pendientes de revisión**. Continúan las guías de Moira y Reaper, sus composiciones, los counters restantes y los mapas, con una decisión por URL y versión. El objetivo global sigue activo.

@@ -5,7 +5,8 @@ import type { StaticEditorialReview } from '@/lib/static-editorial-review'
 const registry = vi.hoisted(() => ({} as Record<string, StaticEditorialReview>))
 vi.mock('@/lib/static-editorial-reviews', () => ({ STATIC_EDITORIAL_REVIEWS: registry }))
 
-import { editorialTopicQualityDecision, mapQualityDecision, topicQualityDecision } from '@/lib/indexing-policy'
+import { editorialTopicQualityDecision, flexRoleQualityDecision, mapQualityDecision, topicQualityDecision } from '@/lib/indexing-policy'
+import { flexRoleGuide } from '@/lib/flex-role-guide'
 import { getMapPillar } from '@/lib/overwatch-maps'
 import { getCounterPillar, getTeamCompPillar } from '@/lib/seo-clusters'
 import { getHeroPillar } from '@/lib/hero-pillars'
@@ -22,6 +23,21 @@ function approve(path: string, content: unknown) {
 beforeEach(() => { for (const key of Object.keys(registry)) delete registry[key] })
 
 describe('static topic publication checks', () => {
+  it('flex needs its exact review and valid role pools even with a matching test review', () => {
+    expect(topicQualityDecision('role', 'flex').indexable).toBe(false)
+    approve('/roles/flex', flexRoleGuide)
+    expect(topicQualityDecision('role', 'flex')).toMatchObject({ indexable: true, adsAllowed: false })
+    for (const article of [
+      { ...flexRoleGuide, schemaDate: '2026-02-30' },
+      { ...flexRoleGuide, pools: [] },
+      { ...flexRoleGuide, pools: flexRoleGuide.pools.map(pool => ({ ...pool, heroes: [{ slug: 'ana', name: 'Ana' }, { slug: 'kiriko', name: 'Kiriko' }] })) },
+      { ...flexRoleGuide, sections: [] },
+      { ...flexRoleGuide, links: [{ href: '//example.com', label: 'External' }] },
+    ]) {
+      approve('/roles/flex', article)
+      expect(flexRoleQualityDecision(article)).toMatchObject({ indexable: false, adsAllowed: false })
+    }
+  })
   it('map catalogue membership does not approve an unreviewed or changed article', () => {
     const article = getMapPillar('dorado')!
     expect(topicQualityDecision('map', 'dorado')).toMatchObject({ indexable: false, adsAllowed: false })
@@ -139,9 +155,9 @@ describe('static topic publication checks', () => {
       expect(topicQualityDecision(kind, 'ana')).toMatchObject({ indexable: true, adsAllowed: false })
       expect(editorialTopicQualityDecision(kind, 'ana', { ...article, h1: 'Changed' }).indexable).toBe(false)
       expect(editorialTopicQualityDecision(kind, 'ana', { ...article, links: [] }).indexable).toBe(false)
-      const unlisted = getArticle('moira')!
-      approve(`/${prefix}/moira`, unlisted)
-      expect(editorialTopicQualityDecision(kind, 'moira', unlisted).indexable).toBe(false)
+      const unlisted = getArticle('brigitte')!
+      approve(`/${prefix}/brigitte`, unlisted)
+      expect(editorialTopicQualityDecision(kind, 'brigitte', unlisted).indexable).toBe(false)
     })
     it(`${kind} still rejects incomplete or internal text even with a matching test review`, () => {
       for (const article of [

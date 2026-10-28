@@ -4,7 +4,7 @@ import { getCounterPillar } from '../../src/lib/seo-clusters'
 import { PILLAR_COUNTER_SLUGS } from '../../src/lib/public-topic-policy'
 
 // Independent expectations, not derived from the approval registry under test.
-const RESTORED_COUNTERS = ['tracer', 'domina', 'zarya', 'reinhardt', 'dva', 'winston', 'cassidy', 'ana', 'shion', 'genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine', 'sombra', 'roadhog', 'doomfist', 'dmon']
+const RESTORED_COUNTERS = ['tracer', 'domina', 'zarya', 'reinhardt', 'dva', 'winston', 'cassidy', 'ana', 'shion', 'genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine', 'sombra', 'roadhog', 'doomfist', 'dmon', 'moira', 'reaper']
 
 test('counter hub shows its actual catalogue without a blanket review claim', async ({ page, request }) => {
   const errors: string[] = []
@@ -49,6 +49,13 @@ for (const [slug, article] of Object.entries(reviewedCounters)) {
     await expect(page.locator('main')).toContainText(article.intro[0])
     for (const window of article.cooldownWindows) {
       await expect(page.locator('main')).toContainText(window.body)
+    }
+    if (['moira', 'reaper'].includes(slug)) {
+      const paragraphs = [...article.intro, ...article.summary, ...article.adaptations, ...article.mistakes, ...article.checklist,
+        ...article.threats.flatMap(threat => [threat.danger, threat.signal, threat.response]), ...article.examples.map(item => item.body)]
+      for (const paragraph of paragraphs) await expect(page.locator('main')).toContainText(paragraph)
+      const robots = await page.locator('meta[name="robots"], meta[name="googlebot"]').evaluateAll(tags => tags.map(tag => tag.getAttribute('content') ?? '').join(','))
+      expect(`${robots},${response?.headers()['x-robots-tag'] ?? ''}`).not.toMatch(/\b(?:noindex|nofollow|none)\b/i)
     }
     const conclusionHeading = page.getByRole('heading', { name: 'Qué cambiar en tu próxima partida', exact: true })
     const vodSection = page.locator('main section').filter({ has: page.getByRole('heading', { name: 'Qué mirar en tu repetición', exact: true }) })

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { flexRoleGuide } from '@/lib/flex-role-guide'
 import { getCounterHero } from '@/lib/overwatch-counters'
-import { topicQualityDecision } from '@/lib/indexing-policy'
+import { flexRoleQualityDecision, topicQualityDecision } from '@/lib/indexing-policy'
 
 describe('specific flex guide', () => {
   it('offers distinct pools and decisions without presenting flex as a fourth role', () => {
@@ -18,7 +18,11 @@ describe('specific flex guide', () => {
     expect(JSON.stringify(flexRoleGuide)).not.toMatch(/TITLE SEO|KEYWORDS PRINCIPALES|subida garantizada/i)
   })
 
-  it('does not turn a content improvement into automatic indexing or ad approval', () => {
-    expect(topicQualityDecision('role', 'flex')).toMatchObject({ indexable: false, adsAllowed: false })
+  it('indexes the individually reviewed version without allowing ads', () => {
+    expect(topicQualityDecision('role', 'flex')).toMatchObject({ indexable: true, adsAllowed: false })
+    for (const edit of [{ h1: 'Unreviewed title' }, { sections: [] }, { schemaDate: '2026-10-29' }, { links: [] }]) {
+      expect(flexRoleQualityDecision({ ...flexRoleGuide, ...edit })).toMatchObject({ indexable: false, adsAllowed: false })
+    }
+    expect(flexRoleQualityDecision(null).indexable).toBe(false)
   })
 })

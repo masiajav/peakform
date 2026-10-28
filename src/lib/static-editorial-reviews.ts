@@ -404,9 +404,9 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
   },
   '/roles/flex': {
     path: '/roles/flex',
-    version: '7acd8531df8f814f0272e7206c8bac30ef08886d5ca3b98218c017743ab78d78',
-    reviewedAt: '2026-10-03', reviewer: 'Codex',
-    evidence: 'docs/content-review-doctrine-flex-2026-10-03.md',
+    version: '41f1fa6fb679925e67f2a9dc8f5c27973ecfad3e7ac60a9691166304932a8892',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-flex-moira-reaper-2026-10-28.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
   '/counters/mizuki': {
@@ -594,15 +594,15 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
   '/counters/moira': {
     path: '/counters/moira',
     version: '4c93354f8fe655924fc207425833081b4dc63c77a3dec79485bd498085d061cd',
-    reviewedAt: '2026-10-02', reviewer: 'Codex',
-    evidence: 'docs/content-review-fade-wraith-2026-10-02.md',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-flex-moira-reaper-2026-10-28.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
   '/counters/reaper': {
     path: '/counters/reaper',
     version: 'fd28d5dabb92746683d18ffe3440b622c6ef910bfc16c9e2c2516151a32a1860',
-    reviewedAt: '2026-10-02', reviewer: 'Codex',
-    evidence: 'docs/content-review-fade-wraith-2026-10-02.md',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-flex-moira-reaper-2026-10-28.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
   '/heroes/reinhardt': {

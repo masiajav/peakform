@@ -12,6 +12,7 @@ import { COUNTER_HEROES } from './overwatch-counters'
 import { getHeroPillar, type HeroPillarCard } from './hero-pillars'
 import { getRankedHeroGuide, type RankedHeroGuide } from './ranked-hero-guides'
 import { evergreenGuides, type EvergreenGuide } from './evergreen-guides'
+import { flexRoleGuide } from './flex-role-guide'
 export { isPathAdEligible } from './ad-inventory-policy'
 
 export type IndexingDecision = 'indexable' | 'noindex_follow' | 'not_found'
@@ -424,11 +425,33 @@ export function topicQualityDecision(kind: 'hero' | 'counter' | 'team_comp' | 'r
   }
 
   if (kind === 'role') {
-    if (slug === 'flex') return blocked('Guía de selección flexible; publicación individual pendiente', 0)
+    if (slug === 'flex') return flexRoleQualityDecision(flexRoleGuide)
     return indexNoAds('Hub de rol indexable; sin anuncios hasta ampliar contenido propio', 0)
   }
 
   return mapQualityDecision(slug, getMapPillar(slug))
+}
+
+export function flexRoleQualityDecision(content: typeof flexRoleGuide | null): PageQualityDecision {
+  if (!content || content.path !== '/roles/flex' || !hasCurrentStaticEditorialReview('/roles/flex', content)) {
+    return blocked('Esta versión de la guía flex sigue pendiente de revisión individual', 0)
+  }
+  const words = wordCount(JSON.stringify(content))
+  const structure = [content.h1, content.seoTitle, content.seoDescription, content.updatedAt].every(value => value.trim())
+    && validEditorialDate(content.schemaDate)
+    && [content.intro, content.summary, content.checklist].every(list => list.length && list.every(value => value.trim()))
+    && content.sections.length >= 3 && content.sections.every(section => section.id.trim() && section.title.trim()
+      && section.paragraphs.length && section.paragraphs.every(value => value.trim()))
+    && new Set(content.sections.map(section => section.id)).size === content.sections.length
+    && content.pools.length === 3 && ['Tank', 'DPS', 'Support'].every(role => content.pools.filter(pool => pool.role === role).length === 1)
+    && content.pools.every(pool => pool.body.trim() && pool.question.trim() && /^\/roles\/(tank|dps|support)$/.test(pool.href)
+      && pool.heroes.length >= 2 && new Set(pool.heroes.map(hero => hero.slug)).size === pool.heroes.length
+      && pool.heroes.every(pick => COUNTER_HEROES.some(hero => hero.slug === pick.slug
+        && hero.role === pool.role.toLowerCase() && normalize(hero.name) === normalize(pick.name))))
+    && content.faqs.length >= 3 && content.faqs.every(item => item.question.trim() && item.answer.trim())
+    && content.links.length >= 3 && content.links.every(link => link.label.trim() && /^\/(?!\/)/.test(link.href))
+  if (!structure || words < QUALITY_MINIMUMS.guideIndexWords) return blocked('Faltan decisiones, pools, fechas o enlaces válidos en la guía flex', words)
+  return indexNoAds('Guía flex revisada individualmente; sin anuncios durante la revisión de AdSense', words)
 }
 
 export function mapQualityDecision(slug: string, content: MapPillar | null | undefined): PageQualityDecision {

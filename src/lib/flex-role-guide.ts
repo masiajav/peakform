@@ -1,7 +1,7 @@
 export const flexRoleGuide = {
   path: '/roles/flex',
-  updatedAt: '3 de octubre de 2026',
-  schemaDate: '2026-10-03',
+  updatedAt: '28 de octubre de 2026',
+  schemaDate: '2026-10-28',
   seoTitle: 'Flex en Overwatch: amplía tu hero pool sin cambiar a ciegas',
   seoDescription: 'Cómo jugar flex en Overwatch: preparar alternativas por rol, distinguir un mal pick de un mal engage y decidir cuándo cambiar de héroe. Ejemplos y VOD.',
   h1: 'Jugar flex en Overwatch: cambia con un motivo, no por cada muerte',
@@ -48,7 +48,7 @@ export const flexRoleGuide = {
     {
       id: 'cambio-y-equipo', title: 'El nuevo pick cambia también lo que necesita el equipo',
       paragraphs: [
-        'Si cambias de Reinhardt a Winston, no sigas pidiendo que los cinco caminen detrás de ti como en la pelea anterior. Prepara el destino del salto y mira qué DPS puede presionar allí. Si cambias de Genji a Cassidy, busca una línea de tiro desde la que aportar antes del contacto, en vez de repetir la misma ruta profunda sin la movilidad que tenías.',
+        'Si cambias de Reinhardt a Winston, no sigas pidiendo que todo el grupo camine detrás de ti como en la pelea anterior. Prepara el destino del salto y mira qué DPS puede presionar allí. Si cambias de Genji a Cassidy, busca una línea de tiro desde la que aportar antes del contacto, en vez de repetir la misma ruta profunda sin la movilidad que tenías.',
         'Comunica una intención sencilla: «voy a disputar esa altura» o «me quedo cerca para ayudar contra Tracer». Eso permite ajustar posiciones aunque nadie responda por voz. Cambiar el retrato sin cambiar el plan suele mantener el mismo problema con cooldowns distintos.',
       ],
     },
@@ -82,7 +82,7 @@ export const flexRoleGuide = {
   ],
   links: [
     { href: '/guides/cuando-cambiar-de-heroe-overwatch', label: 'Decidir cuándo merece la pena cambiar' },
-    { href: '/guides/como-mejorar-en-overwatch-revisando-vod', label: 'Comparar peleas en una VOD' },
+    { href: '/guides/review-vod-overwatch-espanol', label: 'Comparar peleas en una VOD' },
     { href: '/maps/watchpoint-gibraltar', label: 'Rutas y alturas en Gibraltar' },
     { href: '/maps/kings-row', label: 'Preparar los cruces de King’s Row' },
     { href: '/guides/como-revisar-cooldowns-overwatch', label: 'Entender qué recurso faltó antes del swap' },

@@ -124,9 +124,12 @@
       "sourceVersion": "4c93354f8fe655924fc207425833081b4dc63c77a3dec79485bd498085d061cd",
       "initialReviewState": "current-static-review",
       "initialBlocker": "Artículo revisado; indexación y anuncios pendientes de publicación individual",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-flex-moira-reaper-2026-10-28.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "4c93354f8fe655924fc207425833081b4dc63c77a3dec79485bd498085d061cd",
+      "correction": "Texto y fecha 2026-10-02 conservados después de releer y contrastar fuentes; habilitación individual pendiente de despliegue."
     },
     {
       "path": "/counters/reaper",
@@ -139,9 +142,12 @@
       "sourceVersion": "fd28d5dabb92746683d18ffe3440b622c6ef910bfc16c9e2c2516151a32a1860",
       "initialReviewState": "current-static-review",
       "initialBlocker": "Artículo revisado; indexación y anuncios pendientes de publicación individual",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-flex-moira-reaper-2026-10-28.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "fd28d5dabb92746683d18ffe3440b622c6ef910bfc16c9e2c2516151a32a1860",
+      "correction": "Texto y fecha 2026-10-02 conservados después de releer y contrastar fuentes; habilitación individual pendiente de despliegue."
     },
     {
       "path": "/counters/sierra",
@@ -3030,9 +3036,12 @@
       "sourceVersion": "7acd8531df8f814f0272e7206c8bac30ef08886d5ca3b98218c017743ab78d78",
       "initialReviewState": "current-static-review",
       "initialBlocker": "Guía de selección flexible; publicación individual pendiente",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-flex-moira-reaper-2026-10-28.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "41f1fa6fb679925e67f2a9dc8f5c27973ecfad3e7ac60a9691166304932a8892",
+      "correction": "Sustituida la referencia a cinco compañeros por todo el grupo; enlace VOD directo al canonical; fecha de contenido 2026-10-28."
     },
     {
       "path": "/team-comps/anran",
@@ -3576,8 +3585,8 @@
     }
   ],
   "progress": {
-    "reviewed": 2,
+    "reviewed": 5,
     "publishedAndVerified": 2,
-    "pending": 138
+    "pending": 135
   }
 }
