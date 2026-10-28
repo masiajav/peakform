@@ -43,4 +43,6 @@ Se completa la revisión de las cuatro URLs, incluidos texto, fuentes, equipos, 
 
 Evidencia: [guías y composiciones de Moira y Reaper](indexing-review-moira-reaper-guides-comps-2026-10-28.md). Pasan lint, 704 pruebas unitarias, build y 22 casos finales de navegador, además de ocho casos previos sobre las páginas aún excluidas. Los anuncios no cambian.
 
-Antes del despliegue: **9 artículos revisados, 5 habilitados y verificados públicamente; 4 pendientes de comprobación pública; 131 pendientes de revisión**. Continúan los demás counters, composiciones, guías y mapas, con una decisión individual. El objetivo global sigue activo.
+Despliegue `0e0a134` completado y verificado. Las doce respuestas públicas y el alias 308 son correctos, y pasan otros ocho casos de navegador contra producción. Estado: **9 artículos revisados, habilitados y verificados públicamente de 140; 131 pendientes**.
+
+Siguiente trabajo iniciado: lectura completa de counter, guía y composiciones de Brigitte, con consulta de su ficha oficial actual. Siguen sin aprobarse: falta comprobar las demás fuentes, el vídeo incorporado en la guía, enlaces y presentación final. En el counter conviene precisar que Inspiring Strike modifica velocidad e Inspire al usar Bash, sin insinuar reducción de su cooldown. Las tres versiones leídas quedan anotadas en el registro para continuar desde esa evidencia. Después siguen los demás counters, composiciones, guías y mapas. El objetivo global sigue activo.

@@ -51,7 +51,12 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "104127ea8e01da12f056f5a103a20257dd70d627f4d078e0cc8bc5d0befc873f",
+        "note": "Lectura inicial completa del texto y consulta de la ficha oficial actual de Brigitte (source-brigitte.html y brigitte-source.json). Falta completar el contraste de fuentes de los demás héroes, comprobar enlaces y página final en móvil/escritorio; en la guía, comprobar el vídeo que pueda incorporar el alias. En el counter, precisar la referencia a velocidad o recuperación: Inspiring Strike añade velocidad tras Bash y curación instantánea de Inspire activada por Bash; no se debe insinuar reducción de su cooldown. No aprobada."
+      }
     },
     {
       "path": "/counters/echo",
@@ -1439,7 +1444,12 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "999054566142f82dc3bfbdcccadfd622db36e42bcd76e1a1bd8e3e3d4355679c",
+        "note": "Lectura inicial completa del texto y consulta de la ficha oficial actual de Brigitte (source-brigitte.html y brigitte-source.json). Falta completar el contraste de fuentes de los demás héroes, comprobar enlaces y página final en móvil/escritorio; en la guía, comprobar el vídeo que pueda incorporar el alias. En el counter, precisar la referencia a velocidad o recuperación: Inspiring Strike añade velocidad tras Bash y curación instantánea de Inspire activada por Bash; no se debe insinuar reducción de su cooldown. No aprobada."
+      }
     },
     {
       "path": "/guides/brigitte-guia-video-overwatch",
@@ -1958,12 +1968,30 @@
       "sourceVersion": "3639400988bad3ad9d9ee2729e4761167f5dd5759e2dc3b5eb9185368d2dc534",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-moira-reaper-guides-comps-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/moira-guia-overwatch-recursos-supervivencia",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "d0104c9f2f247aca7b94e5951dfddca85d9a44140b39b3ecf875a51499b443a2",
+        "valid": true,
+        "expectedDatePresent": true,
+        "videoMatches": true,
+        "originalPublicationPresent": true,
+        "checkedAt": "2026-10-28T18:06:56.025Z",
+        "commit": "0e0a134d45db76c6885903cc5bd41c676e01dcee",
+        "browserChecks": "8 production cases passed: four articles on desktop/mobile, complete visible text, video identity and play button, context, FAQ, links, dates, metadata, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "a63050b34a4fcf1c4ac8daf43cf3e4aa20249ab2708c325ffcd8317272d46117",
-      "correction": "Añadido contexto del vídeo de 2025 y revisión de su integración y metadatos; fechas originales conservadas.",
+      "correction": "Añadido contexto de los vídeos de 2025 y revisión de su integración y metadatos; primera publicación y fecha del vídeo conservadas; revisión del contenido 2026-10-28.",
       "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "3639400988bad3ad9d9ee2729e4761167f5dd5759e2dc3b5eb9185368d2dc534",
@@ -2087,12 +2115,30 @@
       "sourceVersion": "3863bd408543b49d1826ebb1dbe9d6c9b8d8142e2a0ebd22799bcda5013fe9fe",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-moira-reaper-guides-comps-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/reaper-guia-video-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "98e2588502bdc752b6c470260e607b1746f632c0cce294c5ec357036fc3652e0",
+        "valid": true,
+        "expectedDatePresent": true,
+        "videoMatches": true,
+        "originalPublicationPresent": true,
+        "checkedAt": "2026-10-28T18:06:56.025Z",
+        "commit": "0e0a134d45db76c6885903cc5bd41c676e01dcee",
+        "browserChecks": "8 production cases passed: four articles on desktop/mobile, complete visible text, video identity and play button, context, FAQ, links, dates, metadata, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "4749717014f6f6f7468bf04440fa48fa122de8ee163486e53cf41745b7ede540",
-      "correction": "Añadido contexto del vídeo de 2025 y revisión de su integración y metadatos; fechas originales conservadas.",
+      "correction": "Añadido contexto de los vídeos de 2025 y revisión de su integración y metadatos; primera publicación y fecha del vídeo conservadas; revisión del contenido 2026-10-28.",
       "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "3863bd408543b49d1826ebb1dbe9d6c9b8d8142e2a0ebd22799bcda5013fe9fe",
@@ -3182,7 +3228,12 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-28",
+        "textVersion": "184d026ebabdd86591916a8c8faff1db9798ee4856fc7b5883c28f3373a713a7",
+        "note": "Lectura inicial completa del texto y consulta de la ficha oficial actual de Brigitte (source-brigitte.html y brigitte-source.json). Falta completar el contraste de fuentes de los demás héroes, comprobar enlaces y página final en móvil/escritorio; en la guía, comprobar el vídeo que pueda incorporar el alias. En el counter, precisar la referencia a velocidad o recuperación: Inspiring Strike añade velocidad tras Bash y curación instantánea de Inspire activada por Bash; no se debe insinuar reducción de su cooldown. No aprobada."
+      }
     },
     {
       "path": "/team-comps/echo",
@@ -3420,9 +3471,25 @@
       "sourceVersion": "4f390b42c8d7c0e9f7ba37c17e93425d7039c4c51e402aeb937df335ae7554e4",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-moira-reaper-guides-comps-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/moira",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "672d1f9d660de625a9cb17475fa198220e9a87327cf7efa582df9d2864f7bb71",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-28T18:06:56.025Z",
+        "commit": "0e0a134d45db76c6885903cc5bd41c676e01dcee",
+        "browserChecks": "8 production cases passed: four articles on desktop/mobile, complete visible text, video identity and play button, context, FAQ, links, dates, metadata, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "4f390b42c8d7c0e9f7ba37c17e93425d7039c4c51e402aeb937df335ae7554e4",
       "correction": "Texto y fecha conservados tras la revisión individual; habilitación explícita de esta composición."
@@ -3483,9 +3550,25 @@
       "sourceVersion": "97dc02bae9e1a90402b364e1652930ad4b7532efca82cd1f899b9d25505de0a4",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-moira-reaper-guides-comps-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/reaper",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "459d46e411fcfb722954327b99f148d64177881503e6ac3fc359aa4a031262bf",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-28T18:06:56.025Z",
+        "commit": "0e0a134d45db76c6885903cc5bd41c676e01dcee",
+        "browserChecks": "8 production cases passed: four articles on desktop/mobile, complete visible text, video identity and play button, context, FAQ, links, dates, metadata, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "97dc02bae9e1a90402b364e1652930ad4b7532efca82cd1f899b9d25505de0a4",
       "correction": "Texto y fecha conservados tras la revisión individual; habilitación explícita de esta composición."
@@ -3658,7 +3741,7 @@
   ],
   "progress": {
     "reviewed": 9,
-    "publishedAndVerified": 5,
+    "publishedAndVerified": 9,
     "pending": 131
   }
 }
