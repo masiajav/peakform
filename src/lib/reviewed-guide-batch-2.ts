@@ -359,8 +359,14 @@ No. Elige cuándo asomarte según cobertura, información y presión del equipo.
 Compara tus líneas con [Circuit Royal](/maps/circuit-royal) y [Gibraltar](/maps/watchpoint-gibraltar). Para decidir si el problema es el pick o la posición, consulta [cuándo cambiar de héroe](/guides/cuando-cambiar-de-heroe-overwatch).`,
   },
   'brigitte-guia-overwatch-peel-anti-dive': {
+    renderedContentVersion: 'a06809a0b6c44cb2b654dab00c0a547b902db51e19fb5cf5a1b1b816e7d27831',
+    reviewedVideo: {
+      video_id: 'sv-1GxJ_eVY', video_url: 'https://www.youtube.com/watch?v=sv-1GxJ_eVY', video_platform: 'youtube',
+      video_title: "How to ACTUALLY Play Brigitte | A Top500's COMPLETE Guide", video_channel: 'JeffyJA', video_language: 'en', video_published_at: '2025-07-03',
+    },
+    videoDescription: 'Vídeo en inglés de JeffyJA, publicado el 3 de julio de 2025. Sus capítulos separan packs, Whip Shot, Bash, Inspire y la ultimate. Puedes usarlos para comparar el orden de tus recursos con el texto de esta guía. Los valores y las mejoras de una grabación de 2025 pueden diferir de los actuales.',
     hero: 'brigitte',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-28',
     videoSlug: 'brigitte-guia-video-overwatch',
     title: 'Cómo jugar Brigitte: proteger la backline sin perseguir el dive',
     description: 'Usa Whip Shot, Repair Pack y Shield Bash para proteger a tus supports con Brigitte. Posicionamiento contra dive, decisiones de Rally y revisión de VOD.',

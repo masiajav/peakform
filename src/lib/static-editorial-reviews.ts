@@ -710,6 +710,27 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-moira-reaper-guides-comps-2026-10-28.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/brigitte-guia-overwatch-peel-anti-dive': {
+    path: '/guides/brigitte-guia-overwatch-peel-anti-dive',
+    version: '98b8fda4f41302c5b81cc7403947e71886f1e853a0a16a820908e6af89f3ce4e',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-brigitte-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/counters/brigitte': {
+    path: '/counters/brigitte',
+    version: '9d15ec323e4d60a69270c7ef2578aad5fd2900bc3d7cb7614fa28a9bdba91cf6',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-brigitte-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/brigitte': {
+    path: '/team-comps/brigitte',
+    version: '184d026ebabdd86591916a8c8faff1db9798ee4856fc7b5883c28f3373a713a7',
+    reviewedAt: '2026-10-28', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-brigitte-2026-10-28.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/zarya': {
     path: '/team-comps/zarya',
     version: '40de9429f726f9396cb6d2c3aa44d8eca29c9b77c5b7eeac49598631fa1b35a6',

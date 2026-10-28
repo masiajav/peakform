@@ -155,9 +155,9 @@ describe('static topic publication checks', () => {
       expect(topicQualityDecision(kind, 'ana')).toMatchObject({ indexable: true, adsAllowed: false })
       expect(editorialTopicQualityDecision(kind, 'ana', { ...article, h1: 'Changed' }).indexable).toBe(false)
       expect(editorialTopicQualityDecision(kind, 'ana', { ...article, links: [] }).indexable).toBe(false)
-      const unlisted = getArticle('brigitte')!
-      approve(`/${prefix}/brigitte`, unlisted)
-      expect(editorialTopicQualityDecision(kind, 'brigitte', unlisted).indexable).toBe(false)
+      const unlisted = getArticle('ashe')!
+      approve(`/${prefix}/ashe`, unlisted)
+      expect(editorialTopicQualityDecision(kind, 'ashe', unlisted).indexable).toBe(false)
     })
     it(`${kind} still rejects incomplete or internal text even with a matching test review`, () => {
       for (const article of [

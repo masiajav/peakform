@@ -1948,7 +1948,7 @@ export const reviewedCounters: Record<string, CounterPillar> = {
   },
   brigitte: {
     slug: 'brigitte', name: 'Brigitte', role: 'Support',
-    updatedAt: '2 de octubre de 2026', schemaDate: '2026-10-02',
+    updatedAt: '28 de octubre de 2026', schemaDate: '2026-10-28',
     reviewedPatch: 'Kit de ranked; Whip Shot, Repair Pack y Rally',
     seoTitle: 'Counters de Brigitte: cómo superar su peel sin regalar el dive',
     seoDescription: 'Juega contra Brigitte con presión a distancia, entradas por dos lados y seguimiento. Cuándo castigar Bash, cómo responder a Rally y qué revisar en tu VOD.',
@@ -1986,7 +1986,7 @@ export const reviewedCounters: Record<string, CounterPillar> = {
     ],
     cooldownWindows: [
       { title: 'Whip Shot acaba de fallar', body: 'Puede abrir una entrada, pero solo si tu equipo está en posición para seguirla. Avisa antes del salto y elige qué objetivo queréis presionar. Si nadie puede llegar, usa la ventana para ganar altura o acercarte a otro ángulo. Saltar tarde, cuando Brig ya ha recuperado su respuesta, no aprovecha el fallo que acababas de ver.' },
-      { title: 'Bash la deja por delante de su equipo', body: 'Brig ha usado movilidad para acercarse y ahora necesita volver por una ruta que puedes vigilar. Castiga esa exposición con el grupo. No presupongas que tiene la misma velocidad o recuperación en todas las partidas: Inspiring Strike es un perk opcional. Mirar dónde termina Bash aporta más que contar con un duelo ganador por defecto.' },
+      { title: 'Bash la deja por delante de su equipo', body: 'Brig ha usado movilidad para acercarse y ahora necesita volver por una ruta que puedes vigilar. Castiga esa exposición con el grupo. Inspiring Strike es un perk opcional que le da velocidad al usar Bash y vuelve instantánea la curación de Inspire cuando Bash la activa. Comprueba su vida y su posición después del impacto; la mejora no acorta el cooldown de Bash. Mirar dónde termina aporta más que contar con un duelo ganador por defecto.' },
       { title: 'Los packs van al frente', body: 'Cuando Brig dedica Repair Pack al Tank o a un DPS adelantado, puede tener menos margen para sostener al compañero que vais a saltar. No puedes saber su reserva exacta por ver un único pack. Combina esa señal con la vida del objetivo, el segundo Support y la presión que vuestro frente puede mantener.' },
       { title: 'Rally refuerza la posición que quiere defender', body: 'Si no tienes obligación de tocar, puedes ceder una esquina y seguir disparando desde fuera del contacto cercano. Si el objetivo exige pelear, prepara el daño desde otro lado y una defensa para sobrevivir al avance. No asumas que activar vuestra ultimate ofensiva elimina su protección: revisa quién puede aprovecharla mientras Rally sigue activo.' },
     ],

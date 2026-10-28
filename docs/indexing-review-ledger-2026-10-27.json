@@ -49,10 +49,13 @@
       "sourceVersion": "104127ea8e01da12f056f5a103a20257dd70d627f4d078e0cc8bc5d0befc873f",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-brigitte-2026-10-28.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "9d15ec323e4d60a69270c7ef2578aad5fd2900bc3d7cb7614fa28a9bdba91cf6",
+      "correction": "Precisados los efectos de Inspiring Strike sobre velocidad e Inspire, sin insinuar reducción del cooldown de Bash; fecha de contenido 2026-10-28.",
+      "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "104127ea8e01da12f056f5a103a20257dd70d627f4d078e0cc8bc5d0befc873f",
         "note": "Lectura inicial completa del texto y consulta de la ficha oficial actual de Brigitte (source-brigitte.html y brigitte-source.json). Falta completar el contraste de fuentes de los demás héroes, comprobar enlaces y página final en móvil/escritorio; en la guía, comprobar el vídeo que pueda incorporar el alias. En el counter, precisar la referencia a velocidad o recuperación: Inspiring Strike añade velocidad tras Bash y curación instantánea de Inspire activada por Bash; no se debe insinuar reducción de su cooldown. No aprobada."
@@ -1442,14 +1445,18 @@
       "sourceVersion": "999054566142f82dc3bfbdcccadfd622db36e42bcd76e1a1bd8e3e3d4355679c",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-brigitte-2026-10-28.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "98b8fda4f41302c5b81cc7403947e71886f1e853a0a16a820908e6af89f3ce4e",
+      "correction": "Vídeo original conservado y contrastado; añadido contexto de 2025 y huella del contenido incorporado. Primera publicación conservada; revisión de contenido 2026-10-28.",
+      "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "999054566142f82dc3bfbdcccadfd622db36e42bcd76e1a1bd8e3e3d4355679c",
         "note": "Lectura inicial completa del texto y consulta de la ficha oficial actual de Brigitte (source-brigitte.html y brigitte-source.json). Falta completar el contraste de fuentes de los demás héroes, comprobar enlaces y página final en móvil/escritorio; en la guía, comprobar el vídeo que pueda incorporar el alias. En el counter, precisar la referencia a velocidad o recuperación: Inspiring Strike añade velocidad tras Bash y curación instantánea de Inspire activada por Bash; no se debe insinuar reducción de su cooldown. No aprobada."
-      }
+      },
+      "reviewedRenderedVersion": "a06809a0b6c44cb2b654dab00c0a547b902db51e19fb5cf5a1b1b816e7d27831"
     },
     {
       "path": "/guides/brigitte-guia-video-overwatch",
@@ -3226,10 +3233,13 @@
       "sourceVersion": "184d026ebabdd86591916a8c8faff1db9798ee4856fc7b5883c28f3373a713a7",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-brigitte-2026-10-28.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-28",
+      "reviewedVersion": "184d026ebabdd86591916a8c8faff1db9798ee4856fc7b5883c28f3373a713a7",
+      "correction": "Texto y fecha 2026-10-02 conservados tras revisar equipos, decisiones, FAQ y fuentes.",
+      "initialPartialReview": {
         "readAt": "2026-10-28",
         "textVersion": "184d026ebabdd86591916a8c8faff1db9798ee4856fc7b5883c28f3373a713a7",
         "note": "Lectura inicial completa del texto y consulta de la ficha oficial actual de Brigitte (source-brigitte.html y brigitte-source.json). Falta completar el contraste de fuentes de los demás héroes, comprobar enlaces y página final en móvil/escritorio; en la guía, comprobar el vídeo que pueda incorporar el alias. En el counter, precisar la referencia a velocidad o recuperación: Inspiring Strike añade velocidad tras Bash y curación instantánea de Inspire activada por Bash; no se debe insinuar reducción de su cooldown. No aprobada."
@@ -3740,8 +3750,8 @@
     }
   ],
   "progress": {
-    "reviewed": 9,
+    "reviewed": 12,
     "publishedAndVerified": 9,
-    "pending": 131
+    "pending": 128
   }
 }

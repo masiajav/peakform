@@ -1,0 +1,31 @@
+# Revisión individual de Brigitte: guía, counters y composiciones
+
+Revisión del 28 de octubre de 2026, por Codex. Las tres URLs pertenecen al inventario original de 140 artículos canónicos excluidos. La lectura completa se inició en el lote anterior; antes de editar se comprueba que los modelos actuales coinciden con los leídos. No se concede aprobación a los artículos restantes.
+
+| URL | Lectura y utilidad | Corrección y fechas | Versión revisada |
+| --- | --- | --- | --- |
+| `/guides/brigitte-guia-overwatch-peel-anti-dive` | Texto completo sobre aliado a proteger, accesos, Inspire, packs, destino de Bash, Rally, VOD y tres FAQ. El texto español desarrolla decisiones propias y no depende del vídeo. Se comprueba también el vídeo incorporado desde el alias. | Contexto visible para el vídeo de JeffyJA de 2025 y su diferencia con el kit actual. Vídeo, autoría y fecha originales conservados. Primera publicación del artículo: 5 de mayo de 2026; revisión del contenido: 28 de octubre. | `98b8fda4f41302c5b81cc7403947e71886f1e853a0a16a820908e6af89f3ce4e` |
+| `/counters/brigitte` | Se leen introducción, resumen, cuatro matchups, ventanas, adaptaciones, errores, tres ejemplos, checklist y tres FAQ. El argumento es dividir su atención y aprovechar posición, sin perseguirla hasta el melee ni prometer counters automáticos. | Se sustituye la expresión ambigua «velocidad o recuperación» por los efectos precisos de Inspiring Strike sobre velocidad e Inspire. Se aclara que no acorta la recarga de Bash. Fecha del contenido: 28 de octubre. | `9d15ec323e4d60a69270c7ef2578aad5fd2900bc3d7cb7614fa28a9bdba91cf6` |
+| `/team-comps/brigitte` | Se leen todas las secciones y los cinco argumentos de cada equipo. Ana y Zenyatta requieren posiciones defendibles; las variantes 5v5 y 6v6 reparten seguimiento, packs, rotaciones y peel, sin prometer sostener todo el daño del frente. | No hace falta reescribir el contenido contrastado. Texto y fecha del 2 de octubre conservados. La revisión actual se registra por separado. | `184d026ebabdd86591916a8c8faff1db9798ee4856fc7b5883c28f3373a713a7` |
+
+## Exactitud y fuentes
+
+Se lee la ficha oficial actual de [Brigitte](https://overwatch.blizzard.com/en-gb/heroes/brigitte/), incluidas habilidades y perks anteriores a Stadium. Whip Shot desplaza, Bash requiere escudo, Repair Pack cura a un aliado e Inspire depende de hacer daño. Rally refuerza la protección y aporta salud adicional a aliados cercanos; no se presenta como invulnerabilidad ni limpieza. Inspiring Strike añade velocidad tras Bash y vuelve instantánea la curación de Inspire que Bash active. Se distingue del minor Combat Medic, que afecta a Repair Pack, y de los poderes de Stadium. No se inventan cifras o recargas para el artículo.
+
+Para los matchups y equipos se descargan completas las fichas oficiales de [Echo](https://overwatch.blizzard.com/en-gb/heroes/echo/), [Junkrat](https://overwatch.blizzard.com/en-gb/heroes/junkrat/), [Pharah](https://overwatch.blizzard.com/en-gb/heroes/pharah/), [Sigma](https://overwatch.blizzard.com/en-gb/heroes/sigma/) y [Zenyatta](https://overwatch.blizzard.com/en-gb/heroes/zenyatta/), leyendo sus habilidades. Se contrastan bombas, remate, vuelo, rebotes, presión a distancia y Discord. Las habilidades básicas de Ana, Winston, D.Va, Genji, Tracer, Ashe, Cassidy, Kiriko, Baptiste y Sojourn ya se habían contrastado en los lotes anteriores del 27 y 28 de octubre. Las composiciones son ejemplos condicionados por cobertura, ayuda, timing y formato, con equipos válidos y sin duplicados.
+
+El [vídeo de JeffyJA](https://www.youtube.com/watch?v=sv-1GxJ_eVY) y su respuesta oficial oEmbed devuelven HTTP 200; el reproductor informa `playability: OK`. Título, autor y día de publicación coinciden con la fuente: 3 de julio de 2025. Se leen la descripción y los capítulos separados por habilidades. No se afirma haber visto íntegramente la grabación ni se usa su título promocional para probar el balance actual. El contexto visible permite elegir una sección y advierte de la antigüedad de los valores y mejoras.
+
+La guía mantiene la misma fuente del alias `brigitte-guia-video-overwatch`. Su revisión incluye la identidad del vídeo y la huella completa del resultado incorporado, `a06809a0b6c44cb2b654dab00c0a547b902db51e19fb5cf5a1b1b816e7d27831`. Un cambio de vídeo, atribución u otros metadatos renderizados invalida la revisión. Se conserva el registro histórico y su versión inicial.
+
+## Enlaces, presentación y publicación
+
+La copia aislada parte de `01abb44` y excluye los cambios ajenos de mapas, Deadlock y tsconfig. Antes de editar pasan seis casos de navegador, tres páginas por dos dispositivos, con enlaces internos HTTP 200, FAQ, fechas, metadatos, imágenes y ausencia de overflow y anuncios. Se inspeccionan las capturas completas de escritorio y las cabeceras móviles. Las pruebas finales comprobarán todo el texto de los tres artículos y el reproductor disponible, además del sitemap.
+
+Solo Brigitte se añade a las listas explícitas de counters y composiciones; la guía exige su nueva revisión exacta. Los controles negativos pasan a otros artículos que siguen pendientes, como Ashe y Echo. No se modifica la activación de anuncios y las tres decisiones mantienen `adsAllowed: false`.
+
+Fuentes y modelos públicos: `reports/indexing-review-2026-10-27/batch-four/`, `brigitte-source.json` y `source-brigitte.html`. Capturas y logs: `reports/indexing-review-2026-10-27/release-batch-four/`.
+
+Validación local final: lint, 704 pruebas unitarias y build correctos. Pasan diez casos de navegador para las tres páginas y la publicación de counters y composiciones, además de otros seis sobre las guías de Moira y Reaper y el modo de revisión de anuncios de ambos juegos. El texto completo, la corrección de Inspiring Strike, contexto y botón de reproducción, FAQ, imágenes, enlaces, metadatos, fechas y sitemap coinciden con las versiones revisadas. Se inspecciona la captura final de la guía con su nuevo contexto y reproductor cargado.
+
+Despliegue y comprobación pública pendientes al preparar este registro. Estado del objetivo: 12 revisados, nueve verificados públicamente y tres esperando despliegue; 128 pendientes de revisión.

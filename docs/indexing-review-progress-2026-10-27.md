@@ -45,4 +45,12 @@ Evidencia: [guías y composiciones de Moira y Reaper](indexing-review-moira-reap
 
 Despliegue `0e0a134` completado y verificado. Las doce respuestas públicas y el alias 308 son correctos, y pasan otros ocho casos de navegador contra producción. Estado: **9 artículos revisados, habilitados y verificados públicamente de 140; 131 pendientes**.
 
-Siguiente trabajo iniciado: lectura completa de counter, guía y composiciones de Brigitte, con consulta de su ficha oficial actual. Siguen sin aprobarse: falta comprobar las demás fuentes, el vídeo incorporado en la guía, enlaces y presentación final. En el counter conviene precisar que Inspiring Strike modifica velocidad e Inspire al usar Bash, sin insinuar reducción de su cooldown. Las tres versiones leídas quedan anotadas en el registro para continuar desde esa evidencia. Después siguen los demás counters, composiciones, guías y mapas. El objetivo global sigue activo.
+El siguiente trabajo iniciado fue la lectura completa de counter, guía y composiciones de Brigitte. Sus tres versiones y la comprobación inicial de la ficha oficial quedaron anotadas para continuar en el lote siguiente.
+
+## Cuarto lote: Brigitte
+
+Se completa la revisión individual de guía, counter y composiciones. El counter precisa los efectos de Inspiring Strike sin insinuar una reducción de recarga de Bash. La guía conserva el vídeo de JeffyJA y añade su contexto de 2025; la revisión vincula los metadatos y medios incorporados. Las composiciones conservan contenido y fecha tras comprobar equipos, decisiones y fuentes.
+
+Evidencia: [revisión de Brigitte](indexing-review-brigitte-2026-10-28.md). Pasan lint, 704 pruebas unitarias, build y 16 casos finales de navegador, además de seis casos previos sobre las páginas aún excluidas. Los controles negativos se conservan en otras URLs pendientes y no cambia la activación de anuncios.
+
+Antes del despliegue: **12 artículos revisados, nueve habilitados y verificados públicamente; tres esperando comprobación pública; 128 pendientes de revisión**. Continúan los demás artículos del inventario. El objetivo global sigue activo.
