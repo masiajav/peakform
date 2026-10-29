@@ -61,6 +61,7 @@ describe('individual publication of repository-owned guide revisions', () => {
       ['doomfist-guia-overwatch-entradas-cooldowns', 'doomfist', 'tank', ['doomfist', 'tank', 'dive', 'cooldowns', '6v6']],
       ['roadhog-guia-video-overwatch', 'roadhog', 'tank', ['roadhog', 'tank', 'video', 'youtube', '6v6', 'overwatch']],
       ['anran-guia-video-overwatch', 'anran', 'dps', ['anran', 'dps', 'video', 'youtube', '6v6', 'overwatch']],
+      ['baptiste-guia-overwatch-lamp-window', 'baptiste', 'support', ['baptiste', 'support', 'lamp', 'matrix', '6v6']],
     ] as const) {
       const revision = reviewedGuideRevisions[slug]
       const raw = { slug, hero, role, tags: [...tags], published: true, created_at: '2026-05-05' }

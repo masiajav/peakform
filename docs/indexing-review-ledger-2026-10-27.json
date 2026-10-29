@@ -1607,9 +1607,29 @@
       "sourceVersion": "6c905e25e270a865b000bbdbed699bb8bf82016bcbc12e787f5d524e0060cd68",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-sombra-anran-guides-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/anran-guia-video-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "af18fec665f356fd5d9449d9169d399c43d3da212f0c01d7fb8156e6fbe76808",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-29T18:30:07.638Z",
+        "commit": "ff66665c7b2485124e37c2e404af1784c90fa91f",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/BLcaNpMr319N3VwhiMjwM39umimL",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "fbae1cec3f0112f3ed4ce83402148441bb5e04b1f29d90a7aa950e812599e24b",
       "reviewedRenderedVersion": "69740c93dc08a46fc34d30f33ffd612f632a56e4ae0e4de0a70804ae6014ef4a",
@@ -1699,14 +1719,18 @@
       "sourceVersion": "e4b6029bc02c3544dc32f564b15971e1aa397944349d245a0ab4df01d0bf283e",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-baptiste-2026-10-29.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "9929a028aeba2ac0a229f9f8801953e3d8fe8dc18766e507a5bc2e76304b9d51",
+      "correction": "Se corrige el título conocido del vídeo de LeonDrummer y se contextualiza su versión del 14 de octubre de 2022. Se añaden decisiones de Expanded Field, Assault Burst personal y alternativas Automated Healing/Rocket Boots, sin prometer curación al saltar ni gastar Lamp para activarla. Cuerpo y medios incorporados desde alias vinculados; primera publicación conservada y revisión del contenido 2026-10-29.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "e4b6029bc02c3544dc32f564b15971e1aa397944349d245a0ab4df01d0bf283e",
         "note": "Lectura completa de línea de curación y daño, alturas y salida, prioridades y trayectoria de granadas, Lamp protegida y seguimiento, reparto de Burst/Lamp, Boots con destino, Window con tiros y recursos, VOD, tres FAQ y enlaces. Fila pública y modelo coinciden con el inventario. Ficha oficial confirma Expanded Field/Assault Burst minor y Automated Healing/Rocket Boots major. Vídeo incorporado desde alias confirmado: LeonDrummer, 2022-10-14, playability OK, título real Guía básica: Baptiste | Overwatch 2. Descripción leída sin capítulos, 401 segundos. Faltan título conocido, contexto de antigüedad, perks actuales, versión con medios, enlaces y presentación final. No aprobada."
-      }
+      },
+      "reviewedRenderedVersion": "8e115c0e51304e32670920969a2eb7e5d741f7ae261e19d5e747693b9d727eb2"
     },
     {
       "path": "/guides/baptiste-guia-video-overwatch",
@@ -3028,9 +3052,29 @@
       "sourceVersion": "7e0512b62aba03df0a2252b6894b152993dbda1bb297b7aa6297b91e145ef35b",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-sombra-anran-guides-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/sombra-guia-video-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "680013f7621620084f5d80dfaf96f0aaf0b245e082a452c9feb9971d8d136f4f",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-29T18:30:07.638Z",
+        "commit": "ff66665c7b2485124e37c2e404af1784c90fa91f",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/BLcaNpMr319N3VwhiMjwM39umimL",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "e67f7a0c99c988bc37888ca19a330bd6a84b1e08b65c1c2b1658706a7b1d0e1d",
       "reviewedRenderedVersion": "dc2902c2ac02844dd6bc5e3aa07937bbbb9db8118fc100d4a936adf752300858",
@@ -4146,10 +4190,13 @@
       "sourceVersion": "614db014ddc3f380e601b7a6929570da0e14309846f9422529cd0977c117e38f",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-baptiste-2026-10-29.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "614db014ddc3f380e601b7a6929570da0e14309846f9422529cd0977c117e38f",
+      "correction": "Texto y fecha 2026-10-02 conservados después de leer y contrastar cada equipo, roles, formatos, limitaciones de Lamp, seguimiento, rotaciones, ejemplos y FAQ. Todos los enlaces y párrafos verificados en navegador, con presentación móvil y escritorio. No se inventa primera fecha de publicación.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "614db014ddc3f380e601b7a6929570da0e14309846f9422529cd0977c117e38f",
         "note": "Lectura completa de equipos Sigma/Ashe/Sojourn/Zenyatta, Reinhardt/Mei/Cassidy/Lúcio y Sigma/D.Va/Ashe/Soldier/Brigitte en 6v6; todos los argumentos, responsabilidades, rotaciones, debilidades, ejemplos, checklist, tres FAQ y enlaces. Modelo actual coincide con el inventario. La ficha oficial confirma kit, Lamp destructible sin limpieza y Rocket Boots como perk opcional tras Exo Boots. Roles y formatos coherentes; Soldier: 76 ya se reconoce con el validador corregido. Faltan enlaces, presentación y versión final. No aprobada."
@@ -5131,8 +5178,8 @@
     }
   ],
   "progress": {
-    "reviewed": 60,
-    "publishedAndVerified": 58,
-    "pending": 80
+    "reviewed": 62,
+    "publishedAndVerified": 60,
+    "pending": 78
   }
 }

@@ -1074,4 +1074,18 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/content-review-comps-tracer-zarya-2026-10-05.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/baptiste-guia-overwatch-lamp-window': {
+    path: '/guides/baptiste-guia-overwatch-lamp-window',
+    version: '9929a028aeba2ac0a229f9f8801953e3d8fe8dc18766e507a5bc2e76304b9d51',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-baptiste-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/baptiste': {
+    path: '/team-comps/baptiste',
+    version: '614db014ddc3f380e601b7a6929570da0e14309846f9422529cd0977c117e38f',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-baptiste-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
 }

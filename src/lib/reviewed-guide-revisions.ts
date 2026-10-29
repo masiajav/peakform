@@ -411,6 +411,14 @@ Para practicar estos ángulos, consulta [Midtown](/maps/midtown). Si te cuesta d
     description: 'Guía de Baptiste para alternar daño y curación, colocar Immortality Field con cobertura, usar Exo Boots y preparar Amplification Matrix.',
     quickAnswer: 'Baptiste necesita una posición desde la que sus granadas lleguen al equipo y pueda disparar sin perderlo de vista. Usa Lamp para impedir una muerte concreta y colócala donde el rival no pueda destruirla fácilmente. La Window vale cuando tú o tus aliados ya tenéis un disparo útil, no cuando obliga a todos a recolocarse bajo fuego.',
     videoSlug: 'baptiste-guia-video-overwatch',
+    renderedContentVersion: '8e115c0e51304e32670920969a2eb7e5d741f7ae261e19d5e747693b9d727eb2',
+    revisedAt: '2026-10-29',
+    sourceVideoTitle: 'Guia basica: Baptiste | Overwatch',
+    reviewedVideo: {
+      video_id: '2QTnQGpyUVc', video_url: 'https://www.youtube.com/watch?v=2QTnQGpyUVc', video_platform: 'youtube',
+      video_title: 'Guía básica: Baptiste | Overwatch 2', video_channel: 'LeonDrummer', video_language: 'es', video_published_at: '2022-10-14',
+    },
+    videoDescription: 'Vídeo de LeonDrummer publicado el 14 de octubre de 2022. Es una referencia histórica anterior a los perks actuales. El artículo escrito contrasta por separado el kit y las opciones vigentes, incluidos el radio de Expanded Field, la velocidad de ataque personal de Assault Burst y la elección entre Automated Healing y Rocket Boots. No se trasladan automáticamente cifras, configuraciones o secuencias de la grabación a tu partida.',
     body: `## Busca una posición que sirva para curar y disparar
 
 Baptiste puede aportar mucho daño, pero no si cada ráfaga te obliga a girarte y perder de vista a tus aliados. Busca una esquina desde la que puedas ver el recorrido del Tank y una línea de tiro rival. Así puedes alternar ambas tareas sin dedicar segundos enteros a cambiar de orientación.
@@ -440,6 +448,14 @@ Después de lanzarla, sigue jugando. Cura a los protegidos y mira si deben retir
 Regenerative Burst puede ayudar a estabilizar aliados cercanos, mientras Lamp responde a un riesgo letal que no puedes resolver a tiempo. Gastar ambas por reflejo contra una presión pequeña deja menos herramientas para la entrada real.
 
 Si el rival te hace dive, identifica por dónde puedes bajar o cambiar de altura. Saltar constantemente en el mismo sitio facilita que un hitscan siga tu trayectoria. Carga Exo Boots cuando tengas un destino útil, no porque moverte más siempre parezca mejor.
+
+## Los perks deben apoyar la posición desde la que ayudarás
+
+Expanded Field aumenta el radio de Immortality Field. Puede dar margen a aliados próximos que no estén exactamente en el mismo punto, pero no protege el dispositivo de los disparos ni elimina las paredes que cortan su ayuda. Assault Burst es la alternativa minor: Regenerative Burst añade velocidad de ataque para Baptiste. Prepara munición si vas a aprovechar esa ventana, sin gastar la recuperación solo por querer disparar más mientras el equipo todavía se prepara para recibir daño.
+
+Automated Healing permite complementar la recuperación con disparos periódicos de la torreta del hombro. Aprovecha esa ayuda cuando necesites usar recursos como Burst o Lamp, pero no la trates como una cura instantánea que sustituye las granadas. Gastar una defensa importante solo para provocar ese apoyo puede dejarte sin respuesta al siguiente engage.
+
+Rocket Boots, la otra opción major, añade un dash horizontal mientras estás en el aire después de usar Exo Boots. No forma parte de cualquier salto normal ni significa que puedas subir sin mirar al tirador que controla la altura. Elige el destino antes de despegar y conserva una cobertura al llegar. Tampoco cuentes a la vez con ese desplazamiento y con la torreta de Automated Healing: prepara el intercambio según la alternativa que hayas elegido.
 
 ## Una buena Window aprovecha una línea que ya existe
 
