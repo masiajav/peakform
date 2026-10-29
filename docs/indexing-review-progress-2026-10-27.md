@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 29 de octubre: **50 de 140 artículos revisados; 48 habilitados y verificados en producción, dos de Freja pendientes de despliegue y comprobación pública; 90 pendientes de revisión**. Último lote verificado públicamente: Hazard. Siguiente revisión iniciada: guía de Wuyang. Los anuncios mantienen su configuración previa.
+Estado comprobado al 29 de octubre: **50 de 140 artículos revisados, habilitados y verificados en producción; 90 pendientes de revisión**. Último lote verificado públicamente: Freja. Siguiente revisión iniciada: guía de Wuyang. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 
@@ -196,3 +196,7 @@ Hazard queda desplegado y verificado en el commit 0a5ad74: 52 respuestas HTTP y 
 Se completa la revisión individual de la guía y las composiciones de Freja. La guía contextualiza el vídeo de KarQ de la prueba de marzo de 2025, corrige su título conocido y explica los perks actuales, diferenciando munición automática, disparo explosivo, Dash y Updraft. Las composiciones conservan texto y fecha tras contrastar kit, roles, ángulos y seguimiento. Pasan 705 pruebas unitarias, lint, ocho casos finales y seis de regresión, además de seis iniciales. Se inspeccionan las cuatro capturas finales. Evidencia: [revisión de Freja](indexing-review-freja-2026-10-29.md). Las dos URLs quedan pendientes de despliegue y comprobación pública.
 
 Se lee completa la guía siguiente de Wuyang. Se confirma su kit y sus perks actuales; watch y oEmbed revelan que el título real y el nombre del canal están en japonés, mientras que los campos almacenados contienen una traducción y el idioma en. Se registra la corrección pendiente de identidad y comprobación del idioma, además del contexto y la revisión visual, sin aprobar su URL.
+
+Freja queda desplegada y verificada en el commit 957ac71: 54 respuestas HTTP y una redirección correctas, más cuatro casos de navegador contra producción. Ambas URLs están en el sitemap y sin noindex; los controles y los 48 artículos anteriores conservan su estado. Total verificado: **50 de 140; 90 pendientes**.
+
+La revisión inicial de Wuyang añade cuatro casos correctos de navegador y dos capturas inspeccionadas. El reproductor confirma japonés original predeterminado y doblaje inglés automático opcional. La URL conserva noindex hasta corregir metadatos, contexto y perks, registrar su versión y completar las comprobaciones finales.

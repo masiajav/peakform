@@ -22,3 +22,7 @@ Solo estas dos URLs se proponen para publicación individual con revisión de su
 ## Validación final local
 
 Pasan 705 pruebas unitarias, lint, ocho casos finales de navegador para ambas páginas, catálogo y filtros, y seis de regresión sobre Hazard, Venture y el modo de revisión de anuncios. Se inspeccionan las dos capturas completas de escritorio y las dos cabeceras móviles finales: contexto antes del vídeo, sección nueva, fecha revisada de la guía y fecha conservada de las composiciones, equipos e imagen correctos. Se verifican texto íntegro, FAQ visibles, enlaces, metadatos, identidad del vídeo, botón de reproducción, sitemap, ausencia de desbordamientos y de anuncios. La publicación queda pendiente de despliegue y verificación pública.
+
+## Resultado público
+
+Vercel confirma el commit `957ac71` en [este despliegue de producción](https://vercel.com/masiajavs-projects/peakform/9jpJubTRE6HZdXVvmzcqwbJGF2QP). Pasan las 54 respuestas HTTP y la redirección de control: las dos URLs responden 200, sin noindex, incluidas en sitemap, fechas y vídeo exactos y sin anuncios. Los 48 artículos anteriores permanecen correctos y los cuatro controles siguen excluidos. Pasan cuatro casos adicionales de navegador contra producción en móvil y escritorio. El ledger registra respuesta, huella, fecha, commit y despliegue por URL: **50 artículos de 140 habilitados y verificados; 90 pendientes de revisión**.

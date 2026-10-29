@@ -2025,9 +2025,29 @@
       "sourceVersion": "3e3ec45a816bb2854981b08ff47b3dedf622bc479cfba53492e30120e462d9da",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-freja-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/freja-guia-video-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "f62ba21fd1c6e7aec84770f48d3e23ead94ec95e8be3b8611904cda7370f2602",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-29T17:44:09.984Z",
+        "commit": "957ac71780de5d3f2b9a622aabeea64636a8fef5",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/9jpJubTRE6HZdXVvmzcqwbJGF2QP",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "c5728be22628978aa12098d05970c743556ff6df8e9c8ec99285663e2a62bbfd",
       "correction": "Se contextualiza la prueba de marzo de 2025 y sus perks históricos, se corrige el título conocido de KarQ y se explican los cuatro perks actuales sin confundir munición automática, Take Aim, Quick Dash y Updraft. Cuerpo y medios vinculados; primera publicación conservada y revisión del contenido 2026-10-29.",
@@ -3177,7 +3197,18 @@
       "partialReview": {
         "readAt": "2026-10-29",
         "textVersion": "c10b806c4e0bb4812ff219bd9664fc55b26dece14fdf951a72a80dbd3db34144",
-        "note": "Lectura completa de prioridades del stream pasivo, recurso activo, orbes dirigidos, Guardian Wave, destino de Rushing Torrent, anticipación de Tidal Blast, VOD, tres FAQ y enlaces. Fila pública y modelo coinciden con el inventario. Ficha oficial confirma habilidades y Overflow/Balance minor y Ebb and Flow/Falling Rain major. Vídeo cDBCYwJTGEQ responde 200 y playability OK; watch y oEmbed confirman fecha 2026-02-20, título japonés ウーヤン完全解説｜全て理解るオーバーウォッチ y canal 電脳遊戯部 (@bach1ko). Los metadatos almacenados muestran una traducción inglesa, Bachiko y language en; falta corregir la identidad y comprobar idioma real. Descripción y capítulos leídos: habilidades, perks, posicionamiento, cobertura, alturas, sinergias y matchups. Faltan contexto, perks actuales, versión final con medios, enlaces y móvil/escritorio. No aprobada."
+        "note": "Lectura completa de prioridades del stream pasivo, recurso activo, orbes dirigidos, Guardian Wave, destino de Rushing Torrent, anticipación de Tidal Blast, VOD, tres FAQ y enlaces. Fila pública y modelo coinciden con el inventario. Ficha oficial confirma habilidades y Overflow/Balance minor y Ebb and Flow/Falling Rain major. Vídeo cDBCYwJTGEQ responde 200 y playability OK; watch y oEmbed confirman fecha 2026-02-20, título japonés ウーヤン完全解説｜全て理解るオーバーウォッチ y canal 電脳遊戯部 (@bach1ko). Los metadatos almacenados muestran una traducción inglesa, Bachiko y language en; el reproductor confirma japonés original como audio predeterminado ja.4 y doblaje automático inglés opcional en-US.10. Falta corregir la identidad y el idioma original sin ocultar cambios imprevistos de la fuente. Descripción y capítulos leídos: habilidades, perks, posicionamiento, cobertura, alturas, sinergias y matchups. Faltan contexto, perks actuales, versión final con medios, enlaces y móvil/escritorio. No aprobada.",
+        "baseline": {
+          "checkedAt": "2026-10-29",
+          "baseCommit": "957ac71",
+          "cases": 4,
+          "log": "reports/indexing-review-2026-10-27/release-batch-twenty/baseline-twenty.log",
+          "screenshots": [
+            "reports/indexing-review-2026-10-27/release-batch-twenty/reports/reviewed-guides/wuyang-desktop-chromium.png",
+            "reports/indexing-review-2026-10-27/release-batch-twenty/reports/reviewed-guides/wuyang-guia-video-overwatch-mobile-chromium-viewport.png"
+          ],
+          "note": "Guía aún noindex en móvil y escritorio; texto, FAQ, fechas, enlaces, vídeo y botón de reproducción, ausencia de overflow y anuncios verificados. Se inspeccionan captura completa de escritorio y cabecera móvil. Falta identidad e idioma correctos, contexto y perks, versión final con medios y comprobaciones finales. No es una aprobación."
+        }
       }
     },
     {
@@ -4049,9 +4080,26 @@
       "sourceVersion": "5231cec8a2809a5e0652eaab3d878ef8ec650d8357ce670237b8766db2b733dc",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-freja-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/freja",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "5e3a125cbd7d77208ae8ccc39d58660bbadb50998b3243681fecac1368739827",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-29T17:44:09.984Z",
+        "commit": "957ac71780de5d3f2b9a622aabeea64636a8fef5",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/9jpJubTRE6HZdXVvmzcqwbJGF2QP",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "5231cec8a2809a5e0652eaab3d878ef8ec650d8357ce670237b8766db2b733dc",
       "correction": "Texto y fecha 2026-10-02 conservados tras verificar kit, equipos y roles 5v5/6v6, ángulos, cobertura, seguimiento de Bola Shot, FAQ, enlaces y presentación. No se inventa primera fecha de publicación.",
@@ -4797,7 +4845,7 @@
   ],
   "progress": {
     "reviewed": 50,
-    "publishedAndVerified": 48,
+    "publishedAndVerified": 50,
     "pending": 90
   }
 }
