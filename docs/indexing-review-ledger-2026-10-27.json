@@ -452,9 +452,26 @@
       "sourceVersion": "a433c6d3f668dd8b917c596fb9710066be03d678ba712cd711743ffdf430ef1d",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-torbjorn-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/counters/torbjorn",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "2a04ace8a94a858ef663461629854d99fea092d30f721caa7bb46eb16bc257ed",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-29T07:14:36.102Z",
+        "commit": "38bcd05ec2b4564e68dae1624fd687c73133e5e9",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/HXUUoU3FkcT2yJDc7sfW9iW8X7yw",
+        "browserChecks": "6 production cases passed: three Torbjorn articles on desktop/mobile, complete visible text, corrected video title and historical context, play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "a433c6d3f668dd8b917c596fb9710066be03d678ba712cd711743ffdf430ef1d",
       "correction": "Texto y fecha 2026-10-02 conservados tras contrastar kit, perks, decisiones condicionadas, FAQ y enlaces."
@@ -2246,9 +2263,13 @@
       "sourceVersion": "739645a8211b4341191dfcb89919fef320e31694d1e9fe6f0316f723a3ec1c7b",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-mauga-2026-10-29.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "1750d61c62f5a0515b1b40519e8c67368761beeb1cda7741f974f45d2d112b86",
+      "correction": "Se precisa Cardiac para Mauga y aliados, se aplican los cuatro perks actuales y se distingue Berserker de Combat Fuel. Vídeo de Kajor de marzo de 2025 contextualizado, con cuerpo y medios vinculados a la revisión. Primera publicación conservada; revisión del contenido 2026-10-29.",
+      "reviewedRenderedVersion": "1db07caf9d8f3f1f376ca1574447453a475c64ef6aaa4439c78c61b85d5ccc32"
     },
     {
       "path": "/guides/mei-guia-video-overwatch",
@@ -2490,7 +2511,12 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "8d4650478d67ca7465eeab7bbc7e8dc3b4b10ae45ea878dfbbf3e8f572ce68eb",
+        "note": "Lectura completa: aproximación ómnica/Nemesis, barrera para acciones concretas, Pummel y Block, Vortex, Annihilation, composición, revisión VOD, tres FAQ y enlaces. Modelo actual y fila pública coinciden con el inventario. La ficha oficial confirma Vortex con detonación anticipada y sus cuatro perks. Vídeo de redeznt del 14 de enero de 2026, título y atribución confirmados por watch y oEmbed, playability OK; descripción sin capítulos de análisis. Falta contexto, concretar perks, vincular versión final con medios, enlaces y presentación. No aprobada."
+      }
     },
     {
       "path": "/guides/reaper-guia-video-overwatch",
@@ -2814,9 +2840,29 @@
       "sourceVersion": "c577ca3605df134e48048149c20bb1d526f0f03174113817f30a5765e949123f",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-torbjorn-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/torbjorn-guia-video-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "fda8e96a10290d01911eb5dae1075c08907b4c298c9fd62e5687d7a65c209ca3",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-29T07:14:36.102Z",
+        "commit": "38bcd05ec2b4564e68dae1624fd687c73133e5e9",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/HXUUoU3FkcT2yJDc7sfW9iW8X7yw",
+        "browserChecks": "6 production cases passed: three Torbjorn articles on desktop/mobile, complete visible text, corrected video title and historical context, play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "3572d9b08525c409a7efb07bf2a16720e7c20612c8b464ac8e8bd1462376b2bc",
       "correction": "Título real de LeonDrummer corregido para el ID y transcripción comprobados; contexto de octubre de 2022 y aplicación actual de los cuatro perks, separados en alternativas minor/major. Primera publicación conservada; revisión del contenido 2026-10-28.",
@@ -3985,9 +4031,12 @@
       "sourceVersion": "f0f263c722fe36b8574ae56f13d2ac6f7b80551d454aa03b5137eb3b5f10db74",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-mauga-2026-10-29.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "f0f263c722fe36b8574ae56f13d2ac6f7b80551d454aa03b5137eb3b5f10db74",
+      "correction": "Texto y fecha 2026-10-02 conservados tras contrastar Cardiac, perks, equipos y roles, ayudas, rotaciones, FAQ y fuentes."
     },
     {
       "path": "/team-comps/mei",
@@ -4142,7 +4191,12 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "eb7eeab29fabd394a11ffa0c6fa6f3e4003e68533e6fc7a8ada4baf0054c3105",
+        "note": "Lectura completa: equipos Mei/Reaper, Ashe/Mei y Zarya/Mei/Cassidy en 6v6, argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, FAQ y enlaces. El modelo actual coincide con el inventario. Roles y formatos coherentes; Block frontal, Nanite Repair opcional y ausencia de limpieza de antiheal. Falta comprobar enlaces y presentación final. No aprobada."
+      }
     },
     {
       "path": "/team-comps/reaper",
@@ -4315,9 +4369,26 @@
       "sourceVersion": "ba03d7d326aa67a8440b869e6dc7cb799a9193689c4becba7ecf61d60a852b7b",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-torbjorn-2026-10-28.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/torbjorn",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "28f8f6d553b4066a094d7688cd9f58716e54d6d4850fcdb423923dc8f7d01aba",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-29T07:14:36.102Z",
+        "commit": "38bcd05ec2b4564e68dae1624fd687c73133e5e9",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/HXUUoU3FkcT2yJDc7sfW9iW8X7yw",
+        "browserChecks": "6 production cases passed: three Torbjorn articles on desktop/mobile, complete visible text, corrected video title and historical context, play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-28",
       "reviewedVersion": "ba03d7d326aa67a8440b869e6dc7cb799a9193689c4becba7ecf61d60a852b7b",
       "correction": "Texto y fecha 2026-10-02 conservados tras revisar equipos y roles, responsabilidades, rotaciones, FAQ y fuentes."
@@ -4399,8 +4470,8 @@
     }
   ],
   "progress": {
-    "reviewed": 36,
-    "publishedAndVerified": 33,
-    "pending": 104
+    "reviewed": 38,
+    "publishedAndVerified": 36,
+    "pending": 102
   }
 }

@@ -48,6 +48,7 @@ describe('individual publication of repository-owned guide revisions', () => {
       ['bastion-guia-video-overwatch', 'bastion', 'dps', ['bastion', 'dps', 'video', 'youtube', '6v6', 'overwatch']],
       ['symmetra-guia-video-overwatch', 'symmetra', 'dps', ['symmetra', 'dps', 'video', 'youtube', '6v6', 'overwatch']],
       ['torbjorn-guia-video-overwatch', 'torbjorn', 'dps', ['torbjorn', 'dps', 'video', 'youtube', '6v6', 'overwatch']],
+      ['mauga-guia-video-overwatch', 'mauga', 'tank', ['mauga', 'tank', 'video', 'youtube', '6v6', 'overwatch']],
     ] as const) {
       const revision = reviewedGuideRevisions[slug]
       const raw = { slug, hero, role, tags: [...tags], published: true, created_at: '2026-05-05' }
@@ -60,7 +61,7 @@ describe('individual publication of repository-owned guide revisions', () => {
       expect(isGuideSitemapEligible(raw)).toBe(false)
       for (const edit of [
         { video_id: 'unreviewed-video' }, { video_title: 'Other title' }, { video_channel: 'Other channel' },
-        { video_published_at: '2026-10-28' }, { cover_image: '/unreviewed.png' }, { role: 'tank' }, { tags: ['new-tag'] },
+        { video_published_at: '2026-10-28' }, { cover_image: '/unreviewed.png' }, { role: role === 'tank' ? 'support' : 'tank' }, { tags: ['new-tag'] },
       ]) {
         expect(guideQualityDecision({ ...rendered, ...edit }).indexable).toBe(false)
         expect(isGuideSitemapEligible({ ...merged, ...edit })).toBe(false)

@@ -899,6 +899,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-torbjorn-2026-10-28.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/mauga-guia-video-overwatch': {
+    path: '/guides/mauga-guia-video-overwatch',
+    version: '1750d61c62f5a0515b1b40519e8c67368761beeb1cda7741f974f45d2d112b86',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-mauga-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/mauga': {
+    path: '/team-comps/mauga',
+    version: 'f0f263c722fe36b8574ae56f13d2ac6f7b80551d454aa03b5137eb3b5f10db74',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-mauga-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/zarya': {
     path: '/team-comps/zarya',
     version: '40de9429f726f9396cb6d2c3aa44d8eca29c9b77c5b7eeac49598631fa1b35a6',

@@ -7,7 +7,13 @@ export const thirdGuideReviewBatch: Record<string, GuideRevision> = {
     description: 'Deja de intercambiar daño sin avanzar con Mauga. Aprende a elegir objetivos, cruzar con Overrun y usar Cardiac y Cage Fight sin quedarte aislado.',
     quickAnswer: 'Mauga necesita una esquina desde la que pueda disparar y volver a cubrirse. No gastes Cardiac mientras el rival se esconde o absorbe tus disparos. Usa Overrun para completar un cruce o salir de una mala posición; antes de encerrar a alguien con Cage Fight, comprueba quién podrá ayudarte desde fuera.',
     videoSlug: 'mauga-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-29',
+    reviewedVideo: {
+      video_id: 'EjvWwXcGUXc', video_url: 'https://www.youtube.com/watch?v=EjvWwXcGUXc', video_platform: 'youtube',
+      video_title: "Mauga Is META AGAIN?!?! Here's Why... | Mauga Guide", video_channel: 'Kajor', video_language: 'en', video_published_at: '2025-03-05',
+    },
+    renderedContentVersion: '1db07caf9d8f3f1f376ca1574447453a475c64ef6aaa4439c78c61b85d5ccc32',
+    videoDescription: 'Análisis de Kajor publicado el 5 de marzo de 2025. Su título sobre el meta describe aquella etapa y no garantiza el rendimiento de Mauga en el parche actual. El artículo escrito se contrasta por separado con el kit vigente, incluida la diferencia entre Cardiac para Mauga y sus aliados y las alternativas actuales de perks; no traslada automáticamente cifras ni elecciones de la grabación.',
     body: `## Mucho daño al Tank no siempre significa ganar la pelea
 
 Con Mauga es fácil terminar una partida con muchísimo daño y sentir que no podías hacer nada más. A veces el problema está precisamente en ese intercambio: disparas al Tank, sus supports lo recuperan y tú necesitas toda la atención de los tuyos. Mientras tanto, un DPS rival encuentra un ángulo que nadie está controlando.
@@ -22,6 +28,8 @@ Si un enemigo ardiendo desaparece detrás de una pared, no hace falta seguirlo h
 
 ## Cardiac se usa cuando habrá un intercambio real
 
+Cardiac Overdrive reduce el daño que recibe Mauga y permite que los aliados próximos se curen al hacer daño. Esos compañeros no reciben reducción de daño por la habilidad: un DPS que cruza expuesto sigue necesitando cobertura. Coordina la ventana con sus tiros, no solo con la vida que te falta a ti.
+
 Antes de activar Cardiac Overdrive, comprueba si tienes un enemigo al que puedas disparar y compañeros que puedan aprovechar la ventana. Gastarlo mientras una barrera tapa el objetivo o mientras D.Va está negando tus disparos permite al rival esperar sin exponerse.
 
 Tampoco lo guardes hasta una muerte inevitable. Si vas a cruzar una zona donde habrá presión y ya sabes que el equipo puede acompañarte, prepararlo para ese intercambio es distinto de pulsarlo como reacción a cualquier bajada de vida. Si Ana te deja sin recibir curación, prioriza romper la línea enemiga y recuperar cobertura; avanzar más no elimina el problema.
@@ -33,6 +41,14 @@ En King's Row, cruzar la primera entrada hasta una esquina cercana puede ser raz
 Elige el destino de la carga antes de empezarla. Un stomp sobre un support puede parecer atractivo, pero si aterrizas detrás del rival y tus DPS aún no han cruzado, tendrás que resolver solo una pelea que pretendías iniciar para todos.
 
 Puedes usar Overrun para salir de una línea de tiro o volver a una esquina defendible. No necesitas alcanzar a un enemigo cada vez. Si acabas de gastar Cardiac y el rival conserva sus herramientas defensivas, retirarte con movilidad suele dejarte una segunda oportunidad; quedarte disparando en medio del pasillo puede no dejarte ninguna.
+
+## Elige los perks según el intercambio que vas a preparar
+
+Kinetic Bandolier permite recuperar munición durante el comienzo de Overrun; Pyromaniac aporta salud extra al prender enemigos con Incendiary Chaingun. Son alternativas minor. Comprueba cuál llevas antes de contar con una recarga durante la carga y no avances hasta una posición aislada solo para activar una mejora.
+
+Entre los major, Firewalker prende a los enemigos alcanzados por Overrun. Combat Fuel acumula salud extra con los críticos para la siguiente activación de Cardiac Overdrive. Son alternativas: no presupongas que cada carga aplica fuego ni que Cardiac llega siempre con ese recurso preparado. Berserker ya proporciona salud temporal por daño crítico como pasiva del kit; el perk cambia la preparación de Cardiac, no convierte cualquier impacto en un crítico.
+
+Con cualquiera de estas elecciones, conserva un destino que tus supports puedan ver. La munición o salud extra ayudan a un intercambio que ya tiene apoyo; no corrigen por sí solas una carga detrás de toda la defensa.
 
 ## Cage Fight encierra también a Mauga
 

@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 28 de octubre: **36 de 140 artículos revisados; 33 habilitados y verificados en producción, tres pendientes de despliegue y comprobación pública; 104 pendientes de revisión**. Últimos lotes verificados públicamente: Bastion y Symmetra. Torbjörn supera la revisión local. Los anuncios mantienen su configuración previa.
+Estado comprobado al 29 de octubre: **38 de 140 artículos revisados; 36 habilitados y verificados en producción, dos pendientes de despliegue y comprobación pública; 102 pendientes de revisión**. Último lote verificado públicamente: Torbjörn. Mauga supera la revisión local; siguiente lectura iniciada: Ramattra. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 
@@ -130,3 +130,13 @@ El envío funcional de Symmetra `6a2e8a6` inicia y completa un despliegue que in
 Se completa la revisión individual de guía, counter y composiciones. La guía corrige el título del vídeo de LeonDrummer de forma acotada, contextualiza su fecha del 12 de octubre de 2022 y explica las alternativas actuales de perks con decisiones de colocación y timing. Counter y composiciones conservan texto y fecha tras el contraste. Las tres revisiones registran la versión exacta; la guía incluye los medios renderizados.
 
 Evidencia: [revisión de Torbjörn](indexing-review-torbjorn-2026-10-28.md). Pasan lint, 705 pruebas unitarias, build, doce casos finales de navegador y seis de regresión, además de ocho iniciales. Se inspeccionan escritorio y móvil; se conservan las exclusiones de otros artículos y no cambia la activación de anuncios. Estado provisional: **36 artículos revisados de 140; 33 publicados y verificados; tres pendientes de comprobar en producción; 104 pendientes de revisión**.
+
+Despliegue `38bcd05` completado, confirmado por GitHub con Vercel `HXUUoU3FkcT2yJDc7sfW9iW8X7yw` y comprobado públicamente el 29 de octubre. Pasan cuarenta respuestas públicas (tres nuevas, 33 anteriores y cuatro exclusiones), el alias 308 de Sojourn y seis casos de navegador público en móvil y escritorio. Estado: **36 artículos revisados, habilitados y verificados públicamente de 140; 104 pendientes**.
+
+## Decimotercer lote: Mauga
+
+Se completa la revisión individual de guía y composiciones, las dos URLs todavía excluidas del héroe. La guía precisa Cardiac para Mauga y aliados, aplica los cuatro perks actuales, distingue Berserker de Combat Fuel y contextualiza el vídeo de Kajor del 5 de marzo de 2025. Las composiciones conservan contenido y fecha tras contrastar las decisiones y fuentes. El counter ya era indexable y no recibe cambios ni otra aprobación.
+
+Evidencia: [revisión de Mauga](indexing-review-mauga-2026-10-29.md). Pasan lint, 705 pruebas unitarias, build, ocho casos finales de navegador y seis de regresión, además de seis iniciales. La prueba de cambios de rol ahora usa un valor diferente también en guías de Tank. Se inspeccionan móvil y escritorio, se conservan otras exclusiones y no cambia la activación de anuncios. Estado provisional: **38 artículos revisados de 140; 36 publicados y verificados; dos pendientes de comprobar en producción; 102 pendientes de revisión**.
+
+Se leen completos guía y composiciones de Ramattra y se comprueban sus versiones, fila pública y ficha oficial actual. El vídeo de redeznt del 14 de enero de 2026 mantiene identidad, título y disponibilidad, con descripción leída sin inventar capítulos. Faltan contexto, perks concretados, enlaces y presentación final. Estas lecturas se registran sin conceder aprobación. El objetivo global sigue activo.
