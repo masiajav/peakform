@@ -3590,15 +3590,19 @@
       "sourceVersion": "c2210daa11b0b09fc981ec435427d0289c74258bd8ce13c694ec60024f944f05",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-zenyatta-2026-10-29.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "c1d8007cee413db8f44b7cc30d5fadfb94feabc49a80f7fef71a14f2275a526a",
+      "correction": "Título conocido de Awkward corregido y contexto de diciembre de 2022, anterior a perks actuales y sin garantía de resultados del porcentaje del título. Se aplican Discordant Repair/Ascendance y alternativas Focused Destruction/Dual Harmony, incluidos menor curación de ambos orbes y distinción frente a Stadium. Cuerpo y medios vinculados; primera publicación conservada y revisión del texto 2026-10-29.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "c2210daa11b0b09fc981ec435427d0289c74258bd8ce13c694ec60024f944f05",
         "note": "Lectura completa de cobertura y salida antes de dive, Harmony según exposición, Discord con foco accesible, carga del disparo, límites de Transcendence ante antiheal/golpes letales/posición, VOD, tres FAQ y enlaces. Fila pública y modelo coinciden con el inventario antes de editar. Ficha oficial confirma Discordant Repair/Ascendance minor y Focused Destruction/Dual Harmony major. Vídeo del alias confirmado: Awkward, 2022-12-16, playability OK, título real Educational Unranked To GM On ZENYATTA (80% Winrate Overwatch 2), 42941 segundos. Descripción y capítulos por rangos leídos; subtítulos automáticos ingleses y sin audio original nombrado detectado. Faltan corrección del título conocido, contexto histórico y porcentaje sin garantía de resultados, aplicación de perks, versión con medios, enlaces y presentación final. No aprobada.",
         "baselineVerification": "Seis casos iniciales pasan en móvil y escritorio: ambas páginas aún noindex, texto, FAQ, enlaces, fechas, imágenes, medios y disponibilidad del botón de vídeo. Se inspeccionan dos capturas completas de escritorio y dos cabeceras móviles: estructura y presentación correctas, sin anuncios ni desbordamientos. Falta verificar el contenido corregido y su publicación."
-      }
+      },
+      "reviewedRenderedVersion": "f5e35bb9a955a5bf06a1342e7692ff54de5be46ab84e24a77038a300c3ce2db1"
     },
     {
       "path": "/guides/zenyatta-guia-video-overwatch",
@@ -5313,10 +5317,13 @@
       "sourceVersion": "2f532edec393d7915c724d37b4e1130e6a4a6d17cff0f558202c35a53a307e20",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-zenyatta-2026-10-29.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "2f532edec393d7915c724d37b4e1130e6a4a6d17cff0f558202c35a53a307e20",
+      "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar equipos, formatos, roles, foco y peel, límites de curación y diferencia entre invulnerabilidad personal y ayuda a aliados. Todos los párrafos, FAQ, enlaces y presentación verificados en móvil y escritorio. No se inventa primera publicación.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "2f532edec393d7915c724d37b4e1130e6a4a6d17cff0f558202c35a53a307e20",
         "note": "Lectura completa de equipos Sigma/Ashe/Sojourn/Baptiste, Wrecking Ball/Tracer/Sojourn/Brigitte y Sigma/D.Va/Ashe/Cassidy/Baptiste en 6v6. Todos los argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, tres FAQ y enlaces. Modelo coincide con el inventario. Ficha oficial confirma kit; se diferencia invulnerabilidad personal de Zenyatta de curación a aliados y límites frente a antiheal. FAQ ya presenta Dual Harmony y Ascendance como opcionales y separa Flying Kick de Stadium. Roles y formatos coherentes. Faltan comprobar enlaces y presentación y versión final. No aprobada.",
@@ -5325,8 +5332,8 @@
     }
   ],
   "progress": {
-    "reviewed": 66,
+    "reviewed": 68,
     "publishedAndVerified": 66,
-    "pending": 74
+    "pending": 72
   }
 }

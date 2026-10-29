@@ -655,8 +655,15 @@ Para coordinar speed, empieza por [dive, poke y brawl](/guides/como-elegir-compo
   },
   'zenyatta-guia-overwatch-discord-transcendence': {
     hero: 'zenyatta',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-29',
     videoSlug: 'zenyatta-guia-video-overwatch',
+    renderedContentVersion: 'f5e35bb9a955a5bf06a1342e7692ff54de5be46ab84e24a77038a300c3ce2db1',
+    sourceVideoTitle: 'Educational Unranked To GM On ZENYATTA (80% Winrate Overwatch)',
+    reviewedVideo: {
+      video_id: 'nq0xjLnZO4k', video_url: 'https://www.youtube.com/watch?v=nq0xjLnZO4k', video_platform: 'youtube',
+      video_title: 'Educational Unranked To GM On ZENYATTA (80% Winrate Overwatch 2)', video_channel: 'Awkward', video_language: 'en', video_published_at: '2022-12-16',
+    },
+    videoDescription: 'Serie de partidas comentadas de Awkward publicada el 16 de diciembre de 2022, con capítulos por rangos. Es una referencia histórica anterior a los perks actuales: observa cobertura, elección de objetivos y reparto de orbes sin copiar automáticamente cifras o mejoras de esa versión. El 80% Winrate pertenece al título de la serie y no garantiza tus resultados en ranked. El artículo escrito contrasta por separado las opciones vigentes.',
     title: 'Cómo jugar Zenyatta: Discord, cobertura y Transcendence',
     description: 'Prioriza Harmony y Discord con Zenyatta, prepara una posición contra dive y usa Transcendence para amenazas concretas. Errores de ranked y revisión de VOD.',
     quickAnswer: 'Juega con Zenyatta cerca de una cobertura y una ruta hacia tu equipo. Pon Harmony en quien vaya a recibir presión y Discord sobre un objetivo que tus compañeros puedan atacar. Prepara Transcendence para una amenaza concreta, recordando que mucha curación no elimina el antiheal ni garantiza salvar un golpe letal.',
@@ -692,13 +699,21 @@ En una pelea cercana, mantener disparos sobre un objetivo accesible puede ser m�
 
 No olvides Harmony y Discord mientras buscas aim. La presión del arma es una parte del kit, no un motivo para ignorar a un aliado que necesita el orbe o a un objetivo que el equipo acaba de dejar expuesto.
 
+## Elige entre sostenerte, preparar el disparo o repartir Harmony
+
+Discordant Repair aporta robo de vida al dañar a un enemigo que tenga Discord. Puede ayudarte a sostener un intercambio con un objetivo accesible, pero no es una cura gratuita mientras el enemigo está escondido. Ascendance es la alternativa minor: permite mantenerte brevemente en el aire mediante un doble salto sostenido. Decide dónde volverás a cubrirte antes de activarlo; flotar no elimina las líneas de tiro ni equivale al dash de Flying Kick de Stadium.
+
+Focused Destruction acelera la carga del disparo secundario y permite almacenar un orbe de destrucción adicional. Si lo eliges, prepara un asomo desde cobertura donde puedas aprovechar la carga. El perk no obliga a cargar siempre: ante un atacante que ya está cerca, decide si conviene disparar inmediatamente en vez de concederle tiempo para terminar la entrada.
+
+Dual Harmony, la otra opción major, añade un segundo orbe de curación, pero ambos curan al 70% de su efectividad habitual. No son dos orbes completos sin coste. Úsalo para repartir ayuda entre dos exposiciones que puedas seguir desde una posición defendible, por ejemplo el DPS que entra y el Support que recibe presión. Si el frente necesita toda la recuperación, acuerda la ayuda con tu compañero; tampoco cuentes a la vez con la carga mejorada de Focused Destruction.
+
 ## Transcendence: mucha curación no es una respuesta universal
 
 Antes de usarla, identifica qué daño quieres contrarrestar y dónde están los aliados. No todos los jugadores recibirán ayuda si llegan separados o juegan detrás de coberturas que rompen la situación que intentas sostener. Acércate con un plan, no solo siguiendo la barra de salud más baja.
 
 El antiheal puede impedir que la curación salve a un compañero. Del mismo modo, una amenaza capaz de matarlo con un golpe no se resuelve necesariamente por curar mucho. Sigue respetando las líneas de tiro y los recursos rivales; no anuncies Transcendence como permiso para ignorar cualquier ultimate.
 
-Puedes usarla para acompañar una entrada o salvar una pelea bajo presión, pero mira cuántos aliados siguen vivos y qué objetivo queréis disputar. Gastarla para llegar sola al punto cuando el resto acaba de morir puede aplazar la derrota sin cambiar la siguiente pelea.
+Puedes usarla para acompañar una entrada o salvar una pelea bajo presión, pero mira cuántos aliados siguen vivos y qué objetivo queréis disputar. Gastarla para llegar sin compañeros al punto cuando el resto acaba de morir puede aplazar la derrota sin cambiar la siguiente pelea.
 
 ## VOD: encuentra la decisión anterior al dive
 

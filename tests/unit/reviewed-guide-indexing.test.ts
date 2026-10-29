@@ -64,6 +64,7 @@ describe('individual publication of repository-owned guide revisions', () => {
       ['baptiste-guia-overwatch-lamp-window', 'baptiste', 'support', ['baptiste', 'support', 'lamp', 'matrix', '6v6']],
       ['illari-guia-overwatch-pilon-dano', 'illari', 'support', ['illari', 'support', 'pilon', 'dano', '6v6']],
       ['lucio-guia-overwatch-speed-peel', 'lucio', 'support', ['lucio', 'support', 'speed', 'brawl', '6v6']],
+      ['zenyatta-guia-overwatch-discord-transcendence', 'zenyatta', 'support', ['zenyatta', 'support', 'discord', 'poke', '6v6']],
     ] as const) {
       const revision = reviewedGuideRevisions[slug]
       const raw = { slug, hero, role, tags: [...tags], published: true, created_at: '2026-05-05' }

@@ -1074,6 +1074,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/content-review-comps-tracer-zarya-2026-10-05.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/zenyatta-guia-overwatch-discord-transcendence': {
+    path: '/guides/zenyatta-guia-overwatch-discord-transcendence',
+    version: 'c1d8007cee413db8f44b7cc30d5fadfb94feabc49a80f7fef71a14f2275a526a',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-zenyatta-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/zenyatta': {
+    path: '/team-comps/zenyatta',
+    version: '2f532edec393d7915c724d37b4e1130e6a4a6d17cff0f558202c35a53a307e20',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-zenyatta-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/guides/lucio-guia-overwatch-speed-peel': {
     path: '/guides/lucio-guia-overwatch-speed-peel',
     version: 'd675360aa8265888fd592ed97ae11a8d3a559740682b81a749c4c5606ccbca9f',
