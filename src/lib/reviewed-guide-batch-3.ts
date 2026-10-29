@@ -179,10 +179,19 @@ No siempre. Si obliga al rival a ceder el punto o una esquina importante, puede 
     description: 'Coordina tus entradas con Wrecking Ball: elige ruta y salida, prepara Piledriver, evita controles y coloca Minefield donde el rival tenga que pasar.',
     quickAnswer: 'Con Wrecking Ball, prepara una ruta de entrada y una salida antes de lanzarte. Entra cuando tus DPS puedan disparar a los enemigos que desplazas, no mientras tu equipo todavía regresa del spawn. Piledriver y Adaptive Shield ayudan a completar la jugada; no justifican quedarte rodeado después.',
     videoSlug: 'wrecking-ball-guia-video-overwatch',
-    revisedAt: '2026-10-01',
-    body: `## Molestar a cinco enemigos no siempre ayuda a tus cuatro aliados
+    revisedAt: '2026-10-29',
+    sourceVideoTitle: 'Guia basica: Wrecking Ball | Overwatch',
+    reviewedVideo: {
+      video_id: 'OpLJfoD_bvU', video_url: 'https://www.youtube.com/watch?v=OpLJfoD_bvU', video_platform: 'youtube',
+      video_title: 'Guía básica: Wrecking Ball | Overwatch 2', video_channel: 'LeonDrummer', video_language: 'es', video_published_at: '2022-10-12',
+    },
+    renderedContentVersion: 'a8c72bb427742ef93a5abda9111dcc484db664825efc468ab26382054ea67e2d',
+    videoDescription: 'Introducción de LeonDrummer publicada el 12 de octubre de 2022, al comienzo de Overwatch 2. La grabación es anterior a las opciones actuales de perks y no sustituye su comprobación. El texto escrito se contrasta por separado con el kit vigente, incluida la transferencia de Adaptive Shield, la barrera opcional y las minas adicionales de Multi-Ball; no traslada automáticamente cifras ni reglas de aquella versión.',
+    body: `## Molestar al rival no siempre ayuda a tu equipo
 
 Puedes sobrevivir mucho tiempo en la backline rival y aun así dejar a tu equipo sin una oportunidad de avanzar. Si entras mientras tus compañeros están volviendo del spawn, el enemigo puede atenderte, gastar una respuesta y recuperar su posición antes de que llegue nadie más.
+
+En 6v6, acuerda si el otro Tank acompañará el contacto o atenderá otra amenaza. Tener un segundo Tank no garantiza que los DPS vean el slam ni que los supports puedan sostener dos entradas separadas. En 5v5 también debes decidir cuándo volver a ayudar al grupo que has dejado atrás.
 
 Antes de usar el gancho, mira dónde están tus DPS. Una Tracer cerca del objetivo o un hitscan con línea de tiro puede aprovechar un desplazamiento. Si no hay seguimiento, quizá convenga preparar la siguiente ruta, obtener información o negar una posición sin comprometer toda la entrada.
 
@@ -213,6 +222,14 @@ Si decides caer, intenta que el objetivo esté en una línea que tu equipo vea. 
 La protección temporal depende de la situación alrededor de Ball. Úsala durante el momento de exposición que has previsto, no como permiso para perseguir hasta que desaparezca. Si el rival te corta el movimiento, el problema puede ser el control que ignoraste antes de entrar.
 
 El kit permite transferir parte de esa protección a aliados. Mira si pueden aprovecharla durante el cruce o la pelea que has iniciado, sin poner en riesgo una salida que todavía necesitas. Dar apoyo al grupo no exige permanecer quieto delante de todos los enemigos.
+
+## Los perks cambian la entrada que preparas
+
+Steamroller refuerza los impactos de Roll contra Tanks; no te obliga a ignorar un objetivo que tus DPS sí puedan rematar. Multi-Ball permite desplegar minas adicionales al volver a pulsar la ultimate durante los cinco segundos siguientes a Minefield. Son alternativas minor: comprueba cuál has elegido antes de contar con esa segunda colocación. Ese uso añade minas, no es una detonación manual del kit base.
+
+Entre los major, Hang Time alarga la preparación de Piledriver y permite controlar la caída para hacer más daño. Ajusta el aviso a tus compañeros y revisa qué control rival puede interrumpirte durante esa exposición mayor. Adaptive Barrier es la alternativa que crea una barrera breve al activar Adaptive Shield; no presupongas ese bloqueo de disparos en cada uso de la habilidad ni lo confundas con la vida temporal que puedes transferir.
+
+Elige según el contacto que puedas sostener y conserva la salida. Una mejora de daño o una barrera corta no arregla un slam detrás de una pared que nadie del equipo puede atacar.
 
 ## Minefield controla una zona, no toda la pelea
 

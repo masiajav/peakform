@@ -927,6 +927,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-ramattra-2026-10-29.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/wrecking-ball-guia-video-overwatch': {
+    path: '/guides/wrecking-ball-guia-video-overwatch',
+    version: 'abc738329cf76a6a6aeb3b88a2b5a5e32114ebcb530f2ea5ec594b720b2843bf',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-wrecking-ball-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/wrecking-ball': {
+    path: '/team-comps/wrecking-ball',
+    version: 'ed7fc84cbc1fb4be1305f68e60f070fdbd4d271d6c96ce958db18aff75b0a294',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-wrecking-ball-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/zarya': {
     path: '/team-comps/zarya',
     version: '40de9429f726f9396cb6d2c3aa44d8eca29c9b77c5b7eeac49598631fa1b35a6',

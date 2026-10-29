@@ -2190,7 +2190,12 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "18a4bad0c286fc4dccb54b564c488a9e634de52fbaec7838bd28edd8429fbe55",
+        "note": "Lectura completa: rutas y rebotes, mina y salida, combo condicionado, trampa relevante, RIP-Tire desde cobertura, respuesta a vuelo, VOD, tres FAQ y enlaces. Modelo actual y fila pública coinciden con el inventario. Ficha oficial confirma Nitro Boost/Bomb Voyage minor y Mine Recycling/Frag Cannon major. Watch y oEmbed confirman Kajor, título con elipsis tipográfica, fecha local 2025-10-01, playability OK; descripción y capítulos leídos. Falta corregir la transcripción exacta del título, contextualizar vídeo de 2025, aplicar perks actuales, versión final y presentación. No aprobada."
+      }
     },
     {
       "path": "/guides/juno-guia-video-overwatch",
@@ -3028,14 +3033,18 @@
       "sourceVersion": "733ea4719690046ab4e7bc165ea5f96b3e9d61d22d121f2197b8f861aee1b599",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-wrecking-ball-2026-10-29.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "abc738329cf76a6a6aeb3b88a2b5a5e32114ebcb530f2ea5ec594b720b2843bf",
+      "correction": "Se corrige el título conocido de LeonDrummer y contextualiza la grabación de octubre de 2022. Introducción válida para 5v5 y 6v6, aplicación de los cuatro perks y distinción entre minas adicionales, detonación manual, barrera y vida temporal. Cuerpo y medios vinculados; primera publicación conservada y revisión del contenido 2026-10-29.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "733ea4719690046ab4e7bc165ea5f96b3e9d61d22d121f2197b8f861aee1b599",
         "note": "Lectura completa de ruta y salida, seguimiento, boop, Piledriver frente a controles, Adaptive Shield y transferencia a aliados, Minefield, VOD, tres FAQ y enlaces. Modelo y fila pública coinciden con el inventario. Ficha oficial actual confirma transferencia base y Steamroller/Multi-Ball y Hang Time/Adaptive Barrier como alternativas. Vídeo de LeonDrummer del 12 de octubre de 2022 confirmado, playability OK y descripción leída; título real con acento y Overwatch 2 difiere del almacenado. Falta corregir título, contexto histórico, perks actuales y precisar el alcance 5v5/6v6 de la introducción, versión final con medios, enlaces y presentación. No aprobada."
-      }
+      },
+      "reviewedRenderedVersion": "a8c72bb427742ef93a5abda9111dcc484db664825efc468ab26382054ea67e2d"
     },
     {
       "path": "/guides/wuyang-guia-video-overwatch",
@@ -4022,7 +4031,12 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "4ae2677c594a87090156564e3b040d1794461a6c9eaff29efe9e4b0a75d370bd",
+        "note": "Lectura completa: Reinhardt/Cassidy, Sigma/Ashe y Reinhardt/Zarya/Cassidy en 6v6, todos sus argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, FAQ y enlaces. Modelo actual coincide con el inventario; roles y formatos coherentes, Mine Recycling opcional y Rip Roll separado de ranked, confirmado en la ficha oficial bajo Stadium. Faltan enlaces y presentación final. No aprobada."
+      }
     },
     {
       "path": "/team-comps/juno",
@@ -4535,10 +4549,13 @@
       "sourceVersion": "ed7fc84cbc1fb4be1305f68e60f070fdbd4d271d6c96ce958db18aff75b0a294",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-wrecking-ball-2026-10-29.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "ed7fc84cbc1fb4be1305f68e60f070fdbd4d271d6c96ce958db18aff75b0a294",
+      "correction": "Texto y fecha 2026-10-02 conservados tras contrastar transferencia base, barrera opcional, Community Crafted, equipos y roles, ayudas, rotaciones, FAQ y fuentes.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "ed7fc84cbc1fb4be1305f68e60f070fdbd4d271d6c96ce958db18aff75b0a294",
         "note": "Lectura completa de equipos Tracer/Ashe, Tracer/Sojourn y D.Va/Tracer/Ashe en 6v6, argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, FAQ y enlaces. Modelo actual coincide con el inventario. Ficha oficial confirma Adaptive Shield y barrera opcional; las notas oficiales de Community Crafted del 30 de junio de 2026 confirman detonación manual experimental de Minefield, separada aquí del kit de ranked. Roles y formatos coherentes; Transcendence no limpia anticuración. Faltan enlaces y presentación final. No aprobada."
@@ -4561,8 +4578,8 @@
     }
   ],
   "progress": {
-    "reviewed": 40,
+    "reviewed": 42,
     "publishedAndVerified": 40,
-    "pending": 100
+    "pending": 98
   }
 }

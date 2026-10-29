@@ -66,6 +66,7 @@ describe('version-bound static editorial reviews', () => {
       '/guides/torbjorn-guia-video-overwatch', '/counters/torbjorn', '/team-comps/torbjorn',
       '/guides/mauga-guia-video-overwatch', '/team-comps/mauga',
       '/guides/ramattra-guia-video-overwatch', '/team-comps/ramattra',
+      '/guides/wrecking-ball-guia-video-overwatch', '/team-comps/wrecking-ball',
       '/heroes/ana', '/heroes/cassidy', '/heroes/dmon', '/heroes/doctrine', '/heroes/dva', '/heroes/genji', '/heroes/kiriko', '/heroes/reinhardt', '/heroes/shion', '/heroes/tracer', '/heroes/winston', '/heroes/zarya', '/roles/flex',
       '/team-comps/ana', '/team-comps/cassidy', '/team-comps/doctrine', '/team-comps/domina', '/team-comps/dva', '/team-comps/genji', '/team-comps/jetpack-cat', '/team-comps/kiriko', '/team-comps/reinhardt', '/team-comps/roadhog', '/team-comps/sombra', '/team-comps/tracer', '/team-comps/winston', '/team-comps/wuyang', '/team-comps/zarya',
     ].sort())

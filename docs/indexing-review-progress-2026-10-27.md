@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 29 de octubre: **40 de 140 artículos revisados, habilitados y verificados en producción; 100 pendientes de revisión**. Último lote verificado públicamente: Ramattra. Siguiente revisión iniciada: guía y composiciones de Wrecking Ball. Los anuncios mantienen su configuración previa.
+Estado comprobado al 29 de octubre: **42 de 140 artículos revisados; 40 habilitados y verificados en producción, dos pendientes de despliegue y comprobación pública; 98 pendientes de revisión**. Último lote verificado públicamente: Ramattra. Wrecking Ball supera la revisión local; siguiente lectura iniciada: Junkrat. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 
@@ -152,3 +152,11 @@ Evidencia: [revisión de Ramattra](indexing-review-ramattra-2026-10-29.md). Pasa
 Despliegue `029337c` completado, confirmado por GitHub con Vercel `29mverzKmSJmguhcvRapMfCaEYmg` y comprobado públicamente. Pasan 44 respuestas públicas (dos nuevas, 38 anteriores y cuatro exclusiones), el alias 308 de Sojourn y cuatro casos de navegador público en móvil y escritorio. Estado: **40 artículos revisados, habilitados y verificados públicamente de 140; 100 pendientes**.
 
 Se leen completos guía y composiciones de Wrecking Ball y se comprueban versiones, fila pública, ficha oficial y vídeo de LeonDrummer del 12 de octubre de 2022. El título real difiere del almacenado; faltan corrección acotada, contexto histórico, perks actuales y precisión de la introducción para 5v5/6v6. La ficha confirma transferencia base de Adaptive Shield y barrera opcional, y las notas oficiales del 30 de junio de 2026 confirman que la detonación manual de minas pertenece a Community Crafted. Faltan enlaces y presentación final. Las lecturas se registran sin conceder aprobación; ambas URLs siguen excluidas. El objetivo global sigue activo.
+
+## Decimoquinto lote: Wrecking Ball
+
+Se completa la revisión individual de guía y composiciones. La guía corrige el título conocido de LeonDrummer y contextualiza el 12 de octubre de 2022; adapta la introducción a 5v5 y 6v6 y aplica los cuatro perks actuales, distinguiendo transferencia de vida, barrera breve, segunda colocación de minas y detonación manual. Las composiciones conservan texto y fecha tras contrastar fuentes y decisiones. El counter ya era indexable y no recibe otra aprobación ni cambios.
+
+Evidencia: [revisión de Wrecking Ball](indexing-review-wrecking-ball-2026-10-29.md). Pasan lint, 705 pruebas unitarias, build, ocho casos finales de navegador y seis de regresión, además de seis iniciales. Se inspeccionan móvil y escritorio; se mantienen otras exclusiones y los anuncios no cambian. Estado provisional: **42 artículos revisados de 140; 40 publicados y verificados; dos pendientes de comprobar en producción; 98 pendientes de revisión**.
+
+Se leen completos guía y composiciones de Junkrat y se comprueban sus versiones, fila pública, ficha oficial y vídeo de Kajor. La fecha local es 1 de octubre de 2025 y el título real emplea una elipsis tipográfica; falta corregir esa transcripción, contextualizar el material y aplicar los perks actuales. Las composiciones separan Mine Recycling opcional y Rip Roll de Stadium de las reglas de ranked. Faltan enlaces y presentación final. Se registran estas lecturas sin aprobar las dos URLs. El objetivo global sigue activo.
