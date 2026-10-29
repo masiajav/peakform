@@ -1613,7 +1613,18 @@
       "partialReview": {
         "readAt": "2026-10-29",
         "textVersion": "6c905e25e270a865b000bbdbed699bb8bf82016bcbc12e787f5d524e0060cd68",
-        "note": "Lectura completa de llegada próxima y timing, quemaduras y Fan the Flames, destino de Inferno Rush, defensa y curación por impactos de Dancing Blaze, Ascent ofensiva y Revival al morir, VOD, tres FAQ y enlaces. Fila pública y modelo coinciden con el inventario. Ficha oficial confirma kit y minor Smoulder/Heat Shield y major Short Fuse/Hungering Blaze. Vídeo de Awkward de 2026-02-06 con título y canal coincidentes y playability OK; descripción leída sin capítulos, 1395 segundos. Faltan contexto de versión y lanzamiento, aplicación de perks actuales, versión con medios, enlaces y presentación final. No aprobada."
+        "note": "Lectura completa de llegada próxima y timing, quemaduras y Fan the Flames, destino de Inferno Rush, defensa y curación por impactos de Dancing Blaze, Ascent ofensiva y Revival al morir, VOD, tres FAQ y enlaces. Fila pública y modelo coinciden con el inventario. Ficha oficial confirma kit y minor Smoulder/Heat Shield y major Short Fuse/Hungering Blaze. Vídeo de Awkward de 2026-02-06 con título y canal coincidentes y playability OK; descripción leída sin capítulos, 1395 segundos. Faltan contexto de versión y lanzamiento, aplicación de perks actuales, versión con medios, enlaces y presentación final. No aprobada. El reproductor confirma audio original en-US.4.",
+        "baseline": {
+          "checkedAt": "2026-10-29",
+          "baseCommit": "d2c74f4",
+          "cases": 8,
+          "log": "reports/indexing-review-2026-10-27/release-batch-twenty-four/baseline-twenty-four.log",
+          "screenshots": [
+            "reports/indexing-review-2026-10-27/release-batch-twenty-four/reports/reviewed-guides/anran-desktop-chromium.png",
+            "reports/indexing-review-2026-10-27/release-batch-twenty-four/reports/reviewed-guides/anran-guia-video-overwatch-mobile-chromium-viewport.png"
+          ],
+          "note": "Ambas guías siguen noindex en móvil y escritorio; vídeos y botones de reproducción disponibles, texto, FAQ, fechas, enlaces y ausencia de desbordamientos y anuncios comprobados. Se inspeccionan las dos capturas completas de escritorio y las dos cabeceras móviles. Faltan las correcciones de contenido, metadatos y medios identificadas y las versiones y comprobaciones finales. No es una aprobación."
+        }
       }
     },
     {
@@ -1923,9 +1934,29 @@
       "sourceVersion": "13a2ef3769734f04de5da809766f46223ea22c53250d6a9993f9f4126f7aab87",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-doomfist-roadhog-guides-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/doomfist-guia-overwatch-entradas-cooldowns",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "a31d3f4b1daa704283f0604296cd536e0c475302b5de14a9e785ecf916367e85",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-29T18:16:51.678Z",
+        "commit": "d2c74f47eb0e3bba3ba6f1d17c495ce0a64f71d8",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/FxV4mkXoSDwa7x2M7RvenmkA7Mmr",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "2753351962609d41dd12c73cb981f4c0667cac11b8325091a22a22869ff03114",
       "reviewedRenderedVersion": "274a27501d65f1503d937348c396ddee3444cfcfd2a33a31fb08154411d6aa9b",
@@ -2749,9 +2780,29 @@
       "sourceVersion": "e256f126af6cef077dfbcc7cc733d70449a2edc52b98a2a7be10f4a91ce47659",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-doomfist-roadhog-guides-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/roadhog-guia-video-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "7c432c124223dba3a8c0dc8809203a18ed6417029f39dbb5e28fe09afd18ee2b",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-29T18:16:51.678Z",
+        "commit": "d2c74f47eb0e3bba3ba6f1d17c495ce0a64f71d8",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/FxV4mkXoSDwa7x2M7RvenmkA7Mmr",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "704fa366f0744c66c92105f2f811002361a7a72774cdc881be9552f04e17366e",
       "reviewedRenderedVersion": "af1648d84088a0fe76535e73b3f17a6cc992a9bd160275988c8492bc3e9c5ea1",
@@ -2974,7 +3025,18 @@
       "partialReview": {
         "readAt": "2026-10-29",
         "textVersion": "7e0512b62aba03df0a2252b6894b152993dbda1bb297b7aa6297b91e145ef35b",
-        "note": "Lectura completa de Support desde Season 5, prioridades de Hotfix, sigilo, Cyberspace y Weaken sin anticuración, major, hack de botiquines/dispositivos, lateral con curación y Translocator, EMP y Life Hack, VOD, tres FAQ y enlaces. Modelo actual y fila pública coinciden con el inventario. Ficha y notas oficiales confirman kit y cuatro perks actuales. Vídeo LeonDrummer de 2022-10-13 con playability OK; título real Guía básica: Sombra | Overwatch 2, descripción leída sin capítulos, 328 segundos. Se detecta tag dps heredada pese al role Support; falta corregirla sin ocultar ediciones inesperadas. También faltan título conocido, contexto fechado, concreción de CTRL ALT ESC, versión con medios, enlaces y presentación final. No aprobada."
+        "note": "Lectura completa de Support desde Season 5, prioridades de Hotfix, sigilo, Cyberspace y Weaken sin anticuración, major, hack de botiquines/dispositivos, lateral con curación y Translocator, EMP y Life Hack, VOD, tres FAQ y enlaces. Modelo actual y fila pública coinciden con el inventario. Ficha y notas oficiales confirman kit y cuatro perks actuales. Vídeo LeonDrummer de 2022-10-13 con playability OK; título real Guía básica: Sombra | Overwatch 2, descripción leída sin capítulos, 328 segundos. Se detecta tag dps heredada pese al role Support; falta corregirla sin ocultar ediciones inesperadas. También faltan título conocido, contexto fechado, concreción de CTRL ALT ESC, versión con medios, enlaces y presentación final. No aprobada. El reproductor confirma audio original es-US.4.",
+        "baseline": {
+          "checkedAt": "2026-10-29",
+          "baseCommit": "d2c74f4",
+          "cases": 8,
+          "log": "reports/indexing-review-2026-10-27/release-batch-twenty-four/baseline-twenty-four.log",
+          "screenshots": [
+            "reports/indexing-review-2026-10-27/release-batch-twenty-four/reports/reviewed-guides/sombra-desktop-chromium.png",
+            "reports/indexing-review-2026-10-27/release-batch-twenty-four/reports/reviewed-guides/sombra-guia-video-overwatch-mobile-chromium-viewport.png"
+          ],
+          "note": "Ambas guías siguen noindex en móvil y escritorio; vídeos y botones de reproducción disponibles, texto, FAQ, fechas, enlaces y ausencia de desbordamientos y anuncios comprobados. Se inspeccionan las dos capturas completas de escritorio y las dos cabeceras móviles. Faltan las correcciones de contenido, metadatos y medios identificadas y las versiones y comprobaciones finales. No es una aprobación."
+        }
       }
     },
     {
@@ -5052,7 +5114,7 @@
   ],
   "progress": {
     "reviewed": 58,
-    "publishedAndVerified": 56,
+    "publishedAndVerified": 58,
     "pending": 82
   }
 }

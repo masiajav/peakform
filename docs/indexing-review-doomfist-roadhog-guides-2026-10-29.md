@@ -28,3 +28,7 @@ Solo estas dos URLs se proponen para publicación con revisión de sus versiones
 ## Validación final local
 
 Pasan 707 pruebas unitarias, lint, seis casos finales de ambas guías y filtros y seis de regresión sobre Soldier 76, Widowmaker y el modo de revisión de anuncios. Se actualiza la expectativa de revisión de Roadhog al 29 de octubre, manteniendo la fecha de Sombra y el control de publicación original. La advertencia histórica permanece en el cuerpo y el contexto ampliado se comprueba donde se muestra, antes del vídeo. Se inspeccionan las cuatro capturas finales de móvil y escritorio: contexto, nuevas secciones, fechas y estructura correctos. Texto íntegro, FAQ, enlaces, medios y reproducción, metadatos e idioma, sitemap y ausencia de desbordamientos y anuncios verificados. Falta desplegar y comprobar ambas URLs públicas.
+
+## Resultado público
+
+Vercel confirma el commit `d2c74f4` en [este despliegue de producción](https://vercel.com/masiajavs-projects/peakform/FxV4mkXoSDwa7x2M7RvenmkA7Mmr). Pasan las 62 respuestas HTTP y la redirección del alias de Doomfist: ambas URLs responden 200, sin noindex, incluidas en sitemap, con fechas y fuentes de vídeo correctas y sin anuncios. Los 56 artículos anteriores y cuatro controles conservan su estado. Pasan cuatro casos adicionales de navegador contra producción en móvil y escritorio. El ledger registra respuesta, huella, fecha, commit y despliegue por URL: **58 de 140 artículos habilitados y verificados; 82 pendientes de revisión**.

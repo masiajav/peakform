@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 29 de octubre: **58 de 140 artículos revisados; 56 habilitados y verificados en producción, dos de Doomfist y Roadhog pendientes de despliegue y comprobación pública; 82 pendientes de revisión**. Último lote verificado públicamente: Soldier 76. Siguiente revisión iniciada: guías de Sombra y Anran. Los anuncios mantienen su configuración previa.
+Estado comprobado al 29 de octubre: **58 de 140 artículos revisados, habilitados y verificados en producción; 82 pendientes de revisión**. Último lote verificado públicamente: guías de Doomfist y Roadhog. Siguiente revisión iniciada: guías de Sombra y Anran. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 
@@ -232,3 +232,7 @@ Soldier 76 queda desplegado y verificado en el commit e9ecdc2: 60 respuestas HTT
 Se completa la revisión individual de ambas guías. Doomfist aplica sus cuatro perks y precisa la absorción inicial de Power Matrix; contextualiza el vídeo de 2025 y su matchup antiguo de Sombra. Roadhog diferencia sus dos major, corrige el título conocido y fecha el contexto anterior a los reworks. Pasan 707 pruebas unitarias, lint, seis casos finales y seis de regresión, además de ocho iniciales. Se inspeccionan cuatro capturas iniciales y cuatro finales. Evidencia: [revisión de Doomfist y Roadhog](indexing-review-doomfist-roadhog-guides-2026-10-29.md). Ambas URLs quedan pendientes de despliegue y comprobación pública.
 
 Se leen completas y por separado las guías siguientes de Sombra y Anran, se contrastan sus modelos actuales, fichas y vídeos. Sombra conserva una etiqueta dps heredada que requiere corrección controlada y contexto del vídeo de 2022. Anran necesita contexto y aplicación de perks actuales. Ambas siguen pendientes y excluidas.
+
+Doomfist y Roadhog quedan desplegados y verificados en el commit d2c74f4: 62 respuestas HTTP y una redirección correctas, más cuatro casos de navegador contra producción. Ambas URLs están en el sitemap y sin noindex; los controles y los 56 artículos anteriores conservan su estado. Total verificado: **58 de 140; 82 pendientes**.
+
+La revisión inicial de Sombra y Anran añade ocho casos correctos de navegador y cuatro capturas inspeccionadas. Los reproductores confirman audio original español e inglés, respectivamente. Sus URLs conservan noindex hasta completar las correcciones identificadas, registrar las versiones finales y verificarlas; no se han aprobado todavía.
