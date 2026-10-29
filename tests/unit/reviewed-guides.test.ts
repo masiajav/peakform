@@ -26,11 +26,10 @@ describe('reviewed guide batch', () => {
       const slug = `${hero}-guia-video-overwatch`
       const source = { ...original, slug, hero, role: hero === 'sombra' ? 'dps' as const : 'tank' as const, video_id: 'original-video', video_channel: 'Original channel' }
       const revised = applyReviewedGuideRevision(source)
-      expect(revised).toMatchObject({ slug, hero, role: hero === 'sombra' ? 'support' : 'tank', created_at: source.created_at, updated_at: hero === 'roadhog' ? '2026-10-29' : '2026-10-10', video_id: source.video_id, video_channel: source.video_channel, author: 'Replaid Lab' })
+      expect(revised).toMatchObject({ slug, hero, role: hero === 'sombra' ? 'support' : 'tank', created_at: source.created_at, updated_at: '2026-10-29', video_id: source.video_id, video_channel: source.video_channel, author: 'Replaid Lab' })
       expect(source.role).toBe(hero === 'sombra' ? 'dps' : 'tank')
       expect(revised.body).toContain(hero === 'sombra' ? 'versión anterior de Sombra como DPS' : 'kit anterior')
-      if (hero === 'roadhog') expect(reviewedGuideRevisions[slug].videoDescription).toContain('17 de octubre de 2022')
-      else expect(revised.body).toContain(reviewedGuideRevisions[slug].videoDescription)
+      expect(reviewedGuideRevisions[slug].videoDescription).toContain(hero === 'sombra' ? '13 de octubre de 2022' : '17 de octubre de 2022')
       expect(guideQualityDecision(revised)).toMatchObject({ indexable: false, adsAllowed: false })
     }
     const sombra = reviewedGuideRevisions['sombra-guia-video-overwatch']

@@ -1053,6 +1053,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-doomfist-roadhog-guides-2026-10-29.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/sombra-guia-video-overwatch': {
+    path: '/guides/sombra-guia-video-overwatch',
+    version: 'e67f7a0c99c988bc37888ca19a330bd6a84b1e08b65c1c2b1658706a7b1d0e1d',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-sombra-anran-guides-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/guides/anran-guia-video-overwatch': {
+    path: '/guides/anran-guia-video-overwatch',
+    version: 'fbae1cec3f0112f3ed4ce83402148441bb5e04b1f29d90a7aa950e812599e24b',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-sombra-anran-guides-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/zarya': {
     path: '/team-comps/zarya',
     version: '40de9429f726f9396cb6d2c3aa44d8eca29c9b77c5b7eeac49598631fa1b35a6',

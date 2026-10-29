@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 import { GUIDE_REVISION_DATE, reviewedGuideRevisions } from '../../src/lib/reviewed-guide-revisions'
 
-const PUBLISHED_REVISIONS = ['como-mejorar-como-dps-overwatch', 'como-mejorar-como-support-overwatch', 'moira-guia-overwatch-recursos-supervivencia', 'reaper-guia-video-overwatch', 'brigitte-guia-overwatch-peel-anti-dive', 'echo-guia-overwatch-burst-vertical', 'ashe-guia-overwatch-angulos-dinamita', 'hanzo-guia-video-overwatch', 'mei-guia-video-overwatch', 'sojourn-guia-overwatch-railgun-presion', 'bastion-guia-video-overwatch', 'symmetra-guia-video-overwatch', 'torbjorn-guia-video-overwatch', 'mauga-guia-video-overwatch', 'ramattra-guia-video-overwatch', 'wrecking-ball-guia-video-overwatch', 'junkrat-guia-video-overwatch', 'venture-guia-video-overwatch', 'hazard-guia-video-overwatch', 'freja-guia-video-overwatch', 'wuyang-guia-video-overwatch', 'widowmaker-guia-overwatch-lineas-vision', 'soldier-76-guia-overwatch-off-angles', 'doomfist-guia-overwatch-entradas-cooldowns', 'roadhog-guia-video-overwatch']
+const PUBLISHED_REVISIONS = ['como-mejorar-como-dps-overwatch', 'como-mejorar-como-support-overwatch', 'moira-guia-overwatch-recursos-supervivencia', 'reaper-guia-video-overwatch', 'brigitte-guia-overwatch-peel-anti-dive', 'echo-guia-overwatch-burst-vertical', 'ashe-guia-overwatch-angulos-dinamita', 'hanzo-guia-video-overwatch', 'mei-guia-video-overwatch', 'sojourn-guia-overwatch-railgun-presion', 'bastion-guia-video-overwatch', 'symmetra-guia-video-overwatch', 'torbjorn-guia-video-overwatch', 'mauga-guia-video-overwatch', 'ramattra-guia-video-overwatch', 'wrecking-ball-guia-video-overwatch', 'junkrat-guia-video-overwatch', 'venture-guia-video-overwatch', 'hazard-guia-video-overwatch', 'freja-guia-video-overwatch', 'wuyang-guia-video-overwatch', 'widowmaker-guia-overwatch-lineas-vision', 'soldier-76-guia-overwatch-off-angles', 'doomfist-guia-overwatch-entradas-cooldowns', 'roadhog-guia-video-overwatch', 'sombra-guia-video-overwatch', 'anran-guia-video-overwatch']
 
 for (const [slug, revision] of Object.entries(reviewedGuideRevisions)) {
   test(`${slug} has one complete article and preserves its original URL`, async ({ page, request }) => {
@@ -106,6 +106,15 @@ for (const [slug, revision] of Object.entries(reviewedGuideRevisions)) {
     await page.screenshot({ path: `reports/reviewed-guides/${slug}-${test.info().project.name}-viewport.png` })
   })
 }
+
+test('role filters keep Sombra in Support after the editorial correction', async ({ page }) => {
+  await page.goto('/guides?hero=sombra&role=support')
+  await expect(page.locator('a[href="/guides/sombra-guia-video-overwatch"]')).toHaveCount(1)
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/)
+  await page.goto('/guides?hero=sombra&role=dps')
+  await expect(page.locator('a[href="/guides/sombra-guia-video-overwatch"]')).toHaveCount(0)
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/)
+})
 
 test('hero filters do not bring back unreviewed templates', async ({ page, request }) => {
   await page.goto('/guides?hero=orisa')

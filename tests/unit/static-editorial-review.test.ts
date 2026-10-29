@@ -75,6 +75,7 @@ describe('version-bound static editorial reviews', () => {
       '/guides/widowmaker-guia-overwatch-lineas-vision', '/counters/widowmaker', '/team-comps/widowmaker',
       '/guides/soldier-76-guia-overwatch-off-angles', '/team-comps/soldier-76',
       '/guides/doomfist-guia-overwatch-entradas-cooldowns', '/guides/roadhog-guia-video-overwatch',
+      '/guides/sombra-guia-video-overwatch', '/guides/anran-guia-video-overwatch',
       '/heroes/ana', '/heroes/cassidy', '/heroes/dmon', '/heroes/doctrine', '/heroes/dva', '/heroes/genji', '/heroes/kiriko', '/heroes/reinhardt', '/heroes/shion', '/heroes/tracer', '/heroes/winston', '/heroes/zarya', '/roles/flex',
       '/team-comps/ana', '/team-comps/cassidy', '/team-comps/doctrine', '/team-comps/domina', '/team-comps/dva', '/team-comps/genji', '/team-comps/jetpack-cat', '/team-comps/kiriko', '/team-comps/reinhardt', '/team-comps/roadhog', '/team-comps/sombra', '/team-comps/tracer', '/team-comps/winston', '/team-comps/wuyang', '/team-comps/zarya',
     ].sort())

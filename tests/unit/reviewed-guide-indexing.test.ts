@@ -60,6 +60,7 @@ describe('individual publication of repository-owned guide revisions', () => {
       ['soldier-76-guia-overwatch-off-angles', 'soldier-76', 'dps', ['soldier-76', 'dps', 'hitscan', 'off-angles', '6v6']],
       ['doomfist-guia-overwatch-entradas-cooldowns', 'doomfist', 'tank', ['doomfist', 'tank', 'dive', 'cooldowns', '6v6']],
       ['roadhog-guia-video-overwatch', 'roadhog', 'tank', ['roadhog', 'tank', 'video', 'youtube', '6v6', 'overwatch']],
+      ['anran-guia-video-overwatch', 'anran', 'dps', ['anran', 'dps', 'video', 'youtube', '6v6', 'overwatch']],
     ] as const) {
       const revision = reviewedGuideRevisions[slug]
       const raw = { slug, hero, role, tags: [...tags], published: true, created_at: '2026-05-05' }
@@ -79,6 +80,34 @@ describe('individual publication of repository-owned guide revisions', () => {
       }
     }
     expect(guideQualityDecision({ ...applyReviewedGuideRevision(stored), video_id: 'unreviewed-video' }).indexable).toBe(false)
+  })
+
+  it('corrects the known Sombra DPS tag while preserving other tags and rejecting unexpected metadata', () => {
+    const slug = 'sombra-guia-video-overwatch'
+    const revision = reviewedGuideRevisions[slug]
+    const source = { slug, hero: 'sombra', role: 'dps' as const, tags: ['sombra', 'dps', 'video', 'youtube', '6v6', 'overwatch'], published: true, created_at: '2026-05-06', ...revision.reviewedVideo, video_title: revision.sourceVideoTitle }
+    const before = structuredClone(source)
+    const corrected = applyReviewedGuideRevision(source)
+    expect(source).toEqual(before)
+    expect(corrected.role).toBe('support')
+    expect(corrected.tags).toEqual(['sombra', 'support', 'video', 'youtube', '6v6', 'overwatch'])
+    expect(guideQualityDecision(corrected)).toMatchObject({ indexable: true, adsAllowed: false })
+    expect(isGuideSitemapEligible(source)).toBe(true)
+    expect(applyReviewedGuideRevision(corrected)).toEqual(corrected)
+    expect(isGuideSitemapEligible({ ...source, tags: corrected.tags })).toBe(true)
+    for (const tags of [[...source.tags, 'unreviewed-tag'], [...source.tags, '__proto__'], source.tags.filter(tag => tag !== 'youtube'), source.tags.map(tag => tag === 'dps' ? 'tank' : tag)]) {
+      const changed = { ...source, tags }
+      const rendered = applyReviewedGuideRevision(changed)
+      expect(rendered.tags).toEqual(tags.map(tag => tag === 'dps' ? 'support' : tag))
+      expect(guideQualityDecision(rendered).indexable).toBe(false)
+      expect(isGuideSitemapEligible(changed)).toBe(false)
+    }
+    for (const edit of [{ video_id: 'another-video' }, { video_title: 'Unknown title' }, { video_channel: 'Unknown channel' }, { video_language: 'en' }, { video_published_at: '2026-10-29' }, { cover_image: '/unknown.png' }]) {
+      expect(guideQualityDecision(applyReviewedGuideRevision({ ...source, ...edit })).indexable).toBe(false)
+      expect(isGuideSitemapEligible({ ...source, ...edit })).toBe(false)
+    }
+    expect(guideQualityDecision({ ...corrected, role: 'tank' }).indexable).toBe(false)
+    expect(guideQualityDecision({ ...corrected, tags: source.tags }).indexable).toBe(false)
   })
 
   it('corrects only the reviewed source video title without changing its input or masking later edits', () => {

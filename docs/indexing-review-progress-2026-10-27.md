@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 29 de octubre: **58 de 140 artículos revisados, habilitados y verificados en producción; 82 pendientes de revisión**. Último lote verificado públicamente: guías de Doomfist y Roadhog. Siguiente revisión iniciada: guías de Sombra y Anran. Los anuncios mantienen su configuración previa.
+Estado comprobado al 29 de octubre: **60 de 140 artículos revisados; 58 habilitados y verificados en producción, dos de Sombra y Anran pendientes de despliegue y comprobación pública; 80 pendientes de revisión**. Último lote verificado públicamente: guías de Doomfist y Roadhog. Siguiente revisión iniciada: guía y composiciones de Baptiste. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 
@@ -236,3 +236,9 @@ Se leen completas y por separado las guías siguientes de Sombra y Anran, se con
 Doomfist y Roadhog quedan desplegados y verificados en el commit d2c74f4: 62 respuestas HTTP y una redirección correctas, más cuatro casos de navegador contra producción. Ambas URLs están en el sitemap y sin noindex; los controles y los 56 artículos anteriores conservan su estado. Total verificado: **58 de 140; 82 pendientes**.
 
 La revisión inicial de Sombra y Anran añade ocho casos correctos de navegador y cuatro capturas inspeccionadas. Los reproductores confirman audio original español e inglés, respectivamente. Sus URLs conservan noindex hasta completar las correcciones identificadas, registrar las versiones finales y verificarlas; no se han aprobado todavía.
+
+## Vigésimo cuarto lote: guías de Sombra y Anran
+
+Se completa la revisión individual de ambas guías. Sombra corrige el título conocido, contextualiza el vídeo de DPS de 2022, precisa condiciones de perks y sustituye únicamente la etiqueta heredada dps por support. Las demás etiquetas se conservan y los cambios inesperados invalidan la revisión. Anran aplica sus cuatro perks y diferencia curación base de Dancing Blaze de su mejora opcional. Pasan 708 pruebas unitarias, lint, seis casos finales y ocho de regresión, además de ocho iniciales. Se inspeccionan cuatro capturas iniciales y cuatro finales. Los filtros Support/DPS muestran a Sombra en el rol correcto y conservan noindex. Evidencia: [revisión de Sombra y Anran](indexing-review-sombra-anran-guides-2026-10-29.md). Ambas URLs quedan pendientes de despliegue y comprobación pública.
+
+Se leen las dos páginas siguientes de Baptiste y se contrastan sus modelos actuales, ficha y vídeo histórico de 2022. Roles y formatos de las composiciones son coherentes; la guía necesita contexto, título real y explicación de perks actuales. Ambas siguen pendientes y excluidas.

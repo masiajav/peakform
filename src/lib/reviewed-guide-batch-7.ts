@@ -7,7 +7,13 @@ export const seventhGuideReviewBatch: Record<string, GuideRevision> = {
     description: 'Prepara una entrada con Anran, aprovecha Fan the Flames sobre enemigos quemados y decide entre una ultimate ofensiva y reservar la resurrección.',
     quickAnswer: 'Anran necesita acercarse con ayuda y conservar una salida. Presiona primero con los abanicos y aprovecha Fan the Flames sobre un objetivo que ya esté quemado y siga accesible. Inferno Rush permite cerrar distancia, pero el destino debe tener cobertura o seguimiento. Dancing Blaze ayuda a evitar una amenaza cercana; la resurrección no convierte en buena una entrada que el equipo no puede seguir.',
     videoSlug: 'anran-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-29',
+    reviewedVideo: {
+      video_id: 'eVYF5am80UQ', video_url: 'https://www.youtube.com/watch?v=eVYF5am80UQ', video_platform: 'youtube',
+      video_title: 'A Complete Anran Guide', video_channel: 'Awkward', video_language: 'en', video_published_at: '2026-02-06',
+    },
+    renderedContentVersion: '69740c93dc08a46fc34d30f33ffd612f632a56e4ae0e4de0a70804ae6014ef4a',
+    videoDescription: 'Guía de Awkward publicada el 6 de febrero de 2026. La grabación corresponde a aquella versión del juego y es anterior a los cambios posteriores de Dancing Blaze. El artículo escrito contrasta por separado el kit y los perks actuales: la curación por impactos ya forma parte de la habilidad y Hungering Blaze refuerza los golpes posteriores. No se trasladan automáticamente cifras, elecciones o secuencias del vídeo a la partida actual.',
     body: `## Llega a un lateral cercano, no al fondo de una pelea perdida
 
 Anran puede amenazar desde un acceso distinto al del Tank, pero necesita coincidir con su presión. Si apareces antes de que el equipo pueda atacar, los enemigos tienen tiempo para girarse y responder juntos. Un lateral corto permite observar el engage y retirarte si la situación cambia.
@@ -37,6 +43,14 @@ La habilidad permite evitar daño mientras golpeas a enemigos cercanos y recuper
 Puedes utilizarla cuando el rival comprometa una respuesta peligrosa o cuando necesites sostener un intercambio cercano. Lo importante es preparar dónde estarás después. Si terminas rodeada y sin movilidad, quizá solo hayas aplazado una muerte que empezó al elegir mal el destino.
 
 No dependas de esa defensa para atravesar sin pensar cualquier entrada. Contra Ana, por ejemplo, seguir la posición y el estado de Sleep ayuda a decidir cuándo comprometerte. Contra Cassidy, respeta el espacio que puede controlar antes de aparecer junto a él. Una animación defensiva no sustituye saber qué respuesta intentas evitar.
+
+## Elige los perks según cómo vas a sostener la entrada
+
+Smoulder prolonga la quemadura de los enemigos prendidos. Puede mantener presión mientras vuelves a cobertura, pero no obliga a perseguir al mismo objetivo después de que haya recuperado ayuda. Heat Shield, la alternativa minor, otorga sobrevida al usar la ultimate y por cada enemigo que esta prende. Ese margen depende del perk y de lo que alcances; no lo des por disponible en cualquier entrada normal.
+
+Short Fuse reduce el cooldown de Inferno Rush al impactar a un enemigo. No garantiza que recuperes toda la salida por activar la habilidad ni que convenga seguir hacia el siguiente rival. Comprueba los impactos y el recurso disponible antes de continuar; si has terminado fuera de la visión de tus supports, un cooldown más corto no arregla por sí solo la posición.
+
+Hungering Blaze es la otra opción major y aumenta la curación de los golpes posteriores de Dancing Blaze. La habilidad ya cura por sus impactos sin ese perk: la mejora no es el requisito para obtener toda su curación base. Valora cuántos enemigos puedes alcanzar y dónde terminarás después, sin entrar entre varios solo para intentar recuperar más vida. Las opciones pueden reforzar una ventana preparada, pero no sustituyen una retirada viable.
 
 ## La ultimate ofensiva necesita un impacto aprovechable
 
@@ -279,8 +293,15 @@ Puedes preparar los accesos con [Ilios](/maps/ilios), entender [qué intentará 
     description: 'Juega Sombra Support sin dejar solo al equipo: a quién dar Hotfix, dónde lanzar Cyberspace y cuándo entrar con EMP. Consejos del rework de Season 5.',
     quickAnswer: 'Sombra es Support desde el lanzamiento de Season 5. Mantén Hotfix sobre el compañero que necesita ayuda, coloca Cyberspace donde vuestro equipo pueda pelear y reserva una salida con Translocator. Puedes presionar desde un lateral, pero si tu recorrido te impide curar, la sorpresa está costando demasiado al equipo.',
     videoSlug: 'sombra-guia-video-overwatch',
-    videoDescription: 'El vídeo de esta página muestra la versión anterior de Sombra como DPS. Las rutas pueden darte ideas, pero sus combos y habilidades no describen Season 5.',
-    revisedAt: '2026-10-10',
+    sourceVideoTitle: 'Guia basica: Sombra | Overwatch',
+    reviewedVideo: {
+      video_id: 'yOB_mrkOul8', video_url: 'https://www.youtube.com/watch?v=yOB_mrkOul8', video_platform: 'youtube',
+      video_title: 'Guía básica: Sombra | Overwatch 2', video_channel: 'LeonDrummer', video_language: 'es', video_published_at: '2022-10-13',
+    },
+    renderedContentVersion: 'dc2902c2ac02844dd6bc5e3aa07937bbbb9db8118fc100d4a936adf752300858',
+    tagReplacements: { dps: 'support' },
+    videoDescription: 'Vídeo de LeonDrummer publicado el 13 de octubre de 2022, cuando Sombra era DPS. Es una referencia histórica: sus habilidades, combos y objetivos no describen a la Sombra Support de Season 5. El artículo escrito contrasta por separado Hotfix, Cyberspace, EMP y los perks actuales, incluidas las condiciones de CTRL ALT ESC y la elección entre Data Packet y Cybersecurity. No copies automáticamente las cifras o secuencias de aquella grabación.',
+    revisedAt: '2026-10-29',
     body: `## Sombra ya es Support: cambia el objetivo de tus entradas
 
 Desde el 6 de octubre de 2026, no juegas un DPS que busca encadenar Hack y Virus. Hotfix y Cyberspace cambian qué necesita el equipo de ti: curar durante el intercambio y debilitar al rival cuando intenta imponer su daño. Machine Pistol sigue permitiendo presionar, pero buscar una baja no justifica perder de vista al compañero que depende de tu ayuda.
@@ -303,7 +324,7 @@ Busca una esquina que vuestro equipo esté disputando o la llegada de una entrad
 
 En Colosseo, puedes usarla en el contacto junto al robot mientras vuestro Tank y un DPS comparten esa esquina. Si el rival se aparta, aprovecha para recolocar al grupo. No cruces solo para intentar mantenerlo dentro; has abierto una oportunidad de movimiento, no recibido una orden de perseguir.
 
-Cybersecurity, un perk major, refuerza la curación del área sobre aliados con poca vida. Puede ayudar en contactos cercanos, pero no convierte en buena idea quedarse dentro de todo el fuego rival. Su alternativa, Data Packet, favorece recuperar Hotfix al hackear botiquines. Elige según las rutas que puedes usar sin ausentarte de la pelea.
+Cybersecurity, un perk major, duplica la curación del área sobre aliados por debajo de la mitad de vida. Puede ayudar en contactos cercanos, pero no convierte en buena idea quedarse dentro de todo el fuego rival. Su alternativa, Data Packet, reduce en cuatro segundos el cooldown principal de Hotfix al hackear botiquines. Elige según las rutas que puedes usar sin ausentarte de la pelea.
 
 ## Hackear botiquines no es silenciar al héroe de delante
 
@@ -316,6 +337,8 @@ Un botiquín de una ruta cercana puede facilitar que vuelvas a intervenir. Dedic
 En Dorado, asomarte desde una calle próxima al equipo puede hacer que la defensa tenga que girarse. La diferencia respecto a un flanco profundo es que puedes volver a dar Hotfix sin recorrer medio mapa. Comprueba esa distancia antes del primer disparo, no cuando oyes que vuestro Tank está muriendo.
 
 Conserva Translocator si vas a necesitar salir. Identifica una llegada con cobertura y cerca de un aliado, en lugar de lanzar el teleport hacia cualquier sitio al quedarte con poca vida. Tras usarlo, el sigilo no aparece de forma instantánea y el enemigo todavía puede contestar tu llegada.
+
+CTRL ALT ESC, la alternativa minor a Life Hack, inicia regeneración pasiva al teleportarte por debajo de la mitad de vida. No es una curación completa instantánea ni se activa por cualquier uso de Translocator. Elige un destino que te permita sostener la retirada; no vuelvas a exponerte solo porque hayas cumplido la condición del perk.
 
 Si el rival empieza a buscarte con dos jugadores, acorta el duelo. Forzar ese giro y regresar a curar puede bastar para que vuestro frente avance. No necesitas terminar siempre la baja; sí necesitas volver antes de que el otro Support tenga que sostener a todos por su cuenta.
 
