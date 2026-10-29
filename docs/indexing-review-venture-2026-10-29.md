@@ -1,0 +1,22 @@
+# Revisión individual de Venture: guía y composiciones
+
+Revisión del 29 de octubre de 2026 por Codex. Se leen completos ambos artículos pendientes. Sus modelos y la fila pública de la guía coinciden con el inventario antes de las correcciones. El counter ya era indexable y no recibe otra aprobación ni cambios.
+
+| URL | Lectura y utilidad | Correcciones y fechas | Versión revisada |
+| --- | --- | --- | --- |
+| `/guides/venture-guia-video-overwatch` | Aparición cercana al equipo, destino de Burrow, movilidad y salida, rango del arma, defensas rivales, Tectonic Shock, VOD, tres FAQ y enlaces. | Precisa la recarga acelerada de Drill Dash bajo tierra y aplica los cuatro perks actuales sin tratarlos como kit base. Corrige el título conocido del vídeo oficial y contextualiza su fecha de estreno. Primera publicación del 6 de mayo conservada; revisión del contenido del 29 de octubre. | `a51ff04660939f9eee5bb4790a41a519807bd563b96398aabe26ee6ce432e31e` |
+| `/team-comps/venture` | Equipos Winston/Tracer/Ana/Brigitte, Zarya/Mei/Baptiste/Lúcio y Reinhardt/D.Va/Ashe/Baptiste/Lúcio en 6v6; sus cinco argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, FAQ y enlaces. | Texto y fecha del 2 de octubre conservados. Roles y formatos válidos; alcance temporal de SMART Extender, protección subterránea distinta de una salida segura y ayudas sujetas a disponibilidad y visión. | `6c7fede4867a2ad2d7b39340ae62d236a67cbeab61484939a9b5831cd3682419` |
+
+## Exactitud y fuentes
+
+Se descarga y lee la ficha oficial actual de [Venture](https://overwatch.blizzard.com/en-gb/heroes/venture/): SMART Excavator, Drill Dash con recarga acelerada mientras Burrow está activo, protección subterránea y ondas de Tectonic Shock. Deep Burrow y Excavation Exhilaration son alternativas minor; SMART Extender y Covered In Dirt son alternativas major. Se distinguen recorrido bajo tierra, recuperación de recursos durante la ultimate, alcance que debe activarse y escudos sujetos al daño de Clobber. No se presenta disponibilidad instantánea de Dash, alcance permanente del arma ni supervivencia garantizada por un perk. Las fichas de compañeros y rivales citados se contrastaron en lotes anteriores; los planes dependen de seguimiento y rutas reales, no de un meta medido.
+
+El [vídeo oficial de PlayOverwatch](https://www.youtube.com/watch?v=LcrOe4VBvL0) y oEmbed responden 200 con playability `OK`. Confirman «How to Play Venture | Overwatch 2», canal, idioma y fecha del 18 de abril de 2024. La descripción presenta a Jake y la temporada de estreno, sin capítulos de análisis. Se lee sin afirmar haber visto sus 258 segundos íntegros. La corrección añade el «2» únicamente al ID y transcripción antigua comprobados y conserva la entrada original. El contexto visible separa ese material del kit y los perks actuales. La huella del cuerpo y medios renderizados es `dae3a42058a74c03e97a321adab81fb3f539351c4e5a051c5c4a3a971ecfe004`.
+
+## Presentación y publicación
+
+La copia aislada parte de `0eb00b6`, sin cambios locales ajenos de mapas, Deadlock o tsconfig. Pasan seis casos iniciales sobre los dos artículos todavía excluidos y el botón de reproducción en móvil y escritorio. Se inspeccionan las dos capturas completas de escritorio y las dos cabeceras móviles. Texto, enlaces, metadatos, imágenes, fechas, FAQ, estructura y ausencia de overflow y anuncios son correctos en esa versión. Quedan pendientes las comprobaciones finales de las correcciones y la publicación.
+
+Solo estas dos URLs se incorporan como candidatos explícitos con revisión de versión y medios exactos. Otros artículos pendientes siguen excluidos y `adsAllowed: false`. No se activan anuncios. Fuentes y modelos: `reports/indexing-review-2026-10-27/batch-seventeen/`; capturas y logs: `reports/indexing-review-2026-10-27/release-batch-seventeen/`.
+
+Validación local final: lint sin errores, 705 pruebas unitarias y build correctos. Pasan ocho casos de navegador sobre ambos artículos, catálogo de composiciones y filtros en móvil y escritorio; otros seis comprueban Junkrat, Wrecking Ball y la supresión de anuncios en ambos juegos. Se verifican texto completo, título corregido, contexto de estreno, recarga y opciones de perks, fecha original, revisión, FAQ, datos estructurados, enlaces, imágenes, sitemap y ausencia de overflow y slots. Se inspeccionan las capturas finales de la guía y su cabecera móvil. Quedan pendientes despliegue y verificación pública.

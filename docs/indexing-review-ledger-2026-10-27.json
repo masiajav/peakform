@@ -2100,7 +2100,12 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "b46f1942df2e2dafc2f5ab94eced7fd2abf465833d54a728b2ac03bf643a030e",
+        "note": "Lectura completa de muro con visión aliada, Leap y Vault con aterrizaje viable, Spike Guard frontal y munición, aislamiento real, Downpour con seguimiento, VOD, tres FAQ y enlaces. Modelo actual y fila pública coinciden con el inventario. Ficha oficial confirma Reconstitution/Anarchic Zeal minor y Deep Leap/Explosive Impalements major. Vídeo de Spilo del 20 de enero de 2025 confirmado por watch y oEmbed, playability OK; descripción y capítulos leídos. Faltan contexto del material anterior a perks, concreción de opciones actuales, versión final con medios, enlaces y presentación. No aprobada."
+      }
     },
     {
       "path": "/guides/illari-guia-overwatch-pilon-dano",
@@ -2188,9 +2193,29 @@
       "sourceVersion": "18a4bad0c286fc4dccb54b564c488a9e634de52fbaec7838bd28edd8429fbe55",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-junkrat-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/junkrat-guia-video-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "3f179edd390947cfdc2e3183212c9bed5a98e5558ae2d1d9368f61d4dd1753ba",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-29T17:14:32.125Z",
+        "commit": "0eb00b658585728941b8b65e62736bad33c32ab4",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/GxtX1qYsrPoJQWbqdv4NfB9NtKwf",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "d1017fbcb840d4dcc6eb97cfeb2180bee175538bb8357b6dc79c3a92fd6f846d",
       "correction": "Se corrige la elipsis del título conocido de Kajor y contextualiza la grabación de octubre de 2025. Aplicación de los cuatro perks actuales, coste de Nitro Boost y carga condicionada de Mine Recycling. Cuerpo y medios vinculados; primera publicación conservada y revisión del contenido 2026-10-29.",
@@ -2977,9 +3002,13 @@
       "sourceVersion": "2df8ff39e3b52ccde9b93cb82b61bacb27e5257de9fd81cf16811860c18dcad7",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-venture-2026-10-29.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "a51ff04660939f9eee5bb4790a41a519807bd563b96398aabe26ee6ce432e31e",
+      "correction": "Se precisa la recarga acelerada de Drill Dash durante Burrow y se aplican los cuatro perks actuales, con alcance activado y escudos de Clobber condicionados. Se corrige el título conocido de PlayOverwatch y contextualiza abril de 2024. Cuerpo y medios vinculados; primera publicación conservada y revisión del contenido 2026-10-29.",
+      "reviewedRenderedVersion": "dae3a42058a74c03e97a321adab81fb3f539351c4e5a051c5c4a3a971ecfe004"
     },
     {
       "path": "/guides/widowmaker-guia-overwatch-lineas-vision",
@@ -4010,7 +4039,12 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "932fe2801db91ee2acf63367984461b86f4b8d8aa2ff4a1972307b318ee91757",
+        "note": "Lectura completa de equipos Venture/Cassidy, Genji/Ashe y Zarya/Venture/Soldier en 6v6, todos sus argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, FAQ y enlaces. Modelo actual coincide con el inventario. Roles y formatos coherentes; Spike Guard frontal y lifesteal solo con Anarchic Zeal, confirmado en la ficha oficial. Faltan enlaces y presentación final. No aprobada."
+      }
     },
     {
       "path": "/team-comps/illari",
@@ -4053,9 +4087,26 @@
       "sourceVersion": "4ae2677c594a87090156564e3b040d1794461a6c9eaff29efe9e4b0a75d370bd",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-junkrat-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/junkrat",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "b3ffde89e08834c338eff7de4b128105f18c907de14baa72752e46785cca2f2b",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-29T17:14:32.125Z",
+        "commit": "0eb00b658585728941b8b65e62736bad33c32ab4",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/GxtX1qYsrPoJQWbqdv4NfB9NtKwf",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "4ae2677c594a87090156564e3b040d1794461a6c9eaff29efe9e4b0a75d370bd",
       "correction": "Texto y fecha 2026-10-02 conservados tras contrastar perks opcionales, separación de Stadium, equipos y roles, ayudas, rotaciones, FAQ y fuentes.",
@@ -4546,9 +4597,12 @@
       "sourceVersion": "6c7fede4867a2ad2d7b39340ae62d236a67cbeab61484939a9b5831cd3682419",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-venture-2026-10-29.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "6c7fede4867a2ad2d7b39340ae62d236a67cbeab61484939a9b5831cd3682419",
+      "correction": "Texto y fecha 2026-10-02 conservados tras contrastar protección subterránea, alcance temporal opcional, equipos y roles, ayudas, rotaciones, FAQ y fuentes."
     },
     {
       "path": "/team-comps/widowmaker",
@@ -4622,8 +4676,8 @@
     }
   ],
   "progress": {
-    "reviewed": 44,
-    "publishedAndVerified": 42,
-    "pending": 96
+    "reviewed": 46,
+    "publishedAndVerified": 44,
+    "pending": 94
   }
 }

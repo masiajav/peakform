@@ -284,7 +284,14 @@ Para planificar alturas y entradas, consulta [Numbani](/maps/numbani). Puedes re
     description: 'Mejora tus entradas con Venture: elige dónde emerger, conserva movilidad para retirarte y prepara Tectonic Shock con el equipo.',
     quickAnswer: 'Venture necesita una ruta corta hacia un objetivo que el equipo también pueda presionar. Decide dónde emerger antes de gastar Burrow y comprueba qué movilidad quedará para salir. Si el enemigo se aleja o tu Tank se retira, cambia el plan en lugar de completar una entrada que ya no tiene seguimiento. Para la ultimate, busca enemigos accesibles desde tu posición y evita exponerte a varias líneas de tiro.',
     videoSlug: 'venture-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-29',
+    sourceVideoTitle: 'How to Play Venture | Overwatch',
+    reviewedVideo: {
+      video_id: 'LcrOe4VBvL0', video_url: 'https://www.youtube.com/watch?v=LcrOe4VBvL0', video_platform: 'youtube',
+      video_title: 'How to Play Venture | Overwatch 2', video_channel: 'PlayOverwatch', video_language: 'en', video_published_at: '2024-04-18',
+    },
+    renderedContentVersion: 'dae3a42058a74c03e97a321adab81fb3f539351c4e5a051c5c4a3a971ecfe004',
+    videoDescription: 'Presentación oficial de PlayOverwatch con Jake, publicada el 18 de abril de 2024 durante la temporada de estreno de Venture. El vídeo es anterior al sistema actual de perks. El artículo escrito se contrasta por separado con el kit vigente, la recarga de Drill Dash durante Burrow y las opciones actuales de alcance y escudos; no aplica automáticamente las cifras o reglas de aquella grabación.',
     body: `## Una entrada corta es más fácil de aprovechar
 
 Con Venture, dar una gran vuelta para sorprender a un support puede dejarte fuera de la pelea demasiado tiempo. Busca un lateral cercano desde el que puedas amenazar sin perder el contacto con lo que hace tu equipo. La sorpresa aporta menos si nadie puede seguir tu daño ni ayudarte al salir.
@@ -303,7 +310,7 @@ También puedes usar Burrow para sobrevivir y volver a jugar con el equipo. Evit
 
 Dash puede ayudarte a acercarte, desplazar un objetivo o escapar. Elige cuál es su función en ese intercambio. Usarlo para rematar tiene sentido si puedes volver a cobertura o si la pelea quedará resuelta; hacerlo sobre alguien que aún conserva ayuda puede dejarte sin respuesta a la siguiente amenaza.
 
-Si has gastado movilidad al entrar, mira cuándo volverá a estar disponible en lugar de dar por hecho que saldrás con ella. La interacción de Dash con Burrow cambia el ritmo de tus recursos, pero no sustituye comprobar el estado real de las habilidades. Un plan que depende de un cooldown todavía bloqueado no es una salida.
+Si has gastado movilidad al entrar, mira cuándo volverá a estar disponible en lugar de dar por hecho que saldrás con ella. La recarga de Drill Dash se acelera mientras Burrow está activo, pero eso no equivale a tener otro Dash disponible en cualquier instante. Comprueba el estado real de las habilidades: un plan que depende de un cooldown todavía bloqueado no es una salida.
 
 Evita encadenar todo el kit contra el primer enemigo que aparezca. Puedes presionar con el arma, forzar una reacción y elegir después si comprometer movilidad. Eso también permite abandonar un duelo que parecía favorable antes de que te deje aislado.
 
@@ -314,6 +321,14 @@ SMART Excavator tiene una distancia de trabajo que debes reconocer en la prácti
 La presión previa puede obligar a un support a cambiar de posición o gastar una defensa. Cuando eso ocurra, comprueba si tienes seguimiento antes de entrar. Forzar un recurso ya aporta una ventaja; no necesitas convertir cada respuesta rival en una persecución.
 
 Contra un objetivo que está junto a varios compañeros, valora si puedes separar su atención sin quedarte dentro. Entrar, conseguir que se giren y volver mientras tus DPS tienen línea de tiro puede ser mejor que insistir hasta morir. Lo importante es que ese movimiento coincida con una amenaza real del equipo.
+
+## Elige los perks según la distancia y la salida
+
+Deep Burrow amplía el recorrido de Drill Dash mientras estás bajo tierra; no presupongas esa distancia en un Dash sobre el suelo. Excavation Exhilaration acelera la recuperación de cooldowns durante Tectonic Shock. Son alternativas minor: ajusta la llegada o la disponibilidad de recursos a la opción elegida y mira los iconos antes de prometer una segunda entrada.
+
+Entre los major, SMART Extender debe activarse para aumentar temporalmente el alcance máximo de SMART Excavator. Aprovecha esa ventana sobre un objetivo visible, pero no prepares toda la pelea como si el arma mantuviera siempre ese alcance. Covered In Dirt es la alternativa que aporta escudos de Explorer's Resolve al causar daño con Clobber; no concede esa protección por cualquier disparo ni garantiza sobrevivir al quedar rodeado.
+
+Las mejoras pueden ampliar una amenaza o ayudar a sostener un contacto, pero no sustituyen una salida. Si el objetivo cambia de altura o se aparta del tiro aliado, actualiza el destino de Burrow aunque todavía conserves una ventana de perk activa.
 
 ## No todos los objetivos ofrecen el mismo duelo
 

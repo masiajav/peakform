@@ -955,6 +955,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-junkrat-2026-10-29.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/venture-guia-video-overwatch': {
+    path: '/guides/venture-guia-video-overwatch',
+    version: 'a51ff04660939f9eee5bb4790a41a519807bd563b96398aabe26ee6ce432e31e',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-venture-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/venture': {
+    path: '/team-comps/venture',
+    version: '6c7fede4867a2ad2d7b39340ae62d236a67cbeab61484939a9b5831cd3682419',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-venture-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/zarya': {
     path: '/team-comps/zarya',
     version: '40de9429f726f9396cb6d2c3aa44d8eca29c9b77c5b7eeac49598631fa1b35a6',

@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 29 de octubre: **44 de 140 artículos revisados; 42 habilitados y verificados en producción, dos pendientes de despliegue y comprobación pública; 96 pendientes de revisión**. Último lote verificado públicamente: Wrecking Ball. Junkrat supera la revisión local. Los anuncios mantienen su configuración previa.
+Estado comprobado al 29 de octubre: **46 de 140 artículos revisados; 44 habilitados y verificados en producción, dos pendientes de despliegue y comprobación pública; 94 pendientes de revisión**. Último lote verificado públicamente: Junkrat. Venture supera la revisión local; siguiente lectura iniciada: Hazard. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 
@@ -168,3 +168,13 @@ Despliegue de Wrecking Ball `52e7dfc` completado, confirmado por GitHub con Verc
 Se completa la revisión individual de guía y composiciones. La guía corrige la transcripción del título de Kajor para la identidad conocida, contextualiza el 1 de octubre de 2025 y aplica Nitro Boost, Bomb Voyage, Mine Recycling y Frag Cannon con costes y condiciones. Las composiciones conservan texto y fecha tras contrastar fuentes, equipos y decisiones. El counter ya era indexable y no recibe otra aprobación ni cambios.
 
 Evidencia: [revisión de Junkrat](indexing-review-junkrat-2026-10-29.md). Pasan lint, 705 pruebas unitarias, build, ocho casos finales de navegador y seis de regresión, además de seis iniciales. Se inspeccionan móvil y escritorio; se conservan otras exclusiones y no cambia la activación de anuncios. Estado provisional: **44 artículos revisados de 140; 42 publicados y verificados; dos pendientes de comprobar en producción; 96 pendientes de revisión**.
+
+Despliegue `0eb00b6` completado, confirmado por GitHub con Vercel `GxtX1qYsrPoJQWbqdv4NfB9NtKwf` y comprobado públicamente. Pasan 48 respuestas públicas (dos nuevas, 42 anteriores y cuatro exclusiones), el alias 308 de Sojourn y cuatro casos de navegador público. Estado: **44 artículos revisados, habilitados y verificados públicamente de 140; 96 pendientes**.
+
+## Decimoséptimo lote: Venture
+
+Se completa la revisión individual de guía y composiciones. La guía precisa la recarga de Drill Dash bajo tierra y aplica las cuatro opciones actuales de perks; corrige el título conocido de PlayOverwatch y contextualiza el estreno del 18 de abril de 2024. Las composiciones conservan texto y fecha tras contrastar fuentes, equipos y decisiones. El counter ya era indexable y no recibe otra aprobación ni cambios.
+
+Evidencia: [revisión de Venture](indexing-review-venture-2026-10-29.md). Pasan lint, 705 pruebas unitarias, build, ocho casos finales de navegador y seis de regresión, además de seis iniciales. Se inspeccionan móvil y escritorio; se mantienen otras exclusiones y los anuncios no cambian. Estado provisional: **46 artículos revisados de 140; 44 publicados y verificados; dos pendientes de comprobar en producción; 94 pendientes de revisión**.
+
+Se leen completos guía y composiciones de Hazard y se comprueban modelos, fila pública, ficha oficial y vídeo de Spilo del 20 de enero de 2025. Se leen descripción y capítulos, sin afirmar haber visto toda la grabación. El texto distingue protección frontal y munición de Spike Guard, y el lifesteal de Anarchic Zeal figura como opcional en las composiciones. Faltan contexto de vídeo, perks concretados, enlaces y presentación final. Se registran las lecturas sin aprobar ambas URLs. El objetivo global sigue activo.
