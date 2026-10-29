@@ -23,3 +23,7 @@ Solo estas tres URLs se proponen para publicación individual con su versión ex
 ## Validación final local
 
 Pasan 706 pruebas unitarias, lint, doce casos finales para las tres páginas, catálogos, sitemap y filtros, y seis de regresión sobre Wuyang, Freja y el modo de revisión de anuncios. Se inspeccionan de nuevo la captura completa de escritorio y cabecera móvil de la guía corregida: contexto antes del vídeo, fecha y nueva sección de perks correctos. El counter y las composiciones conservan el contenido cuya presentación ya se inspeccionó en ambos tamaños; sus pruebas finales verifican todos los párrafos, equipos, FAQ, imágenes, enlaces, fechas y metadatos. Se comprueban reproducción y fuente exacta del vídeo, ausencia de desbordamientos y anuncios. Falta desplegar y comprobar las URLs públicas.
+
+## Resultado público
+
+Vercel confirma el commit `d21cbd6` en [este despliegue de producción](https://vercel.com/masiajavs-projects/peakform/CrCVyxNcNAM7N4SNkyeGTFwvdmhj). Pasan las 58 respuestas HTTP y la redirección del alias de vídeo: las tres URLs responden 200, sin noindex, incluidas en sitemap, con fechas y fuente de vídeo correctas y sin anuncios. Los 51 artículos anteriores y cuatro controles conservan su estado. Pasan seis casos de navegador contra producción en móvil y escritorio. El ledger registra respuesta, huella, fecha, commit y despliegue por URL: **54 de 140 artículos habilitados y verificados; 86 pendientes de revisión**.

@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 29 de octubre: **54 de 140 artículos revisados; 51 habilitados y verificados en producción, tres de Widowmaker pendientes de despliegue y comprobación pública; 86 pendientes de revisión**. Último lote verificado públicamente: Wuyang. Siguiente revisión iniciada: guía y composiciones de Soldier 76. Los anuncios mantienen su configuración previa.
+Estado comprobado al 29 de octubre: **54 de 140 artículos revisados, habilitados y verificados en producción; 86 pendientes de revisión**. Último lote verificado públicamente: Widowmaker. Siguiente revisión iniciada: guía y composiciones de Soldier 76. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 
@@ -214,3 +214,7 @@ Wuyang queda desplegado y verificado en el commit de503e3: 55 respuestas HTTP y 
 Se completa la revisión individual de guía, counter y composiciones. La guía añade decisiones de los cuatro perks y Sharpshooter, corrige el título conocido y contextualiza el vídeo de julio de 2025 y sus ajustes personales de consola. Counter y composiciones conservan texto y fecha tras el contraste. Pasan 706 pruebas unitarias, lint, doce casos finales y seis de regresión, además de ocho iniciales. Se inspeccionan las seis capturas iniciales y las dos de la guía corregida. Evidencia: [revisión de Widowmaker](indexing-review-widowmaker-2026-10-29.md). Las tres URLs quedan pendientes de despliegue y comprobación pública.
 
 Se leen los dos artículos siguientes de Soldier 76 y se contrastan con sus modelos actuales. Se verifica la fuente de Metro de octubre de 2022, que necesita contexto y título exacto, y los perks actuales. Las composiciones necesitan corregir la referencia de nombre del catálogo; sus dos URLs siguen pendientes y excluidas.
+
+Widowmaker queda desplegada y verificada en el commit d21cbd6: 58 respuestas HTTP y la redirección del alias correctas, más seis casos de navegador contra producción. Las tres URLs están en el sitemap y sin noindex; los controles y los 51 artículos anteriores conservan su estado. Total verificado: **54 de 140; 86 pendientes**.
+
+La revisión inicial de Soldier 76 añade seis casos correctos de navegador y cuatro capturas inspeccionadas. El reproductor confirma audio original inglés y disponibilidad del vídeo. Las dos URLs siguen excluidas hasta corregir los metadatos, actualizar el contexto y los perks y resolver el nombre del héroe en las composiciones, con versiones y validaciones finales propias.
