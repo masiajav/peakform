@@ -983,6 +983,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-hazard-2026-10-29.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/freja-guia-video-overwatch': {
+    path: '/guides/freja-guia-video-overwatch',
+    version: 'c5728be22628978aa12098d05970c743556ff6df8e9c8ec99285663e2a62bbfd',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-freja-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/freja': {
+    path: '/team-comps/freja',
+    version: '5231cec8a2809a5e0652eaab3d878ef8ec650d8357ce670237b8766db2b733dc',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-freja-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/zarya': {
     path: '/team-comps/zarya',
     version: '40de9429f726f9396cb6d2c3aa44d8eca29c9b77c5b7eeac49598631fa1b35a6',

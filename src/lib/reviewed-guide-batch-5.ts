@@ -194,7 +194,14 @@ Prepara tus cruces con [King's Row](/maps/kings-row) y tus recursos con [la guí
     description: 'Afina los disparos de Freja sin quedarte expuesta: alterna Take Aim y fuego principal, reserva una salida y elige un objetivo para Bola Shot.',
     quickAnswer: 'Con Freja, prepara un ángulo desde cobertura y usa Take Aim sobre un objetivo que puedas seguir presionando. Quick Dash refresca ese disparo, pero también es movilidad: antes de gastarlo para otro intento, comprueba cómo volverás. Updraft sirve para abrir una línea de tiro; no necesitas quedarte en el aire cuando varios enemigos ya te están mirando. Bola Shot requiere un impacto y compañeros que puedan aprovecharlo.',
     videoSlug: 'freja-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-29',
+    sourceVideoTitle: 'Overwatch - EVERY FREJA ABILITY | Full Breakdown Guide & Tips',
+    reviewedVideo: {
+      video_id: 'oYfzFwSGGXU', video_url: 'https://www.youtube.com/watch?v=oYfzFwSGGXU', video_platform: 'youtube',
+      video_title: 'Overwatch 2 - EVERY FREJA ABILITY | Full Breakdown Guide & Tips', video_channel: 'KarQ', video_language: 'en', video_published_at: '2025-03-22',
+    },
+    renderedContentVersion: 'f76d32fb09d97c22143fd0c2f8249f004436c743addb91721f4380ffacf6905d',
+    videoDescription: 'KarQ publicó este desglose el 22 de marzo de 2025 durante la prueba de Freja, anterior a su lanzamiento. Sus capítulos muestran habilidades y perks de aquella versión: Frost Bolt, Tracking Instinct y Ready to Hunt no describen las opciones actuales. El artículo escrito se contrasta por separado con el kit y los perks vigentes, incluidos munición de Relentless Barrage, distancia de Momentum Boost y las alternativas de Updraft. Usa el vídeo como referencia histórica, sin trasladar automáticamente sus cifras o elecciones a tu partida.',
     body: `## El ángulo debe dejarte disparar y volver
 
 Freja puede abrir líneas de tiro con movilidad, pero una altura expuesta también facilita que varios enemigos la ataquen. Busca una cobertura a la que puedas volver después del disparo. Un lateral cercano al equipo suele permitir más intentos que una posición espectacular al fondo de la backline rival.
@@ -224,6 +231,14 @@ Usa el impulso vertical cuando abra una línea que no tenías desde el suelo o p
 Contra hitscan, fíjate en quién está mirando tu ascenso y tu caída. Puedes asomar mientras ese jugador atiende a otra amenaza, disparar y volver a cobertura. Permanecer arriba intentando encadenar todos los tiros facilita que ajuste su puntería. Cambia el ritmo y la posición cuando el rival empiece a anticiparte.
 
 No cuentes con que tu support podrá seguir cualquier recorrido. Una altura detrás de dos esquinas puede cortar la curación aunque esté cerca del combate. Si has gastado la movilidad para llegar, comprueba que no necesitarás otra habilidad que todavía esté bloqueada para volver.
+
+## Elige los perks según el recurso que te falta
+
+Relentless Barrage devuelve munición del fuego automático al acertar un impacto directo de Take Aim. No recupera por sí mismo Quick Dash ni concede otro disparo explosivo: distingue qué recurso estás recibiendo antes de encadenar el siguiente intento. Momentum Boost, la otra opción minor, alarga Quick Dash. Comprueba el punto de llegada; una distancia mayor puede ayudarte a cubrirte o llevarte más allá de la esquina que querías conservar.
+
+Aerial Recovery permite recuperar vida después de usar Updraft hasta tocar el suelo; esa curación depende de haber elegido el perk y no elimina el daño enemigo. No prolongues un vuelo expuesto solo para recuperar más vida cuando puedes volver a cobertura. Rising Winds ofrece otra carga de Updraft en su lugar. Esa segunda subida puede abrir una salida o un tiro distinto, pero no repone las cargas de Quick Dash ni incluye la curación de la alternativa.
+
+Contra quien controla tu ascenso desde otra altura, decide primero qué cobertura necesitas y después qué opción facilita alcanzarla. Con ayuda cercana y un buen ángulo, quizá te interese sostener los intentos de disparo; lejos de los supports, disponer de otra subida tampoco convierte el tejado en una posición segura. Revisa el destino y los recursos disponibles tras cada uso.
 
 ## Decide cuándo cambiar de objetivo
 

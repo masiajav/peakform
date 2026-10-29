@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 29 de octubre: **48 de 140 artículos revisados; 46 habilitados y verificados en producción, dos de Hazard pendientes de despliegue y comprobación pública; 92 pendientes de revisión**. Último lote verificado públicamente: Venture. Siguiente revisión iniciada: guía y composiciones de Freja. Los anuncios mantienen su configuración previa.
+Estado comprobado al 29 de octubre: **50 de 140 artículos revisados; 48 habilitados y verificados en producción, dos de Freja pendientes de despliegue y comprobación pública; 90 pendientes de revisión**. Último lote verificado públicamente: Hazard. Siguiente revisión iniciada: guía de Wuyang. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 
@@ -188,3 +188,11 @@ Hazard supera además seis comprobaciones iniciales de los dos artículos todav�
 Se completa la lectura y revisión individual de la guía y las composiciones de Hazard. Se precisa que Spike Guard recupera munición al hacer daño, se aplican los perks actuales y se contextualiza el vídeo de Spilo de enero de 2025. Las pruebas detectan y permiten corregir la referencia de Soldier-76 en el equipo 6v6. Pasan 705 pruebas unitarias, lint y 14 casos finales de navegador (seis de páginas y catálogo, dos de filtros y seis de regresión), además de los seis iniciales. Se inspeccionan las cuatro capturas finales de móvil y escritorio. Evidencia: [revisión de Hazard](indexing-review-hazard-2026-10-29.md). Las dos URLs quedan pendientes de desplegar y verificar públicamente.
 
 Se leen completos los dos artículos siguientes de Freja y se contrastan con los modelos actuales. La fuente de KarQ corresponde a su prueba de marzo de 2025 y tiene perks históricos; se registra el trabajo pendiente de contexto, título, opciones actuales y presentación sin aprobar todavía sus URLs.
+
+Hazard queda desplegado y verificado en el commit 0a5ad74: 52 respuestas HTTP y una redirección correctas, más cuatro casos de navegador contra producción. Ambas URLs están en el sitemap y sin noindex; los controles y los 46 artículos anteriores conservan su estado. Total verificado: **48 de 140; 92 pendientes**.
+
+## Decimonoveno lote: Freja
+
+Se completa la revisión individual de la guía y las composiciones de Freja. La guía contextualiza el vídeo de KarQ de la prueba de marzo de 2025, corrige su título conocido y explica los perks actuales, diferenciando munición automática, disparo explosivo, Dash y Updraft. Las composiciones conservan texto y fecha tras contrastar kit, roles, ángulos y seguimiento. Pasan 705 pruebas unitarias, lint, ocho casos finales y seis de regresión, además de seis iniciales. Se inspeccionan las cuatro capturas finales. Evidencia: [revisión de Freja](indexing-review-freja-2026-10-29.md). Las dos URLs quedan pendientes de despliegue y comprobación pública.
+
+Se lee completa la guía siguiente de Wuyang. Se confirma su kit y sus perks actuales; watch y oEmbed revelan que el título real y el nombre del canal están en japonés, mientras que los campos almacenados contienen una traducción y el idioma en. Se registra la corrección pendiente de identidad y comprobación del idioma, además del contexto y la revisión visual, sin aprobar su URL.
