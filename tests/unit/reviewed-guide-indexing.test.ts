@@ -51,6 +51,7 @@ describe('individual publication of repository-owned guide revisions', () => {
       ['mauga-guia-video-overwatch', 'mauga', 'tank', ['mauga', 'tank', 'video', 'youtube', '6v6', 'overwatch']],
       ['ramattra-guia-video-overwatch', 'ramattra', 'tank', ['ramattra', 'tank', 'video', 'youtube', '6v6', 'overwatch']],
       ['wrecking-ball-guia-video-overwatch', 'wrecking-ball', 'tank', ['wrecking-ball', 'tank', 'video', 'youtube', '6v6', 'overwatch']],
+      ['junkrat-guia-video-overwatch', 'junkrat', 'dps', ['junkrat', 'dps', 'video', 'youtube', '6v6', 'overwatch']],
     ] as const) {
       const revision = reviewedGuideRevisions[slug]
       const raw = { slug, hero, role, tags: [...tags], published: true, created_at: '2026-05-05' }

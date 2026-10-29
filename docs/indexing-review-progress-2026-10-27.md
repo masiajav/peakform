@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 29 de octubre: **42 de 140 artículos revisados; 40 habilitados y verificados en producción, dos pendientes de despliegue y comprobación pública; 98 pendientes de revisión**. Último lote verificado públicamente: Ramattra. Wrecking Ball supera la revisión local; siguiente lectura iniciada: Junkrat. Los anuncios mantienen su configuración previa.
+Estado comprobado al 29 de octubre: **44 de 140 artículos revisados; 42 habilitados y verificados en producción, dos pendientes de despliegue y comprobación pública; 96 pendientes de revisión**. Último lote verificado públicamente: Wrecking Ball. Junkrat supera la revisión local. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 
@@ -160,3 +160,11 @@ Se completa la revisión individual de guía y composiciones. La guía corrige e
 Evidencia: [revisión de Wrecking Ball](indexing-review-wrecking-ball-2026-10-29.md). Pasan lint, 705 pruebas unitarias, build, ocho casos finales de navegador y seis de regresión, además de seis iniciales. Se inspeccionan móvil y escritorio; se mantienen otras exclusiones y los anuncios no cambian. Estado provisional: **42 artículos revisados de 140; 40 publicados y verificados; dos pendientes de comprobar en producción; 98 pendientes de revisión**.
 
 Se leen completos guía y composiciones de Junkrat y se comprueban sus versiones, fila pública, ficha oficial y vídeo de Kajor. La fecha local es 1 de octubre de 2025 y el título real emplea una elipsis tipográfica; falta corregir esa transcripción, contextualizar el material y aplicar los perks actuales. Las composiciones separan Mine Recycling opcional y Rip Roll de Stadium de las reglas de ranked. Faltan enlaces y presentación final. Se registran estas lecturas sin aprobar las dos URLs. El objetivo global sigue activo.
+
+Despliegue de Wrecking Ball `52e7dfc` completado, confirmado por GitHub con Vercel `5T26q7xvE5CsTKcCVgSDgt7uUJHz` y comprobado públicamente. Pasan 46 respuestas públicas (dos nuevas, 40 anteriores y cuatro exclusiones), el alias 308 de Sojourn y cuatro casos de navegador público. Estado: **42 artículos revisados, habilitados y verificados públicamente de 140; 98 pendientes**.
+
+## Decimosexto lote: Junkrat
+
+Se completa la revisión individual de guía y composiciones. La guía corrige la transcripción del título de Kajor para la identidad conocida, contextualiza el 1 de octubre de 2025 y aplica Nitro Boost, Bomb Voyage, Mine Recycling y Frag Cannon con costes y condiciones. Las composiciones conservan texto y fecha tras contrastar fuentes, equipos y decisiones. El counter ya era indexable y no recibe otra aprobación ni cambios.
+
+Evidencia: [revisión de Junkrat](indexing-review-junkrat-2026-10-29.md). Pasan lint, 705 pruebas unitarias, build, ocho casos finales de navegador y seis de regresión, además de seis iniciales. Se inspeccionan móvil y escritorio; se conservan otras exclusiones y no cambia la activación de anuncios. Estado provisional: **44 artículos revisados de 140; 42 publicados y verificados; dos pendientes de comprobar en producción; 96 pendientes de revisión**.

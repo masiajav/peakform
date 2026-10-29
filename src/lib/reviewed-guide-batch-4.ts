@@ -7,7 +7,14 @@ export const fourthGuideReviewBatch: Record<string, GuideRevision> = {
     description: 'Mejora con Junkrat sin depender del spam: elige rebotes, protege una salida con la trampa y busca una ruta segura para RIP-Tire.',
     quickAnswer: 'Con Junkrat, dispara a una entrada que el enemigo necesite cruzar, no a cualquier zona donde puedas sumar daño. Conserva una mina si puedes necesitarla para salir y coloca la trampa en una ruta que puedas vigilar. Antes de usar Tire, busca cobertura para tu personaje y una aproximación que no obligue al neumático a cruzar por delante de todo el equipo rival.',
     videoSlug: 'junkrat-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-29',
+    sourceVideoTitle: "How JUNKRAT Could've BEATEN The Pros... | Junkrat Guide",
+    reviewedVideo: {
+      video_id: '92NKffQofl4', video_url: 'https://www.youtube.com/watch?v=92NKffQofl4', video_platform: 'youtube',
+      video_title: "How JUNKRAT Could've BEATEN The Pros… | Junkrat Guide", video_channel: 'Kajor', video_language: 'en', video_published_at: '2025-10-01',
+    },
+    renderedContentVersion: 'b26ba10ac5054e78e1a15b12952d2c6ddf05615af28ec6837a5ddf001366e196',
+    videoDescription: 'Análisis de Kajor publicado el 1 de octubre de 2025, con capítulos sobre combos, espacios cerrados, RIP-Tire, perks y rutas ocultas. El título plantea una comparación con profesionales, no una garantía de rendimiento. La grabación corresponde a aquella versión; el artículo escrito se contrasta por separado con las opciones actuales de perks, el coste de Nitro Boost y las condiciones para recuperar una mina.',
     body: `## Decide qué entrada quieres cerrar
 
 El spam sirve cuando obliga al rival a retrasar un cruce, gastar una defensa o elegir una ruta peor. Si disparas contra una puerta que nadie está usando, el daño potencial no ayuda a tus compañeros. Antes de empezar una pelea, mira dónde está tu Tank y qué acceso intenta controlar el enemigo.
@@ -33,6 +40,14 @@ No existe un combo que garantice matar a cualquier objetivo en cualquier parche.
 Steel Trap tiene más sentido en un acceso que el rival quiera usar que en el centro de una explanada. Puedes colocarla cerca de una puerta lateral para recibir una señal cuando alguien se acerque mientras tú presionas otro ángulo. Si queda atrapado, mira quién es y si puedes ayudar a confirmar la baja.
 
 No confundas una trampa activada con una obligación de perseguir. Si te avisa de una entrada a la backline, quizá lo útil sea girarte y ayudar a tu support. Si la pelea ya se ha desplazado a otra sala, cambia su posición cuando puedas. Una trampa olvidada en el tramo anterior deja de proteger tu siguiente avance.
+
+## Ajusta minas y Tire a los perks que has elegido
+
+Nitro Boost permite acelerar RIP-Tire a cambio de reducir su daño a la mitad. Valora si llegar a tiempo compensa esa pérdida; no actives el impulso como si fuera velocidad gratis ni cuentes con el mismo daño sobre un objetivo protegido. Bomb Voyage es la otra opción minor: aporta velocidad de ataque temporal después de impulsarte con Concussion Mine, pero no te da una retirada si has gastado todas las cargas.
+
+Entre los major, Mine Recycling recupera una carga con eliminaciones de Concussion Mine. No bases una entrada sin salida en conseguir esa devolución: hasta que ocurra la eliminación, el recurso no está garantizado. Frag Cannon es la alternativa que aumenta la velocidad de los proyectiles de Frag Launcher. Ajusta la anticipación de tus tiros y comprueba el rebote en vez de asumir que la mejora aumenta también el daño de cada granada.
+
+Elige según la ruta y el intercambio que puedas preparar. Estas opciones no vuelven invulnerable el cuerpo de Junkrat mientras controla Tire ni sustituyen la cobertura, la trampa relevante y una mina conservada cuando necesitas salir.
 
 ## RIP-Tire empieza por esconder a Junkrat
 
