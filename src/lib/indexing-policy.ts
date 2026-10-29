@@ -1,4 +1,5 @@
 import { stripMarkdown } from './seo'
+import { toSlug } from './content'
 import { getMapPillar, MAP_PILLAR_SLUGS, type MapPillar } from './overwatch-maps'
 import { PUBLIC_HERO_PAGE_SLUGS } from './topic-links'
 import { hasReviewedGuideRevision, reviewedGuideTarget } from './reviewed-guide-policy'
@@ -533,10 +534,10 @@ export function editorialTopicQualityDecision(
     const candidates = content.compositions ?? []
     const compositions = candidates.filter((comp): comp is TeamComposition => 'lineup' in comp)
     const complete = compositions.length > 0 && compositions.length === candidates.length && compositions.every(comp => {
-      const roles = comp.lineup.map(name => COUNTER_HEROES.find(hero => normalize(hero.name) === normalize(name))?.role)
+      const roles = comp.lineup.map(name => COUNTER_HEROES.find(hero => toSlug(hero.name) === toSlug(name))?.role)
       return ['5v5', '6v6'].includes(comp.format)
         && comp.lineup.length === (comp.format === '5v5' ? 5 : 6)
-        && new Set(comp.lineup.map(normalize)).size === comp.lineup.length
+        && new Set(comp.lineup.map(toSlug)).size === comp.lineup.length
         && roles.filter(role => role === 'tank').length === (comp.format === '5v5' ? 1 : 2)
         && roles.filter(role => role === 'dps').length === 2 && roles.filter(role => role === 'support').length === 2
         && [comp.name, comp.style, comp.winCondition, comp.engagePlan, comp.goodMaps, comp.weakAgainst, comp.substitutions].every(value => value?.trim())

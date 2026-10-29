@@ -1920,7 +1920,12 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "13a2ef3769734f04de5da809766f46223ea22c53250d6a9993f9f4126f7aab87",
+        "note": "Lectura completa de posición y salida, Slam/Punch y seguimiento, Hand Cannon, Power Block frente a control y laterales, dive/peel, aterrizaje de Meteor Strike, VOD, tres FAQ y enlaces. Fila pública y modelo coinciden con el inventario. Ficha oficial confirma One-Two/Survival of the Fittest minor y Aftershock/Power Matrix major. Vídeo incorporado desde alias confirmado: Kajor, 2025-05-28, título y canal coinciden, playability OK. Descripción y capítulos leídos; 620 segundos, apartado contra Sombra anterior a su cambio de rol. Faltan contexto histórico y de ese matchup, aplicación de perks actuales, versión final con medios, enlaces y presentación. No aprobada."
+      }
     },
     {
       "path": "/guides/doomfist-guia-video-overwatch",
@@ -2737,7 +2742,12 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "e256f126af6cef077dfbcc7cc733d70449a2edc52b98a2a7be10f4a91ce47659",
+        "note": "Lectura completa del rework de Season 5, dos ráfagas, recepción y seguimiento del hook, recursos enemigos, fallo del gancho, Breather, Trash Compactor frontal y disparo de retorno, Whole Hog y minor, VOD, tres FAQ y enlaces. Fila pública y modelo coinciden con el inventario. Ficha y notas oficiales confirman rework y minor; major actuales Hogdrogen Exposure/Toxic Exhaust requieren contexto. Vídeo confirmado: LeonDrummer, 2022-10-17, playability OK, título real Guía básica: Roadhog | Overwatch 2. Descripción leída, sin capítulos; 272 segundos. Ya se advierte del kit anterior, pero faltan identidad exacta, contexto fechado, opciones major, versión con medios, enlaces y presentación final. No aprobada."
+      }
     },
     {
       "path": "/guides/roles-subroles-overwatch-funcion-real",
@@ -2875,10 +2885,13 @@
       "sourceVersion": "916e6bd6fa6e096aff2fcc099e81c8ee64c00a6ca48c684d676d946961132be0",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-soldier-76-2026-10-29.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "4074bb7f1391d505d8189db86fe465665eeb9c5ebf3f401e625f4840d11370e4",
+      "correction": "Se corrige el título conocido de Metro y se contextualiza el vídeo de octubre de 2022, anterior a los perks actuales. Se explica recarga durante Sprint y su penalización temporal, las cuatro opciones actuales y reemplazo del Field compartido por Stim Pack personal. Cuerpo y medios incorporados desde alias vinculados; primera publicación conservada y revisión del contenido 2026-10-29.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "916e6bd6fa6e096aff2fcc099e81c8ee64c00a6ca48c684d676d946961132be0",
         "note": "Lectura completa de lateral cercano y timing, tracking y Helix, Sprint para rotar antes del peligro, Field con cobertura, preparación de Visor frente a Matrix/barreras, VOD, tres FAQ y enlaces. Fila pública y modelo coinciden con el inventario. Vídeo incorporado desde alias confirmado por watch y oEmbed: Metro, 2022-10-29, playability OK, título real How to play Soldier 76 (Best Method) | In-Depth Tutorial (Overwatch 2). Descripción y capítulos leídos; 1035 segundos, versión anterior a perks. Ficha oficial confirma Helix Propulsion/Tactical Salvo minor y Full Stride/Stim Pack major, este último reemplaza Field. Faltan título conocido, contexto histórico, opciones actuales, versión final con medios, enlaces y presentación. No aprobada. Metadatos de audio confirman original inglés en-US.4 y subtítulos automáticos en inglés.",
@@ -2893,7 +2906,8 @@
           ],
           "note": "Ambos artículos aún noindex en móvil y escritorio, vídeo y botón de reproducción disponibles, FAQ, fechas, enlaces, imágenes y ausencia de desbordamientos y anuncios comprobados. Se inspeccionan las dos capturas completas de escritorio y las dos cabeceras móviles. Faltan correcciones identificadas, versiones finales y validación final; no es una aprobación."
         }
-      }
+      },
+      "reviewedRenderedVersion": "3831631372b91f7ecf6c0c59d95de7c4ee1acef7f85198f144c91fd07146d8ef"
     },
     {
       "path": "/guides/soldier-76-guia-video-overwatch",
@@ -4742,10 +4756,13 @@
       "sourceVersion": "5fa6cc9c494bec1e1aa0a1d5af78c640d93a54c5a5c311047c601b112dd45ff4",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-soldier-76-2026-10-29.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "5fa6cc9c494bec1e1aa0a1d5af78c640d93a54c5a5c311047c601b112dd45ff4",
+      "correction": "Texto y fecha 2026-10-02 conservados tras verificar kit, equipos y roles 5v5/6v6, ayudas, rotación, FAQ, enlaces y presentación. Se corrige el validador de identidad de héroes para reconocer Soldier: 76 y Soldier-76 sin aceptar duplicados, desconocidos ni roles incorrectos. No se inventa primera fecha de publicación.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "5fa6cc9c494bec1e1aa0a1d5af78c640d93a54c5a5c311047c601b112dd45ff4",
         "note": "Lectura completa de equipos Winston/Tracer, Sigma/Cassidy y Reinhardt/D.Va/Mei en 6v6, todos sus argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, tres FAQ y enlaces. Modelo actual coincide con el inventario. La diferencia entre Field compartido y Stim Pack personal coincide con la ficha oficial; roles y formatos propuestos coherentes. Se detecta que el nombre Soldier: 76 en los equipos difiere del catálogo Soldier-76, bloqueo de validación que debe corregirse. Faltan esa corrección, enlaces, presentación y versión final. No aprobada.",
@@ -4979,8 +4996,8 @@
     }
   ],
   "progress": {
-    "reviewed": 54,
+    "reviewed": 56,
     "publishedAndVerified": 54,
-    "pending": 86
+    "pending": 84
   }
 }

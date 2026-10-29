@@ -5,6 +5,8 @@ import { editorialTopicQualityDecision } from '@/lib/indexing-policy'
 import { MAP_PILLAR_SLUGS } from '@/lib/overwatch-maps'
 import { COUNTER_HEROES } from '@/lib/overwatch-counters'
 import { toSlug } from '@/lib/content'
+import { STATIC_EDITORIAL_REVIEWS } from '@/lib/static-editorial-reviews'
+import { hasCurrentStaticEditorialReview, staticEditorialContentVersion } from '@/lib/static-editorial-review'
 
 const reviewDates: Record<string, string> = {
   doomfist: '2026-10-11', dmon: '2026-10-11',
@@ -154,11 +156,11 @@ describe('individual team composition revisions', () => {
       expect(getTeamCompPillar(slug)).toBe(article)
       expect(article.compositions).toHaveLength(3)
       expect(article.schemaDate).toBe(reviewDates[slug])
-      expect(editorialTopicQualityDecision('team_comp', slug, article)).toMatchObject({ indexable: ['sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon', 'domina', 'jetpack-cat', 'wuyang', 'moira', 'reaper', 'brigitte', 'echo', 'ashe', 'hanzo', 'mei', 'sojourn', 'bastion', 'symmetra', 'torbjorn', 'mauga', 'ramattra', 'wrecking-ball', 'junkrat', 'venture', 'hazard', 'freja', 'widowmaker'].includes(slug), adsAllowed: false })
+      expect(editorialTopicQualityDecision('team_comp', slug, article)).toMatchObject({ indexable: ['sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon', 'domina', 'jetpack-cat', 'wuyang', 'moira', 'reaper', 'brigitte', 'echo', 'ashe', 'hanzo', 'mei', 'sojourn', 'bastion', 'symmetra', 'torbjorn', 'mauga', 'ramattra', 'wrecking-ball', 'junkrat', 'venture', 'hazard', 'freja', 'widowmaker', 'soldier-76'].includes(slug), adsAllowed: false })
       for (const comp of article.compositions) {
         expect(comp.lineup).toContain(article.name)
         expect(comp.lineup).toHaveLength(comp.format === '5v5' ? 5 : 6)
-        expect(new Set(comp.lineup).size).toBe(comp.lineup.length)
+        expect(new Set(comp.lineup.map(toSlug)).size).toBe(comp.lineup.length)
         const heroes = comp.lineup.map(name => COUNTER_HEROES.find(hero => toSlug(hero.name) === toSlug(name)))
         expect(heroes.every(Boolean), comp.name).toBe(true)
         const roles = heroes.map(hero => hero!.role)
@@ -170,6 +172,28 @@ describe('individual team composition revisions', () => {
         }
       }
     }
+  })
+
+  it('recognizes Soldier punctuation without accepting duplicate aliases, unknown heroes or invalid roles', () => {
+    const path = '/team-comps/soldier-76'
+    const article = getTeamCompPillar('soldier-76')!
+    expect(article.compositions[0].lineup).toContain('Soldier: 76')
+    expect(editorialTopicQualityDecision('team_comp', 'soldier-76', article).indexable).toBe(true)
+    const review = STATIC_EDITORIAL_REVIEWS[path]
+    const version = review.version
+    try {
+      for (const lineup of [
+        ['Winston', 'Soldier: 76', 'Soldier-76', 'Ana', 'Brigitte'],
+        ['Winston', 'Unknown hero', 'Tracer', 'Ana', 'Brigitte'],
+        ['Winston', 'Soldier: 76', 'Zarya', 'Ana', 'Brigitte'],
+      ]) {
+        const invalid = structuredClone(article)
+        invalid.compositions[0].lineup = lineup
+        review.version = staticEditorialContentVersion(path, invalid)
+        expect(hasCurrentStaticEditorialReview(path, invalid)).toBe(true)
+        expect(editorialTopicQualityDecision('team_comp', 'soldier-76', invalid)).toMatchObject({ indexable: false, reason: 'Faltan equipos válidos, decisiones, fechas o enlaces en la composición' })
+      }
+    } finally { review.version = version }
   })
 
   it('invalidates Season 5 composition approval after any unreviewed edit', () => {

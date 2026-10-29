@@ -1025,6 +1025,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-widowmaker-2026-10-29.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/soldier-76-guia-overwatch-off-angles': {
+    path: '/guides/soldier-76-guia-overwatch-off-angles',
+    version: '4074bb7f1391d505d8189db86fe465665eeb9c5ebf3f401e625f4840d11370e4',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-soldier-76-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/soldier-76': {
+    path: '/team-comps/soldier-76',
+    version: '5fa6cc9c494bec1e1aa0a1d5af78c640d93a54c5a5c311047c601b112dd45ff4',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-soldier-76-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/zarya': {
     path: '/team-comps/zarya',
     version: '40de9429f726f9396cb6d2c3aa44d8eca29c9b77c5b7eeac49598631fa1b35a6',

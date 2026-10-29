@@ -218,8 +218,15 @@ Consulta las rutas de [Dorado](/maps/dorado) y el primer tramo de [Gibraltar](/m
   },
   'soldier-76-guia-overwatch-off-angles': {
     hero: 'soldier-76',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-29',
     videoSlug: 'soldier-76-guia-video-overwatch',
+    sourceVideoTitle: 'How to play Soldier 76 (Best Method) | In-Depth Tutorial (Overwatch)',
+    reviewedVideo: {
+      video_id: 'YbZP-K67QDw', video_url: 'https://www.youtube.com/watch?v=YbZP-K67QDw', video_platform: 'youtube',
+      video_title: 'How to play Soldier 76 (Best Method) | In-Depth Tutorial (Overwatch 2)', video_channel: 'Metro', video_language: 'en', video_published_at: '2022-10-29',
+    },
+    renderedContentVersion: '3831631372b91f7ecf6c0c59d95de7c4ee1acef7f85198f144c91fd07146d8ef',
+    videoDescription: 'Tutorial de Metro publicado el 29 de octubre de 2022, con capítulos de fundamentos, movimiento, puntería, campo de curación, alturas, Visor y combos. Es una grabación histórica anterior a los perks actuales. El artículo escrito contrasta por separado el kit y las opciones vigentes, incluida la recarga durante Sprint y la sustitución de Biotic Field por Stim Pack; no traslada automáticamente cifras, ajustes o cancelaciones de animación del vídeo a la partida actual.',
     title: 'Cómo jugar Soldier: 76: off-angles, Sprint y Tactical Visor',
     description: 'Abre ángulos útiles con Soldier: 76 sin aislarte, combina Helix con presión sostenida y usa Visor cuando el rival no pueda cubrirse cómodamente.',
     quickAnswer: 'Con Soldier, busca un lateral cercano con cobertura y una retirada por Sprint. Presiona al mismo tiempo que tu equipo, usa Helix para reforzar una oportunidad real y mueve el ángulo cuando el rival te responda. Tactical Visor necesita línea de tiro: no arregla una posición desde la que solo ves escudos o paredes.',
@@ -247,11 +254,21 @@ No esperes siempre a estar en peligro para usar Sprint. Si el carro ha avanzado 
 
 Salir no significa correr directamente hacia atrás por la misma ruta. Mira si puedes caer hacia tus supports, doblar una esquina o abandonar la altura por un lado protegido. Cuanto antes decidas, menos dependerás de que el rival falle.
 
+El kit actual permite recargar durante Sprint, con una penalización temporal a su bonificación de velocidad mientras recargas. Prepara ese movimiento detrás de cobertura cuando puedas. No calcules el cruce como si llevaras toda la velocidad ni atribuyas esta posibilidad a un perk antiguo del vídeo: la recarga forma parte del Sprint actual.
+
 ## Biotic Field no sustituye una salida
 
 El campo permite sostener una posición y puede ayudar a un aliado cercano, pero también te invita a permanecer en una zona fija. Colócalo donde puedas aprovechar cobertura. Si lo activas en mitad de una calle y sigues recibiendo burst, no has creado un espacio seguro.
 
 Contra dive, decide si merece la pena disputar la posición. Un duelo favorable con Field y Helix disponibles es distinto de enfrentarte a un Tank y un DPS coordinados. Si necesitas huir, no te quedes dentro del campo hasta que sea demasiado tarde. El recurso ya está gastado; tu vida no tiene por qué ir detrás.
+
+## Los perks cambian el cohete, la rotación o la ayuda disponible
+
+Helix Propulsion aumenta la velocidad del proyectil de Helix Rockets, no su daño. Ajusta la anticipación del disparo sin asumir que atravesará una defensa o resolverá un duelo al que llegas sin cobertura. Tactical Salvo es la otra opción minor: durante Visor reduce el cooldown de Helix y permite usarlo sin interrumpir el fuego del rifle. Necesitas seguir viendo un objetivo; lanzar más cohetes contra una esquina vacía no abre por sí solo la pelea.
+
+Full Stride aumenta progresivamente la bonificación de velocidad de Sprint. Puede facilitar una rotación preparada, pero no significa que alcances esa velocidad completa al empezar a correr. Comprueba el tiempo hasta tener tiro y la ruta de vuelta: llegar más rápido a una zona aislada sigue dejándote fuera de la ayuda del equipo.
+
+Stim Pack, la alternativa major, reemplaza Biotic Field y aporta curación personal y velocidad de ataque durante un tiempo limitado. Si lo eliges, ya no puedes colocar el campo para curar a un compañero. Avisa antes del intercambio y cambia el plan de cobertura; no cuentes con disponer simultáneamente de ambas habilidades ni te quedes en abierto esperando que la curación personal compense todo el daño.
 
 ## Visor necesita objetivos que sigan siendo visibles
 
