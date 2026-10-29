@@ -25,3 +25,7 @@ Solo esta URL se propone para publicación, vinculada a su revisión exacta. Los
 ## Validación final local
 
 Pasan 706 pruebas unitarias, lint, cuatro casos finales de guía y filtros y seis de regresión sobre Freja, Sojourn y el modo de revisión de anuncios. La nueva prueba de atribución verifica corrección conjunta de los valores conocidos, conservación de la entrada, aplicación repetida estable e invalidación por cambios de título, canal, idioma, ID, URL y fecha. Se inspeccionan la captura completa de escritorio y la cabecera móvil finales: contexto antes del vídeo, nombre original, JA, fecha revisada, sección de perks y estructura correctos. El navegador verifica todo el texto, FAQ, enlaces, vídeo y reproducción, idioma del VideoObject, fechas y ausencia de anuncios o desbordamientos. Falta desplegar y comprobar la URL pública.
+
+## Resultado público
+
+Vercel confirma el commit `de503e3` en [este despliegue de producción](https://vercel.com/masiajavs-projects/peakform/e9gPUhTvTfmRXigZFx1zSe8re7sQ). Pasan las 55 respuestas HTTP y la redirección de control: la guía responde 200, sin noindex, incluida en sitemap, con fecha, atribución y japonés en VideoObject correctos y sin anuncios. Los 50 artículos anteriores y los cuatro controles conservan su estado. Pasan otros dos casos de navegador contra producción, en móvil y escritorio. El ledger conserva respuesta, huella, fecha, commit y despliegue: **51 de 140 artículos habilitados y verificados; 89 pendientes de revisión**.

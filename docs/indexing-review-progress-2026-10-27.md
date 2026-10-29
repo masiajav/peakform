@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 29 de octubre: **51 de 140 artículos revisados; 50 habilitados y verificados en producción, Wuyang pendiente de despliegue y comprobación pública; 89 pendientes de revisión**. Último lote verificado públicamente: Freja. Siguiente revisión iniciada: guía, counter y composiciones de Widowmaker. Los anuncios mantienen su configuración previa.
+Estado comprobado al 29 de octubre: **54 de 140 artículos revisados; 51 habilitados y verificados en producción, tres de Widowmaker pendientes de despliegue y comprobación pública; 86 pendientes de revisión**. Último lote verificado públicamente: Wuyang. Siguiente revisión iniciada: guía y composiciones de Soldier 76. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 
@@ -206,3 +206,11 @@ La revisión inicial de Wuyang añade cuatro casos correctos de navegador y dos 
 Se completa la revisión de Wuyang, corrigiendo conjuntamente título y canal originales e idioma japonés, con contexto del doblaje inglés automático. Se añaden decisiones sobre los cuatro perks actuales y se conserva la primera publicación. Los controles solo corrigen los metadatos antiguos exactos del vídeo revisado y rechazan cambios imprevistos. Pasan 706 pruebas unitarias, lint, cuatro casos finales y seis de regresión, además de cuatro iniciales. Se inspeccionan las dos capturas finales. Evidencia: [revisión de Wuyang](indexing-review-wuyang-2026-10-29.md). Su URL queda pendiente de despliegue y comprobación pública.
 
 Se leen los tres artículos pendientes de Widowmaker y se contrastan los modelos actuales, el kit, perks, subrol y vídeo incorporado desde su alias. La guía necesita contexto, título real del vídeo y explicación de perks. Counter y composiciones mantienen por ahora sus textos; los tres siguen pendientes de enlaces y presentación final.
+
+Wuyang queda desplegado y verificado en el commit de503e3: 55 respuestas HTTP y una redirección correctas, más dos casos de navegador contra producción. Su guía está en el sitemap y sin noindex, con atribución e idioma correctos; los controles y los 50 artículos anteriores conservan su estado. Total verificado: **51 de 140; 89 pendientes**.
+
+## Vigésimo primer lote: Widowmaker
+
+Se completa la revisión individual de guía, counter y composiciones. La guía añade decisiones de los cuatro perks y Sharpshooter, corrige el título conocido y contextualiza el vídeo de julio de 2025 y sus ajustes personales de consola. Counter y composiciones conservan texto y fecha tras el contraste. Pasan 706 pruebas unitarias, lint, doce casos finales y seis de regresión, además de ocho iniciales. Se inspeccionan las seis capturas iniciales y las dos de la guía corregida. Evidencia: [revisión de Widowmaker](indexing-review-widowmaker-2026-10-29.md). Las tres URLs quedan pendientes de despliegue y comprobación pública.
+
+Se leen los dos artículos siguientes de Soldier 76 y se contrastan con sus modelos actuales. Se verifica la fuente de Metro de octubre de 2022, que necesita contexto y título exacto, y los perks actuales. Las composiciones necesitan corregir la referencia de nombre del catálogo; sus dos URLs siguen pendientes y excluidas.

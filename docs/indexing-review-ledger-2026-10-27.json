@@ -487,10 +487,13 @@
       "sourceVersion": "0a845ccc92e4e50a02880930f83f3c4f1aded329512a590d9a14d3f23a8eca18",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-widowmaker-2026-10-29.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "0a845ccc92e4e50a02880930f83f3c4f1aded329512a590d9a14d3f23a8eca18",
+      "correction": "Texto y fecha 2026-10-02 conservados tras contrastar amenazas, señales y respuestas, Sharpshooter, persistencia de Seeker Mine, perforación de enemigos sin atravesar paredes, ayudas, ejemplos, FAQ, enlaces y presentación.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "0a845ccc92e4e50a02880930f83f3c4f1aded329512a590d9a14d3f23a8eca18",
         "note": "Lectura completa de amenazas D.Va/Winston/Genji/Lúcio, señales y respuestas, cuatro ventanas de cooldown, adaptaciones por rol y 6v6, errores, ejemplos Circuit/Havana/Gibraltar, checklist, tres FAQ y enlaces. Modelo actual coincide con el inventario. Ficha oficial confirma subrol Sharpshooter y reducción de movilidad con críticos; Seeker Mine persiste y Widow's Bite atraviesa enemigos, sin prometer disparar a través de paredes. Faltan enlaces, presentación y versión final. No aprobado."
@@ -2857,7 +2860,12 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "916e6bd6fa6e096aff2fcc099e81c8ee64c00a6ca48c684d676d946961132be0",
+        "note": "Lectura completa de lateral cercano y timing, tracking y Helix, Sprint para rotar antes del peligro, Field con cobertura, preparación de Visor frente a Matrix/barreras, VOD, tres FAQ y enlaces. Fila pública y modelo coinciden con el inventario. Vídeo incorporado desde alias confirmado por watch y oEmbed: Metro, 2022-10-29, playability OK, título real How to play Soldier 76 (Best Method) | In-Depth Tutorial (Overwatch 2). Descripción y capítulos leídos; 1035 segundos, versión anterior a perks. Ficha oficial confirma Helix Propulsion/Tactical Salvo minor y Full Stride/Stim Pack major, este último reemplaza Field. Faltan título conocido, contexto histórico, opciones actuales, versión final con medios, enlaces y presentación. No aprobada."
+      }
     },
     {
       "path": "/guides/soldier-76-guia-video-overwatch",
@@ -3107,14 +3115,18 @@
       "sourceVersion": "2601fdf6c7c8b37a73ff38d14c33a186b75f87a5af52df8d7c59883dfdb69de7",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-widowmaker-2026-10-29.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "228060321a12343bb855d66a1e15302d06e21ca63de14af35f6f79b3f53e1690",
+      "correction": "Se corrige el título conocido del vídeo de Luna Webcore, se contextualizan julio de 2025 y los ajustes personales de consola, y se aplican los cuatro perks actuales y Sharpshooter. Cuerpo y medios incorporados desde alias vinculados; primera publicación conservada y revisión del contenido 2026-10-29.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "2601fdf6c7c8b37a73ff38d14c33a186b75f87a5af52df8d7c59883dfdb69de7",
         "note": "Lectura completa de cruces útiles, cambio de ángulo, cobertura, Grapple con salida, Venom Mine e información, Infra-Sight para el equipo, VOD, tres FAQ y enlaces. Modelo actual y fila pública coinciden con el inventario. Vídeo incorporado desde alias confirmado por watch/oEmbed con playability OK: Luna Webcore, 2025-07-12, título real Top 500 Widowmaker Guide 2025  ( + Settings ) | Overwatch 2. Descripción y capítulos leídos; 409 segundos, incluye ajustes de consola desde 5:55. Falta corregir título conocido, contexto de antigüedad y ajustes particulares, aplicación de perks actuales, versión final con medios, enlaces y presentación. No aprobada."
-      }
+      },
+      "reviewedRenderedVersion": "f127f9aedf8a85147d0cfc6713373d1a80a8fdc20c59109a0b6c177c4c2dd895"
     },
     {
       "path": "/guides/widowmaker-guia-video-overwatch",
@@ -3201,9 +3213,29 @@
       "sourceVersion": "c10b806c4e0bb4812ff219bd9664fc55b26dece14fdf951a72a80dbd3db34144",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-wuyang-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/wuyang-guia-video-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "dfed7329506e0275d070c7431416d0b90ffebc6c058d388b4e6b823254d6175d",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-29T17:52:51.202Z",
+        "commit": "de503e3b038e20e807e1f252b47c4a98b1cd8a59",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/e9gPUhTvTfmRXigZFx1zSe8re7sQ",
+        "browserChecks": "2 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "db6a7e1c2811e1068a61b1aeac2131f78c1517a7d3d224ff8d6b81915e74349a",
       "reviewedRenderedVersion": "67bb30ba5350952a3c9b1b9110df0daffd75d86674c50bdd77df21c4cfe29561",
@@ -4664,7 +4696,12 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "5fa6cc9c494bec1e1aa0a1d5af78c640d93a54c5a5c311047c601b112dd45ff4",
+        "note": "Lectura completa de equipos Winston/Tracer, Sigma/Cassidy y Reinhardt/D.Va/Mei en 6v6, todos sus argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, tres FAQ y enlaces. Modelo actual coincide con el inventario. La diferencia entre Field compartido y Stim Pack personal coincide con la ficha oficial; roles y formatos propuestos coherentes. Se detecta que el nombre Soldier: 76 en los equipos difiere del catálogo Soldier-76, bloqueo de validación que debe corregirse. Faltan esa corrección, enlaces, presentación y versión final. No aprobada."
+      }
     },
     {
       "path": "/team-comps/symmetra",
@@ -4797,10 +4834,13 @@
       "sourceVersion": "4a5164dab585b008247f1fc798d5b273141de7c1d83a1cd43bdd8b373d392598",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-widowmaker-2026-10-29.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "4a5164dab585b008247f1fc798d5b273141de7c1d83a1cd43bdd8b373d392598",
+      "correction": "Texto y fecha 2026-10-02 conservados tras verificar kit, equipos y roles 5v5/6v6, líneas útiles, ayudas accesibles, rotaciones, FAQ, enlaces y presentación. No se inventa primera fecha de publicación.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "4a5164dab585b008247f1fc798d5b273141de7c1d83a1cd43bdd8b373d392598",
         "note": "Lectura completa de equipos Sigma/Cassidy/Baptiste/Brigitte, Winston/Tracer/Ana/Brigitte y Sigma/D.Va/Hanzo/Baptiste/Brigitte en 6v6; todos los argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, tres FAQ y enlaces. Modelo actual coincide con el inventario. Kit, roles, formatos y seguimiento coherentes; se reconoce que línea útil y peel requieren acceso y posición. Faltan enlaces, presentación y versión final. No aprobada."
@@ -4863,8 +4903,8 @@
     }
   ],
   "progress": {
-    "reviewed": 51,
-    "publishedAndVerified": 50,
-    "pending": 89
+    "reviewed": 54,
+    "publishedAndVerified": 51,
+    "pending": 86
   }
 }

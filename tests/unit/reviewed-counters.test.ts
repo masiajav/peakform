@@ -14,7 +14,7 @@ test('reviewed counters only restore individually approved publication candidate
     expect(article.threats).toHaveLength(['genji', 'kiriko'].includes(slug) ? 6 : 4)
     expect(article.examples).toHaveLength(3)
     expect(article.faqs).toHaveLength(['doomfist', 'dmon'].includes(slug) ? 5 : 3)
-    expect(editorialTopicQualityDecision('counter', slug, article)).toMatchObject({ indexable: ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine', 'sombra', 'roadhog', 'doomfist', 'dmon', 'moira', 'reaper', 'brigitte', 'echo', 'ashe', 'hanzo', 'mei', 'sojourn', 'bastion', 'symmetra', 'torbjorn'].includes(slug), adsAllowed: false })
+    expect(editorialTopicQualityDecision('counter', slug, article)).toMatchObject({ indexable: ['genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine', 'sombra', 'roadhog', 'doomfist', 'dmon', 'moira', 'reaper', 'brigitte', 'echo', 'ashe', 'hanzo', 'mei', 'sojourn', 'bastion', 'symmetra', 'torbjorn', 'widowmaker'].includes(slug), adsAllowed: false })
     for (const threat of article.threats) {
       const normalizeName = (name: string) => name.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
       expect(normalizeName(getCounterHero(threat.href.slice('/heroes/'.length))?.name ?? '')).toBe(normalizeName(threat.name))

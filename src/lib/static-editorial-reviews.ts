@@ -1004,6 +1004,27 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-wuyang-2026-10-29.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/widowmaker-guia-overwatch-lineas-vision': {
+    path: '/guides/widowmaker-guia-overwatch-lineas-vision',
+    version: '228060321a12343bb855d66a1e15302d06e21ca63de14af35f6f79b3f53e1690',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-widowmaker-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/counters/widowmaker': {
+    path: '/counters/widowmaker',
+    version: '0a845ccc92e4e50a02880930f83f3c4f1aded329512a590d9a14d3f23a8eca18',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-widowmaker-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/widowmaker': {
+    path: '/team-comps/widowmaker',
+    version: '4a5164dab585b008247f1fc798d5b273141de7c1d83a1cd43bdd8b373d392598',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-widowmaker-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/zarya': {
     path: '/team-comps/zarya',
     version: '40de9429f726f9396cb6d2c3aa44d8eca29c9b77c5b7eeac49598631fa1b35a6',

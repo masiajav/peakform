@@ -291,8 +291,15 @@ Para mejorar tus rotaciones, consulta [Midtown](/maps/midtown) y [cómo jugar DP
   },
   'widowmaker-guia-overwatch-lineas-vision': {
     hero: 'widowmaker',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-29',
     videoSlug: 'widowmaker-guia-video-overwatch',
+    sourceVideoTitle: 'Top 500 Widowmaker Guide 2025 (+ Settings) | Overwatch',
+    reviewedVideo: {
+      video_id: '9ZoF_0ti85U', video_url: 'https://www.youtube.com/watch?v=9ZoF_0ti85U', video_platform: 'youtube',
+      video_title: 'Top 500 Widowmaker Guide 2025  ( + Settings ) | Overwatch 2', video_channel: 'Luna Webcore', video_language: 'en', video_published_at: '2025-07-12',
+    },
+    renderedContentVersion: 'f127f9aedf8a85147d0cfc6713373d1a80a8fdc20c59109a0b6c177c4c2dd895',
+    videoDescription: 'Guía de Luna Webcore publicada el 12 de julio de 2025, con un apartado de ajustes de consola desde el minuto 5:55. Sus opciones personales no son una configuración obligatoria ni equivalen a ajustes de ratón. La grabación corresponde a aquella versión del juego; el artículo escrito contrasta por separado las habilidades, el subrol Sharpshooter y los perks actuales, sin trasladar automáticamente sus cifras o elecciones a tu partida.',
     title: 'Cómo jugar Widowmaker: líneas de tiro, Grapple y duelos de sniper',
     description: 'Elige líneas de tiro útiles con Widowmaker, cambia de posición antes del dive y prepara los duelos de sniper. Ejemplos de Circuit Royal y Gibraltar.',
     quickAnswer: 'Con Widowmaker, elige una línea que el enemigo necesite cruzar y una retirada que puedas usar antes de que llegue el dive. Cambia de posición después de revelar tu ángulo y coloca Venom Mine en una ruta de acceso. Infra-Sight ayuda a coordinar los cruces; no obliga a asomarte a un duelo que sigue siendo desfavorable.',
@@ -327,6 +334,14 @@ Coloca la mina en una ruta por la que podrían acercarse: una escalera, puerta o
 Cuando se activa, comprueba qué amenaza llega y si tienes una retirada. No ignores el aviso porque estás esperando otro headshot. Contra un flanker, cambiar de posición a tiempo puede evitar el duelo; cuando ya está encima, tendrás menos opciones y tus compañeros quizá no puedan verte.
 
 La mina no cubre todas las entradas de una altura. Completa la información con sonido, posición de los enemigos y recursos que hayan usado. Si faltan varios rivales del frente, no asumas que siguen donde estaban hace unos segundos.
+
+## Escoge los perks sin perder de vista la siguiente entrada
+
+Scoped Efficiency reduce la munición que gastan los tiros con mira; puede ayudarte a mantener varios intentos antes de recargar, pero no acelera su carga ni vuelve útil una línea que el rival ya evita. Sniper's Instinct es la alternativa minor: acelera brevemente la carga de los tiros después de Grappling Hook. Elige primero un destino que puedas sostener. Consumir el gancho para activar esa ventana y caer delante del dive sigue dejándote sin la salida que necesitabas.
+
+Con Seeker Mine, la trampa dispara dardos venenosos a enemigos cercanos y permanece activa tras activarse. Comprueba qué entrada cubre y cómo responderás al aviso; no significa que vigile todos los accesos a tu altura. Widow's Bite, la otra opción major, permite sobrecargar los tiros con mira y atravesar enemigos cuando la carga está completa. Eso no permite disparar a través de paredes ni ignorar las defensas que cortan tu línea.
+
+El subrol Sharpshooter reduce el cooldown de movilidad al conseguir críticos. Mira el recurso disponible antes de rotar o responder al siguiente salto: no asumas una cuenta fija del gancho ni gastes una retirada solo porque un crítico podría recuperarla después. Un acierto puede abrir una oportunidad, pero la posición siguiente debe conservar una cobertura y un objetivo relevante.
 
 ## Infra-Sight: comparte una ventana, no fuerces un peek
 
