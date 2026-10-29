@@ -969,6 +969,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-venture-2026-10-29.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/hazard-guia-video-overwatch': {
+    path: '/guides/hazard-guia-video-overwatch',
+    version: '10c404b1eb3ab1ca79ce39fd299aff3c88585c2e88df641b47651c390ce0910b',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-hazard-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/hazard': {
+    path: '/team-comps/hazard',
+    version: '69bb2f9a04e5ac660dddfe4fcbffab6cf55464fe76de143e2661bc0c6d433aa4',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-hazard-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/zarya': {
     path: '/team-comps/zarya',
     version: '40de9429f726f9396cb6d2c3aa44d8eca29c9b77c5b7eeac49598631fa1b35a6',

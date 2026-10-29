@@ -99,7 +99,13 @@ Puedes comparar accesos en [Lijiang Tower](/maps/lijiang-tower) y revisar tus re
     description: 'Mejora con Hazard: corta la ayuda rival con Jagged Wall, usa Spike Guard hacia la amenaza y prepara Downpour con seguimiento del equipo.',
     quickAnswer: 'Con Hazard, busca un enemigo al que el equipo pueda castigar y usa el muro para dificultar su retirada o la ayuda que recibe. No gastes Leap solo porque puedas alcanzarlo: comprueba dónde aterrizarás y quién podrá curarte. Spike Guard protege de frente, no de todos los ángulos. Downpour aporta cuando tus compañeros tienen línea de tiro sobre los enemigos inmovilizados.',
     videoSlug: 'hazard-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-29',
+    reviewedVideo: {
+      video_id: 'BhcQIK8TZlU', video_url: 'https://www.youtube.com/watch?v=BhcQIK8TZlU', video_platform: 'youtube',
+      video_title: "Spilo's Comprehensive Hazard Guide", video_channel: 'Spilo', video_language: 'en', video_published_at: '2025-01-20',
+    },
+    renderedContentVersion: '7133841fccf7659300b7de4d05bab9a332570f4456a41218dc37ecaf465fbbfe',
+    videoDescription: 'Análisis de Spilo publicado el 20 de enero de 2025, con capítulos sobre movimiento, muro, guardia, ultimate y ejemplos en Samoa y Dorado. La grabación corresponde a aquella versión del juego. El artículo escrito se contrasta por separado con el kit y los perks actuales: energía y recuperación de Spike Guard, alcance de Leap y marcas de Explosive Impalements, sin trasladar automáticamente cifras o elecciones del vídeo.',
     body: `## Tu entrada debe dejar espacio para el equipo
 
 Hazard puede alcanzar una posición rápidamente, pero llegar antes que los demás no siempre es una ventaja. Si saltas detrás de una esquina que tus supports aún no han cruzado, empiezas a gastar defensas sin que nadie pueda ayudarte. Busca una primera posición desde la que puedas amenazar y permitir que el equipo avance.
@@ -126,7 +132,7 @@ Vault te permite aprovechar paredes cortas y salientes para cambiar el recorrido
 
 La protección de Spike Guard está orientada al frente. Si un DPS te dispara desde un lateral mientras el Tank te presiona de cara, necesitas mover la posición o reducir una de esas líneas de tiro. Girarte continuamente en campo abierto suele repartir el daño recibido, no eliminarlo.
 
-Úsalo para sostener el intercambio importante o para cruzar hacia cobertura. Aprovecha también la recuperación de munición, pero no prolongues la defensa por costumbre si podrías cubrirte y reservar recurso. Mira cuándo el enemigo está disparando de verdad y cuándo solo espera a que lo agotes.
+Úsalo para sostener el intercambio importante o para cruzar hacia cobertura. La recuperación de munición exige hacer daño con Spike Guard: mantener la guardia sin alcanzar a nadie no es una recarga gratuita. No prolongues la defensa por costumbre si podrías cubrirte y reservar recurso. Mira cuándo el enemigo está disparando de verdad y cuándo solo espera a que lo agotes.
 
 Una esquina permite alternar arma y defensa con más control. Puedes presionar con Bonespur, cubrirte y decidir si el siguiente cruce exige Spike Guard. Gastarlo entero antes de que el rival comprometa movilidad o una ultimate te deja con menos respuesta al engage que realmente importa.
 
@@ -137,6 +143,14 @@ Un support situado detrás de su Tank puede parecer accesible y seguir recibiend
 Contra un equipo que mantiene varias alturas, no corras de un DPS a otro sin consolidar una posición. Elige una plataforma o una esquina que vuestros compañeros puedan utilizar. Si el enemigo se retira de ella, habéis ganado espacio aunque no aparezca una eliminación.
 
 Contra una composición que juega cerca, valora separar a quienes están siguiendo al Tank. El muro puede dificultar que todo el grupo cruce a la vez. Coordina el daño sobre el objetivo que quede expuesto, en vez de pedir a tus DPS que atraviesen una ruta que tú mismo acabas de bloquear.
+
+## Prepara la entrada con los perks que has elegido
+
+Reconstitution permite añadir energía a Spike Guard cuando Jagged Wall alcanza enemigos. Anarchic Zeal es la alternativa minor que añade robo de vida a los pinchos de Spike Guard. No esperes esa recuperación por usar la guardia si has elegido Reconstitution, ni cuentes con impactos sobre un objetivo que ya se ha cubierto. La esquina y la visión de tus supports siguen formando parte de la defensa.
+
+Entre los major, Deep Leap amplía el alcance de Violent Leap. Comprueba el aterrizaje antes de aprovechar esa distancia: llegar más lejos puede dejarte fuera de la curación. Explosive Impalements es la alternativa que marca al rival con impactos de Bonespur y permite detonar esas marcas con Quick Melee o el golpe de continuación de Leap. La marca no es una baja garantizada ni justifica gastar el salto contra un enemigo que conserva toda su ayuda.
+
+Coordina la mejora con una jugada concreta y un regreso posible. Tener energía adicional, robo de vida o más alcance no convierte Spike Guard en protección lateral ni hace que tus compañeros puedan disparar a través de un muro mal colocado.
 
 ## Downpour necesita daño después del control
 

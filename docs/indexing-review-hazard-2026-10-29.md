@@ -1,0 +1,24 @@
+# Revisión individual de Hazard: guía y composiciones
+
+Revisión del 29 de octubre de 2026 por Codex. Se leen completos ambos artículos pendientes. Los modelos y la fila pública de la guía coinciden con el inventario antes de las correcciones. El counter ya era indexable y no recibe otra aprobación ni cambios.
+
+| URL | Lectura y utilidad | Correcciones y fechas | Versión revisada |
+| --- | --- | --- | --- |
+| `/guides/hazard-guia-video-overwatch` | Muro con visión aliada, Leap y Vault con aterrizaje sostenible, Spike Guard frontal, aislamiento real, Downpour con seguimiento, VOD, tres FAQ y enlaces. | Precisa que recuperar munición requiere hacer daño con Spike Guard. Aplica los cuatro perks actuales y contextualiza el vídeo de Spilo de enero de 2025. Primera publicación del 6 de mayo conservada; revisión del contenido del 29 de octubre. | `10c404b1eb3ab1ca79ce39fd299aff3c88585c2e88df641b47651c390ce0910b` |
+| `/team-comps/hazard` | Equipos Venture/Cassidy/Lúcio/Kiriko, Genji/Ashe/Ana/Brigitte y Zarya/Venture/Soldier/Baptiste/Lúcio en 6v6; sus cinco argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, FAQ y enlaces. | La FAQ añade la condición de daño para recuperar munición y conserva el lifesteal como perk opcional. La fecha de contenido pasa del 2 al 29 de octubre. Se corrige el nombre de Soldier-76 en el equipo 6v6 para que corresponda al catálogo de héroes. Roles y formatos válidos; no se promete seguimiento por alcanzar una posición. | `69bb2f9a04e5ac660dddfe4fcbffab6cf55464fe76de143e2661bc0c6d433aa4` |
+
+## Exactitud y fuentes
+
+Se descarga y lee la ficha oficial actual de [Hazard](https://overwatch.blizzard.com/en-gb/heroes/hazard/): Bonespur, defensa frontal de Spike Guard, segunda activación de Leap, muro, inmovilización de Downpour y Vault. Se contrastan Reconstitution y Anarchic Zeal como minor y Deep Leap y Explosive Impalements como major; el texto aplica sus condiciones y alternativas a una entrada con ayuda y salida. Las [notas oficiales del 26 de agosto de 2025](https://overwatch.blizzard.com/en-gb/news/patch-notes/live/2025/8/) explicitan la condición de hacer daño para recuperar munición. Las [notas de junio de 2026](https://overwatch.blizzard.com/en-us/news/patch-notes/live/2026/6/) confirman la distribución actual de perks. Se separan los cambios de héroes, Stadium y Community Crafted; no se adoptan para ranked los cambios experimentales de Downpour. Las fichas de compañeros y rivales citados se contrastaron en lotes anteriores.
+
+El [vídeo de Spilo](https://www.youtube.com/watch?v=BhcQIK8TZlU) y oEmbed responden 200 con playability `OK`. Coinciden título, canal, idioma y fecha del 20 de enero de 2025. Se leen descripción y capítulos sobre fundamentos, movimiento, muro, guardia, ultimate y ejemplos en Samoa y Dorado. No se afirma haber visto sus 1917 segundos íntegros. El contexto visible identifica la versión histórica y remite al análisis escrito para las opciones actuales. La huella del cuerpo y medios renderizados es `7133841fccf7659300b7de4d05bab9a332570f4456a41218dc37ecaf465fbbfe`.
+
+## Presentación y publicación
+
+La copia aislada parte de `13cd29a`, sin cambios locales ajenos de mapas, Deadlock o tsconfig. Pasan seis casos iniciales sobre los dos artículos todavía excluidos y el botón de reproducción en móvil y escritorio. Se inspeccionan las dos capturas completas de escritorio y las dos cabeceras móviles, registradas en el ledger como evidencia preliminar. Texto, enlaces, metadatos, imágenes, fechas, FAQ, estructura y ausencia de overflow y anuncios son correctos en esa versión. Falta comprobar las correcciones finales y la publicación.
+
+Solo estas dos URLs se incorporan como candidatos explícitos con revisión de su versión y medios exactos. Otros artículos pendientes siguen excluidos y `adsAllowed: false`. No se activan anuncios. Fuentes y modelos: `reports/indexing-review-2026-10-27/batch-eighteen/`; capturas y logs: `reports/indexing-review-2026-10-27/release-batch-eighteen/`.
+
+## Validación final local
+
+Las pruebas detectaron un bloqueo adicional: el nombre `Soldier: 76` del equipo 6v6 no coincidía con `Soldier-76` en el catálogo usado para validar roles. Se corrige únicamente esa referencia de Hazard y se registra la nueva versión exacta. Pasan 705 pruebas unitarias, lint, seis casos finales de las dos páginas y el catálogo de composiciones, dos de filtros y seis de regresión sobre Venture, Junkrat y el modo de revisión de anuncios. Se inspeccionan las dos capturas completas de escritorio y las dos cabeceras móviles finales: estructura, texto nuevo, fecha y equipos correctos, sin desbordamientos ni anuncios. Las FAQ, enlaces, imágenes, identidad del vídeo y botón de reproducción se comprueban en navegador. Se conserva la fecha inicial desconocida de las composiciones. La publicación pública sigue pendiente de despliegue y verificación.

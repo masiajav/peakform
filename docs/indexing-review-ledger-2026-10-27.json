@@ -2027,7 +2027,12 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "3e3ec45a816bb2854981b08ff47b3dedf622bc479cfba53492e30120e462d9da",
+        "note": "Lectura completa de ángulo recuperable, Take Aim y seguimiento, Quick Dash como refresco y salida, Updraft y exposición, selección de objetivo, Bola Shot, VOD, tres FAQ y enlaces. Fila pública actual y modelo coinciden con el inventario. Ficha oficial confirma Relentless Barrage/Momentum Boost minor y Aerial Recovery/Rising Winds major. Vídeo de KarQ del 22 de marzo de 2025 confirmado por watch y oEmbed, playability OK; descripción y capítulos leídos, corresponde a la prueba y tiene perks históricos. Título almacenado omite el 2 de Overwatch 2. Faltan correcciones de contexto, opciones actuales, versión con medios y verificación de enlaces y presentación. No aprobada."
+      }
     },
     {
       "path": "/guides/fundamentos-overwatch-5v5-revisar-partidas",
@@ -2098,10 +2103,13 @@
       "sourceVersion": "b46f1942df2e2dafc2f5ab94eced7fd2abf465833d54a728b2ac03bf643a030e",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-hazard-2026-10-29.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "10c404b1eb3ab1ca79ce39fd299aff3c88585c2e88df641b47651c390ce0910b",
+      "correction": "Se precisa la condición de daño para recuperar munición con Spike Guard, se aplican los cuatro perks actuales y se contextualiza el vídeo de Spilo de enero de 2025. Cuerpo y medios vinculados; primera publicación conservada y revisión del contenido 2026-10-29.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "b46f1942df2e2dafc2f5ab94eced7fd2abf465833d54a728b2ac03bf643a030e",
         "note": "Lectura completa de muro con visión aliada, Leap y Vault con aterrizaje viable, Spike Guard frontal y munición, aislamiento real, Downpour con seguimiento, VOD, tres FAQ y enlaces. Modelo actual y fila pública coinciden con el inventario. Ficha oficial confirma Reconstitution/Anarchic Zeal minor y Deep Leap/Explosive Impalements major. Vídeo de Spilo del 20 de enero de 2025 confirmado por watch y oEmbed, playability OK; descripción y capítulos leídos. Faltan contexto del material anterior a perks, concreción de opciones actuales, versión final con medios, enlaces y presentación. No aprobada.",
@@ -2113,7 +2121,8 @@
           "screenshots": "reports/indexing-review-2026-10-27/release-batch-eighteen/reports/",
           "note": "Ambos artículos aún excluidos pasan en móvil y escritorio, incluido el botón de reproducción del vídeo. Se inspeccionan las dos capturas completas de escritorio y las dos cabeceras móviles. Enlaces, FAQ, fechas, imágenes, metadatos y ausencia de overflow y anuncios correctos. Falta contexto, concreción de perks y comprobar las versiones finales; sin aprobación."
         }
-      }
+      },
+      "reviewedRenderedVersion": "7133841fccf7659300b7de4d05bab9a332570f4456a41218dc37ecaf465fbbfe"
     },
     {
       "path": "/guides/illari-guia-overwatch-pilon-dano",
@@ -4013,7 +4022,12 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "5231cec8a2809a5e0652eaab3d878ef8ec650d8357ce670237b8766db2b733dc",
+        "note": "Lectura completa de equipos Winston/Tracer, Sigma/Cassidy y Winston/D.Va/Freja/Ashe en 6v6, todos sus argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, tres FAQ y enlaces. Modelo actual coincide con el inventario. Roles y formatos coherentes; Take Aim refrescado por Quick Dash y Bola Shot con arrastre confirmados en ficha oficial. Faltan comprobación de enlaces, presentación y versión final. No aprobada."
+      }
     },
     {
       "path": "/team-comps/hanzo",
@@ -4065,10 +4079,13 @@
       "sourceVersion": "932fe2801db91ee2acf63367984461b86f4b8d8aa2ff4a1972307b318ee91757",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-hazard-2026-10-29.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "69bb2f9a04e5ac660dddfe4fcbffab6cf55464fe76de143e2661bc0c6d433aa4",
+      "correction": "Se precisa la recuperación de munición en la FAQ y se corrige Soldier-76 en el equipo 6v6 para corresponder al catálogo. Equipos, roles, formato, ayudas, rotaciones, FAQ y fuentes comprobados; revisión del contenido 2026-10-29, sin inventar primera fecha de publicación.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "932fe2801db91ee2acf63367984461b86f4b8d8aa2ff4a1972307b318ee91757",
         "note": "Lectura completa de equipos Venture/Cassidy, Genji/Ashe y Zarya/Venture/Soldier en 6v6, todos sus argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, FAQ y enlaces. Modelo actual coincide con el inventario. Roles y formatos coherentes; Spike Guard frontal y lifesteal solo con Anarchic Zeal, confirmado en la ficha oficial. Faltan enlaces y presentación final. No aprobada.",
@@ -4729,8 +4746,8 @@
     }
   ],
   "progress": {
-    "reviewed": 46,
+    "reviewed": 48,
     "publishedAndVerified": 46,
-    "pending": 94
+    "pending": 92
   }
 }

@@ -967,7 +967,7 @@ export const reviewedTeamCompositions: Record<string, TeamCompPillar> = {
   },
   hazard: {
     slug: 'hazard', name: 'Hazard',
-    updatedAt: '2 de octubre de 2026', schemaDate: '2026-10-02',
+    updatedAt: '29 de octubre de 2026', schemaDate: '2026-10-29',
     reviewedPatch: 'Kit base de ranked; Jagged Wall, Violent Leap y Spike Guard',
     seoTitle: 'Composiciones con Hazard: muro, Leap y seguimiento',
     seoDescription: 'Prepara una composición con Hazard que aproveche Jagged Wall sin cortar sus propios tiros. Lineups 5v5 y 6v6, ayuda al aterrizar y seguimiento de Downpour.',
@@ -1001,7 +1001,7 @@ export const reviewedTeamCompositions: Record<string, TeamCompPillar> = {
       {
         name: '6v6: Zarya mantiene el frente mientras Hazard disputa otra esquina',
         format: '6v6', style: 'Frente cercano con desplazamiento selectivo',
-        lineup: ['Hazard', 'Zarya', 'Venture', 'Soldier: 76', 'Baptiste', 'Lúcio'],
+        lineup: ['Hazard', 'Zarya', 'Venture', 'Soldier-76', 'Baptiste', 'Lúcio'],
         winCondition: 'Zarya conserva el contacto principal y puede proteger una exposición acordada, mientras Hazard amenaza una esquina próxima. Soldier mantiene tiro sobre esa zona y Venture prepara el seguimiento. Separar las tareas evita que ambos Tanks gasten todos sus recursos detrás de un enemigo al que los DPS ya no ven.',
         engagePlan: 'Zarya avisa de la barrera disponible y Hazard confirma que Baptiste verá la llegada. Soldier prepara munición antes del cruce de Lúcio; Venture anuncia su salida de Burrow. Ajustad el reparto a los recursos de 6v6, sin convertir una barrera sobre Leap en permiso para quedarse indefinidamente fuera del frente.',
         goodMaps: 'King’s Row o Midtown con una esquina principal y un acceso próximo que Soldier pueda cubrir. Si Hazard necesita disputar una altura muy lejana, reconsiderad el reparto de Tanks o supports: Zarya y Baptiste no harán el mismo recorrido solo por haber preparado una primera barrera.',
@@ -1024,7 +1024,7 @@ export const reviewedTeamCompositions: Record<string, TeamCompPillar> = {
     checklist: ['El muro no impide la intervención de DPS y supports.', 'El aterrizaje tiene una cobertura y una línea de ayuda.', 'El compañero móvil está listo para participar.', 'Spike Guard responde al frente sin ignorar el lateral.', 'Downpour tiene seguimiento real, no solo varios objetivos.'],
     faqs: [
       { question: '¿Hazard debe saltar siempre a la backline?', answer: 'No. Ocupar una esquina o disputar una altura próxima puede abrir un tiro mejor sin romper la curación. Decide según el recorrido de tus DPS y la ayuda disponible; alcanzar al Support rival no garantiza poder sostener ese destino.' },
-      { question: '¿Spike Guard cura a Hazard por defecto?', answer: 'No. Anarchic Zeal es el perk que añade lifesteal a sus pinchos. La protección frontal y la recuperación de munición no sustituyen disponer de curación, cobertura o una salida cuando el rival ataque desde varias direcciones.' },
+      { question: '¿Spike Guard cura a Hazard por defecto?', answer: 'No. Anarchic Zeal es el perk que añade lifesteal a sus pinchos. Recuperar munición también exige hacer daño con Spike Guard; no basta con mantener la guardia sin alcanzar a nadie. La protección frontal no sustituye disponer de curación, cobertura o una salida cuando el rival ataque desde varias direcciones.' },
       { question: '¿Basta con acertar Downpour para ganar el engage?', answer: 'No. Los compañeros deben estar disponibles y tener alcance y tiro sobre los afectados. Mira también qué defensas conserva el rival; invertir después toda la movilidad en una zona sin ayuda puede perder una pelea que el control había empezado bien.' },
     ],
     links: [{ href: '/guides/hazard-guia-video-overwatch', label: 'Colocar el muro y elegir el aterrizaje de Leap' }, { href: '/maps/midtown', label: 'Conservar tiros al cambiar de esquina' }, { href: '/maps/dorado', label: 'Responder al crossfire desde las alturas' }, { href: '/guides/venture-guia-video-overwatch', label: 'Acordar la aparición antes del engage' }, { href: '/guides/como-mejorar-como-tank-overwatch', label: 'Distinguir ganar espacio de perseguir sin ayuda' }],

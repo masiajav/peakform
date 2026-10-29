@@ -17,7 +17,7 @@ const reviewDates: Record<string, string> = {
   hanzo: '2026-10-02', widowmaker: '2026-10-02', sojourn: '2026-10-02',
   'soldier-76': '2026-10-02', emre: '2026-10-02',
   anran: '2026-10-02', vendetta: '2026-10-02', mizuki: '2026-10-02',
-  hazard: '2026-10-02', venture: '2026-10-02', mauga: '2026-10-02',
+  hazard: '2026-10-29', venture: '2026-10-02', mauga: '2026-10-02',
   'junker-queen': '2026-10-02', lucio: '2026-10-02',
   sombra: '2026-10-10', 'wrecking-ball': '2026-10-02', baptiste: '2026-10-02', illari: '2026-10-02',
   brigitte: '2026-10-02', zenyatta: '2026-10-02', juno: '2026-10-02', echo: '2026-10-02',
@@ -154,7 +154,7 @@ describe('individual team composition revisions', () => {
       expect(getTeamCompPillar(slug)).toBe(article)
       expect(article.compositions).toHaveLength(3)
       expect(article.schemaDate).toBe(reviewDates[slug])
-      expect(editorialTopicQualityDecision('team_comp', slug, article)).toMatchObject({ indexable: ['sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon', 'domina', 'jetpack-cat', 'wuyang', 'moira', 'reaper', 'brigitte', 'echo', 'ashe', 'hanzo', 'mei', 'sojourn', 'bastion', 'symmetra', 'torbjorn', 'mauga', 'ramattra', 'wrecking-ball', 'junkrat', 'venture'].includes(slug), adsAllowed: false })
+      expect(editorialTopicQualityDecision('team_comp', slug, article)).toMatchObject({ indexable: ['sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon', 'domina', 'jetpack-cat', 'wuyang', 'moira', 'reaper', 'brigitte', 'echo', 'ashe', 'hanzo', 'mei', 'sojourn', 'bastion', 'symmetra', 'torbjorn', 'mauga', 'ramattra', 'wrecking-ball', 'junkrat', 'venture', 'hazard'].includes(slug), adsAllowed: false })
       for (const comp of article.compositions) {
         expect(comp.lineup).toContain(article.name)
         expect(comp.lineup).toHaveLength(comp.format === '5v5' ? 5 : 6)

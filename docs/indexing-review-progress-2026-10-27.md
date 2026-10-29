@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 29 de octubre: **46 de 140 artículos revisados, habilitados y verificados en producción; 94 pendientes de revisión**. Último lote verificado públicamente: Venture. Siguiente revisión iniciada: guía y composiciones de Hazard. Los anuncios mantienen su configuración previa.
+Estado comprobado al 29 de octubre: **48 de 140 artículos revisados; 46 habilitados y verificados en producción, dos de Hazard pendientes de despliegue y comprobación pública; 92 pendientes de revisión**. Último lote verificado públicamente: Venture. Siguiente revisión iniciada: guía y composiciones de Freja. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 
@@ -182,3 +182,9 @@ Se leen completos guía y composiciones de Hazard y se comprueban modelos, fila 
 Despliegue `13cd29a` completado, confirmado por GitHub con Vercel `DRVM4o8s8YiwYvB55NRciMkvTidi` y comprobado públicamente. Pasan cincuenta respuestas públicas (dos nuevas, 44 anteriores y cuatro exclusiones), el alias 308 de Sojourn y cuatro casos de navegador público en móvil y escritorio. Estado: **46 artículos revisados, habilitados y verificados públicamente de 140; 94 pendientes**.
 
 Hazard supera además seis comprobaciones iniciales de los dos artículos todavía excluidos y el botón de reproducción en ambos dispositivos, en una copia aislada de `13cd29a`. Se inspeccionan las dos capturas completas de escritorio y las dos cabeceras móviles; enlaces, FAQ, fechas, imágenes, metadatos y ausencia de overflow y anuncios son correctos en esa versión. Falta contextualizar el vídeo, concretar perks y comprobar las versiones corregidas. Estas pruebas se registran como preliminares: no habilitan indexación ni conceden aprobación. El objetivo global sigue activo.
+
+## Decimoctavo lote: Hazard
+
+Se completa la lectura y revisión individual de la guía y las composiciones de Hazard. Se precisa que Spike Guard recupera munición al hacer daño, se aplican los perks actuales y se contextualiza el vídeo de Spilo de enero de 2025. Las pruebas detectan y permiten corregir la referencia de Soldier-76 en el equipo 6v6. Pasan 705 pruebas unitarias, lint y 14 casos finales de navegador (seis de páginas y catálogo, dos de filtros y seis de regresión), además de los seis iniciales. Se inspeccionan las cuatro capturas finales de móvil y escritorio. Evidencia: [revisión de Hazard](indexing-review-hazard-2026-10-29.md). Las dos URLs quedan pendientes de desplegar y verificar públicamente.
+
+Se leen completos los dos artículos siguientes de Freja y se contrastan con los modelos actuales. La fuente de KarQ corresponde a su prueba de marzo de 2025 y tiene perks históricos; se registra el trabajo pendiente de contexto, título, opciones actuales y presentación sin aprobar todavía sus URLs.
