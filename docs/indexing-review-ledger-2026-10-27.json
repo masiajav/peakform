@@ -2529,9 +2529,29 @@
       "sourceVersion": "8d4650478d67ca7465eeab7bbc7e8dc3b4b10ae45ea878dfbbf3e8f572ce68eb",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-ramattra-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/ramattra-guia-video-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "468485cc4fdcaaf213fe99da0cd73509adb73c6d24f8b14353ad0bef27d28f81",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-29T07:28:19.240Z",
+        "commit": "029337cc9d089624f505148da41eec433fe63e35",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/29mverzKmSJmguhcvRapMfCaEYmg",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "076f5a72207ae06e75cf1eee5a3b87585c8e52717038fa17a4e8dc5b093a00f4",
       "correction": "Se añade detonación anticipada de Vortex y aplicación de los cuatro perks actuales como alternativas, con cobertura y límites de recuperación y extensión de forma. Vídeo de redeznt de enero de 2026 contextualizado, con cuerpo y medios vinculados. Primera publicación conservada; revisión del contenido 2026-10-29.",
@@ -3010,7 +3030,12 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "733ea4719690046ab4e7bc165ea5f96b3e9d61d22d121f2197b8f861aee1b599",
+        "note": "Lectura completa de ruta y salida, seguimiento, boop, Piledriver frente a controles, Adaptive Shield y transferencia a aliados, Minefield, VOD, tres FAQ y enlaces. Modelo y fila pública coinciden con el inventario. Ficha oficial actual confirma transferencia base y Steamroller/Multi-Ball y Hang Time/Adaptive Barrier como alternativas. Vídeo de LeonDrummer del 12 de octubre de 2022 confirmado, playability OK y descripción leída; título real con acento y Overwatch 2 difiere del almacenado. Falta corregir título, contexto histórico, perks actuales y precisar el alcance 5v5/6v6 de la introducción, versión final con medios, enlaces y presentación. No aprobada."
+      }
     },
     {
       "path": "/guides/wuyang-guia-video-overwatch",
@@ -4230,9 +4255,26 @@
       "sourceVersion": "eb7eeab29fabd394a11ffa0c6fa6f3e4003e68533e6fc7a8ada4baf0054c3105",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-ramattra-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/ramattra",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "bdab2eee532a86383b0a83d90e9a4c73f37686645c5c9dd5046f0de6a1747c59",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-29T07:28:19.240Z",
+        "commit": "029337cc9d089624f505148da41eec433fe63e35",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/29mverzKmSJmguhcvRapMfCaEYmg",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "eb7eeab29fabd394a11ffa0c6fa6f3e4003e68533e6fc7a8ada4baf0054c3105",
       "correction": "Texto y fecha 2026-10-02 conservados tras contrastar Block, Nanite Repair opcional, equipos y roles, ayudas, rotaciones, FAQ y fuentes.",
@@ -4495,7 +4537,12 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "ed7fc84cbc1fb4be1305f68e60f070fdbd4d271d6c96ce958db18aff75b0a294",
+        "note": "Lectura completa de equipos Tracer/Ashe, Tracer/Sojourn y D.Va/Tracer/Ashe en 6v6, argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, FAQ y enlaces. Modelo actual coincide con el inventario. Ficha oficial confirma Adaptive Shield y barrera opcional; las notas oficiales de Community Crafted del 30 de junio de 2026 confirman detonación manual experimental de Minefield, separada aquí del kit de ranked. Roles y formatos coherentes; Transcendence no limpia anticuración. Faltan enlaces y presentación final. No aprobada."
+      }
     },
     {
       "path": "/team-comps/zenyatta",
@@ -4515,7 +4562,7 @@
   ],
   "progress": {
     "reviewed": 40,
-    "publishedAndVerified": 38,
+    "publishedAndVerified": 40,
     "pending": 100
   }
 }

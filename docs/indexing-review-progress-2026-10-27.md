@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 29 de octubre: **40 de 140 artículos revisados; 38 habilitados y verificados en producción, dos pendientes de despliegue y comprobación pública; 100 pendientes de revisión**. Último lote verificado públicamente: Mauga. Ramattra supera la revisión local. Los anuncios mantienen su configuración previa.
+Estado comprobado al 29 de octubre: **40 de 140 artículos revisados, habilitados y verificados en producción; 100 pendientes de revisión**. Último lote verificado públicamente: Ramattra. Siguiente revisión iniciada: guía y composiciones de Wrecking Ball. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 
@@ -148,3 +148,7 @@ Despliegue de Mauga `f7d4ba1` completado, confirmado por GitHub con Vercel `FgQ1
 Se completa la revisión individual de guía y composiciones, las dos URLs todavía excluidas del héroe. La guía añade detonación anticipada de Vortex, aplica los cuatro perks actuales y contextualiza el vídeo de redeznt del 14 de enero de 2026. Las composiciones conservan contenido y fecha tras contrastar las decisiones y fuentes. El counter ya era indexable y no recibe cambios ni otra aprobación.
 
 Evidencia: [revisión de Ramattra](indexing-review-ramattra-2026-10-29.md). Pasan lint, 705 pruebas unitarias, build, ocho casos finales de navegador y seis de regresión, además de seis iniciales. Se inspeccionan móvil y escritorio; se conservan otras exclusiones y no cambia la activación de anuncios. Estado provisional: **40 artículos revisados de 140; 38 publicados y verificados; dos pendientes de comprobar en producción; 100 pendientes de revisión**.
+
+Despliegue `029337c` completado, confirmado por GitHub con Vercel `29mverzKmSJmguhcvRapMfCaEYmg` y comprobado públicamente. Pasan 44 respuestas públicas (dos nuevas, 38 anteriores y cuatro exclusiones), el alias 308 de Sojourn y cuatro casos de navegador público en móvil y escritorio. Estado: **40 artículos revisados, habilitados y verificados públicamente de 140; 100 pendientes**.
+
+Se leen completos guía y composiciones de Wrecking Ball y se comprueban versiones, fila pública, ficha oficial y vídeo de LeonDrummer del 12 de octubre de 2022. El título real difiere del almacenado; faltan corrección acotada, contexto histórico, perks actuales y precisión de la introducción para 5v5/6v6. La ficha confirma transferencia base de Adaptive Shield y barrera opcional, y las notas oficiales del 30 de junio de 2026 confirman que la detonación manual de minas pertenece a Community Crafted. Faltan enlaces y presentación final. Las lecturas se registran sin conceder aprobación; ambas URLs siguen excluidas. El objetivo global sigue activo.
