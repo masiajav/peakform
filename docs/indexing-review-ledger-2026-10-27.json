@@ -2475,9 +2475,29 @@
       "sourceVersion": "4d81db5ff5f6101172ef1c9832c6c29d5a6950c2ca33def28572f7d8933d20d7",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-lucio-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/lucio-guia-overwatch-speed-peel",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "dfeffc36e1e1fd3bd8d415f01b21b7329be7e42a9f7c77c0a6f7f83b56f6dbd0",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-29T18:45:15.680Z",
+        "commit": "9e0decd7a8599cb01c04c51c9942e751f1bc86db",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/Fhh2orAaiGmYEJX1sDDTTp7cF6eS",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "d675360aa8265888fd592ed97ae11a8d3a559740682b81a749c4c5606ccbca9f",
       "correction": "Se contextualiza el vídeo de ohwell de Season 18, publicado el 3 de septiembre de 2025. Se explican el siguiente Soundwave potenciado, Amp opcional de Beat Drop y alternativas de alcance temporal Noise Violation o ataque personal Accelerando. Cuerpo y medios incorporados desde alias vinculados; publicación original conservada y revisión del texto 2026-10-29.",
@@ -3572,7 +3592,13 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "c2210daa11b0b09fc981ec435427d0289c74258bd8ce13c694ec60024f944f05",
+        "note": "Lectura completa de cobertura y salida antes de dive, Harmony según exposición, Discord con foco accesible, carga del disparo, límites de Transcendence ante antiheal/golpes letales/posición, VOD, tres FAQ y enlaces. Fila pública y modelo coinciden con el inventario antes de editar. Ficha oficial confirma Discordant Repair/Ascendance minor y Focused Destruction/Dual Harmony major. Vídeo del alias confirmado: Awkward, 2022-12-16, playability OK, título real Educational Unranked To GM On ZENYATTA (80% Winrate Overwatch 2), 42941 segundos. Descripción y capítulos por rangos leídos; subtítulos automáticos ingleses y sin audio original nombrado detectado. Faltan corrección del título conocido, contexto histórico y porcentaje sin garantía de resultados, aplicación de perks, versión con medios, enlaces y presentación final. No aprobada.",
+        "baselineVerification": "Seis casos iniciales pasan en móvil y escritorio: ambas páginas aún noindex, texto, FAQ, enlaces, fechas, imágenes, medios y disponibilidad del botón de vídeo. Se inspeccionan dos capturas completas de escritorio y dos cabeceras móviles: estructura y presentación correctas, sin anuncios ni desbordamientos. Falta verificar el contenido corregido y su publicación."
+      }
     },
     {
       "path": "/guides/zenyatta-guia-video-overwatch",
@@ -4671,9 +4697,26 @@
       "sourceVersion": "0e0b0adf772966f3266e7d09ca6a654cc9c138502cf30c7da4f1fe8fba4f8645",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-lucio-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/lucio",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "63d7ea9afecb675099b654e8eb117646f277ac64eba1223f8f0cf8c99ab322ad",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-29T18:45:15.680Z",
+        "commit": "9e0decd7a8599cb01c04c51c9942e751f1bc86db",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/Fhh2orAaiGmYEJX1sDDTTp7cF6eS",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "0e0b0adf772966f3266e7d09ca6a654cc9c138502cf30c7da4f1fe8fba4f8645",
       "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar equipos, formatos, roles, preparación y seguimiento del cruce, ayuda al segundo Support, peel, vida temporal sin limpieza, ejemplos y FAQ. Todos los enlaces y párrafos verificados en navegador y presentación móvil y escritorio inspeccionada. El enlace de guía conserva su redirección válida; no se inventa primera publicación.",
@@ -5272,12 +5315,18 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "2f532edec393d7915c724d37b4e1130e6a4a6d17cff0f558202c35a53a307e20",
+        "note": "Lectura completa de equipos Sigma/Ashe/Sojourn/Baptiste, Wrecking Ball/Tracer/Sojourn/Brigitte y Sigma/D.Va/Ashe/Cassidy/Baptiste en 6v6. Todos los argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, tres FAQ y enlaces. Modelo coincide con el inventario. Ficha oficial confirma kit; se diferencia invulnerabilidad personal de Zenyatta de curación a aliados y límites frente a antiheal. FAQ ya presenta Dual Harmony y Ascendance como opcionales y separa Flying Kick de Stadium. Roles y formatos coherentes. Faltan comprobar enlaces y presentación y versión final. No aprobada.",
+        "baselineVerification": "Seis casos iniciales pasan en móvil y escritorio: ambas páginas aún noindex, texto, FAQ, enlaces, fechas, imágenes, medios y disponibilidad del botón de vídeo. Se inspeccionan dos capturas completas de escritorio y dos cabeceras móviles: estructura y presentación correctas, sin anuncios ni desbordamientos. Falta verificar el contenido corregido y su publicación."
+      }
     }
   ],
   "progress": {
     "reviewed": 66,
-    "publishedAndVerified": 64,
+    "publishedAndVerified": 66,
     "pending": 74
   }
 }
