@@ -2,7 +2,9 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 29 de octubre: **72 de 140 artículos revisados; 70 habilitados y verificados en producción, dos de Juno pendientes de despliegue y comprobación pública; 68 pendientes de revisión**. Último lote verificado públicamente: guía y composiciones de Mercy. Siguiente revisión iniciada: guía y composiciones de Lifeweaver. Los anuncios mantienen su configuración previa.
+Estado comprobado al 29 de octubre: **72 de 140 artículos revisados, habilitados y verificados en producción; 68 pendientes de revisión**. Último lote verificado públicamente: guía y composiciones de Juno. Siguiente revisión iniciada: guía y composiciones de Lifeweaver; lectura, fuentes y seis comprobaciones iniciales de navegador realizadas, todavía sin aprobación. Los anuncios mantienen su configuración previa.
+
+Los 68 pendientes se reparten entre 24 guías, 24 mapas, 10 composiciones, cinco artículos de parches, tres noticias y dos counters. Cada URL conserva su motivo y estado en el registro; esta distribución no es una aprobación ni reduce el alcance del objetivo.
 
 ## Inventario y alcance
 

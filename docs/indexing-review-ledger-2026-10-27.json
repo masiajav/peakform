@@ -2445,9 +2445,29 @@
       "sourceVersion": "cac25e93157c746e292071df7f37cc3ada9de3c69c7d9b686eff43a375fb8187",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-juno-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/juno-guia-video-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "c4b07dbb6985faab8b25a0d5dd4b2c733fd891cbf536b8b9504a6956a6c7921b",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-29T19:02:11.175Z",
+        "commit": "589ac5492b8f58a7822c4cd51816b5802fe1167a",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/GPgh4n9UNtddKEmPRNhN73jBTYDY",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "518d6739392213c2ba06cbcb28ac89313c57571ce39849dc3c5cf1d33905246c",
       "correction": "Se corrige el título conocido de oatmilk_ow y se contextualiza la grabación de julio de 2025, anterior al traslado de Locked On a minor. Se explican fijación rápida de aliados frente a cooldown por enemigos alcanzados y alternativas Lift Off/Faster Blaster durante Glide Boost. Cuerpo y vídeo nativo vinculados; primera publicación del 6 de mayo conservada y revisión del texto 2026-10-29.",
@@ -2466,7 +2486,13 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "b80aec409975bbd555dd19cb177125c6e92b5acba8b1cf63f03cddb0240e1b2a",
+        "note": "Lectura completa de destino de Life Grip, recursos y jugada del aliado, plataforma con utilidad y salida, carga según urgencia, Thorn Volley, Tree de zona sin bloquear retirada, reparto de escapes ante dive, VOD, tres FAQ y enlaces. Fila pública y modelo coinciden con el inventario. Fuente oficial confirma carga pasiva de Blossom, Petal Protection/Dashing Escape minor y Sow the Seed/Superbloom major. Notas oficiales de abril de 2026 confirman limpieza del aliado con Life Grip, todavía ausente de esta guía. Vídeo confirmado: HolyShiftKid, 2025-03-05, playability OK, título real The ULTIMATE Lifeweaver Guide in Overwatch 2 (How To Carry), 628 segundos. Descripción leída, sin capítulos; inglés original en-US.4 confirmado. Faltan corrección del título conocido, contexto histórico, limpieza de Grip, aplicación de perks y carga pasiva, versión con medios y presentación final. No aprobada.",
+        "baselineVerification": "Seis casos iniciales pasan en móvil y escritorio: ambas páginas aún noindex, contenido, FAQ, enlaces, fechas, imágenes y disponibilidad del botón de vídeo. Se inspeccionan dos capturas completas de escritorio y dos cabeceras móviles: estructura y presentación correctas, sin anuncios ni desbordamientos. Falta verificar el contenido corregido y su publicación."
+      }
     },
     {
       "path": "/guides/lucio-guia-overwatch-speed-peel",
@@ -4719,9 +4745,26 @@
       "sourceVersion": "9228b6af1b1576a7c6d3283d1b4c38b8737d5454e70a59dae3660ef1680812f1",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-juno-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/juno",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "171040975033225597a95ea57600304e95dbb1c531891414dcb4dc85d72b42dc",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-29T19:02:11.175Z",
+        "commit": "589ac5492b8f58a7822c4cd51816b5802fe1167a",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/GPgh4n9UNtddKEmPRNhN73jBTYDY",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "9228b6af1b1576a7c6d3283d1b4c38b8737d5454e70a59dae3660ef1680812f1",
       "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar equipos, roles, formatos, curación tras el cruce, destino del anillo, fijación protegida y trayectoria del rayo. FAQ distingue perks opcionales y poderes de Stadium. Todos los párrafos, enlaces y presentación verificados en móvil y escritorio. No se inventa primera publicación."
@@ -4739,7 +4782,13 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "f82c1ce0df436499e731c572e0e3bba4de42b4ee81d30e8950ed504fa4b5ef09",
+        "note": "Lectura completa de equipos Sigma/Ashe/Tracer/Ana, Winston/Genji/Sojourn/Ana y Reinhardt/D.Va/Cassidy/Mei/Lúcio en 6v6. Todos los argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, tres FAQ y enlaces. Modelo coincide con el inventario. Kit y limpieza de Life Grip contrastados con ficha y notas oficiales; el texto ya distingue limpieza de un objetivo retirado de respuesta de área, y explica destino, apoyo al dive y demanda de curación de dos Tanks. Roles y formatos coherentes. Falta comprobar la versión final y su publicación. No aprobada.",
+        "baselineVerification": "Seis casos iniciales pasan en móvil y escritorio: ambas páginas aún noindex, contenido, FAQ, enlaces, fechas, imágenes y disponibilidad del botón de vídeo. Se inspeccionan dos capturas completas de escritorio y dos cabeceras móviles: estructura y presentación correctas, sin anuncios ni desbordamientos. Falta verificar el contenido corregido y su publicación."
+      }
     },
     {
       "path": "/team-comps/lucio",
@@ -5421,7 +5470,7 @@
   ],
   "progress": {
     "reviewed": 72,
-    "publishedAndVerified": 70,
+    "publishedAndVerified": 72,
     "pending": 68
   }
 }
