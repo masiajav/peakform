@@ -290,7 +290,16 @@ Puedes trabajar los ángulos en [Dorado](/maps/dorado), revisar los dash con [la
     description: 'Juega Wuyang sin agotar la curación al inicio: cambia el objetivo del stream, prepara Guardian Wave y utiliza Tidal Blast antes de que sea tarde.',
     quickAnswer: 'Con Wuyang, asigna la curación pasiva a quien vaya a recibir presión y usa la curación activa cuando haga falta, no sobre cualquier daño pequeño. Conserva recurso para el intercambio fuerte. Guardian Wave puede facilitar la recuperación o separar una entrada; Rushing Torrent debe llevarte a una posición útil. Tidal Blast necesita anticipación: no esperes a que el aliado sea imposible de salvar.',
     videoSlug: 'wuyang-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-29',
+    sourceVideoMetadata: {
+      video_title: "Wuyang's Complete Guide | Understanding Overwatch", video_channel: 'Bachiko', video_language: 'en',
+    },
+    reviewedVideo: {
+      video_id: 'cDBCYwJTGEQ', video_url: 'https://www.youtube.com/watch?v=cDBCYwJTGEQ', video_platform: 'youtube',
+      video_title: 'ウーヤン完全解説｜全て理解るオーバーウォッチ', video_channel: '電脳遊戯部', video_language: 'ja', video_published_at: '2026-02-20',
+    },
+    renderedContentVersion: '67bb30ba5350952a3c9b1b9110df0daffd75d86674c50bdd77df21c4cfe29561',
+    videoDescription: 'Guía de 電脳遊戯部 (@bach1ko), publicada el 20 de febrero de 2026. El audio original es japonés; YouTube también ofrece un doblaje automático al inglés. Sus capítulos tratan habilidades, perks, posicionamiento, cobertura, alturas y sinergias. Corresponde a aquella versión del juego: el artículo escrito contrasta por separado el kit y los perks actuales, incluidos Overflow, Balance, Ebb and Flow y Falling Rain, sin trasladar automáticamente cifras o elecciones del vídeo.',
     body: `## La curación pasiva no se coloca una vez para toda la ronda
 
 Restorative Stream permite mantener ayuda sobre un aliado, pero el objetivo adecuado cambia durante la pelea. Tu Tank puede necesitarla mientras prepara el cruce; un DPS puede necesitarla después de ganar una altura; tu otro support puede convertirse en la prioridad si recibe un dive. Mira quién está a punto de intercambiar, no solo quién tiene menos vida en ese instante.
@@ -328,6 +337,14 @@ La velocidad y la altura de salto permiten cambiar de posición, pero no vuelven
 Úsalo también para acompañar una rotación antes de quedarte demasiado atrás. Si el equipo avanza y tú sigues en el ángulo anterior, quizá pierdas la curación cuando empieza el siguiente intercambio. Moverte a tiempo evita tener que gastar movilidad de emergencia para alcanzar a alguien que ya está en peligro.
 
 Contra dive, intenta conservar espacio entre la entrada rival y tu salida. Si el otro support está cerca, una retirada hacia él puede facilitar que os ayudéis. Escapar solo hasta una sala aislada puede permitir que el flanker te siga sin que nadie lo castigue.
+
+## Los perks cambian cómo recuperas recursos y preparas la ola
+
+Overflow devuelve munición y recurso de curación al activar Rushing Torrent. Si has elegido ese minor, aprovecha una rotación necesaria para recuperar margen antes del siguiente intercambio. No gastes tu salida solo para rellenar la barra cuando el flanker aún puede entrar: volver a tener recurso sirve de poco si acabas sin cobertura ni movilidad. Balance es la alternativa; hacer daño con orbes mejora brevemente la curación pasiva del stream, pero fallar el intento no activa esa ayuda.
+
+Ebb and Flow hace que Guardian Wave regrese a su punto de partida. Considera el recorrido de ida y vuelta al situarte y al elegir qué aliados necesitan la mejora de curación. No equivale a disponer de otra ola independiente que puedas dirigir a cualquier sitio. Falling Rain permite controlar tres orbes en su lugar, cada uno con menos daño y menor radio de explosión potenciada. No los trates como tres disparos completos ni como una razón para abandonar una urgencia de curación.
+
+Elige según el problema que estás intentando resolver. Un cruce compartido puede dar valor al retorno de la ola; una ventana para dirigir varios orbes exige tiempo y atención disponibles. Después de usar la opción, vuelve a comprobar qué compañero necesita el stream y dónde podrás cubrirte. Ningún perk convierte una línea cortada o una persecución sin ayuda en una posición sostenible.
 
 ## Tidal Blast se usa antes de que la recuperación llegue tarde
 

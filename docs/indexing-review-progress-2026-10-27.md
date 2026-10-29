@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 29 de octubre: **50 de 140 artículos revisados, habilitados y verificados en producción; 90 pendientes de revisión**. Último lote verificado públicamente: Freja. Siguiente revisión iniciada: guía de Wuyang. Los anuncios mantienen su configuración previa.
+Estado comprobado al 29 de octubre: **51 de 140 artículos revisados; 50 habilitados y verificados en producción, Wuyang pendiente de despliegue y comprobación pública; 89 pendientes de revisión**. Último lote verificado públicamente: Freja. Siguiente revisión iniciada: guía, counter y composiciones de Widowmaker. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 
@@ -200,3 +200,9 @@ Se lee completa la guía siguiente de Wuyang. Se confirma su kit y sus perks act
 Freja queda desplegada y verificada en el commit 957ac71: 54 respuestas HTTP y una redirección correctas, más cuatro casos de navegador contra producción. Ambas URLs están en el sitemap y sin noindex; los controles y los 48 artículos anteriores conservan su estado. Total verificado: **50 de 140; 90 pendientes**.
 
 La revisión inicial de Wuyang añade cuatro casos correctos de navegador y dos capturas inspeccionadas. El reproductor confirma japonés original predeterminado y doblaje inglés automático opcional. La URL conserva noindex hasta corregir metadatos, contexto y perks, registrar su versión y completar las comprobaciones finales.
+
+## Vigésimo lote: guía de Wuyang
+
+Se completa la revisión de Wuyang, corrigiendo conjuntamente título y canal originales e idioma japonés, con contexto del doblaje inglés automático. Se añaden decisiones sobre los cuatro perks actuales y se conserva la primera publicación. Los controles solo corrigen los metadatos antiguos exactos del vídeo revisado y rechazan cambios imprevistos. Pasan 706 pruebas unitarias, lint, cuatro casos finales y seis de regresión, además de cuatro iniciales. Se inspeccionan las dos capturas finales. Evidencia: [revisión de Wuyang](indexing-review-wuyang-2026-10-29.md). Su URL queda pendiente de despliegue y comprobación pública.
+
+Se leen los tres artículos pendientes de Widowmaker y se contrastan los modelos actuales, el kit, perks, subrol y vídeo incorporado desde su alias. La guía necesita contexto, título real del vídeo y explicación de perks. Counter y composiciones mantienen por ahora sus textos; los tres siguen pendientes de enlaces y presentación final.

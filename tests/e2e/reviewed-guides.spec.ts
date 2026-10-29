@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 import { GUIDE_REVISION_DATE, reviewedGuideRevisions } from '../../src/lib/reviewed-guide-revisions'
 
-const PUBLISHED_REVISIONS = ['como-mejorar-como-dps-overwatch', 'como-mejorar-como-support-overwatch', 'moira-guia-overwatch-recursos-supervivencia', 'reaper-guia-video-overwatch', 'brigitte-guia-overwatch-peel-anti-dive', 'echo-guia-overwatch-burst-vertical', 'ashe-guia-overwatch-angulos-dinamita', 'hanzo-guia-video-overwatch', 'mei-guia-video-overwatch', 'sojourn-guia-overwatch-railgun-presion', 'bastion-guia-video-overwatch', 'symmetra-guia-video-overwatch', 'torbjorn-guia-video-overwatch', 'mauga-guia-video-overwatch', 'ramattra-guia-video-overwatch', 'wrecking-ball-guia-video-overwatch', 'junkrat-guia-video-overwatch', 'venture-guia-video-overwatch', 'hazard-guia-video-overwatch', 'freja-guia-video-overwatch']
+const PUBLISHED_REVISIONS = ['como-mejorar-como-dps-overwatch', 'como-mejorar-como-support-overwatch', 'moira-guia-overwatch-recursos-supervivencia', 'reaper-guia-video-overwatch', 'brigitte-guia-overwatch-peel-anti-dive', 'echo-guia-overwatch-burst-vertical', 'ashe-guia-overwatch-angulos-dinamita', 'hanzo-guia-video-overwatch', 'mei-guia-video-overwatch', 'sojourn-guia-overwatch-railgun-presion', 'bastion-guia-video-overwatch', 'symmetra-guia-video-overwatch', 'torbjorn-guia-video-overwatch', 'mauga-guia-video-overwatch', 'ramattra-guia-video-overwatch', 'wrecking-ball-guia-video-overwatch', 'junkrat-guia-video-overwatch', 'venture-guia-video-overwatch', 'hazard-guia-video-overwatch', 'freja-guia-video-overwatch', 'wuyang-guia-video-overwatch']
 
 for (const [slug, revision] of Object.entries(reviewedGuideRevisions)) {
   test(`${slug} has one complete article and preserves its original URL`, async ({ page, request }) => {
@@ -56,7 +56,7 @@ for (const [slug, revision] of Object.entries(reviewedGuideRevisions)) {
     const jsonLd = await page.locator('script[type="application/ld+json"]').allTextContents()
     const schemas = jsonLd.map(block => JSON.parse(block))
     if (externalVideo) expect(schemas.some(schema => schema['@type'] === 'VideoObject')).toBe(false)
-    else if (revision.reviewedVideo) expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'VideoObject', name: revision.reviewedVideo.video_title, uploadDate: revision.reviewedVideo.video_published_at }))
+    else if (revision.reviewedVideo) expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'VideoObject', name: revision.reviewedVideo.video_title, uploadDate: revision.reviewedVideo.video_published_at, inLanguage: revision.reviewedVideo.video_language }))
     if (revision.videoDescription) {
       if (!externalVideo) {
         expect(schemas).toContainEqual(expect.objectContaining({ '@type': 'VideoObject', description: revision.videoDescription }))

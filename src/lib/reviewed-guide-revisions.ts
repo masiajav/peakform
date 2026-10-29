@@ -20,6 +20,7 @@ export type GuideRevision = {
   videoDescription?: string
   videoPresentation?: 'external'
   sourceVideoTitle?: string
+  sourceVideoMetadata?: Pick<GuideContent, 'video_title' | 'video_channel' | 'video_language'>
   reviewedVideo?: Pick<GuideContent, 'video_id' | 'video_url' | 'video_platform' | 'video_title' | 'video_channel' | 'video_language' | 'video_published_at'>
   renderedContentVersion?: string
   body: string
@@ -641,9 +642,16 @@ export function applyReviewedGuideRevision<T extends Pick<GuideContent, 'slug'>>
     && sourceVideo.video_id === reviewedVideo.video_id
     && sourceVideo.video_title === revision.sourceVideoTitle
     ? reviewedVideo.video_title : undefined
+  const sourceMetadata = revision.sourceVideoMetadata
+  const correctedVideoMetadata = sourceMetadata && reviewedVideo
+    && sourceVideo.video_id === reviewedVideo.video_id
+    && (['video_title', 'video_channel', 'video_language'] as const).every(field => sourceVideo[field] === sourceMetadata[field])
+    ? { video_title: reviewedVideo.video_title, video_channel: reviewedVideo.video_channel, video_language: reviewedVideo.video_language }
+    : {}
   return {
     ...guide,
     ...(correctedVideoTitle ? { video_title: correctedVideoTitle } : {}),
+    ...correctedVideoMetadata,
     ...(revision.role ? { role: revision.role } : {}),
     title: revision.title,
     seo_title: revision.title,

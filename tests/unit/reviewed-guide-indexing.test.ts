@@ -55,6 +55,7 @@ describe('individual publication of repository-owned guide revisions', () => {
       ['venture-guia-video-overwatch', 'venture', 'dps', ['venture', 'dps', 'video', 'youtube', '6v6', 'overwatch']],
       ['hazard-guia-video-overwatch', 'hazard', 'tank', ['hazard', 'tank', 'video', 'youtube', '6v6', 'overwatch']],
       ['freja-guia-video-overwatch', 'freja', 'dps', ['freja', 'dps', 'video', 'youtube', '6v6', 'overwatch']],
+      ['wuyang-guia-video-overwatch', 'wuyang', 'support', ['wuyang', 'support', 'video', 'youtube', '6v6', 'overwatch']],
     ] as const) {
       const revision = reviewedGuideRevisions[slug]
       const raw = { slug, hero, role, tags: [...tags], published: true, created_at: '2026-05-05' }
@@ -90,5 +91,27 @@ describe('individual publication of repository-owned guide revisions', () => {
     }
     const differentVideo = applyReviewedGuideRevision({ ...source, video_id: 'another-video' })
     expect(differentVideo.video_title).toBe(source.video_title)
+  })
+
+  it('corrects the known video attribution together and rejects unexpected identity or language changes', () => {
+    const slug = 'wuyang-guia-video-overwatch'
+    const revision = reviewedGuideRevisions[slug]
+    const source = { slug, hero: 'wuyang', role: 'support' as const, tags: ['wuyang', 'support', 'video', 'youtube', '6v6', 'overwatch'], published: true, created_at: '2026-05-06', ...revision.reviewedVideo, ...revision.sourceVideoMetadata }
+    const before = structuredClone(source)
+    const corrected = applyReviewedGuideRevision(source)
+    expect(corrected).toMatchObject(revision.reviewedVideo!)
+    expect(source).toEqual(before)
+    expect(guideQualityDecision(corrected)).toMatchObject({ indexable: true, adsAllowed: false })
+    expect(isGuideSitemapEligible(source)).toBe(true)
+    expect(applyReviewedGuideRevision(corrected)).toEqual(corrected)
+    for (const edit of [{ video_title: 'Unknown title' }, { video_channel: 'Unknown channel' }, { video_language: 'es' }, { video_id: 'another-video' }, { video_url: 'https://www.youtube.com/watch?v=another-video' }, { video_published_at: '2026-10-29' }]) {
+      const changed = { ...source, ...edit }
+      expect(guideQualityDecision(applyReviewedGuideRevision(changed)).indexable).toBe(false)
+      expect(isGuideSitemapEligible(changed)).toBe(false)
+    }
+    const changedLanguage = applyReviewedGuideRevision({ ...source, video_language: 'es' })
+    expect(changedLanguage.video_title).toBe(source.video_title)
+    expect(changedLanguage.video_channel).toBe(source.video_channel)
+    expect(changedLanguage.video_language).toBe('es')
   })
 })
