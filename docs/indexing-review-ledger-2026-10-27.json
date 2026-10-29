@@ -2263,9 +2263,29 @@
       "sourceVersion": "739645a8211b4341191dfcb89919fef320e31694d1e9fe6f0316f723a3ec1c7b",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-mauga-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/mauga-guia-video-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "dccd14b3ee263e923c7c5d6247ead6ea0c3f80c648e33695c1c4c2c1e1ce9f71",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-29T07:23:07.363Z",
+        "commit": "f7d4ba17b1ace6070c4c8a0b97580dca2210fc81",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/FgQ1vm84TRyoEPS7r47U7T9MHu7h",
+        "browserChecks": "4 production cases passed: Mauga guide and compositions on desktop/mobile, complete visible text, video and context, play button, Cardiac/perks, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "1750d61c62f5a0515b1b40519e8c67368761beeb1cda7741f974f45d2d112b86",
       "correction": "Se precisa Cardiac para Mauga y aliados, se aplican los cuatro perks actuales y se distingue Berserker de Combat Fuel. Vídeo de Kajor de marzo de 2025 contextualizado, con cuerpo y medios vinculados a la revisión. Primera publicación conservada; revisión del contenido 2026-10-29.",
@@ -2509,14 +2529,18 @@
       "sourceVersion": "8d4650478d67ca7465eeab7bbc7e8dc3b4b10ae45ea878dfbbf3e8f572ce68eb",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-ramattra-2026-10-29.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "076f5a72207ae06e75cf1eee5a3b87585c8e52717038fa17a4e8dc5b093a00f4",
+      "correction": "Se añade detonación anticipada de Vortex y aplicación de los cuatro perks actuales como alternativas, con cobertura y límites de recuperación y extensión de forma. Vídeo de redeznt de enero de 2026 contextualizado, con cuerpo y medios vinculados. Primera publicación conservada; revisión del contenido 2026-10-29.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "8d4650478d67ca7465eeab7bbc7e8dc3b4b10ae45ea878dfbbf3e8f572ce68eb",
         "note": "Lectura completa: aproximación ómnica/Nemesis, barrera para acciones concretas, Pummel y Block, Vortex, Annihilation, composición, revisión VOD, tres FAQ y enlaces. Modelo actual y fila pública coinciden con el inventario. La ficha oficial confirma Vortex con detonación anticipada y sus cuatro perks. Vídeo de redeznt del 14 de enero de 2026, título y atribución confirmados por watch y oEmbed, playability OK; descripción sin capítulos de análisis. Falta contexto, concretar perks, vincular versión final con medios, enlaces y presentación. No aprobada."
-      }
+      },
+      "reviewedRenderedVersion": "29ec05517474d88d35351c8a3758e2523b1d59211a9aaaaa8185803678bc8295"
     },
     {
       "path": "/guides/reaper-guia-video-overwatch",
@@ -4031,9 +4055,26 @@
       "sourceVersion": "f0f263c722fe36b8574ae56f13d2ac6f7b80551d454aa03b5137eb3b5f10db74",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-mauga-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/mauga",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "622d87f56c5c264442f9aed697c72df795673e46bf0131986aeacd52ed57a9f9",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-29T07:23:07.363Z",
+        "commit": "f7d4ba17b1ace6070c4c8a0b97580dca2210fc81",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/FgQ1vm84TRyoEPS7r47U7T9MHu7h",
+        "browserChecks": "4 production cases passed: Mauga guide and compositions on desktop/mobile, complete visible text, video and context, play button, Cardiac/perks, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "f0f263c722fe36b8574ae56f13d2ac6f7b80551d454aa03b5137eb3b5f10db74",
       "correction": "Texto y fecha 2026-10-02 conservados tras contrastar Cardiac, perks, equipos y roles, ayudas, rotaciones, FAQ y fuentes."
@@ -4189,10 +4230,13 @@
       "sourceVersion": "eb7eeab29fabd394a11ffa0c6fa6f3e4003e68533e6fc7a8ada4baf0054c3105",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-ramattra-2026-10-29.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "eb7eeab29fabd394a11ffa0c6fa6f3e4003e68533e6fc7a8ada4baf0054c3105",
+      "correction": "Texto y fecha 2026-10-02 conservados tras contrastar Block, Nanite Repair opcional, equipos y roles, ayudas, rotaciones, FAQ y fuentes.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "eb7eeab29fabd394a11ffa0c6fa6f3e4003e68533e6fc7a8ada4baf0054c3105",
         "note": "Lectura completa: equipos Mei/Reaper, Ashe/Mei y Zarya/Mei/Cassidy en 6v6, argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, FAQ y enlaces. El modelo actual coincide con el inventario. Roles y formatos coherentes; Block frontal, Nanite Repair opcional y ausencia de limpieza de antiheal. Falta comprobar enlaces y presentación final. No aprobada."
@@ -4470,8 +4514,8 @@
     }
   ],
   "progress": {
-    "reviewed": 38,
-    "publishedAndVerified": 36,
-    "pending": 102
+    "reviewed": 40,
+    "publishedAndVerified": 38,
+    "pending": 100
   }
 }

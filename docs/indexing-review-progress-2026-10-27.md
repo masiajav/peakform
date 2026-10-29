@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 29 de octubre: **38 de 140 artículos revisados; 36 habilitados y verificados en producción, dos pendientes de despliegue y comprobación pública; 102 pendientes de revisión**. Último lote verificado públicamente: Torbjörn. Mauga supera la revisión local; siguiente lectura iniciada: Ramattra. Los anuncios mantienen su configuración previa.
+Estado comprobado al 29 de octubre: **40 de 140 artículos revisados; 38 habilitados y verificados en producción, dos pendientes de despliegue y comprobación pública; 100 pendientes de revisión**. Último lote verificado públicamente: Mauga. Ramattra supera la revisión local. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 
@@ -140,3 +140,11 @@ Se completa la revisión individual de guía y composiciones, las dos URLs todav
 Evidencia: [revisión de Mauga](indexing-review-mauga-2026-10-29.md). Pasan lint, 705 pruebas unitarias, build, ocho casos finales de navegador y seis de regresión, además de seis iniciales. La prueba de cambios de rol ahora usa un valor diferente también en guías de Tank. Se inspeccionan móvil y escritorio, se conservan otras exclusiones y no cambia la activación de anuncios. Estado provisional: **38 artículos revisados de 140; 36 publicados y verificados; dos pendientes de comprobar en producción; 102 pendientes de revisión**.
 
 Se leen completos guía y composiciones de Ramattra y se comprueban sus versiones, fila pública y ficha oficial actual. El vídeo de redeznt del 14 de enero de 2026 mantiene identidad, título y disponibilidad, con descripción leída sin inventar capítulos. Faltan contexto, perks concretados, enlaces y presentación final. Estas lecturas se registran sin conceder aprobación. El objetivo global sigue activo.
+
+Despliegue de Mauga `f7d4ba1` completado, confirmado por GitHub con Vercel `FgQ1vm84TRyoEPS7r47U7T9MHu7h` y comprobado públicamente. Pasan 42 respuestas públicas (dos nuevas, 36 anteriores y cuatro exclusiones), el alias 308 de Sojourn y cuatro casos de navegador público. Estado: **38 artículos revisados, habilitados y verificados públicamente de 140; 102 pendientes**.
+
+## Decimocuarto lote: Ramattra
+
+Se completa la revisión individual de guía y composiciones, las dos URLs todavía excluidas del héroe. La guía añade detonación anticipada de Vortex, aplica los cuatro perks actuales y contextualiza el vídeo de redeznt del 14 de enero de 2026. Las composiciones conservan contenido y fecha tras contrastar las decisiones y fuentes. El counter ya era indexable y no recibe cambios ni otra aprobación.
+
+Evidencia: [revisión de Ramattra](indexing-review-ramattra-2026-10-29.md). Pasan lint, 705 pruebas unitarias, build, ocho casos finales de navegador y seis de regresión, además de seis iniciales. Se inspeccionan móvil y escritorio; se conservan otras exclusiones y no cambia la activación de anuncios. Estado provisional: **40 artículos revisados de 140; 38 publicados y verificados; dos pendientes de comprobar en producción; 100 pendientes de revisión**.

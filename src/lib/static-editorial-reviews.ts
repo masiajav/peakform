@@ -913,6 +913,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-mauga-2026-10-29.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/ramattra-guia-video-overwatch': {
+    path: '/guides/ramattra-guia-video-overwatch',
+    version: '076f5a72207ae06e75cf1eee5a3b87585c8e52717038fa17a4e8dc5b093a00f4',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-ramattra-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/ramattra': {
+    path: '/team-comps/ramattra',
+    version: 'eb7eeab29fabd394a11ffa0c6fa6f3e4003e68533e6fc7a8ada4baf0054c3105',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-ramattra-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/zarya': {
     path: '/team-comps/zarya',
     version: '40de9429f726f9396cb6d2c3aa44d8eca29c9b77c5b7eeac49598631fa1b35a6',

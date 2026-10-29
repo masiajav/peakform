@@ -1,0 +1,22 @@
+# Revisión individual de Ramattra: guía y composiciones
+
+Revisión del 29 de octubre de 2026 por Codex. Se leen completos ambos artículos pendientes. Los modelos actuales y la fila publicada de la guía coinciden con el inventario. El counter ya era indexable y no recibe otra aprobación ni cambios.
+
+| URL | Lectura y utilidad | Correcciones y fechas | Versión revisada |
+| --- | --- | --- | --- |
+| `/guides/ramattra-guia-video-overwatch` | Aproximación ómnica, distancia de Nemesis, Void Barrier para un cruce, Pummel/Block, Vortex, Annihilation, seguimiento de composición, VOD, tres FAQ y enlaces. | Añade detonación anticipada de Vortex y decisiones según las cuatro alternativas de perks. Contextualiza el vídeo de redeznt del 14 de enero de 2026 y vincula sus medios. Primera publicación del 6 de mayo conservada; revisión del contenido del 29 de octubre. | `076f5a72207ae06e75cf1eee5a3b87585c8e52717038fa17a4e8dc5b093a00f4` |
+| `/team-comps/ramattra` | Equipos Mei/Reaper/Kiriko/Lúcio, Ashe/Mei/Baptiste/Juno y Zarya/Mei/Cassidy/Baptiste/Lúcio en 6v6; cinco argumentos por equipo, responsabilidades, rotación, debilidades, ejemplos, checklist, tres FAQ y enlaces. | Texto y fecha del 2 de octubre conservados. Roles y formatos válidos, Block frontal, Nanite Repair opcional y sin limpieza de antiheal. Los planes dependen de distancia, visión y seguimiento. | `eb7eeab29fabd394a11ffa0c6fa6f3e4003e68533e6fc7a8ada4baf0054c3105` |
+
+## Exactitud y fuentes
+
+Se descarga y lee la ficha oficial actual de [Ramattra](https://overwatch.blizzard.com/en-gb/heroes/ramattra/): proyectiles ómnicos, barrera, Pummel perforante, Vortex que ralentiza y tira hacia abajo con detonación anticipada y Annihilation que dura más al dañar. Se leen los minor Relentless Form y Prolonged Barrier y los major Void Surge y Nanite Repair. La nueva sección distingue efectos, alternativas y preparación; no presenta curación base de Vortex, limpieza de antiheal, extensión garantizada de Nemesis ni duración infinita de la ultimate. Se consulta también la [explicación oficial del equipo de diseño](https://overwatch.blizzard.com/en-us/news/23875436/) para la dirección frontal de Block y la imposibilidad de usar Pummel al mismo tiempo, sin trasladar cifras antiguas de duración o recarga. No se mezclan poderes de Stadium con ranked. Las fichas de compañeros y rivales citados se contrastaron en lotes anteriores.
+
+El [vídeo original de redeznt](https://www.youtube.com/watch?v=IdYM3nWCWVk) y oEmbed devuelven HTTP 200, con playability `OK`. Confirman título, canal, idioma y publicación del 14 de enero de 2026. Se lee su descripción, sin capítulos de análisis; no se afirma haber visto sus 1124 segundos íntegros. El contexto visible identifica esa fecha y dirige al texto contrastado para las opciones actuales. La huella del cuerpo y medios renderizados es `29ec05517474d88d35351c8a3758e2523b1d59211a9aaaaa8185803678bc8295`. Cambios posteriores invalidan la revisión; no se crea un alias que no existía.
+
+## Presentación y publicación
+
+La copia aislada parte de `f7d4ba1`, sin cambios locales ajenos de mapas, Deadlock o tsconfig. Pasan seis casos iniciales sobre los dos artículos todavía excluidos y el botón de reproducción en móvil y escritorio. Se inspeccionan las dos capturas completas de escritorio y las dos cabeceras móviles. Enlaces, metadatos, imágenes, fechas, FAQ, estructura y ausencia de overflow y anuncios son correctos en esa versión. Quedan pendientes la comprobación de las correcciones finales y la publicación.
+
+Solo estas dos URLs se incorporan como candidatos explícitos, con revisión de versión exacta y medios vinculados. Otros artículos pendientes siguen excluidos y `adsAllowed: false`. No se activan anuncios. Fuentes y modelos: `reports/indexing-review-2026-10-27/batch-fourteen/`; capturas y logs: `reports/indexing-review-2026-10-27/release-batch-fourteen/`.
+
+Validación local final: lint sin errores, 705 pruebas unitarias y build correctos. Pasan ocho casos de navegador sobre ambos artículos, catálogo de composiciones y filtros en ambos dispositivos; otros seis comprueban Mauga, Torbjörn y la supresión de anuncios en ambos juegos. Se verifican texto completo, vídeo y contexto, Vortex y perks actuales, fecha original, revisión, FAQ, datos estructurados, enlaces, imágenes, sitemap y ausencia de overflow y slots. Se inspeccionan las capturas finales de la guía y su cabecera móvil. Quedan pendientes despliegue y verificación pública.

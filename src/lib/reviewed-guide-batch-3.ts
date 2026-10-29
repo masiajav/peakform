@@ -91,7 +91,13 @@ No necesariamente. Asegurar un objetivo importante puede decidir la pelea. Compr
     description: 'Aprende cuándo pasar a Nemesis con Ramattra, cómo usar barrera y Vortex en los cruces y qué preparar antes de Annihilation.',
     quickAnswer: 'Con Ramattra, usa la forma ómnica para preparar el acercamiento y Nemesis cuando puedas alcanzar un objetivo útil. La barrera debe proteger un cruce o cortar una línea peligrosa. Antes de usar Annihilation, fuerza alguna respuesta defensiva y asegúrate de que tus supports pueden acompañarte.',
     videoSlug: 'ramattra-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-29',
+    reviewedVideo: {
+      video_id: 'IdYM3nWCWVk', video_url: 'https://www.youtube.com/watch?v=IdYM3nWCWVk', video_platform: 'youtube',
+      video_title: 'The Complete Ramattra Guide 2026', video_channel: 'redeznt', video_language: 'en', video_published_at: '2026-01-14',
+    },
+    renderedContentVersion: '29ec05517474d88d35351c8a3758e2523b1d59211a9aaaaa8185803678bc8295',
+    videoDescription: 'Guía de redeznt publicada el 14 de enero de 2026. La grabación corresponde a esa fecha; el artículo escrito se contrasta por separado con el kit y los perks actuales. Antes de aplicar sus cifras o elecciones, comprueba las opciones de barrera, extensión de Nemesis, disparo ómnico y recuperación dentro de Vortex descritas en el texto.',
     body: `## No empieces Nemesis todavía lejos del rival
 
 La transformación puede hacerte sentir preparado para entrar, pero no acerca por sí sola a tus compañeros. Si la activas mientras aún tienes que cruzar una zona abierta, puedes gastar buena parte de la ventana caminando y llegar al enemigo cuando ya toca retirarse.
@@ -118,7 +124,17 @@ Cuando bloqueas para sobrevivir, estás dejando de presionar con los puños. Eso
 
 Lánzalo donde el enemigo tenga que pasar o donde tu equipo pueda aprovechar la ralentización. Una puerta, una esquina de retirada o el espacio junto a un objetivo cercano suelen ofrecer una intención más clara que tirarlo al centro de una pelea lejana.
 
+Puedes volver a activar Ravenous Vortex para detonarlo antes. Úsalo para ajustar el momento a un enemigo que ya ha cruzado o está escapando, en lugar de esperar un recorrido que ha dejado de servir. La esfera debe crear una ventana que tú o tus compañeros podáis aprovechar.
+
 No conviertas Ravenous Vortex en un plan automático contra cualquier héroe aéreo. Que afecte al movimiento no significa que puedas alcanzar todos sus ángulos. Contra Pharah o Echo, mira la altura desde la que disparan y coordina presión con alguien que sí pueda disputarla.
+
+## Ajusta el plan a tus mejoras de forma y recursos
+
+Relentless Form alarga Nemesis con eliminaciones, con una extensión menor durante Annihilation. Prolonged Barrier aumenta el tamaño y la duración de Void Barrier. Son alternativas minor: la primera puede ampliar un contacto que ya está funcionando; la segunda facilita un cruce concreto. No persigas para buscar una extensión que te deje fuera de la curación ni esperes una barrera mejorada si has elegido la otra opción.
+
+Entre los major, Void Surge añade ráfagas periódicas de proyectiles al fuego continuo de Void Accelerator. Nanite Repair permite a Ramattra recuperar vida dentro de su Ravenous Vortex. Son alternativas, y esa recuperación no limpia anticuración: conserva cobertura y una línea de ayuda aunque prepares Vortex cerca de ti.
+
+La elección puede reforzar la presión ómnica o ayudarte a sostener una zona, pero no sustituye el seguimiento. Antes de transformar la pelea con Nemesis, confirma quién podrá disparar y curarte desde la esquina a la que vas a llegar.
 
 ## Prepara Annihilation antes de pulsar la ultimate
 
