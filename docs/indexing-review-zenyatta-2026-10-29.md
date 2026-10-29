@@ -27,4 +27,8 @@ Falta comprobar las versiones finales y su publicación. Solo se proponen estas 
 
 ## Validación final local
 
-Pasan 708 pruebas unitarias, lint, ocho casos finales de ambos artículos, catálogo/sitemap y filtros y seis de regresión sobre Lúcio y el modo de revisión de anuncios. Se inspeccionan la captura completa de escritorio y cabecera móvil de la guía final; las composiciones conservan el contenido cuya presentación se inspeccionó en ambos tamaños. Se verifican todos los párrafos, FAQ, enlaces, imágenes, fechas, identidad e idioma del vídeo y botón de reproducción, metadatos, sitemap y ausencia de desbordamientos y anuncios. Falta desplegar y comprobar las URLs públicas.
+Pasan 708 pruebas unitarias, lint, ocho casos finales de ambos artículos, catálogo/sitemap y filtros y seis de regresión sobre Lúcio y el modo de revisión de anuncios. Se inspeccionan la captura completa de escritorio y cabecera móvil de la guía final; las composiciones conservan el contenido cuya presentación se inspeccionó en ambos tamaños. Se verifican todos los párrafos, FAQ, enlaces, imágenes, fechas, identidad e idioma del vídeo y botón de reproducción, metadatos, sitemap y ausencia de desbordamientos y anuncios.
+
+## Resultado público
+
+Vercel confirma el commit `6db52a9` en [este despliegue de producción](https://vercel.com/masiajavs-projects/peakform/6T1R8DTJLupk2EKLq7bg61gcY7xY). Pasan las 72 respuestas HTTP y la redirección del alias: ambas URLs responden 200, sin noindex, incluidas en sitemap, con fechas correctas y sin anuncios. Los 66 artículos anteriores y cuatro controles conservan su estado. Pasan cuatro casos adicionales de navegador contra producción en móvil y escritorio. El registro conserva respuesta, huella, fecha, commit y despliegue por URL: **68 de 140 artículos habilitados y verificados; 72 pendientes**.

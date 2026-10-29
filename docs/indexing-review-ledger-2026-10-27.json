@@ -2623,9 +2623,13 @@
       "sourceVersion": "19c15f5a9cee7ec3db3c0814952e23a9ad7dba07c857fec89e7984df1432e80f",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-mercy-2026-10-29.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "264c3fc2e8710f4295afb83fdf8705440481b83b200ab43b47b187f4c2b13dd3",
+      "correction": "Se añade Flash Heal como habilidad base desde abril de 2026 y su prioridad ante urgencias. Se explican Angelic Resurrection/Winged Reach y alternativas Chain Boost/Double Dose, con reducción de curación por carga y sin adoptar poderes de Stadium. Contexto del vídeo de ILeadHunter de agosto de 2025 y advertencia de su descripción sobre cambios de perks posteriores. Cuerpo y medios vinculados; primera publicación conservada y revisión del texto 2026-10-29.",
+      "reviewedRenderedVersion": "0c50c2feb65176e7e912190f7d493f56586e3f7ca8270b320fea8f4a068ddecc"
     },
     {
       "path": "/guides/mercy-guia-video-overwatch",
@@ -3590,9 +3594,29 @@
       "sourceVersion": "c2210daa11b0b09fc981ec435427d0289c74258bd8ce13c694ec60024f944f05",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-zenyatta-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/zenyatta-guia-overwatch-discord-transcendence",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "567f00fb2b95d42de4afc2bb612718af2f97517a37be85eaf1271e992e0d1d81",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-29T18:52:34.585Z",
+        "commit": "6db52a902a33822bb6ecc4456262948bbe80f60c",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/6T1R8DTJLupk2EKLq7bg61gcY7xY",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "c1d8007cee413db8f44b7cc30d5fadfb94feabc49a80f7fef71a14f2275a526a",
       "correction": "Título conocido de Awkward corregido y contexto de diciembre de 2022, anterior a perks actuales y sin garantía de resultados del porcentaje del título. Se aplican Discordant Repair/Ascendance y alternativas Focused Destruction/Dual Harmony, incluidos menor curación de ambos orbes y distinción frente a Stadium. Cuerpo y medios vinculados; primera publicación conservada y revisión del texto 2026-10-29.",
@@ -4822,9 +4846,12 @@
       "sourceVersion": "06c070c0a970993a77a6997811fdf22f90eddb59c344fa3b415d92bc2ef4a12b",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-mercy-2026-10-29.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "06c070c0a970993a77a6997811fdf22f90eddb59c344fa3b415d92bc2ef4a12b",
+      "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar equipos, roles, formatos, cambio de beam, Flash Heal, reparto con el otro Support, rutas de vuelta, evaluación de Resurrect y Valkyrie. Todos los párrafos, FAQ, enlaces y presentación verificados en móvil y escritorio. No se inventa primera publicación."
     },
     {
       "path": "/team-comps/mizuki",
@@ -5317,9 +5344,26 @@
       "sourceVersion": "2f532edec393d7915c724d37b4e1130e6a4a6d17cff0f558202c35a53a307e20",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-zenyatta-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/zenyatta",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "e676f76e33f3521d38eacbd2d215050299f8ad3ec4d7a6a1246b3cb6a116e6ad",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-29T18:52:34.585Z",
+        "commit": "6db52a902a33822bb6ecc4456262948bbe80f60c",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/6T1R8DTJLupk2EKLq7bg61gcY7xY",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "2f532edec393d7915c724d37b4e1130e6a4a6d17cff0f558202c35a53a307e20",
       "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar equipos, formatos, roles, foco y peel, límites de curación y diferencia entre invulnerabilidad personal y ayuda a aliados. Todos los párrafos, FAQ, enlaces y presentación verificados en móvil y escritorio. No se inventa primera publicación.",
@@ -5332,8 +5376,8 @@
     }
   ],
   "progress": {
-    "reviewed": 68,
-    "publishedAndVerified": 66,
-    "pending": 72
+    "reviewed": 70,
+    "publishedAndVerified": 68,
+    "pending": 70
   }
 }

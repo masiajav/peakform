@@ -1074,6 +1074,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/content-review-comps-tracer-zarya-2026-10-05.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/mercy-guia-overwatch-pocket-resurrect': {
+    path: '/guides/mercy-guia-overwatch-pocket-resurrect',
+    version: '264c3fc2e8710f4295afb83fdf8705440481b83b200ab43b47b187f4c2b13dd3',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-mercy-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/mercy': {
+    path: '/team-comps/mercy',
+    version: '06c070c0a970993a77a6997811fdf22f90eddb59c344fa3b415d92bc2ef4a12b',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-mercy-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/guides/zenyatta-guia-overwatch-discord-transcendence': {
     path: '/guides/zenyatta-guia-overwatch-discord-transcendence',
     version: 'c1d8007cee413db8f44b7cc30d5fadfb94feabc49a80f7fef71a14f2275a526a',

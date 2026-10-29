@@ -497,6 +497,13 @@ Continúa con [los fundamentos de Support](/roles/support) y [cómo revisar cool
     description: 'Mejora con Mercy: elige a quién potenciar, prepara rutas de Guardian Angel, evalúa cada Resurrect y usa Valkyrie sin perder cobertura.',
     quickAnswer: 'Mercy aporta más cuando potencia al aliado que puede hacer algo ahora y mantiene una ruta segura hacia otro compañero. Antes de Resurrect, mira quién controla el cuerpo, cuánto tiempo necesitarás exponerte y qué ocurrirá con el resto del equipo mientras lo intentas. Una baja no es una orden de resucitar.',
     videoSlug: 'mercy-guia-video-overwatch',
+    renderedContentVersion: '0c50c2feb65176e7e912190f7d493f56586e3f7ca8270b320fea8f4a068ddecc',
+    revisedAt: '2026-10-29',
+    reviewedVideo: {
+      video_id: 'iRrAATLilao', video_url: 'https://www.youtube.com/watch?v=iRrAATLilao', video_platform: 'youtube',
+      video_title: '5 Mercy tips to improve your gameplay FAST!', video_channel: 'ILeadHunter', video_language: 'en', video_published_at: '2025-08-26',
+    },
+    videoDescription: 'Vídeo de ILeadHunter publicado el 26 de agosto de 2025. La propia descripción avisa de que se grabó antes de los cambios de perks de Season 18. Sirve para observar cobertura, prioridades y decisiones de resurrección; el artículo escrito contrasta por separado Flash Heal como habilidad base y los perks actuales. No copies automáticamente las cifras o mejoras de la grabación.',
     body: `## El pocket es una decisión, no un contrato
 
 Que empieces acompañando a Ashe no significa que debas mantener el beam sobre ella mientras recarga y otro aliado tiene una oportunidad clara. Mira quién está disparando, entrando o usando una habilidad que pueda aprovechar tu apoyo. Cambiar unos segundos de objetivo puede aportar más que permanecer con tu compañero habitual por costumbre.
@@ -512,6 +519,12 @@ No necesitas rellenar cada pequeña pérdida de vida antes de cambiar al beam de
 Comprueba también el trabajo de tu otro Support. Si está manteniendo al Tank y tú haces lo mismo sin mirar a los DPS, quizá estés dejando sin apoyo al héroe que podía cerrar una baja. Si lo están atacando, ayudarle a sobrevivir puede ser más importante que continuar el pocket.
 
 El marcador de curación no resume esas decisiones. Una partida con menos curación puede tener buenos cambios de beam y mucha presión útil; otra con cifras altas puede reflejar que el equipo estuvo expuesto demasiado tiempo. Mira las peleas, no solo el total.
+
+## Flash Heal es una respuesta puntual del kit base
+
+Flash Heal ya forma parte del kit base desde el cambio de abril de 2026. Aporta una curación puntual, con más efecto sobre aliados por debajo de la mitad de vida. Mira la amenaza que va a llegar: puede interesar conservarla para una urgencia próxima en vez de gastarla por la primera pérdida pequeña que el beam podía recuperar desde cobertura. Tampoco esperes a una salud mínima si el siguiente impacto puede matar al compañero antes de que respondas.
+
+Después del uso, vuelve a comprobar qué ayuda necesita el aliado y qué recurso conserva tu otro Support. Esa recuperación no convierte un ángulo abierto en una posición segura ni elimina anticuración. Si has elegido Double Dose podrás disponer de otra carga, pero no des por hecho ese segundo uso cuando llevas la otra opción major.
 
 ## Guardian Angel debe acabar en cobertura
 
@@ -529,6 +542,14 @@ No bases la decisión únicamente en la importancia del compañero. Un Tank pued
 
 En una pelea ya perdida, piensa también en el reagrupamiento. Devolver a un aliado a una posición donde morirá otra vez puede retrasar al equipo. Usa la información disponible en ese momento: no juzgues un Resurrect solo porque acabó bien tras un error del rival.
 
+## Los perks no vuelven seguro cualquier vuelo o Resurrect
+
+Angelic Resurrection añade sobrevida para Mercy al usar Resurrect. No elimina los disparos o interrupciones que amenazan el intento ni asegura que el compañero revivido tenga salida. Winged Reach es la alternativa minor: amplía el alcance de Guardian Angel. Puede abrir otro destino, pero antes de tomarlo comprueba también la línea que cruzarás y a qué aliado podrás volver.
+
+Chain Boost mejora el damage boost y lo enlaza con un segundo aliado próximo. Si eliges esta opción major, busca dos oportunidades de daño que puedas acompañar desde una posición defendible, sin pedir a los DPS que se agrupen en abierto solo para recibir el enlace. No es una mejora permanente para todo el equipo con independencia de dónde esté cada jugador.
+
+Double Dose es la otra opción major: añade una carga de Flash Heal a cambio de reducir su curación base. Reparte los usos según el daño que está entrando, en vez de tratar las dos cargas como dos recuperaciones completas sin coste. Esta elección no concede también Chain Boost ni los efectos adicionales de los poderes de Stadium que comparten nombre.
+
 ## Valkyrie te da opciones, no invisibilidad
 
 La movilidad de Valkyrie permite cambiar de perspectiva y acompañar una pelea, pero seguirás siendo un objetivo si vuelas por una línea abierta. Usa edificios y alturas para cortar visión en vez de permanecer suspendida delante de los hitscans.
@@ -540,6 +561,7 @@ Actívala cuando el equipo pueda aprovechar la estabilidad o la presión adicion
 - ¿A quién potenciabas cuando comenzó el engage y qué estaba haciendo?
 - ¿Guardian Angel terminó en una cobertura o en una línea abierta?
 - ¿Tenías otro aliado accesible como salida?
+- ¿Flash Heal respondió a una urgencia o se gastó antes de la amenaza importante?
 - ¿Quién controlaba el cuerpo antes de cada Resurrect?
 - ¿Valkyrie mejoró una pelea existente o intentó arreglar una ya perdida?
 
