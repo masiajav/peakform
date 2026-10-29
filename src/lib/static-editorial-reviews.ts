@@ -1074,6 +1074,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/content-review-comps-tracer-zarya-2026-10-05.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/illari-guia-overwatch-pilon-dano': {
+    path: '/guides/illari-guia-overwatch-pilon-dano',
+    version: 'bbe35151ba7d1f5b0b88b09333d58585fd7c0c7cfc555693a067dd381d9dc8e8',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-illari-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/illari': {
+    path: '/team-comps/illari',
+    version: 'fe7da4bb17a1d3a9fcf8771b35822e0de36a858a682129e117b145b1aaeb8bd9',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-illari-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/guides/baptiste-guia-overwatch-lamp-window': {
     path: '/guides/baptiste-guia-overwatch-lamp-window',
     version: '9929a028aeba2ac0a229f9f8801953e3d8fe8dc18766e507a5bc2e76304b9d51',

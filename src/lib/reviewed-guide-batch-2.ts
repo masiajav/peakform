@@ -479,8 +479,14 @@ Para leer los engages rivales, consulta [la guía de Support](/guides/como-mejor
   },
   'illari-guia-overwatch-pilon-dano': {
     hero: 'illari',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-29',
     videoSlug: 'illari-guia-video-overwatch',
+    renderedContentVersion: 'cc0ce7a338273fae6bb857037bbdc63467595e78319a54468e76c7061c10b5cd',
+    reviewedVideo: {
+      video_id: 'fS1XT6P3XJM', video_url: 'https://www.youtube.com/watch?v=fS1XT6P3XJM', video_platform: 'youtube',
+      video_title: 'Educational Unranked To GM Illari Only (100% Winrate)', video_channel: 'ChoseN', video_language: 'en', video_published_at: '2025-10-11',
+    },
+    videoDescription: 'Partidas comentadas de ChoseN publicadas el 11 de octubre de 2025. La grabación es anterior a las opciones de perks contrastadas en este artículo: úsala para observar posiciones, ayuda del pilón y cambios entre daño y curación, sin copiar automáticamente sus mejoras o cifras. El 100% Winrate pertenece al título de esa serie y no garantiza tus resultados en ranked.',
     title: 'Cómo jugar Illari: colocar el pilón y hacer daño sin abandonar al equipo',
     description: 'Dónde colocar el Healing Pylon de Illari, cuándo moverlo y cómo alternar daño y curación. Decisiones de Outburst y Captive Sun con ejemplos de ranked.',
     quickAnswer: 'Coloca el pilón en una posición que cure al equipo sin quedar a la vista del rival. Desde una cobertura cercana, combina disparos cargados con curación cuando tus aliados la necesiten. Mueve el plan al avanzar el objetivo y reserva una salida con Outburst: el pilón no compensa un off-angle completamente aislado.',
@@ -513,6 +519,14 @@ El recurso de curación requiere gestión. Atiende una necesidad real y aprovech
 El desplazamiento puede crear espacio frente a una entrada cercana. Úsalo con un destino en mente: detrás de una pared, junto a un aliado o fuera del rango del enemigo. Empujar a un flanker y quedarte en el mismo lugar abierto puede darle tiempo para volver a presionarte.
 
 No gastes la movilidad para conseguir un ángulo pequeño si ya hay dive preparado. Si decides comprometerte, comprueba que tu posición ofrece una alternativa cuando termine el movimiento. Una caída hacia tu equipo suele ser mejor que subir a una altura donde quedarás sola.
+
+## Elige los perks según la ayuda que necesita la siguiente posición
+
+Rapid Construction acelera la construcción del pilón y reduce su cooldown. Puede ayudarte a preparar la curación de una nueva esquina, pero no vuelve seguro un lugar que el rival ve directamente. Mantén la comprobación de alcance y cobertura aunque la instalación tarde menos. Summer Solstice es la alternativa minor: Captive Sun aumenta la velocidad de vuelo y de ataque de Illari y permite volar durante más tiempo. Esa ventana adicional necesita líneas de tiro y una vuelta protegida; no te obliga a seguir en el aire delante de un hitscan.
+
+Solar Flare es una opción major para añadir curación frontal mientras usas el beam de Solar Rifle. Si vas a aprovecharla, busca una posición desde la que los aliados que necesitan ayuda estén delante de ti. No cuentes esa recuperación como parte de cada disparo normal ni como una respuesta automática para compañeros separados por el mapa.
+
+Sunburn es la otra alternativa major y añade una quemadura a los enemigos alcanzados por Outburst. Es daño que se aplica con el tiempo, no una baja inmediata por empujar a alguien. Antes de usar tu salida para buscar ese daño, mira si el rival todavía puede entrar sobre ti y qué cobertura tendrás después. Elegir Sunburn tampoco te concede a la vez la curación frontal de Solar Flare.
 
 ## Captive Sun necesita seguimiento, no solo impactos
 

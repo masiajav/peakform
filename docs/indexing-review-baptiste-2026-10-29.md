@@ -27,4 +27,8 @@ Evidencia en `reports/indexing-review-2026-10-27/batch-twenty-five/` y `release-
 
 ## Validación final local
 
-Pasan 708 pruebas unitarias, lint, seis casos finales de ambos artículos y catálogo/sitemap y diez de regresión sobre Sombra, Anran, filtros por héroe y rol y el modo de revisión de anuncios. Se inspeccionan la captura completa de escritorio y cabecera móvil de la guía final; las composiciones conservan el texto cuya presentación se inspeccionó en ambos tamaños. Se verifican todos los párrafos, FAQ, enlaces, imágenes, fechas, identidad e idioma del vídeo y botón de reproducción, metadatos, sitemap y ausencia de anuncios y desbordamientos. Falta desplegar y comprobar las URLs públicas.
+Pasan 708 pruebas unitarias, lint, seis casos finales de ambos artículos y catálogo/sitemap y diez de regresión sobre Sombra, Anran, filtros por héroe y rol y el modo de revisión de anuncios. Se inspeccionan la captura completa de escritorio y cabecera móvil de la guía final; las composiciones conservan el texto cuya presentación se inspeccionó en ambos tamaños. Se verifican todos los párrafos, FAQ, enlaces, imágenes, fechas, identidad e idioma del vídeo y botón de reproducción, metadatos, sitemap y ausencia de anuncios y desbordamientos.
+
+## Resultado público
+
+Vercel confirma el commit `2bd2644` en [este despliegue de producción](https://vercel.com/masiajavs-projects/peakform/BzMfZKJV4dcTVNnxiWVoEz6oMfHW). Pasan las 66 respuestas HTTP y la redirección del alias: ambas URLs responden 200, sin noindex, incluidas en sitemap, con fechas correctas y sin anuncios. Los 60 artículos anteriores y cuatro controles conservan su estado. Pasan cuatro casos adicionales de navegador contra producción en móvil y escritorio. El registro conserva respuesta, huella, fecha, commit y despliegue por URL: **62 de 140 artículos habilitados y verificados; 78 pendientes**.

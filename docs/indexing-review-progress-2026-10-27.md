@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 29 de octubre: **62 de 140 artículos revisados; 60 habilitados y verificados en producción, dos de Baptiste pendientes de despliegue y comprobación pública; 78 pendientes de revisión**. Último lote verificado públicamente: guías de Sombra y Anran. Los anuncios mantienen su configuración previa.
+Estado comprobado al 29 de octubre: **64 de 140 artículos revisados; 62 habilitados y verificados en producción, dos de Illari pendientes de despliegue y comprobación pública; 76 pendientes de revisión**. Último lote verificado públicamente: guía y composiciones de Baptiste. Siguiente revisión iniciada: guía y composiciones de Lúcio. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 

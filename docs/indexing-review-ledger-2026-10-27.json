@@ -1719,9 +1719,29 @@
       "sourceVersion": "e4b6029bc02c3544dc32f564b15971e1aa397944349d245a0ab4df01d0bf283e",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-baptiste-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/baptiste-guia-overwatch-lamp-window",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "47d65500700f5eb08521d2e82a7c13407b50f79ba67f1c9dbbbf1e0e78f9dc8c",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-29T18:35:04.361Z",
+        "commit": "2bd2644d5e82726aad5e512463efe87ab01161bf",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/BzMfZKJV4dcTVNnxiWVoEz6oMfHW",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "9929a028aeba2ac0a229f9f8801953e3d8fe8dc18766e507a5bc2e76304b9d51",
       "correction": "Se corrige el título conocido del vídeo de LeonDrummer y se contextualiza su versión del 14 de octubre de 2022. Se añaden decisiones de Expanded Field, Assault Burst personal y alternativas Automated Healing/Rocket Boots, sin prometer curación al saltar ni gastar Lamp para activarla. Cuerpo y medios incorporados desde alias vinculados; primera publicación conservada y revisión del contenido 2026-10-29.",
@@ -2282,9 +2302,13 @@
       "sourceVersion": "f7c14595ab6ae9b45d0491bcb28f89024864c8efb19aa0949af6374911abe320",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-illari-2026-10-29.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "bbe35151ba7d1f5b0b88b09333d58585fd7c0c7cfc555693a067dd381d9dc8e8",
+      "correction": "Se contextualiza el vídeo de ChoseN de 2025 y se distingue el 100% Winrate de su título de una garantía de resultados. Se explican decisiones de Rapid Construction, Summer Solstice y alternativas Solar Flare/Sunburn; no se suman ambos major ni se promete una baja inmediata con quemadura. Cuerpo y medios incorporados desde alias vinculados; publicación original conservada y revisión del texto 2026-10-29.",
+      "reviewedRenderedVersion": "cc0ce7a338273fae6bb857037bbdc63467595e78319a54468e76c7061c10b5cd"
     },
     {
       "path": "/guides/illari-guia-video-overwatch",
@@ -2433,7 +2457,12 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "4d81db5ff5f6101172ef1c9832c6c29d5a6950c2ca33def28572f7d8933d20d7",
+        "note": "Lectura completa de destino de speed, cambio de canción sin proporción fija, coordinación con otro Support, Amp y recursos, Wall Ride y boop útil, activación y seguimiento de Barrier, VOD, tres FAQ y enlaces. Fila pública y modelo coinciden con el inventario. Ficha oficial confirma Soundwave Rider/Beat Drop minor y Noise Violation/Accelerando major. Vídeo del alias confirmado: ohwell, 2025-09-03, The ULTIMATE 2025 Lucio Guide., playability OK, 976 segundos. Descripción y capítulos leídos: Season 18, habilidades, micro, macro y ranked. Faltan contexto histórico y perks actuales, versión con medios, enlaces y presentación. No aprobada."
+      }
     },
     {
       "path": "/guides/lucio-guia-video-overwatch",
@@ -4190,9 +4219,26 @@
       "sourceVersion": "614db014ddc3f380e601b7a6929570da0e14309846f9422529cd0977c117e38f",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-baptiste-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/baptiste",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "ea1db8adb70413714dfd0c0e9d598df14ba69f539c7a8e437c57fd328a1c1bbb",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-29T18:35:04.361Z",
+        "commit": "2bd2644d5e82726aad5e512463efe87ab01161bf",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/BzMfZKJV4dcTVNnxiWVoEz6oMfHW",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "614db014ddc3f380e601b7a6929570da0e14309846f9422529cd0977c117e38f",
       "correction": "Texto y fecha 2026-10-02 conservados después de leer y contrastar cada equipo, roles, formatos, limitaciones de Lamp, seguimiento, rotaciones, ejemplos y FAQ. Todos los enlaces y párrafos verificados en navegador, con presentación móvil y escritorio. No se inventa primera fecha de publicación.",
@@ -4481,9 +4527,12 @@
       "sourceVersion": "fe7da4bb17a1d3a9fcf8771b35822e0de36a858a682129e117b145b1aaeb8bd9",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-illari-2026-10-29.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "fe7da4bb17a1d3a9fcf8771b35822e0de36a858a682129e117b145b1aaeb8bd9",
+      "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar todos los equipos, formatos, roles, traslado de Pylon y curación durante la rotación, seguimiento de Captive Sun, ejemplos y FAQ. Todos los enlaces y párrafos verificados en navegador; presentación móvil y escritorio inspeccionada. No se inventa primera fecha de publicación."
     },
     {
       "path": "/team-comps/junker-queen",
@@ -4583,7 +4632,12 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "0e0b0adf772966f3266e7d09ca6a654cc9c138502cf30c7da4f1fe8fba4f8645",
+        "note": "Lectura completa de equipos Reinhardt/Mei/Cassidy/Baptiste, Ramattra/Mei/Sojourn/Kiriko y Reinhardt/Zarya/Mei/Cassidy/Baptiste en 6v6. Todos los argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, tres FAQ y enlaces. Modelo coincide con el inventario. Fuente oficial confirma vida temporal sin limpieza, Beat Drop opcional y diferencia entre alcance de Noise Violation y velocidad de ataque personal de Accelerando. Roles y formatos coherentes; falta comprobar enlaces y presentación y considerar enlace directo a guía canónica. No aprobada."
+      }
     },
     {
       "path": "/team-comps/mauga",
@@ -5178,8 +5232,8 @@
     }
   ],
   "progress": {
-    "reviewed": 62,
-    "publishedAndVerified": 60,
-    "pending": 78
+    "reviewed": 64,
+    "publishedAndVerified": 62,
+    "pending": 76
   }
 }
