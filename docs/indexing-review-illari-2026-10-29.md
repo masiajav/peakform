@@ -25,4 +25,8 @@ Evidencia en `reports/indexing-review-2026-10-27/batch-twenty-six/` y `release-b
 
 ## Validación final local
 
-Pasan 708 pruebas unitarias, lint, ocho casos finales de ambos artículos, catálogo/sitemap y filtros y seis de regresión sobre Baptiste y el modo de revisión de anuncios. Se inspeccionan la captura completa de escritorio y cabecera móvil de la guía final; las composiciones conservan el contenido cuya presentación ya se inspeccionó en ambos tamaños. Se verifican todos los párrafos, FAQ, enlaces, imágenes, fechas, identidad e idioma del vídeo y botón de reproducción, metadatos, sitemap y ausencia de desbordamientos y anuncios. Falta desplegar y comprobar las URLs públicas.
+Pasan 708 pruebas unitarias, lint, ocho casos finales de ambos artículos, catálogo/sitemap y filtros y seis de regresión sobre Baptiste y el modo de revisión de anuncios. Se inspeccionan la captura completa de escritorio y cabecera móvil de la guía final; las composiciones conservan el contenido cuya presentación ya se inspeccionó en ambos tamaños. Se verifican todos los párrafos, FAQ, enlaces, imágenes, fechas, identidad e idioma del vídeo y botón de reproducción, metadatos, sitemap y ausencia de desbordamientos y anuncios.
+
+## Resultado público
+
+Vercel confirma el commit `a9f18dd` en [este despliegue de producción](https://vercel.com/masiajavs-projects/peakform/87QGoCzGyfxjvHSPeoGRTkLqiRgA). Pasan las 68 respuestas HTTP y la redirección del alias: ambas URLs responden 200, sin noindex, incluidas en sitemap, con fechas correctas y sin anuncios. Los 62 artículos anteriores y cuatro controles conservan su estado. Pasan cuatro casos adicionales de navegador contra producción en móvil y escritorio. El registro conserva respuesta, huella, fecha, commit y despliegue por URL: **64 de 140 artículos habilitados y verificados; 76 pendientes**.

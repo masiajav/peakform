@@ -566,8 +566,14 @@ Puedes revisar el avance entre esquinas en [King's Row](/maps/kings-row). Para e
   },
   'lucio-guia-overwatch-speed-peel': {
     hero: 'lucio',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-29',
     videoSlug: 'lucio-guia-video-overwatch',
+    renderedContentVersion: '5d420f0c8e4714d07e52f8771d8cf00577b858a14be202df74424b0a98dde4e4',
+    reviewedVideo: {
+      video_id: 'tcABXj7t6IE', video_url: 'https://www.youtube.com/watch?v=tcABXj7t6IE', video_platform: 'youtube',
+      video_title: 'The ULTIMATE 2025 Lucio Guide.', video_channel: 'ohwell', video_language: 'en', video_published_at: '2025-09-03',
+    },
+    videoDescription: 'Vídeo de ohwell publicado el 3 de septiembre de 2025 para la Season 18. Sus capítulos separan habilidades, mecánicas, decisiones de equipo y consejos de ranked. La grabación es anterior a los perks actuales contrastados en el texto: observa rutas y elecciones de ayuda sin trasladar automáticamente cifras, mejoras o secuencias de esa versión a tu partida.',
     title: 'Cómo jugar Lúcio: speed, peel y Sound Barrier con buen timing',
     description: 'Cuándo usar speed o curación con Lúcio, cómo preparar Amp It Up y qué peleas necesitan Sound Barrier. Wall Ride y peel sin abandonar al equipo.',
     quickAnswer: 'Usa speed para que el equipo alcance una posición o salga de peligro, y curación cuando necesite sostenerse allí. Prepara Amp It Up para el cruce o la presión importante. Con Wall Ride y Soundwave puedes proteger a un aliado, pero alejarte a buscar un boop no compensa dejar al equipo sin la ayuda que esperaba.',
@@ -602,6 +608,14 @@ Wall Ride te permite alcanzar posiciones y cambiar altura, pero debes seguir sab
 Soundwave puede separar a un atacante de tu Support o dificultar su entrada. No hace falta buscar una baja ambiental cada vez. Si empujas a Genji lejos de Ana y ella consigue reposicionarse, el boop ya ha cumplido una función importante.
 
 Mira la dirección del desplazamiento. Empujar a un enemigo fuera de los disparos de tus compañeros o acercarlo al aliado que intentabas proteger puede empeorar la pelea. El resultado importa más que haber conectado la habilidad.
+
+## Los perks cambian el alcance, el boop o tu propio daño
+
+Soundwave Rider potencia tu siguiente Soundwave después de hacer Wall Ride. Si lo eliges, prepara una pared desde la que puedas volver al aliado que necesita peel, en vez de alejarte solo para cargar un empuje mayor. Beat Drop es la otra opción minor: activa Amp It Up durante cuatro segundos después de Sound Barrier. Esa ayuda adicional depende de haber elegido el perk; la ultimate base no concede Amp por sí sola. Piensa qué canción ayudará al equipo cuando llegue esa ventana.
+
+Noise Violation amplía el alcance de Crossfade mientras Amp está activo. Puede ayudar a acompañar un cruce más abierto, pero no convierte el aura ampliada en permanente. Cuando termine Amp, comprueba si los compañeros todavía están dentro de tu alcance normal antes de salir por otra pared.
+
+Accelerando, la alternativa major, aumenta la velocidad de ataque de Lúcio mientras su canción de speed está activa, con una mejora mayor durante Amp. Es una ventaja personal: no aumenta la velocidad de ataque de Cassidy ni de Reinhardt. Tampoco merece mantener speed cuando el equipo necesita curación urgente solo para conservar tu daño. Elige entre esa presión y el alcance de Noise Violation sin contar con ambas mejoras a la vez.
 
 ## Sound Barrier: anticipa qué daño quieres absorber
 

@@ -1074,6 +1074,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/content-review-comps-tracer-zarya-2026-10-05.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/lucio-guia-overwatch-speed-peel': {
+    path: '/guides/lucio-guia-overwatch-speed-peel',
+    version: 'd675360aa8265888fd592ed97ae11a8d3a559740682b81a749c4c5606ccbca9f',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-lucio-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/lucio': {
+    path: '/team-comps/lucio',
+    version: '0e0b0adf772966f3266e7d09ca6a654cc9c138502cf30c7da4f1fe8fba4f8645',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-lucio-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/guides/illari-guia-overwatch-pilon-dano': {
     path: '/guides/illari-guia-overwatch-pilon-dano',
     version: 'bbe35151ba7d1f5b0b88b09333d58585fd7c0c7cfc555693a067dd381d9dc8e8',

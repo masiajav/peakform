@@ -2302,9 +2302,29 @@
       "sourceVersion": "f7c14595ab6ae9b45d0491bcb28f89024864c8efb19aa0949af6374911abe320",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-illari-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/illari-guia-overwatch-pilon-dano",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "285a9e4df1613eca299bbfc272a834014369a7c9bf1060b872d157df1ff8dde6",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-29T18:40:18.895Z",
+        "commit": "a9f18dd2964cb3fff400f2eb1f1b8431fb5fb9f5",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/87QGoCzGyfxjvHSPeoGRTkLqiRgA",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "bbe35151ba7d1f5b0b88b09333d58585fd7c0c7cfc555693a067dd381d9dc8e8",
       "correction": "Se contextualiza el vídeo de ChoseN de 2025 y se distingue el 100% Winrate de su título de una garantía de resultados. Se explican decisiones de Rapid Construction, Summer Solstice y alternativas Solar Flare/Sunburn; no se suman ambos major ni se promete una baja inmediata con quemadura. Cuerpo y medios incorporados desde alias vinculados; publicación original conservada y revisión del texto 2026-10-29.",
@@ -2455,14 +2475,18 @@
       "sourceVersion": "4d81db5ff5f6101172ef1c9832c6c29d5a6950c2ca33def28572f7d8933d20d7",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-lucio-2026-10-29.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "d675360aa8265888fd592ed97ae11a8d3a559740682b81a749c4c5606ccbca9f",
+      "correction": "Se contextualiza el vídeo de ohwell de Season 18, publicado el 3 de septiembre de 2025. Se explican el siguiente Soundwave potenciado, Amp opcional de Beat Drop y alternativas de alcance temporal Noise Violation o ataque personal Accelerando. Cuerpo y medios incorporados desde alias vinculados; publicación original conservada y revisión del texto 2026-10-29.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "4d81db5ff5f6101172ef1c9832c6c29d5a6950c2ca33def28572f7d8933d20d7",
         "note": "Lectura completa de destino de speed, cambio de canción sin proporción fija, coordinación con otro Support, Amp y recursos, Wall Ride y boop útil, activación y seguimiento de Barrier, VOD, tres FAQ y enlaces. Fila pública y modelo coinciden con el inventario. Ficha oficial confirma Soundwave Rider/Beat Drop minor y Noise Violation/Accelerando major. Vídeo del alias confirmado: ohwell, 2025-09-03, The ULTIMATE 2025 Lucio Guide., playability OK, 976 segundos. Descripción y capítulos leídos: Season 18, habilidades, micro, macro y ranked. Faltan contexto histórico y perks actuales, versión con medios, enlaces y presentación. No aprobada."
-      }
+      },
+      "reviewedRenderedVersion": "5d420f0c8e4714d07e52f8771d8cf00577b858a14be202df74424b0a98dde4e4"
     },
     {
       "path": "/guides/lucio-guia-video-overwatch",
@@ -4527,9 +4551,26 @@
       "sourceVersion": "fe7da4bb17a1d3a9fcf8771b35822e0de36a858a682129e117b145b1aaeb8bd9",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-illari-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/illari",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "d3a0b000e9e07e0958e816251fa47ba8a2bb5a6aae49da99bb5a5be45ccc3e80",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-29T18:40:18.895Z",
+        "commit": "a9f18dd2964cb3fff400f2eb1f1b8431fb5fb9f5",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/87QGoCzGyfxjvHSPeoGRTkLqiRgA",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "fe7da4bb17a1d3a9fcf8771b35822e0de36a858a682129e117b145b1aaeb8bd9",
       "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar todos los equipos, formatos, roles, traslado de Pylon y curación durante la rotación, seguimiento de Captive Sun, ejemplos y FAQ. Todos los enlaces y párrafos verificados en navegador; presentación móvil y escritorio inspeccionada. No se inventa primera fecha de publicación."
@@ -4630,10 +4671,13 @@
       "sourceVersion": "0e0b0adf772966f3266e7d09ca6a654cc9c138502cf30c7da4f1fe8fba4f8645",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-lucio-2026-10-29.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "0e0b0adf772966f3266e7d09ca6a654cc9c138502cf30c7da4f1fe8fba4f8645",
+      "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar equipos, formatos, roles, preparación y seguimiento del cruce, ayuda al segundo Support, peel, vida temporal sin limpieza, ejemplos y FAQ. Todos los enlaces y párrafos verificados en navegador y presentación móvil y escritorio inspeccionada. El enlace de guía conserva su redirección válida; no se inventa primera publicación.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "0e0b0adf772966f3266e7d09ca6a654cc9c138502cf30c7da4f1fe8fba4f8645",
         "note": "Lectura completa de equipos Reinhardt/Mei/Cassidy/Baptiste, Ramattra/Mei/Sojourn/Kiriko y Reinhardt/Zarya/Mei/Cassidy/Baptiste en 6v6. Todos los argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, tres FAQ y enlaces. Modelo coincide con el inventario. Fuente oficial confirma vida temporal sin limpieza, Beat Drop opcional y diferencia entre alcance de Noise Violation y velocidad de ataque personal de Accelerando. Roles y formatos coherentes; falta comprobar enlaces y presentación y considerar enlace directo a guía canónica. No aprobada."
@@ -5232,8 +5276,8 @@
     }
   ],
   "progress": {
-    "reviewed": 64,
-    "publishedAndVerified": 62,
-    "pending": 76
+    "reviewed": 66,
+    "publishedAndVerified": 64,
+    "pending": 74
   }
 }
