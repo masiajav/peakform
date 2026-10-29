@@ -105,6 +105,13 @@ Si el problema está en cuándo avanzar, continúa con [los fundamentos de Tank]
     description: 'Guía de Doomfist para preparar entradas, elegir entre Slam y Punch, usar Power Block con cobertura y convertir presión en espacio para tu equipo.',
     quickAnswer: 'Prepara la entrada de Doomfist desde una posición que te permita ver al objetivo y volver a tu equipo. No gastes Slam y Punch para llegar a una pelea que aún no ha empezado. Si obligas a un Support a retirarse y sobrevives, ya has creado una oportunidad aunque no consigas una baja.',
     videoSlug: 'doomfist-guia-video-overwatch',
+    revisedAt: '2026-10-29',
+    reviewedVideo: {
+      video_id: 'NwKQke_Btcg', video_url: 'https://www.youtube.com/watch?v=NwKQke_Btcg', video_platform: 'youtube',
+      video_title: 'How These DOOMFIST OTPs BROKE the META... | #1 Doomfist Guide', video_channel: 'Kajor', video_language: 'en', video_published_at: '2025-05-28',
+    },
+    renderedContentVersion: '274a27501d65f1503d937348c396ddee3444cfcfd2a33a31fb08154411d6aa9b',
+    videoDescription: 'Análisis de Kajor publicado el 28 de mayo de 2025, con capítulos de presión, entrada, punches preventivos, técnicas, perks y Power Block. Su apartado contra Sombra corresponde a la etapa anterior a su cambio a Support. El artículo escrito contrasta por separado el kit y las opciones actuales, incluida la absorción inicial y limitada de Power Matrix; no traslada automáticamente el meta, los matchups o las cifras de aquella grabación a la partida actual.',
     body: `## Antes del combo, prepara la posición
 
 Doomfist castiga a enemigos que no pueden responder a tiempo, pero entrar primero no siempre significa entrar bien. Si saltas mientras tus DPS están recargando o tus supports siguen cruzando una puerta, recibirás la atención de todo el equipo rival sin que nadie aproveche tu presión.
@@ -128,6 +135,14 @@ Bloquear de frente no te protege de todos los ángulos ni de todas las formas de
 Contra Orisa, vigila la jabalina. Contra Ana, identifica si Sleep sigue disponible. No hace falta memorizar toda la partida: sigue las herramientas que pueden convertir tu próximo Block o tu entrada en una muerte. Si no las has visto salir, planifica como si estuvieran listas.
 
 Un Punch potenciado no obliga a entrar inmediatamente. Puede servir para amenazar una puerta y hacer que el rival la respete mientras tu equipo avanza. Perseguir una oportunidad mala solo porque tienes el recurso preparado desperdicia la ventaja que acabas de conseguir.
+
+## Los perks apoyan un plan de entrada, no reemplazan la salida
+
+One-Two recarga Hand Cannon y añade munición por encima del máximo al empujar a un enemigo contra una pared con Rocket Punch. No basta con golpearlo sin ese impacto: comprueba el recurso que realmente has recuperado antes de mantener el duelo. Survival of the Fittest es la otra opción minor; añade sobrevida al conseguir eliminaciones y amplía su máximo. No cuentes con recibirla antes de haber completado una baja ni la confundas con curación que garantice aguantar cualquier foco.
+
+Aftershock, una de las opciones major, ralentiza temporalmente a los enemigos alcanzados por Seismic Slam. Puede facilitar el seguimiento de un compañero que ya tenga acceso, pero no crea su línea de tiro al otro lado de una pared. Power Matrix, la alternativa, absorbe proyectiles solo durante los primeros 0,8 segundos de Power Block. Esa ventana no dura toda la habilidad ni convierte el bloqueo en una defensa universal frente al control y los ángulos laterales.
+
+Elige qué intercambio quieres sostener y dónde terminarás después. Un Punch que recupera munición o un Slam que ralentiza puede ayudar a presionar sin perseguir más lejos; reservar una ruta de vuelta sigue siendo necesario. Si el rival espera a que pase tu primera defensa, vuelve a cobertura antes de comprometer el siguiente recurso.
 
 ## Decide si estás haciendo dive o peel
 

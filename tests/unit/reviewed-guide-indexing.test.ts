@@ -58,6 +58,8 @@ describe('individual publication of repository-owned guide revisions', () => {
       ['wuyang-guia-video-overwatch', 'wuyang', 'support', ['wuyang', 'support', 'video', 'youtube', '6v6', 'overwatch']],
       ['widowmaker-guia-overwatch-lineas-vision', 'widowmaker', 'dps', ['widowmaker', 'dps', 'sniper', 'mapas', '6v6']],
       ['soldier-76-guia-overwatch-off-angles', 'soldier-76', 'dps', ['soldier-76', 'dps', 'hitscan', 'off-angles', '6v6']],
+      ['doomfist-guia-overwatch-entradas-cooldowns', 'doomfist', 'tank', ['doomfist', 'tank', 'dive', 'cooldowns', '6v6']],
+      ['roadhog-guia-video-overwatch', 'roadhog', 'tank', ['roadhog', 'tank', 'video', 'youtube', '6v6', 'overwatch']],
     ] as const) {
       const revision = reviewedGuideRevisions[slug]
       const raw = { slug, hero, role, tags: [...tags], published: true, created_at: '2026-05-05' }

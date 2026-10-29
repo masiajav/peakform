@@ -1039,6 +1039,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-soldier-76-2026-10-29.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/doomfist-guia-overwatch-entradas-cooldowns': {
+    path: '/guides/doomfist-guia-overwatch-entradas-cooldowns',
+    version: '2753351962609d41dd12c73cb981f4c0667cac11b8325091a22a22869ff03114',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-doomfist-roadhog-guides-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/guides/roadhog-guia-video-overwatch': {
+    path: '/guides/roadhog-guia-video-overwatch',
+    version: '704fa366f0744c66c92105f2f811002361a7a72774cdc881be9552f04e17366e',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-doomfist-roadhog-guides-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/zarya': {
     path: '/team-comps/zarya',
     version: '40de9429f726f9396cb6d2c3aa44d8eca29c9b77c5b7eeac49598631fa1b35a6',

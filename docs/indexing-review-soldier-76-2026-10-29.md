@@ -28,3 +28,7 @@ Solo estas dos URLs se proponen para publicación con su versión exacta. Los de
 ## Validación final local
 
 Pasan 707 pruebas unitarias, lint, ocho casos finales de ambas páginas, catálogo y filtros y seis de regresión sobre Widowmaker, Wuyang y el modo de revisión de anuncios. La prueba de identidad construye versiones de prueba con huella válida para demostrar que se rechazan duplicados con distinta puntuación, héroes desconocidos y roles incorrectos incluso después del control de revisión exacta. Se inspeccionan la captura completa de escritorio y cabecera móvil de la guía corregida; las composiciones conservan el contenido cuya presentación ya se inspeccionó en ambos tamaños. Texto íntegro, FAQ, equipos, fechas, enlaces, imágenes, vídeo e idioma, botón de reproducción, sitemap y ausencia de desbordamientos y anuncios correctos. Falta desplegar y comprobar las URLs públicas.
+
+## Resultado público
+
+Vercel confirma el commit `e9ecdc2` en [este despliegue de producción](https://vercel.com/masiajavs-projects/peakform/FQ9LEJPMZ8rrybgWGHBnaNvwTYeq). Pasan las 60 respuestas HTTP y la redirección de su alias: ambas URLs responden 200, sin noindex, incluidas en sitemap, con fechas y fuente de vídeo correctos y sin anuncios. Los 54 artículos anteriores y cuatro controles conservan su estado. Pasan cuatro casos adicionales de navegador contra producción en móvil y escritorio. El ledger registra respuesta, huella, fecha, commit y despliegue por URL: **56 de 140 artículos habilitados y verificados; 84 pendientes de revisión**.

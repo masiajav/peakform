@@ -1609,7 +1609,12 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "6c905e25e270a865b000bbdbed699bb8bf82016bcbc12e787f5d524e0060cd68",
+        "note": "Lectura completa de llegada próxima y timing, quemaduras y Fan the Flames, destino de Inferno Rush, defensa y curación por impactos de Dancing Blaze, Ascent ofensiva y Revival al morir, VOD, tres FAQ y enlaces. Fila pública y modelo coinciden con el inventario. Ficha oficial confirma kit y minor Smoulder/Heat Shield y major Short Fuse/Hungering Blaze. Vídeo de Awkward de 2026-02-06 con título y canal coincidentes y playability OK; descripción leída sin capítulos, 1395 segundos. Faltan contexto de versión y lanzamiento, aplicación de perks actuales, versión con medios, enlaces y presentación final. No aprobada."
+      }
     },
     {
       "path": "/guides/ashe-guia-overwatch-angulos-dinamita",
@@ -1918,10 +1923,14 @@
       "sourceVersion": "13a2ef3769734f04de5da809766f46223ea22c53250d6a9993f9f4126f7aab87",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-doomfist-roadhog-guides-2026-10-29.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "2753351962609d41dd12c73cb981f4c0667cac11b8325091a22a22869ff03114",
+      "reviewedRenderedVersion": "274a27501d65f1503d937348c396ddee3444cfcfd2a33a31fb08154411d6aa9b",
+      "correction": "Se contextualizan vídeo de mayo de 2025 y apartado contra Sombra anterior al cambio de rol. Se aplican los cuatro perks actuales, incluido impacto contra pared de One-Two y absorción solo inicial de Power Matrix. Cuerpo y medios incorporados desde alias vinculados; primera publicación conservada y revisión del contenido 2026-10-29.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "13a2ef3769734f04de5da809766f46223ea22c53250d6a9993f9f4126f7aab87",
         "note": "Lectura completa de posición y salida, Slam/Punch y seguimiento, Hand Cannon, Power Block frente a control y laterales, dive/peel, aterrizaje de Meteor Strike, VOD, tres FAQ y enlaces. Fila pública y modelo coinciden con el inventario. Ficha oficial confirma One-Two/Survival of the Fittest minor y Aftershock/Power Matrix major. Vídeo incorporado desde alias confirmado: Kajor, 2025-05-28, título y canal coinciden, playability OK. Descripción y capítulos leídos; 620 segundos, apartado contra Sombra anterior a su cambio de rol. Faltan contexto histórico y de ese matchup, aplicación de perks actuales, versión final con medios, enlaces y presentación. No aprobada."
@@ -2740,10 +2749,14 @@
       "sourceVersion": "e256f126af6cef077dfbcc7cc733d70449a2edc52b98a2a7be10f4a91ce47659",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-doomfist-roadhog-guides-2026-10-29.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-29",
+      "reviewedVersion": "704fa366f0744c66c92105f2f811002361a7a72774cdc881be9552f04e17366e",
+      "reviewedRenderedVersion": "af1648d84088a0fe76535e73b3f17a6cc992a9bd160275988c8492bc3e9c5ea1",
+      "correction": "Se corrige el título conocido de LeonDrummer y se fecha el vídeo histórico de 2022, anterior a los reworks actuales. Se aplican Hogdrogen Exposure y Toxic Exhaust como alternativas major, manteniendo límites de cobertura y anticuración y los minor del rework. Cuerpo y medios vinculados; primera publicación conservada y revisión del contenido 2026-10-29.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "e256f126af6cef077dfbcc7cc733d70449a2edc52b98a2a7be10f4a91ce47659",
         "note": "Lectura completa del rework de Season 5, dos ráfagas, recepción y seguimiento del hook, recursos enemigos, fallo del gancho, Breather, Trash Compactor frontal y disparo de retorno, Whole Hog y minor, VOD, tres FAQ y enlaces. Fila pública y modelo coinciden con el inventario. Ficha y notas oficiales confirman rework y minor; major actuales Hogdrogen Exposure/Toxic Exhaust requieren contexto. Vídeo confirmado: LeonDrummer, 2022-10-17, playability OK, título real Guía básica: Roadhog | Overwatch 2. Descripción leída, sin capítulos; 272 segundos. Ya se advierte del kit anterior, pero faltan identidad exacta, contexto fechado, opciones major, versión con medios, enlaces y presentación final. No aprobada."
@@ -2885,9 +2898,29 @@
       "sourceVersion": "916e6bd6fa6e096aff2fcc099e81c8ee64c00a6ca48c684d676d946961132be0",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-soldier-76-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/soldier-76-guia-overwatch-off-angles",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "73082ebc6c1ca0e5b73e714a78cf88223e518ec666c60dee946501e10c72c834",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-29T18:09:23.128Z",
+        "commit": "e9ecdc2406aaa798b3a1bc08b332988e282649ce",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/FQ9LEJPMZ8rrybgWGHBnaNvwTYeq",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "4074bb7f1391d505d8189db86fe465665eeb9c5ebf3f401e625f4840d11370e4",
       "correction": "Se corrige el título conocido de Metro y se contextualiza el vídeo de octubre de 2022, anterior a los perks actuales. Se explica recarga durante Sprint y su penalización temporal, las cuatro opciones actuales y reemplazo del Field compartido por Stim Pack personal. Cuerpo y medios incorporados desde alias vinculados; primera publicación conservada y revisión del contenido 2026-10-29.",
@@ -2937,7 +2970,12 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-29",
+        "textVersion": "7e0512b62aba03df0a2252b6894b152993dbda1bb297b7aa6297b91e145ef35b",
+        "note": "Lectura completa de Support desde Season 5, prioridades de Hotfix, sigilo, Cyberspace y Weaken sin anticuración, major, hack de botiquines/dispositivos, lateral con curación y Translocator, EMP y Life Hack, VOD, tres FAQ y enlaces. Modelo actual y fila pública coinciden con el inventario. Ficha y notas oficiales confirman kit y cuatro perks actuales. Vídeo LeonDrummer de 2022-10-13 con playability OK; título real Guía básica: Sombra | Overwatch 2, descripción leída sin capítulos, 328 segundos. Se detecta tag dps heredada pese al role Support; falta corregirla sin ocultar ediciones inesperadas. También faltan título conocido, contexto fechado, concreción de CTRL ALT ESC, versión con medios, enlaces y presentación final. No aprobada."
+      }
     },
     {
       "path": "/guides/support-tempo-utilidad-supervivencia",
@@ -4756,9 +4794,26 @@
       "sourceVersion": "5fa6cc9c494bec1e1aa0a1d5af78c640d93a54c5a5c311047c601b112dd45ff4",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-soldier-76-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/soldier-76",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "71760a020e7106b5a1f5c27ce0d128df77c6a2769f97d68e1200a2e541c31231",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-29T18:09:23.128Z",
+        "commit": "e9ecdc2406aaa798b3a1bc08b332988e282649ce",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/FQ9LEJPMZ8rrybgWGHBnaNvwTYeq",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "5fa6cc9c494bec1e1aa0a1d5af78c640d93a54c5a5c311047c601b112dd45ff4",
       "correction": "Texto y fecha 2026-10-02 conservados tras verificar kit, equipos y roles 5v5/6v6, ayudas, rotación, FAQ, enlaces y presentación. Se corrige el validador de identidad de héroes para reconocer Soldier: 76 y Soldier-76 sin aceptar duplicados, desconocidos ni roles incorrectos. No se inventa primera fecha de publicación.",
@@ -4996,8 +5051,8 @@
     }
   ],
   "progress": {
-    "reviewed": 56,
-    "publishedAndVerified": 54,
-    "pending": 84
+    "reviewed": 58,
+    "publishedAndVerified": 56,
+    "pending": 82
   }
 }

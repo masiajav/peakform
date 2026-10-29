@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 29 de octubre: **56 de 140 artículos revisados; 54 habilitados y verificados en producción, dos de Soldier 76 pendientes de despliegue y comprobación pública; 84 pendientes de revisión**. Último lote verificado públicamente: Widowmaker. Siguiente revisión iniciada: guías de Doomfist y Roadhog. Los anuncios mantienen su configuración previa.
+Estado comprobado al 29 de octubre: **58 de 140 artículos revisados; 56 habilitados y verificados en producción, dos de Doomfist y Roadhog pendientes de despliegue y comprobación pública; 82 pendientes de revisión**. Último lote verificado públicamente: Soldier 76. Siguiente revisión iniciada: guías de Sombra y Anran. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 
@@ -224,3 +224,11 @@ La revisión inicial de Soldier 76 añade seis casos correctos de navegador y cu
 Se completa la revisión individual de guía y composiciones. La guía corrige el título conocido de Metro, contextualiza octubre de 2022, explica recarga durante Sprint y sus límites y aplica los perks actuales, diferenciando Field compartido de Stim Pack personal. Las composiciones conservan texto y fecha. El validador reconoce el nombre con dos puntos y el del catálogo como un mismo héroe y rechaza duplicados de identidad. Pasan 707 pruebas unitarias, lint, ocho casos finales y seis de regresión, además de seis iniciales. Se inspeccionan las cuatro capturas iniciales y las dos de la guía corregida. Evidencia: [revisión de Soldier 76](indexing-review-soldier-76-2026-10-29.md). Las dos URLs quedan pendientes de despliegue y comprobación pública.
 
 Se leen por separado las guías siguientes de Doomfist y Roadhog y se contrastan los modelos actuales y fuentes oficiales. El vídeo de Doomfist es anterior a la Sombra Support; el de Roadhog, de 2022, es anterior al rework. Se registran sus correcciones y verificaciones pendientes sin aprobarlas.
+
+Soldier 76 queda desplegado y verificado en el commit e9ecdc2: 60 respuestas HTTP y una redirección correctas, más cuatro casos de navegador contra producción. Ambas URLs están en el sitemap y sin noindex; los controles y los 54 artículos anteriores conservan su estado. Total verificado: **56 de 140; 84 pendientes**.
+
+## Vigésimo tercer lote: guías de Doomfist y Roadhog
+
+Se completa la revisión individual de ambas guías. Doomfist aplica sus cuatro perks y precisa la absorción inicial de Power Matrix; contextualiza el vídeo de 2025 y su matchup antiguo de Sombra. Roadhog diferencia sus dos major, corrige el título conocido y fecha el contexto anterior a los reworks. Pasan 707 pruebas unitarias, lint, seis casos finales y seis de regresión, además de ocho iniciales. Se inspeccionan cuatro capturas iniciales y cuatro finales. Evidencia: [revisión de Doomfist y Roadhog](indexing-review-doomfist-roadhog-guides-2026-10-29.md). Ambas URLs quedan pendientes de despliegue y comprobación pública.
+
+Se leen completas y por separado las guías siguientes de Sombra y Anran, se contrastan sus modelos actuales, fichas y vídeos. Sombra conserva una etiqueta dps heredada que requiere corrección controlada y contexto del vídeo de 2022. Anran necesita contexto y aplicación de perks actuales. Ambas siguen pendientes y excluidas.

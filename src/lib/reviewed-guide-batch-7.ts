@@ -169,8 +169,14 @@ Para preparar los accesos, consulta [Lijiang Tower](/maps/lijiang-tower). Puedes
     description: 'Aprende a preparar el hook de Roadhog, proteger un cruce con Trash Compactor y gestionar Breather. Ejemplos de ranked y errores del rework de Season 5.',
     quickAnswer: 'Con el rework de Season 5, Roadhog tiene que preparar el seguimiento del hook y aprovechar Trash Compactor para proteger el avance. Juega una esquina donde tus compañeros vean al objetivo, conserva munición y gira hacia el fuego que necesitas absorber. No te quedes en abierto esperando que Breather resuelva todo el daño.',
     videoSlug: 'roadhog-guia-video-overwatch',
-    videoDescription: 'El vídeo que acompaña esta guía corresponde al kit anterior. Puede servir para observar esquinas y seguimiento, pero no para copiar el disparo secundario o el combo antiguo.',
-    revisedAt: '2026-10-10',
+    sourceVideoTitle: 'Guia basica: Roadhog | Overwatch',
+    reviewedVideo: {
+      video_id: 'vA288jtjUJY', video_url: 'https://www.youtube.com/watch?v=vA288jtjUJY', video_platform: 'youtube',
+      video_title: 'Guía básica: Roadhog | Overwatch 2', video_channel: 'LeonDrummer', video_language: 'es', video_published_at: '2022-10-17',
+    },
+    renderedContentVersion: 'af1648d84088a0fe76535e73b3f17a6cc992a9bd160275988c8492bc3e9c5ea1',
+    videoDescription: 'Vídeo de LeonDrummer publicado el 17 de octubre de 2022. Corresponde al kit anterior a los reworks actuales y no muestra Trash Compactor ni las opciones vigentes de perks. Puede servir como referencia histórica de esquinas y seguimiento, pero no para copiar el antiguo disparo secundario, el combo o sus cifras. El artículo escrito contrasta por separado el Roadhog de Season 5, incluidos Hogdrogen Exposure y Toxic Exhaust.',
+    revisedAt: '2026-10-29',
     body: `## Qué cambia al jugar el Roadhog de Season 5
 
 El rework está disponible desde el 6 de octubre de 2026. Scrap Gun dispara dos ráfagas por pulsación y Trash Compactor ocupa el disparo secundario. El hook sigue desplazando al enemigo, pero no conviene jugar como si cada enganche asegurara una baja inmediata. Prepara el tiro siguiente y la ayuda del equipo antes de asomarte.
@@ -218,6 +224,14 @@ Al terminar, devuelves un disparo explosivo que gana daño con lo absorbido. Apu
 En King's Row, puedes ayudar al equipo a cruzar una calle expuesta mirando al ángulo que os está frenando. Avanza hasta la siguiente cobertura, no hasta la siguiente víctima. Si el rival deja de disparar y cambia de lado, ya habéis ganado tiempo para moveros; no necesitas absorber mucho daño para que el uso haya servido.
 
 Cuando vuelva a estar en cooldown, conserva una esquina desde la que puedas recibir ayuda. Trash Compactor y Breather resuelven problemas distintos: uno responde al fuego frontal y el otro permite recuperar vida. Gastar ambos para sostener el mismo peek, sin avance ni seguimiento, suele dejarte vendido en el siguiente intento.
+
+## Los perks major cambian a quién ayudas y qué dirección amenazas
+
+Hogdrogen Exposure permite que Take a Breather cure también a aliados cercanos. Es una ayuda opcional para una posición compartida, no curación a distancia ni una razón para reunir a todo el equipo en una calle expuesta. Mira quién puede beneficiarse sin perder cobertura y conserva la ayuda de tus supports. El perk no limpia anticuración ni convierte a Roadhog en una respuesta para cualquier daño sobre el grupo.
+
+Toxic Exhaust, la alternativa major, ralentiza y hace daño a enemigos delante de Roadhog mientras Trash Compactor está activo. Si lo eliges, orienta esa presión hacia el acceso que quieres disputar; no afecta automáticamente a quienes te atacan desde detrás o desde otro lateral. El efecto adicional tampoco exige perseguir hasta su backline: controlar una entrada durante el cruce aliado puede aportar más que alargar el duelo fuera de la curación.
+
+Comprueba la opción que llevas antes de planear el siguiente intercambio. No cuentes a la vez con la curación compartida de Hogdrogen Exposure y el efecto frontal de Toxic Exhaust. Con cualquiera de las dos, una esquina y compañeros con tiro sobre el objetivo siguen siendo más útiles que gastar todas tus defensas para mantener el mismo peek.
 
 ## Whole Hog se orienta según lo que necesitas desplazar
 
