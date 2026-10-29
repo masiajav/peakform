@@ -2104,7 +2104,15 @@
       "partialReview": {
         "readAt": "2026-10-29",
         "textVersion": "b46f1942df2e2dafc2f5ab94eced7fd2abf465833d54a728b2ac03bf643a030e",
-        "note": "Lectura completa de muro con visión aliada, Leap y Vault con aterrizaje viable, Spike Guard frontal y munición, aislamiento real, Downpour con seguimiento, VOD, tres FAQ y enlaces. Modelo actual y fila pública coinciden con el inventario. Ficha oficial confirma Reconstitution/Anarchic Zeal minor y Deep Leap/Explosive Impalements major. Vídeo de Spilo del 20 de enero de 2025 confirmado por watch y oEmbed, playability OK; descripción y capítulos leídos. Faltan contexto del material anterior a perks, concreción de opciones actuales, versión final con medios, enlaces y presentación. No aprobada."
+        "note": "Lectura completa de muro con visión aliada, Leap y Vault con aterrizaje viable, Spike Guard frontal y munición, aislamiento real, Downpour con seguimiento, VOD, tres FAQ y enlaces. Modelo actual y fila pública coinciden con el inventario. Ficha oficial confirma Reconstitution/Anarchic Zeal minor y Deep Leap/Explosive Impalements major. Vídeo de Spilo del 20 de enero de 2025 confirmado por watch y oEmbed, playability OK; descripción y capítulos leídos. Faltan contexto del material anterior a perks, concreción de opciones actuales, versión final con medios, enlaces y presentación. No aprobada.",
+        "baseline": {
+          "checkedAt": "2026-10-29",
+          "baseCommit": "13cd29a",
+          "cases": 6,
+          "log": "reports/indexing-review-2026-10-27/release-batch-eighteen/baseline-eighteen.log",
+          "screenshots": "reports/indexing-review-2026-10-27/release-batch-eighteen/reports/",
+          "note": "Ambos artículos aún excluidos pasan en móvil y escritorio, incluido el botón de reproducción del vídeo. Se inspeccionan las dos capturas completas de escritorio y las dos cabeceras móviles. Enlaces, FAQ, fechas, imágenes, metadatos y ausencia de overflow y anuncios correctos. Falta contexto, concreción de perks y comprobar las versiones finales; sin aprobación."
+        }
       }
     },
     {
@@ -3002,9 +3010,29 @@
       "sourceVersion": "2df8ff39e3b52ccde9b93cb82b61bacb27e5257de9fd81cf16811860c18dcad7",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-venture-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/venture-guia-video-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "9fd0f2d2216c20996598a61fdf37a341d95a969f32051c00072892b652926881",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-29T17:23:00.988Z",
+        "commit": "13cd29afd5a782618e14a7e768c9dbed99150aca",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/DRVM4o8s8YiwYvB55NRciMkvTidi",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "a51ff04660939f9eee5bb4790a41a519807bd563b96398aabe26ee6ce432e31e",
       "correction": "Se precisa la recarga acelerada de Drill Dash durante Burrow y se aplican los cuatro perks actuales, con alcance activado y escudos de Clobber condicionados. Se corrige el título conocido de PlayOverwatch y contextualiza abril de 2024. Cuerpo y medios vinculados; primera publicación conservada y revisión del contenido 2026-10-29.",
@@ -4043,7 +4071,15 @@
       "partialReview": {
         "readAt": "2026-10-29",
         "textVersion": "932fe2801db91ee2acf63367984461b86f4b8d8aa2ff4a1972307b318ee91757",
-        "note": "Lectura completa de equipos Venture/Cassidy, Genji/Ashe y Zarya/Venture/Soldier en 6v6, todos sus argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, FAQ y enlaces. Modelo actual coincide con el inventario. Roles y formatos coherentes; Spike Guard frontal y lifesteal solo con Anarchic Zeal, confirmado en la ficha oficial. Faltan enlaces y presentación final. No aprobada."
+        "note": "Lectura completa de equipos Venture/Cassidy, Genji/Ashe y Zarya/Venture/Soldier en 6v6, todos sus argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, FAQ y enlaces. Modelo actual coincide con el inventario. Roles y formatos coherentes; Spike Guard frontal y lifesteal solo con Anarchic Zeal, confirmado en la ficha oficial. Faltan enlaces y presentación final. No aprobada.",
+        "baseline": {
+          "checkedAt": "2026-10-29",
+          "baseCommit": "13cd29a",
+          "cases": 6,
+          "log": "reports/indexing-review-2026-10-27/release-batch-eighteen/baseline-eighteen.log",
+          "screenshots": "reports/indexing-review-2026-10-27/release-batch-eighteen/reports/",
+          "note": "Ambos artículos aún excluidos pasan en móvil y escritorio, incluido el botón de reproducción del vídeo. Se inspeccionan las dos capturas completas de escritorio y las dos cabeceras móviles. Enlaces, FAQ, fechas, imágenes, metadatos y ausencia de overflow y anuncios correctos. Falta contexto, concreción de perks y comprobar las versiones finales; sin aprobación."
+        }
       }
     },
     {
@@ -4597,9 +4633,26 @@
       "sourceVersion": "6c7fede4867a2ad2d7b39340ae62d236a67cbeab61484939a9b5831cd3682419",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-venture-2026-10-29.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/venture",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "32aa4e74bdf656fbefc1b42d2db77d56732bc976d1a8792945fe6af2811edfb1",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-29T17:23:00.988Z",
+        "commit": "13cd29afd5a782618e14a7e768c9dbed99150aca",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/DRVM4o8s8YiwYvB55NRciMkvTidi",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-29",
       "reviewedVersion": "6c7fede4867a2ad2d7b39340ae62d236a67cbeab61484939a9b5831cd3682419",
       "correction": "Texto y fecha 2026-10-02 conservados tras contrastar protección subterránea, alcance temporal opcional, equipos y roles, ayudas, rotaciones, FAQ y fuentes."
@@ -4677,7 +4730,7 @@
   ],
   "progress": {
     "reviewed": 46,
-    "publishedAndVerified": 44,
+    "publishedAndVerified": 46,
     "pending": 94
   }
 }

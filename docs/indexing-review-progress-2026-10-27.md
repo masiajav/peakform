@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 29 de octubre: **46 de 140 artículos revisados; 44 habilitados y verificados en producción, dos pendientes de despliegue y comprobación pública; 94 pendientes de revisión**. Último lote verificado públicamente: Junkrat. Venture supera la revisión local; siguiente lectura iniciada: Hazard. Los anuncios mantienen su configuración previa.
+Estado comprobado al 29 de octubre: **46 de 140 artículos revisados, habilitados y verificados en producción; 94 pendientes de revisión**. Último lote verificado públicamente: Venture. Siguiente revisión iniciada: guía y composiciones de Hazard. Los anuncios mantienen su configuración previa.
 
 ## Inventario y alcance
 
@@ -178,3 +178,7 @@ Se completa la revisión individual de guía y composiciones. La guía precisa l
 Evidencia: [revisión de Venture](indexing-review-venture-2026-10-29.md). Pasan lint, 705 pruebas unitarias, build, ocho casos finales de navegador y seis de regresión, además de seis iniciales. Se inspeccionan móvil y escritorio; se mantienen otras exclusiones y los anuncios no cambian. Estado provisional: **46 artículos revisados de 140; 44 publicados y verificados; dos pendientes de comprobar en producción; 94 pendientes de revisión**.
 
 Se leen completos guía y composiciones de Hazard y se comprueban modelos, fila pública, ficha oficial y vídeo de Spilo del 20 de enero de 2025. Se leen descripción y capítulos, sin afirmar haber visto toda la grabación. El texto distingue protección frontal y munición de Spike Guard, y el lifesteal de Anarchic Zeal figura como opcional en las composiciones. Faltan contexto de vídeo, perks concretados, enlaces y presentación final. Se registran las lecturas sin aprobar ambas URLs. El objetivo global sigue activo.
+
+Despliegue `13cd29a` completado, confirmado por GitHub con Vercel `DRVM4o8s8YiwYvB55NRciMkvTidi` y comprobado públicamente. Pasan cincuenta respuestas públicas (dos nuevas, 44 anteriores y cuatro exclusiones), el alias 308 de Sojourn y cuatro casos de navegador público en móvil y escritorio. Estado: **46 artículos revisados, habilitados y verificados públicamente de 140; 94 pendientes**.
+
+Hazard supera además seis comprobaciones iniciales de los dos artículos todavía excluidos y el botón de reproducción en ambos dispositivos, en una copia aislada de `13cd29a`. Se inspeccionan las dos capturas completas de escritorio y las dos cabeceras móviles; enlaces, FAQ, fechas, imágenes, metadatos y ausencia de overflow y anuncios son correctos en esa versión. Falta contextualizar el vídeo, concretar perks y comprobar las versiones corregidas. Estas pruebas se registran como preliminares: no habilitan indexación ni conceden aprobación. El objetivo global sigue activo.
