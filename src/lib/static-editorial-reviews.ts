@@ -1074,6 +1074,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/content-review-comps-tracer-zarya-2026-10-05.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/juno-guia-video-overwatch': {
+    path: '/guides/juno-guia-video-overwatch',
+    version: '518d6739392213c2ba06cbcb28ac89313c57571ce39849dc3c5cf1d33905246c',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-juno-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/juno': {
+    path: '/team-comps/juno',
+    version: '9228b6af1b1576a7c6d3283d1b4c38b8737d5454e70a59dae3660ef1680812f1',
+    reviewedAt: '2026-10-29', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-juno-2026-10-29.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/guides/mercy-guia-overwatch-pocket-resurrect': {
     path: '/guides/mercy-guia-overwatch-pocket-resurrect',
     version: '264c3fc2e8710f4295afb83fdf8705440481b83b200ab43b47b187f4c2b13dd3',

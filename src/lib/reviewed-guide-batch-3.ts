@@ -497,7 +497,14 @@ No. Negar una disputa del objetivo o asegurar una baja decisiva puede ser sufici
     description: 'Usa Juno para algo más que curar al Tank: coloca Hyper Ring en la rotación, elige ventanas para los torpedos y prepara Orbital Ray con tu equipo.',
     quickAnswer: 'Juno necesita ver a sus aliados sin quedar flotando en una línea de tiro abierta. Coloca Hyper Ring en el recorrido que el equipo vaya a usar y prepara los torpedos desde cobertura. Antes de Orbital Ray, acuerda hacia dónde vais a avanzar: el rayo pierde utilidad si el grupo se queda atrás o gira por otra puerta.',
     videoSlug: 'juno-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    renderedContentVersion: 'ef54455a9d2c4ddac889acee8aacf4e1f67fc80a550e096e82e9f9742bc3c1c3',
+    revisedAt: '2026-10-29',
+    sourceVideoTitle: 'THIS Is How To Play Juno In Overwatch || 23 Tips to Rank Up on Juno',
+    reviewedVideo: {
+      video_id: 'IJUYdqTJYS8', video_url: 'https://www.youtube.com/watch?v=IJUYdqTJYS8', video_platform: 'youtube',
+      video_title: 'THIS Is How To Play Juno In Overwatch 2 || 23 Tips to Rank Up on Juno', video_channel: 'oatmilk_ow', video_language: 'en', video_published_at: '2025-07-16',
+    },
+    videoDescription: 'Vídeo de oatmilk_ow publicado el 16 de julio de 2025, con capítulos sobre torpedos, Hyper Ring, Glide Boost, Orbital Ray y prioridades generales. Es anterior al cambio de Season 18 que situó Locked On como alternativa minor a Familiar Vitals. Compara rutas y decisiones sin copiar automáticamente sus cifras o selección de mejoras; el artículo escrito contrasta los perks vigentes y sus condiciones.',
     body: `## La movilidad no sustituye una pared
 
 Con Juno puedes moverte con agilidad y ajustar la altura, pero permanecer en el aire sin protección te hace fácil de seguir para un hitscan. Usa el movimiento para cambiar de línea o completar un cruce, no para flotar constantemente delante del rival.
@@ -527,6 +534,14 @@ Pulsar Torpedoes permite atender a aliados y presionar enemigos, pero necesitas 
 Prepara la fijación desde una línea protegida y elige el momento en que los objetivos todavía podrán recibir los proyectiles. Si varios están a punto de doblar una esquina, no des por hecho que todos los marcados se convertirán en valor real. Mira qué ocurrió después del lanzamiento.
 
 Antes de dedicar ese tiempo a los torpedos, comprueba si alguien necesita una respuesta inmediata. Una habilidad útil para varios no sustituye automáticamente la curación urgente de un compañero que está bajo focus.
+
+## Los perks cambian la fijación o la movilidad que puedes aprovechar
+
+Familiar Vitals acelera la fijación de Pulsar Torpedoes sobre aliados. Puede acortar la preparación de una ayuda, pero no mejora del mismo modo la fijación de enemigos ni elimina la necesidad de una línea protegida. Locked On es la alternativa minor: reduce el cooldown de los torpedos por cada enemigo alcanzado. Marcar varios rivales no basta si los proyectiles no llegan; después de disparar, comprueba qué impactos conseguiste antes de planear el siguiente uso.
+
+Lift Off añade un tercer salto a Martian Overboots. Si lo eliges, identifica qué altura o cobertura quieres alcanzar y cómo volverás a una línea de curación. El salto adicional no es parte del kit por defecto ni justifica quedarte suspendida delante de un tirador que ya controla tu trayectoria.
+
+Faster Blaster, la otra opción major, permite que Mediblaster dispare de forma continua mientras Glide Boost está activo. Para aprovecharlo, prepara un recorrido desde el que puedas ver y apuntar a quienes necesitan ayuda, sin gastar la movilidad solo por conseguir esa ventana de disparo. Cuando Glide Boost termina, esa condición deja de cumplirse. Tampoco cuentes con el tercer salto de Lift Off si has elegido esta alternativa.
 
 ## Orbital Ray debe recorrer la pelea que vais a jugar
 

@@ -81,6 +81,7 @@ describe('version-bound static editorial reviews', () => {
       '/guides/lucio-guia-overwatch-speed-peel', '/team-comps/lucio',
       '/guides/zenyatta-guia-overwatch-discord-transcendence', '/team-comps/zenyatta',
       '/guides/mercy-guia-overwatch-pocket-resurrect', '/team-comps/mercy',
+      '/guides/juno-guia-video-overwatch', '/team-comps/juno',
       '/heroes/ana', '/heroes/cassidy', '/heroes/dmon', '/heroes/doctrine', '/heroes/dva', '/heroes/genji', '/heroes/kiriko', '/heroes/reinhardt', '/heroes/shion', '/heroes/tracer', '/heroes/winston', '/heroes/zarya', '/roles/flex',
       '/team-comps/ana', '/team-comps/cassidy', '/team-comps/doctrine', '/team-comps/domina', '/team-comps/dva', '/team-comps/genji', '/team-comps/jetpack-cat', '/team-comps/kiriko', '/team-comps/reinhardt', '/team-comps/roadhog', '/team-comps/sombra', '/team-comps/tracer', '/team-comps/winston', '/team-comps/wuyang', '/team-comps/zarya',
     ].sort())
