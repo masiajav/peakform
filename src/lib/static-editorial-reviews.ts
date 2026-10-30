@@ -1074,6 +1074,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/content-review-comps-tracer-zarya-2026-10-05.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/orisa-guia-overwatch-fortify-javelin': {
+    path: '/guides/orisa-guia-overwatch-fortify-javelin',
+    version: '75f321d6ddf81d2ccbe8147464366c513f8745fb0bf903cd83df5feb39c0a835',
+    reviewedAt: '2026-10-30', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-orisa-2026-10-30.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/orisa': {
+    path: '/team-comps/orisa',
+    version: '53eea621f16419afa713aac908926ad7932ab1dd11bc62b4d7d2fa6a9f5fa76c',
+    reviewedAt: '2026-10-30', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-orisa-2026-10-30.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/guides/lifeweaver-guia-video-overwatch': {
     path: '/guides/lifeweaver-guia-video-overwatch',
     version: '1b7595a00c97401140624e517e636e01220db30d59dd7f89edfb9d462d8e95b9',

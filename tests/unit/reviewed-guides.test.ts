@@ -50,7 +50,7 @@ describe('reviewed guide batch', () => {
   })
   it('replaces the article without changing its identity or original publication date', () => {
     const revised = applyReviewedGuideRevision(original)
-    expect(revised).toMatchObject({ id: original.id, slug: original.slug, created_at: original.created_at, author: 'Replaid Lab', updated_at: GUIDE_REVISION_DATE })
+    expect(revised).toMatchObject({ id: original.id, slug: original.slug, created_at: original.created_at, author: 'Replaid Lab', updated_at: '2026-10-30' })
     expect(revised.body).toContain('Energy Javelin')
     expect(revised.body).toContain("King's Row")
     expect(revised.body).not.toContain('Resumen antiguo')

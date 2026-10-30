@@ -2484,9 +2484,29 @@
       "sourceVersion": "b80aec409975bbd555dd19cb177125c6e92b5acba8b1cf63f03cddb0240e1b2a",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-lifeweaver-2026-10-30.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/lifeweaver-guia-video-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "6d5d0ba2b9605a2a6732bd4df2b8d44770705c254e7644a77ebb9bca754ee429",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-30T19:17:54.561Z",
+        "commit": "9297730a42fb9e9e8295b496720c6a6e972d194e",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/79WE9wmDbN6Wor9xXCTkaEBdwZoM",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-30",
       "reviewedVersion": "1b7595a00c97401140624e517e636e01220db30d59dd7f89edfb9d462d8e95b9",
       "correction": "Título conocido de HolyShiftKid corregido y contexto de marzo de 2025. Se añaden limpieza de Life Grip, carga pasiva más lenta, curación de Petal, distancia de Dash y alternativas Sow the Seed/Superbloom con sus condiciones. Cuerpo y vídeo nativo vinculados; publicación del 6 de mayo conservada y revisión del texto 2026-10-30.",
@@ -2783,9 +2803,13 @@
       "sourceVersion": "e59f36a93450175e7863592abe1b483172faca30232743d9c74a4a939cc45a17",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-orisa-2026-10-30.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-30",
+      "reviewedVersion": "75f321d6ddf81d2ccbe8147464366c513f8745fb0bf903cd83df5feb39c0a835",
+      "correction": "Contexto del vídeo de Kajor de junio de 2025 y decisiones de Defense Protocol/Mobile Fortification y Heavy Javelin/Protective Barrier. La respuesta rápida y descripción contemplan el reemplazo de Spin en lugar de dar ambas defensas por disponibles. Cuerpo y medios del alias vinculados; primera publicación conservada y revisión del texto 2026-10-30.",
+      "reviewedRenderedVersion": "f0b235d187c8771e84df481ea066475791d57f1405694a05b899e2ff13a7e494"
     },
     {
       "path": "/guides/orisa-guia-video-overwatch",
@@ -4784,9 +4808,26 @@
       "sourceVersion": "f82c1ce0df436499e731c572e0e3bba4de42b4ee81d30e8950ed504fa4b5ef09",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-lifeweaver-2026-10-30.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/lifeweaver",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "244c82064b8e1cc094c1cb17a1f9b80ed9bec646715cdafb9b193676fa2603b3",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-30T19:17:54.561Z",
+        "commit": "9297730a42fb9e9e8295b496720c6a6e972d194e",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/79WE9wmDbN6Wor9xXCTkaEBdwZoM",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-30",
       "reviewedVersion": "f82c1ce0df436499e731c572e0e3bba4de42b4ee81d30e8950ed504fa4b5ef09",
       "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar equipos, roles, formatos, destino del rescate, limpieza de un aliado retirado, demanda de dos Tanks, Petal y Tree. Todos los párrafos, FAQ, enlaces y presentación comprobados en móvil y escritorio. No se inventa primera publicación.",
@@ -5013,9 +5054,12 @@
       "sourceVersion": "53eea621f16419afa713aac908926ad7932ab1dd11bc62b4d7d2fa6a9f5fa76c",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-orisa-2026-10-30.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-30",
+      "reviewedVersion": "53eea621f16419afa713aac908926ad7932ab1dd11bc62b4d7d2fa6a9f5fa76c",
+      "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar equipos, roles, formatos, reparto de frente/altura, seguimiento, defensa elegida y límites de Terra Surge. Todos los párrafos, FAQ, enlaces y presentación comprobados en móvil y escritorio. No se inventa primera publicación."
     },
     {
       "path": "/team-comps/pharah",
@@ -5476,8 +5520,8 @@
     }
   ],
   "progress": {
-    "reviewed": 74,
-    "publishedAndVerified": 72,
-    "pending": 66
+    "reviewed": 76,
+    "publishedAndVerified": 74,
+    "pending": 64
   }
 }

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { generateMetadata } from '@/app/team-comps/[hero]/page'
 import { absoluteUrl } from '@/lib/seo'
+import { STATIC_EDITORIAL_REVIEWS } from '@/lib/static-editorial-reviews'
 
 describe('composition metadata follows the publication decision', () => {
   it('explicitly indexes only the individually approved compositions', async () => {
@@ -12,10 +13,19 @@ describe('composition metadata follows the publication decision', () => {
   })
 
   it('does not index an existing composition without an exact review', async () => {
-    for (const hero of ['orisa', 'sigma']) {
-      const metadata = await generateMetadata({ params: Promise.resolve({ hero }) })
-      expect(metadata.robots).toEqual({ index: false, follow: true })
-      expect(metadata.alternates?.canonical).toBe(absoluteUrl(`/team-comps/${hero}`))
+    const reviews = STATIC_EDITORIAL_REVIEWS as Record<string, unknown>
+    for (const hero of ['orisa', 'ana']) {
+      const path = `/team-comps/${hero}`
+      const original = reviews[path]
+      expect(original).toBeDefined()
+      try {
+        delete reviews[path]
+        const metadata = await generateMetadata({ params: Promise.resolve({ hero }) })
+        expect(metadata.robots).toEqual({ index: false, follow: true })
+        expect(metadata.alternates?.canonical).toBe(absoluteUrl(path))
+      } finally { reviews[path] = original }
+      const restored = await generateMetadata({ params: Promise.resolve({ hero }) })
+      expect(restored.robots).toEqual({ index: true, follow: true })
     }
   })
 

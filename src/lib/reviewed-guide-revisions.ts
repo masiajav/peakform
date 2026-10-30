@@ -37,9 +37,16 @@ const firstGuideReviewBatch: Record<string, GuideRevision> = {
   'orisa-guia-overwatch-fortify-javelin': {
     hero: 'orisa',
     title: 'Cómo jugar Orisa: Fortify, jabalina y presión sin sobreextenderte',
-    description: 'Aprende a jugar Orisa sin depender de curación constante: alterna Fortify y Spin, elige objetivos para la jabalina y prepara Terra Surge.',
-    quickAnswer: 'Con Orisa, toma una esquina que tus supports puedan cubrir y alterna Fortify y Javelin Spin según la amenaza. Guarda la jabalina para cortar una entrada o castigar a alguien expuesto. Si el rival se retira fuera de la visión de tus supports, conserva el espacio que has ganado en vez de perseguirlo.',
+    description: 'Guía de Orisa para sostener esquinas, alternar Fortify con la defensa elegida, interrumpir con la jabalina y preparar Terra Surge con seguimiento.',
+    quickAnswer: 'Con Orisa, toma una esquina que tus supports puedan cubrir y alterna Fortify con Javelin Spin o con Protective Barrier si has elegido ese reemplazo. Guarda la jabalina para cortar una entrada o castigar a alguien expuesto. Si el rival se retira fuera de la visión de tus supports, conserva el espacio que has ganado en vez de perseguirlo.',
     videoSlug: 'orisa-guia-video-overwatch',
+    renderedContentVersion: 'f0b235d187c8771e84df481ea066475791d57f1405694a05b899e2ff13a7e494',
+    revisedAt: '2026-10-30',
+    reviewedVideo: {
+      video_id: 'sdf_-Ep780A', video_url: 'https://www.youtube.com/watch?v=sdf_-Ep780A', video_platform: 'youtube',
+      video_title: 'Orisa ISN\'T Boring...Here\'s Why | Orisa Guide', video_channel: 'Kajor', video_language: 'en', video_published_at: '2025-06-25',
+    },
+    videoDescription: 'Análisis de Kajor publicado el 25 de junio de 2025, con capítulos sobre presión, ángulos, jabalinas, Terra Surge, perks y agresión durante Fortify. Su selección de mejoras corresponde a aquella versión. El texto contrasta por separado los perks actuales y el reemplazo de Spin por Protective Barrier; no traslada automáticamente las cifras o secuencias de la grabación a tu partida.',
     body: `## La esquina importa más que aguantar en campo abierto
 
 Orisa puede sobrevivir a mucho daño, pero eso no convierte cualquier posición en una buena posición. Si necesitas que ambos supports te curen sin parar, tus DPS se quedan sin ayuda y el rival gana la pelea por otro lado. Usa la cobertura para reducir el daño que recibes antes de decidir qué cooldown gastar.
@@ -65,6 +72,16 @@ La pared detrás del objetivo también importa. Busca trayectorias claras y evit
 Contra Zarya, presta atención a las burbujas antes de mantener el gatillo pulsado. No disparar a una burbuja no significa dejar de jugar: puedes cambiar de objetivo, enfriar el arma o acercarte a una esquina mejor. Romperla tiene sentido cuando el equipo puede confirmar la baja, no cuando cada uno dispara a algo distinto.
 
 Contra Winston o D.Va, quedarse mirando al Tank que ha pasado detrás de ti puede regalar el frente al resto del equipo rival. Valora si puedes ayudar con la jabalina sin abandonar tu posición o si tus supports ya tienen una retirada. Si nadie puede contener el dive y tú no llegas a intervenir, replantea el pick o el plan del equipo; aguantar tú no basta.
+
+## Los perks cambian la defensa con la que preparas el contacto
+
+Defense Protocol regenera salud mientras cargas Terra Surge. Puede ayudar a sostener esa ventana, pero no convierte la carga máxima en el objetivo correcto: si los enemigos se marchan o tus aliados pierden el tiro, seguir cargando puede desperdiciar la oportunidad. Esa regeneración tampoco es una curación permanente fuera de la ultimate.
+
+Mobile Fortification es la alternativa minor. Durante Fortify elimina la reducción de velocidad de movimiento y la generación de calor. Si la eliges, puedes preparar una ventana de presión sin ese calor, pero al terminar Fortify vuelve a mirar el arma y tu cobertura. El perk no permite mantener indefinidamente el mismo ritmo de disparo o avance cuando ya no está activo.
+
+Heavy Javelin aumenta el empuje de Energy Javelin y añade daño al impacto contra una pared. Si escoges esta opción major, busca una trayectoria que termine en una pared útil y que tus DPS puedan seguir. Empujar al objetivo fuera de su tiro puede perder más valor del que aporta el impacto adicional.
+
+Protective Barrier es la otra opción major y sustituye Javelin Spin por el lanzamiento de una barrera. Prepara el cruce contando con esa versión de la defensa: no puedes gastar primero la barrera y después el Spin como si conservaras ambos. Tampoco cuentas a la vez con Heavy Javelin. Revisa qué amenaza cubre el recurso elegido antes de repetir una secuencia que viste en una grabación antigua.
 
 ## Terra Surge necesita enemigos que no puedan salir cómodamente
 

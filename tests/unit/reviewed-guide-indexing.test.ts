@@ -68,6 +68,7 @@ describe('individual publication of repository-owned guide revisions', () => {
       ['mercy-guia-overwatch-pocket-resurrect', 'mercy', 'support', ['mercy', 'support', 'pocket', 'resurrect', '6v6']],
       ['juno-guia-video-overwatch', 'juno', 'support', ['juno', 'support', 'video', 'youtube', '6v6', 'overwatch']],
       ['lifeweaver-guia-video-overwatch', 'lifeweaver', 'support', ['lifeweaver', 'support', 'video', 'youtube', '6v6', 'overwatch']],
+      ['orisa-guia-overwatch-fortify-javelin', 'orisa', 'tank', ['orisa', 'tank', 'frontline', 'javelin', '6v6']],
     ] as const) {
       const revision = reviewedGuideRevisions[slug]
       const raw = { slug, hero, role, tags: [...tags], published: true, created_at: '2026-05-05' }
