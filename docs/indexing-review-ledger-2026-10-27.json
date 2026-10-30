@@ -186,10 +186,13 @@
       "sourceVersion": "665c98c1a893c90c1f516124133db834582e3f960ef8da60f1df5c21e12dc1a7",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-emre-2026-10-30.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-30",
+      "reviewedVersion": "665c98c1a893c90c1f516124133db834582e3f960ef8da60f1df5c21e12dc1a7",
+      "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar respuestas dirigidas de D.Va, Genji, Ana y Sigma, ventanas, condiciones de perks y límites de curación, control y seguimiento. Todos los párrafos, FAQ, enlaces y presentación comprobados en móvil y escritorio.",
+      "initialPartialReview": {
         "date": "2026-10-30",
         "contentRead": true,
         "modelUnchangedFromInventory": true,
@@ -2128,10 +2131,13 @@
       "sourceVersion": "ccf1a13c118cf522226a152603210fb58051fd9336af99c80a6cf17a6190bc56",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-emre-2026-10-30.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-30",
+      "reviewedVersion": "c05c7ab7b36ac4edb363cd02b4a65aaf1ee5e006aedff96aef34ffeebd9e578b",
+      "correction": "Vídeo de Awkward de marzo de 2026 contextualizado frente a ajustes posteriores de Siphon. Se explican las condiciones de los cuatro perks, las alternativas de cada nivel y Cyber Frag base frente a adhesión. Primera publicación conservada; revisión del texto el 30 de octubre.",
+      "initialPartialReview": {
         "date": "2026-10-30",
         "contentRead": true,
         "modelUnchangedFromInventory": true,
@@ -2140,7 +2146,8 @@
         "baselineCommit": "a0d6aac44c0eb574a43eee75b59edcde9402ead4",
         "baselineBrowserChecks": 8,
         "baselineVisualInspected": true
-      }
+      },
+      "reviewedRenderedVersion": "ca7bcf9b7002a2396cb38e3bba78ccacee6b8ffe9e044bb4bdc91f3bcf55ceac"
     },
     {
       "path": "/guides/flyers-composicion-pharah-echo-overwatch",
@@ -4652,10 +4659,13 @@
       "sourceVersion": "c2a844ba90dcdbcde434dc2b7e7f37321021509427fbfb197b05aefb7a249677",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-emre-2026-10-30.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-30",
+      "reviewedVersion": "c2a844ba90dcdbcde434dc2b7e7f37321021509427fbfb197b05aefb7a249677",
+      "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar los tres equipos, roles y formatos, seguimiento de Cyber Frag, recuperación personal y recursos al entrar. Todos los párrafos, FAQ, enlaces y presentación comprobados en móvil y escritorio.",
+      "initialPartialReview": {
         "date": "2026-10-30",
         "contentRead": true,
         "modelUnchangedFromInventory": true,
@@ -5719,8 +5729,8 @@
     }
   ],
   "progress": {
-    "reviewed": 82,
+    "reviewed": 85,
     "publishedAndVerified": 82,
-    "pending": 58
+    "pending": 55
   }
 }

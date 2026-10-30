@@ -1074,6 +1074,27 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/content-review-comps-tracer-zarya-2026-10-05.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/emre-guia-video-overwatch': {
+    path: '/guides/emre-guia-video-overwatch',
+    version: 'c05c7ab7b36ac4edb363cd02b4a65aaf1ee5e006aedff96aef34ffeebd9e578b',
+    reviewedAt: '2026-10-30', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-emre-2026-10-30.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/counters/emre': {
+    path: '/counters/emre',
+    version: '665c98c1a893c90c1f516124133db834582e3f960ef8da60f1df5c21e12dc1a7',
+    reviewedAt: '2026-10-30', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-emre-2026-10-30.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/emre': {
+    path: '/team-comps/emre',
+    version: 'c2a844ba90dcdbcde434dc2b7e7f37321021509427fbfb197b05aefb7a249677',
+    reviewedAt: '2026-10-30', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-emre-2026-10-30.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/guides/pharah-guia-overwatch-presion-aerea': {
     path: '/guides/pharah-guia-overwatch-presion-aerea',
     version: '9d05cd0d42c56d63c44d6e6136302592592c4d21a154fb490f6e86e0d1007720',

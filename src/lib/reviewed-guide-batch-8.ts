@@ -7,7 +7,13 @@ export const eighthGuideReviewBatch: Record<string, GuideRevision> = {
     description: 'Mejora con Emre: conecta las ráfagas, elige cuándo sacar Siphon Blaster y prepara Cyber Frag sin abandonar la ayuda de tu equipo.',
     quickAnswer: 'Emre funciona mejor cuando puede repetir ráfagas desde cobertura y cambiar de posición antes de que el rival concentre el daño. Usa Take Aim si la distancia pide precisión, pero deja de mirar por la mira cuando alguien entre a tu lado. Siphon Blaster permite responder en corto y recuperar vida al hacer daño; no garantiza ganar contra varios enemigos. Cyber Frag ayuda a presionar una esquina o una salida, no sustituye comprobar dónde está el objetivo.',
     videoSlug: 'emre-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-30',
+    renderedContentVersion: 'ca7bcf9b7002a2396cb38e3bba78ccacee6b8ffe9e044bb4bdc91f3bcf55ceac',
+    reviewedVideo: {
+      video_id: 'AtlaU2S8ci8', video_url: 'https://www.youtube.com/watch?v=AtlaU2S8ci8', video_platform: 'youtube',
+      video_title: 'How To Carry on Emre', video_channel: 'Awkward', video_language: 'en', video_published_at: '2026-03-04',
+    },
+    videoDescription: 'Vídeo en inglés de Awkward publicado el 4 de marzo de 2026. Compara sus decisiones de posición, objetivos y recursos con tu VOD y con el texto escrito. La grabación es anterior a los ajustes posteriores de recuperación de Siphon Blaster; no presupongas la misma capacidad de sostener un duelo ni copies automáticamente sus cifras o selección de perks. El artículo contrasta por separado las condiciones actuales de las cuatro mejoras.',
     body: `## Busca una línea desde la que puedas repetir la ráfaga
 
 Conectar el primer disparo no basta si los siguientes se van fuera del objetivo. Synthetic Burst Rifle dispara ráfagas de tres tiros, así que necesitas seguir el movimiento durante toda la secuencia. Practica contra un enemigo que cruce una puerta, no solo contra un objetivo quieto en el campo de entrenamiento.
@@ -36,11 +42,21 @@ Contra una Ana que pueda aplicar anticuración, la recuperación no es un plan s
 
 ## Cyber Frag se prepara mirando el rebote y la salida rival
 
-La granada explota poco después de rebotar. Eso permite presionar una entrada sin permanecer delante de ella, pero exige calcular dónde acabará. Una pared que parece servir desde lejos puede cambiar por completo la trayectoria si lanzas desde otra altura o con un ángulo distinto.
+En el kit base, la granada explota poco después de rebotar. Eso permite presionar una entrada sin permanecer delante de ella, pero exige calcular dónde acabará. Una pared que parece servir desde lejos puede cambiar por completo la trayectoria si lanzas desde otra altura o con un ángulo distinto. Cyber Adhesion modifica ese comportamiento, así que comprueba qué mejora has elegido antes de preparar el lanzamiento.
 
 En una puerta de Midtown, prueba el recorrido antes de comprometer la pelea. Puedes usar la explosión para dificultar que el rival mantenga su esquina o para acompañar la entrada del Tank. No lances por costumbre a un acceso vacío mientras el enemigo está entrando por otro lado.
 
 Si el objetivo retrocede, combina la amenaza de la granada con una línea que puedas cubrir con el rifle. Obligarle a moverse solo aporta una oportunidad si alguien puede aprovechar la nueva posición. No abandones la cobertura para perseguir una explosión que ya no tiene seguimiento.
+
+## Los perks necesitan una condición y un intercambio útil
+
+Enhanced Agility, una opción minor, aumenta el bonus de velocidad de Siphon Blaster mientras no disparas. Puede ayudar a alcanzar otra esquina o volver hacia tus supports entre ataques. No cuentes con ese bonus adicional durante toda una secuencia de disparos ni te alejes del equipo solo porque puedes recorrer más distancia.
+
+Suppressive Security es la alternativa minor: los disparos ligeros de Override Protocol ralentizan al enemigo. No añade esa ralentización a todas las ráfagas del rifle ni a cualquier ataque de la ultimate. Prepara un objetivo que tus compañeros puedan alcanzar; limitar su movimiento al otro lado de una pared no crea por sí solo una oportunidad de remate.
+
+Heat Sink, una opción major, reduce calor y prolonga brevemente Siphon Blaster al conectar impactos directos. Hacer splash cerca del objetivo no ofrece esa misma extensión. Mira si los impactos están llegando y conserva una salida: ni activar el arma ni acertar una vez garantizan disponer de ella indefinidamente.
+
+Cyber Adhesion es la alternativa major: Cyber Frag se pega al contacto y causa daño adicional a los enemigos a los que queda adherida. Ajusta la trayectoria y el seguimiento en lugar de repetir por costumbre un rebote del kit base. No esperes también la prolongación de Heat Sink si has elegido la adhesión; el duelo posterior sigue necesitando recursos y cobertura.
 
 ## Recuperarte fuera del combate no significa desaparecer durante la pelea
 

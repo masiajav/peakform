@@ -1,5 +1,7 @@
 # Lectura preliminar de Emre: todavía sin autorización de indexación
 
+Esta lectura documenta la fase inicial. Su continuación y el estado de las versiones finales están en [la revisión individual de Emre](indexing-review-emre-2026-10-30.md) y en el registro por URL.
+
 El 30 de octubre se leen completos la guía, el counter y las composiciones de Emre, y se comparan sus modelos actuales con los del inventario del 27: no han cambiado. Esta lectura no constituye una aprobación y los tres mantienen `pending-individual-review`, sin registro estático nuevo ni cambios de publicación.
 
 | URL | Lectura completada | Lo que falta |
