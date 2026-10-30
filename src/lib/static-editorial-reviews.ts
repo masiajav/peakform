@@ -1074,6 +1074,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/content-review-comps-tracer-zarya-2026-10-05.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/lifeweaver-guia-video-overwatch': {
+    path: '/guides/lifeweaver-guia-video-overwatch',
+    version: '1b7595a00c97401140624e517e636e01220db30d59dd7f89edfb9d462d8e95b9',
+    reviewedAt: '2026-10-30', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-lifeweaver-2026-10-30.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/lifeweaver': {
+    path: '/team-comps/lifeweaver',
+    version: 'f82c1ce0df436499e731c572e0e3bba4de42b4ee81d30e8950ed504fa4b5ef09',
+    reviewedAt: '2026-10-30', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-lifeweaver-2026-10-30.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/guides/juno-guia-video-overwatch': {
     path: '/guides/juno-guia-video-overwatch',
     version: '518d6739392213c2ba06cbcb28ac89313c57571ce39849dc3c5cf1d33905246c',

@@ -586,12 +586,21 @@ Sí. Puede sostener una zona que el equipo necesita disputar. Aun en defensa, mi
     description: 'Decide mejor con Lifeweaver: cuándo usar Life Grip, dónde dejar Petal Platform, cómo alternar curación y daño y dónde colocar Tree of Life.',
     quickAnswer: 'Antes de Life Grip, comprueba si el aliado puede sobrevivir o terminar su jugada por sus propios medios y si tu posición es un destino seguro. Prepara Petal Platform para una altura o salida concreta. Usa Tree of Life donde el equipo pueda recibir sus pulsos sin regalar la posición al enemigo.',
     videoSlug: 'lifeweaver-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    renderedContentVersion: 'e059ff5679bbc9e1e08ca554bbc74323fb9454a60e8df5954cf3fa62fa6e0c87',
+    revisedAt: '2026-10-30',
+    sourceVideoTitle: 'The ULTIMATE Lifeweaver Guide in Overwatch (How To Carry)',
+    reviewedVideo: {
+      video_id: 'kvp0MqV6Zm8', video_url: 'https://www.youtube.com/watch?v=kvp0MqV6Zm8', video_platform: 'youtube',
+      video_title: 'The ULTIMATE Lifeweaver Guide in Overwatch 2 (How To Carry)', video_channel: 'HolyShiftKid', video_language: 'en', video_published_at: '2025-03-05',
+    },
+    videoDescription: 'Vídeo de HolyShiftKid publicado el 5 de marzo de 2025. La grabación es anterior a la limpieza añadida a Life Grip en abril de 2026 y a los perks actuales contrastados en este artículo. Compara destinos de rescate, plataformas y prioridades de curación sin copiar automáticamente cifras o mejoras de esa versión; el texto escrito explica por separado el kit vigente.',
     body: `## Life Grip empieza por mirar dónde estás tú
 
 Salvar a un aliado no consiste solo en apartarlo del daño. El destino también importa. Si lo llevas a una esquina sin salida o al lado de un enemigo que acaba de llegar, puedes cambiar una amenaza por otra.
 
 Antes de la pelea, busca una posición desde la que puedas curar y recibir a un compañero sin dejarlo delante de todo el rival. En defensa de Numbani, por ejemplo, una altura puede ofrecer una retirada útil, pero comprueba quién controla el acceso y qué línea tiene el resto del equipo.
+
+Life Grip también limpia al aliado al retirarlo desde el cambio de abril de 2026. Esa ayuda puede cambiar una urgencia, pero sigue moviendo a una sola persona: no sustituye una limpieza de área ni conserva automáticamente la posición que el compañero estaba disputando. Decide si quitar el efecto y traerlo a tu cobertura aporta más que sostener su acción desde donde está.
 
 ## Distingue una entrada arriesgada de una jugada que ya se sostiene
 
@@ -615,7 +624,17 @@ Healing Blossom permite elegir cuándo liberar la curación. Si un aliado está 
 
 Entre necesidades de curación, Thorn Volley puede presionar un acceso o ayudar a romper una defensa. No debes abandonar al grupo para buscar daño lejano, pero tampoco necesitas mirar barras completas toda la pausa. Observa cuándo vuelve a empezar el intercambio y recupera tu prioridad de curación a tiempo.
 
+Healing Blossom se carga pasivamente a un ritmo menor cuando no la usas. Al volver desde Thorn Volley, comprueba la carga disponible y la urgencia del aliado en vez de empezar cada cura como si siempre partieras de cero. Esa preparación no elimina el tiempo necesario para responder ni justifica seguir disparando cuando la ayuda ya hace falta.
+
 Una posición desde la que ves a varios aliados ayuda a repartir atención. Si giras constantemente hacia compañeros separados por paredes, quizá debas cambiar de lugar en vez de intentar resolver toda la geometría del mapa con más curación.
+
+## Los perks cambian dónde preparas la ayuda y cómo añades presión
+
+Petal Protection cura a los aliados mientras permanecen sobre Petal Platform. Si la eliges, busca una altura desde la que puedan seguir jugando con cobertura; esa curación no compensa mantener a alguien expuesto ante todo el rival. Dashing Escape es la alternativa minor: aumenta la distancia de Rejuvenating Dash. Mira dónde terminará el recorrido más largo antes de usarlo, especialmente si cerca queda un borde o una línea de tiro que no querías cruzar.
+
+Sow the Seed permite lanzar una semilla con el melee rápido mientras llevas Healing Blossom. Otro aliado puede recogerla para recibir sobrevida y velocidad de movimiento. Si eliges esta opción major, prepara el recurso donde el compañero pueda alcanzarlo sin abandonar cobertura y avisa antes del cruce. No cuentes esa ayuda como aplicada por lanzar la semilla si nadie la ha recogido.
+
+Superbloom es la otra opción major: añade una detonación al acumular suficientes espinas sobre un enemigo dentro de una ventana breve. Repartir unos impactos entre varios objetivos no garantiza esa presión adicional. Busca un objetivo accesible durante la pausa de curación y vuelve a ayudar cuando cambie la pelea; el perk no hace rentable perseguir una detonación mientras un aliado muere. Tampoco concede a la vez la semilla de Sow the Seed.
 
 ## Tree of Life debe sostener una zona jugable
 

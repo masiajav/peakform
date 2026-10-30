@@ -2484,15 +2484,19 @@
       "sourceVersion": "b80aec409975bbd555dd19cb177125c6e92b5acba8b1cf63f03cddb0240e1b2a",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-lifeweaver-2026-10-30.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-30",
+      "reviewedVersion": "1b7595a00c97401140624e517e636e01220db30d59dd7f89edfb9d462d8e95b9",
+      "correction": "Título conocido de HolyShiftKid corregido y contexto de marzo de 2025. Se añaden limpieza de Life Grip, carga pasiva más lenta, curación de Petal, distancia de Dash y alternativas Sow the Seed/Superbloom con sus condiciones. Cuerpo y vídeo nativo vinculados; publicación del 6 de mayo conservada y revisión del texto 2026-10-30.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "b80aec409975bbd555dd19cb177125c6e92b5acba8b1cf63f03cddb0240e1b2a",
         "note": "Lectura completa de destino de Life Grip, recursos y jugada del aliado, plataforma con utilidad y salida, carga según urgencia, Thorn Volley, Tree de zona sin bloquear retirada, reparto de escapes ante dive, VOD, tres FAQ y enlaces. Fila pública y modelo coinciden con el inventario. Fuente oficial confirma carga pasiva de Blossom, Petal Protection/Dashing Escape minor y Sow the Seed/Superbloom major. Notas oficiales de abril de 2026 confirman limpieza del aliado con Life Grip, todavía ausente de esta guía. Vídeo confirmado: HolyShiftKid, 2025-03-05, playability OK, título real The ULTIMATE Lifeweaver Guide in Overwatch 2 (How To Carry), 628 segundos. Descripción leída, sin capítulos; inglés original en-US.4 confirmado. Faltan corrección del título conocido, contexto histórico, limpieza de Grip, aplicación de perks y carga pasiva, versión con medios y presentación final. No aprobada.",
         "baselineVerification": "Seis casos iniciales pasan en móvil y escritorio: ambas páginas aún noindex, contenido, FAQ, enlaces, fechas, imágenes y disponibilidad del botón de vídeo. Se inspeccionan dos capturas completas de escritorio y dos cabeceras móviles: estructura y presentación correctas, sin anuncios ni desbordamientos. Falta verificar el contenido corregido y su publicación."
-      }
+      },
+      "reviewedRenderedVersion": "e059ff5679bbc9e1e08ca554bbc74323fb9454a60e8df5954cf3fa62fa6e0c87"
     },
     {
       "path": "/guides/lucio-guia-overwatch-speed-peel",
@@ -4780,10 +4784,13 @@
       "sourceVersion": "f82c1ce0df436499e731c572e0e3bba4de42b4ee81d30e8950ed504fa4b5ef09",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-lifeweaver-2026-10-30.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-30",
+      "reviewedVersion": "f82c1ce0df436499e731c572e0e3bba4de42b4ee81d30e8950ed504fa4b5ef09",
+      "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar equipos, roles, formatos, destino del rescate, limpieza de un aliado retirado, demanda de dos Tanks, Petal y Tree. Todos los párrafos, FAQ, enlaces y presentación comprobados en móvil y escritorio. No se inventa primera publicación.",
+      "initialPartialReview": {
         "readAt": "2026-10-29",
         "textVersion": "f82c1ce0df436499e731c572e0e3bba4de42b4ee81d30e8950ed504fa4b5ef09",
         "note": "Lectura completa de equipos Sigma/Ashe/Tracer/Ana, Winston/Genji/Sojourn/Ana y Reinhardt/D.Va/Cassidy/Mei/Lúcio en 6v6. Todos los argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, tres FAQ y enlaces. Modelo coincide con el inventario. Kit y limpieza de Life Grip contrastados con ficha y notas oficiales; el texto ya distingue limpieza de un objetivo retirado de respuesta de área, y explica destino, apoyo al dive y demanda de curación de dos Tanks. Roles y formatos coherentes. Falta comprobar la versión final y su publicación. No aprobada.",
@@ -5469,8 +5476,8 @@
     }
   ],
   "progress": {
-    "reviewed": 72,
+    "reviewed": 74,
     "publishedAndVerified": 72,
-    "pending": 68
+    "pending": 66
   }
 }
