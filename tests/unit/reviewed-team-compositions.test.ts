@@ -163,7 +163,7 @@ describe('individual team composition revisions', () => {
       expect(getTeamCompPillar(slug)).toBe(article)
       expect(article.compositions).toHaveLength(3)
       expect(article.schemaDate).toBe(reviewDates[slug])
-      expect(editorialTopicQualityDecision('team_comp', slug, article)).toMatchObject({ indexable: ['sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon', 'domina', 'jetpack-cat', 'wuyang', 'moira', 'reaper', 'brigitte', 'echo', 'ashe', 'hanzo', 'mei', 'sojourn', 'bastion', 'symmetra', 'torbjorn', 'mauga', 'ramattra', 'wrecking-ball', 'junkrat', 'venture', 'hazard', 'freja', 'widowmaker', 'soldier-76', 'baptiste', 'illari', 'lucio', 'zenyatta', 'mercy', 'juno', 'lifeweaver', 'orisa', 'sigma', 'junker-queen', 'pharah', 'emre', 'sierra'].includes(slug), adsAllowed: false })
+      expect(editorialTopicQualityDecision('team_comp', slug, article)).toMatchObject({ indexable: ['sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon', 'domina', 'jetpack-cat', 'wuyang', 'moira', 'reaper', 'brigitte', 'echo', 'ashe', 'hanzo', 'mei', 'sojourn', 'bastion', 'symmetra', 'torbjorn', 'mauga', 'ramattra', 'wrecking-ball', 'junkrat', 'venture', 'hazard', 'freja', 'widowmaker', 'soldier-76', 'baptiste', 'illari', 'lucio', 'zenyatta', 'mercy', 'juno', 'lifeweaver', 'orisa', 'sigma', 'junker-queen', 'pharah', 'emre', 'sierra', 'mizuki'].includes(slug), adsAllowed: false })
       for (const comp of article.compositions) {
         expect(comp.lineup).toContain(article.name)
         expect(comp.lineup).toHaveLength(comp.format === '5v5' ? 5 : 6)

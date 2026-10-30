@@ -186,7 +186,13 @@ Para preparar el frente, consulta [Circuit Royal](/maps/circuit-royal) y [cómo 
     description: 'Aprovecha los rebotes de Healing Kasa, frena una entrada con Binding Chain y prepara Kekkai Sanctuary desde una posición que puedas sostener.',
     quickAnswer: 'Mizuki debe jugar cerca de aliados que puedan aprovechar su aura sin quedarse en el centro del daño rival. Elige el primer objetivo de Healing Kasa según la urgencia y la posición del grupo. Binding Chain ayuda a frenar una amenaza accesible. Antes de usar Katashiro Return, comprueba tanto el destino como el lugar al que volverás; Kekkai Sanctuary no protege de cualquier ataque.',
     videoSlug: 'mizuki-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-30',
+    renderedContentVersion: 'e080abd948f53066d7681c07718bf7574bef4a974ccd933674d8a68af16c9841',
+    reviewedVideo: {
+      video_id: '-moRm7IfWrk', video_url: 'https://www.youtube.com/watch?v=-moRm7IfWrk', video_platform: 'youtube',
+      video_title: 'I finally understand how to play Mizuki in Overwatch', video_channel: 'mL7', video_language: 'en', video_published_at: '2026-03-01',
+    },
+    videoDescription: 'Vídeo en inglés de mL7 publicado el 1 de marzo de 2026. Compara sus decisiones de posición, curación y recursos con tu VOD y con el texto escrito. Es anterior a los ajustes posteriores de duración y disponibilidad de Katashiro Return y a la reducción del speed de Quickstep. El artículo contrasta por separado las condiciones actuales de las cuatro mejoras; no copies automáticamente las cifras o ventanas de aquella grabación.',
     body: `## Juega cerca del equipo sin compartir toda su exposición
 
 Remedy Aura ayuda a los aliados próximos y gana fuerza mediante tu daño y tu curación. Necesitas estar cerca para aportar, pero no hace falta ocupar el mismo centro abierto que el Tank. Busca una esquina desde la que puedas ayudar al grupo y salir de la línea de tiro cuando el enemigo se gire.
@@ -224,6 +230,16 @@ El movimiento hacia delante y el regreso permiten una intervención corta, pero 
 Puedes utilizarlo para alcanzar un ángulo, ayudar en un cruce o retirarte de un ataque. Antes de comprometerte, comprueba qué visión tendrá el equipo sobre ti. Si avanzas hasta una sala aislada, volver a tiempo importa más que exprimir otro disparo.
 
 No alargues la intervención solo porque todavía puedas regresar. Si tu equipo ya ha empezado a retirarse, el lugar inicial puede quedarse por delante de sus nuevas posiciones. Revisa el estado real de la pelea y busca cobertura, en lugar de depender de que el regreso conserve la situación de hace unos segundos.
+
+## Los perks cambian cómo sostienes una intervención cercana
+
+Wellspring, una opción minor, aumenta la generación de Remedy Aura. Aprovecha el daño y la curación que ya puedes realizar desde una buena esquina, sin abandonar una urgencia por mantener el arma disparando. Esa mejora no amplía por sí sola la zona de ayuda ni permite atender con el aura a un aliado situado lejos del grupo.
+
+Exposed Soul es la alternativa minor: acertar Binding Chain aumenta brevemente tu daño contra ese enemigo. El bonus corresponde a Mizuki, no al daño de todo el equipo. Si el objetivo queda accesible, puedes añadir presión desde cobertura; si para seguirlo tienes que dejar de curar a un compañero en peligro, conserva la posición y aprovecha la cadena para detener la entrada.
+
+Resonant Return, una opción major, añade un rebote de Healing Kasa y aumenta su curación en cada rebote. Elige el primer aliado según la urgencia y mira dónde están los demás, en lugar de confiar en que el recorrido adicional siempre llegará al jugador que necesita ayuda. El perk no corrige una formación repartida en rutas que ya no puedes sostener.
+
+Quickstep es la alternativa major: mientras Katashiro Return está activo, los aliados dentro de Remedy Aura reciben velocidad de movimiento adicional. Necesitas que coincidan esa ventana y la cercanía del grupo. Coordina el cruce antes de salir tú solo con Katashiro; tu desplazamiento personal no transporta al equipo ni mantiene el bonus sobre quien queda fuera del aura. Si eliges Quickstep, tampoco cuentes con el rebote extra de Resonant Return.
 
 ## Kekkai Sanctuary no permite quedarse quieto contra todo
 

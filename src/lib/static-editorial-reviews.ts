@@ -1074,6 +1074,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/content-review-comps-tracer-zarya-2026-10-05.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/mizuki-guia-video-overwatch': {
+    path: '/guides/mizuki-guia-video-overwatch',
+    version: 'e68be726cd438855e18148359b2ff9ed68d12ce1cb1b6c98e457164a29d83750',
+    reviewedAt: '2026-10-30', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-mizuki-2026-10-30.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/mizuki': {
+    path: '/team-comps/mizuki',
+    version: '75559ac58da8d3c7ba6f0073cc5c6df0336cd87db315b9b0e13de670ffa32290',
+    reviewedAt: '2026-10-30', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-mizuki-2026-10-30.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/guides/sierra-guia-video-overwatch': {
     path: '/guides/sierra-guia-video-overwatch',
     version: '4e897452a57fd5e42805aae17ef155d591883d1a31a16bce3488bf6f7245eb39',

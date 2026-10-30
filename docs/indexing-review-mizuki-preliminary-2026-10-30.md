@@ -1,5 +1,7 @@
 # Lectura preliminar de Mizuki: todavía sin autorización de indexación
 
+Esta lectura documenta la fase inicial. Su continuación y el estado de las versiones finales están en [la revisión individual de Mizuki](indexing-review-mizuki-2026-10-30.md) y en el registro por URL.
+
 El 30 de octubre se leen completas la guía y las composiciones de Mizuki, y se comparan sus modelos actuales con los del inventario del 27: no han cambiado. Esta lectura no constituye una aprobación: ambas conservan `pending-individual-review`, sin revisión estática nueva ni cambios de publicación. Su counter ya era indexable y no recibe otra aprobación.
 
 | URL | Lectura completada | Lo que falta |

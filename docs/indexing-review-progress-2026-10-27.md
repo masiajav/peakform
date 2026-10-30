@@ -2,9 +2,9 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 30 de octubre: **88 de 140 artículos revisados, habilitados y verificados en producción; 52 pendientes de revisión**. Último lote verificado públicamente: guía, counter y composiciones de Sierra. Siguiente revisión iniciada: guía y composiciones de Mizuki. Los anuncios mantienen su configuración previa.
+Estado comprobado al 30 de octubre: **90 de 140 artículos revisados; 88 habilitados y verificados en producción, dos de Mizuki pendientes de despliegue y comprobación pública; 50 pendientes de revisión**. Último lote verificado públicamente: guía, counter y composiciones de Sierra. Siguiente revisión iniciada: guía y composiciones de Vendetta y composiciones de Anran. Los anuncios mantienen su configuración previa.
 
-Los 52 pendientes se reparten entre 17 guías, 24 mapas, tres composiciones, cinco artículos de parches y tres noticias. No quedan counters pendientes del inventario inicial. Cada URL conserva su motivo y estado en el registro; esta distribución no es una aprobación ni reduce el alcance del objetivo.
+Los 50 pendientes se reparten entre 16 guías, 24 mapas, dos composiciones, cinco artículos de parches y tres noticias. No quedan counters pendientes del inventario inicial. Cada URL conserva su motivo y estado en el registro; esta distribución no es una aprobación ni reduce el alcance del objetivo.
 
 ## Inventario y alcance
 

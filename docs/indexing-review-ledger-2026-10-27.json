@@ -2839,10 +2839,13 @@
       "sourceVersion": "e8a9c4d00fe34de832db230b401174b3c27bc6a637f4ada0d4c63b06006ab3dc",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-mizuki-2026-10-30.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-30",
+      "reviewedVersion": "e68be726cd438855e18148359b2ff9ed68d12ce1cb1b6c98e457164a29d83750",
+      "correction": "Vídeo de mL7 de marzo de 2026 contextualizado frente a cambios posteriores de Katashiro y Quickstep. Se explican Wellspring/Exposed Soul y Resonant Return/Quickstep sin sumarlos, distinguiendo generación, daño propio y speed aliado dentro del aura durante Katashiro. Primera publicación conservada; revisión del texto el 30 de octubre.",
+      "initialPartialReview": {
         "date": "2026-10-30",
         "contentRead": true,
         "modelUnchangedFromInventory": true,
@@ -2851,7 +2854,8 @@
         "baselineCommit": "2bc3160f30be3a308634c3fb6b2b7ba0fddfef0a",
         "baselineBrowserChecks": 6,
         "baselineVisualInspected": true
-      }
+      },
+      "reviewedRenderedVersion": "e080abd948f53066d7681c07718bf7574bef4a974ccd933674d8a68af16c9841"
     },
     {
       "path": "/guides/moira-guia-overwatch-recursos-supervivencia",
@@ -5265,10 +5269,13 @@
       "sourceVersion": "75559ac58da8d3c7ba6f0073cc5c6df0336cd87db315b9b0e13de670ffa32290",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-mizuki-2026-10-30.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-30",
+      "reviewedVersion": "75559ac58da8d3c7ba6f0073cc5c6df0336cd87db315b9b0e13de670ffa32290",
+      "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar los tres equipos, roles y formatos, Kasa con urgencia, cobertura próxima, seguimiento de cadena, retorno y speed aliado opcional. Todos los párrafos, FAQ, enlaces y presentación comprobados en móvil y escritorio. No se inventa primera publicación.",
+      "initialPartialReview": {
         "date": "2026-10-30",
         "contentRead": true,
         "modelUnchangedFromInventory": true,
@@ -5867,8 +5874,8 @@
     }
   ],
   "progress": {
-    "reviewed": 88,
+    "reviewed": 90,
     "publishedAndVerified": 88,
-    "pending": 52
+    "pending": 50
   }
 }
