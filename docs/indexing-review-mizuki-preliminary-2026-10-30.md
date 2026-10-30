@@ -1,0 +1,16 @@
+# Lectura preliminar de Mizuki: todavía sin autorización de indexación
+
+El 30 de octubre se leen completas la guía y las composiciones de Mizuki, y se comparan sus modelos actuales con los del inventario del 27: no han cambiado. Esta lectura no constituye una aprobación: ambas conservan `pending-individual-review`, sin revisión estática nueva ni cambios de publicación. Su counter ya era indexable y no recibe otra aprobación.
+
+| URL | Lectura completada | Lo que falta |
+| --- | --- | --- |
+| `/guides/mizuki-guia-video-overwatch` | Posición del aura, primer objetivo de Kasa, rebotes de Glaive, cadena con seguimiento, origen y destino de Katashiro, límites de Kekkai, VOD, tres FAQ y enlaces. | Contexto del vídeo de marzo y aplicación de los cuatro perks, distinguiendo generación de aura, daño propio al encadenado, rebotes y speed aliado condicionado. Después, versión exacta y comprobaciones finales. |
+| `/team-comps/mizuki` | Ramattra/Mei/Cassidy/Lúcio, Sigma/Ashe/Tracer/Baptiste y Reinhardt/D.Va/Mei/Cassidy/Baptiste en 6v6. Se leen todos los argumentos, responsabilidades, rotación, debilidades, ejemplos, checklist, tres FAQ y enlaces. | Cerrar el contraste de kit y formatos y las comprobaciones de enlaces, metadatos y presentación. Ya distingue Quickstep del movimiento personal y Kekkai de limpieza o invulnerabilidad. |
+
+Se descarga y lee la [ficha oficial de Mizuki](https://overwatch.blizzard.com/en-gb/heroes/mizuki/), incluidas sus cuatro mejoras. Se leen los apartados de las [notas del 16 de junio](https://overwatch.blizzard.com/en-us/news/patch-notes/live/2026/6/) sobre duración y cooldown de Katashiro y de las [notas del 11 de agosto](https://overwatch.blizzard.com/en-gb/news/patch-notes/live/2026/08/) sobre Quickstep, cadena y disponibilidad del retorno. Estos cambios son posteriores al vídeo y deben contextualizarse en la guía. Se comprueban también los encabezados: los cambios del 30 de junio son de Community Crafted, incluidas cadena a paredes y Rule of Three, y no se usan como descripción del kit habitual.
+
+El [vídeo de mL7](https://www.youtube.com/watch?v=-moRm7IfWrk) y oEmbed responden 200, playability `OK`. Título exacto «I finally understand how to play Mizuki in Overwatch», 1 de marzo de 2026 y 1090 segundos. Se lee la descripción completa, sin capítulos. Hay subtítulos automáticos ingleses; no se detecta pista con nombre de audio original. No se afirma haber visto el vídeo íntegro. Título y fecha almacenados coinciden; falta el contexto visible. Se comprueba el botón de reproducción en ambos tamaños.
+
+La copia aislada parte de `2bc3160`, sin cambios locales ajenos. Pasan seis casos iniciales de guía, composiciones y reproductor en móvil/escritorio; las dos páginas conservan noindex y quedan fuera del sitemap. Se inspeccionan las capturas completas de ambos tamaños y sus cabeceras móviles: texto, jerarquía, equipos, imagen, vídeo, FAQ y fechas correctos, sin anuncios ni desbordamientos. Falta corregir la guía y comprobar sus versiones finales.
+
+Evidencia de lectura y fuentes en `reports/indexing-review-2026-10-27/batch-thirty-eight/`, y comprobaciones en `release-batch-thirty-eight/baseline-thirty-eight.log`. Las huellas iniciales se conservan en el registro por URL. Ninguna de estas dos páginas se habilita mediante este documento.

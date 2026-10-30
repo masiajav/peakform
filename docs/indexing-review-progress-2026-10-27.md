@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 30 de octubre: **88 de 140 artículos revisados; 85 habilitados y verificados en producción, tres de Sierra pendientes de despliegue y comprobación pública; 52 pendientes de revisión**. Último lote verificado públicamente: guía, counter y composiciones de Emre. Siguiente revisión iniciada: guía y composiciones de Mizuki. Los anuncios mantienen su configuración previa.
+Estado comprobado al 30 de octubre: **88 de 140 artículos revisados, habilitados y verificados en producción; 52 pendientes de revisión**. Último lote verificado públicamente: guía, counter y composiciones de Sierra. Siguiente revisión iniciada: guía y composiciones de Mizuki. Los anuncios mantienen su configuración previa.
 
 Los 52 pendientes se reparten entre 17 guías, 24 mapas, tres composiciones, cinco artículos de parches y tres noticias. No quedan counters pendientes del inventario inicial. Cada URL conserva su motivo y estado en el registro; esta distribución no es una aprobación ni reduce el alcance del objetivo.
 
@@ -253,3 +253,14 @@ Orisa queda comprobada públicamente en el commit 4030a07: 80 respuestas HTTP y 
 Las guías de Sigma, Junker Queen y Pharah aplican sus perks actuales y contextualizan sus vídeos. Pharah diferencia combustible de suelo y habilidades e incorpora el movimiento limitado de Barrage desde abril. Sus composiciones conservan texto y fecha tras la lectura y contraste individuales. Cada lote pasa 708 pruebas unitarias y lint, ocho casos finales y seis de regresión, además de seis iniciales. Las versiones exactas, fuentes, capturas y resultados públicos quedan en sus documentos de revisión y en el registro por URL.
 
 Se leen completos guía, counter y composiciones de Emre, se contrastan los modelos con el inventario y se verifican fuente y vídeo. Pasan ocho casos iniciales y se inspeccionan las tres páginas en móvil y escritorio. La guía todavía necesita contexto y condiciones de perks; las tres siguen pendientes hasta la revisión final de sus versiones. Evidencia: [lectura preliminar de Emre](indexing-review-emre-preliminary-2026-10-30.md).
+
+
+## Publicación comprobada de Emre y Sierra
+
+Se completa la revisión individual de guía, counter y composiciones de cada héroe. Emre contextualiza el vídeo de marzo y aplica las condiciones de los cuatro perks y el rebote base frente a adhesión. Sierra corrige el título conocido de KarQ, fecha su contexto de abril y precisa los perks actuales, especialmente el impacto en héroe enemigo de Locked In. Los counters y composiciones conservan texto y fecha después de su lectura y contraste. Las notas de Community Crafted se separan de ranked.
+
+Pasan 708 pruebas unitarias y lint en cada lote, doce casos finales por lote y seis de regresión para Emre y ocho para Sierra, además de ocho iniciales por lote. Emre queda verificado públicamente en 2610764 con 89 respuestas HTTP; Sierra en 2bc3160 con 92. Cada lote añade seis casos de navegador en producción y comprueba el alias previo de Pharah como regresión, sin inventar aliases para estos vídeos nativos.
+
+Total actual: **88 de 140 habilitados y verificados; 52 pendientes**. No quedan counters pendientes del inventario inicial. Las demás exclusiones y la configuración de anuncios se mantienen.
+
+Se leen la guía y las composiciones siguientes de Mizuki, se contrastan sus modelos y fuentes y se identifican contexto y perks pendientes. Pasan seis casos iniciales y se inspeccionan las dos páginas en móvil y escritorio, conservando noindex. Evidencia: [lectura preliminar de Mizuki](indexing-review-mizuki-preliminary-2026-10-30.md).

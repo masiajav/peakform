@@ -30,4 +30,8 @@ La copia aislada parte de `2610764`, sin cambios locales ajenos. Pasan ocho caso
 
 Pasan 708 pruebas unitarias y lint, doce casos finales de las tres páginas, catálogos/sitemap y filtros, y ocho de regresión sobre Emre y el modo de revisión de anuncios. Se inspeccionan las capturas completa de escritorio y móvil y cabecera móvil de la guía corregida, así como las composiciones y el counter completos en móvil; ambos conservan su texto y fecha iniciales.
 
-Las comprobaciones finales cubren todos los párrafos y argumentos, FAQ y respuestas estructuradas, enlaces, imágenes, fechas, título e idioma del vídeo y botón de reproducción, metadatos, sitemap y ausencia de anuncios y desbordamientos. Faltan el despliegue y la comprobación pública de estas tres versiones. Las demás exclusiones y la configuración de anuncios se mantienen.
+Las comprobaciones finales cubren todos los párrafos y argumentos, FAQ y respuestas estructuradas, enlaces, imágenes, fechas, título e idioma del vídeo y botón de reproducción, metadatos, sitemap y ausencia de anuncios y desbordamientos. Las demás exclusiones y la configuración de anuncios se mantienen.
+
+## Resultado público
+
+Despliegue correcto del commit `2bc3160f30be3a308634c3fb6b2b7ba0fddfef0a`. Pasan 92 respuestas HTTP: las tres páginas de Sierra, las 85 anteriores y cuatro controles excluidos. Se comprueba además la redirección 308 del alias de Pharah como regresión; Sierra no tiene alias adicional. Las tres URLs son indexables, están en el sitemap, conservan fechas y medios revisados y no ejecutan anuncios. Pasan seis casos de navegador contra producción en móvil y escritorio. Total acumulado: **88 habilitados y verificados, 52 pendientes**.

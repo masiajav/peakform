@@ -385,9 +385,26 @@
       "sourceVersion": "71412140138decf4790ed26f8740315a1517f8e555e44196fb75932e15c59afb",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-sierra-2026-10-30.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/counters/sierra",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "702e441c64bbcbbadb714f95b1796c4e654a2d9af3681add2f349ab40722ecac",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-30T20:08:13.042Z",
+        "commit": "2bc3160f30be3a308634c3fb6b2b7ba0fddfef0a",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/BH3Mbn3BLuQxiYsS7avoe6AvsXhB",
+        "browserChecks": "6 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-30",
       "reviewedVersion": "71412140138decf4790ed26f8740315a1517f8e555e44196fb75932e15c59afb",
       "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar D.Va, Sigma, Tracer y Ana, cobertura tras marca, destino del grapple, perks opcionales, onda de Tremor al impacto y ruta de Trailblazer. Todos los párrafos, FAQ, enlaces y presentación comprobados en móvil y escritorio."
@@ -2824,7 +2841,17 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "date": "2026-10-30",
+        "contentRead": true,
+        "modelUnchangedFromInventory": true,
+        "evidence": "docs/indexing-review-mizuki-preliminary-2026-10-30.md",
+        "remaining": "Contexto y aplicación de perks, contraste de ajustes posteriores; revisión exacta final, enlaces y presentación móvil/escritorio; despliegue y comprobación pública.",
+        "baselineCommit": "2bc3160f30be3a308634c3fb6b2b7ba0fddfef0a",
+        "baselineBrowserChecks": 6,
+        "baselineVisualInspected": true
+      }
     },
     {
       "path": "/guides/moira-guia-overwatch-recursos-supervivencia",
@@ -3162,9 +3189,29 @@
       "sourceVersion": "5a82670a92f9a7441a796db393126cf8aa4f9f24ce6f7c7321cd03b475cbd8ef",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-sierra-2026-10-30.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/sierra-guia-video-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "36db45a3600d4dd3dbf5b87feb4979237a516b28c7373293fa59f7501cfbf164",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-30T20:08:13.042Z",
+        "commit": "2bc3160f30be3a308634c3fb6b2b7ba0fddfef0a",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/BH3Mbn3BLuQxiYsS7avoe6AvsXhB",
+        "browserChecks": "6 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-30",
       "reviewedVersion": "4e897452a57fd5e42805aae17ef155d591883d1a31a16bce3488bf6f7245eb39",
       "correction": "Título conocido del vídeo de KarQ corregido y contexto del 20 de abril de 2026 frente a cambios posteriores. Se aplican Full Flight/Tight Grip y Medi-Drone/Locked In sin sumarlos, y se precisa impacto en héroe enemigo para el bonus de ataque. Primera publicación conservada; revisión del texto el 30 de octubre.",
@@ -5220,7 +5267,17 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "date": "2026-10-30",
+        "contentRead": true,
+        "modelUnchangedFromInventory": true,
+        "evidence": "docs/indexing-review-mizuki-preliminary-2026-10-30.md",
+        "remaining": "Cerrar contraste de kit y formatos; enlaces, metadatos y presentación móvil/escritorio; revisión exacta, despliegue y comprobación pública.",
+        "baselineCommit": "2bc3160f30be3a308634c3fb6b2b7ba0fddfef0a",
+        "baselineBrowserChecks": 6,
+        "baselineVisualInspected": true
+      }
     },
     {
       "path": "/team-comps/moira",
@@ -5411,9 +5468,26 @@
       "sourceVersion": "331a2475d07ae7add6f498a38f419e450e4d71825e5e0f27eb3b099f2b39bd4b",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-sierra-2026-10-30.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/sierra",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "9381f912de639f70ea7a1150bf357cc41dc37bc9a9424832b70a6fe457485f03",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-30T20:08:13.042Z",
+        "commit": "2bc3160f30be3a308634c3fb6b2b7ba0fddfef0a",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/BH3Mbn3BLuQxiYsS7avoe6AvsXhB",
+        "browserChecks": "6 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-30",
       "reviewedVersion": "331a2475d07ae7add6f498a38f419e450e4d71825e5e0f27eb3b099f2b39bd4b",
       "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar los tres equipos, roles y formatos, objetivo accesible, preparación de tiro sobre el dive y reparto de frente/altura. Todos los párrafos, FAQ, enlaces y presentación comprobados en móvil y escritorio."
@@ -5794,7 +5868,7 @@
   ],
   "progress": {
     "reviewed": 88,
-    "publishedAndVerified": 85,
+    "publishedAndVerified": 88,
     "pending": 52
   }
 }
