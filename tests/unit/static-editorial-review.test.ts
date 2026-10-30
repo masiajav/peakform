@@ -85,6 +85,7 @@ describe('version-bound static editorial reviews', () => {
       '/guides/lifeweaver-guia-video-overwatch', '/team-comps/lifeweaver',
       '/guides/orisa-guia-overwatch-fortify-javelin', '/team-comps/orisa',
       '/guides/sigma-guia-overwatch-poke-escudo', '/team-comps/sigma',
+      '/guides/junker-queen-guia-overwatch-tempo-heridas', '/team-comps/junker-queen',
       '/heroes/ana', '/heroes/cassidy', '/heroes/dmon', '/heroes/doctrine', '/heroes/dva', '/heroes/genji', '/heroes/kiriko', '/heroes/reinhardt', '/heroes/shion', '/heroes/tracer', '/heroes/winston', '/heroes/zarya', '/roles/flex',
       '/team-comps/ana', '/team-comps/cassidy', '/team-comps/doctrine', '/team-comps/domina', '/team-comps/dva', '/team-comps/genji', '/team-comps/jetpack-cat', '/team-comps/kiriko', '/team-comps/reinhardt', '/team-comps/roadhog', '/team-comps/sombra', '/team-comps/tracer', '/team-comps/winston', '/team-comps/wuyang', '/team-comps/zarya',
     ].sort())

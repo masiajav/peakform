@@ -31,4 +31,8 @@ Solo se proponen estas dos URLs con su versión exacta, manteniendo las demás e
 
 Pasan 708 pruebas unitarias y lint, ocho casos finales de ambos artículos, catálogo/sitemap y filtros, y seis de regresión sobre Orisa y el modo de revisión de anuncios. Se inspeccionan la captura completa de escritorio y cabecera móvil de la guía final; las composiciones conservan el texto cuya presentación se inspeccionó en ambos tamaños. Se verifican todos los párrafos, FAQ, enlaces, imágenes, fechas, identidad e idioma del vídeo y botón de reproducción, metadatos, sitemap y ausencia de desbordamientos y anuncios.
 
-Las primeras ejecuciones en el aislamiento terminaron con errores EPERM de caché temporal y compilación, sin pruebas ejecutadas. Se repitieron fuera de ese aislamiento y terminaron correctamente; no se cambió la aplicación para eludir las verificaciones. Falta desplegar y comprobar las URLs públicas.
+Las primeras ejecuciones en el aislamiento terminaron con errores EPERM de caché temporal y compilación, sin pruebas ejecutadas. Se repitieron fuera de ese aislamiento y terminaron correctamente; no se cambió la aplicación para eludir las verificaciones.
+
+## Resultado público
+
+Despliegue correcto del commit `d1aaac9f9c47493d35f9ddac09cb0d4eb98a113a`. Pasan 82 respuestas HTTP: las dos páginas de Sigma, las 76 anteriores y cuatro controles excluidos, además de la redirección 308 del alias. Ambas URLs son indexables, están en el sitemap, conservan sus fechas y los medios revisados y no ejecutan anuncios. Pasan también cuatro casos de navegador contra producción en móvil y escritorio. Total acumulado: **78 habilitados y verificados, 62 pendientes**.

@@ -3,8 +3,14 @@ import type { GuideRevision } from './reviewed-guide-revisions'
 export const secondGuideReviewBatch: Record<string, GuideRevision> = {
   'junker-queen-guia-overwatch-tempo-heridas': {
     hero: 'junker-queen',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-30',
+    renderedContentVersion: '3f7bbd2a78276f4506b19e8df1bdb95bc234bf9854c1d9f2d438bc8c1d808cb8',
     videoSlug: 'junker-queen-guia-video-overwatch',
+    reviewedVideo: {
+      video_id: 'LqADtfRQzok', video_url: 'https://www.youtube.com/watch?v=LqADtfRQzok', video_platform: 'youtube',
+      video_title: 'Educational Unranked To GM JUNKER QUEEN (95% Winrate)', video_channel: 'Awkward', video_language: 'en', video_published_at: '2025-11-20',
+    },
+    videoDescription: 'Sesión educativa en inglés de Awkward publicada el 20 de noviembre de 2025. El 95% del título describe su reto; no es una promesa para tus partidas. Úsala para comparar entradas, objetivos y recursos con tu VOD. El texto escrito contrasta por separado los perks actuales: no presupongas una recarga, una reducción de cooldowns o una defensa solo porque aparezcan en una jugada de aquella versión.',
     title: 'Cómo jugar Junker Queen: entrar con Shout y aprovechar las heridas',
     description: 'Cuándo entrar con Junker Queen, cómo combinar cuchillo y Carnage y qué mirar antes de Rampage. Ejemplos de brawl y revisión de tus primeras muertes.',
     quickAnswer: 'Acércate usando cobertura y activa Shout cuando tu equipo pueda acompañarte. Usa el cuchillo para sacar a un rival de su esquina y Carnage cuando puedas completar el golpe sin quedar vendido. Las heridas ayudan a sostenerte, pero no sustituyen la curación ni justifican perseguir fuera de la visión de tus supports.',
@@ -27,6 +33,16 @@ Jagged Blade resulta especialmente útil contra alguien que juega justo detrás 
 Carnage requiere acercarte y completar la animación. Un hachazo contra varios enemigos agrupados puede ser una buena oportunidad, pero caminar a través de sus líneas de tiro para conseguirlo suele salir caro. Usa la esquina para aproximarte y presta atención a los desplazamientos o interrupciones disponibles. El daño de heridas devuelve salud; no te vuelve inmune al burst que recibes durante el intento.
 
 Una secuencia razonable es presionar con la escopeta, detectar a un rival mal colocado y usar el cuchillo para comprometerlo. Carnage llega cuando la distancia ya es favorable. Si el objetivo escapa, puedes quedarte con su posición en vez de gastar Shout para perseguir una baja que nadie más puede apoyar.
+
+## Los perks cambian qué recurso recuperas al entrar
+
+Battle Shout, una opción minor, recarga por completo tu Scattergun al usar Commanding Shout y aumenta la velocidad de recarga de los aliados. No rellena automáticamente el cargador de todo el equipo. Aprovecha esa recarga cuando el cruce tenga sentido, sin gastar Shout solo por disparar un poco más desde una posición que ya era segura.
+
+Rampant Charge es la alternativa minor: al usar Rampage ganas Unstoppable y reduces seis segundos los cooldowns. No equivale a reiniciar siempre todas las habilidades ni a volverte invulnerable. Comprueba qué recurso ha vuelto realmente y dónde terminarás la carga antes de comprometer una continuación; tampoco sustituye la respuesta a la anticuración.
+
+Willy-Willy, una opción major, amplía el radio y añade daño de impacto al recuperar Jagged Blade. Prepara una trayectoria de vuelta que atraviese una amenaza accesible en vez de recoger el cuchillo por reflejo. Esa mejora del retorno no convierte cualquier lanzamiento de ida en un acierto ni garantiza que el objetivo termine a la vista de tus compañeros.
+
+Savage Satiation es la alternativa major y añade robo de vida al daño de impacto de Carnage. Se suma a la curación personal que ya aportan las heridas; no crea una cura para el equipo ni permite ignorar la anticuración. Si no puedes completar el hachazo sin recibir demasiado daño, conserva la esquina en vez de exponerte contando de antemano con esa recuperación.
 
 ## Ana y Kiriko cambian lo que puedes permitirte
 

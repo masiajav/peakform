@@ -2371,9 +2371,13 @@
       "sourceVersion": "bab33811356608c4515569e60233eee64bf037de20e41ff88ff73b45ff723adc",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-junker-queen-2026-10-30.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-30",
+      "reviewedVersion": "7772430f2199942791872e1a7e3ce58fa80e6ef583ba70bb38e9eee14485d132",
+      "correction": "Contexto del vídeo de Awkward de noviembre de 2025, sin promesa del porcentaje del título. Se explican Battle Shout y Rampant Charge como alternativas, reducción limitada de cooldowns y recarga propia frente a rapidez aliada; Willy-Willy mejora el retorno y Savage Satiation el impacto de Carnage. Se conserva primera publicación y se revisa el texto el 30 de octubre.",
+      "reviewedRenderedVersion": "3f7bbd2a78276f4506b19e8df1bdb95bc234bf9854c1d9f2d438bc8c1d808cb8"
     },
     {
       "path": "/guides/junker-queen-guia-video-overwatch",
@@ -3062,9 +3066,29 @@
       "sourceVersion": "43881e83d623a2a604011865aa3ee17a41205b4b8cba5336829bee5fad91bc84",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-sigma-2026-10-30.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/sigma-guia-overwatch-poke-escudo",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "b90ccf7f8be81159192a23efed9e2096b48e5ff635e3d820cb544cd15ebb0f7b",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-30T19:34:27.631Z",
+        "commit": "d1aaac9f9c47493d35f9ddac09cb0d4eb98a113a",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/9io8JkeYv4pfvMpHdcxiP94A5Fwv",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-30",
       "reviewedVersion": "e26ca9f4e928bd7c59fcea432981017687f8421fddecc9e239f6e9e8586ad08e",
       "correction": "Título conocido del vídeo de emongg corregido y contexto de marzo de 2025. Se explican Kinetic Cycle por absorción efectiva, Hyper Regeneration al dañar héroes enemigos, Hyper Strike tras impactos directos y Levitation como alternativa. Se preserva la primera publicación y se revisa el texto el 30 de octubre.",
@@ -4742,9 +4766,12 @@
       "sourceVersion": "3d4bace8682af38b9a6b2b5672fb1098fe4754fa92b5c2cebe2bac5cec740ecd",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-junker-queen-2026-10-30.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-30",
+      "reviewedVersion": "3d4bace8682af38b9a6b2b5672fb1098fe4754fa92b5c2cebe2bac5cec740ecd",
+      "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar los tres equipos, roles y formatos, seguimiento tras Shout, curación personal y condiciones de perks frente a Stadium. Todos los párrafos, FAQ, enlaces y presentación comprobados en móvil y escritorio. No se inventa primera publicación."
     },
     {
       "path": "/team-comps/junkrat",
@@ -5217,9 +5244,26 @@
       "sourceVersion": "7d393066212c47826f20ab08c296ca3747a8400cd53c300d5904cbf1478037e6",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-sigma-2026-10-30.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/sigma",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "0aff837067e0dbcec4c251c4bec0860eaaed168c19e64608b87e45bf5ffbe30d",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-30T19:34:27.631Z",
+        "commit": "d1aaac9f9c47493d35f9ddac09cb0d4eb98a113a",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/9io8JkeYv4pfvMpHdcxiP94A5Fwv",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-30",
       "reviewedVersion": "7d393066212c47826f20ab08c296ca3747a8400cd53c300d5904cbf1478037e6",
       "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar los tres equipos, reparto de barrera/ángulos/peel, roles y formatos y límites de Flux. Se comprueban todos los párrafos, FAQ, enlaces y presentación móvil y escritorio. No se inventa primera publicación."
@@ -5564,8 +5608,8 @@
     }
   ],
   "progress": {
-    "reviewed": 78,
-    "publishedAndVerified": 76,
-    "pending": 62
+    "reviewed": 80,
+    "publishedAndVerified": 78,
+    "pending": 60
   }
 }

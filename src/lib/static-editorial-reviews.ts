@@ -1074,6 +1074,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/content-review-comps-tracer-zarya-2026-10-05.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/junker-queen-guia-overwatch-tempo-heridas': {
+    path: '/guides/junker-queen-guia-overwatch-tempo-heridas',
+    version: '7772430f2199942791872e1a7e3ce58fa80e6ef583ba70bb38e9eee14485d132',
+    reviewedAt: '2026-10-30', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-junker-queen-2026-10-30.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/junker-queen': {
+    path: '/team-comps/junker-queen',
+    version: '3d4bace8682af38b9a6b2b5672fb1098fe4754fa92b5c2cebe2bac5cec740ecd',
+    reviewedAt: '2026-10-30', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-junker-queen-2026-10-30.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/guides/sigma-guia-overwatch-poke-escudo': {
     path: '/guides/sigma-guia-overwatch-poke-escudo',
     version: 'e26ca9f4e928bd7c59fcea432981017687f8421fddecc9e239f6e9e8586ad08e',
