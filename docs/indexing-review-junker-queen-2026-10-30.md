@@ -27,4 +27,8 @@ Solo se proponen estas dos URLs con su versión exacta, manteniendo las demás e
 
 ## Validación final local
 
-Pasan 708 pruebas unitarias y lint, ocho casos finales de ambos artículos, catálogo/sitemap y filtros, y seis de regresión sobre Sigma y el modo de revisión de anuncios. Se inspeccionan la captura completa de escritorio y la cabecera móvil de la guía final; las composiciones conservan el texto cuya presentación se inspeccionó en ambos tamaños. Las comprobaciones cubren todos los párrafos, FAQ, enlaces, imágenes, fechas, identidad e idioma del vídeo y botón de reproducción, metadatos, sitemap y ausencia de desbordamientos y anuncios. Falta desplegar y comprobar las URLs públicas.
+Pasan 708 pruebas unitarias y lint, ocho casos finales de ambos artículos, catálogo/sitemap y filtros, y seis de regresión sobre Sigma y el modo de revisión de anuncios. Se inspeccionan la captura completa de escritorio y la cabecera móvil de la guía final; las composiciones conservan el texto cuya presentación se inspeccionó en ambos tamaños. Las comprobaciones cubren todos los párrafos, FAQ, enlaces, imágenes, fechas, identidad e idioma del vídeo y botón de reproducción, metadatos, sitemap y ausencia de desbordamientos y anuncios.
+
+## Resultado público
+
+Despliegue correcto del commit `a61853d43a3e0f991aa8a724e1da6c7c9c088ce6`. Pasan 84 respuestas HTTP: las dos páginas de Junker Queen, las 78 anteriores y cuatro controles excluidos, además de la redirección 308 del alias. Ambas URLs son indexables, están en el sitemap, conservan fechas y medios revisados y no ejecutan anuncios. Pasan cuatro casos de navegador contra producción en móvil y escritorio. Total acumulado: **80 habilitados y verificados, 60 pendientes**.

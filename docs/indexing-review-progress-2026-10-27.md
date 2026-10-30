@@ -2,9 +2,9 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 30 de octubre: **80 de 140 artículos revisados; 78 habilitados y verificados en producción, dos de Junker Queen pendientes de despliegue y comprobación pública; 60 pendientes de revisión**. Último lote verificado públicamente: guía y composiciones de Sigma. Siguiente revisión iniciada: guía y composiciones de Pharah. Los anuncios mantienen su configuración previa.
+Estado comprobado al 30 de octubre: **82 de 140 artículos revisados; 80 habilitados y verificados en producción, dos de Pharah pendientes de despliegue y comprobación pública; 58 pendientes de revisión**. Último lote verificado públicamente: guía y composiciones de Junker Queen. Siguiente revisión prevista: artículos de Emre. Los anuncios mantienen su configuración previa.
 
-Los 60 pendientes se reparten entre 20 guías, 24 mapas, seis composiciones, cinco artículos de parches, tres noticias y dos counters. Cada URL conserva su motivo y estado en el registro; esta distribución no es una aprobación ni reduce el alcance del objetivo.
+Los 58 pendientes se reparten entre 19 guías, 24 mapas, cinco composiciones, cinco artículos de parches, tres noticias y dos counters. Cada URL conserva su motivo y estado en el registro; esta distribución no es una aprobación ni reduce el alcance del objetivo.
 
 ## Inventario y alcance
 

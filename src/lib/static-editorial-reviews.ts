@@ -1074,6 +1074,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/content-review-comps-tracer-zarya-2026-10-05.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/pharah-guia-overwatch-presion-aerea': {
+    path: '/guides/pharah-guia-overwatch-presion-aerea',
+    version: '9d05cd0d42c56d63c44d6e6136302592592c4d21a154fb490f6e86e0d1007720',
+    reviewedAt: '2026-10-30', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-pharah-2026-10-30.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/pharah': {
+    path: '/team-comps/pharah',
+    version: '2f7490a5b5d871503ebadd10d12280914d7885963e0d6d4f275b8cf9365364f8',
+    reviewedAt: '2026-10-30', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-pharah-2026-10-30.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/guides/junker-queen-guia-overwatch-tempo-heridas': {
     path: '/guides/junker-queen-guia-overwatch-tempo-heridas',
     version: '7772430f2199942791872e1a7e3ce58fa80e6ef583ba70bb38e9eee14485d132',

@@ -2371,9 +2371,29 @@
       "sourceVersion": "bab33811356608c4515569e60233eee64bf037de20e41ff88ff73b45ff723adc",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-junker-queen-2026-10-30.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/junker-queen-guia-overwatch-tempo-heridas",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "92978fde982d53a6fdaca2a5d34776eeaffdb5ca1a3a4a1bd42333d6475e17a9",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-30T19:41:11.115Z",
+        "commit": "a61853d43a3e0f991aa8a724e1da6c7c9c088ce6",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/3mSZmoypvxV4jsxAXyGnBTk9nVjf",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-30",
       "reviewedVersion": "7772430f2199942791872e1a7e3ce58fa80e6ef583ba70bb38e9eee14485d132",
       "correction": "Contexto del vídeo de Awkward de noviembre de 2025, sin promesa del porcentaje del título. Se explican Battle Shout y Rampant Charge como alternativas, reducción limitada de cooldowns y recarga propia frente a rapidez aliada; Willy-Willy mejora el retorno y Savage Satiation el impacto de Carnage. Se conserva primera publicación y se revisa el texto el 30 de octubre.",
@@ -2861,9 +2881,13 @@
       "sourceVersion": "058aadcaa9a535851d82db9c50f74d566b3f7897139033ef8d90a423e1fab9fc",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-pharah-2026-10-30.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-30",
+      "reviewedVersion": "9d05cd0d42c56d63c44d6e6136302592592c4d21a154fb490f6e86e0d1007720",
+      "correction": "Contexto del vídeo de Isterman de agosto de 2025 y de sus ajustes personales, sin promesa de rango. Se precisa regeneración de combustible en suelo frente a aportes de habilidades, las condiciones de los cuatro perks y el movimiento limitado de Barrage incorporado al kit en abril de 2026. Se conserva primera publicación y se revisa el texto el 30 de octubre.",
+      "reviewedRenderedVersion": "785123e16e912bc51569f6ac13f77e71afdb9490ceefbdfa33bd0e98d0614fed"
     },
     {
       "path": "/guides/pharah-guia-video-overwatch",
@@ -4766,9 +4790,26 @@
       "sourceVersion": "3d4bace8682af38b9a6b2b5672fb1098fe4754fa92b5c2cebe2bac5cec740ecd",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-junker-queen-2026-10-30.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/junker-queen",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "2d04e0ba63f0d0a32969e1af1b5960a6d92d8e2627a8672233a73a15b8c54a77",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-30T19:41:11.115Z",
+        "commit": "a61853d43a3e0f991aa8a724e1da6c7c9c088ce6",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/3mSZmoypvxV4jsxAXyGnBTk9nVjf",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-30",
       "reviewedVersion": "3d4bace8682af38b9a6b2b5672fb1098fe4754fa92b5c2cebe2bac5cec740ecd",
       "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar los tres equipos, roles y formatos, seguimiento tras Shout, curación personal y condiciones de perks frente a Stadium. Todos los párrafos, FAQ, enlaces y presentación comprobados en móvil y escritorio. No se inventa primera publicación."
@@ -5140,9 +5181,12 @@
       "sourceVersion": "2f7490a5b5d871503ebadd10d12280914d7885963e0d6d4f275b8cf9365364f8",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-pharah-2026-10-30.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-30",
+      "reviewedVersion": "2f7490a5b5d871503ebadd10d12280914d7885963e0d6d4f275b8cf9365364f8",
+      "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar los tres equipos, roles y formatos, apoyo con y sin Mercy, exposición, aterrizaje y seguimiento de Barrage. Todos los párrafos, FAQ, enlaces y presentación comprobados en móvil y escritorio. No se inventa primera publicación."
     },
     {
       "path": "/team-comps/ramattra",
@@ -5608,8 +5652,8 @@
     }
   ],
   "progress": {
-    "reviewed": 80,
-    "publishedAndVerified": 78,
-    "pending": 60
+    "reviewed": 82,
+    "publishedAndVerified": 80,
+    "pending": 58
   }
 }

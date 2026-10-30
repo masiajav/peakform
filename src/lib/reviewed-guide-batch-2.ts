@@ -161,7 +161,13 @@ Revisa el timing de tus laterales en [cómo mejorar como DPS](/guides/como-mejor
   },
   'pharah-guia-overwatch-presion-aerea': {
     hero: 'pharah',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-30',
+    renderedContentVersion: '785123e16e912bc51569f6ac13f77e71afdb9490ceefbdfa33bd0e98d0614fed',
+    reviewedVideo: {
+      video_id: 'H7rcdxH4_0s', video_url: 'https://www.youtube.com/watch?v=H7rcdxH4_0s', video_platform: 'youtube',
+      video_title: 'How to reach TOP500 Pharah - Complete Guide', video_channel: 'Isterman', video_language: 'en', video_published_at: '2025-08-09',
+    },
+    videoDescription: 'Guía en inglés de Isterman publicada el 9 de agosto de 2025, con capítulos de ajustes, calentamiento, counters, suelo y aire, Barrage y perks. La sensibilidad, el hardware y la configuración que muestra son elecciones del autor; su título no garantiza alcanzar TOP500. El texto escrito contrasta por separado las mejoras actuales y el movimiento limitado durante Barrage, incorporado después de esa grabación. No copies automáticamente sus cifras o selección de perks.',
     videoSlug: 'pharah-guia-video-overwatch',
     title: 'Cómo jugar Pharah: cobertura aérea, combustible y Barrage',
     description: 'Usa tejados y laterales con Pharah, planifica dónde aterrizar y prepara Barrage sin regalar una baja. Cómo adaptar tus rutas cuando aparece un hitscan.',
@@ -176,6 +182,8 @@ En Dorado, diferencia entre disparar desde el borde de un tejado y permanecer en
 
 Mira el combustible, la movilidad disponible y la distancia a una posición segura. No esperes a empezar a caer para buscar un destino. Si el equipo rival está debajo, quedarte sin margen puede obligarte a gastar varios recursos solo para sobrevivir.
 
+La regeneración normal de combustible de Hover Jets requiere estar en el suelo. Jump Jet aporta algo de combustible al activarlo, pero eso no equivale a recuperar de forma continua mientras sigues flotando. Elige un aterrizaje donde puedas reponer recursos sin quedar a la vista del tirador; no prepares otro vuelo suponiendo que esperar detrás de un tejado en el aire rellenará el depósito.
+
 Jump Jet y Jet Dash cumplen funciones distintas en el recorrido. Puedes usar altura para superar un obstáculo y desplazamiento horizontal para alcanzar cobertura, pero gastar ambos para entrar exige tener una salida por posición. El orden cambia según el edificio, el ángulo rival y la ayuda que recibas; evita repetir una secuencia fija en todos los mapas.
 
 Concussive Blast también sirve para modificar distancias. Puedes desplazar a un enemigo que protege una esquina o ayudarte a reposicionarte. Antes de usarlo, mira dónde quedará el objetivo: sacarlo de cobertura hacia tus compañeros es útil; empujarlo fuera de sus líneas puede salvarlo.
@@ -188,6 +196,16 @@ Cambiar de objetivo puede ser mejor que repetir disparos al Tank mientras sus su
 
 Cuando tu equipo aún está lejos, disparar puede anunciar tu posición sin conseguir nada. Espera a que exista una amenaza frontal y aparece desde un lado. El rival tendrá que decidir entre corregir su mira hacia ti o seguir respondiendo al avance.
 
+## Los perks cambian el daño y los recursos de una pasada
+
+Concussive Force, una opción minor, añade daño a la explosión de Concussive Blast. El desplazamiento sigue necesitando una intención: acercar una amenaza al tiro aliado, separarla de tu Support o abrir tu propia salida. No gastes una herramienta de reposicionamiento solo por sumar ese daño si después te quedas sin vuelta.
+
+Helix Shields es la alternativa minor: convierte parte de la salud en escudos y los impactos directos de Rocket Launcher activan su regeneración pasiva. No basta con hacer splash cerca de una puerta para contar con ese efecto. Usa cobertura y oportunidades de impacto accesibles; el perk no garantiza sobrevivir a varias líneas de hitscan mientras continúas expuesta.
+
+Fuel Stores, una opción major, añade combustible al usar Jet Dash y amplía el máximo de sobrecombustible. Puedes ajustar una ruta con ese margen, pero sigues necesitando un destino seguro y revisar cuánto queda de verdad. Ganar combustible con una habilidad no convierte Hover Jets en regeneración permanente durante el vuelo.
+
+Rocket Salvo es la alternativa major: después de usar una habilidad de movimiento, el siguiente disparo principal añade dos minicohetes. Prepara una línea donde ese disparo pueda llegar sin gastar movilidad hacia una posición que no puedas sostener. No presupongas que todos los disparos quedan mejorados ni sumes a esa elección el combustible adicional de Fuel Stores.
+
 ## Contra hitscan: acorta la exposición
 
 Cassidy, Ashe o Soldier no obligan siempre a abandonar Pharah, pero sí a respetar sus líneas. Cambia el punto desde el que apareces y corta visión después de disparar. Si repites la misma salida, podrán esperarte aunque estés acertando cohetes.
@@ -199,6 +217,8 @@ Antes de cambiar, prueba un lateral más corto o coordina la entrada con el Tank
 ## Barrage se prepara con atención y recursos
 
 Barrage te deja muy expuesta durante una acción que el rival puede castigar. Mira qué enemigos te ven, quién puede interrumpirte y dónde está tu equipo. Estar muy cerca no basta si llegas por una ruta que todos están mirando.
+
+El kit actual permite movimiento limitado durante Barrage; ya no requiere escoger el antiguo Drift Thrusters para obtenerlo. Ese margen puede ayudar a corregir la exposición, pero no es una retirada libre ni elimina una Matrix o un control que ya estuviera preparado. Sigue eligiendo una posición de lanzamiento que tenga seguimiento y una amenaza concreta que el rival deba atender.
 
 Una entrada rival comprometida, un objetivo disputado o la presión de un compañero pueden generar la distracción necesaria. No esperes que el enemigo deje de reaccionar solo porque vienes por arriba. Si has usado toda la movilidad para llegar, comprueba que el plan merece el riesgo y que una baja tendrá seguimiento.
 
