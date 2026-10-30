@@ -7,7 +7,14 @@ export const sixthGuideReviewBatch: Record<string, GuideRevision> = {
     description: 'Aprovecha la marca de Sierra sin perseguir a ciegas: prepara Anchor Drone, controla los cruces con Tremor Charge y elige la ruta de Trailblazer.',
     quickAnswer: 'Sierra necesita una línea de tiro que pueda mantener mientras dispara. Usa Tracking Shot sobre un enemigo que siga accesible después de la marca; no abandones cobertura solo para seguirlo. Coloca Anchor Drone pensando en dónde terminará el grapple. Tremor Charge puede presionar un acceso, y Trailblazer funciona mejor cuando el rival necesita atravesar su recorrido o permanecer cerca del objetivo.',
     videoSlug: 'sierra-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-30',
+    renderedContentVersion: 'fa4ad98f4912a27f452b583af989679779fcf5225ff3a9571727b6c8f969a419',
+    sourceVideoTitle: 'Give me 6m 59s and I\'ll teach you EVERY SIERRA ABILITY in Overwatch',
+    reviewedVideo: {
+      video_id: 'SS1OqCSVqWU', video_url: 'https://www.youtube.com/watch?v=SS1OqCSVqWU', video_platform: 'youtube',
+      video_title: 'Overwatch - EVERY SIERRA ABILITY | Full Breakdown Guide & Tips', video_channel: 'KarQ', video_language: 'en', video_published_at: '2026-04-20',
+    },
+    videoDescription: 'Guía en inglés de KarQ publicada el 20 de abril de 2026, después del hotfix del día 17, con capítulos de estadísticas, rifle, marca, drone, Tremor Charge, Trailblazer y los cuatro perks. Sus cifras y condiciones corresponden a aquella versión. El texto escrito contrasta las mejoras actuales, incluido que Locked In exige acertar Tracking Shot sobre un héroe enemigo; no copies automáticamente la selección o los valores de la grabación.',
     body: `## El rifle necesita una posición que puedas sostener
 
 Helix Rifle gana precisión con el fuego sostenido. Eso favorece seguir un intercambio desde un ángulo estable, pero no significa que debas permanecer quieta recibiendo daño. Elige una esquina que permita observar el cruce y volver a cubrirte si el enemigo te enfoca.
@@ -31,6 +38,16 @@ Antes de lanzar el drone, mira dónde quieres quedar después del grapple. Una a
 Puedes preparar una salida mientras disparas desde una posición cercana. Si el rival entra sobre ti, el drone puede permitir cambiar de zona, siempre que siga disponible y el recorrido sea viable. Revisa su estado antes de exponerte: una retirada que depende de un drone destruido ya no existe.
 
 En defensa, piensa en la siguiente esquina antes de que el rival ocupe la actual. Usar el grapple para rotar a tiempo puede conservar tu vida y el ángulo de tiro. Esperar hasta estar rodeada reduce el margen y puede dejarte atravesando la misma línea de daño que intentabas evitar.
+
+## Los perks cambian la ruta, la precisión y la ventana de ayuda
+
+Full Flight, una opción minor, amplía los alcances de vuelo y grapple de Anchor Drone. Úsalo para preparar una cobertura que antes quedaba fuera de la ruta, comprobando si tus compañeros aún podrán ayudarte allí. Llegar más lejos no protege el recorrido ni vuelve segura una plataforma que el rival ya controla.
+
+Tight Grip es la alternativa minor: la dispersión del rifle se estrecha más rápido y vuelve a ampliarse más despacio. Puede facilitar una exposición corta desde la esquina, pero no convierte cada primer disparo en un tiro perfecto. Si el enemigo ya te está castigando, corta la línea aunque eso interrumpa el fuego que mejoraba la precisión.
+
+Medi-Drone, una opción major, añade al Anchor Drone un botiquín que puede curar a Sierra. Prepara una llegada donde esa recuperación ayude y sigas teniendo cobertura. No lo trates como curación permanente ni como un sustituto de la ayuda de tus supports cuando varios enemigos pueden dispararte al terminar el grapple.
+
+Locked In es la alternativa major: acertar Tracking Shot sobre un héroe enemigo aumenta brevemente la velocidad de ataque. No basta con lanzar la habilidad ni golpear una defensa. Mira la munición y la línea que tendrás después del impacto para aprovechar la ventana; tampoco cuentes con el botiquín de Medi-Drone si has elegido esta opción.
 
 ## Tremor Charge debe afectar a una ruta importante
 

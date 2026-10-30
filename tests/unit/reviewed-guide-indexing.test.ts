@@ -73,6 +73,7 @@ describe('individual publication of repository-owned guide revisions', () => {
       ['junker-queen-guia-overwatch-tempo-heridas', 'junker-queen', 'tank', ['junker-queen', 'tank', 'brawl', 'tempo', '6v6']],
       ['pharah-guia-overwatch-presion-aerea', 'pharah', 'dps', ['pharah', 'dps', 'flyers', 'barrage', '6v6']],
       ['emre-guia-video-overwatch', 'emre', 'dps', ['emre', 'dps', 'video', 'youtube', '6v6', 'overwatch']],
+      ['sierra-guia-video-overwatch', 'sierra', 'dps', ['sierra', 'dps', 'video', 'youtube', '6v6', 'overwatch']],
     ] as const) {
       const revision = reviewedGuideRevisions[slug]
       const raw = { slug, hero, role, tags: [...tags], published: true, created_at: '2026-05-05' }

@@ -30,4 +30,8 @@ La copia aislada parte de `a0d6aac`, sin cambios locales ajenos. Pasan ocho caso
 
 Pasan 708 pruebas unitarias y lint, doce casos finales de las tres páginas, catálogos/sitemap y filtros, y seis de regresión sobre Pharah y el modo de revisión de anuncios. Se inspeccionan las capturas completa de escritorio y móvil y cabecera móvil de la guía corregida. Counter y composiciones mantienen el texto cuya presentación se inspeccionó inicialmente en ambos tamaños.
 
-Las comprobaciones finales cubren todos los párrafos y argumentos, FAQ y respuestas estructuradas, enlaces, imágenes, fechas, identidad e idioma del vídeo y botón de reproducción, metadatos, sitemap y ausencia de anuncios y desbordamientos. Faltan el despliegue y la comprobación pública de estas tres versiones. Las demás exclusiones y la configuración de anuncios se mantienen.
+Las comprobaciones finales cubren todos los párrafos y argumentos, FAQ y respuestas estructuradas, enlaces, imágenes, fechas, identidad e idioma del vídeo y botón de reproducción, metadatos, sitemap y ausencia de anuncios y desbordamientos. Las demás exclusiones y la configuración de anuncios se mantienen.
+
+## Resultado público
+
+Despliegue correcto del commit `2610764d33f4cec547f8826717add69161a427dc`. Pasan 89 respuestas HTTP: las tres páginas de Emre, las 82 anteriores y cuatro controles excluidos. Se comprueba además la redirección 308 del alias de Pharah como regresión; Emre no tiene alias adicional. Las tres URLs son indexables, están en el sitemap, conservan fechas y medios revisados y no ejecutan anuncios. Pasan seis casos de navegador contra producción en móvil y escritorio. Total acumulado: **85 habilitados y verificados, 55 pendientes**.
