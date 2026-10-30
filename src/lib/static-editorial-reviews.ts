@@ -1074,6 +1074,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/content-review-comps-tracer-zarya-2026-10-05.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/sigma-guia-overwatch-poke-escudo': {
+    path: '/guides/sigma-guia-overwatch-poke-escudo',
+    version: 'e26ca9f4e928bd7c59fcea432981017687f8421fddecc9e239f6e9e8586ad08e',
+    reviewedAt: '2026-10-30', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-sigma-2026-10-30.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/sigma': {
+    path: '/team-comps/sigma',
+    version: '7d393066212c47826f20ab08c296ca3747a8400cd53c300d5904cbf1478037e6',
+    reviewedAt: '2026-10-30', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-sigma-2026-10-30.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/guides/orisa-guia-overwatch-fortify-javelin': {
     path: '/guides/orisa-guia-overwatch-fortify-javelin',
     version: '75f321d6ddf81d2ccbe8147464366c513f8745fb0bf903cd83df5feb39c0a835',

@@ -2803,9 +2803,29 @@
       "sourceVersion": "e59f36a93450175e7863592abe1b483172faca30232743d9c74a4a939cc45a17",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-orisa-2026-10-30.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/orisa-guia-overwatch-fortify-javelin",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "956165665440939fda24c58895fd1fbf99c82c17ecdb48b64b3796d1cb7c3781",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-30T19:25:37.184Z",
+        "commit": "4030a07e2c3783ef07518c0d8931591ad52fc364",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/Fp6u61996ZFbpQMrn14s8x2R4fdN",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-30",
       "reviewedVersion": "75f321d6ddf81d2ccbe8147464366c513f8745fb0bf903cd83df5feb39c0a835",
       "correction": "Contexto del vídeo de Kajor de junio de 2025 y decisiones de Defense Protocol/Mobile Fortification y Heavy Javelin/Protective Barrier. La respuesta rápida y descripción contemplan el reemplazo de Spin en lugar de dar ambas defensas por disponibles. Cuerpo y medios del alias vinculados; primera publicación conservada y revisión del texto 2026-10-30.",
@@ -3042,9 +3062,13 @@
       "sourceVersion": "43881e83d623a2a604011865aa3ee17a41205b4b8cba5336829bee5fad91bc84",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-sigma-2026-10-30.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-30",
+      "reviewedVersion": "e26ca9f4e928bd7c59fcea432981017687f8421fddecc9e239f6e9e8586ad08e",
+      "correction": "Título conocido del vídeo de emongg corregido y contexto de marzo de 2025. Se explican Kinetic Cycle por absorción efectiva, Hyper Regeneration al dañar héroes enemigos, Hyper Strike tras impactos directos y Levitation como alternativa. Se preserva la primera publicación y se revisa el texto el 30 de octubre.",
+      "reviewedRenderedVersion": "52fe8fd8a4314eecefe199f08b06e72c67184022f486e73ccd3cc88f2738579a"
     },
     {
       "path": "/guides/sigma-guia-video-overwatch",
@@ -5054,9 +5078,26 @@
       "sourceVersion": "53eea621f16419afa713aac908926ad7932ab1dd11bc62b4d7d2fa6a9f5fa76c",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-orisa-2026-10-30.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/orisa",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "76799c1372de0c73f5334091cd500fa551de25b8b17ce5fd0b2c4ba15dd98a81",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-30T19:25:37.184Z",
+        "commit": "4030a07e2c3783ef07518c0d8931591ad52fc364",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/Fp6u61996ZFbpQMrn14s8x2R4fdN",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-30",
       "reviewedVersion": "53eea621f16419afa713aac908926ad7932ab1dd11bc62b4d7d2fa6a9f5fa76c",
       "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar equipos, roles, formatos, reparto de frente/altura, seguimiento, defensa elegida y límites de Terra Surge. Todos los párrafos, FAQ, enlaces y presentación comprobados en móvil y escritorio. No se inventa primera publicación."
@@ -5176,9 +5217,12 @@
       "sourceVersion": "7d393066212c47826f20ab08c296ca3747a8400cd53c300d5904cbf1478037e6",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-sigma-2026-10-30.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-30",
+      "reviewedVersion": "7d393066212c47826f20ab08c296ca3747a8400cd53c300d5904cbf1478037e6",
+      "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar los tres equipos, reparto de barrera/ángulos/peel, roles y formatos y límites de Flux. Se comprueban todos los párrafos, FAQ, enlaces y presentación móvil y escritorio. No se inventa primera publicación."
     },
     {
       "path": "/team-comps/sojourn",
@@ -5520,8 +5564,8 @@
     }
   ],
   "progress": {
-    "reviewed": 76,
-    "publishedAndVerified": 74,
-    "pending": 64
+    "reviewed": 78,
+    "publishedAndVerified": 76,
+    "pending": 62
   }
 }

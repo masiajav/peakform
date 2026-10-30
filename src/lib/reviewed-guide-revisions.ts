@@ -208,6 +208,14 @@ Compara tus entradas con [el dive de Winston](/guides/como-jugar-winston-ranked-
     description: 'Juega Sigma con mejor control de distancia: usa la barrera contra amenazas concretas, alterna Grasp con cobertura y prepara Accretion y Flux.',
     quickAnswer: 'Sigma quiere mantener al rival en una distancia donde sus Hyperspheres puedan presionar sin que lo rodeen. Usa la barrera para cortar una amenaza concreta, no para absorber todo el spam. Si un equipo de rush consigue llegar hasta ti, cede una esquina con tiempo en vez de gastar barrera, Grasp y roca en el mismo sitio.',
     videoSlug: 'sigma-guia-video-overwatch',
+    renderedContentVersion: '52fe8fd8a4314eecefe199f08b06e72c67184022f486e73ccd3cc88f2738579a',
+    revisedAt: '2026-10-30',
+    sourceVideoTitle: 'The ULTIMATE Sigma Guide - Everything You Need To Know (Beginner To Advanced) - Overwatch',
+    reviewedVideo: {
+      video_id: 'Q2SWvV217o0', video_url: 'https://www.youtube.com/watch?v=Q2SWvV217o0', video_platform: 'youtube',
+      video_title: 'The ULTIMATE Sigma Guide - Everything You Need To Know (Beginner To Advanced) - Overwatch 2', video_channel: 'emongg', video_language: 'en', video_published_at: '2025-03-21',
+    },
+    videoDescription: 'Vídeo de emongg publicado el 21 de marzo de 2025, con capítulos de habilidades, posición, cooldowns, mapas, matchups y perks. Las selecciones y cifras de aquella grabación corresponden a su versión. El texto escrito contrasta por separado los perks actuales, incluido que Hyper Regeneration requiere dañar a héroes enemigos; no copies automáticamente una secuencia o selección de mejoras antigua.',
     body: `## El poke necesita distancia y una retirada
 
 Sigma puede presionar una línea mientras protege otra, pero no quiere recibir ataques desde todos lados. Antes de empezar, elige qué ángulo mantienes y qué cobertura usarás cuando el rival se acerque. La barrera ayuda a ganar tiempo; no compensa una posición rodeada.
@@ -235,6 +243,16 @@ Accretion puede frenar una entrada o castigar a un objetivo que tus compañeros 
 No toda presión necesita una baja inmediata. Los rebotes pueden obligar a alguien a abandonar una esquina sin que tú cruces primero. Ajusta la distancia y mira dónde explotan las esferas, en vez de mantener el disparo a un objetivo demasiado lejano que apenas recibe presión.
 
 Cuando aparezca un rival con poca vida, cambia el foco si puedes hacerlo sin perder el frente. Seguir golpeando al Tank por costumbre deja escapar oportunidades. Pero no persigas al objetivo hasta quedar cerca de un Reinhardt que estaba esperando que te acercaras.
+
+## Los perks necesitan impactos y una posición que puedas sostener
+
+Kinetic Cycle reduce el cooldown de Accretion cuando absorbes proyectiles con Kinetic Grasp. Activar Grasp sin recibir ataques absorbibles no garantiza esa recuperación. Reserva la habilidad para una amenaza real, en vez de enseñarla mientras el rival puede esperar y entrar después.
+
+Hyper Regeneration es la alternativa minor: parte del daño de Hyperspheres sobre héroes enemigos recupera salud de Experimental Barrier. Disparar a una barrera o a un objeto desplegado no prepara la misma recuperación. Mantén objetivos accesibles y retira tu barrera cuando haya terminado su tarea; el perk no convierte en rentable dejarla recibiendo todo el spam.
+
+Hyper Strike, una opción major, potencia el siguiente melee rápido que conecte después de cinco impactos directos de Hyperspheres, levantando y alejando a los enemigos alcanzados. Puede ayudar cuando un atacante ya entra a tu alcance. No abandones una buena esquina solo para buscar el empuje: acercarte a un rush puede costar más que la oportunidad que querías crear.
+
+Levitation es la alternativa major y permite elevarte brevemente manteniendo el doble salto. Prepara una altura o una nueva línea desde la que puedas volver a cobertura; esa movilidad no te protege del tirador que ya está siguiendo tu trayectoria. Tampoco cuentes con el melee mejorado de Hyper Strike si has escogido esta opción.
 
 ## Gravitic Flux requiere una posición de lanzamiento segura
 

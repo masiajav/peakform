@@ -2,9 +2,9 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 30 de octubre: **76 de 140 artículos revisados; 74 habilitados y verificados en producción, dos de Orisa pendientes de despliegue y comprobación pública; 64 pendientes de revisión**. Último lote verificado públicamente: guía y composiciones de Lifeweaver. Siguiente revisión iniciada: guía y composiciones de Sigma. Los anuncios mantienen su configuración previa.
+Estado comprobado al 30 de octubre: **78 de 140 artículos revisados; 76 habilitados y verificados en producción, dos de Sigma pendientes de despliegue y comprobación pública; 62 pendientes de revisión**. Último lote verificado públicamente: guía y composiciones de Orisa. Siguiente revisión iniciada: guía y composiciones de Junker Queen. Los anuncios mantienen su configuración previa.
 
-Los 64 pendientes se reparten entre 22 guías, 24 mapas, ocho composiciones, cinco artículos de parches, tres noticias y dos counters. Cada URL conserva su motivo y estado en el registro; esta distribución no es una aprobación ni reduce el alcance del objetivo.
+Los 62 pendientes se reparten entre 21 guías, 24 mapas, siete composiciones, cinco artículos de parches, tres noticias y dos counters. Cada URL conserva su motivo y estado en el registro; esta distribución no es una aprobación ni reduce el alcance del objetivo.
 
 ## Inventario y alcance
 
