@@ -29,4 +29,8 @@ Solo se proponen estas dos URLs con su versión exacta, manteniendo las demás e
 
 ## Validación final local
 
-Pasan 708 pruebas unitarias y lint, ocho casos finales de ambos artículos, catálogo/sitemap y filtros, y seis de regresión sobre Junker Queen y el modo de revisión de anuncios. Se inspeccionan las capturas completas de escritorio y móvil de la guía final y de las composiciones, además de las cabeceras iniciales. Las comprobaciones cubren todos los párrafos, FAQ, enlaces, imágenes, fechas, identidad e idioma del vídeo y botón de reproducción, metadatos, sitemap y ausencia de desbordamientos y anuncios. Falta desplegar y comprobar las URLs públicas.
+Pasan 708 pruebas unitarias y lint, ocho casos finales de ambos artículos, catálogo/sitemap y filtros, y seis de regresión sobre Junker Queen y el modo de revisión de anuncios. Se inspeccionan las capturas completas de escritorio y móvil de la guía final y de las composiciones, además de las cabeceras iniciales. Las comprobaciones cubren todos los párrafos, FAQ, enlaces, imágenes, fechas, identidad e idioma del vídeo y botón de reproducción, metadatos, sitemap y ausencia de desbordamientos y anuncios.
+
+## Resultado público
+
+Despliegue correcto del commit `a0d6aac44c0eb574a43eee75b59edcde9402ead4`. Pasan 86 respuestas HTTP: las dos páginas de Pharah, las 80 anteriores y cuatro controles excluidos, además de la redirección 308 del alias. Ambas URLs son indexables, están en el sitemap, conservan fechas y medios revisados y no ejecutan anuncios. Pasan cuatro casos de navegador contra producción en móvil y escritorio. Total acumulado: **82 habilitados y verificados, 58 pendientes**.

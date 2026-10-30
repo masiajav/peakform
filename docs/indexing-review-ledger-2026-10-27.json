@@ -188,7 +188,17 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "date": "2026-10-30",
+        "contentRead": true,
+        "modelUnchangedFromInventory": true,
+        "evidence": "docs/indexing-review-emre-preliminary-2026-10-30.md",
+        "remaining": "Completar contraste de interacciones y formatos; enlaces, metadatos y presentación móvil/escritorio; revisión exacta, despliegue y comprobación pública.",
+        "baselineCommit": "a0d6aac44c0eb574a43eee75b59edcde9402ead4",
+        "baselineBrowserChecks": 8,
+        "baselineVisualInspected": true
+      }
     },
     {
       "path": "/counters/hanzo",
@@ -2120,7 +2130,17 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "date": "2026-10-30",
+        "contentRead": true,
+        "modelUnchangedFromInventory": true,
+        "evidence": "docs/indexing-review-emre-preliminary-2026-10-30.md",
+        "remaining": "Contexto y condiciones de perks; revisión exacta final, enlaces y presentación móvil/escritorio; despliegue y comprobación pública.",
+        "baselineCommit": "a0d6aac44c0eb574a43eee75b59edcde9402ead4",
+        "baselineBrowserChecks": 8,
+        "baselineVisualInspected": true
+      }
     },
     {
       "path": "/guides/flyers-composicion-pharah-echo-overwatch",
@@ -2881,9 +2901,29 @@
       "sourceVersion": "058aadcaa9a535851d82db9c50f74d566b3f7897139033ef8d90a423e1fab9fc",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-pharah-2026-10-30.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/pharah-guia-overwatch-presion-aerea",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "1f4f53e20aa1db1ce9a6e7a8aacc62d83f1e5d992f97d943ecccccb7d026634b",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-30T19:46:53.366Z",
+        "commit": "a0d6aac44c0eb574a43eee75b59edcde9402ead4",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/DKvXYX6qnW3GGUBZFircKERingFb",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-30",
       "reviewedVersion": "9d05cd0d42c56d63c44d6e6136302592592c4d21a154fb490f6e86e0d1007720",
       "correction": "Contexto del vídeo de Isterman de agosto de 2025 y de sus ajustes personales, sin promesa de rango. Se precisa regeneración de combustible en suelo frente a aportes de habilidades, las condiciones de los cuatro perks y el movimiento limitado de Barrage incorporado al kit en abril de 2026. Se conserva primera publicación y se revisa el texto el 30 de octubre.",
@@ -4614,7 +4654,17 @@
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "date": "2026-10-30",
+        "contentRead": true,
+        "modelUnchangedFromInventory": true,
+        "evidence": "docs/indexing-review-emre-preliminary-2026-10-30.md",
+        "remaining": "Completar contraste de interacciones y formatos; enlaces, metadatos y presentación móvil/escritorio; revisión exacta, despliegue y comprobación pública.",
+        "baselineCommit": "a0d6aac44c0eb574a43eee75b59edcde9402ead4",
+        "baselineBrowserChecks": 8,
+        "baselineVisualInspected": true
+      }
     },
     {
       "path": "/team-comps/freja",
@@ -5181,9 +5231,26 @@
       "sourceVersion": "2f7490a5b5d871503ebadd10d12280914d7885963e0d6d4f275b8cf9365364f8",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-pharah-2026-10-30.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/pharah",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "a4aa6f393319766c359265922dfabc22277f864ef4e063072b53e5f428a94b25",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-30T19:46:53.366Z",
+        "commit": "a0d6aac44c0eb574a43eee75b59edcde9402ead4",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/DKvXYX6qnW3GGUBZFircKERingFb",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-30",
       "reviewedVersion": "2f7490a5b5d871503ebadd10d12280914d7885963e0d6d4f275b8cf9365364f8",
       "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar los tres equipos, roles y formatos, apoyo con y sin Mercy, exposición, aterrizaje y seguimiento de Barrage. Todos los párrafos, FAQ, enlaces y presentación comprobados en móvil y escritorio. No se inventa primera publicación."
@@ -5653,7 +5720,7 @@
   ],
   "progress": {
     "reviewed": 82,
-    "publishedAndVerified": 80,
+    "publishedAndVerified": 82,
     "pending": 58
   }
 }

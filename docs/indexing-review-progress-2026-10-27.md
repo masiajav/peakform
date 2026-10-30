@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 30 de octubre: **82 de 140 artículos revisados; 80 habilitados y verificados en producción, dos de Pharah pendientes de despliegue y comprobación pública; 58 pendientes de revisión**. Último lote verificado públicamente: guía y composiciones de Junker Queen. Siguiente revisión prevista: artículos de Emre. Los anuncios mantienen su configuración previa.
+Estado comprobado al 30 de octubre: **82 de 140 artículos revisados, habilitados y verificados en producción; 58 pendientes de revisión**. Último lote verificado públicamente: guía y composiciones de Pharah. Siguiente revisión iniciada: guía, counter y composiciones de Emre. Los anuncios mantienen su configuración previa.
 
 Los 58 pendientes se reparten entre 19 guías, 24 mapas, cinco composiciones, cinco artículos de parches, tres noticias y dos counters. Cada URL conserva su motivo y estado en el registro; esta distribución no es una aprobación ni reduce el alcance del objetivo.
 
@@ -244,3 +244,12 @@ La revisión inicial de Sombra y Anran añade ocho casos correctos de navegador 
 Se completa la revisión individual de ambas guías. Sombra corrige el título conocido, contextualiza el vídeo de DPS de 2022, precisa condiciones de perks y sustituye únicamente la etiqueta heredada dps por support. Las demás etiquetas se conservan y los cambios inesperados invalidan la revisión. Anran aplica sus cuatro perks y diferencia curación base de Dancing Blaze de su mejora opcional. Pasan 708 pruebas unitarias, lint, seis casos finales y ocho de regresión, además de ocho iniciales. Se inspeccionan cuatro capturas iniciales y cuatro finales. Los filtros Support/DPS muestran a Sombra en el rol correcto y conservan noindex. Evidencia: [revisión de Sombra y Anran](indexing-review-sombra-anran-guides-2026-10-29.md). Ambas URLs quedan pendientes de despliegue y comprobación pública.
 
 Se leen las dos páginas siguientes de Baptiste y se contrastan sus modelos actuales, ficha y vídeo histórico de 2022. Roles y formatos de las composiciones son coherentes; la guía necesita contexto, título real y explicación de perks actuales. Ambas siguen pendientes y excluidas.
+
+
+## Publicación comprobada de Orisa, Sigma, Junker Queen y Pharah
+
+Orisa queda comprobada públicamente en el commit 4030a07: 80 respuestas HTTP y la redirección del alias correctas, además de cuatro casos de navegador. Sigma queda verificada en d1aaac9 con 82 respuestas HTTP, Junker Queen en a61853d con 84 y Pharah en a0d6aac con 86; cada lote añade cuatro casos de navegador en producción y conserva los artículos anteriores y los controles excluidos. Total actual: **82 de 140 habilitados y verificados; 58 pendientes**.
+
+Las guías de Sigma, Junker Queen y Pharah aplican sus perks actuales y contextualizan sus vídeos. Pharah diferencia combustible de suelo y habilidades e incorpora el movimiento limitado de Barrage desde abril. Sus composiciones conservan texto y fecha tras la lectura y contraste individuales. Cada lote pasa 708 pruebas unitarias y lint, ocho casos finales y seis de regresión, además de seis iniciales. Las versiones exactas, fuentes, capturas y resultados públicos quedan en sus documentos de revisión y en el registro por URL.
+
+Se leen completos guía, counter y composiciones de Emre, se contrastan los modelos con el inventario y se verifican fuente y vídeo. Pasan ocho casos iniciales y se inspeccionan las tres páginas en móvil y escritorio. La guía todavía necesita contexto y condiciones de perks; las tres siguen pendientes hasta la revisión final de sus versiones. Evidencia: [lectura preliminar de Emre](indexing-review-emre-preliminary-2026-10-30.md).
