@@ -36,4 +36,12 @@ Se inspeccionan cinco capturas finales: Tracer y Tank completos en ambos tamaño
 
 La nueva prueba unitaria impide convertir la nota de Tank en artículo independiente por añadir longitud: conserva su condición de alias, sin ficha, sitemap, anuncios o aprobación estática. También verifica que la revisión existente y las fechas del destino siguen vigentes. Las pruebas de Tracer invalidan cambios posteriores de medios, rol, etiquetas o cuerpo.
 
-El despliegue y la comprobación pública siguen pendientes. Hay dos artículos revisados en este lote, pero solo uno se habilitará como artículo; la nota de Tank se resolverá por consolidación, sin volver a contar el destino existente.
+Hay dos artículos revisados en este lote, pero solo uno se habilita como artículo; la nota de Tank se resuelve por consolidación, sin volver a contar el destino existente.
+
+## Publicación comprobada
+
+El commit `359ce9c226ac355873a64fdd09e94939b41247e2` tiene [despliegue Vercel correcto](https://vercel.com/masiajavs-projects/peakform/4hcK7S1AmC56XMYf7CTHsqGyzmKk). Pasan 102 comprobaciones HTTP: Tracer, los 97 artículos anteriores y cuatro controles excluidos. Se verifica además el alias 308 de Tracer y la consolidación 308 de Tank con respuesta 200 del destino. Tracer permite indexación, está en sitemap y conserva primera publicación e identidad del vídeo. Tank conserva canonical, revisión, fechas y seis FAQ del destino; la nota queda fuera del sitemap.
+
+Pasan otros cuatro casos de navegador en producción, dos por resolución, en móvil y escritorio. Incluyen texto completo, FAQ, enlaces, vídeo de Tracer y botón, fechas, metadatos, sitemap, catálogo sin duplicado de Tank y ausencia de slots o ejecución de anuncios.
+
+El inventario inicial queda con 99 de 140 artículos revisados y resueltos: 98 habilitados y verificados públicamente, uno consolidado y verificado, y 41 pendientes. La nota consolidada conserva su entrada y motivo en el registro; no desaparece del alcance ni se convierte en una aprobación de su texto. La conciliación final del inventario actual de ambos juegos sigue pendiente.

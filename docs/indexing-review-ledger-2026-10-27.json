@@ -2122,7 +2122,15 @@
       "initialBlocker": "Esta versión de la guía todavía no tiene una revisión editorial aprobada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-31",
+        "textVersion": "9dda1a90e72cca5b7f65c3767d7c846fdb7b861977a12e739bbd0cd62d52195a",
+        "note": "Lectura íntegra de definición, tres tareas, error y nota 6v6, metadatos y fechas. Fila actual idéntica al inventario. Se lee completo el destino: ángulos, objetivos, seguimiento, Recall/Dash, cambio de foco, cobertura, mecánica, overtime, 6v6, ultimates, cambios, VOD y cinco FAQ. Su contenido desarrolla el propósito de la nota sin identificar intención diferenciada. Ficha oficial de Genji confirma reinicio por eliminaciones; Tracer confirma retorno de Recall. No se ha decidido ni publicado una redirección: faltan presentación y enlaces en ambos tamaños.",
+        "evidence": "docs/indexing-review-dps-support-notes-preliminary-2026-10-31.md",
+        "possibleConsolidationTarget": "/guides/como-mejorar-como-dps-overwatch",
+        "targetCurrentReviewedVersion": "873f2be8f4e7b16461312a6dcc3db077f0c1ce58d88e28bb2e1723c587865a42"
+      }
     },
     {
       "path": "/guides/echo-guia-overwatch-burst-vertical",
@@ -3546,7 +3554,15 @@
       "initialBlocker": "Esta versión de la guía todavía no tiene una revisión editorial aprobada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-31",
+        "textVersion": "5c1c900caf39d3f7add6a3a372570407f469bc25c4a8a277a8949327628115fe",
+        "note": "Lectura íntegra de utilidad, cuatro prioridades, pregunta y 6v6, metadatos y fechas. Fila actual idéntica al inventario. Se lee completo el destino: posición, urgencias, daño, cooldowns, retirada, otro Support, dos Tanks, ultimates, VOD y cinco FAQ. Cubre el propósito de la nota con condiciones. Fichas oficiales actuales de Kiriko, Lúcio y Zenyatta contrastan limpieza, movimiento, velocidad, Discord y protección/curación con alcance propio. No se ha decidido ni publicado una redirección: faltan presentación y enlaces en ambos tamaños.",
+        "evidence": "docs/indexing-review-dps-support-notes-preliminary-2026-10-31.md",
+        "possibleConsolidationTarget": "/guides/como-mejorar-como-support-overwatch",
+        "targetCurrentReviewedVersion": "55bd803a79a37909107bac3a1d747e228af16fa075e4c685634456a9df1d8168"
+      }
     },
     {
       "path": "/guides/symmetra-guia-video-overwatch",
@@ -3598,9 +3614,32 @@
       "sourceVersion": "ef04e143db6a4871ce19102c30c49cc4683e4936115d669d8bd4a267b70d5b25",
       "initialReviewState": "missing-row-review",
       "initialBlocker": "Esta versión de la guía todavía no tiene una revisión editorial aprobada",
-      "status": "consolidation-awaiting-deployment",
+      "status": "consolidated-verified",
       "evidence": "docs/indexing-review-tracer-tank-2026-10-31.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "checkedAt": "2026-10-31T17:37:33.558Z",
+        "source": "/guides/tank-crear-espacio-sin-regalar-vida",
+        "target": "/guides/como-mejorar-como-tank-overwatch",
+        "targetVersion": "d72e3e7af1bab046d7e2f074ed84bd1b405e86a1c05413845411d48a31043667",
+        "status": 308,
+        "location": "/guides/como-mejorar-como-tank-overwatch",
+        "sourceInSitemap": false,
+        "targetStatus": 200,
+        "canonical": "https://www.replaidlab.com/guides/como-mejorar-como-tank-overwatch",
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "targetInSitemap": true,
+        "datePublished": "2026-06-21",
+        "dateModified": "2026-10-18",
+        "faqCount": 6,
+        "adSlots": false,
+        "adScript": false,
+        "contentSha256": "078d57357cdc7bd33a864707c068582f351aee82b80ce5678453a3425e0b9f1e",
+        "valid": true,
+        "commit": "359ce9c226ac355873a64fdd09e94939b41247e2",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/4hcK7S1AmC56XMYf7CTHsqGyzmKk",
+        "browserChecks": "2 production cases passed: permanent 308 to the existing complete guide on desktop/mobile, every paragraph, six FAQ, links, unchanged dates and canonical, sitemap, no duplicate discovery card, excluded search filter, no ad slots or execution."
+      },
       "reviewedAt": "2026-10-31",
       "initialPartialReview": {
         "readAt": "2026-10-31",
@@ -3697,9 +3736,29 @@
       "sourceVersion": "3fc78b11d9fac3816601b035297a3cd23ab2c0c6b2344ed07ebf9ea860a7e0c9",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-tracer-tank-2026-10-31.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/tracer-presion-lateral-sin-morir-gratis",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "f65c46bbff6e2877a17e46d9976d6ad2fdfaf77c3126c8b196f4a241cbb05fce",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-31T17:38:43.704Z",
+        "commit": "359ce9c226ac355873a64fdd09e94939b41247e2",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/4hcK7S1AmC56XMYf7CTHsqGyzmKk",
+        "browserChecks": "2 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-31",
       "initialPartialReview": {
         "readAt": "2026-10-31",
@@ -6112,8 +6171,8 @@
   ],
   "progress": {
     "reviewed": 99,
-    "publishedAndVerified": 97,
-    "consolidatedAndVerified": 0,
+    "publishedAndVerified": 98,
+    "consolidatedAndVerified": 1,
     "pending": 41
   }
 }
