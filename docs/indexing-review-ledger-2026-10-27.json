@@ -2022,9 +2022,29 @@
       "sourceVersion": "5dffdd5c0396c55e3dd937926361951c0ccc6483604628f72a1e04a229fe8b9d",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-domina-jetpack-cat-2026-10-31.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/domina-guia-video-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "84a60a12ebf65c2dc652f45699adaec030560e1ea6355a956a2c8ba970af4635",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-31T17:07:23.211Z",
+        "commit": "ef194f63676c924720908b82c7e472efd6d1d97a",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/2NFHYQ74iYmLCsspHgZ213oETmfn",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-31",
       "reviewedVersion": "97c1b2f443f35648255fe3296d2bbd89f4340be34a4e68b3a6418ce771b2825c",
       "reviewedRenderedVersion": "6f23a75ed74cbfc056ab3d01587dc0be49744b4d6c5a742cb53c491735515e09",
@@ -2444,9 +2464,29 @@
       "sourceVersion": "2b5d2734b63e94101ca5143a33feb64c692bcc32906bb4fe4de6b6eaa89677ba",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-domina-jetpack-cat-2026-10-31.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/jetpack-cat-guia-video-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "b5798f3e58ec4874e21629edb44ba86d8138a4d9539b8e865bbac295474d6f18",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-31T17:07:23.211Z",
+        "commit": "ef194f63676c924720908b82c7e472efd6d1d97a",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/2NFHYQ74iYmLCsspHgZ213oETmfn",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-31",
       "reviewedVersion": "50728caf5f1b62a96f340b4eca2a7c02c769f3d01ad3f97f2ae37f65bbec0bac",
       "reviewedRenderedVersion": "4bc299d8e348cf1a4500d4b754aa27237166944a3f92502da986569f74230f20",
@@ -3796,7 +3836,14 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-31",
+        "textVersion": "55ad0c5eb1fd7804585817947f76afc859976604a5b9dc7d3d40d4196dfb21b8",
+        "note": "Lectura completa de la parodia, dive con salida, burbuja, seguimiento, Primal, VOD, tres FAQ y enlaces; ficha oficial y descripción del vídeo confirman el contexto. Identidad y audio original inglés comprobados, con doblaje automático opcional. El artículo no es un tutorial exhaustivo de perks y enlaza la guía ranked. Faltan registro de medios y versión renderizada exacta y validación final. No aprobada.",
+        "evidence": "docs/indexing-review-winston-zarya-preliminary-2026-10-31.md",
+        "baselineVerification": "Ocho casos iniciales pasan en móvil y escritorio para ambas páginas aún excluidas y sus vídeos; se inspeccionan dos páginas completas de escritorio y dos cabeceras móviles. Falta revisión final de contenido corregido y publicación."
+      }
     },
     {
       "path": "/guides/wrecking-ball-guia-video-overwatch",
@@ -3910,7 +3957,14 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-31",
+        "textVersion": "2b1eaed9a0a0036bde1df2b6d75a9808a9a52bfa59bbb0d6e997916a4d2e1dad",
+        "note": "Lectura completa de burbujas según amenaza, energía y alcance, cobertura, Graviton con seguimiento, vídeo de 2022, VOD, cuatro FAQ y enlaces. Ficha oficial y vídeo contrastados. Faltan corregir título conocido y aplicar perks actuales, registrar versión exacta y validar el resultado. Se conserva el alias de vídeo y la primera publicación canónica. No aprobada.",
+        "evidence": "docs/indexing-review-winston-zarya-preliminary-2026-10-31.md",
+        "baselineVerification": "Ocho casos iniciales pasan en móvil y escritorio para ambas páginas aún excluidas y sus vídeos; se inspeccionan dos páginas completas de escritorio y dos cabeceras móviles. Falta revisión final de contenido corregido y publicación."
+      }
     },
     {
       "path": "/guides/zarya-guia-video-overwatch",
@@ -5984,7 +6038,7 @@
   ],
   "progress": {
     "reviewed": 95,
-    "publishedAndVerified": 93,
+    "publishedAndVerified": 95,
     "pending": 45
   }
 }
