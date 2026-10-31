@@ -61,6 +61,8 @@ const consolidatedTargets: Record<string, string> = {
   'como-mejorar-en-overwatch-revisando-vod': 'review-vod-overwatch-espanol',
   'como-elegir-composicion-dive-poke-brawl': 'composiciones-overwatch-5v5-6v6',
   'tank-crear-espacio-sin-regalar-vida': 'como-mejorar-como-tank-overwatch',
+  'dps-presion-final-blows-control-angulos': 'como-mejorar-como-dps-overwatch',
+  'support-tempo-utilidad-supervivencia': 'como-mejorar-como-support-overwatch',
 }
 
 export function reviewedGuideTarget(slug?: string | null) {

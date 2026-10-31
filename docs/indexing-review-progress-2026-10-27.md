@@ -2,9 +2,9 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 31 de octubre: **99 de 140 artículos revisados y resueltos: 98 habilitados y verificados en producción, uno consolidado y verificado; 41 pendientes de revisión**. Último lote publicado: Tracer y Tank. Tracer se habilita como artículo; la nota corta de Tank redirige con 308 a la guía completa ya revisada. El destino no se cuenta como otra nueva publicación. Se han leído las notas siguientes de DPS y Support y sus destinos completos, con fuentes y estado público contrastados; siguen pendientes de presentación, enlaces y decisión final. Los anuncios mantienen su configuración previa.
+Estado al 31 de octubre: **101 de 140 artículos revisados; 98 habilitados y uno consolidado verificados en producción; 39 pendientes de revisión**. Las dos consolidaciones de notas de DPS y Support han superado lectura, contraste, presentación y pruebas locales y están pendientes de despliegue/verificación pública. Sus destinos completos ya estaban revisados e indexables y no se cuentan como nuevas publicaciones. Los anuncios mantienen su configuración previa.
 
-Los 41 pendientes se reparten entre nueve guías, 24 mapas, cinco artículos de parches y tres noticias. No quedan counters ni composiciones pendientes de revisión del inventario inicial. Cada URL conserva su motivo y estado en el registro; esta distribución no es una aprobación ni reduce el alcance del objetivo. Las consolidaciones se cuentan por separado de los artículos habilitados; la conciliación final del inventario de ambos juegos sigue pendiente.
+Los 39 pendientes se reparten entre siete guías, 24 mapas, cinco artículos de parches y tres noticias. No quedan counters ni composiciones pendientes de revisión del inventario inicial. Cada URL conserva su motivo y estado en el registro; esta distribución no es una aprobación ni reduce el alcance del objetivo. Las consolidaciones se cuentan por separado de los artículos habilitados; la conciliación final del inventario de ambos juegos sigue pendiente.
 
 ## Inventario y alcance
 

@@ -2120,10 +2120,19 @@
       "sourceVersion": "9dda1a90e72cca5b7f65c3767d7c846fdb7b861977a12e739bbd0cd62d52195a",
       "initialReviewState": "missing-row-review",
       "initialBlocker": "Esta versión de la guía todavía no tiene una revisión editorial aprobada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "consolidation-awaiting-deployment",
+      "evidence": "docs/indexing-review-dps-support-notes-2026-10-31.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-31",
+      "reviewDisposition": "consolidate",
+      "reviewedSourceVersion": "9dda1a90e72cca5b7f65c3767d7c846fdb7b861977a12e739bbd0cd62d52195a",
+      "consolidation": {
+        "target": "/guides/como-mejorar-como-dps-overwatch",
+        "targetVersion": "873f2be8f4e7b16461312a6dcc3db077f0c1ce58d88e28bb2e1723c587865a42",
+        "targetAlreadyIndexable": true,
+        "reason": "Nota breve sin intención diferenciada. La guía completa desarrolla presión, ángulos, objetivos, seguimiento, recursos, 6v6 y VOD con ejemplos y cinco FAQ. La redirección 308 conserva acceso sin publicar otra repetición del mismo artículo."
+      },
+      "initialPartialReview": {
         "readAt": "2026-10-31",
         "textVersion": "9dda1a90e72cca5b7f65c3767d7c846fdb7b861977a12e739bbd0cd62d52195a",
         "note": "Lectura íntegra de definición, tres tareas, error y nota 6v6, metadatos y fechas. Fila actual idéntica al inventario. Se lee completo el destino: ángulos, objetivos, seguimiento, Recall/Dash, cambio de foco, cobertura, mecánica, overtime, 6v6, ultimates, cambios, VOD y cinco FAQ. Su contenido desarrolla el propósito de la nota sin identificar intención diferenciada. Ficha oficial de Genji confirma reinicio por eliminaciones; Tracer confirma retorno de Recall. No se ha decidido ni publicado una redirección: faltan presentación y enlaces en ambos tamaños.",
@@ -3552,10 +3561,19 @@
       "sourceVersion": "5c1c900caf39d3f7add6a3a372570407f469bc25c4a8a277a8949327628115fe",
       "initialReviewState": "missing-row-review",
       "initialBlocker": "Esta versión de la guía todavía no tiene una revisión editorial aprobada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "consolidation-awaiting-deployment",
+      "evidence": "docs/indexing-review-dps-support-notes-2026-10-31.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-31",
+      "reviewDisposition": "consolidate",
+      "reviewedSourceVersion": "5c1c900caf39d3f7add6a3a372570407f469bc25c4a8a277a8949327628115fe",
+      "consolidation": {
+        "target": "/guides/como-mejorar-como-support-overwatch",
+        "targetVersion": "55bd803a79a37909107bac3a1d747e228af16fa075e4c685634456a9df1d8168",
+        "targetAlreadyIndexable": true,
+        "reason": "Nota breve sin intención diferenciada. La guía completa desarrolla posición, urgencias, utilidad, supervivencia, uso o reserva de cooldowns, coordinación, ultimates, 6v6 y VOD con ejemplos y cinco FAQ. La redirección 308 conserva acceso sin repetir el contenido."
+      },
+      "initialPartialReview": {
         "readAt": "2026-10-31",
         "textVersion": "5c1c900caf39d3f7add6a3a372570407f469bc25c4a8a277a8949327628115fe",
         "note": "Lectura íntegra de utilidad, cuatro prioridades, pregunta y 6v6, metadatos y fechas. Fila actual idéntica al inventario. Se lee completo el destino: posición, urgencias, daño, cooldowns, retirada, otro Support, dos Tanks, ultimates, VOD y cinco FAQ. Cubre el propósito de la nota con condiciones. Fichas oficiales actuales de Kiriko, Lúcio y Zenyatta contrastan limpieza, movimiento, velocidad, Discord y protección/curación con alcance propio. No se ha decidido ni publicado una redirección: faltan presentación y enlaces en ambos tamaños.",
@@ -6170,9 +6188,9 @@
     }
   ],
   "progress": {
-    "reviewed": 99,
+    "reviewed": 101,
     "publishedAndVerified": 98,
     "consolidatedAndVerified": 1,
-    "pending": 41
+    "pending": 39
   }
 }
