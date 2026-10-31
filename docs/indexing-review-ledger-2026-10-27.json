@@ -2009,7 +2009,13 @@
       "initialBlocker": "Esta versión de la guía todavía no tiene una revisión editorial aprobada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-31",
+        "textVersion": "09711e0daedda2103c632493440ee1c10cfa188dec7aa2e360e3b68d3a604195",
+        "note": "Lectura íntegra de introducción general, dive, brawl, poke y 6v6, metadatos y fechas. Fila actual idéntica al inventario. Se lee el destino completo de composiciones: siete secciones, tareas, formatos, ejemplos, cambios de pick, peel, segundo Tank, checklist, cinco FAQ y enlaces. Intención general coincidente: valorar consolidación tras presentación, enlaces y contraste restante. El destino conserva versión cd2699fe9fe04c299571b180186a1acb778bd9aa1ab57fa4e66edafc0c74a66b y está públicamente indexable. Fichas actuales de Sigma, D.Va y Baptiste contrastadas. No aprobada ni redirigida todavía.",
+        "evidence": "docs/indexing-review-compositions-poke-preliminary-2026-10-31.md"
+      }
     },
     {
       "path": "/guides/domina-guia-video-overwatch",
@@ -2120,9 +2126,32 @@
       "sourceVersion": "9dda1a90e72cca5b7f65c3767d7c846fdb7b861977a12e739bbd0cd62d52195a",
       "initialReviewState": "missing-row-review",
       "initialBlocker": "Esta versión de la guía todavía no tiene una revisión editorial aprobada",
-      "status": "consolidation-awaiting-deployment",
+      "status": "consolidated-verified",
       "evidence": "docs/indexing-review-dps-support-notes-2026-10-31.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "source": "/guides/dps-presion-final-blows-control-angulos",
+        "target": "/guides/como-mejorar-como-dps-overwatch",
+        "targetVersion": "873f2be8f4e7b16461312a6dcc3db077f0c1ce58d88e28bb2e1723c587865a42",
+        "status": 308,
+        "location": "/guides/como-mejorar-como-dps-overwatch",
+        "sourceInSitemap": false,
+        "targetStatus": 200,
+        "canonical": "https://www.replaidlab.com/guides/como-mejorar-como-dps-overwatch",
+        "robots": "",
+        "xRobotsTag": null,
+        "targetInSitemap": true,
+        "datePublished": "2026-06-21T10:10:02.805891+00:00",
+        "dateModified": "2026-10-18",
+        "faqCount": 5,
+        "adSlots": false,
+        "adScript": false,
+        "contentSha256": "26b9b5d14fdfa5425dbf3a27739ea82bdf465c67e89952512d2bce3cbc1b58d1",
+        "valid": true,
+        "checkedAt": "2026-10-31T17:50:00.072Z",
+        "commit": "35ad4b7b06594085021af33c9b5abcb109652c48",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/EeB8sVJ2W8gDPjbQepZVXoz5cGA6",
+        "browserChecks": "4 production cases passed: both permanent 308 consolidations on desktop/mobile, complete destination paragraphs, five FAQ each and structured answers, unchanged dates, internal links, VOD notebook navigation, canonical, sitemap, unique discovery cards, excluded filters and no ad slots or execution."
+      },
       "reviewedAt": "2026-10-31",
       "reviewDisposition": "consolidate",
       "reviewedSourceVersion": "9dda1a90e72cca5b7f65c3767d7c846fdb7b861977a12e739bbd0cd62d52195a",
@@ -3120,7 +3149,13 @@
       "initialBlocker": "Esta versión de la guía todavía no tiene una revisión editorial aprobada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-31",
+        "textVersion": "7b9e69c5e0e17159f23104724a9f099634fb847f9936510af5bb455d681adf2b",
+        "note": "Lectura íntegra de distancia, líneas, cuatro prioridades, fallo y 6v6, metadatos y fechas. Fila actual idéntica al inventario. La intención de poke es más concreta que la introducción general; el apartado actual de tres párrafos no demuestra sustituir una guía específica desarrollada. Pendiente desarrollar decisiones de cruce/rotación, distancia y acercamiento, ejemplos y VOD/FAQ. Debe condicionar reserva de defensas y no afirmar que todo 6v6 tiene más barreras. Fichas actuales de Sigma, D.Va y Baptiste contrastadas; falta desarrollo, contraste final, enlaces y presentación. No aprobada.",
+        "evidence": "docs/indexing-review-compositions-poke-preliminary-2026-10-31.md"
+      }
     },
     {
       "path": "/guides/ramattra-guia-video-overwatch",
@@ -3561,9 +3596,32 @@
       "sourceVersion": "5c1c900caf39d3f7add6a3a372570407f469bc25c4a8a277a8949327628115fe",
       "initialReviewState": "missing-row-review",
       "initialBlocker": "Esta versión de la guía todavía no tiene una revisión editorial aprobada",
-      "status": "consolidation-awaiting-deployment",
+      "status": "consolidated-verified",
       "evidence": "docs/indexing-review-dps-support-notes-2026-10-31.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "source": "/guides/support-tempo-utilidad-supervivencia",
+        "target": "/guides/como-mejorar-como-support-overwatch",
+        "targetVersion": "55bd803a79a37909107bac3a1d747e228af16fa075e4c685634456a9df1d8168",
+        "status": 308,
+        "location": "/guides/como-mejorar-como-support-overwatch",
+        "sourceInSitemap": false,
+        "targetStatus": 200,
+        "canonical": "https://www.replaidlab.com/guides/como-mejorar-como-support-overwatch",
+        "robots": "",
+        "xRobotsTag": null,
+        "targetInSitemap": true,
+        "datePublished": "2026-06-21T10:10:02.805891+00:00",
+        "dateModified": "2026-10-18",
+        "faqCount": 5,
+        "adSlots": false,
+        "adScript": false,
+        "contentSha256": "00e55006c121293315279453b3dd041797e743b9252ffd6ed724799c2e34e9cf",
+        "valid": true,
+        "checkedAt": "2026-10-31T17:50:00.072Z",
+        "commit": "35ad4b7b06594085021af33c9b5abcb109652c48",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/EeB8sVJ2W8gDPjbQepZVXoz5cGA6",
+        "browserChecks": "4 production cases passed: both permanent 308 consolidations on desktop/mobile, complete destination paragraphs, five FAQ each and structured answers, unchanged dates, internal links, VOD notebook navigation, canonical, sitemap, unique discovery cards, excluded filters and no ad slots or execution."
+      },
       "reviewedAt": "2026-10-31",
       "reviewDisposition": "consolidate",
       "reviewedSourceVersion": "5c1c900caf39d3f7add6a3a372570407f469bc25c4a8a277a8949327628115fe",
@@ -6190,7 +6248,7 @@
   "progress": {
     "reviewed": 101,
     "publishedAndVerified": 98,
-    "consolidatedAndVerified": 1,
+    "consolidatedAndVerified": 3,
     "pending": 39
   }
 }

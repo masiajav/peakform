@@ -35,4 +35,12 @@ Pasan 711 pruebas unitarias, lint y seis casos finales de navegador: las dos nue
 
 Las comprobaciones exigen el 308 sin seguirlo automáticamente, llegada al destino canónico con 200, texto íntegro y resumen, metadatos, cinco FAQ y sus respuestas estructuradas por guía, fechas originales, todos los enlaces internos, sitemap, ausencia de anuncios, navegación efectiva al cuaderno de VOD y un único resultado de cada destino en la búsqueda. Los filtros conservan noindex y las notas quedan fuera del sitemap y el catálogo.
 
-Dos pruebas unitarias verifican que las notas no se convierten en artículos aprobados al añadir longitud y que las versiones exactas de los destinos mantienen su revisión vigente. No se añade ninguna aprobación estática nueva. El despliegue y su verificación pública están pendientes.
+Dos pruebas unitarias verifican que las notas no se convierten en artículos aprobados al añadir longitud y que las versiones exactas de los destinos mantienen su revisión vigente. No se añade ninguna aprobación estática nueva.
+
+## Publicación comprobada
+
+El commit `35ad4b7b06594085021af33c9b5abcb109652c48` tiene [despliegue Vercel correcto](https://vercel.com/masiajavs-projects/peakform/EeB8sVJ2W8gDPjbQepZVXoz5cGA6). Las dos notas responden 308 hacia los destinos correctos y quedan fuera del sitemap. Los destinos responden 200, conservan canonical, publicación del 21 de junio, modificación del 18 de octubre, cinco FAQ cada uno y ausencia de restricciones de indexación o ejecución de anuncios.
+
+Pasan 102 comprobaciones HTTP de los 98 artículos previamente habilitados y cuatro controles excluidos; también se conserva el 308 previo de Tank. Pasan cuatro casos de navegador contra producción, dos por consolidación, en móvil/escritorio, con texto completo, FAQ, enlaces, cuaderno de VOD y catálogo sin duplicados.
+
+El inventario inicial queda con 101 de 140 artículos revisados y resueltos: 98 habilitados y verificados y tres consolidados y verificados; 39 pendientes de revisión. Las dos notas conservan su entrada, versión leída, destino y motivo. No se afirma que Google haya indexado ninguna URL por estas comprobaciones y la conciliación final del inventario actual de ambos juegos sigue pendiente.

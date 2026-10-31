@@ -2,7 +2,7 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado al 31 de octubre: **101 de 140 artículos revisados; 98 habilitados y uno consolidado verificados en producción; 39 pendientes de revisión**. Las dos consolidaciones de notas de DPS y Support han superado lectura, contraste, presentación y pruebas locales y están pendientes de despliegue/verificación pública. Sus destinos completos ya estaban revisados e indexables y no se cuentan como nuevas publicaciones. Los anuncios mantienen su configuración previa.
+Estado comprobado al 31 de octubre: **101 de 140 artículos revisados y resueltos: 98 habilitados y tres consolidados, todos verificados en producción; 39 pendientes de revisión**. Último lote publicado: consolidaciones de notas de DPS y Support. Sus destinos completos ya estaban revisados e indexables y no se cuentan como nuevas publicaciones. Se han leído los siguientes artículos de introducción a composiciones y poke y contrastado filas y fuentes iniciales; siguen pendientes de revisión final. Los anuncios mantienen su configuración previa.
 
 Los 39 pendientes se reparten entre siete guías, 24 mapas, cinco artículos de parches y tres noticias. No quedan counters ni composiciones pendientes de revisión del inventario inicial. Cada URL conserva su motivo y estado en el registro; esta distribución no es una aprobación ni reduce el alcance del objetivo. Las consolidaciones se cuentan por separado de los artículos habilitados; la conciliación final del inventario de ambos juegos sigue pendiente.
 
@@ -298,3 +298,17 @@ Se leen completas la guía siguiente de Tracer y la guía corta de Tank, y se co
 Winston y Zarya quedan verificadas públicamente en el commit 634f7c2: 101 comprobaciones HTTP y la redirección canónica de Zarya correctas, más cuatro casos de navegador contra producción. Ambas URLs están en sitemap y sin noindex, con sus fechas e identidad de vídeos revisadas; los 95 artículos anteriores y los cuatro controles conservan su estado. Total verificado: **97 de 140; 43 pendientes**.
 
 Se completa la lectura preliminar de Tracer y de la nota corta de Tank. Se contrastan los modelos con el inventario y las fichas oficiales; watch/oEmbed y datos públicos de capítulos confirman atribución, idioma original y referencias de tiempo del vídeo de Tracer. La guía necesita aplicar sus perks actuales y completar validación final. La nota de Tank es insuficiente y repite el propósito de la guía completa ya publicada, leída también y comprobada con revisión vigente y estado público indexable. Se registra el solapamiento para decidir una consolidación justificada antes de duplicar contenido. No se aprueba ninguna de las dos URLs. Evidencia: [lectura preliminar de Tracer y Tank](indexing-review-tracer-tank-preliminary-2026-10-31.md).
+
+## Cuadragésimo segundo lote: Tracer y Tank
+
+Se completa la revisión de Tracer con identidad exacta y contexto fechado del vídeo, perks actuales condicionados, rol y huella renderizada. La nota corta de Tank se consolida en la guía completa ya revisada, tras lectura individual de ambas y comprobación de solapamiento, enlaces y presentación. El destino mantiene texto, revisión y fechas; no se cuenta como una nueva publicación. Evidencia: [Tracer y Tank](indexing-review-tracer-tank-2026-10-31.md).
+
+Pasan 709 pruebas unitarias, lint, ocho comprobaciones iniciales y seis finales de navegador; se inspeccionan las capturas de móvil/escritorio. El commit 359ce9c queda desplegado y verificado: 102 comprobaciones HTTP, alias 308 de Tracer y consolidación 308 de Tank con destino 200, más cuatro casos de navegador públicos. Estado: **99 resueltos: 98 habilitados y uno consolidado; 41 pendientes**.
+
+## Cuadragésimo tercer lote: notas de DPS y Support
+
+Se completan las revisiones individuales de ambas notas y sus destinos completos. Los resúmenes repiten el propósito de las guías existentes, que desarrollan decisiones, condiciones, ejemplos y cinco FAQ cada una. Se añaden solo dos redirecciones 308; no se aprueban los resúmenes como artículos independientes ni se modifican o vuelven a contar los destinos. Evidencia: [notas de DPS y Support](indexing-review-dps-support-notes-2026-10-31.md).
+
+Pasan 711 pruebas unitarias, lint, cuatro casos iniciales sobre las cuatro páginas y seis finales de navegador, incluida la consolidación previa de Tank. Se inspeccionan ocho capturas iniciales y cuatro finales. El commit 35ad4b7 queda desplegado: 102 comprobaciones HTTP de los 98 artículos anteriores y cuatro controles, los dos nuevos 308 y el previo de Tank correctos, más cuatro casos públicos de navegador. Estado: **101 resueltos: 98 habilitados y tres consolidados; 39 pendientes**.
+
+Se leen y contrastan los dos artículos siguientes de introducción a composiciones y poke. La introducción repite el propósito de la guía completa, mientras que poke tiene una intención más concreta pendiente de desarrollar. Se conserva esa distinción antes de decidir una corrección o consolidación; ambos siguen sin aprobar. Evidencia: [lectura preliminar de composiciones y poke](indexing-review-compositions-poke-preliminary-2026-10-31.md).
