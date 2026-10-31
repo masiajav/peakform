@@ -105,7 +105,14 @@ Puedes practicar ángulos en [Midtown](/maps/midtown), revisar el drone con [la 
     description: 'Sostén posiciones con Domina sin depender solo de la barrera: prepara Crystal Charge, castiga entradas y coordina Panopticon con tus DPS.',
     quickAnswer: 'Domina necesita una esquina desde la que mantener su arma y separar las amenazas que recibe. Barrier Array ayuda a jugar un intercambio, pero no sustituye la cobertura cuando el rival abre otro ángulo. Mira las paredes antes de usar Sonic Repulsors y prepara Crystal Charge sobre una ruta relevante. Panopticon requiere aliados que puedan aprovechar a los enemigos atrapados.',
     videoSlug: 'domina-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-31',
+    renderedContentVersion: '6f23a75ed74cbfc056ab3d01587dc0be49744b4d6c5a742cb53c491735515e09',
+    sourceVideoTitle: "Give me 6m 51s and I'll teach you EVERY DOMINA ABILITY in Overwatch",
+    reviewedVideo: {
+      video_id: 'jNbnhZRZx2I', video_url: 'https://www.youtube.com/watch?v=jNbnhZRZx2I', video_platform: 'youtube',
+      video_title: 'Overwatch - EVERY DOMINA ABILITY | Full Breakdown Guide & Tips', video_channel: 'KarQ', video_language: 'en', video_published_at: '2026-02-14',
+    },
+    videoDescription: 'Desglose de KarQ publicado el 14 de febrero de 2026, con audio original inglés; YouTube puede ofrecer un doblaje automático al español. Sus capítulos explican el kit y los perks de aquella versión, incluido Power Move. Corporate Retreat lo sustituyó en junio: el texto escrito aplica las opciones actuales y sus límites, sin trasladar automáticamente los combos o las cifras del vídeo a ranked.',
     body: `## La posición debe funcionar también sin barrera
 
 Si colocas Barrier Array en mitad de una zona abierta, puedes sostenerte mientras dure y quedar sin alternativa cuando termine o pierda protección. Busca una esquina que sirva de retirada. Desde allí podrás alternar presión con pausas, en lugar de pedir curación constante a ambos supports.
@@ -143,6 +150,16 @@ Colocar el cristal en un acceso puede presionar a quien lo utiliza. Espera una o
 Si el rival evita la zona, comprueba qué os permite hacer esa reacción. Quizá podáis ocupar la esquina o cerrar otra puerta. Si simplemente ha cambiado a una ruta mejor y tú sigues mirando el cristal, necesitas adaptar el frente.
 
 Combina el recurso con el arma y la atención de tus compañeros. Un cristal detrás del rival puede dificultar una retirada, pero solo se convierte en presión real si alguien amenaza desde el otro lado. No te aísles por intentar completar tú sola todos los ángulos del plan.
+
+## Los perks eligen cómo sostienes y ajustas el frente
+
+Efficient Design, una opción minor, restaura escudos de Domina y activa su regeneración pasiva de vida después de usar Barrier Array. Ayuda a preparar el intercambio desde una esquina, pero no repara con ello cada panel de la barrera ni convierte una posición abierta en segura. Mira qué amenaza seguirá disparando cuando aproveches esa recuperación.
+
+Extended Power es la alternativa minor y amplía el alcance de Photon Magnum. Puede permitir completar el arma desde una cobertura algo más distante. No añade por sí mismo daño ni obliga al enemigo a permanecer a la vista: compara si esa nueva distancia ofrece un objetivo accesible antes de alejarte de la ayuda.
+
+Disruptive Detonation, una opción major, ralentiza a los enemigos alcanzados por la explosión de Crystal Charge. Detona cuando puedas conectar y tus compañeros tengan línea para aprovechar la reducción de movimiento. Dejar el cristal cerca de una puerta no aplica el efecto por sí solo ni garantiza que el rival espere dentro de la explosión.
+
+Corporate Retreat es la alternativa major: mientras Barrier Array esté activa, permite moverla una vez a otro lugar. Decide si esa recolocación facilita avanzar a la siguiente esquina o cubrir una retirada; no puedes repetir el traslado sin límite. El antiguo Power Move del vídeo no es esta opción actual y no debes contar con aquel combo para justificar la entrada.
 
 ## Panopticon necesita objetivos accesibles para el equipo
 
@@ -283,7 +300,13 @@ Puedes trabajar los cruces en [Eichenwalde](/maps/eichenwalde), ordenar tus defe
     description: 'Gestiona el combustible de Jetpack Cat, transporta aliados hacia posiciones útiles y prepara Purr y Catnapper sin regalarte al hitscan.',
     quickAnswer: 'Jetpack Cat necesita una ruta cubierta incluso cuando juega en el aire. Reserva combustible para volver y ten en cuenta que se recupera más despacio al transportar un aliado. Lifeline debe llevar al compañero a una posición que pueda usar, no solo elevarlo. Purr ayuda al grupo cercano y puede separar una entrada; antes de Catnapper, elige un destino desde el que puedas sobrevivir después del impacto.',
     videoSlug: 'jetpack-cat-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-31',
+    renderedContentVersion: '4bc299d8e348cf1a4500d4b754aa27237166944a3f92502da986569f74230f20',
+    reviewedVideo: {
+      video_id: 'DaR2n3jkLSM', video_url: 'https://www.youtube.com/watch?v=DaR2n3jkLSM', video_platform: 'youtube',
+      video_title: 'How To Play Jetpack Cat Better Than 99% Of Players', video_channel: 'Awkward', video_language: 'en', video_published_at: '2026-02-26',
+    },
+    videoDescription: 'Vídeo de Awkward publicado el 26 de febrero de 2026, con audio original inglés; YouTube puede seleccionar un doblaje automático al español. Su enfoque de juego pertenece a una versión anterior a los cambios de perks, combustible y Lifeline de marzo, junio, agosto y septiembre. El artículo escrito contrasta las opciones actuales, incluida Purrfect Form y la interrupción del transporte, sin asumir que todas las secuencias o cifras del vídeo siguen vigentes.',
     body: `## Volar no elimina las líneas de tiro
 
 La altura permite ver y alcanzar posiciones distintas, pero también puede dejarte delante de varios enemigos. Busca edificios, plataformas o esquinas que corten su visión. No necesitas mantenerte en el centro del cielo para curar a un compañero desde arriba.
@@ -306,6 +329,8 @@ Transportar a un aliado puede darle acceso a una altura o sacarlo de una situaci
 
 Antes de moverlo, observa quién puede disparar durante el recorrido y qué encontrará al llegar. Elevar a un compañero a la vista de toda la backline rival puede exponerlo más que su posición original. No confundas un movimiento llamativo con una rotación que el equipo pueda sostener.
 
+Los aturdimientos y los efectos que bloquean la movilidad del pasajero desconectan Lifeline. Comprueba qué control rival puede alcanzar al aliado durante el trayecto y prepara una cobertura cercana si el enlace se corta. El transporte también cura al compañero, pero esa ayuda no garantiza completar un cruce bajo control enemigo.
+
 Tras dejarlo, revisa tu propia posición. Si el resto del equipo está disputando otra zona, necesitas recuperar una línea de curación útil. Pasar demasiado tiempo preparando un transporte mientras los otros tres reciben el engage puede costar una pelea antes de que la jugada tenga efecto.
 
 ## Biotic Pawjectiles exige elegir qué necesidad atiendes
@@ -323,6 +348,16 @@ La curación por pulsos favorece una posición cerca de aliados que puedan perma
 El empuje inicial puede separar una entrada cercana. Mira hacia dónde quedará el enemigo y si el compañero amenazado tiene una cobertura disponible. Empujar a alguien no garantiza que deje de alcanzar al equipo: observa su movilidad y prepárate para continuar curando o retirarte.
 
 Acercarte para utilizar Purr también te expone. No bajes sin mirar a una zona donde el rival conserva varias amenazas y tus compañeros no pueden ayudarte. Puedes atender desde otra posición hasta que exista una ventana mejor para acercarte.
+
+## Elige perks según la ayuda que puedes mantener
+
+Ulterior Motive, una opción minor, recupera combustible a partir de la curación de Biotic Pawjectiles. Busca una línea desde la que esos proyectiles alcancen al aliado que necesita ayuda. No cuentes con rellenar la reserva solo por disparar a un enemigo o por activar Purr: la condición de esta mejora es la curación con el arma.
+
+Transport Shielding es la alternativa minor y añade escudos a Jetpack Cat mientras lleva a otro héroe. Esa protección propia no convierte al pasajero en invulnerable ni elimina la recuperación más lenta de combustible durante el traslado. Elige un recorrido útil y corto; no prolongues el vuelo solo para conservar el beneficio.
+
+Purrfect Form, una opción major, hace que cada pulso de Purr contenga tres ondas. Prepara una posición donde los aliados puedan recibir esa curación sin obligarte a permanecer en medio de varios enemigos. Más ondas no amplían automáticamente el alcance ni sustituyen la cobertura cuando el grupo cambia de sala.
+
+Claws Out es la alternativa major: el melee rápido se potencia cada seis segundos, hiere al enemigo y lo ralentiza brevemente. Puede ayudar ante una amenaza que ya está cerca, pero perseguir hasta cuerpo a cuerpo para gastarlo puede quitarte la línea de curación y la salida. No lo sumes a Purrfect Form al planear lo que aportará una misma elección de major.
 
 ## Catnapper se prepara desde el lugar de impacto
 

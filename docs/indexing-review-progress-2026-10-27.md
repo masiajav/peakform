@@ -2,9 +2,9 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 30 de octubre: **90 de 140 artículos revisados; 88 habilitados y verificados en producción, dos de Mizuki pendientes de despliegue y comprobación pública; 50 pendientes de revisión**. Último lote verificado públicamente: guía, counter y composiciones de Sierra. Siguiente revisión iniciada: guía y composiciones de Vendetta y composiciones de Anran. Los anuncios mantienen su configuración previa.
+Estado comprobado al 31 de octubre: **95 de 140 artículos revisados; 93 habilitados y verificados en producción, dos de Domina y Jetpack Cat pendientes de comprobación pública; 45 pendientes de revisión**. Último lote verificado públicamente: guía de Vendetta y composiciones de Vendetta y Anran. Se han localizado las fuentes de las guías siguientes de Winston y Zarya. Los anuncios mantienen su configuración previa.
 
-Los 50 pendientes se reparten entre 16 guías, 24 mapas, dos composiciones, cinco artículos de parches y tres noticias. No quedan counters pendientes del inventario inicial. Cada URL conserva su motivo y estado en el registro; esta distribución no es una aprobación ni reduce el alcance del objetivo.
+Los 45 pendientes se reparten entre 13 guías, 24 mapas, cinco artículos de parches y tres noticias. No quedan counters ni composiciones pendientes de revisión del inventario inicial. Cada URL conserva su motivo y estado en el registro; esta distribución no es una aprobación ni reduce el alcance del objetivo.
 
 ## Inventario y alcance
 
@@ -274,3 +274,11 @@ Se retoma la revisión individual de la guía de Vendetta y las composiciones de
 ## Trigésimo noveno lote: Vendetta y composiciones de Anran
 
 Se completa la revisión individual de la guía de Vendetta y las composiciones de Vendetta y Anran. Pasan 708 pruebas unitarias, lint y diez casos finales de las páginas, catálogo/sitemap y filtros, ejecutados en dos selecciones de seis y cuatro casos. Las regresiones pasan cuatro casos de Mizuki y dos de supresión de anuncios. Se inspeccionan las tres páginas en móvil y escritorio, incluida la guía corregida. Las versiones exactas y fuentes quedan en [la revisión de Vendetta y Anran](indexing-review-vendetta-anran-2026-10-31.md). Las tres URLs quedan pendientes de despliegue y verificación pública: **93 revisadas, 90 verificadas y 47 pendientes de revisión**. Todas las composiciones del inventario inicial han completado la revisión individual.
+
+Vendetta y Anran quedan verificadas públicamente en el commit b19c5fc: 97 comprobaciones HTTP y la redirección previa de Pharah correctas, más seis casos de navegador contra producción. Las tres URLs están en el sitemap y sin noindex, con sus fechas y medios revisados; los 90 artículos anteriores y los cuatro controles conservan su estado. Total verificado: **93 de 140; 47 pendientes**.
+
+## Cuadragésimo lote: guías de Domina y Jetpack Cat
+
+Se completa la revisión individual de ambas guías, con título corregido y Power Move histórico separado de Corporate Retreat en Domina. Jetpack Cat aplica los perks actuales y precisa desconexión de Lifeline por control sobre el pasajero. Ambos vídeos de febrero conservan atribución e idioma original inglés, con contexto del doblaje automático posible y los cambios posteriores. Las primeras publicaciones se conservan.
+
+Pasan 708 pruebas unitarias, lint, seis casos finales de ambas guías y filtros, ocho de regresión de Vendetta/Anran y anuncios y ocho iniciales de páginas y reproductores. Se inspeccionan seis capturas finales. Evidencia: [revisión de Domina y Jetpack Cat](indexing-review-domina-jetpack-cat-2026-10-31.md). Sus dos URLs quedan pendientes de despliegue y comprobación pública: **95 revisadas, 93 verificadas y 45 pendientes de revisión**. Se localizan y contrastan con el inventario los modelos siguientes de Winston y Zarya, incluido el alias de vídeo de Zarya, sin aprobar sus URLs.

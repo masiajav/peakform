@@ -1277,6 +1277,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-baptiste-2026-10-29.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/domina-guia-video-overwatch': {
+    path: '/guides/domina-guia-video-overwatch',
+    version: '97c1b2f443f35648255fe3296d2bbd89f4340be34a4e68b3a6418ce771b2825c',
+    reviewedAt: '2026-10-31', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-domina-jetpack-cat-2026-10-31.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/guides/jetpack-cat-guia-video-overwatch': {
+    path: '/guides/jetpack-cat-guia-video-overwatch',
+    version: '50728caf5f1b62a96f340b4eca2a7c02c769f3d01ad3f97f2ae37f65bbec0bac',
+    reviewedAt: '2026-10-31', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-domina-jetpack-cat-2026-10-31.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/guides/vendetta-guia-video-overwatch': {
     path: '/guides/vendetta-guia-video-overwatch',
     version: '501ce0dc6c7bc9fa714594c3506686227e38159fc86c7525a14c3caad9c66afe',
