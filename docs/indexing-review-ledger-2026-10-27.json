@@ -3600,7 +3600,13 @@
       "initialBlocker": "Esta versión de la guía todavía no tiene una revisión editorial aprobada",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-31",
+        "textVersion": "ef04e143db6a4871ce19102c30c49cc4683e4936115d669d8bd4a267b70d5b25",
+        "note": "Lectura íntegra de la nota breve de espacio, cuatro prioridades, replay y 6v6. Modelo coincide con inventario. Contenido insuficientemente desarrollado y solapado con /guides/como-mejorar-como-tank-overwatch, cuya guía completa también se lee: siete secciones, checklist, seis FAQ y enlaces. Destino conserva revisión vigente y está públicamente indexable/en sitemap. Falta decidir y validar consolidación o corrección, presentación y enlaces; no se aprueba la nota corta ni se cambia su ruta.",
+        "evidence": "docs/indexing-review-tracer-tank-preliminary-2026-10-31.md"
+      }
     },
     {
       "path": "/guides/tier-list-season-2-overwatch-mejores-heroes-rol",
@@ -3684,7 +3690,13 @@
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
       "status": "pending-individual-review",
       "evidence": null,
-      "publicVerification": null
+      "publicVerification": null,
+      "partialReview": {
+        "readAt": "2026-10-31",
+        "textVersion": "3fc78b11d9fac3816601b035297a3cd23ab2c0c6b2344ed07ebf9ea860a7e0c9",
+        "note": "Lectura completa de ángulo lateral, selección de objetivo, Recall, Blink, Pulse Bomb, vídeo y VOD, cuatro FAQ y enlaces. Modelo coincide con inventario. Ficha oficial y vídeo de Awkward contrastados; capítulos de Recall a 1:06 y posición a 2:18 confirmados en datos públicos. Faltan aplicación de perks actuales, registro exacto de medios y versión renderizada, enlaces y presentación final. No aprobada.",
+        "evidence": "docs/indexing-review-tracer-tank-preliminary-2026-10-31.md"
+      }
     },
     {
       "path": "/guides/vendetta-guia-video-overwatch",
@@ -3834,9 +3846,29 @@
       "sourceVersion": "55ad0c5eb1fd7804585817947f76afc859976604a5b9dc7d3d40d4196dfb21b8",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-winston-zarya-2026-10-31.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/winston-guia-video-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "95079947427c0366118c83d0f7d05889337e444debd7be7d89227b5995e9259c",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-31T17:19:51.764Z",
+        "commit": "634f7c2e8e625db04cd24437b7e85e72fd6d2630",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/HgMfd2WePe7ohdCHJuZEWaRYxz8P",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-31",
       "reviewedVersion": "28dac5043c75be3c1d39e8ef59ac56eb0c24b22b01f58f8c61d87e31434bc288",
       "reviewedRenderedVersion": "75f14f4815d8b6d478359ca2919f76ded66a0817c13e44188eef03772189aef0",
@@ -3959,9 +3991,29 @@
       "sourceVersion": "2b1eaed9a0a0036bde1df2b6d75a9808a9a52bfa59bbb0d6e997916a4d2e1dad",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-winston-zarya-2026-10-31.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/zarya-guia-overwatch-burbujas-energia",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "c555847b34c7d1b249b1bcf5d19c06879ca94bdc453b27200fd82cdd25d7d1e0",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-31T17:19:51.764Z",
+        "commit": "634f7c2e8e625db04cd24437b7e85e72fd6d2630",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/HgMfd2WePe7ohdCHJuZEWaRYxz8P",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-31",
       "reviewedVersion": "17b23d70a8db859dcc5f49ce00b0d75ee60e35f8b9db95a718b761e4d86db524",
       "reviewedRenderedVersion": "ae241b3ed116531bab3529d6b3b7028cd246531d15650d0b89d07574d2fd17d1",
@@ -6046,7 +6098,7 @@
   ],
   "progress": {
     "reviewed": 97,
-    "publishedAndVerified": 95,
+    "publishedAndVerified": 97,
     "pending": 43
   }
 }
