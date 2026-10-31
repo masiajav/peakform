@@ -2839,9 +2839,29 @@
       "sourceVersion": "e8a9c4d00fe34de832db230b401174b3c27bc6a637f4ada0d4c63b06006ab3dc",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-mizuki-2026-10-30.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/guides/mizuki-guia-video-overwatch",
+        "status": 200,
+        "robots": "",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "51cae427bde90b3e5c8bc490668526368565af4b17820c7fd8daebd3f2ca2453",
+        "valid": true,
+        "expectedDatePresent": true,
+        "originalPublicationPresent": true,
+        "videoMatches": true,
+        "requiredHtmlPresent": true,
+        "checkedAt": "2026-10-31T16:44:59.223Z",
+        "commit": "50216f4f1d78d8760c3cf2bf1eef66e91dd1e33a",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/6L6MCyNZAABUvWS4hJow3AS1smh4",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-30",
       "reviewedVersion": "e68be726cd438855e18148359b2ff9ed68d12ce1cb1b6c98e457164a29d83750",
       "correction": "Vídeo de mL7 de marzo de 2026 contextualizado frente a cambios posteriores de Katashiro y Quickstep. Se explican Wellspring/Exposed Soul y Resonant Return/Quickstep sin sumarlos, distinguiendo generación, daño propio y speed aliado dentro del aura durante Katashiro. Primera publicación conservada; revisión del texto el 30 de octubre.",
@@ -3629,9 +3649,13 @@
       "sourceVersion": "6511e60f5de45392da713ca77c9c0ccb379d5eb1ab524643b01aeefc01244be0",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-vendetta-anran-2026-10-31.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-31",
+      "reviewedVersion": "501ce0dc6c7bc9fa714594c3506686227e38159fc86c7525a14c3caad9c66afe",
+      "correction": "Título conocido del vídeo oficial corregido y contexto promocional de noviembre de 2025 añadido. Aplicación de Extra Edge/Raging Storm minor y Siphoning Strike/Relentless major actuales, sin sumar alternativas ni copiar Community Crafted o Stadium. Primera publicación conservada; revisión del texto el 31 de octubre.",
+      "reviewedRenderedVersion": "4451584269475b6b6cc2a95c18e1bf58879e387a6dd4dae0083d3372a16bc19a"
     },
     {
       "path": "/guides/venture-guia-video-overwatch",
@@ -4535,9 +4559,12 @@
       "sourceVersion": "da736c18b831e02429a3dbef66103f193a3a82040243fa9f9d7f240aa3663eef",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-vendetta-anran-2026-10-31.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-31",
+      "reviewedVersion": "da736c18b831e02429a3dbef66103f193a3a82040243fa9f9d7f240aa3663eef",
+      "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar los tres equipos, roles y formatos, quemaduras, curación y defensa base de Dancing Blaze, continuidad y elección de ultimate. Todos los párrafos, FAQ, enlaces y presentación comprobados en móvil y escritorio. No se inventa primera publicación."
     },
     {
       "path": "/team-comps/ashe",
@@ -5269,9 +5296,26 @@
       "sourceVersion": "75559ac58da8d3c7ba6f0073cc5c6df0336cd87db315b9b0e13de670ffa32290",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "reviewed-awaiting-deployment",
+      "status": "indexing-enabled-verified",
       "evidence": "docs/indexing-review-mizuki-2026-10-30.md",
-      "publicVerification": null,
+      "publicVerification": {
+        "path": "/team-comps/mizuki",
+        "status": 200,
+        "robots": "index, follow",
+        "xRobotsTag": null,
+        "inSitemap": true,
+        "adSlots": false,
+        "adScript": false,
+        "reviewed": true,
+        "previousReview": false,
+        "contentSha256": "fb6ea39aadb48a4f94ed85bf73c7d018fd869516203ea25f97357fb5fdea49d9",
+        "valid": true,
+        "expectedDatePresent": true,
+        "checkedAt": "2026-10-31T16:44:59.223Z",
+        "commit": "50216f4f1d78d8760c3cf2bf1eef66e91dd1e33a",
+        "deployment": "https://vercel.com/masiajavs-projects/peakform/6L6MCyNZAABUvWS4hJow3AS1smh4",
+        "browserChecks": "4 production cases passed: individually reviewed articles on desktop/mobile, complete visible text, reviewed video identity/context and play button, FAQ, links, dates, metadata, images, sitemap and no ad slots."
+      },
       "reviewedAt": "2026-10-30",
       "reviewedVersion": "75559ac58da8d3c7ba6f0073cc5c6df0336cd87db315b9b0e13de670ffa32290",
       "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar los tres equipos, roles y formatos, Kasa con urgencia, cobertura próxima, seguimiento de cadena, retorno y speed aliado opcional. Todos los párrafos, FAQ, enlaces y presentación comprobados en móvil y escritorio. No se inventa primera publicación.",
@@ -5712,9 +5756,12 @@
       "sourceVersion": "e4ee3551980d1f836d98be9ca870a54286f3787d66d3b4d6ab0b4eec5326b728",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "Esta versión del artículo todavía no tiene una revisión editorial registrada",
-      "status": "pending-individual-review",
-      "evidence": null,
-      "publicVerification": null
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-vendetta-anran-2026-10-31.md",
+      "publicVerification": null,
+      "reviewedAt": "2026-10-31",
+      "reviewedVersion": "e4ee3551980d1f836d98be9ca870a54286f3787d66d3b4d6ab0b4eec5326b728",
+      "correction": "Texto y fecha 2026-10-02 conservados tras leer y contrastar los tres equipos, roles y formatos, guardia frontal individual, energía compartida, seguimiento a rango y llegada con salida. Todos los párrafos, FAQ, enlaces y presentación comprobados en móvil y escritorio. No se inventa primera publicación."
     },
     {
       "path": "/team-comps/venture",
@@ -5874,8 +5921,8 @@
     }
   ],
   "progress": {
-    "reviewed": 90,
-    "publishedAndVerified": 88,
-    "pending": 50
+    "reviewed": 93,
+    "publishedAndVerified": 90,
+    "pending": 47
   }
 }

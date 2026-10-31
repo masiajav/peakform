@@ -102,7 +102,14 @@ Puedes preparar rutas en [Oasis](/maps/oasis), revisar tus entradas con [la guí
     description: 'Mejora con Vendetta sin gastarlo todo al entrar: prepara Soaring Slice, controla Warding Stance y busca una ventana para Sundering Blade.',
     quickAnswer: 'Vendetta necesita llegar al cuerpo a cuerpo sin perder toda la vida por el camino. Usa una ruta cubierta y entra cuando el enemigo tenga otra amenaza que responder. Warding Stance protege de frente y consume energía; disparar Projected Edge también utiliza esa reserva. Antes de comprometer Soaring Slice o Whirlwind Dash, comprueba qué movilidad y cobertura quedarán para salir.',
     videoSlug: 'vendetta-guia-video-overwatch',
-    revisedAt: '2026-10-01',
+    revisedAt: '2026-10-31',
+    renderedContentVersion: '4451584269475b6b6cc2a95c18e1bf58879e387a6dd4dae0083d3372a16bc19a',
+    sourceVideoTitle: 'Vendetta | New Hero Gameplay Trailer | Overwatch',
+    reviewedVideo: {
+      video_id: 'c3guhZL477Q', video_url: 'https://www.youtube.com/watch?v=c3guhZL477Q', video_platform: 'youtube',
+      video_title: 'Vendetta | New Hero Gameplay Trailer | Overwatch 2', video_channel: 'PlayOverwatch', video_language: 'en', video_published_at: '2025-11-20',
+    },
+    videoDescription: 'Tráiler oficial de PlayOverwatch publicado el 20 de noviembre de 2025, anterior a la prueba y al estreno que anuncia para finales de ese año. Presenta movilidad, espada y ultimate como material promocional. El texto escrito desarrolla las decisiones de ranked y contrasta los perks actuales, incluidos los cambios posteriores de Raging Storm y Siphoning Strike; las cifras y secuencias del tráiler pertenecen a aquella versión.',
     body: `## El primer duelo se prepara antes de levantar la espada
 
 Si atraviesas una calle abierta hasta el enemigo, empiezas el combate con menos vida y con el rival mirando tu entrada. Busca una puerta o un lateral cercano que permita aproximarte con cobertura. No necesitas aparecer a su espalda si una esquina te deja llegar a la distancia de Palatine Fang con el equipo.
@@ -140,6 +147,16 @@ La carrera con corte circular puede cerrar distancia o aportar daño cercano. Ú
 Puedes conservarlo mientras amenazas desde una esquina o usarlo para responder a una entrada a vuestra zona. No todas las peleas necesitan atacar primero a los supports rivales. Castigar a un DPS cercano que ya ha gastado su escape puede permitir ganar el combate sin un recorrido largo.
 
 Si una defensa niega tu primer intento, vuelve a comprobar qué ha cambiado. Forzar un recurso puede aportar al equipo aunque no hayas conseguido la baja. Insistir hasta gastar la última salida puede entregar al enemigo una oportunidad que no tenía al principio.
+
+## Elige entre energía, giros y continuidad del duelo
+
+Extra Edge, una opción minor, reduce el coste de energía de Projected Edge. Puede dejar más reserva para la guardia después de un proyectil útil, pero cada lanzamiento sigue consumiendo el recurso que necesitas al acercarte. Comprueba si el objetivo estará expuesto a ese daño antes de gastarlo durante el cruce.
+
+Raging Storm es la alternativa minor: Whirlwind Dash continúa girando y añade impactos cercanos. Busca un contacto donde el enemigo permanezca a tu alcance y el equipo pueda seguir presionando. Prolongar los giros sobre un objetivo que ya ha salido o se ha cubierto no compensa haber gastado la movilidad que necesitabas para volver.
+
+Siphoning Strike, una opción major, añade robo de vida a los golpes descendentes. No convierte cualquier golpe de espada o Projected Edge en la misma recuperación. Necesitas completar y conectar ese ataque; conserva cobertura y ayuda en vez de contar de antemano con una curación que el rival puede impedir al alejarse o aplicar anticuración.
+
+Relentless es la alternativa major y permite tres acumulaciones adicionales de Onslaught, con bonus de velocidad de ataque y movimiento. Mira las acumulaciones que tienes antes de prolongar el duelo. Más margen para sostener la presión no justifica perseguir hasta una zona sin ayuda, y elegir esta mejora no añade también el robo de vida de Siphoning Strike.
 
 ## Sundering Blade necesita una línea útil después de la preparación
 

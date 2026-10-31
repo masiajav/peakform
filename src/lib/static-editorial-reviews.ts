@@ -1277,6 +1277,27 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-baptiste-2026-10-29.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/vendetta-guia-video-overwatch': {
+    path: '/guides/vendetta-guia-video-overwatch',
+    version: '501ce0dc6c7bc9fa714594c3506686227e38159fc86c7525a14c3caad9c66afe',
+    reviewedAt: '2026-10-31', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-vendetta-anran-2026-10-31.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/vendetta': {
+    path: '/team-comps/vendetta',
+    version: 'e4ee3551980d1f836d98be9ca870a54286f3787d66d3b4d6ab0b4eec5326b728',
+    reviewedAt: '2026-10-31', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-vendetta-anran-2026-10-31.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/team-comps/anran': {
+    path: '/team-comps/anran',
+    version: 'da736c18b831e02429a3dbef66103f193a3a82040243fa9f9d7f240aa3663eef',
+    reviewedAt: '2026-10-31', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-vendetta-anran-2026-10-31.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/team-comps/baptiste': {
     path: '/team-comps/baptiste',
     version: '614db014ddc3f380e601b7a6929570da0e14309846f9422529cd0977c117e38f',

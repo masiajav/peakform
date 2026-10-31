@@ -31,4 +31,8 @@ La copia aislada parte de `2bc3160`, sin cambios locales ajenos. Pasan seis caso
 
 Pasan 708 pruebas unitarias y lint, ocho casos finales de ambos artículos, catálogo/sitemap y filtros, y ocho de regresión sobre Sierra y el modo de revisión de anuncios. Se inspeccionan las capturas completas de escritorio y móvil y la cabecera móvil de la guía corregida. Las composiciones conservan el texto cuya presentación ya se inspeccionó en ambos tamaños.
 
-Las comprobaciones finales cubren todos los párrafos y argumentos, FAQ y respuestas estructuradas, enlaces, imágenes, fechas, identidad e idioma del vídeo y botón de reproducción, metadatos, sitemap y ausencia de anuncios y desbordamientos. Faltan el despliegue y la comprobación pública de estas dos versiones. Las demás exclusiones y la configuración de anuncios se mantienen.
+Las comprobaciones finales cubren todos los párrafos y argumentos, FAQ y respuestas estructuradas, enlaces, imágenes, fechas, identidad e idioma del vídeo y botón de reproducción, metadatos, sitemap y ausencia de anuncios y desbordamientos.
+
+## Publicación comprobada el 31 de octubre
+
+El commit `50216f4f1d78d8760c3cf2bf1eef66e91dd1e33a` tiene despliegue Vercel correcto: [despliegue de Mizuki](https://vercel.com/masiajavs-projects/peakform/6L6MCyNZAABUvWS4hJow3AS1smh4). Pasan 94 comprobaciones HTTP y la redirección previa de Pharah, además de cuatro casos de navegador contra producción. Ambas URLs responden 200, conservan canonical y fechas, están en el sitemap y permiten indexación. Los 88 artículos anteriores y los cuatro controles mantienen su estado. El registro suma 90 de 140 habilitados y verificados, con 50 pendientes. Las demás exclusiones y la configuración de anuncios se mantienen.

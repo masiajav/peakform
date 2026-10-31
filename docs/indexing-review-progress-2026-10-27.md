@@ -264,3 +264,13 @@ Pasan 708 pruebas unitarias y lint en cada lote, doce casos finales por lote y s
 Total actual: **88 de 140 habilitados y verificados; 52 pendientes**. No quedan counters pendientes del inventario inicial. Las demás exclusiones y la configuración de anuncios se mantienen.
 
 Se leen la guía y las composiciones siguientes de Mizuki, se contrastan sus modelos y fuentes y se identifican contexto y perks pendientes. Pasan seis casos iniciales y se inspeccionan las dos páginas en móvil y escritorio, conservando noindex. Evidencia: [lectura preliminar de Mizuki](indexing-review-mizuki-preliminary-2026-10-30.md).
+
+## Publicación comprobada de Mizuki
+
+La guía y las composiciones de Mizuki quedan verificadas públicamente el 31 de octubre en el commit 50216f4: 94 comprobaciones HTTP y la redirección previa de Pharah correctas, más cuatro casos de navegador en producción. Se conservan los 88 artículos anteriores y los cuatro controles excluidos. Total actual: **90 de 140 habilitados y verificados; 50 pendientes**. Evidencia: [revisión de Mizuki](indexing-review-mizuki-2026-10-30.md).
+
+Se retoma la revisión individual de la guía de Vendetta y las composiciones de Vendetta y Anran. Se contrastan los modelos, se leen las tres páginas y las fuentes oficiales y se comprueba el vídeo promocional de 2025. La guía corrige su título conocido, fecha su contexto y aplica los cuatro perks actuales, separando ranked de Community Crafted y Stadium. Las composiciones mantienen sus textos y fechas tras el contraste. Pasan ocho casos iniciales y se inspecciona la presentación de las tres páginas en móvil y escritorio. Continúan pendientes de la validación final de los cambios y su publicación.
+
+## Trigésimo noveno lote: Vendetta y composiciones de Anran
+
+Se completa la revisión individual de la guía de Vendetta y las composiciones de Vendetta y Anran. Pasan 708 pruebas unitarias, lint y diez casos finales de las páginas, catálogo/sitemap y filtros, ejecutados en dos selecciones de seis y cuatro casos. Las regresiones pasan cuatro casos de Mizuki y dos de supresión de anuncios. Se inspeccionan las tres páginas en móvil y escritorio, incluida la guía corregida. Las versiones exactas y fuentes quedan en [la revisión de Vendetta y Anran](indexing-review-vendetta-anran-2026-10-31.md). Las tres URLs quedan pendientes de despliegue y verificación pública: **93 revisadas, 90 verificadas y 47 pendientes de revisión**. Todas las composiciones del inventario inicial han completado la revisión individual.
