@@ -78,6 +78,8 @@ describe('individual publication of repository-owned guide revisions', () => {
       ['vendetta-guia-video-overwatch', 'vendetta', 'dps', ['vendetta', 'dps', 'video', 'youtube', '6v6', 'overwatch']],
       ['domina-guia-video-overwatch', 'domina', 'tank', ['domina', 'tank', 'video', 'youtube', '6v6', 'overwatch']],
       ['jetpack-cat-guia-video-overwatch', 'jetpack-cat', 'support', ['jetpack-cat', 'support', 'video', 'youtube', '6v6', 'overwatch']],
+      ['winston-guia-video-overwatch', 'winston', 'tank', ['winston', 'tank', 'video', 'youtube', '6v6', 'overwatch']],
+      ['zarya-guia-overwatch-burbujas-energia', 'zarya', 'tank', ['zarya', 'tank', 'burbujas', 'energia', '6v6']],
     ] as const) {
       const revision = reviewedGuideRevisions[slug]
       const raw = { slug, hero, role, tags: [...tags], published: true, created_at: '2026-05-05' }

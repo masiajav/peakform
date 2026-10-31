@@ -67,12 +67,18 @@ Comprueba primero las opciones y sus efectos en tu versión del juego. La grabac
 Si te eliminan al entrar, revisa los [counters de Tracer](/counters/tracer). Si nadie acompaña tu presión, mira las [composiciones con Tracer](/team-comps/tracer) y la [guía de dive](/guides/composiciones-overwatch-5v5-6v6). Para ordenar los momentos de entrada y retirada, sigue con la [revisión de cooldowns](/guides/como-revisar-cooldowns-overwatch).`,
   },
   'zarya-guia-overwatch-burbujas-energia': {
-    hero: 'zarya', role: 'tank', revisedAt: '2026-10-20',
+    hero: 'zarya', revisedAt: '2026-10-31',
     title: 'Cómo jugar Zarya: elegir burbujas y convertir la energía en presión',
     description: 'Guía de Zarya para decidir a quién proteger, cuándo avanzar con energía y cómo retirarte sin burbujas. Ejemplos de pelea y preguntas para revisar tu replay.',
     quickAnswer: 'Usa la burbuja para resolver una amenaza o permitir que un aliado termine una acción, no solo para buscar energía. Antes de avanzar, comprueba que puedes mantener el rango sin perder la visión de tus Supports. Si ya has gastado la protección y el enemigo no retrocede, vuelve a una esquina en vez de seguir caminando hacia él.',
     videoSlug: 'zarya-guia-video-overwatch',
-    videoDescription: 'Introducción de LeonDrummer al lanzamiento de Overwatch 2 en 2022. Es una referencia visual del personaje: comprueba los valores y las opciones del juego actual antes de seguir una recomendación de aquella versión.',
+    renderedContentVersion: 'ae241b3ed116531bab3529d6b3b7028cd246531d15650d0b89d07574d2fd17d1',
+    sourceVideoTitle: 'Guia basica: Zarya | Overwatch',
+    reviewedVideo: {
+      video_id: 'ssWnCfolWa0', video_url: 'https://www.youtube.com/watch?v=ssWnCfolWa0', video_platform: 'youtube',
+      video_title: 'Guía básica: Zarya | Overwatch 2', video_channel: 'LeonDrummer', video_language: 'es', video_published_at: '2022-10-14',
+    },
+    videoDescription: 'Introducción de LeonDrummer publicada el 14 de octubre de 2022, al comienzo de Overwatch 2. Puede servir como referencia visual de protección y presión, pero pertenece a una versión anterior al sistema de perks actual y a los ajustes posteriores de las burbujas. El texto escrito aplica Jump-Ups, Spotter, Extra Oomph y Energy Lance por separado; no copies las cifras o secuencias del vídeo como si describieran el balance vigente.',
     body: `## La primera decisión no es cuánta energía puedes sacar
 
 Una burbuja vale por lo que permite hacer durante la pelea. Puede darte tiempo para cruzar, evitar que un compañero muera durante una entrada o mantener una posición mientras recuperas ayuda. La energía es importante, pero conseguirla no convierte automáticamente el uso en bueno.
@@ -96,6 +102,16 @@ En las calles de King's Row, ganar la siguiente esquina puede facilitar el avanc
 El rival puede esperar a que termine la burbuja para concentrar daño. Si permaneces en el mismo sitio abierto, toda la energía obtenida puede no darte tiempo a usarla. Acércate a cobertura antes de quedarte sin respuesta y evita confundir aguantar con mantener el gatillo pulsado.
 
 No hay que retirarse por sistema después de cada uso. Si vuestro equipo ya ha conseguido una baja y el rival está saliendo, puedes sostener la presión desde una posición segura. La decisión depende de lo que quede de la pelea, de la curación que recibas y de si el enemigo todavía puede castigarte, no de una secuencia fija de botones.
+
+## Los perks cambian qué oportunidad puedes aprovechar
+
+Jump-Ups, una opción minor, aumenta el impulso que recibes de tu propio disparo secundario. Puede abrir un acceso o ayudarte a alcanzar otra cobertura, pero necesitas comprobar el aterrizaje antes de exponerte. El empuje adicional no elimina los ángulos enemigos ni lleva contigo al resto del equipo.
+
+Spotter es la alternativa minor: Projected Barrier activa la regeneración de vida del aliado protegido y aumenta su velocidad de movimiento. Elige a un compañero que pueda aprovechar esa protección para terminar una entrada o alcanzar cobertura. No atribuyas ese efecto a tu burbuja personal ni confundas regeneración con una recuperación instantánea que permita ignorar todo el daño.
+
+Extra Oomph, una opción major, genera energía al hacer daño con el haz de Particle Cannon mientras una barrera está activa. Necesitas conectar ese daño durante la ventana; no basta con disparar una granada o mantener una burbuja sin un objetivo a tu alcance. Esa posibilidad no sustituye decidir a quién proteger ante la amenaza más urgente.
+
+Energy Lance es la alternativa major y permite que el haz atraviese enemigos. Busca una línea donde más de un rival quede a tu alcance, sin salir de cobertura para forzar la alineación. Atravesar héroes no significa atravesar las paredes ni resolver una altura fuera del rango del arma. No cuentes también con la generación de Extra Oomph al elegir esta mejora.
 
 ## Graviton necesita daño que pueda llegar
 
@@ -132,11 +148,16 @@ No. Acordad quién disputa cada sector y qué entrada necesita protección. Segu
 Para preparar el avance, continúa con los [fundamentos de Tank](/guides/como-mejorar-como-tank-overwatch). Si necesitas entender qué presiones te obligan a gastar burbujas, revisa los [counters de Zarya](/counters/zarya); para repartir tareas con tus compañeros, las [composiciones con Zarya](/team-comps/zarya). La [guía de King's Row](/maps/kings-row) ayuda a revisar el recorrido entre esquinas.`,
   },
   'winston-guia-video-overwatch': {
-    hero: 'winston', role: 'tank', revisedAt: '2026-10-20',
+    hero: 'winston', revisedAt: '2026-10-20',
     title: 'El vídeo de Winston de The WatchOver es humor: qué no copiar en ranked',
     description: 'La guía «completamente seria» de Winston de The WatchOver es una parodia. Cómo separar las bromas de una buena entrada, una burbuja útil y una retirada a tiempo.',
     quickAnswer: 'El vídeo de The WatchOver es humor, no un tutorial para ranked. Su presentación bromea con saltar sin salida y con usar mal la burbuja. Para aprender el personaje, contrasta esas situaciones con una entrada que tus compañeros puedan seguir y una ruta por la que puedas volver.',
     videoSlug: 'winston-guia-video-overwatch',
+    renderedContentVersion: '75f14f4815d8b6d478359ca2919f76ded66a0817c13e44188eef03772189aef0',
+    reviewedVideo: {
+      video_id: 'QduGAeDb1tM', video_url: 'https://www.youtube.com/watch?v=QduGAeDb1tM', video_platform: 'youtube',
+      video_title: 'A Completely Serious Guide To Winston', video_channel: 'The WatchOver', video_language: 'en', video_published_at: '2025-04-03',
+    },
     videoDescription: 'Vídeo de humor de The WatchOver publicado en 2025. El título y la presentación son irónicos: no lo tomes como una guía de decisiones competitivas ni como una explicación del balance actual de Winston.',
     body: `## El título no describe un tutorial convencional
 

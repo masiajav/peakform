@@ -3834,10 +3834,14 @@
       "sourceVersion": "55ad0c5eb1fd7804585817947f76afc859976604a5b9dc7d3d40d4196dfb21b8",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-winston-zarya-2026-10-31.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-31",
+      "reviewedVersion": "28dac5043c75be3c1d39e8ef59ac56eb0c24b22b01f58f8c61d87e31434bc288",
+      "reviewedRenderedVersion": "75f14f4815d8b6d478359ca2919f76ded66a0817c13e44188eef03772189aef0",
+      "correction": "Cuerpo, contexto de parodia y fecha del 20 de octubre conservados tras lectura y contraste. Identidad exacta del vídeo y audio original inglés registrados, con versión renderizada. Se conserva primera publicación y el enlace a la guía ranked; no se atribuye advice literal al vídeo de humor. Se elimina asignación redundante de rol para invalidar cambios inesperados de la fuente.",
+      "initialPartialReview": {
         "readAt": "2026-10-31",
         "textVersion": "55ad0c5eb1fd7804585817947f76afc859976604a5b9dc7d3d40d4196dfb21b8",
         "note": "Lectura completa de la parodia, dive con salida, burbuja, seguimiento, Primal, VOD, tres FAQ y enlaces; ficha oficial y descripción del vídeo confirman el contexto. Identidad y audio original inglés comprobados, con doblaje automático opcional. El artículo no es un tutorial exhaustivo de perks y enlaza la guía ranked. Faltan registro de medios y versión renderizada exacta y validación final. No aprobada.",
@@ -3955,10 +3959,14 @@
       "sourceVersion": "2b1eaed9a0a0036bde1df2b6d75a9808a9a52bfa59bbb0d6e997916a4d2e1dad",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-winston-zarya-2026-10-31.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-31",
+      "reviewedVersion": "17b23d70a8db859dcc5f49ce00b0d75ee60e35f8b9db95a718b761e4d86db524",
+      "reviewedRenderedVersion": "ae241b3ed116531bab3529d6b3b7028cd246531d15650d0b89d07574d2fd17d1",
+      "correction": "Título conocido del vídeo de LeonDrummer corregido y contexto fechado en octubre de 2022. Se aplican Jump-Ups/Spotter y Extra Oomph/Energy Lance sin sumar alternativas, diferenciando impulso propio, ayuda al aliado y condición de haz durante barrera. Se conserva alias y primera publicación canónica; revisión del texto el 31 de octubre. Se elimina asignación redundante de rol para invalidar cambios inesperados.",
+      "initialPartialReview": {
         "readAt": "2026-10-31",
         "textVersion": "2b1eaed9a0a0036bde1df2b6d75a9808a9a52bfa59bbb0d6e997916a4d2e1dad",
         "note": "Lectura completa de burbujas según amenaza, energía y alcance, cobertura, Graviton con seguimiento, vídeo de 2022, VOD, cuatro FAQ y enlaces. Ficha oficial y vídeo contrastados. Faltan corregir título conocido y aplicar perks actuales, registrar versión exacta y validar el resultado. Se conserva el alias de vídeo y la primera publicación canónica. No aprobada.",
@@ -6037,8 +6045,8 @@
     }
   ],
   "progress": {
-    "reviewed": 95,
+    "reviewed": 97,
     "publishedAndVerified": 95,
-    "pending": 45
+    "pending": 43
   }
 }

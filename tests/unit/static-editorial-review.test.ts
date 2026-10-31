@@ -92,6 +92,7 @@ describe('version-bound static editorial reviews', () => {
       '/guides/mizuki-guia-video-overwatch', '/team-comps/mizuki',
       '/guides/vendetta-guia-video-overwatch', '/team-comps/vendetta', '/team-comps/anran',
       '/guides/domina-guia-video-overwatch', '/guides/jetpack-cat-guia-video-overwatch',
+      '/guides/winston-guia-video-overwatch', '/guides/zarya-guia-overwatch-burbujas-energia',
       '/heroes/ana', '/heroes/cassidy', '/heroes/dmon', '/heroes/doctrine', '/heroes/dva', '/heroes/genji', '/heroes/kiriko', '/heroes/reinhardt', '/heroes/shion', '/heroes/tracer', '/heroes/winston', '/heroes/zarya', '/roles/flex',
       '/team-comps/ana', '/team-comps/cassidy', '/team-comps/doctrine', '/team-comps/domina', '/team-comps/dva', '/team-comps/genji', '/team-comps/jetpack-cat', '/team-comps/kiriko', '/team-comps/reinhardt', '/team-comps/roadhog', '/team-comps/sombra', '/team-comps/tracer', '/team-comps/winston', '/team-comps/wuyang', '/team-comps/zarya',
     ].sort())

@@ -2,6 +2,8 @@
 
 Lectura individual por Codex el 31 de octubre de 2026. Ambas URLs mantienen `noindex`; este documento no concede su aprobación. Se consultan las tres filas publicadas, incluido el alias de vídeo de Zarya, y los dos modelos coinciden con el inventario antes de corregirlos.
 
+Esta fase histórica queda completada por [la revisión final de Winston y Zarya](indexing-review-winston-zarya-2026-10-31.md), que registra las correcciones, versiones exactas y validaciones posteriores.
+
 ## Winston
 
 Se lee completo `/guides/winston-guia-video-overwatch`, versión del texto `55ad0c5eb1fd7804585817947f76afc859976604a5b9dc7d3d40d4196dfb21b8`: título y contexto irónicos, salto con seguimiento y salida, burbuja que corta una amenaza concreta, retirada después de ganar una altura, Primal según el estado de la pelea, ejercicio VOD, tres FAQ y enlaces. El artículo explica la parodia y deriva a la guía ranked; no pretende ofrecer un tutorial exhaustivo del kit actual.

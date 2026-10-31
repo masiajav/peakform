@@ -1277,6 +1277,20 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-baptiste-2026-10-29.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/winston-guia-video-overwatch': {
+    path: '/guides/winston-guia-video-overwatch',
+    version: '28dac5043c75be3c1d39e8ef59ac56eb0c24b22b01f58f8c61d87e31434bc288',
+    reviewedAt: '2026-10-31', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-winston-zarya-2026-10-31.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
+  '/guides/zarya-guia-overwatch-burbujas-energia': {
+    path: '/guides/zarya-guia-overwatch-burbujas-energia',
+    version: '17b23d70a8db859dcc5f49ce00b0d75ee60e35f8b9db95a718b761e4d86db524',
+    reviewedAt: '2026-10-31', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-winston-zarya-2026-10-31.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/guides/domina-guia-video-overwatch': {
     path: '/guides/domina-guia-video-overwatch',
     version: '97c1b2f443f35648255fe3296d2bbd89f4340be34a4e68b3a6418ce771b2825c',

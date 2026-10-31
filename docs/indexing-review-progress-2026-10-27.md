@@ -2,9 +2,9 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 31 de octubre: **95 de 140 artículos revisados, habilitados y verificados en producción; 45 pendientes de revisión**. Último lote verificado públicamente: guías de Domina y Jetpack Cat. Se han leído y contrastado las guías siguientes de Winston y Zarya y completado su comprobación inicial, sin aprobarlas todavía. Los anuncios mantienen su configuración previa.
+Estado comprobado al 31 de octubre: **97 de 140 artículos revisados; 95 habilitados y verificados en producción, dos de Winston y Zarya pendientes de comprobación pública; 43 pendientes de revisión**. Último lote verificado públicamente: guías de Domina y Jetpack Cat. Se han leído las guías siguientes de Tracer y Tank y contrastado sus fuentes almacenadas con el inventario, sin aprobarlas todavía. Los anuncios mantienen su configuración previa.
 
-Los 45 pendientes se reparten entre 13 guías, 24 mapas, cinco artículos de parches y tres noticias. No quedan counters ni composiciones pendientes de revisión del inventario inicial. Cada URL conserva su motivo y estado en el registro; esta distribución no es una aprobación ni reduce el alcance del objetivo.
+Los 43 pendientes se reparten entre 11 guías, 24 mapas, cinco artículos de parches y tres noticias. No quedan counters ni composiciones pendientes de revisión del inventario inicial. Cada URL conserva su motivo y estado en el registro; esta distribución no es una aprobación ni reduce el alcance del objetivo.
 
 ## Inventario y alcance
 
@@ -286,3 +286,11 @@ Pasan 708 pruebas unitarias, lint, seis casos finales de ambas guías y filtros,
 Domina y Jetpack Cat quedan verificadas públicamente en el commit ef194f6: 99 comprobaciones HTTP y la redirección previa de Pharah correctas, más cuatro casos de navegador contra producción. Ambas URLs están en sitemap y sin noindex, con sus primeras publicaciones y medios revisados; los 93 artículos anteriores y los cuatro controles conservan su estado. Total verificado: **95 de 140; 45 pendientes**.
 
 Se leen completas y por separado las guías de Winston y Zarya, se contrastan sus modelos, fichas oficiales y vídeos. La parodia de Winston mantiene su contexto y enlace a la guía competitiva; Zarya necesita título real del vídeo histórico y perks actuales. Pasan ocho casos iniciales de ambas páginas y reproductores en móvil/escritorio y se inspeccionan dos capturas completas de escritorio y dos cabeceras móviles. Las dos URLs siguen excluidas hasta registrar medios/versiones y validar el contenido final. Evidencia: [lectura preliminar de Winston y Zarya](indexing-review-winston-zarya-preliminary-2026-10-31.md).
+
+## Cuadragésimo primer lote: Winston y Zarya
+
+Se completa la revisión individual de ambas guías. Winston conserva cuerpo, contexto de parodia y fecha visible del 20 de octubre; se registran identidad exacta del vídeo y versión renderizada sin convertir el artículo en otro tutorial. Zarya corrige el título conocido de LeonDrummer, fecha el vídeo de 2022 y aplica Jump-Ups/Spotter y Extra Oomph/Energy Lance con sus condiciones. Sus primeras publicaciones y el alias de Zarya se conservan.
+
+La primera ejecución unitaria detecta una expectativa de fecha antigua y que la asignación fija de rol ocultaba cambios posteriores de la fuente. Se corrige la fecha de la prueba y se elimina la asignación redundante en ambas revisiones; los roles actuales y las huellas renderizadas se conservan. Tras el ajuste pasan 708 pruebas unitarias, lint, seis casos finales y seis de regresión, además de ocho iniciales. Se inspeccionan seis capturas finales de móvil/escritorio. Evidencia: [revisión de Winston y Zarya](indexing-review-winston-zarya-2026-10-31.md). Ambas quedan pendientes de despliegue y comprobación pública: **97 revisadas, 95 verificadas y 43 pendientes de revisión**.
+
+Se leen completas la guía siguiente de Tracer y la guía corta de Tank, y se contrastan sus tres filas publicadas, incluido el alias de Tracer, con el inventario. Tracer requiere contraste final de vídeo/perks; Tank necesita desarrollar decisiones y ejemplos antes de poder superar la revisión. No se aprueba ninguna de las dos.

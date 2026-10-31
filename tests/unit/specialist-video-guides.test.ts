@@ -3,9 +3,9 @@ import type { GuideContent } from '@/lib/content'
 import { applyReviewedGuideRevision, mergeReviewedGuideVideo, reviewedGuideVideoSource } from '@/lib/reviewed-guide-revisions'
 import { guideQualityDecision } from '@/lib/indexing-policy'
 
-for (const [hero,slug,source,id] of [
-  ['tracer','tracer-presion-lateral-sin-morir-gratis','tracer-guia-video-overwatch','SRGJ7xZoZZ0'],
-  ['zarya','zarya-guia-overwatch-burbujas-energia','zarya-guia-video-overwatch','ssWnCfolWa0'],
+for (const [hero,slug,source,id,updatedAt] of [
+  ['tracer','tracer-presion-lateral-sin-morir-gratis','tracer-guia-video-overwatch','SRGJ7xZoZZ0','2026-10-20'],
+  ['zarya','zarya-guia-overwatch-burbujas-energia','zarya-guia-video-overwatch','ssWnCfolWa0','2026-10-31'],
 ]) {
   describe(`${hero} existing guide and original video`, () => {
     const row: GuideContent = { id:'published-record',slug,title:'Resumen antiguo',body:'Texto anterior',hero,category:'Héroes',published:true,created_at:'2026-05-05' }
@@ -13,7 +13,7 @@ for (const [hero,slug,source,id] of [
     it('keeps source identity, original video attribution and date while replacing the repeated stub', () => {
       expect(reviewedGuideVideoSource(slug)).toBe(source)
       const revised = applyReviewedGuideRevision(mergeReviewedGuideVideo(row,video))
-      expect(revised).toMatchObject({id:row.id,slug,created_at:row.created_at,updated_at:'2026-10-20',video_id:id,video_channel:video.video_channel,author:'Replaid Lab'})
+      expect(revised).toMatchObject({id:row.id,slug,created_at:row.created_at,updated_at:updatedAt,video_id:id,video_channel:video.video_channel,author:'Replaid Lab'})
       expect(revised.body).not.toContain('Plan de juego: qué pelea busca')
       expect(revised.body).toContain('## FAQ')
       expect(guideQualityDecision(revised)).toMatchObject({indexable:false,adsAllowed:false})
