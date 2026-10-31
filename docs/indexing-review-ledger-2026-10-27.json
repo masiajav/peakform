@@ -3598,14 +3598,23 @@
       "sourceVersion": "ef04e143db6a4871ce19102c30c49cc4683e4936115d669d8bd4a267b70d5b25",
       "initialReviewState": "missing-row-review",
       "initialBlocker": "Esta versión de la guía todavía no tiene una revisión editorial aprobada",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "consolidation-awaiting-deployment",
+      "evidence": "docs/indexing-review-tracer-tank-2026-10-31.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-31",
+      "initialPartialReview": {
         "readAt": "2026-10-31",
         "textVersion": "ef04e143db6a4871ce19102c30c49cc4683e4936115d669d8bd4a267b70d5b25",
         "note": "Lectura íntegra de la nota breve de espacio, cuatro prioridades, replay y 6v6. Modelo coincide con inventario. Contenido insuficientemente desarrollado y solapado con /guides/como-mejorar-como-tank-overwatch, cuya guía completa también se lee: siete secciones, checklist, seis FAQ y enlaces. Destino conserva revisión vigente y está públicamente indexable/en sitemap. Falta decidir y validar consolidación o corrección, presentación y enlaces; no se aprueba la nota corta ni se cambia su ruta.",
         "evidence": "docs/indexing-review-tracer-tank-preliminary-2026-10-31.md"
+      },
+      "reviewDisposition": "consolidate",
+      "reviewedSourceVersion": "ef04e143db6a4871ce19102c30c49cc4683e4936115d669d8bd4a267b70d5b25",
+      "consolidation": {
+        "target": "/guides/como-mejorar-como-tank-overwatch",
+        "targetVersion": "d72e3e7af1bab046d7e2f074ed84bd1b405e86a1c05413845411d48a31043667",
+        "targetAlreadyIndexable": true,
+        "reason": "Nota breve sin intención diferenciada: la guía completa desarrolla espacio, seguimiento, cobertura, recursos, retirada, replay y 6v6. Se conserva el original en la base de datos y se redirige 308; no se aprueba la nota ni se cuenta el destino como nueva publicación."
       }
     },
     {
@@ -3688,15 +3697,20 @@
       "sourceVersion": "3fc78b11d9fac3816601b035297a3cd23ab2c0c6b2344ed07ebf9ea860a7e0c9",
       "initialReviewState": "missing-static-review",
       "initialBlocker": "La revisión de esta guía todavía no autoriza indexar su versión actual",
-      "status": "pending-individual-review",
-      "evidence": null,
+      "status": "reviewed-awaiting-deployment",
+      "evidence": "docs/indexing-review-tracer-tank-2026-10-31.md",
       "publicVerification": null,
-      "partialReview": {
+      "reviewedAt": "2026-10-31",
+      "initialPartialReview": {
         "readAt": "2026-10-31",
         "textVersion": "3fc78b11d9fac3816601b035297a3cd23ab2c0c6b2344ed07ebf9ea860a7e0c9",
         "note": "Lectura completa de ángulo lateral, selección de objetivo, Recall, Blink, Pulse Bomb, vídeo y VOD, cuatro FAQ y enlaces. Modelo coincide con inventario. Ficha oficial y vídeo de Awkward contrastados; capítulos de Recall a 1:06 y posición a 2:18 confirmados en datos públicos. Faltan aplicación de perks actuales, registro exacto de medios y versión renderizada, enlaces y presentación final. No aprobada.",
         "evidence": "docs/indexing-review-tracer-tank-preliminary-2026-10-31.md"
-      }
+      },
+      "reviewDisposition": "enable-indexing",
+      "reviewedVersion": "6879a16f2e5dd7685ca48c26babeb180d2ed237d692c7d2690509eedc16bf02a",
+      "reviewedRenderedVersion": "572db566e7dd3448024e1d12fdb73c2c1ce4c30dbd2547bf590abbb03c9512b4",
+      "correction": "Contexto fechado del vídeo de 2025 y audio original inglés. Se explican Temporal Regen/Kinetic Reload y Blink Packs/Quantum Entanglement con condiciones y alternativas. Se conservan primera publicación, vídeo y alias. Se elimina la asignación redundante de rol para detectar cambios inesperados; revisión del texto 31 de octubre."
     },
     {
       "path": "/guides/vendetta-guia-video-overwatch",
@@ -6097,8 +6111,9 @@
     }
   ],
   "progress": {
-    "reviewed": 97,
+    "reviewed": 99,
     "publishedAndVerified": 97,
-    "pending": 43
+    "consolidatedAndVerified": 0,
+    "pending": 41
   }
 }

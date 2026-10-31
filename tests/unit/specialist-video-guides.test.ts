@@ -4,7 +4,7 @@ import { applyReviewedGuideRevision, mergeReviewedGuideVideo, reviewedGuideVideo
 import { guideQualityDecision } from '@/lib/indexing-policy'
 
 for (const [hero,slug,source,id,updatedAt] of [
-  ['tracer','tracer-presion-lateral-sin-morir-gratis','tracer-guia-video-overwatch','SRGJ7xZoZZ0','2026-10-20'],
+  ['tracer','tracer-presion-lateral-sin-morir-gratis','tracer-guia-video-overwatch','SRGJ7xZoZZ0','2026-10-31'],
   ['zarya','zarya-guia-overwatch-burbujas-energia','zarya-guia-video-overwatch','ssWnCfolWa0','2026-10-31'],
 ]) {
   describe(`${hero} existing guide and original video`, () => {

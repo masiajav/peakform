@@ -1284,6 +1284,13 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
     evidence: 'docs/indexing-review-winston-zarya-2026-10-31.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
+  '/guides/tracer-presion-lateral-sin-morir-gratis': {
+    path: '/guides/tracer-presion-lateral-sin-morir-gratis',
+    version: '6879a16f2e5dd7685ca48c26babeb180d2ed237d692c7d2690509eedc16bf02a',
+    reviewedAt: '2026-10-31', reviewer: 'Codex',
+    evidence: 'docs/indexing-review-tracer-tank-2026-10-31.md',
+    checks: { specific: true, accurate: true, links: true, visual: true },
+  },
   '/guides/zarya-guia-overwatch-burbujas-energia': {
     path: '/guides/zarya-guia-overwatch-burbujas-energia',
     version: '17b23d70a8db859dcc5f49ce00b0d75ee60e35f8b9db95a718b761e4d86db524',

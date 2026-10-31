@@ -60,6 +60,7 @@ const consolidatedTargets: Record<string, string> = {
   ...legacyHeroGuideRedirects,
   'como-mejorar-en-overwatch-revisando-vod': 'review-vod-overwatch-espanol',
   'como-elegir-composicion-dive-poke-brawl': 'composiciones-overwatch-5v5-6v6',
+  'tank-crear-espacio-sin-regalar-vida': 'como-mejorar-como-tank-overwatch',
 }
 
 export function reviewedGuideTarget(slug?: string | null) {

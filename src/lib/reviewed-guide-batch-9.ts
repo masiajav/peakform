@@ -2,12 +2,17 @@ import type { GuideRevision } from './reviewed-guide-revisions'
 
 export const ninthGuideReviewBatch: Record<string, GuideRevision> = {
   'tracer-presion-lateral-sin-morir-gratis': {
-    hero: 'tracer', role: 'dps', revisedAt: '2026-10-20',
+    hero: 'tracer', revisedAt: '2026-10-31',
     title: 'Cómo jugar Tracer: abrir un ángulo, gastar Recall y volver a la pelea',
     description: 'Guía de Tracer para crear presión sin regalar Recall: preparar un ángulo lateral, elegir objetivo, cerrar una persecución y revisar Pulse Bomb en tu VOD.',
     quickAnswer: 'Con Tracer, llega a un lateral antes del engage y empieza a molestar cuando tu equipo también pueda presionar. Decide dónde volverías con Recall antes de usarlo y corta la persecución si necesitas gastar toda la movilidad solo para alcanzar al objetivo. Sobrevivir sin que nadie tenga que responderte tampoco basta: comprueba qué oportunidad has creado.',
     videoSlug: 'tracer-guia-video-overwatch',
-    videoDescription: 'Vídeo de Awkward publicado en septiembre de 2025. Tiene capítulos sobre Recall, Pulse Bomb y posicionamiento. Los perks que aparecen pertenecen a esa versión; úsalos como contexto de la grabación, no como una elección actual recomendada.',
+    renderedContentVersion: '572db566e7dd3448024e1d12fdb73c2c1ce4c30dbd2547bf590abbb03c9512b4',
+    reviewedVideo: {
+      video_id: 'SRGJ7xZoZZ0', video_url: 'https://www.youtube.com/watch?v=SRGJ7xZoZZ0', video_platform: 'youtube',
+      video_title: 'Give me 15 minutes, I will teach you how to play Tracer', video_channel: 'Awkward', video_language: 'en', video_published_at: '2025-09-01',
+    },
+    videoDescription: 'Vídeo de Awkward publicado el 1 de septiembre de 2025, con audio original inglés; YouTube puede seleccionar un doblaje automático al español. Sus capítulos tratan Recall, Pulse Bomb, posición y selección de perks de aquella versión. El texto escrito aplica por separado las opciones actuales Temporal Regen, Kinetic Reload, Blink Packs y Quantum Entanglement; las cifras y elecciones de la grabación no describen automáticamente el balance vigente.',
     body: `## Llega al lateral antes de que haga falta
 
 La preparación de Tracer empieza antes de disparar. Si intentas llegar a la backline cuando el Tank ya ha entrado, puedes pasarte la pelea recorriendo un pasillo. Busca una cobertura lateral desde la que ver una parte del combate y comprueba que puedes salir sin cruzar delante de todos.
@@ -31,6 +36,16 @@ Para revisar una muerte, retrocede hasta el momento anterior al duelo y sigue el
 Usa los Blinks para corregir distancia, cambiar el lado desde el que te ven o salir de una amenaza concreta. Gastarlos todos para alcanzar a un enemigo que sigue huyendo puede dejarte junto a él sin forma de sostener el duelo. No existe una reserva fija que sea correcta siempre; lo importante es saber qué necesitas para terminar la acción y salir.
 
 Contra un enemigo que guarda control, alternar presión y cobertura puede ser más útil que cruzar varias veces por delante de su mira. Si su compañero ya está pendiente de ti y nadie de tu equipo puede verlo, insistir no crea automáticamente valor por el simple hecho de ocupar su atención.
+
+## Los perks necesitan una ventana que puedas aprovechar
+
+Temporal Regen, una opción minor, adelanta el inicio de la regeneración pasiva de salud. Busca una cobertura donde puedas dejar de recibir daño y volver a preparar el ángulo. No aumenta por sí sola la curación que te da un Support ni elimina la necesidad de salir de una línea de tiro; seguir recibiendo poke no crea la misma pausa.
+
+Kinetic Reload es la alternativa minor y recupera munición cuando conectas un melee. Puede sostener un duelo donde el enemigo ya está cerca y ese golpe tiene sentido, pero fallarlo no prepara la misma recarga. No gastes todos los Blinks para entrar a cuerpo a cuerpo solo por aprovechar el perk si después no podrás continuar o retirarte.
+
+Blink Packs, una opción major, recupera una carga de Blink al recoger un botiquín. Ten presente un pack que puedas utilizar durante la ruta, sin contar con uno que el rival controla o que no está disponible. Recuperar una carga ayuda a continuar o volver; no te devuelve automáticamente toda la movilidad gastada para llegar hasta allí.
+
+Quantum Entanglement es la alternativa major y añade sobrevida y munición al usar Recall. Decide primero dónde terminará el regreso: ese margen adicional no convierte una puerta ocupada por el enemigo en una salida segura. Tampoco cuentas a la vez con la recuperación de Blink Packs si has escogido esta mejora; vuelve a mirar los recursos que realmente tendrás para la siguiente intervención.
 
 ## Pulse Bomb: elige una oportunidad que puedas repetir
 

@@ -2,9 +2,9 @@
 
 Objetivo activo: leer y verificar cada artículo público actualmente excluido por `noindex`, corregir lo necesario, registrar la revisión de su versión y habilitar su indexación solo cuando esté preparado. La incorporación al índice de Google es posterior y no determina la finalización técnica.
 
-Estado comprobado al 31 de octubre: **97 de 140 artículos revisados, habilitados y verificados en producción; 43 pendientes de revisión**. Último lote verificado públicamente: guías de Winston y Zarya. Se han leído las guías siguientes de Tracer y Tank y contrastado sus modelos y fuentes; ambas siguen pendientes de revisión final. Se estudia el solapamiento de la nota corta de Tank con la guía completa ya publicada. Los anuncios mantienen su configuración previa.
+Estado al 31 de octubre: **99 de 140 artículos revisados; 97 habilitados y verificados en producción; 41 pendientes de revisión**. El lote de Tracer y Tank ha superado las comprobaciones locales y está pendiente de despliegue: Tracer se habilitará como artículo; la nota corta de Tank se consolidará con redirección 308 en la guía completa ya revisada. El destino no se cuenta como otra nueva publicación. Los anuncios mantienen su configuración previa.
 
-Los 43 pendientes se reparten entre 11 guías, 24 mapas, cinco artículos de parches y tres noticias. No quedan counters ni composiciones pendientes de revisión del inventario inicial. Cada URL conserva su motivo y estado en el registro; esta distribución no es una aprobación ni reduce el alcance del objetivo.
+Los 41 pendientes se reparten entre nueve guías, 24 mapas, cinco artículos de parches y tres noticias. No quedan counters ni composiciones pendientes de revisión del inventario inicial. Cada URL conserva su motivo y estado en el registro; esta distribución no es una aprobación ni reduce el alcance del objetivo. Las consolidaciones se cuentan por separado de los artículos habilitados; la conciliación final del inventario de ambos juegos sigue pendiente.
 
 ## Inventario y alcance
 
