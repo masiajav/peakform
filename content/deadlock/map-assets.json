@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-24T13:46:12.410Z",
+  "checkedAt": "2026-10-31T21:26:22.442Z",
   "assets": [
     {
       "key": "mid",
@@ -206,6 +206,20 @@
       "sha256": "a07288a7b722a65b9ee5f3bd69ae46f2dec236f8d0ef4f7b01d14f1965f98aa7",
       "width": 64,
       "height": 64
+    },
+    {
+      "name": "midboss-halloween-cover",
+      "path": "/deadlock/map/midboss-halloween-b106410d6f81.jpg",
+      "sha256": "b106410d6f8187ebe2bc7d0205a121d7c9c46e08783cbdcfe640aaba224e05a6",
+      "bytes": 106920,
+      "width": 1680,
+      "height": 1260,
+      "source": "https://changelog.frogtech.dev/map-data/6826/shots/p1-after-hl.jpg",
+      "owner": "Valve; visualization by Frogtech",
+      "checkedAt": "2026-10-31T21:25:56.401Z",
+      "clientBuild": 6826,
+      "patchDate": "2026-10-30",
+      "provenance": "Unmodified geometry render of the Midboss pit from client build 6826. Frogtech removes roofs and uses neutral materials and object markers to expose the geometry. Not a gameplay screenshot or a live map. Source detail: https://changelog.frogtech.dev/build-6826#map"
     }
   ]
 }
