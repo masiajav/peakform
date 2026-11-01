@@ -17,6 +17,7 @@ type PageProps = {
   searchParams: Promise<{ q?: string | string[] }>
 }
 const normalize = (text: string) => text.toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+const beginnerGuidePaths = ['como-jugar-deadlock', 'elegir-heroe', 'fase-de-lineas', 'economia-almas', 'movimiento-aguante'].map(slug => `/deadlock/guides/${slug}`)
 
 export async function generateMetadata({ params, searchParams }: PageProps) {
   const [{ section }, search] = await Promise.all([params, searchParams])
@@ -37,7 +38,19 @@ export default async function Page({ params, searchParams }: PageProps) {
   const all = (await publishedEditorial('deadlock')).filter(a => a.kind === SECTION_KIND[section])
   const publishedPaths = new Set(all.map(a => a.path))
   const articles = all.filter(a => normalize([a.title, a.description, ...(a.aliases ?? [])].join(' ')).includes(query))
-    .sort((a, b) => ['news', 'patch-notes'].includes(section) ? Date.parse(b.publishedAt) - Date.parse(a.publishedAt) : (deadlockHeroLabel(a.hero) || a.title).localeCompare(deadlockHeroLabel(b.hero) || b.title, 'es'))
+    .sort((a, b) => {
+      if (['news', 'patch-notes'].includes(section)) return Date.parse(b.publishedAt) - Date.parse(a.publishedAt)
+      if (section === 'guides') {
+        const priority = (path: string) => {
+          const index = beginnerGuidePaths.indexOf(path)
+          return index === -1 ? beginnerGuidePaths.length : index
+        }
+        const difference = priority(a.path) - priority(b.path)
+        if (difference) return difference
+        return a.title.localeCompare(b.title, 'es')
+      }
+      return (deadlockHeroLabel(a.hero) || a.title).localeCompare(deadlockHeroLabel(b.hero) || b.title, 'es')
+    })
   const otherHeroes = section === 'heroes' ? catalog.filter(h => !publishedPaths.has(`/deadlock/heroes/${h.slug}`) && normalize(h.aliases.join(' ')).includes(query)) : []
 
   return <div className="game-page game-deadlock"><PublicNav />

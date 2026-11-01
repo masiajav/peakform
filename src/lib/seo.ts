@@ -80,6 +80,6 @@ export function buildMetadata({
       description,
       images: [absoluteUrl(imagePath)],
     },
-    robots,
+    ...(robots === undefined ? {} : { robots }),
   }
 }

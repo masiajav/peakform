@@ -19,13 +19,18 @@ export const metadata = buildMetadata({
 
 export default async function Page() {
   const articles = await publishedEditorial('deadlock')
+  const beginnerGuide = articles.find(a => a.kind === 'guide' && a.path === '/deadlock/guides/como-jugar-deadlock')
   const heroes = ['abrams', 'haze', 'dynamo', 'infernus', 'lash', 'seven'].flatMap(slug => articles.filter(a => a.kind === 'hero' && a.hero === slug))
-  const basics = ['economia-almas', 'fase-de-lineas', 'movimiento-aguante'].flatMap(slug => articles.filter(a => a.kind === 'guide' && a.slug === slug))
+  const basics = [
+    ...(beginnerGuide ? [beginnerGuide] : []),
+    ...['economia-almas', 'fase-de-lineas', 'movimiento-aguante'].flatMap(slug => articles.filter(a => a.kind === 'guide' && a.slug === slug && a.path !== beginnerGuide?.path)),
+  ]
+  const moreGuides = ['/deadlock/guides/mods-deadlock', '/deadlock/guides/tier-list-deadlock'].flatMap(path => articles.filter(a => a.kind === 'guide' && a.path === path))
   const news = articles.filter(a => a.kind === 'news' || a.kind === 'patch_note').sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt)).slice(0, 3)
   const city = articles.find(a => a.kind === 'map' && a.mapAtlas)
 
   return <div className="game-page game-deadlock"><PublicNav />
-    <JsonLd data={deadlockCollection('/deadlock', 'Deadlock en español', 'Guías, héroes, builds y mapa de Deadlock.', [...heroes, ...basics, ...news, ...(city ? [city] : [])])} />
+    <JsonLd data={deadlockCollection('/deadlock', 'Deadlock en español', 'Guías, héroes, builds y mapa de Deadlock.', [...heroes, ...(city ? [city] : []), ...basics, ...moreGuides, ...news])} />
     <main className="game-hub">
       <header className="game-hero dl-home-hero">
         <div className="dl-hero-copy"><p className="eyebrow">REPLAID LAB / DEADLOCK</p>
@@ -37,7 +42,7 @@ export default async function Page() {
         </form>
         <div className="game-hero-actions">
           <Link href="/deadlock/heroes">Encuentra tu héroe <span aria-hidden="true">↗</span></Link>
-          <Link href="/deadlock/guides">Soy nuevo, ¿por dónde empiezo? <span aria-hidden="true">↗</span></Link>
+          <Link href={beginnerGuide?.path ?? '/deadlock/guides'}>Soy nuevo, ¿por dónde empiezo? <span aria-hidden="true">↗</span></Link>
         </div>
         </div>
         <div className="dl-hero-art" aria-hidden="true">
@@ -70,6 +75,13 @@ export default async function Page() {
         </Link>)}</div>
       </section>}
 
+      {moreGuides.length > 0 && <section className="game-latest">
+        <div className="game-section-heading"><h2 className="game-section-title">Más guías de Deadlock</h2></div>
+        <div className="game-card-grid">{moreGuides.map(a => <Link className="game-content-card" key={a.path} href={a.path}>
+          <h3>{a.title}</h3><p>{a.description}</p><span className="game-card-action">Leer guía ↗</span>
+        </Link>)}</div>
+      </section>}
+
       <section className="dl-help-pair" aria-label="Builds y counters">
         <Link href="/deadlock/builds"><span className="eyebrow">¿QUÉ COMPRO?</span><h2>Una build para empezar.<br />Opciones para adaptarla.</h2><p>Copia el código, abre la tienda y entiende qué compras primero y qué puedes cambiar.</p><span className="game-card-action">Busca la build de tu héroe ↗</span></Link>
         <Link href="/deadlock/counters"><span className="eyebrow">¿CÓMO LE FRENO?</span><h2>Conoce al rival.<br />Encuentra su punto débil.</h2><p>Qué habilidades debes esperar, cuándo acercarte y qué objeto puede sacarte del apuro.</p><span className="game-card-action">Consulta los counters ↗</span></Link>
@@ -77,7 +89,7 @@ export default async function Page() {
 
       {news.length > 0 && <section className="game-latest">
         <p className="eyebrow">QUÉ HAY DE NUEVO</p>
-        <div className="game-section-heading"><h2 className="game-section-title">Noticias y parches</h2><Link href="/deadlock/news">Todas las noticias ↗</Link></div>
+        <div className="game-section-heading"><h2 className="game-section-title">Noticias y parches</h2><Link href="/deadlock/news">Todas las noticias ↗</Link><Link href="/deadlock/patch-notes">Todos los parches ↗</Link></div>
         <div className="game-card-grid">{news.map(a => <Link className="game-content-card" key={a.path} href={a.path}>
           {a.image && <div className="game-card-portrait"><Image src={a.image} alt={a.aliases?.[0] ?? a.title} fill sizes="(max-width: 680px) 100vw, (max-width: 980px) 50vw, 360px" /></div>}
           {!a.image && a.kind === 'patch_note' && <div className="dl-patch-art" aria-hidden="true"><span>PATCH</span><span>NOTES ↗</span></div>}

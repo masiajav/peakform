@@ -39,7 +39,7 @@ export default async function GameEditorialArticle({ article: a, preview = false
   const fallbackHero = a.game === 'deadlock' ? getDeadlockHeroMedia(a.hero) : undefined
   const hero = fallbackHero ? { ...fallbackHero, abilities: a.abilities ?? fallbackHero.abilities } : undefined
   const illustrated = a.kind === 'hero' && Boolean(hero)
-  const showReferences = !(a.game === 'deadlock' && a.kind === 'build')
+  const showReferences = a.game !== 'deadlock'
   const contents = <nav aria-label="En este artículo" className="game-toc">{a.sections.map((section, i) => <a key={i} href={`#apartado-${i}`}>{section.title}</a>)}</nav>
   const title = <>
     <p className="eyebrow">{GAMES[a.game].name} · {sectionLabels[section]}</p>
