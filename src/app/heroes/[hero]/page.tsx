@@ -383,10 +383,15 @@ function MetaPill({ label, value }: { label: string; value: string }) {
 }
 
 function heroCtrTitle(pillar: HeroPillar) {
+  if (pillar.slug === 'shion' || pillar.slug === 'doctrine') {
+    return `${pillar.name} en Overwatch: habilidades, perks y cómo jugar`
+  }
   return pillar.seoTitle
 }
 
 function heroCtrDescription(pillar: HeroPillar) {
+  if (pillar.slug === 'shion') return 'Cómo jugar a Shion en Overwatch: combina Execution, Joyride y Evade para preparar el flanco y salir con cobertura. Habilidades y perks Minor y Major.'
+  if (pillar.slug === 'doctrine') return 'Cómo jugar a Doctrine en Overwatch: elige qué potenciar con Imbuir, cura con Cetro eterno y apoya con Drones vigorizantes. Habilidades y perks Minor y Major.'
   return pillar.seoDescription
 }
 

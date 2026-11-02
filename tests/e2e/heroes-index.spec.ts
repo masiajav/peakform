@@ -22,8 +22,9 @@ test('hero directory shows the full role catalogue before advice, with matching 
     .toEqual(visibleItems.map((item, index) => ({ ...item, position: index + 1 })))
   expect(await page.locator('main').evaluate(element => Array.from(element.querySelectorAll(':scope > section')).slice(0, 3).map(section => section.id))).toEqual(['tank', 'dps', 'support'])
   await expect(page.locator('#support a[href="/heroes/doctrine"]')).not.toContainText('PREVIEW')
-  await expect(page.locator('#support a[href="/guides?hero=sombra"]')).toContainText('Sombra')
-  await expect(page.locator('#dps a[href="/guides?hero=sombra"]')).toHaveCount(0)
+  await expect(page.locator('#support a[href="/guides/sombra-guia-video-overwatch"]')).toContainText('Sombra')
+  await expect(page.locator('#dps a[href="/guides/sombra-guia-video-overwatch"]')).toHaveCount(0)
+  await expect(page.locator('#tank a[href="/guides?hero=orisa"]')).toHaveAttribute('rel', 'nofollow')
   const faq = schemas.find(schema => schema['@type'] === 'FAQPage')
   for (const item of faq.mainEntity) {
     await expect(page.locator('main')).toContainText(item.name)
@@ -36,7 +37,7 @@ test('hero directory shows the full role catalogue before advice, with matching 
   expect(sitemap).toContain('/heroes/doctrine</loc>')
 })
 
-test('role anchors and direct hero or filtered guide links preserve their destinations', async ({ page }) => {
+test('role anchors and direct hero or canonical guide links preserve their destinations', async ({ page }) => {
   const errors: string[] = []
   page.on('pageerror', error => errors.push(error.message))
   page.on('console', message => { if (message.type() === 'error') errors.push(message.text()) })
@@ -53,12 +54,12 @@ test('role anchors and direct hero or filtered guide links preserve their destin
   await expect(page.locator('h1')).toHaveText('Todos los héroes,por rol')
   await page.getByRole('navigation', { name: 'Héroes por rol' }).getByRole('link', { name: 'DPS' }).click()
   await expect(page.locator('#dps-heading')).toBeInViewport()
-  await page.locator('#dps a[href="/guides?hero=sierra"]').click()
-  await expect(page).toHaveURL(/\/guides\?hero=sierra$/)
+  await page.locator('#dps a[href="/guides/sierra-guia-video-overwatch"]').click()
+  await expect(page).toHaveURL(/\/guides\/sierra-guia-video-overwatch$/)
   await expect(page.locator('h1')).toHaveCount(1)
   await page.goBack({ waitUntil: 'networkidle' })
   await expect(page).toHaveURL(/\/heroes#dps$/)
-  await expect(page.locator('#dps a[href="/guides?hero=sierra"]')).toBeVisible()
+  await expect(page.locator('#dps a[href="/guides/sierra-guia-video-overwatch"]')).toBeVisible()
   await expect(page.locator('h1')).toHaveText('Todos los héroes,por rol')
   expect(errors).toEqual([])
 })

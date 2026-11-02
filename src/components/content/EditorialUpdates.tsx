@@ -17,25 +17,27 @@ export default async function EditorialUpdates({
   game, kinds, q = '', hero, limit = 9, variant = 'inline',
 }: {
   game: GameId; kinds: EditorialKind[]; q?: string; hero?: string;
-  limit?: number; variant?: 'inline' | 'landing';
+  limit?: number; variant?: 'inline' | 'landing' | 'archive';
 }) {
-  const newsOnly = variant === 'landing'
+  const newsOnly = variant === 'landing' || variant === 'archive'
+  const isArchive = variant === 'archive'
   const gameName = game === 'overwatch' ? 'Overwatch' : 'Deadlock'
   const newsHref = game === 'overwatch' ? '/news' : '/deadlock/news'
+  const heading = isArchive ? `Archivo de noticias y parches de ${gameName}` : newsOnly ? `Últimas noticias de ${gameName}` : `Al día en ${gameName}`
   const displayDate = (article: { publishedAt: string; updatedAt: string }) => newsOnly ? article.publishedAt : article.updatedAt
   const normalize = (s: string) => s.toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-  const items = (await publishedEditorial(game))
+  const matchingItems = (await publishedEditorial(game))
     .filter(a => kinds.includes(a.kind) && (!newsOnly || a.kind === 'news' || a.kind === 'patch_note') && (!hero || a.hero === hero)
       && normalize(`${a.title} ${a.description}`).includes(normalize(q)))
     .sort((a, b) => Date.parse(displayDate(b)) - Date.parse(displayDate(a)))
-    .slice(0, limit)
+  const items = isArchive ? matchingItems : matchingItems.slice(0, limit)
   if (!items.length) return null
 
   return (
-    <section className={`${styles.root} ${newsOnly ? styles.landing : ''}`} aria-label={newsOnly ? `Últimas noticias de ${gameName}` : 'Publicaciones actualizadas'}>
+    <section className={`${styles.root} ${variant === 'landing' ? styles.landing : ''}`} aria-label={newsOnly ? heading : 'Publicaciones actualizadas'}>
       <header className={styles.heading}>
-        <h2>{newsOnly ? `Últimas noticias de ${gameName}` : `Al día en ${gameName}`}</h2>
-        {newsOnly ? <Link href={newsHref}>Ver noticias <ArrowUpRight size={16} aria-hidden="true" /></Link> : <span>{items.length === 1 ? 'La última lectura' : 'Últimas lecturas'}</span>}
+        <h2>{heading}</h2>
+        {variant === 'landing' ? <Link href={newsHref}>Ver noticias <ArrowUpRight size={16} aria-hidden="true" /></Link> : <span>{isArchive ? 'Por fecha de publicación' : items.length === 1 ? 'La última lectura' : 'Últimas lecturas'}</span>}
       </header>
       <div className={styles.list}>
         {items.map(a => (

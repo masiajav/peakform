@@ -50,4 +50,25 @@ describe('hero directory', () => {
     expect(html).not.toContain('DPS flanker en seguimiento')
     expect(html).not.toContain('adsbygoogle')
   })
+
+  it('links reviewed hero guides directly while keeping unknown heroes on the search fallback', () => {
+    const html = renderToStaticMarkup(createElement(HeroesIndexPage))
+    for (const path of [
+      '/guides/pharah-guia-overwatch-presion-aerea',
+      '/guides/sombra-guia-video-overwatch',
+      '/guides/roadhog-guia-video-overwatch',
+      '/guides/sierra-guia-video-overwatch',
+    ]) {
+      const link = [...html.matchAll(/<a\b[^>]*>/g)].map(match => match[0]).find(tag => tag.includes(`href="${path}"`))
+      expect(link).toBeDefined()
+      expect(link).not.toContain('nofollow')
+    }
+    for (const slug of ['pharah', 'sombra', 'roadhog', 'sierra']) {
+      expect(html).not.toContain(`href="/guides?hero=${slug}"`)
+      expect(html).not.toContain(`href="/heroes/${slug}"`)
+    }
+    expect(heroTopicHref('not-a-reviewed-hero')).toBe('/guides?hero=not-a-reviewed-hero')
+    expect(heroTopicHref('__proto__')).toBe('/guides?hero=__proto__')
+    expect(heroTopicHref('ana')).toBe('/heroes/ana')
+  })
 })

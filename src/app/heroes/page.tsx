@@ -54,7 +54,7 @@ const heroIntentLinks = [
     links: [
       { href: '/heroes/doctrine', label: 'Doctrine' },
       { href: '/heroes/dmon', label: 'D.Mon' },
-      { href: '/guides?hero=sierra', label: 'Sierra' },
+      { href: heroTopicHref('sierra'), label: 'Sierra' },
       { href: '/guides', label: 'Guías de héroes' },
     ],
   },
@@ -180,9 +180,10 @@ function RoleSection({ role, heroes }: { role: CounterRole; heroes: CounterHero[
 function HeroCard({ hero }: { hero: CounterHero }) {
   const portrait = getHeroPortrait(hero.slug)
   const hasPublicPillar = isPublicHeroPageSlug(hero.slug)
+  const href = heroTopicHref(hero.slug)
   const isTrial = getHeroPillar(hero.slug)?.analysisStatus === 'trial'
   return (
-    <Link href={heroTopicHref(hero.slug)} rel={hasPublicPillar ? undefined : 'nofollow'} className={styles.heroLink}>
+    <Link href={href} rel={href.startsWith('/guides?') ? 'nofollow' : undefined} className={styles.heroLink}>
       <article className={styles.heroCard}>
         <div className={styles.portrait}>
           <HeroPortraitImage

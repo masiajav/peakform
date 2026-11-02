@@ -5,7 +5,7 @@ import JsonLd from './JsonLd'
 import DeadlockAbilityKit from './DeadlockAbilityKit'
 import DeadlockBuildImport from './DeadlockBuildImport'
 import DeadlockMapAtlas from './DeadlockMapAtlas'
-import { GAMES, gamePath } from '@/lib/games'
+import { DEADLOCK_SECTIONS, GAMES, gamePath } from '@/lib/games'
 import { SECTION_KIND, editorialVersion, type EditorialArticle } from '@/lib/editorial-record'
 import { publishedEditorial } from '@/lib/editorial-store'
 import { DEADLOCK_MEDIA_VERSION, deadlockAbilityForHeading, deadlockAbilityHeadingTitle, getDeadlockCellMedia, getDeadlockHeroMedia } from '@/lib/deadlock-media'
@@ -16,6 +16,9 @@ import ArticleAdLayout from './ArticleAdLayout'
 import { isReviewedGameArticleAdEligible } from '@/lib/game-article-ad-policy'
 
 const sectionLabels: Record<string, string> = { heroes: 'Héroes', counters: 'Counters', builds: 'Builds', guides: 'Guías', news: 'Noticias', 'patch-notes': 'Parches', maps: 'Mapas', 'team-comps': 'Composiciones' }
+const deadlockHubPaths = new Set(['/deadlock', ...DEADLOCK_SECTIONS
+  .filter(section => Object.hasOwn(SECTION_KIND, section.slug))
+  .map(section => gamePath('deadlock', section.slug))])
 
 function TableCellContent({ text, game, publishedPaths }: { text: string; game: EditorialArticle['game']; publishedPaths: ReadonlySet<string> | null }) {
   const media = game === 'deadlock' ? getDeadlockCellMedia(text) : undefined
@@ -34,7 +37,7 @@ export default async function GameEditorialArticle({ article: a, preview = false
   const allowAds = isReviewedGameArticleAdEligible(a, published, preview)
   const heroSections = a.game === 'deadlock' ? ['heroes', 'counters', 'builds'] : ['heroes', 'counters', 'team-comps']
   const links = a.hero ? heroSections.filter(item => item !== section && (!publishedPaths || publishedPaths.has(gamePath(a.game, item, a.hero)))) : []
-  const related = a.related?.filter(link => !publishedPaths || publishedPaths.has(link.href))
+  const related = a.related?.filter(link => !publishedPaths || deadlockHubPaths.has(link.href) || publishedPaths.has(link.href))
   const heroLinks = links.length > 0 && <nav className={`game-related${a.game === 'deadlock' ? ' game-hero-resources' : ''}`} aria-label="Sigue aprendiendo">{links.map(section => <Link key={section} href={gamePath(a.game, section, a.hero)}>{a.game === 'deadlock' ? `${section === 'heroes' ? 'Guía de' : section === 'counters' ? 'Counters de' : 'Build de'} ${deadlockHeroLabel(a.hero)}` : section === 'heroes' ? 'Guía del héroe' : section === 'counters' ? 'Cómo responder a este héroe' : section === 'team-comps' ? 'Composiciones y sinergias' : 'Build y compras'}</Link>)}</nav>
   const fallbackHero = a.game === 'deadlock' ? getDeadlockHeroMedia(a.hero) : undefined
   const hero = fallbackHero ? { ...fallbackHero, abilities: a.abilities ?? fallbackHero.abilities } : undefined
