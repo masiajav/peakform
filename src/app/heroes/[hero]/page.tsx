@@ -28,7 +28,7 @@ export async function generateMetadata(props: { params: Promise<{ hero: string }
       description: heroCtrDescription(pillar),
       path: `/heroes/${params.hero}`,
       image: getHeroPortrait(params.hero) || undefined,
-      robots: robotsForQuality(quality) ?? { index: true, follow: true },
+      robots: robotsForQuality(quality),
     })
   }
 

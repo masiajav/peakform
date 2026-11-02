@@ -35,7 +35,7 @@ describe('hero search presentation', () => {
     expect(metadata.openGraph?.description).toBe(metadata.description)
     expect(metadata.twitter?.title).toBe(metadata.title)
     expect(metadata.twitter?.description).toBe(metadata.description)
-    expect(metadata.robots).toEqual({ index: true, follow: true })
+    expect(Object.hasOwn(metadata, 'robots')).toBe(false)
     expect(metadata.alternates?.canonical).toBe(absoluteUrl(path))
     expect(hasCurrentStaticEditorialReview(path, pillar)).toBe(true)
     expect(topicQualityDecision('hero', hero)).toMatchObject({ indexable: true, adsAllowed: false })

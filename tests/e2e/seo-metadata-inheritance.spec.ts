@@ -6,6 +6,13 @@ test('public pages inherit large image previews while search filters retain noin
   await expect(page.locator('meta[name="googlebot"]')).toHaveAttribute('content', /max-image-preview:large/)
   await expect(page.locator('meta[name="googlebot"]')).toHaveAttribute('content', /max-snippet:-1/)
 
+  for (const hero of ['shion', 'doctrine']) {
+    await page.goto(`/heroes/${hero}`, { waitUntil: 'networkidle' })
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index, follow')
+    await expect(page.locator('meta[name="googlebot"]')).toHaveAttribute('content', /max-image-preview:large/)
+    await expect(page.locator('meta[name="googlebot"]')).toHaveAttribute('content', /max-snippet:-1/)
+  }
+
   await page.goto('/guides?hero=pharah', { waitUntil: 'networkidle' })
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow')
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://www.replaidlab.com/guides')
