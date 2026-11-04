@@ -50,6 +50,7 @@ describe('hero search presentation', () => {
     const version = staticEditorialContentVersion(path, pillar)
     const metadata = await generateMetadata({ params: Promise.resolve({ hero: 'dmon' }) })
     expect(metadata.title).toBe('D.Mon en Overwatch: counters, habilidades y perks')
+    expect(metadata.description).toBe('Conoce cómo responder a Ana, Zarya y Reaper con D.Mon en Overwatch. Guía de habilidades, perks y cruces con Beast sin agotar barrera y combustible.')
     for (const name of ['Ana', 'Zarya', 'Reaper']) {
       expect(metadata.description).toContain(name)
       expect(pillar.counters.some(item => item.title.includes(name))).toBe(true)

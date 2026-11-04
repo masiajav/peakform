@@ -391,7 +391,7 @@ function heroCtrTitle(pillar: HeroPillar) {
 }
 
 function heroCtrDescription(pillar: HeroPillar) {
-  if (pillar.slug === 'dmon') return 'Conoce los counters de D.Mon, como Ana, Zarya y Reaper, y cómo responder. Guía de habilidades, perks y cruces con Beast sin agotar barrera y combustible.'
+  if (pillar.slug === 'dmon') return 'Conoce cómo responder a Ana, Zarya y Reaper con D.Mon en Overwatch. Guía de habilidades, perks y cruces con Beast sin agotar barrera y combustible.'
   if (pillar.slug === 'shion') return 'Cómo jugar a Shion en Overwatch: combina Execution, Joyride y Evade para preparar el flanco y salir con cobertura. Habilidades y perks Minor y Major.'
   if (pillar.slug === 'doctrine') return 'Cómo jugar a Doctrine en Overwatch: elige qué potenciar con Imbuir, cura con Cetro eterno y apoya con Drones vigorizantes. Habilidades y perks Minor y Major.'
   return pillar.seoDescription
