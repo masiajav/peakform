@@ -32,7 +32,7 @@ export async function generateMetadata(props: { params: Promise<{ hero: string }
     : topicQualityDecision('counter', params.hero)
 
   return buildMetadata({
-    title: pillar?.seoTitle ?? counterPageTitle(hero),
+    title: pillar?.slug === 'reinhardt' ? 'Counters de Reinhardt: qué jugar en Overwatch' : pillar?.seoTitle ?? counterPageTitle(hero),
     description: pillar?.seoDescription ?? counterPageDescription(hero),
     path: `/counters/${hero.slug}`,
     robots: robotsForQuality(quality) ?? { index: true, follow: true },

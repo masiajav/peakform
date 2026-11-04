@@ -18,8 +18,8 @@ import styles from './HeroesIndex.module.css'
 export async function generateMetadata(props: { searchParams: Promise<{ role?: string }> }): Promise<Metadata> {
   const searchParams = await props.searchParams
   const metadata = buildMetadata({
-    title: 'Héroes de Overwatch por rol: Tank, DPS y Support',
-    description: 'Todos los héroes de Overwatch por rol, con imágenes, fichas y guías. Aprende habilidades, consulta matchups y elige un pick que encaje con el mapa y tu equipo.',
+    title: 'Héroes de Overwatch: personajes, roles y habilidades',
+    description: 'Explora los personajes de Overwatch por rol: Tank, DPS y Support. Encuentra fichas y guías disponibles para conocer sus habilidades y consultar counters.',
     path: '/heroes',
     robots: { index: true, follow: true },
   })

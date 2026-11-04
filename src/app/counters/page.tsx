@@ -10,8 +10,8 @@ import SiteNav from '@/components/layout/PublicNav'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Counters de Overwatch por héroe: picks y matchups para ranked',
-  description: 'Busca qué jugar contra cada héroe de Overwatch: counters, picks recomendados, ventanas de castigo y cuándo no cambiar por tilt.',
+  title: 'Counters de Overwatch: qué héroe elegir contra cada rival',
+  description: 'Elige el héroe rival y filtra por tu rol en Pick Lab. Consulta picks, habilidades que conviene esperar y formas de responder sin cambiar de personaje.',
   path: '/counters',
 })
 

@@ -43,7 +43,29 @@ describe('hero search presentation', () => {
     expect(pillar).toEqual(original)
   })
 
-  it.each(['shion', 'doctrine'])('keeps %s noindex when its exact approval is missing', async hero => {
+  it('presents D.Mon counters without editing the reviewed hero or its dates', async () => {
+    const pillar = getHeroPillar('dmon')!
+    const original = structuredClone(pillar)
+    const path = '/heroes/dmon'
+    const version = staticEditorialContentVersion(path, pillar)
+    const metadata = await generateMetadata({ params: Promise.resolve({ hero: 'dmon' }) })
+    expect(metadata.title).toBe('D.Mon en Overwatch: counters, habilidades y perks')
+    for (const name of ['Ana', 'Zarya', 'Reaper']) {
+      expect(metadata.description).toContain(name)
+      expect(pillar.counters.some(item => item.title.includes(name))).toBe(true)
+    }
+    expect(metadata.openGraph?.title).toBe(metadata.title)
+    expect(metadata.openGraph?.description).toBe(metadata.description)
+    expect(metadata.twitter?.title).toBe(metadata.title)
+    expect(metadata.twitter?.description).toBe(metadata.description)
+    expect(metadata.alternates?.canonical).toBe(absoluteUrl(path))
+    expect(Object.hasOwn(metadata, 'robots')).toBe(false)
+    expect(hasCurrentStaticEditorialReview(path, pillar)).toBe(true)
+    expect(staticEditorialContentVersion(path, pillar)).toBe(version)
+    expect(pillar).toEqual(original)
+  })
+
+  it.each(['shion', 'doctrine', 'dmon'])('keeps %s noindex when its exact approval is missing', async hero => {
     const path = `/heroes/${hero}`
     const reviews = STATIC_EDITORIAL_REVIEWS as Record<string, unknown>
     const original = reviews[path]
@@ -54,13 +76,13 @@ describe('hero search presentation', () => {
     } finally { reviews[path] = original }
   })
 
-  it('preserves other hero metadata and gives published revisions priority', async () => {
+  it.each(['shion', 'doctrine', 'dmon'])('preserves other hero metadata and gives published %s revisions priority', async hero => {
     const ana = getHeroPillar('ana')!
     const metadata = await generateMetadata({ params: Promise.resolve({ hero: 'ana' }) })
     expect(metadata.title).toBe(ana.seoTitle)
     expect(metadata.description).toBe(ana.seoDescription)
-    revision.mockResolvedValue({ title: 'Revisión publicada de Shion', description: 'Descripción de la revisión publicada', path: '/heroes/shion' })
-    const published = await generateMetadata({ params: Promise.resolve({ hero: 'shion' }) })
+    revision.mockResolvedValue({ title: 'Revisión publicada de Shion', description: 'Descripción de la revisión publicada', path: `/heroes/${hero}` })
+    const published = await generateMetadata({ params: Promise.resolve({ hero }) })
     expect(published.title).toBe('Revisión publicada de Shion')
     expect(published.description).toBe('Descripción de la revisión publicada')
   })

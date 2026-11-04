@@ -10,8 +10,8 @@ import { MAP_PILLARS } from '@/lib/overwatch-maps'
 import { absoluteUrl, buildMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Mapas de Overwatch: rutas, composiciones y consejos',
-  description: 'Guías de mapas de Overwatch en español: ataque, defensa, rutas, héroes, composiciones, errores frecuentes y checklist para revisar tus partidas.',
+  title: 'Mapas de Overwatch por modo: nombres, rutas y guías',
+  description: 'Consulta los nombres de los mapas de Overwatch por modo de juego. Abre las guías disponibles para preparar rutas, ataque y defensa con tu equipo.',
   path: '/maps',
 })
 

@@ -11,7 +11,7 @@ import { absoluteUrl } from '@/lib/seo'
 describe('hero directory', () => {
   it('describes a role catalogue without promising a tier list', async () => {
     const metadata = await generateMetadata({ searchParams: Promise.resolve({}) })
-    expect(metadata.title).toBe('Héroes de Overwatch por rol: Tank, DPS y Support')
+    expect(metadata.title).toBe('Héroes de Overwatch: personajes, roles y habilidades')
     expect(metadata.description).not.toMatch(/mejores picks|victoria garantizada/i)
     expect(metadata.alternates?.canonical).toBe(absoluteUrl('/heroes'))
     expect(metadata.robots).toEqual({ index: true, follow: true })
