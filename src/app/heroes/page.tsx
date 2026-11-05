@@ -104,11 +104,10 @@ export default function HeroesIndexPage() {
       <JsonLd data={itemListJsonLd} />
       <PublicNav />
       <main className={styles.main}>
-        <EditorialUpdates game="overwatch" kinds={["hero"]}/>
         <header className={styles.header}>
           <div className="eyebrow">HÉROES DE OVERWATCH</div>
           <h1>Todos los héroes,<br /><span>por rol</span></h1>
-          <p>Movilidad, alcance y cooldowns: cada héroe tiene peleas que le convienen y otras en las que necesita ayuda. Conocer esas diferencias importa más que copiar un pick de una tier list.</p>
+          <p>Elige un rol y busca tu personaje. Abre su ficha o sus guías para conocer sus habilidades, cómo jugarlo y qué hacer contra sus rivales.</p>
         </header>
         <nav className={styles.roleNav} aria-label="Héroes por rol">
           {roleSections.map(({ role, heroes }) => (
@@ -137,6 +136,7 @@ export default function HeroesIndexPage() {
           </section>
         )}
 
+        <EditorialUpdates game="overwatch" kinds={["hero"]}/>
         <section className={styles.relatedSection} aria-labelledby="choose-hero">
           <div className="eyebrow">ELEGIR PICK</div>
           <h2 id="choose-hero">El héroe es solo una parte de la partida</h2>

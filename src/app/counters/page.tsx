@@ -49,14 +49,13 @@ export default function CountersPage() {
       <SiteNav />
 
       <main style={{ maxWidth: 1180, margin: '0 auto', padding: '56px 24px 88px' }}>
-        <EditorialUpdates game="overwatch" kinds={["counter"]}/>
         <header style={{ maxWidth: 820, marginBottom: 28 }}>
           <div className="eyebrow">COUNTERS POR HÉROE</div>
           <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(42px, 7vw, 76px)', letterSpacing: 1, lineHeight: 0.96, margin: '0 0 16px' }}>
             COUNTERS DE OVERWATCH POR HÉROE
           </h1>
           <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.65, margin: 0 }}>
-            Busca al héroe que os está complicando la partida. Encontrarás qué picks pueden ayudar, qué habilidad conviene esperar y cómo responder sin cambiar de personaje. Si necesitas comparar opciones según vuestro equipo, abre Pick Lab.
+            Elige el héroe rival para ver qué personajes pueden responderle y qué habilidades conviene esperar. También puedes comparar opciones para tu rol en Pick Lab.
           </p>
         </header>
 
@@ -71,6 +70,17 @@ export default function CountersPage() {
           <Link href="/pick-lab?mode=counters" className="btn btn-primary">ABRIR COUNTER RÁPIDO</Link>
         </section>
 
+        <section aria-labelledby="counter-guides-heading" style={{ background: 'var(--surface2)', border: '1px solid var(--border)', padding: 18, marginBottom: 20 }}>
+          <h2 id="counter-guides-heading" style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 28, margin: '0 0 12px' }}>Elige el héroe rival</h2>
+          <nav aria-label="Guías de counters por héroe" style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+            {featuredHeroes.map(hero => (
+              <Link key={hero.slug} href={`/counters/${hero.slug}`} className="btn btn-secondary btn-sm">
+                {hero.name}
+              </Link>
+            ))}
+          </nav>
+        </section>
+
         <section style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 22, marginBottom: 20 }}>
           <div className="eyebrow">CÓMO LEER UN COUNTER</div>
           <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: '0 0 12px' }}>
@@ -79,17 +89,6 @@ export default function CountersPage() {
           <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0 }}>
             Antes de cambiar, revisa si el problema es realmente el matchup o si estás entrando demasiado pronto, jugando sin cobertura o gastando recursos antes de la amenaza real.
           </p>
-        </section>
-
-        <section style={{ background: 'var(--surface2)', border: '1px solid var(--border)', padding: 18, marginBottom: 20 }}>
-          <div className="eyebrow">GUÍAS POR HÉROE</div>
-          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 10 }}>
-            {featuredHeroes.map(hero => (
-              <Link key={hero.slug} href={`/counters/${hero.slug}`} className="btn btn-secondary btn-sm">
-                {hero.name}
-              </Link>
-            ))}
-          </div>
         </section>
 
         <section style={{ margin: '34px 0' }}>
@@ -109,6 +108,7 @@ export default function CountersPage() {
           </div>
         </section>
 
+        <EditorialUpdates game="overwatch" kinds={["counter"]}/>
         <p style={{ color: 'var(--text3)', fontSize: 12, margin: '28px 0 0' }}>¿Has visto un consejo desactualizado? <Link href="/contact" style={{ color: 'var(--text3)' }}>Comunicar una corrección</Link></p>
         <SeoFaq items={faq} title="Preguntas sobre counters de Overwatch" />
       </main>
