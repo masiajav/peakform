@@ -101,6 +101,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="es" style={{ background: '#0a0a0a' }}>
+      <head>
+        <link rel="preload" href="/fonts/bebas-neue-latin.a7c90c89240c.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/dm-sans-latin.9fea608a947e.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      </head>
       <body style={{ margin: 0, background: '#0a0a0a', color: '#f5f5f5' }}>
         <JsonLd data={organizationJsonLd} />
         <JsonLd data={websiteJsonLd} />

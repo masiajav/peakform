@@ -1,3 +1,5 @@
+import publicHeroGuidePaths from './public-hero-guide-paths.json'
+
 export const PUBLIC_HERO_PAGE_SLUGS = [
   'shion',
   'ana',
@@ -19,12 +21,7 @@ export function isPublicHeroPageSlug(slug: string) {
 
 // These heroes have a reviewed guide, but no standalone /heroes/:slug page.
 // Keep their canonical guides reachable without sending readers through a filter.
-const PUBLIC_HERO_GUIDE_PATHS: Record<string, string> = {
-  pharah: '/guides/pharah-guia-overwatch-presion-aerea',
-  sombra: '/guides/sombra-guia-video-overwatch',
-  roadhog: '/guides/roadhog-guia-video-overwatch',
-  sierra: '/guides/sierra-guia-video-overwatch',
-}
+const PUBLIC_HERO_GUIDE_PATHS: Record<string, string> = publicHeroGuidePaths
 
 export function heroTopicHref(slug: string) {
   if (isPublicHeroPageSlug(slug)) return `/heroes/${slug}`

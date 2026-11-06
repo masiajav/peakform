@@ -68,7 +68,7 @@ export default async function Page({ params, searchParams }: PageProps) {
       </form>
       <p className="game-meta">{articles.length} {articles.length === 1 ? 'artículo disponible' : 'artículos disponibles'}</p>
       <div className={section === 'heroes' ? 'dl-roster-grid' : `game-card-grid ${['counters', 'builds'].includes(section) ? 'dl-library-grid' : ''}`}>{articles.map(a => section === 'heroes' ? <DeadlockHeroCard key={a.path} article={a} /> : <Link key={a.path} className="game-content-card" href={a.path}>
-        {a.image && <div className="game-card-portrait"><Image src={a.image} alt={a.aliases?.[0] ?? a.title} fill sizes="(max-width: 680px) 100vw, (max-width: 980px) 50vw, 360px" /></div>}
+        {a.image && <div className="game-card-portrait"><Image src={a.image} alt={a.aliases?.[0] ?? a.title} fill sizes={['counters', 'builds'].includes(section) ? '80px' : '(max-width: 680px) 100vw, (max-width: 980px) 50vw, 360px'} /></div>}
         <span className="eyebrow">{['news', 'patch-notes'].includes(section) ? new Date(a.publishedAt).toLocaleDateString('es-ES', { timeZone: 'Europe/Madrid' }) : a.hero ? deadlockHeroLabel(a.hero, true) : 'Guía de Deadlock'}</span><h2>{a.title}</h2><p>{a.description}</p><span className="game-card-action">{section === 'builds' ? 'Ver build y código' : section === 'counters' ? 'Ver counters' : 'Leer artículo'} ↗</span>
       </Link>)}</div>
       {otherHeroes.length > 0 && <section className="game-latest">
