@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { editorialPublicationIssues } from '@/lib/editorial-publication-checks'
+import { editorialInternalLinks, editorialPublicationIssues } from '@/lib/editorial-publication-checks'
 import { editorialIssues, editorialVersion, evidenceMatches, type EditorialArticle, type EditorialEvidence } from '@/lib/editorial-record'
 import { isReviewedGameArticleAdEligible } from '@/lib/game-article-ad-policy'
 import { articleAdPlacement } from '@/lib/article-ad-placements'
@@ -15,6 +15,19 @@ const article: EditorialArticle = {
 }
 
 describe('future editorial publication and advertising', () => {
+  it('includes section links in publication checks and rejects external destinations', () => {
+    const href = '/deadlock/builds'
+    const withLinks = { ...article, sections: article.sections.map((section, i) =>
+      i === 0 ? { ...section, links: [{ label: 'Busca una build', href }] } : section,
+    ) }
+    expect(editorialIssues(withLinks)).toEqual([])
+    expect(editorialInternalLinks(withLinks)).toContain(href)
+    for (const invalidHref of ['//example.com', '/\\example.com', '/deadlock/../login']) {
+      const sections = [{ ...article.sections[0], links: [{ label: 'Destino', href: invalidHref }] }, ...article.sections.slice(1)]
+      expect(editorialIssues({ ...article, sections })).toContain('Enlaces de sección no válidos')
+    }
+  })
+
   it('accepts an unavailable import notice only for a verified 404 of the correct hero', async () => {
     const unavailable: EditorialArticle = { ...article, kind: 'build', hero: 'haze', slug: 'haze', path: '/deadlock/builds/haze', buildImportUnavailable: { code: 899427, heroId: 13, checkedAt: '2026-10-25' } }
     expect(editorialIssues(unavailable)).toEqual([])

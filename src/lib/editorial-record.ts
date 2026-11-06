@@ -5,6 +5,7 @@ import { deadlockMapIssues, editorialImageValid, type DeadlockMapAtlas, type Edi
 export type EditorialKind = 'hero' | 'counter' | 'build' | 'guide' | 'news' | 'patch_note' | 'map' | 'team_comp'
 export type EditorialSection = {
   title: string; body: string[]; bullets?: string[]
+  links?: { href: string; label: string }[]
   table?: { columns: string[]; rows: string[][] }
   image?: EditorialImage
 }
@@ -79,6 +80,10 @@ export function editorialIssues(input: unknown): string[] {
       || !['webp', 'png'].some(extension => ability.icon === `/deadlock/abilities/${a.hero}-${ability.slot}.${extension}`))
     || new Set(a.abilities.map(ability => ability.id)).size !== 4)) issues.push('Habilidades visuales no válidas')
   for (const section of a.sections ?? []) {
+    if (section.links !== undefined && (!Array.isArray(section.links) || section.links.some(link =>
+      typeof link?.label !== 'string' || !link.label.trim()
+      || typeof link.href !== 'string' || !/^\/(?:[a-z0-9-]+\/)*[a-z0-9-]+$/.test(link.href)
+    ))) issues.push('Enlaces de sección no válidos')
     if (section.image !== undefined && (a.game !== 'deadlock' || !editorialImageValid(section.image))) issues.push('Imagen de sección no válida')
     const table = section.table
     if (table && (!Array.isArray(table.columns) || table.columns.length < 2

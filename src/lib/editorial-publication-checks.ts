@@ -23,6 +23,7 @@ export function editorialInternalLinks(article: EditorialArticle): string[] {
   const markdown = [article.intro, ...article.sections.flatMap(section => [...section.body, ...(section.bullets ?? []), ...(section.table?.rows.flat() ?? [])]), ...(article.faq ?? []).map(faq => faq.answer)]
   return [...new Set([
     ...(article.related ?? []).map(link => link.href),
+    ...article.sections.flatMap(section => (section.links ?? []).map(link => link.href)),
     ...markdown.flatMap(text => [...text.matchAll(/\]\((\/[^\s)]+)\)/g)].map(match => match[1])),
   ])]
 }

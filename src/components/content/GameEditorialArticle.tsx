@@ -37,7 +37,8 @@ export default async function GameEditorialArticle({ article: a, preview = false
   const allowAds = isReviewedGameArticleAdEligible(a, published, preview)
   const heroSections = a.game === 'deadlock' ? ['heroes', 'counters', 'builds'] : ['heroes', 'counters', 'team-comps']
   const links = a.hero ? heroSections.filter(item => item !== section && (!publishedPaths || publishedPaths.has(gamePath(a.game, item, a.hero)))) : []
-  const related = a.related?.filter(link => !publishedPaths || deadlockHubPaths.has(link.href) || publishedPaths.has(link.href))
+  const isPublicLink = (link: { href: string }) => !publishedPaths || deadlockHubPaths.has(link.href) || publishedPaths.has(link.href)
+  const related = a.related?.filter(isPublicLink)
   const heroLinks = links.length > 0 && <nav className={`game-related${a.game === 'deadlock' ? ' game-hero-resources' : ''}`} aria-label="Sigue aprendiendo">{links.map(section => <Link key={section} href={gamePath(a.game, section, a.hero)}>{a.game === 'deadlock' ? `${section === 'heroes' ? 'Guía de' : section === 'counters' ? 'Counters de' : 'Build de'} ${deadlockHeroLabel(a.hero)}` : section === 'heroes' ? 'Guía del héroe' : section === 'counters' ? 'Cómo responder a este héroe' : section === 'team-comps' ? 'Composiciones y sinergias' : 'Build y compras'}</Link>)}</nav>
   const fallbackHero = a.game === 'deadlock' ? getDeadlockHeroMedia(a.hero) : undefined
   const hero = fallbackHero ? { ...fallbackHero, abilities: a.abilities ?? fallbackHero.abilities } : undefined
@@ -73,11 +74,17 @@ export default async function GameEditorialArticle({ article: a, preview = false
         {a.mapAtlas ? <details className="game-map-toc"><summary>Índice de la guía · {a.sections.length} apartados</summary>{contents}</details> : contents}
         {a.sections.map((section, i) => {
           const ability = illustrated ? deadlockAbilityForHeading(hero, section.title) : undefined
+          const sectionLinks = section.links?.filter(isPublicLink)
           return <section id={`apartado-${i}`} key={i}>
             <h2 className={ability ? 'deadlock-ability-heading' : undefined}>{ability && <Image src={ability.icon} alt="" width={52} height={52} unoptimized />}<span>{deadlockAbilityHeadingTitle(ability, section.title)}</span></h2>
             {section.image && <figure className="deadlock-map-figure"><Image src={section.image.src} alt={section.image.alt} width={section.image.width} height={section.image.height} sizes="(max-width: 840px) 100vw, 840px" />{section.image.caption && <figcaption>{section.image.caption}</figcaption>}</figure>}
             {section.body.map((paragraph, j) => <p key={j}>{paragraph}</p>)}
             {section.bullets && <ul>{section.bullets.map((bullet, j) => <li key={j}>{bullet}</li>)}</ul>}
+            {sectionLinks && sectionLinks.length > 0 && (
+              <nav className="game-related" aria-label={section.title}>
+                {sectionLinks.map(link => <Link key={link.href} href={link.href}>{link.label}</Link>)}
+              </nav>
+            )}
             {section.table && <div className="game-table-scroll" role="region" aria-label={section.title} tabIndex={0}><table className="game-data-table" role="table">
               <thead><tr>{section.table.columns.map(column => <th scope="col" key={column}>{column}</th>)}</tr></thead>
               <tbody>{section.table.rows.map((row, j) => <tr key={j}>{row.map((cell, k) => k === 0
