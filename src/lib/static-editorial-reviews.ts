@@ -243,9 +243,9 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
   },
   '/guides/composiciones-overwatch-5v5-6v6': {
     path: '/guides/composiciones-overwatch-5v5-6v6',
-    version: 'cd2699fe9fe04c299571b180186a1acb778bd9aa1ab57fa4e66edafc0c74a66b',
-    reviewedAt: '2026-10-10', reviewer: 'Codex',
-    evidence: 'docs/content-review-evergreen-season-five-2026-10-10.md',
+    version: 'b84b62ea828e045769b5888f9200f1aa27b09ea0afcb947d157476d1b2df9351',
+    reviewedAt: '2026-11-06', reviewer: 'Codex',
+    evidence: 'docs/content-review-overwatch-compositions-2026-11-06.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
   '/guides/review-vod-overwatch-espanol': {

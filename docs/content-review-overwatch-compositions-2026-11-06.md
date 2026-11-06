@@ -1,0 +1,9 @@
+# Revisión de composiciones de Overwatch · 6 de noviembre de 2026
+
+La guía `/guides/composiciones-overwatch-5v5-6v6` registró 210 impresiones, cero clics y posición media 5,1 para «poke dive» del 27 de octubre al 2 de noviembre. El antiguo enlace `/guides/como-elegir-composicion-dive-poke-brawl` responde 308 hacia esta guía. El catálogo enlaza directamente al destino canónico.
+
+El primer apartado compara las dos formas de jugar la misma pelea. El ejemplo describe cómo Sigma y Ashe pueden presionar un cruce y cómo Winston y Tracer pueden esquivarlo si coordinan la llegada. Las respuestas dependen de la cobertura, la ayuda y el momento de la entrada. El caso es hipotético y no incorpora cifras, estadísticas de partidas ni cambios de parche. Se conservan los equipos, el título, la descripción y la fecha original.
+
+Se contrastaron las habilidades de base en el material oficial indexado de [Sigma](https://overwatch.blizzard.com/heroes/sigma/), [Winston](https://overwatch.blizzard.com/en-gb/heroes/winston/), [Ashe](https://ga.overwatch.blizzard.com/heroes/ashe) y [Tracer](https://overwatch.blizzard.com/en-us/heroes/tracer/?mobile-app=true&theme=false). Las [notas oficiales de noviembre](https://overwatch.blizzard.com/en-us/news/patch-notes/live/2026/11/) incluyen un ajuste de ventaja de Winston que el ejemplo no utiliza. La guía base se revisó en octubre y esta revisión se limita al nuevo apartado y su fecha. [Revisión anterior](content-review-evergreen-season-five-2026-10-10.md).
+
+Se inspeccionaron capturas locales a 390 y 1440 px. El ejemplo abre el cuerpo de la guía y se lee completo sin desbordamiento. Los ocho enlaces editoriales devuelven HTTP 200. En ambos tamaños, la búsqueda del catálogo está en el primer pantallazo, los filtros permiten elegir a Winston, el selector cambia a 6v6 y el enlace de la comparación navega a la URL canónica.

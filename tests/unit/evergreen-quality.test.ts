@@ -70,7 +70,11 @@ describe('evergreen exact-version publication', () => {
     expect(new Set(articles.map(article => article.seoTitle)).size).toBe(10)
     expect(new Set(articles.map(article => article.seoDescription)).size).toBe(10)
     for (const article of articles) {
-      expect(article.modifiedAtIso).toBe(['como-revisar-cooldowns-overwatch', 'como-mejorar-como-tank-overwatch', 'como-usar-ultimates-overwatch', 'cuando-cambiar-de-heroe-overwatch'].includes(article.slug) ? '2026-10-18' : article.slug === 'review-vod-overwatch-espanol' ? '2026-10-17' : '2026-10-10')
+      if (article.slug === 'composiciones-overwatch-5v5-6v6') {
+        expect(article.modifiedAtIso).toBe('2026-11-06')
+      } else {
+        expect(article.modifiedAtIso).toBe(['como-revisar-cooldowns-overwatch', 'como-mejorar-como-tank-overwatch', 'como-usar-ultimates-overwatch', 'cuando-cambiar-de-heroe-overwatch'].includes(article.slug) ? '2026-10-18' : article.slug === 'review-vod-overwatch-espanol' ? '2026-10-17' : '2026-10-10')
+      }
       expect(article.publishedAtIso).toBe(['como-revisar-cooldowns-overwatch', 'como-mejorar-como-tank-overwatch'].includes(article.slug) ? '2026-06-21' : ['como-usar-ultimates-overwatch', 'cuando-cambiar-de-heroe-overwatch'].includes(article.slug) ? '2026-06-28' : article.slug === 'como-mejorar-en-overwatch' ? '2026-06-01' : '2026-08-29')
     }
     expect(JSON.stringify(articles)).not.toMatch(/página interactiva|base evergreen|guía pilar|ventana ganadora|hackeas tarde/)

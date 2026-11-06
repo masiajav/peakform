@@ -72,16 +72,17 @@ export default function TeamCompsPage() {
       <SiteNav />
 
       <main style={{ maxWidth: 1180, margin: '0 auto', padding: '56px 24px 88px' }}>
-        <EditorialUpdates game="overwatch" kinds={["team_comp"]}/>
         <header style={{ maxWidth: 860, marginBottom: 28 }}>
           <div className="eyebrow">COMPOSICIONES</div>
           <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(42px, 7vw, 76px)', letterSpacing: 1, lineHeight: 0.96, margin: '0 0 16px' }}>
             COMPOSICIONES DE OVERWATCH PARA RANKED
           </h1>
           <p style={{ color: 'var(--text2)', fontSize: 16, lineHeight: 1.65, margin: 0 }}>
-            Selecciona un héroe para ver composiciones de 5v5 y 6v6 que encajan con su forma de aportar valor. Compara dive, poke, rush y brawl para elegir un plan de equipo claro antes de entrar a ranked.
+            Elige un héroe y el formato para ver con quién puede jugar y cómo preparar la pelea. Filtra por estilo si quieres practicar dive, poke o brawl.
           </p>
         </header>
+
+        <TeamCompExplorer />
 
         <section style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 22, marginBottom: 20 }}>
           <div className="eyebrow">CÓMO ELEGIR COMPOSICIÓN</div>
@@ -113,7 +114,7 @@ export default function TeamCompsPage() {
           <div className="eyebrow">ATAJOS PARA RANKED</div>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 10 }}>
             {[
-              { href: '/guides/como-elegir-composicion-dive-poke-brawl', label: 'Dive, poke o brawl' },
+              { href: '/guides/composiciones-overwatch-5v5-6v6', label: 'Cuándo jugar poke, dive o brawl' },
               { href: '/team-comps/winston', label: 'Composición dive' },
               { href: '/team-comps/reinhardt', label: 'Composición brawl' },
               { href: '/team-comps/cassidy', label: 'Composición poke' },
@@ -127,7 +128,7 @@ export default function TeamCompsPage() {
           </div>
         </section>
 
-        <TeamCompExplorer />
+        <EditorialUpdates game="overwatch" kinds={["team_comp"]}/>
         <SeoFaq items={faq} title="Preguntas sobre composiciones de Overwatch" />
       </main>
     </div>
