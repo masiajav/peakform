@@ -1,0 +1,25 @@
+.diagrams {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 20px;
+  margin: 26px 0;
+}
+
+.diagrams figure {
+  margin: 0;
+  min-width: 0;
+}
+
+.diagrams img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+}
+
+.diagrams figcaption {
+  margin-top: 12px;
+  color: var(--text2);
+  font-size: 14px;
+  line-height: 1.65;
+}

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import type { ReactNode } from 'react'
 import ArticleAd from './ArticleAd'
 import ArticleAdLayout from './ArticleAdLayout'
@@ -8,6 +9,7 @@ import SeoFaq from './SeoFaq'
 import type { EvergreenGuide } from '@/lib/evergreen-guides'
 import { absoluteUrl, SITE_NAME } from '@/lib/seo'
 import { evergreenGuideQualityDecision } from '@/lib/indexing-policy'
+import styles from './EvergreenGuideArticle.module.css'
 
 type EvergreenGuideArticleProps = {
   guide: EvergreenGuide
@@ -29,6 +31,9 @@ export default function EvergreenGuideArticle({ guide, children }: EvergreenGuid
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntityOfPage: pageUrl,
     inLanguage: 'es',
+    ...(guide.sections.some(section => section.images?.length) ? {
+      image: guide.sections.flatMap(section => section.images ?? []).map(image => absoluteUrl(image.src)),
+    } : {}),
   }
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
@@ -91,6 +96,16 @@ export default function EvergreenGuideArticle({ guide, children }: EvergreenGuid
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
+              )}
+              {section.images && (
+                <div className={styles.diagrams}>
+                  {section.images.map(image => (
+                    <figure key={image.src}>
+                      <Image src={image.src} alt={image.alt} width={image.width} height={image.height} sizes="(max-width: 680px) calc(100vw - 48px), 428px" />
+                      <figcaption>{image.caption}</figcaption>
+                    </figure>
+                  ))}
+                </div>
               )}
             </section>
           ))}

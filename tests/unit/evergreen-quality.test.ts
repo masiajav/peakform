@@ -71,7 +71,7 @@ describe('evergreen exact-version publication', () => {
     expect(new Set(articles.map(article => article.seoDescription)).size).toBe(10)
     for (const article of articles) {
       if (article.slug === 'composiciones-overwatch-5v5-6v6') {
-        expect(article.modifiedAtIso).toBe('2026-11-06')
+        expect(article.modifiedAtIso).toBe('2026-11-09')
       } else {
         expect(article.modifiedAtIso).toBe(['como-revisar-cooldowns-overwatch', 'como-mejorar-como-tank-overwatch', 'como-usar-ultimates-overwatch', 'cuando-cambiar-de-heroe-overwatch'].includes(article.slug) ? '2026-10-18' : article.slug === 'review-vod-overwatch-espanol' ? '2026-10-17' : '2026-10-10')
       }

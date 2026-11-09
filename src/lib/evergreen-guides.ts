@@ -3,7 +3,14 @@ import { reviewedHeroSwapGuide, reviewedTankGuide, reviewedUltimateGuide } from 
 
 export type EvergreenFaq = { question: string; answer: string }
 export type EvergreenLink = { href: string; label: string }
-export type EvergreenSection = { title: string; body: string[]; bullets?: string[] }
+export type EvergreenSectionImage = {
+  src: string
+  alt: string
+  width: number
+  height: number
+  caption: string
+}
+export type EvergreenSection = { title: string; body: string[]; bullets?: string[]; images?: EvergreenSectionImage[] }
 export type EvergreenGuide = {
   slug: string
   title: string
@@ -208,7 +215,7 @@ export const evergreenGuides: Record<string, EvergreenGuide> = {
     seoTitle: 'Composiciones de Overwatch: ejemplos de dive, poke y brawl',
     seoDescription: 'Ejemplos de composiciones 5v5 y 6v6: quién entra, quién ayuda y cuándo retirarse. Adapta dive, poke y brawl al mapa y a los picks de tu equipo.',
     h1: 'Composiciones de Overwatch: dive, poke y brawl en 5v5 y 6v6', kicker: 'Planes de equipo',
-    publishedAtIso: '2026-08-29', modifiedAtIso: '2026-11-06', updatedAt: '6 de noviembre de 2026',
+    publishedAtIso: '2026-08-29', modifiedAtIso: '2026-11-09', updatedAt: '9 de noviembre de 2026',
     quickAnswer: 'En 5v5 de cola por roles hay un Tank, dos DPS y dos Supports. Dive presiona una posición con movilidad; poke aprovecha distancia y ángulos; brawl busca una pelea cercana. Elige el estilo que podéis ejecutar en ese tramo. Son planes posibles, no el mejor equipo garantizado del parche.',
     intro: ['Si Winston salta mientras Tracer vuelve y Ana no lo ve, escribir "dive" no arregla la entrada. Dos equipos con los mismos picks pueden jugar de formas muy distintas.', 'No hace falta copiar una comp profesional. Busca una posición común, un objetivo al que podáis presionar y una retirada que no deje solos a los Supports.'],
     sections: [
@@ -216,6 +223,17 @@ export const evergreenGuides: Record<string, EvergreenGuide> = {
         'Poke aprovecha el tiempo que el rival tarda en acercarse. Imagina a Sigma en una esquina y a Ashe disparando desde un lateral con cobertura. Si Winston cruza la calle a la vista de ambos, pueden obligarle a gastar su barrera antes de que alcance a Ashe.',
         'Dive intenta saltarse ese cruce. Si Winston se acerca por una ruta cubierta y Tracer sale por el lateral justo cuando él aterriza, los dos pueden presionar a Ashe a la vez y obligarla a dejar su ángulo.',
         'Si Ashe tiene que esconderse en cada salto, puede probar una cobertura más cerca de un aliado que pueda ayudarla. Si Winston aterriza antes de que Tracer pueda disparar, retrasad el salto o elegid un objetivo al que ambos lleguen. Si el mapa y vuestros héroes siguen sin permitir esa entrada, probad un plan que podáis ejecutar juntos desde la siguiente esquina.',
+      ], images: [
+        {
+          src: '/diagrams/overwatch-poke-crossing.3598b8d53c3e.svg', width: 400, height: 380,
+          alt: 'Sigma y Ashe disparan desde coberturas distintas hacia Winston, expuesto al cruzar. Las líneas de tiro pasan por espacio abierto.',
+          caption: 'Esquema conceptual, sin escala. Sigma y Ashe pueden presionar a Winston mientras cruza a la vista de ambos.',
+        },
+        {
+          src: '/diagrams/overwatch-dive-entry.3d47dcb7cdc7.svg', width: 400, height: 380,
+          alt: 'Winston rodea una cobertura y salta cerca de Ashe mientras Tracer llega por un lateral. Ambos presionan desde direcciones distintas.',
+          caption: 'Winston busca otra llegada y Tracer se acerca por el lateral. La presión depende de que lleguen al mismo tiempo.',
+        },
       ] },
       { title: 'Dive 5v5: Winston, Tracer, Genji, Ana y Kiriko', body: [
         'Winston es el Tank; Tracer y Genji, los DPS; Ana y Kiriko, los Supports. En una altura de Gibraltar, prepara el ángulo de Ana y deja que los DPS lleguen donde puedan intervenir. El salto señala la entrada, pero no obliga a gastar Dash o Swift Step hacia delante.',
@@ -258,7 +276,7 @@ export const evergreenGuides: Record<string, EvergreenGuide> = {
       { question: '¿Dónde encaja Sombra en Season 5?', answer: 'En un puesto de Support, no de DPS. Reparte la ayuda con el otro Support y no bases la entrada en el antiguo Hack normal sobre héroes.' },
       { question: '¿Copio una composición profesional?', answer: 'Puedes aprender de su plan, pero necesitas picks que el equipo controle. Una ruta y un objetivo compartidos sirven más que copiar nombres sin entender sus tareas.' },
     ],
-    links: [{ href: '/team-comps', label: 'Composiciones por héroe' }, { href: '/team-comps/winston', label: 'Preparar la entrada' }, { href: '/team-comps/dva', label: 'Alturas y peel' }, { href: '/team-comps/reinhardt', label: 'Brawl con Reinhardt' }, { href: '/team-comps/ana', label: 'Ayuda para Ana' }, { href: '/team-comps/sombra', label: 'Sombra Support' }, { href: '/team-comps/doctrine', label: 'Doctrine en equipo' }, { href: '/maps', label: 'Posiciones por mapa' }],
+    links: [{ href: '/pick-lab', label: 'Probar mi composición en Pick Lab' }, { href: '/team-comps', label: 'Composiciones por héroe' }, { href: '/team-comps/winston', label: 'Preparar la entrada' }, { href: '/team-comps/dva', label: 'Alturas y peel' }, { href: '/team-comps/reinhardt', label: 'Brawl con Reinhardt' }, { href: '/team-comps/ana', label: 'Ayuda para Ana' }, { href: '/team-comps/sombra', label: 'Sombra Support' }, { href: '/team-comps/doctrine', label: 'Doctrine en equipo' }, { href: '/maps', label: 'Posiciones por mapa' }],
   },
   'review-vod-overwatch-espanol': {
     slug: 'review-vod-overwatch-espanol', title: 'Review de VOD en Overwatch',

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="380" viewBox="0 0 400 380" role="img" aria-labelledby="poke-title poke-desc">
+  <title id="poke-title">Poke: presionar el cruce</title>
+  <desc id="poke-desc">Esquema conceptual, no un mapa real. Sigma y Ashe mantienen coberturas distintas a la izquierda. Dos líneas discontinuas de tiro convergen sobre Winston, expuesto al cruzar por la derecha. Las líneas pasan por espacio abierto, sin atravesar las coberturas.</desc>
+  <defs>
+    <pattern id="poke-cover" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="8" height="8" fill="#353b30"/>
+      <path d="M0 0V8" stroke="#65705b" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="380" rx="16" fill="#0a0a0a"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="22" y="33" fill="#f1f4eb" font-size="22" font-weight="700">Poke: presionar el cruce</text>
+    <text x="22" y="58" fill="#c5d99b" font-size="16">Sigma + Ashe</text>
+    <text x="378" y="58" text-anchor="end" fill="#ff8d52" font-size="16">Winston</text>
+    <rect x="17" y="73" width="366" height="234" rx="10" fill="#151811" stroke="#414937"/>
+    <path d="M18 207H382V261H18Z" fill="#252b1f"/>
+    <path d="M211 74H255V306H211Z" fill="#252b1f"/>
+    <text x="233" y="117" text-anchor="middle" fill="#a7b299" font-size="16">Cruce</text>
+    <g fill="url(#poke-cover)" stroke="#89937e" stroke-width="1.5">
+      <rect x="95" y="145" width="49" height="60" rx="3"/>
+      <rect x="40" y="264" width="104" height="17" rx="3"/>
+      <rect x="269" y="102" width="27" height="96" rx="3"/>
+    </g>
+    <g fill="none" stroke="#c5d99b" stroke-width="3" stroke-dasharray="7 6" stroke-linecap="round">
+      <path d="M125 131L294 225"/>
+      <path d="M95 243L293 233"/>
+    </g>
+    <g fill="#151811" stroke="#c5d99b" stroke-width="3">
+      <circle cx="111" cy="125" r="14"/>
+      <circle cx="80" cy="244" r="14"/>
+    </g>
+    <g fill="#c5d99b" font-size="17" font-weight="700">
+      <text x="32" y="131">Sigma</text>
+      <text x="42" y="220">Ashe</text>
+    </g>
+    <circle cx="309" cy="232" r="14" fill="#151811" stroke="#ff8d52" stroke-width="3"/>
+    <text x="309" y="268" text-anchor="middle" fill="#ff8d52" font-size="17" font-weight="700">Winston</text>
+    <g font-size="16" fill="#dce3d3">
+      <path d="M24 332H58" stroke="#c5d99b" stroke-width="3" stroke-dasharray="7 6"/>
+      <text x="67" y="338">Línea de tiro</text>
+      <rect x="228" y="323" width="19" height="17" fill="url(#poke-cover)" stroke="#89937e"/>
+      <text x="257" y="338">Cobertura</text>
+      <text x="24" y="363">Winston cruza a la vista de ambos.</text>
+    </g>
+  </g>
+</svg>
