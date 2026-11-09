@@ -149,3 +149,12 @@
   .game-deadlock .game-content-card, .dl-roster-card img { transition: none; }
   .game-deadlock .game-content-card:hover, .dl-roster-card:hover img { transform: none; }
 }
+
+.game-deadlock .game-article-reading .deadlock-diagram-figure {
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+.game-deadlock .deadlock-diagram-figure figcaption {
+  font-size: 14px;
+}

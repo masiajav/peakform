@@ -44,6 +44,8 @@ export default async function GameEditorialArticle({ article: a, preview = false
   const hero = fallbackHero ? { ...fallbackHero, abilities: a.abilities ?? fallbackHero.abilities } : undefined
   const illustrated = a.kind === 'hero' && Boolean(hero)
   const showReferences = a.game !== 'deadlock'
+  const articleImages = [...new Set([a.image, ...a.sections.map(section => section.image?.src)]
+    .filter((path): path is string => Boolean(path)))]
   const contents = <nav aria-label="En este artículo" className="game-toc">{a.sections.map((section, i) => <a key={i} href={`#apartado-${i}`}>{section.title}</a>)}</nav>
   const title = <>
     <p className="eyebrow">{GAMES[a.game].name} · {sectionLabels[section]}</p>
@@ -53,7 +55,7 @@ export default async function GameEditorialArticle({ article: a, preview = false
 
   return <div className={`game-page game-${a.game}`}><PublicNav />
     {!preview && a.game === 'deadlock' && <JsonLd data={deadlockBreadcrumbs([{ name: SITE_NAME, path: '/' }, { name: 'Deadlock', path: '/deadlock' }, { name: sectionLabels[section], path: gamePath(a.game, section) }, { name: a.title, path: a.path }])} />}
-    {!preview && <JsonLd data={{ '@context': 'https://schema.org', '@type': a.kind === 'news' ? 'NewsArticle' : 'Article', headline: a.title, description: a.description, url: absoluteUrl(a.path), mainEntityOfPage: absoluteUrl(a.path), ...(a.image ? { image: [absoluteUrl(a.image)] } : {}), datePublished: a.publishedAt, dateModified: a.updatedAt, inLanguage: 'es', author: { '@type': 'Organization', name: SITE_NAME }, publisher: { '@type': 'Organization', name: SITE_NAME }, ...(showReferences ? { citation: a.sources.map(source => source.url) } : {}) }} />}
+    {!preview && <JsonLd data={{ '@context': 'https://schema.org', '@type': a.kind === 'news' ? 'NewsArticle' : 'Article', headline: a.title, description: a.description, url: absoluteUrl(a.path), mainEntityOfPage: absoluteUrl(a.path), ...(articleImages.length ? { image: articleImages.map(absoluteUrl) } : {}), datePublished: a.publishedAt, dateModified: a.updatedAt, inLanguage: 'es', author: { '@type': 'Organization', name: SITE_NAME }, publisher: { '@type': 'Organization', name: SITE_NAME }, ...(showReferences ? { citation: a.sources.map(source => source.url) } : {}) }} />}
     <main className={`game-article${illustrated ? ' game-article-illustrated' : ''}${a.mapAtlas ? ' game-article-atlas' : ''}`} data-editorial-version={editorialVersion(a)} data-media-version={a.game === 'deadlock' ? DEADLOCK_MEDIA_VERSION : undefined}>
       <nav className="game-breadcrumb" aria-label="Ruta de navegación"><Link href="/">Replaid Lab</Link><span>/</span><Link href={GAMES[a.game].href}>{GAMES[a.game].name}</Link><span>/</span><Link href={gamePath(a.game, section)}>{sectionLabels[section]}</Link></nav>
       {preview && <p role="status">Vista previa de revisión · aún no publicada</p>}
@@ -77,7 +79,7 @@ export default async function GameEditorialArticle({ article: a, preview = false
           const sectionLinks = section.links?.filter(isPublicLink)
           return <section id={`apartado-${i}`} key={i}>
             <h2 className={ability ? 'deadlock-ability-heading' : undefined}>{ability && <Image src={ability.icon} alt="" width={52} height={52} unoptimized />}<span>{deadlockAbilityHeadingTitle(ability, section.title)}</span></h2>
-            {section.image && <figure className="deadlock-map-figure"><Image src={section.image.src} alt={section.image.alt} width={section.image.width} height={section.image.height} sizes="(max-width: 840px) 100vw, 840px" />{section.image.caption && <figcaption>{section.image.caption}</figcaption>}</figure>}
+            {section.image && <figure className={`deadlock-map-figure${section.image.src.startsWith('/deadlock/diagrams/') ? ' deadlock-diagram-figure' : ''}`}><Image src={section.image.src} alt={section.image.alt} width={section.image.width} height={section.image.height} sizes={section.image.src.startsWith('/deadlock/diagrams/') ? '(max-width: 536px) calc(100vw - 56px), 480px' : '(max-width: 840px) 100vw, 840px'} />{section.image.caption && <figcaption>{section.image.caption}</figcaption>}</figure>}
             {section.body.map((paragraph, j) => <p key={j}>{paragraph}</p>)}
             {section.bullets && <ul>{section.bullets.map((bullet, j) => <li key={j}>{bullet}</li>)}</ul>}
             {sectionLinks && sectionLinks.length > 0 && (

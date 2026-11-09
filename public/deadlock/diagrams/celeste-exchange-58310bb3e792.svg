@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="720" viewBox="0 0 400 720" role="img" aria-labelledby="celeste-exchange-title celeste-exchange-desc" lang="es">
+  <title id="celeste-exchange-title">Ejemplo de intercambio de Celeste desde cobertura</title>
+  <desc id="celeste-exchange-desc">Ejemplo condicional, no una secuencia obligatoria: alcanza al enemigo con Devoradora de Luz y dispara al blanco abrasado mientras tengas un tiro seguro. Anticipa su salida con Dagas Radiantes; el rayo tarda en explotar y puede fallar. Si un aliado lo frena, puedes colocar el rayo en esa zona. Si necesitas retirarte, usa el prisma y vuelve a cobertura. El silencio requiere que destruyan la barrera y haya enemigos cerca.</desc>
+  <rect width="400" height="720" fill="#0a0a0a"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="24" y="40" fill="#c5d99b" font-size="26" font-weight="700">Ejemplo de intercambio</text>
+    <text x="24" y="70" fill="#e8eadd" font-size="20">Celeste, desde cobertura</text>
+
+    <rect x="16" y="92" width="368" height="114" rx="14" fill="#151811"/>
+    <text x="32" y="128" fill="#ff8d52" font-size="26" font-weight="700">1</text>
+    <text x="64" y="128" fill="#c5d99b" font-size="24" font-weight="700">Devoradora de Luz</text>
+    <text x="32" y="162" fill="#e8eadd" font-size="20">
+      <tspan x="32">Alcanza al enemigo</tspan>
+      <tspan x="32" dy="26">con el fogonazo.</tspan>
+    </text>
+
+    <path d="M200 215 V228 M194 222 L200 228 L206 222" fill="none" stroke="#c5d99b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"/>
+
+    <rect x="16" y="238" width="368" height="140" rx="14" fill="#151811"/>
+    <text x="32" y="274" fill="#ff8d52" font-size="26" font-weight="700">2</text>
+    <text x="64" y="274" fill="#c5d99b" font-size="24" font-weight="700">
+      <tspan x="64">Dispara al blanco</tspan>
+      <tspan x="64" dy="28">abrasado</tspan>
+    </text>
+    <text x="32" y="336" fill="#e8eadd" font-size="20">
+      <tspan x="32">Sigue atacando mientras</tspan>
+      <tspan x="32" dy="26">tengas un tiro seguro.</tspan>
+    </text>
+
+    <path d="M200 387 V400 M194 394 L200 400 L206 394" fill="none" stroke="#c5d99b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"/>
+
+    <rect x="16" y="410" width="368" height="140" rx="14" fill="#151811"/>
+    <text x="32" y="446" fill="#ff8d52" font-size="26" font-weight="700">3</text>
+    <text x="64" y="446" fill="#c5d99b" font-size="24" font-weight="700">Dagas Radiantes</text>
+    <text x="32" y="480" fill="#e8eadd" font-size="20">
+      <tspan x="32">Anticipa su salida. Si un aliado</tspan>
+      <tspan x="32" dy="26">lo frena, coloca el rayo</tspan>
+      <tspan x="32" dy="26">en esa zona.</tspan>
+    </text>
+
+    <rect x="16" y="570" width="368" height="138" rx="14" fill="#151811" stroke="#ff8d52" stroke-width="1.5"/>
+    <text x="32" y="602" fill="#ff8d52" font-size="24" font-weight="700">Si necesitas retirarte</text>
+    <text x="32" y="632" fill="#e8eadd" font-size="20">Prisma y vuelta a cobertura.</text>
+    <text x="32" y="662" fill="#e8eadd" font-size="20">
+      <tspan x="32">El silencio exige que rompan</tspan>
+      <tspan x="32" dy="26">la barrera y haya enemigos cerca.</tspan>
+    </text>
+  </g>
+</svg>

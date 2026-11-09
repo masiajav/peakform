@@ -1,0 +1,14 @@
+{
+  "assets": [
+    {
+      "path": "/deadlock/diagrams/celeste-exchange-58310bb3e792.svg",
+      "sha256": "58310bb3e7920a1d5cae2d3cfa80c04593bbc1b0863fa21975197d7ef8dec98a",
+      "bytes": 3308,
+      "width": 400,
+      "height": 720,
+      "name": "Ejemplo de intercambio de Celeste",
+      "createdAt": "2026-11-09T18:33:45.758Z",
+      "provenance": "SVG original de Replaid Lab. Revisión documental interna: reports/editorial-work/celeste-visual-2026-11-09/diagram-review.json; fuentes archivadas el 8 de noviembre de 2026."
+    }
+  ]
+}
