@@ -27,8 +27,8 @@ export async function generateMetadata(): Promise<Metadata> {
   if (revision) return buildMetadata({ title: revision.title, description: revision.description, path: revision.path, type: 'article' })
   const quality = evergreenGuideQualityDecision(guide)
   return buildMetadata({
-    title: 'Composiciones de Overwatch 5v5 y 6v6: dive, poke y brawl',
-    description: 'Dive entra con movilidad, poke presiona a distancia y brawl pelea de cerca. Compara ejemplos de composiciones 5v5 y 6v6 y adapta el plan al mapa.',
+    title: guide.seoTitle,
+    description: guide.seoDescription,
     path: `/guides/${guide.slug}`,
     type: 'article',
     robots: { index: quality.indexable, follow: true },

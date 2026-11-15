@@ -211,12 +211,12 @@ export const evergreenGuides: Record<string, EvergreenGuide> = {
     links: [{ href: '/counters', label: 'Counters por héroe' }, { href: '/counters/dva', label: 'Matchups de D.Va' }, { href: '/counters/zarya', label: 'Matchups de Zarya' }, { href: '/counters/ana', label: 'Proteger a Ana' }, { href: '/counters/genji', label: 'Responder a Genji' }, { href: '/counters/sombra', label: 'Sombra en Season 5' }, { href: '/guides/cuando-cambiar-de-heroe-overwatch', label: 'Decidir un cambio' }],
   },
   'composiciones-overwatch-5v5-6v6': {
-    slug: 'composiciones-overwatch-5v5-6v6', title: 'Composiciones de Overwatch 5v5 y 6v6',
-    seoTitle: 'Composiciones de Overwatch: ejemplos de dive, poke y brawl',
-    seoDescription: 'Ejemplos de composiciones 5v5 y 6v6: quién entra, quién ayuda y cuándo retirarse. Adapta dive, poke y brawl al mapa y a los picks de tu equipo.',
-    h1: 'Composiciones de Overwatch: dive, poke y brawl en 5v5 y 6v6', kicker: 'Planes de equipo',
-    publishedAtIso: '2026-08-29', modifiedAtIso: '2026-11-09', updatedAt: '9 de noviembre de 2026',
-    quickAnswer: 'En 5v5 de cola por roles hay un Tank, dos DPS y dos Supports. Dive presiona una posición con movilidad; poke aprovecha distancia y ángulos; brawl busca una pelea cercana. Elige el estilo que podéis ejecutar en ese tramo. Son planes posibles, no el mejor equipo garantizado del parche.',
+    slug: 'composiciones-overwatch-5v5-6v6', title: 'Poke, dive y brawl en Overwatch',
+    seoTitle: 'Poke, dive y brawl en Overwatch: diferencias y ejemplos',
+    seoDescription: 'Qué son poke, dive y brawl en Overwatch, cómo se enfrentan y qué héroes encajan. Ejemplos de composiciones 5v5 y 6v6 con esquemas.',
+    h1: 'Poke, dive y brawl en Overwatch: diferencias y ejemplos', kicker: 'Planes de equipo',
+    publishedAtIso: '2026-08-29', modifiedAtIso: '2026-11-15', updatedAt: '15 de noviembre de 2026',
+    quickAnswer: 'Poke presiona a distancia y desde distintos ángulos; dive usa movilidad para entrar sobre una posición; brawl busca pelear cerca. Los ejemplos muestran qué cambia al cruzar una calle, saltar a una altura o jugar desde una esquina, y cómo coordinar al equipo en 5v5 y 6v6.',
     intro: ['Si Winston salta mientras Tracer vuelve y Ana no lo ve, escribir "dive" no arregla la entrada. Dos equipos con los mismos picks pueden jugar de formas muy distintas.', 'No hace falta copiar una comp profesional. Busca una posición común, un objetivo al que podáis presionar y una retirada que no deje solos a los Supports.'],
     sections: [
       { title: 'Poke contra dive: cómo cambia la pelea', body: [

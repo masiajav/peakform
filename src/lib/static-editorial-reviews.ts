@@ -243,9 +243,9 @@ export const STATIC_EDITORIAL_REVIEWS: Readonly<Record<string, StaticEditorialRe
   },
   '/guides/composiciones-overwatch-5v5-6v6': {
     path: '/guides/composiciones-overwatch-5v5-6v6',
-    version: 'b4d616003cd593f4cee5ab9f36aca17451c874bfbb5b5539c3cf49574710f5cd',
-    reviewedAt: '2026-11-09', reviewer: 'Codex',
-    evidence: 'docs/content-review-poke-dive-diagrams-2026-11-09.md',
+    version: '748bbcece10b200ae1fd7e5f4190363bdb3a0764d67591262436ba7c81cf77cd',
+    reviewedAt: '2026-11-15', reviewer: 'Codex',
+    evidence: 'docs/content-review-compositions-search-intent-2026-11-15.md',
     checks: { specific: true, accurate: true, links: true, visual: true },
   },
   '/guides/review-vod-overwatch-espanol': {
