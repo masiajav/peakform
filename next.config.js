@@ -1,5 +1,6 @@
 const publicHeroGuidePaths = require('./src/lib/public-hero-guide-paths.json')
 const legacyHeroGuideRedirects = require('./src/lib/legacy-hero-guide-redirects.json')
+const legacyTopicGuideRedirects = require('./src/lib/legacy-topic-guide-redirects.json')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -41,6 +42,11 @@ const nextConfig = {
         permanent: true,
       },
       ...Object.entries(legacyHeroGuideRedirects).map(([source, destination]) => ({
+        source: `/guides/${source}`,
+        destination: `/guides/${destination}`,
+        permanent: true,
+      })),
+      ...Object.entries(legacyTopicGuideRedirects).map(([source, destination]) => ({
         source: `/guides/${source}`,
         destination: `/guides/${destination}`,
         permanent: true,

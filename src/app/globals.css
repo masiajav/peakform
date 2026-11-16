@@ -217,6 +217,12 @@ html, body {
   gap: 18px;
 }
 
+.maps-mode-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+.maps-mode-nav a { display: flex; gap: 8px; align-items: center; padding: 12px 16px; border: 1px solid var(--border); background: var(--surface); color: var(--text); text-decoration: none; }
+.maps-mode-nav a:hover, .maps-mode-nav a:focus-visible { border-color: var(--accent); }
+.maps-mode-nav span { color: var(--text2); font-size: 12px; }
+.map-catalog-group h3[id] { scroll-margin-top: 110px; }
+
 .map-hub-card {
   min-width: 0;
   color: inherit;

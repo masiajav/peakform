@@ -9,11 +9,12 @@ import AdSlot from '@/components/content/AdSlot'
 import JsonLd from '@/components/content/JsonLd'
 import SeoFaq from '@/components/content/SeoFaq'
 import PublicNav from '@/components/layout/PublicNav'
-import { DEFAULT_HEROES, ROLE_LABELS, topicLabel, type GuideContent } from '@/lib/content'
+import { ROLE_LABELS, topicLabel, type GuideContent } from '@/lib/content'
 import { evergreenGuideList } from '@/lib/evergreen-guides'
 import { absoluteUrl, buildMetadata, readingTime, SITE_NAME } from '@/lib/seo'
 import { guideEditorial } from '@/lib/guide-editorial'
-import { discoverableGuides, repositoryGuideSearchCards } from '@/lib/guide-discovery'
+import { discoverableGuides, repositoryGuideSearchCards, heroGuideSearchCards, guideSearchHref, filterGuideSearchCards, resolveGuideSearchIntent } from '@/lib/guide-discovery'
+import { publishedEditorial } from '@/lib/editorial-store'
 import GuideFilters from '@/components/content/GuideFilters'
 import { GUIDE_REVIEW_COLUMNS } from '@/lib/editorial-review'
 
@@ -62,6 +63,7 @@ export default async function GuidesPage(props: { searchParams: Promise<GuidesSe
     sort: cleanParam(searchParams.sort),
   }
   const hasFilters = Boolean(filters.role || filters.hero || filters.map || filters.category || filters.q || filters.sort)
+  const heroArticlesPromise = publishedEditorial('overwatch')
 
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
@@ -73,7 +75,8 @@ export default async function GuidesPage(props: { searchParams: Promise<GuidesSe
   }
 
   const admin = createAdminClient()
-  const searchIntent = resolveSearchIntent(filters.q)
+  const heroCards = heroGuideSearchCards(await heroArticlesPromise)
+  const searchIntent = resolveGuideSearchIntent(filters.q, heroCards.map(card => card.hero!))
   const effectiveHero = filters.hero || searchIntent.hero
   const effectiveRole = filters.role || searchIntent.role
   const freeTextQuery = searchIntent.hero || searchIntent.role ? undefined : filters.q
@@ -98,27 +101,24 @@ export default async function GuidesPage(props: { searchParams: Promise<GuidesSe
   else query = query.order('created_at', { ascending: false })
 
   const [{ data: guides }, { data: filterOptions }] = await Promise.all([query.returns<GuideContent[]>(), filterOptionsQuery])
-  // Filter after editorial corrections: a stored DPS guide may now be Support.
-  const roleGuides = discoverableGuides(guides ?? []).filter(guide => !effectiveRole || guide.role === effectiveRole)
+  // Apply the same filters after editorial corrections and to canonical hero cards.
   const repositorySearchCards = freeTextQuery && !effectiveHero && !effectiveRole && !filters.map
-    ? repositoryGuideSearchCards().filter(card => (!filters.category || card.category === filters.category) && !roleGuides.some(guide => guide.slug === card.slug))
+    ? repositoryGuideSearchCards()
     : []
-  const searchCards = [...roleGuides, ...repositorySearchCards]
-  if (repositorySearchCards.length) {
-    searchCards.sort((a, b) => filters.sort === 'title'
-      ? guideEditorial(a).title.localeCompare(guideEditorial(b).title, 'es')
-      : (Date.parse(a.created_at) - Date.parse(b.created_at)) * (filters.sort === 'oldest' ? 1 : -1))
-  }
-  const visibleGuides = filterBySearch(searchCards, freeTextQuery)
+  const searchCards = [...discoverableGuides(guides ?? []), ...heroCards, ...repositorySearchCards]
+  searchCards.sort((a, b) => filters.sort === 'title'
+    ? guideEditorial(a).title.localeCompare(guideEditorial(b).title, 'es')
+    : (Date.parse(a.created_at) - Date.parse(b.created_at)) * (filters.sort === 'oldest' ? 1 : -1))
+  const visibleGuides = filterGuideSearchCards(searchCards, filters)
   const sortedGuides = filters.sort === 'read'
     ? [...visibleGuides].sort((a: any, b: any) => readingTime(a.body) - readingTime(b.body))
     : visibleGuides
 
   const categories = Array.from(new Set(sortedGuides.map((g: any) => g.category).filter(Boolean))) as string[]
-  const filterCategories = Array.from(new Set((filterOptions ?? []).map((g: any) => g.category).filter(Boolean)))
+  const filterCategories = Array.from(new Set([...(filterOptions ?? []), ...heroCards].map((g: any) => g.category).filter(Boolean)))
     .sort()
     .map(value => ({ value, label: value }))
-  const filterHeroes = Array.from(new Set((filterOptions ?? []).map((g: any) => g.hero).filter(Boolean)))
+  const filterHeroes = Array.from(new Set([...(filterOptions ?? []), ...heroCards].map((g: any) => g.hero).filter(Boolean)))
     .sort()
     .map(value => ({ value, label: topicLabel(value) }))
 
@@ -129,9 +129,11 @@ export default async function GuidesPage(props: { searchParams: Promise<GuidesSe
     })),
     ...sortedGuides.slice(0, 20).map((guide: any) => ({
       name: guideEditorial(guide).seoTitle,
-      url: absoluteUrl(`/guides/${guide.slug}`),
+      url: absoluteUrl(guideSearchHref(guide)),
     })),
   ]
+
+  const uniqueCollectionItems = collectionItems.filter((item, index) => collectionItems.findIndex(candidate => candidate.url === item.url) === index)
 
   const collectionJsonLd = {
     '@context': 'https://schema.org',
@@ -143,7 +145,7 @@ export default async function GuidesPage(props: { searchParams: Promise<GuidesSe
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntity: {
       '@type': 'ItemList',
-      itemListElement: collectionItems.map((item, index) => ({
+      itemListElement: uniqueCollectionItems.map((item, index) => ({
         '@type': 'ListItem',
         position: index + 1,
         name: item.name,
@@ -337,7 +339,7 @@ export default async function GuidesPage(props: { searchParams: Promise<GuidesSe
                     style={{ gridColumn: '1 / -1', margin: 0 }}
                   />
                 )}
-                <Link href={`/guides/${g.slug}`} style={{ textDecoration: 'none' }}>
+                <Link href={guideSearchHref(g)} style={{ textDecoration: 'none' }}>
                   <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '22px 24px', height: '100%' }}>
                     <div style={{ display: 'flex', gap: 7, flexWrap: 'wrap', marginBottom: 10 }}>
                       {g.video_id && <Tag label="Vídeo" accent />}
@@ -370,74 +372,6 @@ export default async function GuidesPage(props: { searchParams: Promise<GuidesSe
 function cleanParam(value?: string) {
   if (!value || value === 'all' || value === 'latest') return undefined
   return value
-}
-
-function filterBySearch(guides: any[], query?: string) {
-  const term = normalizeSearchText(query)
-  if (!term) return guides
-
-  return guides.filter(guide => {
-    const haystack = normalizeSearchText([
-      guide.title,
-      guide.excerpt,
-      guide.seo_description,
-      guide.category,
-      guide.hero,
-      guide.hero ? topicLabel(guide.hero) : null,
-      guide.role,
-      guide.role ? ROLE_LABELS[guide.role as keyof typeof ROLE_LABELS] : null,
-      guide.map,
-      guide.map ? topicLabel(guide.map) : null,
-      guide.video_title,
-      guide.video_channel,
-    ].filter(Boolean).join(' '))
-
-    return haystack.includes(term)
-  })
-}
-
-function resolveSearchIntent(query?: string) {
-  const term = normalizeSearchText(query)
-  if (!term) return {}
-
-  const hero = DEFAULT_HEROES.find(heroSlug => {
-    const heroTerms = [
-      normalizeSearchText(heroSlug),
-      normalizeSearchText(topicLabel(heroSlug)),
-    ]
-
-    return heroTerms.some(heroTerm => containsSearchToken(term, heroTerm))
-  })
-
-  if (hero) return { hero }
-
-  const role = (Object.keys(ROLE_LABELS) as Array<keyof typeof ROLE_LABELS>).find(roleSlug => {
-    const roleTerms = [
-      normalizeSearchText(roleSlug),
-      normalizeSearchText(ROLE_LABELS[roleSlug]),
-    ]
-
-    return roleTerms.some(roleTerm => containsSearchToken(term, roleTerm))
-  })
-
-  return role ? { role } : {}
-}
-
-function normalizeSearchText(value?: string) {
-  return (value || '')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, ' ')
-    .trim()
-    .replace(/\s+/g, ' ');
-}
-
-function containsSearchToken(term: string, token: string) {
-  if (!token) return false
-  if (term === token) return true
-
-  return ` ${term} `.includes(` ${token} `)
 }
 
 function EmptyGuides({ hasFilters }: { hasFilters: boolean }) {

@@ -25,6 +25,14 @@ describe('Deadlock search intent and discovery', () => {
     expect(data.mainEntity.itemListElement.map(item => item.url)).toEqual(articles.map(a => `https://www.replaidlab.com${a.path}`))
     expect(data.mainEntity.itemListElement.map(item => item.position)).toEqual([1, 2])
   })
+  it('does not promise an import code when the build only has a shopping guide', () => {
+    const build = launch.find(a => a.hero === 'abrams' && a.kind === 'build') as EditorialArticle
+    expect(deadlockArticleMetadata(build).title).toContain('código y objetos')
+    const withoutImport = { ...build, buildImport: undefined, buildImportUnavailable: { code: 899427, heroId: 13, checkedAt: '2026-10-26' } }
+    expect(deadlockArticleMetadata(withoutImport).title).toContain('guía de objetos')
+    expect(deadlockArticleMetadata(withoutImport).title).not.toContain('código')
+    expect(deadlockArticleMetadata({ ...withoutImport, buildImportUnavailable: undefined }).title).not.toContain('código')
+  })
   it('makes breadcrumbs use absolute canonical URLs in their visible order', () => {
     const data = deadlockBreadcrumbs([{ name: 'Deadlock', path: '/deadlock' }, { name: 'Héroes', path: '/deadlock/heroes' }])
     expect(data.itemListElement).toEqual([{ '@type': 'ListItem', position: 1, name: 'Deadlock', item: 'https://www.replaidlab.com/deadlock' }, { '@type': 'ListItem', position: 2, name: 'Héroes', item: 'https://www.replaidlab.com/deadlock/heroes' }])

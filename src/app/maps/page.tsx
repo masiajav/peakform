@@ -40,6 +40,12 @@ export default function MapsPage() {
           <p>Prepara el ataque, la defensa o la siguiente recuperación del punto. Encuentra guías por modo de juego y compara las rutas con lo que ocurrió en tu partida.</p>
         </header>
 
+        <nav className="maps-mode-nav" aria-label="Ir a mapas por modo">
+          {MAP_MODE_ORDER.map(mode => <Link key={mode} href={`#map-mode-${mode}`}>
+            {mode} <span>{getMapsByMode(mode).length} mapas</span>
+          </Link>)}
+        </nav>
+
         <section className="maps-hub-grid" aria-label="Mapas con guía">
           {MAP_PILLARS.map((map, index) => (
             <Link key={map.slug} href={`/maps/${map.slug}`} className="map-hub-card">
