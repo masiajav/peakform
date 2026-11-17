@@ -1,27 +1,19 @@
-import type { GameId } from './games'
-
-export const READER_CHANNEL = 'replaid-readers-v1'
+export const READER_CHANNEL = 'replaid-visitors-v2'
 export function readerChannelForHost(host: string): string {
   return host === 'www.replaidlab.com' || host === 'replaidlab.com'
-    ? READER_CHANNEL : 'replaid-readers-preview-v1'
+    ? READER_CHANNEL : 'replaid-visitors-preview-v2'
 }
-export type ReaderCounts = Record<GameId, number>
 export type ReaderPresence = {
-  counts: ReaderCounts | null
+  count: number | null
   status: 'connecting' | 'connected' | 'unavailable'
 }
-export const UNAVAILABLE_PRESENCE: ReaderPresence = { counts: null, status: 'unavailable' }
+export const UNAVAILABLE_PRESENCE: ReaderPresence = { count: null, status: 'unavailable' }
 
-/** A key can have several metas during reconciliation; count it once per game. */
-export function countReaders(state: Record<string, unknown>): ReaderCounts {
-  const counts: ReaderCounts = { overwatch: 0, deadlock: 0 }
-  for (const metas of Object.values(state)) {
-    if (!Array.isArray(metas)) continue
-    for (const game of ['overwatch', 'deadlock'] as const) {
-      if (metas.some(meta => meta && typeof meta === 'object' && meta.game === game)) counts[game]++
-    }
-  }
-  return counts
+/** Reconciliation may include several metas for a visitor; count each key once. */
+export function countReaders(state: Record<string, unknown>): number {
+  return Object.values(state).filter(metas => Array.isArray(metas) && metas.some(meta =>
+    meta && typeof meta === 'object' && !Array.isArray(meta) && meta.site === 'replaidlab',
+  )).length
 }
 
 // Structural interfaces keep the lifecycle testable without sockets or credentials.
@@ -29,7 +21,7 @@ export interface ReaderChannel {
   on(type: 'presence', filter: { event: 'sync' }, callback: () => void): ReaderChannel
   subscribe(callback: (status: string) => void): ReaderChannel
   presenceState(): Record<string, unknown>
-  track(payload: { game: GameId }): Promise<string>
+  track(payload: { site: 'replaidlab' }): Promise<string>
   untrack(): Promise<string>
 }
 export interface ReaderClient {
@@ -37,10 +29,9 @@ export interface ReaderClient {
   removeChannel(channel: ReaderChannel): Promise<unknown>
 }
 
-/** Each visible session observes; a Web Lock elects one publisher per origin/game. */
+/** Each visible session observes; a Web Lock elects one publisher per origin/site. */
 export function connectReaderPresence(options: {
   client: ReaderClient
-  game: GameId | null
   key: string
   locks?: Pick<LockManager, 'request'>
   onChange: (presence: ReaderPresence) => void
@@ -48,9 +39,9 @@ export function connectReaderPresence(options: {
   timeoutMs?: number
   channelName?: string
 }): () => void {
-  const { client, game, key, locks, onChange } = options
+  const { client, key, locks, onChange } = options
   const channelName = options.channelName ?? READER_CHANNEL
-  if (game && !locks) {
+  if (!locks) {
     onChange(UNAVAILABLE_PRESENCE)
     return () => {}
   }
@@ -81,9 +72,9 @@ export function connectReaderPresence(options: {
   const publish = () => {
     if (stopped || !subscribed || !synced) return
     clearTimeout(timeout)
-    onChange({ counts: countReaders(channel.presenceState()), status: 'connected' })
+    onChange({ count: countReaders(channel.presenceState()), status: 'connected' })
   }
-  onChange({ counts: null, status: 'connecting' })
+  onChange({ count: null, status: 'connecting' })
   timeout = setTimeout(fail, options.timeoutMs ?? 12_000)
   channel.on('presence', { event: 'sync' }, () => { synced = true; publish() })
   channel.subscribe(status => {
@@ -92,12 +83,12 @@ export function connectReaderPresence(options: {
       if (subscribed) return
       subscribed = true
       publish()
-      if (game && locks) {
-        void locks.request(`${channelName}:${game}`, { signal: abort.signal }, async () => {
+      if (locks) {
+        void locks.request(`${channelName}:replaidlab`, { signal: abort.signal }, async () => {
           if (stopped) return
           const held = new Promise<void>(resolve => { release = resolve })
           try {
-            if (await channel.track({ game }) !== 'ok') fail()
+            if (await channel.track({ site: 'replaidlab' }) !== 'ok') fail()
           } catch { fail() }
           await held
         }).catch(() => { if (!stopped) fail() })

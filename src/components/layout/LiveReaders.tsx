@@ -1,43 +1,29 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { gameForPath, type GameId, GAMES } from '@/lib/games'
-import { useReaderPresence } from '@/lib/use-reader-presence'
+import { useSiteReaders } from './ReaderPresenceProvider'
 import type { ReaderPresence } from '@/lib/reader-presence'
 import styles from './LiveReaders.module.css'
 
-const mascots = {
-  overwatch: { src: '/community/ow-training-bot.bb96a53951d3.webp', width: 188, height: 192 },
-  deadlock: { src: '/community/deadlock-candle-trooper.d7fea4b1c90a.webp', width: 97, height: 192 },
-} as const
 const format = new Intl.NumberFormat('es-ES')
 
-export function ReaderBadges({ game, presence }: { game: GameId | null; presence: ReaderPresence }) {
-  const games: GameId[] = game ? [game] : ['overwatch', 'deadlock']
-  const connected = presence.status === 'connected' && presence.counts !== null
-  const explanation = connected
-    ? 'Sesiones con esta sección visible. Cada navegador cuenta una vez por juego. La cifra puede tardar unos segundos en actualizarse.'
-    : presence.status === 'connecting' ? 'Conectando con el contador de lectores…' : 'El contador no está disponible ahora.'
+export function ReaderCounter({ presence }: { presence: ReaderPresence }) {
+  const count = presence.status === 'connected' ? presence.count : null
+  const label = count === null
+    ? `Visitantes de Replaid Lab: ${presence.status === 'connecting' ? 'conectando' : 'no disponible'}`
+    : `${format.format(count)} ${count === 1 ? 'visitante' : 'visitantes'} en Replaid Lab`
+  const explanation = count === null
+    ? presence.status === 'connecting' ? 'Conectando con el contador de visitantes…' : 'El contador no está disponible ahora.'
+    : 'Visitantes con alguna página de Replaid Lab visible. Cada navegador cuenta una sola vez, aunque abra varias pestañas o cambie de sección. La cifra puede tardar unos segundos en actualizarse.'
 
-  return <div className={styles.readers} aria-label="Lectores activos" data-reader-status={presence.status}>
-    <div className={styles.badges}>
-      {games.map(id => {
-        const count = connected ? presence.counts![id] : null
-        const label = count === null ? `Lectores de ${GAMES[id].name}: ${presence.status === 'connecting' ? 'conectando' : 'no disponible'}`
-          : `${format.format(count)} ${count === 1 ? 'lector' : 'lectores'} en ${GAMES[id].name}`
-        return <Link key={id} href={GAMES[id].href} className={`${styles.badge} ${styles[id]}`} title={explanation} aria-label={label} data-reader-game={id}>
-          <Image {...mascots[id]} alt="" className={styles.mascot} unoptimized />
-          <span className={styles.copy}><span className={styles.count}>{count === null ? '—' : format.format(count)}</span><span className={styles.game}>{GAMES[id].name}</span></span>
-        </Link>
-      })}
-    </div>
+  return <div className={styles.readers} role="group" aria-label={label} title={explanation} data-reader-status={presence.status}>
+    <Image src="/community/ow-training-bot.bb96a53951d3.webp" width={188} height={192} alt="" className={styles.mascot} unoptimized data-reader-mascot="overwatch" />
+    <span className={styles.count} data-reader-total="" aria-hidden="true">{count === null ? '—' : format.format(count)}</span>
+    <Image src="/community/deadlock-candle-trooper.d7fea4b1c90a.webp" width={97} height={192} alt="" className={`${styles.mascot} ${styles.deadlock}`} unoptimized data-reader-mascot="deadlock" />
   </div>
 }
 
 export default function LiveReaders() {
-  const game = gameForPath(usePathname())
-  const presence = useReaderPresence(game)
-  return <ReaderBadges game={game} presence={presence} />
+  const presence = useSiteReaders()
+  return <ReaderCounter presence={presence} />
 }

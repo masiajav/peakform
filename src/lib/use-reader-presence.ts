@@ -2,15 +2,14 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import { createClient } from '@supabase/supabase-js'
-import type { GameId } from './games'
 import { connectReaderPresence, readerChannelForHost, UNAVAILABLE_PRESENCE, type ReaderPresence } from './reader-presence'
 
-export function useReaderPresence(game: GameId | null, enabled = true): ReaderPresence {
+export function useReaderPresence(enabled = true): ReaderPresence {
   // A fresh context on each transition also distinguishes off/on for the same
-  // game. Never expose the previous subscription's snapshot before effects run.
-  const context = useMemo(() => ({ game, enabled }), [game, enabled])
+  // setting. Never expose the previous subscription's snapshot before effects run.
+  const context = useMemo(() => ({ enabled }), [enabled])
   const [snapshot, setSnapshot] = useState<{ context: typeof context; presence: ReaderPresence }>({
-    context, presence: { counts: null, status: 'connecting' },
+    context, presence: { count: null, status: 'connecting' },
   })
   useEffect(() => {
     const setPresence = (presence: ReaderPresence) => setSnapshot({ context, presence })
@@ -25,7 +24,7 @@ export function useReaderPresence(game: GameId | null, enabled = true): ReaderPr
       if (!enabled || suspended || document.visibilityState !== 'visible') return
       const url = process.env.NEXT_PUBLIC_SUPABASE_URL
       const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-      if (!url || !key || !globalThis.crypto?.randomUUID || (game && !navigator.locks)) return
+      if (!url || !key || !globalThis.crypto?.randomUUID || !navigator.locks) return
       try {
         // This public observer must never load the signed-in account or persist
         // an auth session. Reuse the project's public infrastructure and keys.
@@ -33,7 +32,7 @@ export function useReaderPresence(game: GameId | null, enabled = true): ReaderPr
           auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
         })
         const disconnect = connectReaderPresence({
-          client, game, key: crypto.randomUUID(), locks: navigator.locks,
+          client, key: crypto.randomUUID(), locks: navigator.locks,
           channelName: readerChannelForHost(window.location.hostname),
           onClose: () => client.realtime.disconnect(),
           onChange: value => {
@@ -63,7 +62,7 @@ export function useReaderPresence(game: GameId | null, enabled = true): ReaderPr
       window.removeEventListener('pageshow', show)
       window.removeEventListener('online', start)
     }
-  }, [game, enabled, context])
+  }, [enabled, context])
   if (!enabled) return UNAVAILABLE_PRESENCE
-  return snapshot.context === context ? snapshot.presence : { counts: null, status: 'connecting' }
+  return snapshot.context === context ? snapshot.presence : { count: null, status: 'connecting' }
 }

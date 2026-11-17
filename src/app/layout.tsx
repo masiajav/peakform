@@ -5,6 +5,7 @@ import JsonLd from '@/components/content/JsonLd'
 import VercelAnalytics from '@/components/content/VercelAnalytics'
 import PublicFooter from '@/components/layout/PublicFooter'
 import KickLiveNotice from '@/components/layout/KickLiveNotice'
+import ReaderPresenceProvider from '@/components/layout/ReaderPresenceProvider'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, SITE_NAME, SITE_URL } from '@/lib/seo'
 import { adsenseVerificationAccount } from '@/lib/adsense-policy'
@@ -108,9 +109,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body style={{ margin: 0, background: '#0a0a0a', color: '#f5f5f5' }}>
         <JsonLd data={organizationJsonLd} />
         <JsonLd data={websiteJsonLd} />
-        <KickLiveNotice />
-        {children}
-        <PublicFooter />
+        <ReaderPresenceProvider>
+          <KickLiveNotice />
+          {children}
+          <PublicFooter />
+        </ReaderPresenceProvider>
         {process.env.VERCEL === '1' && <VercelAnalytics />}
       </body>
     </html>

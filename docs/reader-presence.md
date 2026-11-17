@@ -1,18 +1,18 @@
-# Lectores por juego
+# Visitantes de Replaid Lab
 
-La franja pública muestra ambos juegos en la portada general y solo el correspondiente en las secciones de Overwatch o Deadlock. Se integra con la franja de comunidad existente. Las rutas en las que ya se oculta esa franja no abren una conexión de presencia.
+La franja pública muestra un único contador entre el bot de Overwatch y el minion de Deadlock. El total es el mismo en todas las secciones. Un contexto persistente en el layout raíz publica presencia en cualquier página, también en las rutas en las que se oculta la franja visual.
 
 ## Medición
 
-Supabase Realtime Presence publica únicamente el juego y una clave aleatoria efímera, con un cliente aislado que no carga ni guarda la sesión de cuenta. No se usan cookies, almacenamiento persistente, rutas exactas, correos ni identificadores de usuario para el contador. La política de privacidad describe el tratamiento y el proveedor de conexión.
+Supabase Realtime Presence publica únicamente una marca de actividad del sitio y una clave aleatoria efímera, con un cliente aislado que no carga ni guarda la sesión de cuenta. No se envían el juego ni la ruta. No se usan cookies, almacenamiento persistente, correos ni identificadores de usuario para el contador. La política de privacidad describe el tratamiento y el proveedor de conexión.
 
-Solo participa una pestaña visible por juego y contexto del navegador mediante Web Locks. Las demás observan y pueden relevar a la primera. Un navegador con ambos juegos visibles puede contar una vez en cada uno. La portada general observa sin atribuirse a un juego.
+Solo publica una pestaña visible por origen y contexto del navegador mediante un único Web Lock para todo el sitio. Las demás observan y pueden relevar a la primera. Un navegador con páginas de ambos juegos o de cualquier otra sección cuenta una sola vez, incluida la portada. Los cambios de ruta no reinician el contexto. Los dominios apex y www comparten canal; los Web Locks deduplican dentro de cada origen y la navegación pública habitual se sirve en www.
 
 La cifra aproxima sesiones visibles; no prueba que sean personas distintas o que estén leyendo. Excluye clientes sin JavaScript o APIs compatibles y puede retrasarse al perderse una conexión. Al ser un canal público, no es una métrica certificada frente a bots o clientes manipulados. No se usa para publicidad, facturación o estadísticas de audiencia verificadas.
 
-Los valores aparecen después de suscripción y sincronización reales. Durante conexión o fallo se muestra «—», nunca un cero inventado. Los cambios de juego invalidan el snapshot anterior desde el primer render. Ocultar o cerrar la página retira la presencia y cancela las esperas de bloqueo.
+El valor aparece después de suscripción y sincronización reales. Durante conexión o fallo se muestra «—», nunca un cero inventado. Ocultar o cerrar la página retira su presencia y cancela las esperas de bloqueo. Si otra pestaña sigue visible, puede asumir la publicación.
 
-Los dos dominios de producción usan `replaid-readers-v1`; localhost y previews usan `replaid-readers-preview-v1`. El bloqueo local incluye ese mismo nombre de canal. Las pruebas locales no suman visitas a producción. No hacen falta migraciones, nuevos proveedores ni cambios de plan.
+Los dos dominios de producción usan `replaid-visitors-v2`; localhost y previews usan `replaid-visitors-preview-v2`. El bloqueo local incluye ese mismo nombre de canal. Las pruebas locales no suman visitas a producción. El canal nuevo permite revisar esta versión sin mezclar sus datos con los contadores por juego de la versión anterior. No hacen falta migraciones, nuevos proveedores ni cambios de plan.
 
 ## Ilustraciones
 
@@ -25,7 +25,7 @@ Los SHA-256 completos están en el registro privado `art/assets.json`. No se car
 
 ## Verificación
 
-15 pruebas del transporte y 29 de presentación e integración con comunidad, privacidad y clasificación por juego aprobadas durante la implementación. Revisión técnica independiente sin bloqueos después de corregir el snapshot anterior en transiciones. Las capturas y comprobaciones finales de navegador, conexión remota y despliegue se conservan en el directorio privado de esta tarea.
+20 pruebas del transporte y 4 de presentación aprobadas: total global, deduplicación entre pestañas, estados de conexión y posición de ambos personajes alrededor de una sola cifra. Compilación de producción aprobada y revisión independiente sin bloqueos. Los resultados reales de cada ejecución y las capturas se conservan en el directorio privado de la tarea. El usuario revisó la versión local del 17 de noviembre antes de autorizar su publicación.
 
 ## Fuentes técnicas
 
