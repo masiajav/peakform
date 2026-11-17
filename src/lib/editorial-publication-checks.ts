@@ -8,6 +8,9 @@ function normalized(value: string) {
 // tightening future publication must not remove an existing public article.
 export function editorialPublicationIssues(article: EditorialArticle): string[] {
   const issues: string[] = []
+  if (article.seoTitle !== undefined && (typeof article.seoTitle !== 'string' || !article.seoTitle.trim() || article.seoTitle.length > 180)) {
+    issues.push('Título SEO no válido')
+  }
   const paragraphs = [article.intro, ...article.sections.flatMap(section => section.body)]
     .map(normalized).filter(Boolean)
   if (new Set(paragraphs).size !== paragraphs.length) issues.push('El artículo repite párrafos completos')

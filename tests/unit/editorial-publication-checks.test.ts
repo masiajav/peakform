@@ -15,6 +15,18 @@ const article: EditorialArticle = {
 }
 
 describe('future editorial publication and advertising', () => {
+  it.each(['', '  ', null, 42, 'x'.repeat(181)])('rejects invalid future SEO titles without hiding legacy records: %s', seoTitle => {
+    const legacy = { ...article, seoTitle } as unknown as EditorialArticle
+    expect(editorialPublicationIssues(legacy)).toContain('Título SEO no válido')
+    expect(editorialIssues(legacy)).toEqual([])
+  })
+  it('requires a fresh exact-version review when the SEO title changes', () => {
+    const evidence: EditorialEvidence = { version: editorialVersion(article), reviewer: 'codex-automated', reviewedAt: '2026-11-17', report: 'Exact title test', checks: { facts: true, sources: true, links: true, desktop: true, mobile: true, originality: true } }
+    const revised = { ...article, seoTitle: 'Almas en Deadlock: cuándo comprar' }
+    expect(editorialPublicationIssues(revised)).toEqual([])
+    expect(evidenceMatches(article, evidence)).toBe(true)
+    expect(evidenceMatches(revised, evidence)).toBe(false)
+  })
   it('includes section links in publication checks and rejects external destinations', () => {
     const href = '/deadlock/builds'
     const withLinks = { ...article, sections: article.sections.map((section, i) =>

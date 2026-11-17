@@ -26,10 +26,12 @@ export function deadlockHeroLabel(slug: string | undefined, english = false) {
 
 export function deadlockArticleMetadata(article: EditorialArticle) {
   const hero = deadlockHeroLabel(article.hero, true)
-  const title = hero && article.kind === 'hero' ? `${hero} en Deadlock: guía y habilidades`
+  const fallbackTitle = hero && article.kind === 'hero' ? `${hero} en Deadlock: guía y habilidades`
     : hero && article.kind === 'counter' ? `Counters de ${hero} en Deadlock`
     : hero && article.kind === 'build' ? `Build de ${hero} en Deadlock: ${article.buildImport ? 'código y objetos' : 'guía de objetos'}`
     : /deadlock/i.test(article.title) ? article.title : `${article.title} · Deadlock`
+  const customTitle = typeof article.seoTitle === 'string' ? article.seoTitle.trim() : ''
+  const title = customTitle ? (/deadlock/i.test(customTitle) ? customTitle : `${customTitle} · Deadlock`) : fallbackTitle
   return buildMetadata({ title, description: article.description, path: article.path, image: DEADLOCK_OG_IMAGE, type: 'article', robots: deadlockRobots() })
 }
 

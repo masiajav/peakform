@@ -4,6 +4,22 @@ import type { EditorialArticle } from '@/lib/editorial-record'
 import launch from '@/lib/deadlock-launch.json'
 
 describe('Deadlock search intent and discovery', () => {
+  it('uses a reviewed SEO title consistently without changing the article heading', () => {
+    const article = { ...launch.find(a => a.hero === 'haze' && a.kind === 'hero'), seoTitle: 'Haze en Deadlock: habilidades y cómo jugarla' } as EditorialArticle
+    const metadata = deadlockArticleMetadata(article)
+    expect(metadata.title).toBe(article.seoTitle)
+    expect(metadata.openGraph?.title).toBe(article.seoTitle)
+    expect(metadata.twitter?.title).toBe(article.seoTitle)
+    expect(metadata.description).toBe(article.description)
+    expect(metadata.alternates?.canonical).toBe('https://www.replaidlab.com/deadlock/heroes/haze')
+    expect(article.title).toBe(launch.find(a => a.hero === 'haze' && a.kind === 'hero')!.title)
+  })
+  it('retains the game in custom titles and tolerates empty legacy fields', () => {
+    const article = launch.find(a => a.hero === 'haze' && a.kind === 'hero') as EditorialArticle
+    expect(deadlockArticleMetadata({ ...article, seoTitle: '  Haze: habilidades  ' }).title).toBe('Haze: habilidades · Deadlock')
+    expect(deadlockArticleMetadata({ ...article, seoTitle: ' ' }).title).toBe(deadlockArticleMetadata(article).title)
+    expect(deadlockArticleMetadata({ ...article, seoTitle: null } as unknown as EditorialArticle).title).toBe(deadlockArticleMetadata(article).title)
+  })
   it('identifies the game, the localized hero and the English search alias', () => {
     const article = launch.find(a => a.hero === 'haze' && a.kind === 'hero') as EditorialArticle
     const metadata = deadlockArticleMetadata(article)

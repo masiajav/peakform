@@ -15,6 +15,7 @@ export type DeadlockBuildImport = {
 }
 export type EditorialArticle = {
   game: GameId; kind: EditorialKind; slug: string; path: string; title: string; description: string
+  seoTitle?: string
   hero?: string; aliases?: string[]; image?: string; publishedAt: string; updatedAt: string; patch: string
   intro: string; sections: EditorialSection[]
   abilities?: EditorialAbility[]
