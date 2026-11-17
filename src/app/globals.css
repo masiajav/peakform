@@ -1973,6 +1973,14 @@ textarea {
   text-decoration: none;
 }
 
+.public-nav-identity {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
 .public-nav-spacer {
   flex: 1 1 24px;
   min-width: 8px;
@@ -2020,13 +2028,13 @@ textarea {
   --text3: #999999;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1279px) {
   .public-nav-toggle { display: flex; }
   .public-nav-spacer { display: block; flex: 1 1 auto; }
   .public-nav-links {
     display: none;
     position: absolute;
-    top: 52px;
+    top: 100%;
     left: 0;
     right: 0;
     background: var(--bg);
@@ -2034,7 +2042,7 @@ textarea {
     padding: 12px 14px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 4px;
-    max-height: calc(100dvh - 52px);
+    max-height: calc(100dvh - 96px);
     overflow-y: auto;
   }
   .public-nav-links.is-open { display: grid; }
@@ -2636,9 +2644,19 @@ textarea {
 
 @media (max-width: 639px) {
   .public-nav {
-    gap: 14px;
-    padding: 0 14px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 44px;
+    grid-template-areas: 'identity toggle' 'games games';
+    column-gap: 12px;
+    row-gap: 0;
+    height: auto;
+    min-height: 88px;
+    padding: 4px 14px 0;
   }
+
+  .public-nav-identity { grid-area: identity; gap: 10px; }
+  .public-nav-toggle { grid-area: toggle; }
+  .public-nav .game-switch { grid-area: games; margin-left: 0; gap: 4px; align-self: stretch; align-items: center; border-top: 1px solid var(--border); }
 
   .public-nav-brand {
     font-size: 22px;
@@ -2646,7 +2664,7 @@ textarea {
   }
 
   .public-nav-spacer {
-    display: block;
+    display: none;
   }
 
   .public-nav-links {

@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useSiteReaders } from './ReaderPresenceProvider'
+import { useSiteReaders } from './ReaderPresenceContext'
 import type { ReaderPresence } from '@/lib/reader-presence'
 import styles from './LiveReaders.module.css'
 

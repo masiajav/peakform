@@ -1,6 +1,6 @@
 # Visitantes de Replaid Lab
 
-La franja pública muestra un único contador entre el bot de Overwatch y el minion de Deadlock. El total es el mismo en todas las secciones. Un contexto persistente en el layout raíz publica presencia en cualquier página, también en las rutas en las que se oculta la franja visual.
+La navegación pública integra un único contador junto a la marca de Replaid Lab, con el bot de Overwatch y el minion de Deadlock alrededor de la cifra. El total es el mismo en todas las secciones. Un contexto persistente en el layout raíz publica presencia en cualquier página, también en las rutas sin navegación pública. Se retiraron la franja de Kick/YouTube y la consulta periódica del estado del canal.
 
 ## Medición
 

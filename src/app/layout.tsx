@@ -4,7 +4,6 @@ import './deadlock.css'
 import JsonLd from '@/components/content/JsonLd'
 import VercelAnalytics from '@/components/content/VercelAnalytics'
 import PublicFooter from '@/components/layout/PublicFooter'
-import KickLiveNotice from '@/components/layout/KickLiveNotice'
 import ReaderPresenceProvider from '@/components/layout/ReaderPresenceProvider'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { absoluteUrl, SITE_NAME, SITE_URL } from '@/lib/seo'
@@ -110,7 +109,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd data={organizationJsonLd} />
         <JsonLd data={websiteJsonLd} />
         <ReaderPresenceProvider>
-          <KickLiveNotice />
           {children}
           <PublicFooter />
         </ReaderPresenceProvider>

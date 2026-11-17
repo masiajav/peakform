@@ -6,6 +6,7 @@ import { useId, useRef, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
+import LiveReaders from './LiveReaders'
 
 type PublicNavProps = {
   ctaHref?: string
@@ -45,9 +46,12 @@ export default function PublicNav({ ctaHref = '/login', ctaLabel = 'ENTRAR' }: P
         toggle.current?.focus()
       }
     }}>
-      <Link href="/" className="public-nav-brand" aria-label="Ir al inicio de Replaid Lab">
-        REPLAID LAB
-      </Link>
+      <div className="public-nav-identity">
+        <Link href="/" className="public-nav-brand" aria-label="Ir al inicio de Replaid Lab">
+          REPLAID LAB
+        </Link>
+        <LiveReaders />
+      </div>
       <div className="game-switch" aria-label="Elegir juego">{Object.entries(GAMES).map(([id, item]) => <Link key={id} href={item.href} aria-current={game === id ? 'page' : undefined}>{item.name}</Link>)}</div>
       <div className="public-nav-spacer" />
       <button
