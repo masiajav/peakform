@@ -1,6 +1,10 @@
 # Visitantes de Replaid Lab
 
-La navegación pública integra un único contador junto a la marca de Replaid Lab, con el bot de Overwatch y el minion de Deadlock alrededor de la cifra. El total es el mismo en todas las secciones. Un contexto persistente en el layout raíz publica presencia en cualquier página, también en las rutas sin navegación pública. Se retiraron la franja de Kick/YouTube y la consulta periódica del estado del canal.
+Estado: desactivado temporalmente por petición del usuario. `PublicNav` no monta `LiveReaders` y el layout raíz no monta `ReaderPresenceProvider`: no se muestra el contador ni se abre su conexión de presencia. Se conservan los componentes, el transporte, las pruebas y las ilustraciones para recuperarlo más adelante.
+
+Para reactivarlo, restaurar la importación y el montaje de `LiveReaders` junto a la marca en `PublicNav.tsx`, y la importación y el wrapper de `ReaderPresenceProvider` alrededor de children y PublicFooter en `src/app/layout.tsx`. Comprobar de nuevo la conexión y la presentación antes de publicar.
+
+Funcionamiento cuando se active: la navegación pública integra un único contador junto a la marca de Replaid Lab, con el bot de Overwatch y el minion de Deadlock alrededor de la cifra. El total es el mismo en todas las secciones. El contexto persistente publica presencia en cualquier página, también en las rutas sin navegación pública. No se reactivan Kick/YouTube ni la consulta de estado del canal.
 
 ## Medición
 
