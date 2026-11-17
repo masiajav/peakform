@@ -1,11 +1,12 @@
 .bar {
   display: flex;
+  flex-wrap: wrap;
   align-items: stretch;
   border-bottom: 1px solid #30382b;
   background: linear-gradient(90deg, #11180f, #10120f);
   color: #c5cec0;
 }
-.kickNotice { flex: 1; min-width: 0; }
+.kickNotice { flex: 1 1 200px; min-width: 0; }
 .link {
   min-width: 0;
   display: flex;

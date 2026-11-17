@@ -1,0 +1,25 @@
+.readers { box-sizing: border-box; min-width: 0; flex: 0 0 auto; position: relative; padding: 16px 22px 4px 16px; border-right: 1px solid #34382e; background: linear-gradient(110deg,#1b201280,#11150e20); }
+.legend { position: absolute; top: 6px; left: 20px; display: flex; align-items: center; gap: 6px; font-size: 8px; font-weight: 600; letter-spacing: 1.8px; color: #a4af96; }
+.liveDot, .waitingDot { width: 4px; height: 4px; border-radius: 50%; background: #b5d58d; }
+.liveDot { box-shadow: 0 0 8px #b5d58d60; }
+.waitingDot { background: #72786b; }
+.badges { display: flex; align-items: center; gap: 20px; }
+.badge { --reader-accent: #ffc490; display: flex; align-items: center; gap: 7px; color: var(--reader-accent); text-decoration: none; min-width: 0; }
+.deadlock { --reader-accent: #c5d99b; }
+.badge:focus-visible { outline: 2px solid var(--reader-accent); outline-offset: 4px; border-radius: 3px; }
+.mascot { width: 56px; height: 60px; object-fit: contain; flex-shrink: 0; animation: readerBob 4s ease-in-out infinite; filter: drop-shadow(0 2px 7px #0007); }
+.deadlock .mascot { animation-delay: -2s; }
+.copy { display: flex; flex-direction: column; padding-bottom: 3px; }
+.count { min-width: 2.3ch; font: 30px/.95 'Bebas Neue', sans-serif; font-variant-numeric: tabular-nums; letter-spacing: .5px; }
+.game { font-size: 9px; font-weight: 600; letter-spacing: .8px; color: #c7cbbf; margin-top: 4px; }
+.badge:hover .count { color: #fff; }
+@keyframes readerBob { 50% { transform: translateY(-2px); } }
+@media (max-width: 820px) {
+  .readers { flex-basis: 100%; padding: 14px 16px 2px; border-right: 0; border-bottom: 1px solid #30382b; }
+  .legend { top: 5px; left: 18px; font-size: 7px; letter-spacing: 1.5px; }
+  .badges { gap: 24px; }
+  .mascot { width: 44px; height: 45px; }
+  .count { font-size: 25px; }
+  .game { font-size: 9px; margin-top: 3px; }
+}
+@media (prefers-reduced-motion: reduce) { .mascot { animation: none; } }
