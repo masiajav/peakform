@@ -6,11 +6,13 @@
   background: linear-gradient(90deg, #11180f, #10120f);
   color: #c5cec0;
 }
-.kickNotice { flex: 1 1 200px; min-width: 0; }
+.kickNotice { display: flex; flex: 1 1 200px; min-width: 0; }
 .link {
+  flex: 1;
   min-width: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 20px;
   min-height: 42px;
   padding: 6px 24px;
@@ -24,7 +26,7 @@
 .channel svg { color: #7e9174; }
 .kick { font: 20px/1 'Bebas Neue', sans-serif; letter-spacing: 1.2px; color: #a8bc9b; }
 .name { border-left: 1px solid #3b4435; padding-left: 10px; font-size: 12px; font-weight: 600; color: #e1e8db; }
-.controls { margin-left: auto; gap: 16px; flex-shrink: 0; }
+.controls { gap: 16px; flex-shrink: 0; }
 .state { gap: 7px; padding: 4px 8px; border: 1px solid #48513f; color: #a4af9b; font-size: 10px; font-weight: 600; letter-spacing: .8px; white-space: nowrap; }
 .dot { width: 6px; height: 6px; background: #8b9981; flex-shrink: 0; }
 .action { gap: 5px; color: #9fae95; font-size: 11px; white-space: nowrap; }
