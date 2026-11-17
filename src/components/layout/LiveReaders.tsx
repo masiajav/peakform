@@ -22,7 +22,6 @@ export function ReaderBadges({ game, presence }: { game: GameId | null; presence
     : presence.status === 'connecting' ? 'Conectando con el contador de lectores…' : 'El contador no está disponible ahora.'
 
   return <div className={styles.readers} aria-label="Lectores activos" data-reader-status={presence.status}>
-    <span className={styles.legend}><span className={connected ? styles.liveDot : styles.waitingDot} aria-hidden="true" />LEYENDO AHORA</span>
     <div className={styles.badges}>
       {games.map(id => {
         const count = connected ? presence.counts![id] : null
