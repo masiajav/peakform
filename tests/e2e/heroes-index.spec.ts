@@ -33,7 +33,7 @@ test('hero directory shows the full role catalogue before advice, with matching 
   await expect(page.locator('main')).not.toContainText('CÓMO USAR ESTE HUB')
   await expect(page.locator('.ad-slot, ins.adsbygoogle, script[src*="adsbygoogle"]')).toHaveCount(0)
   const sitemap = await (await request.get('/sitemap.xml')).text()
-  expect(sitemap).toMatch(/\/heroes<\/loc>\s*<lastmod>2026-10-09T00:00:00\.000Z<\/lastmod>/)
+  expect(sitemap).toMatch(/\/heroes<\/loc>\s*<lastmod>2026-11-18T00:00:00\.000Z<\/lastmod>/)
   expect(sitemap).toContain('/heroes/doctrine</loc>')
 })
 
@@ -51,7 +51,7 @@ test('role anchors and direct hero or canonical guide links preserve their desti
   await page.goBack({ waitUntil: 'networkidle' })
   await expect(page).toHaveURL(/\/heroes#support$/)
   await expect(page.locator('#support a[href="/heroes/ana"]')).toBeVisible()
-  await expect(page.locator('h1')).toHaveText('Todos los héroes,por rol')
+  await expect(page.locator('h1')).toHaveText('Héroes de Overwatch por rol')
   await page.getByRole('navigation', { name: 'Héroes por rol' }).getByRole('link', { name: 'DPS' }).click()
   await expect(page.locator('#dps-heading')).toBeInViewport()
   await page.locator('#dps a[href="/guides/sierra-guia-video-overwatch"]').click()
@@ -60,7 +60,7 @@ test('role anchors and direct hero or canonical guide links preserve their desti
   await page.goBack({ waitUntil: 'networkidle' })
   await expect(page).toHaveURL(/\/heroes#dps$/)
   await expect(page.locator('#dps a[href="/guides/sierra-guia-video-overwatch"]')).toBeVisible()
-  await expect(page.locator('h1')).toHaveText('Todos los héroes,por rol')
+  await expect(page.locator('h1')).toHaveText('Héroes de Overwatch por rol')
   expect(errors).toEqual([])
 })
 

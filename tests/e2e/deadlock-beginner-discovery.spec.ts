@@ -14,7 +14,11 @@ test('Deadlock guides follow a beginner route and the landing never advertises a
   expect(collection.mainEntity.itemListElement.map((item: { url: string }) => new URL(item.url).pathname)).toEqual(visible)
 
   await page.goto('/deadlock', { waitUntil: 'networkidle' })
-  await expect(page.getByRole('link', { name: 'Soy nuevo' })).toHaveAttribute('href', visible.includes(beginner) ? beginner : '/deadlock/guides')
+  const hasBeginner = visible.includes(beginner)
+  await expect(page.locator('.game-hero-actions').getByRole('link', {
+    name: hasBeginner ? 'Cómo jugar a Deadlock: invitación y primeros pasos' : 'Guías para empezar',
+    exact: true,
+  })).toHaveAttribute('href', hasBeginner ? beginner : '/deadlock/guides')
   await expect(page.getByRole('link', { name: 'Todos los parches' })).toHaveAttribute('href', '/deadlock/patch-notes')
   await expect(page.getByRole('link', { name: 'Todas las noticias' })).toHaveAttribute('href', '/deadlock/news')
   if (!visible.includes(beginner)) await expect(page.locator(`main a[href="${beginner}"]`)).toHaveCount(0)

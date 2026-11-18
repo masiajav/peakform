@@ -11,7 +11,7 @@ import DeadlockHeroCard from '@/components/content/DeadlockHeroCard'
 export const dynamic = 'force-dynamic'
 export const metadata = buildMetadata({
   title: 'Deadlock en español: guías, héroes, counters y builds',
-  description: 'Guías de Deadlock en español, habilidades de todos los héroes, counters y builds con código para importar. Aprende a jugar y explora el mapa de la ciudad.',
+  description: 'Descubre cómo conseguir una invitación y empezar a jugar a Deadlock. Consulta en español las habilidades de los héroes, builds, counters y el mapa.',
   path: '/deadlock',
   image: DEADLOCK_OG_IMAGE,
   robots: deadlockRobots(),
@@ -42,7 +42,9 @@ export default async function Page() {
         </form>
         <div className="game-hero-actions">
           <Link href="/deadlock/heroes">Encuentra tu héroe <span aria-hidden="true">↗</span></Link>
-          <Link href={beginnerGuide?.path ?? '/deadlock/guides'}>Soy nuevo, ¿por dónde empiezo? <span aria-hidden="true">↗</span></Link>
+          {beginnerGuide
+            ? <Link href={beginnerGuide.path}>Cómo jugar a Deadlock: invitación y primeros pasos <span aria-hidden="true">↗</span></Link>
+            : <Link href="/deadlock/guides">Guías para empezar <span aria-hidden="true">↗</span></Link>}
         </div>
         </div>
         <div className="dl-hero-art" aria-hidden="true">

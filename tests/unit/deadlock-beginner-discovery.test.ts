@@ -27,7 +27,7 @@ describe('Deadlock beginner discovery', () => {
   it('uses the guides catalogue before the beginner article is published', async () => {
     published.mockResolvedValue(fundamentals())
     const html = renderToStaticMarkup(await Home())
-    expect(html).toMatch(/href="\/deadlock\/guides">Soy nuevo/)
+    expect(html).toMatch(/href="\/deadlock\/guides">Guías para empezar/)
     expect(html).not.toContain(startPath)
     expect(html).not.toContain('/deadlock/guides/mods-deadlock')
     expect(html).not.toContain('/deadlock/guides/tier-list-deadlock')
@@ -48,7 +48,7 @@ describe('Deadlock beginner discovery', () => {
     expect(schemaPaths(html)).toEqual(expected)
     expect(html.indexOf('Empieza por aquí')).toBeLessThan(html.indexOf('Más guías de Deadlock'))
     expect(html.indexOf('Más guías de Deadlock')).toBeLessThan(html.indexOf('Noticias y parches'))
-    expect(html).toMatch(/href="\/deadlock\/guides\/como-jugar-deadlock">Soy nuevo/)
+    expect(html).toMatch(/href="\/deadlock\/guides\/como-jugar-deadlock">Cómo jugar a Deadlock: invitación y primeros pasos/)
   })
 
   it.each(['mods-deadlock', 'tier-list-deadlock'])('does not feature %s without the exact published guide', async slug => {
@@ -71,8 +71,8 @@ describe('Deadlock beginner discovery', () => {
   ])('requires both guide kind and the exact published path: %j', async overrides => {
     published.mockResolvedValue([article('como-jugar-deadlock', 'Inicio incorrecto', overrides)])
     const html = renderToStaticMarkup(await Home())
-    expect(html).toMatch(/href="\/deadlock\/guides">Soy nuevo/)
-    expect(html).not.toMatch(new RegExp(`href="${startPath}">Soy nuevo`))
+    expect(html).toMatch(/href="\/deadlock\/guides">Guías para empezar/)
+    expect(html).not.toMatch(new RegExp(`href="${startPath}">Cómo jugar a Deadlock`))
     expect(html).not.toContain('TUS PRIMERAS PARTIDAS')
   })
 
@@ -83,7 +83,7 @@ describe('Deadlock beginner discovery', () => {
     const patch = article('nuevo-parche', 'Balance nuevo', { kind: 'patch_note', path: '/deadlock/patch-notes/nuevo-parche' })
     published.mockResolvedValue([...fundamentals(), patch, city, start, hero])
     const html = renderToStaticMarkup(await Home())
-    expect(html).toMatch(/href="\/deadlock\/guides\/como-jugar-deadlock">Soy nuevo/)
+    expect(html).toMatch(/href="\/deadlock\/guides\/como-jugar-deadlock">Cómo jugar a Deadlock: invitación y primeros pasos/)
     expect(cardPaths(html)).toEqual([start.path, ...fundamentals().map(a => a.path), patch.path])
     expect(cardPaths(html).filter(path => path === startPath)).toHaveLength(1)
     expect(schemaPaths(html)).toEqual([hero.path, city.path, start.path, ...fundamentals().map(a => a.path), patch.path])

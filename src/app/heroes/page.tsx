@@ -15,11 +15,14 @@ import { heroTopicHref, isPublicHeroPageSlug } from '@/lib/topic-links'
 import { buildMetadata, absoluteUrl, SITE_NAME } from '@/lib/seo'
 import styles from './HeroesIndex.module.css'
 
+const directoryTitle = 'Héroes de Overwatch por rol'
+const directoryDescription = 'Encuentra a los personajes de Overwatch por rol: tanque, daño (DPS) y apoyo. Abre sus fichas y guías para aprender habilidades, consejos y counters.'
+
 export async function generateMetadata(props: { searchParams: Promise<{ role?: string }> }): Promise<Metadata> {
   const searchParams = await props.searchParams
   const metadata = buildMetadata({
-    title: 'Héroes de Overwatch: personajes, roles y habilidades',
-    description: 'Explora los personajes de Overwatch por rol: Tank, DPS y Support. Encuentra fichas y guías disponibles para conocer sus habilidades y consultar counters.',
+    title: directoryTitle,
+    description: directoryDescription,
     path: '/heroes',
     robots: { index: true, follow: true },
   })
@@ -84,10 +87,10 @@ export default function HeroesIndexPage() {
   const itemListJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: 'Héroes de Overwatch por rol',
-    description: 'Catálogo de Tank, DPS y Support con retratos, fichas y guías.',
+    name: directoryTitle,
+    description: directoryDescription,
     url: absoluteUrl('/heroes'),
-    dateModified: '2026-10-09',
+    dateModified: '2026-11-18',
     publisher: { '@type': 'Organization', name: SITE_NAME },
     mainEntity: {
       '@type': 'ItemList',
@@ -105,9 +108,8 @@ export default function HeroesIndexPage() {
       <PublicNav />
       <main className={styles.main}>
         <header className={styles.header}>
-          <div className="eyebrow">HÉROES DE OVERWATCH</div>
-          <h1>Todos los héroes,<br /><span>por rol</span></h1>
-          <p>Elige un rol y busca tu personaje. Abre su ficha o sus guías para conocer sus habilidades, cómo jugarlo y qué hacer contra sus rivales.</p>
+          <h1>Héroes de Overwatch <span>por rol</span></h1>
+          <p>Busca a tu personaje entre los héroes de tanque, daño (DPS) y apoyo. Desde cada rol puedes abrir las fichas y guías disponibles o consultar los counters.</p>
         </header>
         <nav className={styles.roleNav} aria-label="Héroes por rol">
           {roleSections.map(({ role, heroes }) => (
