@@ -137,6 +137,9 @@ export default async function NewsPage() {
           <p style={{ fontSize: 14, color: 'var(--text2)', margin: 0, lineHeight: 1.6 }}>
             Fechas, horarios y cambios de Overwatch explicados sin rodeos. Aquí reunimos noticias y notas de parche sobre temporadas, héroes, mapas, balance y eventos, con el archivo editorial completo por fecha de publicación.
           </p>
+          {editorial.some(article => article.kind === 'patch_note') && (
+            <p style={{ fontSize: 14, margin: '12px 0 0' }}><Link href="/patch-notes">Ver los últimos parches de Overwatch</Link></p>
+          )}
         </div>
 
         <EditorialUpdates game="overwatch" kinds={['news', 'patch_note']} variant="archive" />

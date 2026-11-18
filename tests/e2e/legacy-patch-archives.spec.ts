@@ -39,12 +39,21 @@ for (const archive of archives) {
   })
 }
 
-test('patch hub lists real summaries from the legacy backend and opens the intended article', async ({ page }) => {
+test('patch hub lists current notes first and preserves the historical archive', async ({ page, request }) => {
   expect((await page.goto('/patch-notes'))?.status()).toBe(200)
-  await expect(page.locator('h1')).toHaveCount(1)
-  await expect(page.locator('main article')).toHaveCount(5)
-  await expect(page.locator('main')).not.toContainText('sincronización automática')
-  await expect(page.locator('main article').first()).toContainText('28 de abril de 2026')
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Patch notes de Overwatch')
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index, follow')
+  const recent = page.getByRole('region', { name: 'Últimos parches' })
+  await expect(recent.getByRole('link', { name: /hotfix de Overwatch del 16 de noviembre/i })).toHaveAttribute('href', '/patch-notes/overwatch-16-noviembre-2026')
+  const dates = await recent.locator('time').evaluateAll(times => times.map(time => Date.parse(time.getAttribute('datetime')!)))
+  expect(dates).toEqual([...dates].sort((a, b) => b - a))
+  const sitemap = await (await request.get('/sitemap.xml')).text()
+  const hubDate = sitemap.match(/<loc>https:\/\/www\.replaidlab\.com\/patch-notes<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/)?.[1]
+  expect(hubDate).toBe(new Date(dates[0]).toISOString())
+  await expect(page.locator('.ad-slot, ins.adsbygoogle, script[src*="adsbygoogle"]')).toHaveCount(0)
+  const archive = page.getByRole('region', { name: 'Archivo de parches' })
+  await expect(archive.locator('article')).toHaveCount(5)
+  await expect(archive.locator('article').first()).toContainText('28 de abril de 2026')
   await page.getByRole('link').filter({hasText: 'Underwatch no era un parche de ranked'}).click()
   await expect(page.locator('.guide-body')).toContainText('ventajas estaban desactivadas')
   expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false)

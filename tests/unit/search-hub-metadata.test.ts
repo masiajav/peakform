@@ -16,6 +16,6 @@ describe('search hub presentation', () => {
     }
     expect(counters.description).toContain('filtra por tu rol en Pick Lab')
     expect(maps.description).toContain('guías disponibles')
-    expect(heroes.description).toContain('Tank, DPS y Support')
+    expect(heroes.description).toContain('tanque, daño (DPS) y apoyo')
   })
 })

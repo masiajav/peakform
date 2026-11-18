@@ -22,3 +22,7 @@ export const publishedEditorial = cache(async (game: GameId): Promise<EditorialA
   } catch { return fallback }
 })
 export async function editorialForPath(game: GameId, path: string) { return (await publishedEditorial(game)).find(a => a.path === path) ?? null }
+
+export const publishedOverwatchPatches = cache(async () => (await publishedEditorial('overwatch'))
+  .filter(article => article.kind === 'patch_note')
+  .sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt)))

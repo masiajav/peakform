@@ -76,7 +76,7 @@ describe('VOD guide consolidation', () => {
     expect(discoverableGuides([stored])).toEqual([])
     expect(isGuideSitemapEligible(stored)).toBe(false)
     expect(guideQualityDecision(stored)).toMatchObject({ indexable: false, adsAllowed: false })
-    expect(evergreenGuides[destination]).toMatchObject({ publishedAtIso: '2026-08-29', modifiedAtIso: '2026-10-10' })
+    expect(evergreenGuides[destination]).toMatchObject({ publishedAtIso: '2026-08-29', modifiedAtIso: '2026-11-15' })
     expect(guideQualityDecision({ slug: destination })).toMatchObject({ indexable: true, adsAllowed: true })
   })
 

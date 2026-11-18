@@ -14,7 +14,7 @@ beforeEach(() => revision.mockReset().mockResolvedValue(null))
 
 const targets = [
   { path: '/counters/reinhardt', source: getCounterPillar('reinhardt')!, title: 'Counters de Reinhardt: qué jugar en Overwatch', metadata: () => counterMetadata({ params: Promise.resolve({ hero: 'reinhardt' }) }) },
-  { path: '/guides/composiciones-overwatch-5v5-6v6', source: evergreenGuides['composiciones-overwatch-5v5-6v6'], title: 'Composiciones de Overwatch 5v5 y 6v6: dive, poke y brawl', metadata: guideMetadata },
+  { path: '/guides/composiciones-overwatch-5v5-6v6', source: evergreenGuides['composiciones-overwatch-5v5-6v6'], title: 'Poke, dive y brawl en Overwatch: diferencias y ejemplos', metadata: guideMetadata },
 ]
 
 describe('target search presentation preserves editorial authorization', () => {
@@ -55,6 +55,6 @@ describe('target search presentation preserves editorial authorization', () => {
   it('keeps concrete counter picks and distinguishes the three composition styles', async () => {
     const counter = await targets[0].metadata()
     for (const pick of ['Orisa', 'Bastion', 'Mei', 'Ana']) expect(counter.description).toContain(pick)
-    expect((await targets[1].metadata()).description).toBe('Dive entra con movilidad, poke presiona a distancia y brawl pelea de cerca. Compara ejemplos de composiciones 5v5 y 6v6 y adapta el plan al mapa.')
+    expect((await targets[1].metadata()).description).toBe('Qué son poke, dive y brawl en Overwatch, cómo se enfrentan y qué héroes encajan. Ejemplos de composiciones 5v5 y 6v6 con esquemas.')
   })
 })

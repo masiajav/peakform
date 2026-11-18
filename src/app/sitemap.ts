@@ -1,4 +1,4 @@
-import { publishedEditorial } from '@/lib/editorial-store'
+import { publishedEditorial, publishedOverwatchPatches } from '@/lib/editorial-store'
 import { DEADLOCK_SECTIONS } from '@/lib/games'
 import type { MetadataRoute } from 'next'
 import { ANNOUNCEMENT_REVIEW_COLUMNS, GUIDE_REVIEW_COLUMNS } from '@/lib/editorial-review'
@@ -116,7 +116,9 @@ const MAP_LAST_MODIFIED = Object.fromEntries(
 )
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [overwatchEditorial, deadlockEditorial] = await Promise.all([publishedEditorial('overwatch'), publishedEditorial('deadlock')])
+  const [overwatchEditorial, deadlockEditorial, overwatchPatches] = await Promise.all([
+    publishedEditorial('overwatch'), publishedEditorial('deadlock'), publishedOverwatchPatches(),
+  ])
   const staticRoutes: MetadataRoute.Sitemap = [
     '',
     '/overwatch',
@@ -131,6 +133,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/arcade/oversvivors',
     '/maps',
     '/news',
+    ...(overwatchPatches.length ? ['/patch-notes'] : []),
     '/blizzcon-2026-overwatch-horarios-espana',
     '/doctrine-support-sombra-roadhog-rework-overwatch',
     '/overwatch-temporada-4-heroes-of-busan',
@@ -156,7 +159,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const guideSlug = normalizedPath.match(/^\/guides\/([^/]+)$/)?.[1]
     const reviewedRankedDate = guideSlug ? getRankedHeroGuide(guideSlug)?.modifiedAt : undefined
     const reviewedEvergreenDate = guideSlug && Object.hasOwn(evergreenGuides, guideSlug) ? evergreenGuides[guideSlug].modifiedAtIso : undefined
-    const lastModified = deadlockHubModified(normalizedPath, deadlockEditorial) ?? reviewedEvergreenDate ?? reviewedRankedDate ?? reviewedHeroDate ?? reviewedCounterDate ?? reviewedCompositionDate ?? MAP_LAST_MODIFIED[normalizedPath] ?? STATIC_LAST_MODIFIED[normalizedPath]
+    const patchHubDate = normalizedPath === '/patch-notes' ? overwatchPatches[0]?.publishedAt : undefined
+    const lastModified = patchHubDate ?? deadlockHubModified(normalizedPath, deadlockEditorial) ?? reviewedEvergreenDate ?? reviewedRankedDate ?? reviewedHeroDate ?? reviewedCounterDate ?? reviewedCompositionDate ?? MAP_LAST_MODIFIED[normalizedPath] ?? STATIC_LAST_MODIFIED[normalizedPath]
     return {
       url: absoluteUrl(normalizedPath),
       ...(lastModified ? { lastModified: new Date(lastModified) } : {}),

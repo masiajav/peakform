@@ -16,6 +16,7 @@ import {
 import { heroTopicHref } from '@/lib/topic-links'
 import { ANNOUNCEMENT_REVIEW_COLUMNS, GUIDE_REVIEW_COLUMNS } from '@/lib/editorial-review'
 import { canLoadAdSense } from '@/lib/adsense-policy'
+import { publishedOverwatchPatches } from '@/lib/editorial-store'
 
 type AuditRow = {
   url: string
@@ -32,7 +33,7 @@ export default async function QualityAuditPage() {
     cmpReady: process.env.NEXT_PUBLIC_ADSENSE_CMP_READY,
     reviewMode: process.env.NEXT_PUBLIC_ADSENSE_REVIEW_MODE,
   }
-  const [{ data: guides }, { data: announcements }] = await Promise.all([
+  const [{ data: guides }, { data: announcements }, overwatchPatches] = await Promise.all([
     supabase
       .from('guides')
       .select(GUIDE_REVIEW_COLUMNS).eq('game','overwatch')
@@ -41,6 +42,7 @@ export default async function QualityAuditPage() {
       .from('announcements')
       .select(ANNOUNCEMENT_REVIEW_COLUMNS).eq('game','overwatch')
       .eq('published', true),
+    publishedOverwatchPatches(),
   ])
 
   const staticRows: AuditRow[] = [
@@ -56,7 +58,7 @@ export default async function QualityAuditPage() {
     '/overwatch-temporada-3-into-the-tigers-den',
     ...TRUST_ROUTES,
   ].map(path => {
-    const indexable = path !== '/patch-notes'
+    const indexable = path !== '/patch-notes' || overwatchPatches.length > 0
     const adsAllowed = indexable && canLoadAdSense(adsConfig, path)
     return {
       url: path,
@@ -66,7 +68,7 @@ export default async function QualityAuditPage() {
         status: !indexable ? 'noindex_no_ads' : adsAllowed ? 'index_ads' : 'index_no_ads',
         indexable,
         adsAllowed,
-        reason: !indexable ? 'Hub de patch notes pendiente de revisión editorial' : adsAllowed ? 'Ruta estática apta para anuncios' : 'Ruta estática indexable sin anuncios durante la recuperación de AdSense',
+        reason: !indexable ? 'No hay parches con revisión editorial publicados' : adsAllowed ? 'Ruta estática apta para anuncios' : 'Ruta estática indexable sin anuncios durante la recuperación de AdSense',
       },
     }
   })
