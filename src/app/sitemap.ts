@@ -119,6 +119,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [overwatchEditorial, deadlockEditorial, overwatchPatches] = await Promise.all([
     publishedEditorial('overwatch'), publishedEditorial('deadlock'), publishedOverwatchPatches(),
   ])
+  const patchHubLastModified = overwatchPatches.reduce<number | undefined>((latest, patch) => {
+    const modified = Date.parse(patch.updatedAt)
+    return latest === undefined ? modified : Math.max(latest, modified)
+  }, undefined)
   const staticRoutes: MetadataRoute.Sitemap = [
     '',
     '/overwatch',
@@ -159,7 +163,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const guideSlug = normalizedPath.match(/^\/guides\/([^/]+)$/)?.[1]
     const reviewedRankedDate = guideSlug ? getRankedHeroGuide(guideSlug)?.modifiedAt : undefined
     const reviewedEvergreenDate = guideSlug && Object.hasOwn(evergreenGuides, guideSlug) ? evergreenGuides[guideSlug].modifiedAtIso : undefined
-    const patchHubDate = normalizedPath === '/patch-notes' ? overwatchPatches[0]?.publishedAt : undefined
+    const patchHubDate = normalizedPath === '/patch-notes' ? patchHubLastModified : undefined
     const lastModified = patchHubDate ?? deadlockHubModified(normalizedPath, deadlockEditorial) ?? reviewedEvergreenDate ?? reviewedRankedDate ?? reviewedHeroDate ?? reviewedCounterDate ?? reviewedCompositionDate ?? MAP_LAST_MODIFIED[normalizedPath] ?? STATIC_LAST_MODIFIED[normalizedPath]
     return {
       url: absoluteUrl(normalizedPath),
