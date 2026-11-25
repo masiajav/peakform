@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import Link from '@/components/layout/NavigationLink'
 import PublicNav from '@/components/layout/PublicNav'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { announcementPath, articleDescription, type AnnouncementContent } from '@/lib/content'

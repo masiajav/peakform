@@ -1,0 +1,55 @@
+.section {
+  margin-top: clamp(44px, 6vw, 72px);
+}
+
+.section h2 {
+  font: 36px/1.1 'Bebas Neue', sans-serif;
+  margin: 0 0 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 345px), 1fr));
+  gap: 24px;
+}
+
+.grid article {
+  min-width: 0;
+  padding: clamp(20px, 3vw, 28px);
+  border: 1px solid var(--border);
+  border-top-color: var(--practice-accent);
+  background: var(--surface);
+}
+
+.overwatch {
+  --practice-accent: #ff9e69;
+}
+
+.deadlock {
+  --practice-accent: #c5d99b;
+}
+
+.grid h3 {
+  margin: 0 0 12px;
+  font: 27px/1.15 'Bebas Neue', sans-serif;
+}
+
+.grid p {
+  margin: 0 0 16px;
+  color: #b3b4ac;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.grid ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-inline-start: 18px;
+}
+
+.grid a {
+  color: var(--practice-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

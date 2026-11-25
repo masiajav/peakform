@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '@/components/layout/NavigationLink'
 import Image from 'next/image'
 import PublicNav from '@/components/layout/PublicNav'
 import { DEADLOCK_SECTIONS } from '@/lib/games'

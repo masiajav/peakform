@@ -7,8 +7,7 @@
   padding: 24px;
   background: #0a0a0a;
   color: #f0efe8;
-  /* Only reveal a fallback that lasts long enough to be useful. No JS timer
-     or minimum display time: Next removes it as soon as the route is ready. */
+  /* Brief transitions should finish before the indicator becomes visible. */
   visibility: hidden;
   animation: reveal 120ms ease-out 180ms forwards;
 }

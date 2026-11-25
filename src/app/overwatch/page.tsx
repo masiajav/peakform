@@ -2,19 +2,19 @@ import EditorialUpdates from '@/components/content/EditorialUpdates'
 export const dynamic = 'force-dynamic'
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
-import Link from 'next/link'
+import Link from '@/components/layout/NavigationLink'
 import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import JsonLd from '@/components/content/JsonLd'
 import AdSlot from '@/components/content/AdSlot'
 import PublicNav from '@/components/layout/PublicNav'
 import HeroPortraitImage from '@/components/heroes/HeroPortraitImage'
-import { announcementPath, ROLE_LABELS, topicLabel, type GuideContent } from '@/lib/content'
+import { ROLE_LABELS, topicLabel, type GuideContent } from '@/lib/content'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 import { evergreenGuides } from '@/lib/evergreen-guides'
 import { guideEditorial } from '@/lib/guide-editorial'
-import { isAnnouncementSitemapEligible, isGuideSitemapEligible } from '@/lib/indexing-policy'
-import { ANNOUNCEMENT_REVIEW_COLUMNS, GUIDE_REVIEW_COLUMNS } from '@/lib/editorial-review'
+import { isGuideSitemapEligible } from '@/lib/indexing-policy'
+import { GUIDE_REVIEW_COLUMNS } from '@/lib/editorial-review'
 import { COUNTER_HEROES, type CounterHero, type CounterRole } from '@/lib/overwatch-counters'
 import { getHeroPortrait } from '@/lib/overwatch-hero-portraits'
 import { heroTopicHref } from '@/lib/topic-links'
@@ -39,14 +39,6 @@ const homeLearningGuides = [
   evergreenGuides['como-subir-de-rango-overwatch'],
   evergreenGuides['counters-overwatch-guia-completa'],
 ]
-const seasonNews = [
-  { title: 'Doctrine', label: 'Ya disponible', body: 'El nuevo Support llega con ajustes respecto al trial. Repasa Imbuir, los drones y su movilidad antes de entrar en partida.' },
-  { title: 'Sombra', label: 'Ahora Support', body: 'Hotfix cura a un aliado y Cyberspace combina curación de área con debilitación del rival.' },
-  { title: 'Roadhog', label: 'Rework disponible', body: 'Su arma dispara en dos ráfagas y Trash Compactor absorbe proyectiles antes de devolver un disparo explosivo.' },
-  { title: 'Grímsvötn', label: 'Nuevo mapa', body: 'La nueva Escolta lleva la carga a una prisión islandesa ligada a Doctrine y Doomfist.' },
-  { title: 'Halloween', label: 'Hasta el 2 de noviembre', body: 'Mystery Madness: Graveyard Games añade poderes aleatorios y recompensas de evento.' },
-  { title: 'Unvaulted Passes', label: 'Pases antiguos', body: 'Puedes progresar un pase recuperado junto al actual. No incluye míticas, prismas ni monedas.' },
-]
 
 export default async function RootPage() {
   const supabase = await createClient()
@@ -63,7 +55,7 @@ export default async function RootPage() {
   }
 
   const admin = createAdminClient()
-  const [{ data: featuredGuides }, { data: experts }, { data: latestNews }] = await Promise.all([
+  const [{ data: featuredGuides }, { data: experts }] = await Promise.all([
     admin
       .from('guides')
       .select(GUIDE_REVIEW_COLUMNS)
@@ -79,21 +71,11 @@ export default async function RootPage() {
       .eq('service_paused', false)
       .order('avg_rating', { ascending: false })
       .limit(3),
-    admin
-      .from('announcements')
-      .select(ANNOUNCEMENT_REVIEW_COLUMNS)
-      .eq('game', 'overwatch')
-      .eq('published', true)
-      .order('created_at', { ascending: false })
-      .limit(12),
   ])
 
   const qualityFeaturedGuides = discoverableGuides(featuredGuides ?? [])
     .filter((guide: any) => Boolean(getRankedHeroGuide(guide.slug)) || isGuideSitemapEligible(guide))
     .slice(0, 6)
-  const qualityLatestNews = (latestNews ?? [])
-    .filter((item: any) => item.content_type !== 'patch_note' && isAnnouncementSitemapEligible(item))
-    .slice(0, 3)
 
   const homeGuideItems = [
     ...homeLearningGuides.map(guide => ({
@@ -130,7 +112,6 @@ export default async function RootPage() {
         <section style={{ maxWidth: 1120, margin: '0 auto', padding: '72px 24px 36px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.15fr) minmax(280px, 0.85fr)', gap: 32, alignItems: 'center' }} className="home-hero-grid">
             <div>
-              <div className="eyebrow">HEMEROTECA DE OVERWATCH</div>
               <h1 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(46px, 8vw, 82px)', lineHeight: 0.94, letterSpacing: 1.5, margin: '0 0 22px', color: 'var(--text)' }}>
                 GUÍAS DE OVERWATCH, <br />
                 <span style={{ color: 'var(--accent)' }}>HÉROES Y CONSEJOS</span> <br />
@@ -145,15 +126,15 @@ export default async function RootPage() {
               </form>
               <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 12 }}>
                 <Link href="/heroes" className="btn btn-secondary btn-sm">VER HÉROES</Link>
-                <Link href="/blizzcon-2026-overwatch-horarios-espana" className="btn btn-secondary btn-sm">BLIZZCON</Link>
-                <Link href="/doctrine-support-sombra-roadhog-rework-overwatch" className="btn btn-secondary btn-sm">SEASON 5</Link>
+                <Link href="/pick-lab" className="btn btn-secondary btn-sm">ABRIR PICK LAB</Link>
+                <Link href="/news" className="btn btn-secondary btn-sm">NOTICIAS Y PARCHES</Link>
                 <Link href="/guides/como-mejorar-en-overwatch" className="btn btn-secondary btn-sm">EMPEZAR A MEJORAR</Link>
               </div>
             </div>
 
             <div className="home-hero-panel">
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, marginBottom: 14 }}>
-                <div className="eyebrow" style={{ marginBottom: 0 }}>ÚLTIMOS HÉROES</div>
+                <div className="eyebrow" style={{ marginBottom: 0 }}>HÉROES DESTACADOS</div>
                 <Link href="/heroes" className="home-hero-panel-link">TODOS</Link>
               </div>
               <div className="home-hero-card-grid">
@@ -166,39 +147,6 @@ export default async function RootPage() {
         </section>
 
         <EditorialUpdates game="overwatch" kinds={['news', 'patch_note']} limit={3} variant="landing" />
-
-        <section style={{ maxWidth: 1120, margin: '0 auto', padding: '20px 24px 44px' }}>
-          <Link href="/doctrine-support-sombra-roadhog-rework-overwatch" style={{ textDecoration: 'none' }}>
-            <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: 24 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16, alignItems: 'start', marginBottom: 18, flexWrap: 'wrap' }}>
-                <div>
-                  <div className="eyebrow">TEMPORADA ACTUAL</div>
-                  <h2 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 'clamp(32px, 5vw, 48px)', letterSpacing: 1, lineHeight: 1, margin: '0 0 8px' }}>
-                    SEASON 5 YA DISPONIBLE: A GRIM DOCTRINE
-                  </h2>
-                  <p style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 1.65, margin: 0, maxWidth: 760 }}>
-                    Doctrine llega como Support, Sombra cambia de rol y Roadhog recibe un rework. Repasa sus habilidades, Grímsvötn y los eventos de A Grim Doctrine.
-                  </p>
-                </div>
-                <span className="btn btn-primary btn-sm">VER TODO</span>
-              </div>
-
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: 10 }}>
-                {seasonNews.map(item => (
-                  <div key={item.title} style={{ background: 'var(--surface2)', border: '1px solid var(--border2)', padding: 14, minHeight: 118 }}>
-                    <div style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--accent)', fontSize: 10, letterSpacing: 1.3, marginBottom: 7 }}>
-                      {item.label.toUpperCase()}
-                    </div>
-                    <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', color: 'var(--text)', fontSize: 22, letterSpacing: 0.8, margin: '0 0 6px' }}>
-                      {item.title}
-                    </h3>
-                    <p style={{ color: 'var(--text2)', fontSize: 12, lineHeight: 1.45, margin: 0 }}>{item.body}</p>
-                  </div>
-                ))}
-              </div>
-            </article>
-          </Link>
-        </section>
 
         <Section title="Héroes por rol" kicker="HUB VISUAL" href="/heroes" linkLabel="Abrir hub">
           <div className="home-all-heroes-panel">
@@ -234,14 +182,6 @@ export default async function RootPage() {
           <AdSlot variant="leaderboard" slot="home-top-leaderboard" />
         </section>
 
-        <Section title="Guías populares" kicker="HEMEROTECA" href="/guides" linkLabel="Ver todas">
-          <CardGrid>
-            {qualityFeaturedGuides.map((guide: any) => (
-              <GuideCard key={guide.id} guide={guide} />
-            ))}
-          </CardGrid>
-        </Section>
-
         <Section title="Prepara tu siguiente partida" kicker="ENTRENAR" href="/guides" linkLabel="Ver guías">
           <CardGrid>
             {homeLearningGuides.map(guide => (
@@ -261,6 +201,16 @@ export default async function RootPage() {
             ))}
           </CardGrid>
         </Section>
+
+        {qualityFeaturedGuides.length > 0 && (
+          <Section title="Más guías de Overwatch" kicker="HEMEROTECA" href="/guides" linkLabel="Ver todas">
+            <CardGrid>
+              {qualityFeaturedGuides.map(guide => (
+                <GuideCard key={guide.id} guide={guide} />
+              ))}
+            </CardGrid>
+          </Section>
+        )}
 
         <section style={{ maxWidth: 1120, margin: '0 auto', padding: '0 24px' }}>
           <AdSlot variant="leaderboard" slot="home-mid-leaderboard" />
@@ -293,23 +243,6 @@ export default async function RootPage() {
           </Section>
         )}
 
-        {qualityLatestNews.length > 0 && (
-          <Section title="Actualidad" kicker="NOTICIAS" href="/news" linkLabel="Ver noticias">
-            <div style={{ display: 'grid', gap: 12 }}>
-              {qualityLatestNews.map((item: any) => (
-                <Link key={item.id} href={announcementPath(item)} style={{ textDecoration: 'none' }}>
-                  <article className="expert-card" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '18px 20px' }}>
-                    <div style={{ color: 'var(--text3)', fontFamily: 'Bebas Neue, sans-serif', letterSpacing: 1.2, fontSize: 11, marginBottom: 6 }}>
-                      {new Date(item.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' })}
-                    </div>
-                    <h3 style={{ color: 'var(--text)', fontFamily: 'Bebas Neue, sans-serif', fontSize: 21, letterSpacing: 0.7, margin: '0 0 6px' }}>{item.title}</h3>
-                    <p style={{ color: 'var(--text2)', fontSize: 13, lineHeight: 1.5, margin: 0 }}>{item.excerpt || item.body?.slice(0, 150)}</p>
-                  </article>
-                </Link>
-              ))}
-            </div>
-          </Section>
-        )}
       </main>
 
     </div>
@@ -374,7 +307,6 @@ function HomeHeroCard({ hero, compact = false, priority = false }: { hero: Count
             sizes={compact ? '(max-width: 768px) 42vw, 150px' : '(max-width: 768px) 42vw, 180px'}
             imageStyle={{ objectFit: 'contain', objectPosition: 'center bottom' }}
           />
-          {hero.slug === 'doctrine' && <span className="home-hero-card-badge">NUEVO</span>}
         </div>
         <div className="home-hero-card-body">
           <span className="home-hero-card-name">{hero.name}</span>

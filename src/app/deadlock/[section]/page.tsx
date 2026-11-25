@@ -1,5 +1,5 @@
 import catalog from '@/lib/deadlock-catalog.json'
-import Link from 'next/link'
+import Link from '@/components/layout/NavigationLink'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import PublicNav from '@/components/layout/PublicNav'

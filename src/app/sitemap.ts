@@ -36,7 +36,9 @@ import { mergeReviewedGuideVideo, reviewedGuideVideoSource } from '@/lib/reviewe
 export const dynamic = 'force-dynamic'
 
 const STATIC_LAST_MODIFIED: Record<string, string> = {
-  '/': '2026-10-17',
+  '/': '2026-11-25',
+  '/overwatch': '2026-11-25',
+  '/editorial-methodology': '2026-11-25',
   '/guides': '2026-10-18',
   '/experts': '2026-10-17',
   '/heroes': '2026-11-18',

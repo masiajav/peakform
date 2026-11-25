@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '@/components/layout/NavigationLink'
 import { ArrowUpRight } from 'lucide-react'
 import { publishedEditorial } from '@/lib/editorial-store'
 import type { GameId } from '@/lib/games'

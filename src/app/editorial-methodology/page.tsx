@@ -37,7 +37,7 @@ export default function EditorialMethodologyPage() {
         <section>
           <h2>Importa una build de Deadlock y adáptala</h2>
           <p>
-            En las <Link href="/deadlock/builds">builds de Deadlock</Link> encontrarás un código que puedes copiar y buscar entre las builds públicas de la tienda del juego. Los objetos ilustrados te ayudan a reconocer su enfoque. Usa después la tabla de compras para decidir qué adelantar según el daño, el control o la recuperación del rival; no compres todas las alternativas a la vez.
+            Abre una de las <Link href="/deadlock/builds">builds de Deadlock</Link> y busca el código de importación. Cuando aparezca, cópialo y búscalo entre las builds públicas de la tienda del juego. También puedes seguir la tabla de compras directamente y adelantar el objeto que te ayude contra el daño, el control o la curación del rival.
           </p>
         </section>
 

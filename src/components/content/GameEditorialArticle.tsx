@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '@/components/layout/NavigationLink'
 import Image from 'next/image'
 import PublicNav from '@/components/layout/PublicNav'
 import JsonLd from './JsonLd'
@@ -67,6 +67,9 @@ export default async function GameEditorialArticle({ article: a, preview = false
       <ArticleAdLayout allowAds={allowAds}>
       <div className="game-article-reading">
         <p className="game-article-intro">{a.intro}</p>
+        {a.path === '/deadlock/guides/mods-deadlock' && (
+          <p><a href="https://deadlockmods.app/download">Ver instaladores de Deadlock Mod Manager</a></p>
+        )}
         {a.game === 'deadlock' && heroLinks}
         <ArticleAd position="summary" allowAds={allowAds} />
         {a.mapAtlas && <DeadlockMapAtlas atlas={a.mapAtlas} />}

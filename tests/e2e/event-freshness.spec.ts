@@ -6,6 +6,7 @@ for (const path of ['/overwatch', '/news', '/heroes', '/heroes/doctrine', '/doct
     const text = await page.locator('main').innerText()
     expect(text).not.toMatch(/ya se puede probar|ya tiene hero trial|hero trial (?:ya )?está activo|trial disponible desde|este fin de semana permite|no muestra una fecha límite/i)
     if (path === '/blizzcon-2026-overwatch-horarios-espana') expect(text).toMatch(/trial[^.]*termin[oó]|prueba temporal[^.]*termin[oó]/i)
+    else if (path === '/overwatch') await expect(page.getByRole('region', { name: 'Últimas noticias de Overwatch' })).toBeVisible()
     else expect(text).toMatch(/ya est[áa] disponible|Season 5|SEASON 5/i)
     await expect(page.locator('.ad-slot, ins.adsbygoogle')).toHaveCount(0)
     expect(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth)).toBe(false)

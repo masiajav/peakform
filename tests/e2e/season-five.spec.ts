@@ -35,14 +35,17 @@ test('Season 5 news shows current kits, event dates and matching metadata', asyn
   await page.screenshot({ path: `reports/season-five/news-${test.info().project.name}.png` })
 })
 
-test('home and news link the current season without advertising the upcoming trial', async ({ page }) => {
-  for (const route of ['/', '/news']) {
-    await page.goto(route, { waitUntil: 'networkidle' })
-    await expect(page.locator('main')).toContainText(/Season 5/i)
-    await expect(page.locator('main a[href="' + path + '"]').first()).toBeVisible()
-    await expect(page.locator('main')).not.toContainText('Doctrine tiene anunciado su estreno')
-    expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false)
-  }
+test('the news archive retains the Season 5 announcement after it leaves the game home', async ({ page }) => {
+  await page.goto('/news', { waitUntil: 'networkidle' })
+  await expect(page.locator('main')).toContainText(/Season 5/i)
+  await expect(page.locator('main a[href="' + path + '"]').first()).toBeVisible()
+
+  await page.goto('/overwatch', { waitUntil: 'networkidle' })
+  const main = page.locator('main')
+  await expect(main.getByRole('link', { name: 'NOTICIAS Y PARCHES' })).toHaveAttribute('href', '/news')
+  await expect(main).not.toContainText('Hasta el 2 de noviembre')
+  await expect(main).not.toContainText('Doctrine tiene anunciado su estreno')
+  expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false)
 })
 
 test('Sombra counter and composition use the released Support kit', async ({ page, request }) => {

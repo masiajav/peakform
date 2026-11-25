@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 import { DEADLOCK_SECTIONS, GAMES, gameForPath } from '@/lib/games'
 import { useId, useRef, useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import Link from 'next/link'
+import Link from './NavigationLink'
 import { REPLAID_DISCORD_URL } from '@/lib/community'
 
 type PublicNavProps = {
