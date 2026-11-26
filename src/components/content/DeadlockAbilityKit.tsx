@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { deadlockAbilitySection, type DeadlockHeroMedia } from '@/lib/deadlock-media'
 
 export default function DeadlockAbilityKit({ hero, sections }: { hero: DeadlockHeroMedia; sections: { title: string; body: string[] }[] }) {
@@ -14,7 +15,7 @@ export default function DeadlockAbilityKit({ hero, sections }: { hero: DeadlockH
       </>
       return index === undefined
         ? <div className="deadlock-ability-card" key={ability.id}>{content}</div>
-        : <a className="deadlock-ability-card" key={ability.id} href={`#apartado-${index}`} aria-label={`${ability.slot}. ${ability.name} (${ability.englishName}): ver explicación`}>{content}</a>
+        : <Link className="deadlock-ability-card" key={ability.id} href={`#apartado-${index}`} prefetch={false} aria-label={`${ability.slot}. ${ability.name} (${ability.englishName}): ver explicación`}>{content}</Link>
     })}</div>
   </section>
 }

@@ -150,7 +150,8 @@ async function expectPublishedEditorialHero(
   }
   await related.locator(`a[href="${practiceHref}"]`).click()
   await expect(page).toHaveURL(new URL(practiceHref, origin).href)
-  await expect(page.locator('h1')).toBeVisible()
+  await expect(main).toHaveCount(0)
+  await expect(page.getByRole('main').getByRole('heading', { level: 1 })).toBeVisible()
   await page.goBack()
   await expect(page).toHaveURL(abilityUrl)
   await expect(heading).toHaveText(headline)

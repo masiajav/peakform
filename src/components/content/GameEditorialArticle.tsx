@@ -1,5 +1,6 @@
 import Link from '@/components/layout/NavigationLink'
 import Image from 'next/image'
+import NextLink from 'next/link'
 import PublicNav from '@/components/layout/PublicNav'
 import JsonLd from './JsonLd'
 import DeadlockAbilityKit from './DeadlockAbilityKit'
@@ -46,7 +47,7 @@ export default async function GameEditorialArticle({ article: a, preview = false
   const showReferences = a.game !== 'deadlock'
   const articleImages = [...new Set([a.image, ...a.sections.map(section => section.image?.src)]
     .filter((path): path is string => Boolean(path)))]
-  const contents = <nav aria-label="En este artículo" className="game-toc">{a.sections.map((section, i) => <a key={i} href={`#apartado-${i}`}>{section.title}</a>)}</nav>
+  const contents = <nav aria-label="En este artículo" className="game-toc">{a.sections.map((section, i) => <NextLink key={i} href={`#apartado-${i}`} prefetch={false}>{section.title}</NextLink>)}</nav>
   const title = <>
     <p className="eyebrow">{GAMES[a.game].name} · {sectionLabels[section]}</p>
     <h1>{a.title}</h1><p className="game-lead">{a.description}</p>

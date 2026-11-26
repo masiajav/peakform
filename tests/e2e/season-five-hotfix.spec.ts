@@ -42,7 +42,7 @@ test('the Overwatch news archive leads from home to the updated season article',
   const main = page.getByRole('main')
   await main.getByRole('link', { name: /Entrar en Overwatch/ }).click()
   await expect(page).toHaveURL(/\/overwatch$/)
-  await main.getByRole('link', { name: 'Noticias y parches', exact: true }).click()
+  await main.getByRole('link', { name: /^Noticias y parches$/i }).click()
   await expect(page).toHaveURL(/\/news$/)
   const news = main.locator(`a[href="${path}"]`).filter({ hasText: '13 de octubre' })
   await expect(news).toBeVisible()
