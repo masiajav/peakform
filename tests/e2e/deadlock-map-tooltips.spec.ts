@@ -22,7 +22,9 @@ test('hover explains a marker, remains readable and Escape dismisses it',async({
 test('touch or click pins the explanation and supports close and outside dismissal',async({page,isMobile})=>{
  await page.goto(path);const atlas=region(page),point=atlas.locator('[data-map-point="midboss-0"]'),tip=atlas.getByRole('tooltip')
  await pointGesture(page,point,isMobile,true)
- await expect(atlas.locator('[data-map-bubble]')).toHaveAttribute('data-pinned','true');await expect(tip).toContainText('Rejuvenecedor')
+ await expect(atlas.locator('[data-map-bubble]')).toHaveAttribute('data-pinned','true')
+ await expect(tip).toContainText('tres cristales')
+ await expect(tip).toContainText('cada uno da un crédito de reaparición')
  await atlas.getByRole('button',{name:'Cerrar explicación del mapa'}).click();await expect(tip).toHaveCount(0)
  await pointGesture(page,point,isMobile,true)
  await expect(tip).toBeVisible();await atlas.getByRole('heading',{name:'La ciudad de Deadlock',exact:true}).click();await expect(tip).toHaveCount(0)

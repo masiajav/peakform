@@ -37,13 +37,16 @@ test('October hotfix separates weapon, cooldown, health and armour changes', asy
   await page.screenshot({ path: `reports/season-five-hotfix/balance-${test.info().project.name}.png` })
 })
 
-test('home and news lead to the updated existing season article', async ({ page }) => {
-  for (const route of ['/', '/news']) {
-    await page.goto(route)
-    const news = page.locator(`main a[href="${path}"]`).filter({ hasText: '13 de octubre' }).first()
-    await expect(news).toBeVisible()
-    await news.click()
-    await expect(page).toHaveURL(new RegExp(path + '$'))
-    await expect(page.getByRole('heading', { name: 'Doctrine y Sombra bajan; Roadhog recupera fuerza', exact: true })).toHaveCount(1)
-  }
+test('the Overwatch news archive leads from home to the updated season article', async ({ page }) => {
+  await page.goto('/')
+  const main = page.getByRole('main')
+  await main.getByRole('link', { name: /Entrar en Overwatch/ }).click()
+  await expect(page).toHaveURL(/\/overwatch$/)
+  await main.getByRole('link', { name: 'Noticias y parches', exact: true }).click()
+  await expect(page).toHaveURL(/\/news$/)
+  const news = main.locator(`a[href="${path}"]`).filter({ hasText: '13 de octubre' })
+  await expect(news).toBeVisible()
+  await news.click()
+  await expect(page).toHaveURL(new RegExp(path + '$'))
+  await expect(page.getByRole('heading', { name: 'Doctrine y Sombra bajan; Roadhog recupera fuerza', exact: true })).toHaveCount(1)
 })

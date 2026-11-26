@@ -37,8 +37,16 @@ test('the Doctrine announcement shows voucher limits, dates and matching structu
   for (const route of [path, '/blizzcon-2026-overwatch-horarios-espana']) {
     expect(entries).toContainEqual({ loc: `https://www.replaidlab.com${route}`, lastmod: `${route === path ? '2026-10-15' : '2026-10-01'}T00:00:00.000Z` })
   }
-  expect(entries).toContainEqual({ loc: 'https://www.replaidlab.com/heroes/doctrine', lastmod: '2026-10-09T00:00:00.000Z' })
   await page.screenshot({ path: `reports/event-freshness/doctrine-${test.info().project.name}.png` })
+
+  const heroUrl = 'https://www.replaidlab.com/heroes/doctrine'
+  expect((await page.goto('/heroes/doctrine'))?.status()).toBe(200)
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', heroUrl)
+  const publishedSchemas = (await page.locator('script[type="application/ld+json"]').allTextContents()).flatMap(text => JSON.parse(text))
+  const heroArticle = publishedSchemas.find(schema => schema['@type'] === 'Article' && schema.url === heroUrl)
+  expect(heroArticle).toMatchObject({ datePublished: '2026-09-12', dateModified: expect.any(String) })
+  expect(Date.parse(heroArticle.dateModified)).toBeGreaterThanOrEqual(Date.parse('2026-11-08'))
+  expect(entries).toContainEqual({ loc: heroUrl, lastmod: new Date(heroArticle.dateModified).toISOString() })
 })
 
 test('BlizzCon remains an archive with the original Spain and Canary Islands times', async ({ page }) => {

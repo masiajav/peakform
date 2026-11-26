@@ -71,14 +71,15 @@ for (const [slug,id,channel,date] of [
   ['tracer-presion-lateral-sin-morir-gratis','SRGJ7xZoZZ0','Awkward','2025-09-01'],
   ['zarya-guia-overwatch-burbujas-energia','ssWnCfolWa0','LeonDrummer','2022-10-14'],
 ]) {
-  test(`${slug} preserves the actual source video and its original date`, async ({ page }) => {
+  test(`${slug} preserves the actual source video and its original date`, async ({ page, request }) => {
     expect((await page.goto(`/guides/${slug}`))?.status()).toBe(200)
     await expect(page.locator('iframe')).toHaveAttribute('src',`https://www.youtube-nocookie.com/embed/${id}`)
     await expect(page.locator('.guide-video-meta')).toContainText(channel)
-    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content','noindex, follow')
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content','index, follow')
     const schemas=(await page.locator('script[type="application/ld+json"]').allTextContents()).flatMap(value=>JSON.parse(value))
     expect(schemas.find(item=>item['@type']==='VideoObject')).toMatchObject({uploadDate:date,publisher:{name:channel}})
-    expect(schemas.find(item=>item['@type']==='BlogPosting')).toMatchObject({dateModified:'2026-10-20',author:{name:'Replaid Lab'}})
+    expect(schemas.find(item=>item['@type']==='BlogPosting')).toMatchObject({dateModified:'2026-10-31',author:{name:'Replaid Lab'}})
+    expect(await (await request.get('/sitemap.xml')).text()).toContain(`/guides/${slug}</loc>`)
     await expect(page.locator('.ad-slot,ins.adsbygoogle,script[src*="adsbygoogle"]')).toHaveCount(0)
   })
 }

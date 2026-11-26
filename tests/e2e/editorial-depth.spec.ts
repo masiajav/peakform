@@ -12,8 +12,12 @@ test('builds and counters expose readable purchases, limits and FAQ', async ({ p
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true)
     const text = await page.locator('main').innerText()
     expect(text).not.toMatch(/tarea de Codex|propuesta editorial|contenido automatizado|revisión de fundamentos/i)
-    if (path.includes('/builds/')) await expect(page.locator('.game-sources')).toHaveCount(0)
-    else await expect(page.locator('.game-sources summary')).toHaveText('Referencias')
+    await expect(page.locator('.game-sources')).toHaveCount(0)
+    const articles = (await page.locator('script[type="application/ld+json"]').allTextContents())
+      .map(text => JSON.parse(text))
+      .filter(schema => schema['@type'] === 'Article')
+    expect(articles).toHaveLength(1)
+    expect(articles[0]).not.toHaveProperty('citation')
   }
 })
 

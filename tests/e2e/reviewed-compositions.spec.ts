@@ -13,16 +13,52 @@ test('only individually approved compositions enter sitemap and retain honest da
     const schemas = Array.from(html.matchAll(/<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g))
       .flatMap(match => JSON.parse(match[1]))
     const articleSchema = schemas.find(item => item['@type'] === 'Article')
-    expect(articleSchema.dateModified).toBe(article.schemaDate)
-    expect(articleSchema.datePublished).toBe(article.publishedDate)
-    expect(html).toContain(`<time dateTime="${article.schemaDate}">${article.updatedAt}</time>`)
+    if (slug === 'doctrine') {
+      expect(articleSchema.datePublished).toBe('2026-11-03T19:33:21.849Z')
+      expect(Date.parse(articleSchema.dateModified)).toBeGreaterThanOrEqual(Date.parse(articleSchema.datePublished))
+      const entry = sitemap.match(/<url>[\s\S]*?<\/url>/g)?.find(item => item.includes('/team-comps/doctrine</loc>'))
+      expect(entry).toContain(`<lastmod>${new Date(articleSchema.dateModified).toISOString()}</lastmod>`)
+      const date = new Date(articleSchema.dateModified).toLocaleDateString('es-ES', { timeZone: 'Europe/Madrid' })
+      expect(html.replace(/<!--[^]*?-->/g, '')).toContain('Actualizado el ' + date)
+    } else {
+      expect(articleSchema.dateModified).toBe(article.schemaDate)
+      expect(articleSchema.datePublished).toBe(article.publishedDate)
+      expect(html).toContain(`<time dateTime="${article.schemaDate}">${article.updatedAt}</time>`)
+    }
     const approved = ['shion', 'ana', 'genji', 'kiriko', 'reinhardt', 'dva', 'winston', 'cassidy', 'tracer', 'zarya', 'sombra', 'roadhog', 'doctrine', 'doomfist', 'dmon', 'domina', 'jetpack-cat', 'wuyang', 'moira', 'reaper', 'brigitte', 'echo', 'ashe', 'hanzo', 'mei', 'sojourn', 'bastion', 'symmetra', 'torbjorn', 'mauga', 'ramattra', 'wrecking-ball', 'junkrat', 'venture', 'hazard', 'freja', 'widowmaker', 'soldier-76', 'baptiste', 'illari', 'lucio', 'zenyatta', 'mercy', 'juno', 'lifeweaver', 'orisa', 'sigma', 'junker-queen', 'pharah', 'emre', 'sierra', 'mizuki', 'vendetta', 'anran'].includes(slug)
     expect(html).toContain(`name="robots" content="${approved ? 'index' : 'noindex'}, follow"`)
     expect(sitemap.includes(`/team-comps/${slug}</loc>`)).toBe(approved)
   }
 })
 
-for (const [slug, article] of Object.entries(reviewedTeamCompositions)) {
+test('doctrine renders its reviewed compositions, FAQs and working guide links without ads', async ({ page, request }) => {
+  const route = '/team-comps/doctrine'
+  expect((await page.goto(route))?.status()).toBe(200)
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Composiciones con Doctrine en Season 5: drones, Imbuir y Liberación')
+  const main = page.locator('main')
+  for (const heading of [
+    '5v5: una esquina para Ramattra, Mei y Cassidy',
+    '5v5: Doomfist abre una oportunidad visible desde atrás',
+    '6v6: Sigma conserva el frente y D.Va reparte la presión',
+  ]) {
+    await expect(main.getByRole('heading', { name: heading, exact: true })).toBeVisible()
+  }
+  await expect(main.getByRole('heading', { name: 'Preguntas para revisar una VOD' })).toBeVisible()
+  const faq = main.locator('.game-faq')
+  await expect(faq).toHaveCount(3)
+  for (const item of await faq.all()) {
+    await item.locator('summary').click()
+    await expect(item.locator('p')).toHaveText(/\S/)
+  }
+  for (const link of ['/heroes/doctrine', '/counters/doctrine']) {
+    await expect(main.locator(`a[href="${link}"]`).first()).toBeVisible()
+    expect((await request.get(link)).status()).toBe(200)
+  }
+  await expect(page.locator('.ad-slot, ins.adsbygoogle, #adsense-script')).toHaveCount(0)
+  expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false)
+})
+
+for (const [slug, article] of Object.entries(reviewedTeamCompositions).filter(([slug]) => slug !== 'doctrine')) {
   test(`${slug} has a distinct, complete composition article without ads`, async ({ page, request }) => {
     const errors: string[] = []
     page.on('pageerror', error => errors.push(error.message))
@@ -114,8 +150,10 @@ test('D.Mon describes the available kit rather than a future launch', async ({ p
   await expect(page.locator('main')).not.toContainText('La búsqueda importante')
   await expect(page.locator('main')).not.toContainText('Esta página funciona como hub')
   await expect(page.locator('main')).not.toContainText('faltan números finales')
-  await expect(page.locator('main time').nth(1)).toHaveAttribute('datetime', '2026-10-09')
-  await expect(page.locator('main')).toContainText('9 de octubre de 2026')
   const article = (await page.locator('script[type="application/ld+json"]').allTextContents()).flatMap(text => JSON.parse(text)).find(item => item['@type'] === 'Article')
-  expect(article).toMatchObject({ datePublished: '2026-08-06', dateModified: '2026-10-09' })
+  expect(article).toMatchObject({ datePublished: '2026-08-06', dateModified: expect.any(String) })
+  expect(Date.parse(article.dateModified)).toBeGreaterThanOrEqual(Date.parse('2026-11-04'))
+  const date = new Date(article.dateModified).toLocaleDateString('es-ES', { timeZone: 'Europe/Madrid' })
+  await expect(page.locator('main .game-meta')).toContainText('Actualizado el ' + date)
+  await expect(page.getByRole('heading', { name: 'Cambios del 3 de noviembre de 2026', exact: true })).toBeVisible()
 })

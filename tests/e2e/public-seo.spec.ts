@@ -134,7 +134,7 @@ for (const route of ['/guides/como-usar-ultimates-overwatch', '/guides/cuando-ca
   })
 }
 
-test('sitemap contains only the completed editorial batches', async ({ request }) => {
+test('sitemap contains only the completed editorial batches', async ({ page, request }) => {
   const response = await request.get('/sitemap.xml')
   expect(response.status()).toBe(200)
   const xml = await response.text()
@@ -158,8 +158,19 @@ test('sitemap contains only the completed editorial batches', async ({ request }
   expect(xml).toContain('/guides/cuando-cambiar-de-heroe-overwatch</loc>')
   expect(xml).toContain('/overwatch-temporada-4-heroes-of-busan')
   expect(xml).toContain('/heroes/ana</loc>')
-  expect(xml).toContain('/heroes/dmon</loc>')
-  expect(xml).toMatch(/\/heroes\/dmon<\/loc>\s*<lastmod>2026-10-09T00:00:00\.000Z<\/lastmod>/)
+  expect((await page.goto('/heroes/dmon'))?.status()).toBe(200)
+  const dmonUrl = 'https://www.replaidlab.com/heroes/dmon'
+  const heroSchemas = (await page.locator('script[type="application/ld+json"]').allTextContents()).flatMap(text => JSON.parse(text))
+  const dmon = heroSchemas.find(item => item['@type'] === 'Article' && item.url === dmonUrl)
+  expect(dmon).toMatchObject({ datePublished: '2026-08-06', dateModified: expect.any(String) })
+  if (await page.locator('main[data-editorial-version]').count()) {
+    expect(Date.parse(dmon.dateModified)).toBeGreaterThanOrEqual(Date.parse('2026-11-04'))
+  } else {
+    expect(dmon.dateModified).toBe('2026-10-09')
+  }
+  const entries = xml.match(/<url>[\s\S]*?<\/url>/g)?.filter(entry => entry.includes(`<loc>${dmonUrl}</loc>`))
+  expect(entries).toHaveLength(1)
+  expect(entries?.[0]).toContain(`<lastmod>${new Date(dmon.dateModified).toISOString()}</lastmod>`)
   expect(xml).toContain('/dmon-nuevo-heroe-tank-overwatch')
   expect(xml).not.toContain('tier-list-season-2-overwatch-mejores-heroes-rol')
   expect(xml).toContain('/counters/doctrine</loc>')

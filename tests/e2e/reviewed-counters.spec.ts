@@ -5,6 +5,18 @@ import { PILLAR_COUNTER_SLUGS } from '../../src/lib/public-topic-policy'
 
 // Independent expectations, not derived from the approval registry under test.
 const RESTORED_COUNTERS = ['tracer', 'domina', 'zarya', 'reinhardt', 'dva', 'winston', 'cassidy', 'ana', 'shion', 'genji', 'kiriko', 'freja', 'pharah', 'lifeweaver', 'juno', 'baptiste', 'illari', 'lucio', 'mercy', 'orisa', 'ramattra', 'sigma', 'jetpack-cat', 'wuyang', 'zenyatta', 'junker-queen', 'mauga', 'hazard', 'junkrat', 'soldier-76', 'wrecking-ball', 'venture', 'vendetta', 'anran', 'mizuki', 'doctrine', 'sombra', 'roadhog', 'doomfist', 'dmon', 'moira', 'reaper', 'brigitte', 'echo', 'ashe', 'hanzo', 'mei', 'sojourn', 'bastion', 'symmetra', 'torbjorn', 'widowmaker', 'emre', 'sierra']
+const editorialCounters = {
+  doctrine: {
+    title: 'Counters de Doctrine en Season 5: cómo castigar Imbuir y su salida',
+    publishedAt: '2026-11-03T19:33:21.849Z',
+    picks: ['Ashe', 'Ana', 'Tracer', 'Winston'],
+  },
+  sombra: {
+    title: 'Counters de Sombra Support: Cyberspace, Hotfix y EMP',
+    publishedAt: '2026-11-03T19:38:44.882Z',
+    picks: ['Ana', 'Tracer', 'Cassidy', 'Winston'],
+  },
+} as const
 
 test('counter hub shows its actual catalogue without a blanket review claim', async ({ page, request }) => {
   const errors: string[] = []
@@ -17,7 +29,8 @@ test('counter hub shows its actual catalogue without a blanket review claim', as
   for (const name of ['Freja', 'Pharah', 'Genji', 'Kiriko', 'Lifeweaver', 'Juno', 'Baptiste', 'Illari', 'Lucio', 'Mercy', 'Orisa', 'Ramattra', 'Sigma', 'Jetpack Cat', 'Wuyang', 'Zenyatta', 'Junker Queen', 'Mauga', 'Hazard', 'Junkrat', 'Soldier-76', 'Wrecking Ball', 'Venture', 'Vendetta', 'Anran', 'Mizuki', 'Sombra', 'Doctrine', 'Roadhog', 'Doomfist', 'D.Mon']) {
     await expect(page.locator('main').getByRole('link', { name, exact: true })).toBeVisible()
   }
-  const catalogueLinks = await page.locator('main a[href^="/counters/"]').evaluateAll(links => links.map(link => link.getAttribute('href')!))
+  const catalogue = page.getByRole('navigation', { name: 'Guías de counters por héroe' })
+  const catalogueLinks = await catalogue.getByRole('link').evaluateAll(links => links.map(link => link.getAttribute('href')!))
   const schemas = (await page.locator('script[type="application/ld+json"]').allTextContents()).flatMap(text => JSON.parse(text))
   const list = schemas.find(item => item['@type'] === 'ItemList')
   expect(list.itemListElement.map((item: { url: string }) => new URL(item.url).pathname)).toEqual(catalogueLinks)
@@ -31,7 +44,39 @@ test('counter hub shows its actual catalogue without a blanket review claim', as
   await page.screenshot({ path: `reports/reviewed-counters/hub-${test.info().project.name}.png`, fullPage: true })
 })
 
-for (const [slug, article] of Object.entries(reviewedCounters)) {
+for (const [slug, revision] of Object.entries(editorialCounters)) {
+  test(`${slug} shows its reviewed counter analysis, matching metadata and no ads`, async ({ page, request }) => {
+    const path = `/counters/${slug}`
+    const url = `https://www.replaidlab.com${path}`
+    expect((await page.goto(path))?.status()).toBe(200)
+    const main = page.locator('main')
+    await expect(main.getByRole('heading', { level: 1 })).toHaveText(revision.title)
+    await expect(page).toHaveTitle(revision.title + ' - Replaid Lab')
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', url)
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index, follow')
+    for (const pick of revision.picks) {
+      await expect(main.getByRole('heading', { name: pick, exact: true })).toBeVisible()
+    }
+    await expect(main.getByRole('region', { name: 'Ejemplos de decisión', exact: true }).getByRole('table')).toBeVisible()
+    const faqs = main.locator('.game-faq')
+    await expect(faqs).toHaveCount(3)
+    for (const faq of await faqs.all()) {
+      await faq.locator('summary').click()
+      await expect(faq.locator('p')).toHaveText(/\S/)
+    }
+    const article = (await page.locator('script[type="application/ld+json"]').allTextContents())
+      .flatMap(text => JSON.parse(text)).find(item => item['@type'] === 'Article')
+    expect(article).toMatchObject({ headline: revision.title, url, datePublished: revision.publishedAt })
+    await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', article.description)
+    const links = await main.locator('a[href^="/"]').evaluateAll(items => items.map(item => item.getAttribute('href')!))
+    expect(links).toContain(`/team-comps/${slug}`)
+    for (const href of new Set(links)) expect((await request.get(href)).status(), href).toBe(200)
+    await expect(page.locator('.ad-slot, ins.adsbygoogle, #adsense-script')).toHaveCount(0)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false)
+  })
+}
+
+for (const [slug, article] of Object.entries(reviewedCounters).filter(([slug]) => !Object.hasOwn(editorialCounters, slug))) {
   test(`${slug} shows its own counter analysis, matching metadata and no ads`, async ({ page, request }) => {
     const errors: string[] = []
     page.on('pageerror', error => errors.push(error.message))
@@ -112,12 +157,22 @@ test('counter publication follows individual version reviews and preserves dates
     const response = await request.get(`/counters/${slug}`)
     expect(response.status()).toBe(200)
     const html = await response.text()
-    expect(html).toMatch(new RegExp(`<time dateTime="${article.schemaDate}">${article.updatedAt}</time>`))
     const schemas = Array.from(html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)).flatMap(match => JSON.parse(match[1]))
     const structuredArticle = schemas.find(item => item['@type'] === 'Article')
-    expect(structuredArticle.dateModified).toBe(article.schemaDate)
-    if (article.publishedDate) expect(structuredArticle.datePublished).toBe(article.publishedDate)
-    else expect(structuredArticle).not.toHaveProperty('datePublished')
+    const revision = editorialCounters[slug as keyof typeof editorialCounters]
+    if (revision) {
+      expect(structuredArticle.datePublished).toBe(revision.publishedAt)
+      expect(Date.parse(structuredArticle.dateModified)).toBeGreaterThanOrEqual(Date.parse(revision.publishedAt))
+      const entry = sitemap.match(/<url>[\s\S]*?<\/url>/g)?.find(item => item.includes(`/counters/${slug}</loc>`))
+      expect(entry).toContain(`<lastmod>${new Date(structuredArticle.dateModified).toISOString()}</lastmod>`)
+      const date = new Date(structuredArticle.dateModified).toLocaleDateString('es-ES', { timeZone: 'Europe/Madrid' })
+      expect(html.replace(/<!--[^]*?-->/g, '')).toContain('Actualizado el ' + date)
+    } else {
+      expect(html).toMatch(new RegExp(`<time dateTime="${article.schemaDate}">${article.updatedAt}</time>`))
+      expect(structuredArticle.dateModified).toBe(article.schemaDate)
+      if (article.publishedDate) expect(structuredArticle.datePublished).toBe(article.publishedDate)
+      else expect(structuredArticle).not.toHaveProperty('datePublished')
+    }
     expect(html).toContain(`name="robots" content="${RESTORED_COUNTERS.includes(slug) ? 'index' : 'noindex'}, follow"`)
     if (RESTORED_COUNTERS.includes(slug)) expect(sitemap).toContain(`/counters/${slug}</loc>`)
     else expect(sitemap).not.toContain(`/counters/${slug}</loc>`)

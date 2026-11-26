@@ -37,7 +37,7 @@ test('composition search keeps one current card in the correct category and work
   const card = page.locator(`main a[href="${target}"]`)
   await expect(card).toHaveCount(1)
   await expect(card).toContainText(article.seoDescription)
-  await expect(card).toContainText('Composiciones')
+  await expect(card.getByText(/^composiciones$/i)).toBeVisible()
   await card.click()
   await expect(page).toHaveURL(target)
   await expect(page.locator('h1')).toHaveText(article.h1)

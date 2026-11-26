@@ -57,10 +57,12 @@ test('flex offers a specific guide, usable pools and matching metadata without a
 
 test('Doctrine counter advice reflects the reviewed launch rather than the archived trial', async ({ page, request }) => {
   await page.goto('/counters/doctrine')
-  await expect(page.getByRole('heading', { name: 'Los counters más útiles contra Doctrine', exact: true })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Ventanas tras el parche del 3 de noviembre', exact: true })).toBeVisible()
   await expect(page.locator('main')).toContainText('ya está disponible desde el 6 de octubre')
   await expect(page.locator('main')).not.toContainText('conserva el kit del trial de septiembre')
-  await expect(page.locator('main')).toContainText('EJEMPLOS DE RANKED')
+  const examples = page.getByRole('region', { name: 'Ejemplos de decisión', exact: true })
+  await expect(examples.getByRole('rowheader', { name: /Gibraltar/ })).toBeVisible()
+  await expect(examples.getByRole('rowheader', { name: /King’s Row/ })).toBeVisible()
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index, follow')
   expect(await (await request.get('/sitemap.xml')).text()).toContain('/counters/doctrine</loc>')
 })

@@ -1,6 +1,24 @@
 import { expect, test } from '@playwright/test'
+import type { Page } from '@playwright/test'
 
 const path = '/doctrine-support-sombra-roadhog-rework-overwatch'
+
+async function expectEditorialRevision(page: Page, sitemap: string, route: string) {
+  const url = 'https://www.replaidlab.com' + route
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', url)
+  const schemas = (await page.locator('script[type="application/ld+json"]').allTextContents()).flatMap(text => JSON.parse(text))
+  const article = schemas.find(item => item['@type'] === 'Article' && item.url === url)
+  expect(article).toMatchObject({
+    datePublished: expect.stringMatching(/^2026-11-03(?:T|$)/),
+    dateModified: expect.any(String),
+    author: { '@type': 'Organization', name: 'Replaid Lab' },
+  })
+  expect(Date.parse(article.dateModified)).toBeGreaterThanOrEqual(Date.parse(article.datePublished))
+  const visibleDate = new Date(article.dateModified).toLocaleDateString('es-ES', { timeZone: 'Europe/Madrid' })
+  await expect(page.locator('main .game-meta')).toContainText('Actualizado el ' + visibleDate)
+  const entry = sitemap.match(/<url>[\s\S]*?<\/url>/g)?.find(item => item.includes(`<loc>${url}</loc>`))
+  expect(entry).toContain(`<lastmod>${new Date(article.dateModified).toISOString()}</lastmod>`)
+}
 
 test('Season 5 news shows current kits, event dates and matching metadata', async ({ page, request }) => {
   const errors: string[] = []
@@ -108,36 +126,46 @@ test('reviewed Season 5 counters show distinct tactical conclusions and link the
     const route = `/counters/${slug}`
     expect((await page.goto(route, { waitUntil: 'networkidle' }))?.status()).toBe(200)
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index, follow')
-    await expect(page.getByRole('heading', { name: 'Qué cambiar en tu próxima partida', exact: true })).toBeVisible()
+    await expect(page.getByRole('heading', {
+      name: slug === 'sombra' ? 'Antes de volver a jugar' : 'Qué cambiar en tu próxima partida',
+      exact: true,
+    })).toBeVisible()
     await expect(page.locator(`main a[href="/team-comps/${slug}"]`)).toBeVisible()
     await expect(page.locator('main')).toContainText(slug === 'sombra' ? 'La zona dura 3 segundos' : 'La absorción dura 2 segundos')
     await expect(page.locator('main')).toContainText(slug === 'sombra' ? 'Hotfix tiene dos cargas' : 'anti no borra todo el efecto')
     await expect(page.locator('main')).toContainText(slug === 'sombra' ? 'preparad otra posición de curación' : 'corta también ese tiro')
-    expect(sitemap).toMatch(new RegExp(`${route}</loc>\\s*<lastmod>2026-10-10T00:00:00\\.000Z</lastmod>`))
+    if (slug === 'sombra') {
+      await expect(page.locator('main')).toContainText(/40\s*% el daño y la curación/)
+      await expect(page.locator('main')).toContainText('Hotfix dura 10 segundos en lugar de 12')
+      await expectEditorialRevision(page, sitemap, route)
+    } else {
+      expect(sitemap).toMatch(new RegExp(`${route}</loc>\\s*<lastmod>2026-10-10T00:00:00\\.000Z</lastmod>`))
+    }
     await expect(page.locator('ins.adsbygoogle,.ad-slot,script[src*="adsbygoogle"]')).toHaveCount(0)
     expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false)
   }
 })
 
-test('Doctrine launch advice is individually indexable and links between counters and compositions', async ({ page, request }) => {
+test('Doctrine patch advice is individually indexable and links between counters and compositions', async ({ page, request }) => {
   const sitemap = await (await request.get('/sitemap.xml')).text()
   for (const route of ['/counters/doctrine', '/team-comps/doctrine']) {
     expect((await page.goto(route, { waitUntil: 'networkidle' }))?.status()).toBe(200)
     await expect(page.locator('h1')).toHaveCount(1)
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index, follow')
-    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://www.replaidlab.com' + route)
-    await expect(page.locator('.seo-pillar-meta time')).toHaveAttribute('datetime', '2026-10-10')
-    await expect(page.locator('main')).toContainText('30%')
-    await expect(page.locator('main')).toContainText('40%')
+    await expectEditorialRevision(page, sitemap, route)
+    await expect(page.locator('main')).toContainText('Impulso velado tiene 10 segundos de recarga base e Imbuir 9')
+    await expect(page.locator('main')).toContainText('La reducción de daño del movimiento no es inmunidad')
+    if (route === '/counters/doctrine') {
+      await expect(page.locator('main')).toContainText(/30\s*% de velocidad de ataque/)
+      await expect(page.locator('main')).toContainText(/reduce un 40\s*% el daño/)
+    } else {
+      await expect(page.getByRole('heading', { name: /6v6: Sigma conserva el frente/ })).toBeVisible()
+      await expect(page.locator('main')).toContainText('Liberación tampoco debe usarse como un cleanse')
+    }
     await expect(page.locator('main')).not.toContainText('Archivo del trial')
     await expect(page.locator('main')).not.toContainText('balance de estreno pendiente')
     const relatedRoute = route === '/counters/doctrine' ? '/team-comps/doctrine' : '/counters/doctrine'
     await expect(page.locator(`main a[href="${relatedRoute}"]`).first()).toBeVisible()
-    const schemas = (await page.locator('script[type="application/ld+json"]').allTextContents()).flatMap(text => JSON.parse(text))
-    const article = schemas.find(item => item['@type'] === 'Article')
-    expect(article).toMatchObject({ dateModified: '2026-10-10', author: { '@type': 'Organization', name: 'Replaid Lab' } })
-    expect(article).not.toHaveProperty('datePublished')
-    expect(sitemap).toMatch(new RegExp(`${route}</loc>\\s*<lastmod>2026-10-10T00:00:00\\.000Z</lastmod>`))
     await expect(page.locator('ins.adsbygoogle,.ad-slot,script[src*="adsbygoogle"]')).toHaveCount(0)
     expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false)
   }
